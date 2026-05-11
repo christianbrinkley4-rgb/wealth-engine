@@ -1,0 +1,157 @@
+
+> wealth-engine@0.1.0 dev
+> next dev --port 3000
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://152.13.38.159:3000
+✓ Ready in 1178ms
+
+○ Compiling /medicare ...
+ GET /medicare?step=5 200 in 8.3s (next.js: 7.4s, application-code: 950ms)
+ POST /api/capture-lead 400 in 2.1s (next.js: 2.0s, application-code: 107ms)
+ GET /medicare?step=5 200 in 1240ms (next.js: 158ms, application-code: 1083ms)
+ GET /medicare 200 in 750ms (next.js: 202ms, application-code: 548ms)
+ GET / 200 in 473ms (next.js: 334ms, application-code: 139ms)
+ GET /medicare 200 in 26ms (next.js: 5ms, application-code: 21ms)
+ GET /medicare?step=2 200 in 61ms (next.js: 7ms, application-code: 54ms)
+ GET /medicare?step=3 200 in 42ms (next.js: 5ms, application-code: 37ms)
+ GET /medicare?step=4 200 in 44ms (next.js: 5ms, application-code: 39ms)
+ GET /medicare?step=5 200 in 43ms (next.js: 5ms, application-code: 37ms)
+ GET / 200 in 58ms (next.js: 11ms, application-code: 47ms)
+ POST /api/capture-lead 500 in 7.6s (next.js: 116ms, application-code: 7.4s)
+ POST /api/capture-lead 500 in 7.1s (next.js: 14ms, application-code: 7.1s)
+ POST /api/capture-lead 500 in 7.1s (next.js: 3ms, application-code: 7.1s)
+ GET / 200 in 1456ms (next.js: 222ms, application-code: 1234ms)
+ GET / 200 in 1319ms (next.js: 206ms, application-code: 1113ms)
+ GET /medicare 200 in 1205ms (next.js: 276ms, application-code: 928ms)
+ GET / 200 in 67ms (next.js: 14ms, application-code: 53ms)
+○ Compiling /about ...
+ GET /about 200 in 3.3s (next.js: 3.2s, application-code: 53ms)
+ GET / 200 in 173ms (next.js: 13ms, application-code: 160ms)
+ GET / 200 in 62ms (next.js: 8ms, application-code: 53ms)
+ GET /medicare 200 in 43ms (next.js: 8ms, application-code: 35ms)
+ GET /medicare?step=2 200 in 64ms (next.js: 9ms, application-code: 55ms)
+✓ Compiled in 2.4s
+ GET /medicare?step=2 200 in 1168ms (next.js: 453ms, application-code: 715ms)
+ GET /medicare?step=2 200 in 503ms (next.js: 16ms, application-code: 487ms)
+ GET /medicare?step=2 200 in 379ms (next.js: 14ms, application-code: 365ms)
+ GET /medicare?step=2 200 in 387ms (next.js: 111ms, application-code: 277ms)
+ GET /medicare?step=2 200 in 388ms (next.js: 206ms, application-code: 183ms)
+✓ Compiled in 301ms
+ GET /medicare?step=2 200 in 1162ms (next.js: 268ms, application-code: 894ms)
+ GET /medicare?step=2 200 in 140ms (next.js: 34ms, application-code: 106ms)
+ GET /about 200 in 803ms (next.js: 279ms, application-code: 524ms)
+✓ Compiled in 248ms
+ GET /medicare?step=2 200 in 452ms (next.js: 207ms, application-code: 245ms)
+ GET /medicare?step=2 200 in 113ms (next.js: 11ms, application-code: 103ms)
+ GET / 200 in 1565ms (next.js: 634ms, application-code: 931ms)
+ GET /about 200 in 549ms (next.js: 416ms, application-code: 133ms)
+ GET / 200 in 73ms (next.js: 7ms, application-code: 65ms)
+○ Compiling /taxes ...
+ GET /taxes 200 in 6.5s (next.js: 6.4s, application-code: 112ms)
+ GET / 200 in 66ms (next.js: 7ms, application-code: 59ms)
+ GET /medicare 200 in 48ms (next.js: 10ms, application-code: 38ms)
+ GET / 200 in 55ms (next.js: 5ms, application-code: 50ms)
+ GET / 200 in 3.6s (next.js: 476ms, application-code: 3.1s)
+ GET / 200 in 112ms (next.js: 8ms, application-code: 104ms)
+ GET / 200 in 127ms (next.js: 13ms, application-code: 114ms)
+✓ Compiled in 11.2s
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://152.13.38.159:3000
+- Environments: .env.local
+✓ Ready in 1380ms
+
+ GET / 200 in 5.4s (next.js: 2.2s, application-code: 3.2s)
+ GET /about 200 in 1304ms (next.js: 948ms, application-code: 356ms)
+ GET / 200 in 175ms (next.js: 23ms, application-code: 152ms)
+ GET /medicare 200 in 293ms (next.js: 179ms, application-code: 114ms)
+ GET / 200 in 136ms (next.js: 8ms, application-code: 129ms)
+ GET /medicare 200 in 53ms (next.js: 7ms, application-code: 46ms)
+ GET /medicare?step=2 200 in 40ms (next.js: 7ms, application-code: 33ms)
+ GET /medicare?step=3 200 in 69ms (next.js: 8ms, application-code: 61ms)
+ GET /medicare?step=4 200 in 63ms (next.js: 6ms, application-code: 57ms)
+ GET /medicare?step=5 200 in 41ms (next.js: 6ms, application-code: 35ms)
+ GET /medicare 200 in 130ms (next.js: 8ms, application-code: 122ms)
+ GET /medicare?step=2 200 in 81ms (next.js: 8ms, application-code: 72ms)
+ GET / 200 in 123ms (next.js: 6ms, application-code: 117ms)
+ GET /taxes 200 in 283ms (next.js: 182ms, application-code: 101ms)
+ GET / 200 in 125ms (next.js: 10ms, application-code: 115ms)
+ POST /api/capture-lead 500 in 8.7s (next.js: 1238ms, application-code: 7.5s)
+✓ Compiled in 6.5s
+ GET / 200 in 1429ms (next.js: 603ms, application-code: 826ms)
+ GET / 200 in 899ms (next.js: 295ms, application-code: 604ms)
+ GET / 200 in 666ms (next.js: 332ms, application-code: 334ms)
+✓ Compiled in 4.5s
+ GET / 200 in 9.0s (next.js: 4.4s, application-code: 4.6s)
+ GET / 200 in 3.0s (next.js: 430ms, application-code: 2.6s)
+ GET / 200 in 5.7s (next.js: 377ms, application-code: 5.3s)
+ GET / 200 in 5.9s (next.js: 699ms, application-code: 5.2s)
+ GET / 200 in 5.9s (next.js: 14ms, application-code: 5.8s)
+ GET / 200 in 5.2s (next.js: 25ms, application-code: 5.2s)
+ GET / 200 in 478ms (next.js: 151ms, application-code: 327ms)
+ GET / 200 in 4.2s (next.js: 24ms, application-code: 4.2s)
+✓ Compiled in 1164ms
+ GET / 500 in 1262ms (next.js: 709ms, application-code: 553ms)
+✓ Compiled in 204ms
+✓ Compiled in 296ms
+ GET / 500 in 594ms (next.js: 530ms, application-code: 64ms)
+ GET / 500 in 465ms (next.js: 434ms, application-code: 31ms)
+ GET / 500 in 57ms (next.js: 25ms, application-code: 32ms)
+ GET / 500 in 76ms (next.js: 50ms, application-code: 25ms)
+✓ Compiled in 678ms
+ GET / 200 in 1233ms (next.js: 525ms, application-code: 708ms)
+ GET / 200 in 275ms (next.js: 9ms, application-code: 266ms)
+✓ Compiled in 13.1s
+ GET / 200 in 10.2s (next.js: 3.8s, application-code: 6.4s)
+ GET / 200 in 5.7s (next.js: 34ms, application-code: 5.7s)
+ GET / 200 in 488ms (next.js: 35ms, application-code: 454ms)
+ GET / 200 in 3.9s (next.js: 2.9s, application-code: 1010ms)
+ GET / 200 in 3.9s (next.js: 377ms, application-code: 3.6s)
+ GET / 200 in 3.9s (next.js: 564ms, application-code: 3.4s)
+ GET / 200 in 3.9s (next.js: 31ms, application-code: 3.9s)
+ GET / 200 in 2.4s (next.js: 346ms, application-code: 2.0s)
+ GET /medicare 200 in 581ms (next.js: 447ms, application-code: 134ms)
+ GET /medicare?step=2 200 in 112ms (next.js: 9ms, application-code: 103ms)
+ GET /medicare?step=3 200 in 65ms (next.js: 13ms, application-code: 53ms)
+ GET /medicare?step=4 200 in 55ms (next.js: 4ms, application-code: 51ms)
+ GET /medicare?step=5 200 in 46ms (next.js: 6ms, application-code: 40ms)
+ GET / 200 in 109ms (next.js: 6ms, application-code: 104ms)
+ GET /taxes 200 in 306ms (next.js: 218ms, application-code: 88ms)
+ GET / 200 in 77ms (next.js: 6ms, application-code: 71ms)
+ GET /about 200 in 438ms (next.js: 326ms, application-code: 112ms)
+ GET / 200 in 60ms (next.js: 7ms, application-code: 53ms)
+ POST /api/capture-lead 500 in 7.5s (next.js: 270ms, application-code: 7.2s)
+ GET / 200 in 1687ms (next.js: 275ms, application-code: 1412ms)
+ GET / 200 in 9.6min (next.js: 681ms, application-code: 9.6min)
+ GET / 200 in 583ms (next.js: 25ms, application-code: 558ms)
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.104.118.234:3000
+- Environments: .env.local
+✓ Ready in 2.5s
+
+ GET / 200 in 2.7s (next.js: 1460ms, application-code: 1202ms)
+ GET / 200 in 1006ms (next.js: 206ms, application-code: 799ms)
+ GET / 200 in 266ms (next.js: 14ms, application-code: 252ms)
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.103:3000
+- Environments: .env.local
+✓ Ready in 7.8s
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.103:3000
+- Environments: .env.local
+✓ Ready in 2.2s
+
+ GET / 200 in 5.0s (next.js: 3.0s, application-code: 2.0s)
+ GET /medicare 200 in 874ms (next.js: 347ms, application-code: 527ms)
+ GET /taxes 200 in 799ms (next.js: 250ms, application-code: 548ms)
+○ Compiling /thank-you ...
+ GET /about 200 in 945ms (next.js: 507ms, application-code: 438ms)
+ GET /_not-found 404 in 514ms (next.js: 238ms, application-code: 276ms)
+ GET /thank-you 200 in 266ms (next.js: 30ms, application-code: 236ms)
+✓ Compiled in 731ms
