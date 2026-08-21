@@ -187,3 +187,33 @@ describe("adult-child entry point", () => {
     );
   });
 });
+
+describe("local lead scoring", () => {
+  /**
+   * The prefix list originally covered High Point and Summerfield but not
+   * Greensboro (274xx) or Winston-Salem (271xx) — so leads from the two
+   * biggest cities in the market scored as out-of-area.
+   */
+  const TRIAD_ZIPS = {
+    Greensboro: "27401",
+    "Winston-Salem": "27101",
+    "High Point": "27260",
+    Kernersville: "27284",
+    Summerfield: "27358",
+    "Oak Ridge": "27310",
+  };
+
+  for (const [city, zip] of Object.entries(TRIAD_ZIPS)) {
+    it(`counts ${city} (${zip}) as local`, () => {
+      const local = scoreLead({ source: "help_quiz", zip_code: zip });
+      const distant = scoreLead({ source: "help_quiz", zip_code: "90210" });
+      expect(local.score).toBeGreaterThan(distant.score);
+    });
+  }
+
+  it("does not count an out-of-market ZIP as local", () => {
+    expect(scoreLead({ source: "help_quiz", zip_code: "10001" }).score).toBe(
+      scoreLead({ source: "help_quiz" }).score,
+    );
+  });
+});

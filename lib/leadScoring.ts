@@ -30,7 +30,20 @@ export interface LeadScoringResult {
 const TIER_1_PREMIUM = 284.1;
 const TIER_2_PREMIUM = 405.8;
 
-const TRIAD_ZIP_PREFIXES = ["272", "273"]; // Greensboro / High Point / Winston-Salem metro
+/**
+ * Piedmont Triad ZIP prefixes.
+ *
+ * The original list was ["272", "273"], which covered High Point, Kernersville,
+ * Summerfield and Oak Ridge — but not Greensboro (274xx) or Winston-Salem
+ * (271xx). Leads from the two largest cities in the market, including the one
+ * this business is based in, were scoring as out-of-area.
+ */
+const TRIAD_ZIP_PREFIXES = [
+  "271", // Winston-Salem, Clemmons, Lewisville
+  "272", // High Point, Kernersville, Jamestown, Thomasville
+  "273", // Summerfield, Oak Ridge, Stokesdale, Reidsville
+  "274", // Greensboro
+];
 
 export function scoreLead(input: LeadScoringInput): LeadScoringResult {
   const premium = Number(input.calculated_premium ?? 0);
