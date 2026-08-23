@@ -37,7 +37,8 @@ export function ComplianceDisclosure({
           {AGENT.licensedStates.join(", ")}
           {/* Never print a placeholder NPN on a licensed agent's disclosure. */}
           {hasPublishableNpn() ? `, National Producer Number ${AGENT.npn}` : ""}. This site is his
-          own and is not operated by an insurance carrier or a government agency.
+          own. He represents a limited number of insurance companies and does not offer every plan
+          available in the area. This site is not a government agency and is not endorsed by one.
         </p>
 
         {showEstimateNote ? <p>{ESTIMATE_DISCLAIMER}</p> : null}

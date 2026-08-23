@@ -36,6 +36,15 @@ export const AGENT = {
   linesOfAuthority: ["Life", "Accident & Health"],
 
   education: "Master's in Accounting, UNC Greensboro",
+
+  /**
+   * A stated promise you keep beats an implied one you break. National call
+   * centers answer at 8pm on a Sunday; you can't, so say what you actually do
+   * instead of leaving people guessing.
+   */
+  hours: "Monday to Friday, 9am to 7pm, and Saturday mornings",
+  afterHoursPromise:
+    "Call outside those hours and leave a message — I return calls first thing the next working day.",
 } as const;
 
 /**
@@ -91,14 +100,24 @@ export const ESTIMATE_DISCLAIMER =
   "policy terms change. Confirm anything that matters to your household at " +
   "Medicare.gov or with a professional you choose.";
 
-/** The honest answer to the question every prospect is silently asking. */
+/**
+ * The honest answer to the question every prospect is silently asking.
+ *
+ * Note the second sentence. An agent who represents a limited number of
+ * carriers has to say so — it is the difference between a personal-brand site
+ * and a misleading one, and it is separate from whether the carrier is named.
+ * Saying it plainly also costs less than being caught not saying it: people
+ * expect an agent to represent someone, and they trust the ones who volunteer
+ * it first.
+ */
 export const COMPENSATION_DISCLOSURE =
   "I am a licensed insurance agent. There is no charge for talking with me. " +
-  "If you decide to enroll in a plan or buy a policy through me, the insurance " +
-  "company pays me a commission — the same commission whether you enroll " +
-  "through me, through another agent, or on your own. Your premium is not " +
-  "higher for using an agent. If what you need is something I don't sell, I " +
-  "will tell you that and point you to who does.";
+  "I represent a limited number of insurance companies rather than the whole " +
+  "market, so there will be plans I can't show you — and I'll tell you when " +
+  "that's the case rather than pretend otherwise. If you enroll in a plan or " +
+  "buy a policy through me, the insurance company pays me a commission. Your " +
+  "premium is not higher for using an agent. If what you need is something I " +
+  "can't offer, I'll say so and point you toward who can.";
 
 /**
  * The exact consent sentence shown next to the checkbox. Stored verbatim on

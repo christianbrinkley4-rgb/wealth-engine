@@ -8,7 +8,9 @@ const STATIC_ROUTES: Array<{
 }> = [
   { path: "/", changeFrequency: "weekly", priority: 1.0 },
   { path: "/start", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/keep-my-doctor", changeFrequency: "monthly", priority: 0.9 },
   { path: "/helping-a-parent", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/irmaa-appeal", changeFrequency: "monthly", priority: 0.85 },
   { path: "/remind-me", changeFrequency: "monthly", priority: 0.75 },
   { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },

@@ -38,7 +38,7 @@ export default function AboutPage() {
               <p className="mt-4 max-w-xl text-[19px] leading-relaxed text-[var(--color-ink-muted)]">
                 {AGENT.linesOfAuthority.join(" and ")} licensed in {AGENT.licensedStates.join(", ")}
                 . Finishing a master&apos;s in accounting at UNC Greensboro. This site is my own —
-                it isn&apos;t run by a carrier, a call center, or a national lead company.
+                it isn&apos;t a call center or a lead-generation company.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a

@@ -73,16 +73,26 @@ export default function RootLayout({
               {AGENT.phone}
             </a>
           </p>
+          <p className="mt-1 text-[16px] text-[var(--color-ink-muted)]">
+            {AGENT.hours}. {AGENT.afterHoursPromise}
+          </p>
 
           <p className="mt-5 max-w-3xl text-[15px] text-[var(--color-ink-muted)]">
-            {GOVERNMENT_DISCLAIMER} This site is an independent resource operated by {AGENT.name}
-            &nbsp;and is not affiliated with any insurance carrier or with the University of North
-            Carolina at Greensboro. Nothing here is tax, legal, or investment advice.
+            {GOVERNMENT_DISCLAIMER} This site is operated by {AGENT.name}, a licensed insurance
+            agent who represents a limited number of insurance companies. It is not affiliated with
+            the University of North Carolina at Greensboro. Nothing here is tax, legal, or
+            investment advice.
           </p>
 
           <p className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[16px]">
             <Link href="/start" className="underline underline-offset-2">
               Ask a question
+            </Link>
+            <Link href="/keep-my-doctor" className="underline underline-offset-2">
+              Keep my doctor?
+            </Link>
+            <Link href="/irmaa-appeal" className="underline underline-offset-2">
+              Appeal a high premium
             </Link>
             <Link href="/helping-a-parent" className="underline underline-offset-2">
               Helping a parent
