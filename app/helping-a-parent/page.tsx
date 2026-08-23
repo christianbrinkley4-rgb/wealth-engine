@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
 };
 
-const START_HREF = "/start?topic=medicare&stage=helping_spouse_or_parent";
+const START_HREF = "/start?topic=medicare&stage=helping_spouse_or_parent&ask=parent";
 
 const FIRST_STEPS = [
   {

@@ -164,6 +164,40 @@ export const BRANCH_QUESTIONS: Record<InterestTopic, HelpQuizQuestion[]> = {
   life_insurance: TOPIC_META.life_insurance.questions,
 };
 
+/**
+ * The free-text box on the contact step.
+ *
+ * It exists because landing pages make specific promises — "tell me who you
+ * see", "have me look at my premium" — and a fixed multiple-choice quiz can't
+ * keep them. The prompt changes to match wherever they came from, so the
+ * button and the question finally agree with each other.
+ */
+export type AskContext = "doctors" | "premium" | "parent" | "general";
+
+export function isAskContext(value: string | null | undefined): value is AskContext {
+  return value === "doctors" || value === "premium" || value === "parent";
+}
+
+export const ASK_PROMPTS: Record<AskContext, { label: string; placeholder: string }> = {
+  doctors: {
+    label: "Which doctors do you want to keep?",
+    placeholder: "Dr. Patel at my primary care practice, and my cardiologist downtown",
+  },
+  premium: {
+    label: "What changed with your premium?",
+    placeholder: "I retired in March and the amount jumped in January",
+  },
+  parent: {
+    label: "What's going on with them?",
+    placeholder: "Mom turns 65 in April and still works part time",
+  },
+  general: {
+    label: "Anything specific you'd like me to look at?",
+    placeholder:
+      "Doctors you want to keep, a letter that didn't make sense, a premium that changed",
+  },
+};
+
 /** Asked last, on the contact step, and always skippable. */
 export const INCOME_OPTIONS: HelpQuizOption[] = [
   { value: "under_80k", label: "Under $80,000" },
@@ -373,6 +407,11 @@ export function describeAnswers(
   if (income) {
     const label = INCOME_OPTIONS.find((o) => o.value === income)?.label ?? income;
     out.push({ question: "Household income", answer: label });
+  }
+  // Free text last, because it is usually the most useful thing on the page.
+  const note = answers.note;
+  if (note) {
+    out.push({ question: "In their own words", answer: note });
   }
   return out;
 }

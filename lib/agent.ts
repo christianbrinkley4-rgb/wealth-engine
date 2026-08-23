@@ -42,7 +42,7 @@ export const AGENT = {
    * centers answer at 8pm on a Sunday; you can't, so say what you actually do
    * instead of leaving people guessing.
    */
-  hours: "Monday to Friday, 9am to 7pm, and Saturday mornings",
+  hours: "Monday through Friday, 9am to 7pm, and Saturday mornings.",
   afterHoursPromise:
     "Call outside those hours and leave a message — I return calls first thing the next working day.",
 } as const;

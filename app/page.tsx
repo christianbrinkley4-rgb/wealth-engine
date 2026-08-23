@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Clock, Lock, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { Clock, MapPin, Phone, ShieldCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { AGENT, COMPENSATION_DISCLOSURE } from "@/lib/agent";
@@ -87,9 +87,9 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-5 max-w-xl text-[20px] leading-relaxed text-[var(--color-ink-muted)]">
-                I&apos;m one licensed agent in Greensboro. Ask me what you actually want to know and
-                I&apos;ll answer it — before I ask you for anything, and whether or not you ever
-                become a client.
+                I&apos;m one person, licensed and based here in Greensboro. Ask me what you actually
+                want to know and I&apos;ll answer it — before I ask you for anything, and whether or
+                not we ever work together.
               </p>
 
               {/*
@@ -127,7 +127,7 @@ export default function HomePage() {
                 Two questions, then a real answer. No cost, and your information is never sold.
               </p>
               <p className="mt-2 text-[16px] text-[var(--color-ink-muted)]">
-                {AGENT.hours}. {AGENT.afterHoursPromise}
+                {AGENT.hours} {AGENT.afterHoursPromise}
               </p>
 
               <div className="mt-10 flex flex-col gap-3">
@@ -229,7 +229,7 @@ export default function HomePage() {
       <section className="bg-[var(--color-paper)] py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="text-[30px] font-semibold text-[var(--color-navy)]">
-            What happens after you hit send
+            What happens when you get in touch
           </h2>
           <ol className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
             {[
@@ -241,7 +241,7 @@ export default function HomePage() {
               {
                 n: "2",
                 t: "I read what you wrote",
-                b: "Me personally, not a call center and not an assistant. Your answers tell me what to look up before we speak.",
+                b: "Me personally — not an assistant, and not handed to anyone else. What you write is what I look up before we speak.",
               },
               {
                 n: "3",
@@ -315,14 +315,9 @@ export default function HomePage() {
                   body: "The number on this page is my phone, not a queue",
                 },
                 {
-                  Icon: Lock,
-                  title: "Never sold",
-                  body: "Your answers go to me and stay with me",
-                },
-                {
                   Icon: Clock,
-                  title: "One business day",
-                  body: "Usually the same day, and you get your answers instantly",
+                  title: "Answers straight away",
+                  body: "By email the moment you send them, before we ever speak",
                 },
                 {
                   Icon: MapPin,

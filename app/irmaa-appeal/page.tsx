@@ -101,7 +101,7 @@ export default function IrmaaAppealPage() {
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
-              href="/start?topic=medicare&stage=already_on_medicare"
+              href="/start?topic=medicare&stage=already_on_medicare&ask=premium"
               className="inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] bg-[var(--color-navy)] px-8 text-[19px] font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
             >
               Have me look at it →
@@ -252,7 +252,7 @@ export default function IrmaaAppealPage() {
             No charge, and no obligation to do anything else.
           </p>
           <Link
-            href="/start?topic=medicare&stage=already_on_medicare"
+            href="/start?topic=medicare&stage=already_on_medicare&ask=premium"
             className="mt-8 inline-flex min-h-14 min-w-[260px] items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 py-4 text-[18px] font-semibold text-[var(--color-paper)]"
           >
             Tell me what changed →

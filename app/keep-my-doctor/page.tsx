@@ -99,7 +99,7 @@ export default function KeepMyDoctorPage() {
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
-              href="/start?topic=medicare"
+              href="/start?topic=medicare&ask=doctors"
               className="inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] bg-[var(--color-navy)] px-8 text-[19px] font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
             >
               Tell me who you see →
@@ -232,7 +232,7 @@ export default function KeepMyDoctorPage() {
             plainly when something I can&apos;t offer would suit you better.
           </p>
           <Link
-            href="/start?topic=medicare"
+            href="/start?topic=medicare&ask=doctors"
             className="mt-8 inline-flex min-h-14 min-w-[260px] items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 py-4 text-[18px] font-semibold text-[var(--color-paper)]"
           >
             Start here →

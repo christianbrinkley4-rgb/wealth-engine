@@ -10,16 +10,19 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
 import { newEventId, readAttribution } from "@/lib/attribution";
 import {
+  ASK_PROMPTS,
   BRANCH_QUESTIONS,
   getValueBeat,
   HELP_QUIZ_TOTAL_STEPS,
   INCOME_OPTIONS,
+  isAskContext,
   isInterestTopic,
   phaseToStepNumber,
   STEP_LABELS,
   TOPIC_LABELS,
   TOPIC_META,
   TOPICS,
+  type AskContext,
   type HelpQuizPhase,
   type InterestTopic,
   type QuizAnswers,
@@ -95,6 +98,8 @@ interface UrlEntry {
   /** Optional first answer, so a landing page can drop someone into their own branch. */
   answers: QuizAnswers;
   skipFirst: boolean;
+  /** Which landing page sent them, so the free-text prompt matches its promise. */
+  ask: AskContext;
 }
 
 /**
@@ -116,10 +121,13 @@ function readUrlEntry(): UrlEntry | null {
     const isKnownAnswer =
       Boolean(stage) && firstQuestion.options.some((option) => option.value === stage);
 
+    const ask = params.get("ask");
+
     return {
       topic,
       answers: isKnownAnswer ? { [firstQuestion.id]: stage as string } : {},
       skipFirst: isKnownAnswer,
+      ask: isAskContext(ask) ? ask : "general",
     };
   } catch {
     return null;
@@ -170,6 +178,7 @@ export function HelpQuiz() {
   const [phone, setPhone] = useState("");
   const [zip, setZip] = useState("");
   const [income, setIncome] = useState("");
+  const [note, setNote] = useState("");
   const [consent, setConsent] = useState(false);
   const [smsConsent, setSmsConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
@@ -177,10 +186,19 @@ export function HelpQuiz() {
   const [error, setError] = useState<string | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
+  const askContext = linked?.ask ?? "general";
   const topic = stored.topic;
   const branchQuestions = topic ? BRANCH_QUESTIONS[topic] : [];
   const currentBranch = branchQuestions[stored.branchIndex];
   const stepNumber = phaseToStepNumber(stored.phase, stored.branchIndex);
+
+  // The label of question one when a landing page answered it for them.
+  const preAnswered =
+    topic && stored.branchIndex > 0
+      ? (BRANCH_QUESTIONS[topic][0].options.find(
+          (o) => o.value === stored.answers[BRANCH_QUESTIONS[topic][0].id],
+        )?.label ?? null)
+      : null;
 
   const valueBeat = topic && stored.phase === "value" ? getValueBeat(topic, stored.answers) : null;
 
@@ -300,7 +318,11 @@ export function HelpQuiz() {
           phone_number: phoneDigits.slice(0, 10) || null,
           zip_code: zipDigits,
           interest_topic: topic,
-          quiz_answers: income ? { ...stored.answers, income_range: income } : stored.answers,
+          quiz_answers: {
+            ...stored.answers,
+            ...(income ? { income_range: income } : {}),
+            ...(note.trim() ? { note: note.trim().slice(0, 1000) } : {}),
+          },
           attribution: readAttribution(),
           event_id: eventId,
           consent_given: true,
@@ -454,6 +476,24 @@ export function HelpQuiz() {
           <p className="text-[14px] font-medium tracking-[0.08em] text-[var(--color-gold-ink)] uppercase">
             {topic ? TOPIC_LABELS[topic] : ""}
           </p>
+
+          {/*
+            Arriving from a landing page skips question one. Show what was
+            assumed, and let them change it — a step that vanishes without
+            explanation reads as a glitch.
+          */}
+          {preAnswered ? (
+            <p className="mt-2 text-[17px] leading-relaxed text-[var(--color-ink-muted)]">
+              You said: <span className="font-medium text-[var(--color-navy)]">{preAnswered}</span>{" "}
+              <button
+                type="button"
+                onClick={() => patch({ branchIndex: 0 })}
+                className="font-medium text-[var(--color-navy)] underline underline-offset-2"
+              >
+                change
+              </button>
+            </p>
+          ) : null}
           <h1
             id="quiz-heading"
             ref={headingRef}
@@ -669,6 +709,33 @@ export function HelpQuiz() {
                   className={fieldClass}
                 />
               </div>
+            </div>
+
+            {/*
+              The box that makes the landing-page buttons honest. Someone who
+              clicked "tell me who you see" gets asked exactly that.
+            */}
+            <div>
+              <label
+                htmlFor="help-quiz-note"
+                className="mb-2 block text-[18px] font-medium text-[var(--color-navy)]"
+              >
+                {ASK_PROMPTS[askContext].label}{" "}
+                <span className="font-normal text-[var(--color-ink-muted)]">(optional)</span>
+              </label>
+              <textarea
+                id="help-quiz-note"
+                name="note"
+                rows={3}
+                maxLength={1000}
+                placeholder={ASK_PROMPTS[askContext].placeholder}
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-[18px] leading-relaxed text-[var(--color-navy)] outline-none placeholder:text-[var(--color-ink-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+              />
+              <p className="mt-2 text-[16px] leading-relaxed text-[var(--color-ink-muted)]">
+                Whatever you write here is what I look up before I call you.
+              </p>
             </div>
 
             <div>
