@@ -6,7 +6,7 @@ import { Clock, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { Testimonials } from "@/components/Testimonials";
 import { Button } from "@/components/ui/button";
 import { AGENT, COMPENSATION_DISCLOSURE } from "@/lib/agent";
-import { localBusinessJsonLd, pageOpenGraph } from "@/lib/seo";
+import { faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Medicare & Retirement Questions — Greensboro, NC",
@@ -72,11 +72,6 @@ const FAQ = [
 export default function HomePage() {
   return (
     <main className="text-[var(--color-navy)]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
-      />
-
       {/* ---------- hero ---------- */}
       <section className="bg-[var(--color-paper)] pt-10 pb-14 md:pt-14 md:pb-20">
         <div className="mx-auto max-w-6xl px-4">
@@ -422,17 +417,7 @@ export default function HomePage() {
           </dl>
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: FAQ.map((item) => ({
-                  "@type": "Question",
-                  name: item.q,
-                  acceptedAnswer: { "@type": "Answer", text: item.a },
-                })),
-              }),
-            }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
         </div>
       </section>

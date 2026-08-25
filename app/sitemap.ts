@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
+import { TRIAD_CITIES } from "@/lib/triad";
 
 const STATIC_ROUTES: Array<{
   path: string;
@@ -16,6 +17,9 @@ const STATIC_ROUTES: Array<{
   { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
   { path: "/plan", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/annuities", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/life-insurance", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/retirement-income", changeFrequency: "monthly", priority: 0.85 },
   { path: "/roth-window", changeFrequency: "weekly", priority: 0.55 },
 ];
 
@@ -28,10 +32,22 @@ const CONTENT_LAST_REVIEWED = "2026-08-24";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = CONTENT_LAST_REVIEWED;
-  return STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
-    url: `${SITE_URL}${path}`,
+
+  // One entry per Triad city, generated from the same source the pages use.
+  const cityRoutes: MetadataRoute.Sitemap = TRIAD_CITIES.map((city) => ({
+    url: `${SITE_URL}/medicare-in/${city.slug}`,
     lastModified,
-    changeFrequency,
-    priority,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
   }));
+
+  return [
+    ...STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
+      url: `${SITE_URL}${path}`,
+      lastModified,
+      changeFrequency,
+      priority,
+    })),
+    ...cityRoutes,
+  ];
 }

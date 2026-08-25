@@ -7,7 +7,8 @@ import { Analytics } from "@/app/components/Analytics";
 import { TopRouteChrome } from "@/app/components/TopRouteChrome";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { AGENT, GOVERNMENT_DISCLAIMER } from "@/lib/agent";
-import { SITE_NAME, SITE_OWNER, SITE_URL } from "@/lib/seo";
+import { localBusinessJsonLd, SITE_NAME, SITE_OWNER, SITE_URL } from "@/lib/seo";
+import { TRIAD_CITIES } from "@/lib/triad";
 import "./globals.css";
 
 const inter = Inter({
@@ -62,6 +63,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full bg-[var(--color-paper)] pb-20 text-[var(--color-navy)] md:pb-0">
+        {/*
+          Site-wide, because an entity a search engine or a language model only
+          sees on one page is an entity it is not confident about.
+        */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
+        />
         <TopRouteChrome />
         {/* Target for the skip link; the pages render their own <main> inside. */}
         <div id="main-content" tabIndex={-1} className="outline-none">
@@ -103,6 +112,15 @@ export default function RootLayout({
             <Link href="/remind-me" className="underline underline-offset-2">
               Remind me later
             </Link>
+            <Link href="/annuities" className="underline underline-offset-2">
+              Annuities
+            </Link>
+            <Link href="/life-insurance" className="underline underline-offset-2">
+              Life insurance
+            </Link>
+            <Link href="/retirement-income" className="underline underline-offset-2">
+              401(k) at retirement
+            </Link>
             <Link href="/about" className="underline underline-offset-2">
               About
             </Link>
@@ -118,6 +136,23 @@ export default function RootLayout({
             <Link href="/privacy" className="underline underline-offset-2">
               Privacy
             </Link>
+          </p>
+
+          {/*
+            A crawler reaches a page through a link or not at all, and these
+            city pages have no other route in from every page on the site.
+          */}
+          <p className="text-16 mt-5 flex flex-wrap gap-x-5 gap-y-2">
+            <span className="text-[var(--color-ink-muted)]">Medicare help near you:</span>
+            {TRIAD_CITIES.map((city) => (
+              <Link
+                key={city.slug}
+                href={`/medicare-in/${city.slug}`}
+                className="underline underline-offset-2"
+              >
+                {city.name}
+              </Link>
+            ))}
           </p>
 
           <p className="text-15 mt-5 text-[var(--color-ink-muted)]">
