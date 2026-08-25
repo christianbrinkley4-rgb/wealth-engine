@@ -1,19 +1,21 @@
 import type { Metadata } from "next";
+
+import { pageOpenGraph } from "@/lib/seo";
 import { MedicareWizard } from "@/app/medicare/MedicareWizard";
 
 /** Medicare flow: 4 questionnaire steps (?step=1–4) plus results (?step=5); see useWizardStep(5) in MedicareWizard. */
 
 export const metadata: Metadata = {
-  title: "2026 Medicare Part B & IRMAA Calculator — Greensboro NC",
+  title: { absolute: "2026 Medicare Part B & IRMAA Calculator — Greensboro" },
   description:
-    "Find out your 2026 Medicare Part B premium and IRMAA bracket. 4 questions, 4 minutes, no SSN, no account.",
+    "Estimate your 2026 Medicare Part B premium and IRMAA bracket in four questions. Official CMS tiers, no account, no Social Security number, no cost.",
   alternates: { canonical: "/medicare" },
-  openGraph: {
+  openGraph: pageOpenGraph({
     title: "2026 Medicare Part B & IRMAA Calculator",
-    description: "Personalized 2026 IRMAA estimate for Greensboro-area retirees. Free.",
-    url: "/medicare",
-    type: "website",
-  },
+    description:
+      "Four questions and you will see your 2026 Part B premium and where you sit on the IRMAA schedule.",
+    path: "/medicare",
+  }),
 };
 
 export default function MedicarePage() {

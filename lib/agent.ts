@@ -35,11 +35,11 @@ export const AGENT = {
   /** TODO: the lines of authority on your license. */
   linesOfAuthority: ["Life", "Accident & Health"],
 
-  education: "Master's in Accounting, UNC Greensboro",
+  education: "Master’s in Accounting, UNC Greensboro",
 
   /**
    * A stated promise you keep beats an implied one you break. National call
-   * centers answer at 8pm on a Sunday; you can't, so say what you actually do
+   * centers answer at 8pm on a Sunday; you can’t, so say what you actually do
    * instead of leaving people guessing.
    */
   hours: "Monday through Friday, 9am to 7pm, and Saturday mornings.",
@@ -54,7 +54,7 @@ export const AGENT = {
  *
  * Until the counts are filled in, the site renders the disclaimer WITHOUT the
  * "we represent N organizations" sentence rather than printing a placeholder.
- * A visible "[TODO]" on a licensed agent's disclosure is worse than the shorter
+ * A visible "[TODO]" on a licensed agent’s disclosure is worse than the shorter
  * version, but the shorter version is still incomplete — fill these in.
  */
 export const TPMO_ORGANIZATION_COUNT: number | null = null;
@@ -113,11 +113,11 @@ export const ESTIMATE_DISCLAIMER =
 export const COMPENSATION_DISCLOSURE =
   "I am a licensed insurance agent. There is no charge for talking with me. " +
   "I represent a limited number of insurance companies rather than the whole " +
-  "market, so there will be plans I can't show you — and I'll tell you when " +
-  "that's the case rather than pretend otherwise. If you enroll in a plan or " +
+  "market, so there will be plans I can’t show you — and I’ll tell you when " +
+  "that’s the case rather than pretend otherwise. If you enroll in a plan or " +
   "buy a policy through me, the insurance company pays me a commission. Your " +
   "premium is not higher for using an agent. If what you need is something I " +
-  "can't offer, I'll say so and point you toward who can.";
+  "can’t offer, I’ll say so and point you toward who can.";
 
 /**
  * The exact consent sentence shown next to the checkbox. Stored verbatim on
@@ -139,7 +139,7 @@ export const SMS_CONSENT_TEXT =
 
 /** The lighter-weight promise made on the reminder form. */
 export const REMINDER_CONSENT_TEXT =
-  `I'd like ${AGENT.name} to email me when my Medicare enrollment window opens. ` +
+  `I’d like ${AGENT.name} to email me when my Medicare enrollment window opens. ` +
   "This is a reminder, not a request to be sold anything, and I can unsubscribe " +
   "at any time.";
 

@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   getNextAepReminder,
+  getT65Dates,
   getT65Window,
   isValidBirthMonth,
   isValidBirthYear,
@@ -97,6 +98,47 @@ describe("input validation", () => {
     const today = utc(2026, 8, 21);
     for (const year of selectableBirthYears(today)) {
       expect(isValidBirthYear(year, today)).toBe(true);
+    }
+  });
+});
+
+describe("getT65Dates", () => {
+  const iso = (d: Date) => d.toISOString().slice(0, 10);
+
+  it("sets the deadline at the end of the month before the birthday month", () => {
+    // Turns 65 in June 2027, so the last on-time month is May.
+    const d = getT65Dates(6, 1962);
+    expect(iso(d.signUpBy)).toBe("2027-05-31");
+    expect(iso(d.coverageStarts)).toBe("2027-06-01");
+  });
+
+  it("runs the Medigap window six months inclusive of the birthday month", () => {
+    const d = getT65Dates(6, 1962);
+    expect(iso(d.medigapOpens)).toBe("2027-06-01");
+    expect(iso(d.medigapCloses)).toBe("2027-11-30");
+  });
+
+  it("rolls back a year for a January birthday", () => {
+    const d = getT65Dates(1, 1962);
+    expect(iso(d.signUpBy)).toBe("2026-12-31");
+    expect(iso(d.coverageStarts)).toBe("2027-01-01");
+    expect(iso(d.medigapCloses)).toBe("2027-06-30");
+  });
+
+  it("rolls forward a year for a December birthday", () => {
+    const d = getT65Dates(12, 1962);
+    expect(iso(d.signUpBy)).toBe("2027-11-30");
+    expect(iso(d.coverageStarts)).toBe("2027-12-01");
+    expect(iso(d.medigapCloses)).toBe("2028-05-31");
+  });
+
+  it("keeps the Medigap window inside the enrollment window it depends on", () => {
+    // Medigap opens the month Part B starts, never before the IEP does.
+    for (let month = 1; month <= 12; month += 1) {
+      const w = getT65Window(month, 1962, new Date(Date.UTC(2026, 7, 21)));
+      const d = getT65Dates(month, 1962);
+      expect(d.medigapOpens.getTime()).toBeGreaterThan(w.opensOn.getTime());
+      expect(d.signUpBy.getTime()).toBeLessThan(d.coverageStarts.getTime());
     }
   });
 });

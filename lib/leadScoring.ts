@@ -1,5 +1,5 @@
 /**
- * Server-side lead classifier. Pure function so it's trivial to test and
+ * Server-side lead classifier. Pure function so it’s trivial to test and
  * cheap to re-run from a backfill script.
  *
  * The schema reserves irmaa_risk_status ('low' | 'moderate' | 'high') — we
@@ -61,7 +61,7 @@ export function scoreLead(input: LeadScoringInput): LeadScoringResult {
   if (premium >= TIER_2_PREMIUM) score += 40;
   else if (premium >= TIER_1_PREMIUM) score += 25;
 
-  // Income corroborates premium when the wizard hasn't finished.
+  // Income corroborates premium when the wizard hasn’t finished.
   if (income >= 200_000) score += 20;
   else if (income >= 171_000) score += 15;
   else if (income >= 109_000) score += 5;

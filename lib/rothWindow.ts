@@ -26,7 +26,7 @@ export interface UpperBracketProjection {
   bracket: IrmaaBracket;
   /** Max conversion that lands MAGI at the *bottom* of this bracket. */
   maxConversionToReach: number;
-  /** Annual cost in premium (per person, 12 months) vs. user's current bracket. */
+  /** Annual cost in premium (per person, 12 months) vs. user’s current bracket. */
   annualPremiumDelta: number;
   /** Same delta extended for a typical married couple (2 enrollees). */
   annualPremiumDeltaMarried: number;
@@ -101,7 +101,7 @@ export function calculateRothWindow(magi: number, filingStatus: FilingStatus): R
 }
 
 /**
- * Builds a multi-year Roth conversion ladder that keeps the user's MAGI
+ * Builds a multi-year Roth conversion ladder that keeps the user’s MAGI
  * *within their current bracket* every year. This is the conservative
  * "no extra Medicare premium" strategy that most advisors recommend.
  *

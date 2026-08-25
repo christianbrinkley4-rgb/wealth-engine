@@ -17,8 +17,8 @@ export default function Error({
 
   return (
     <main className="app-shell py-16">
-      <h1 className="text-[28px] font-bold text-[var(--color-navy)]">Something went wrong</h1>
-      <p className="mt-4 max-w-xl text-[18px] text-[var(--color-ink-muted)]">
+      <h1 className="text-28 font-bold text-[var(--color-navy)]">Something went wrong</h1>
+      <p className="text-18 mt-4 max-w-xl text-[var(--color-ink-muted)]">
         This page hit an unexpected error. You can try again, or go home and continue from there.
       </p>
       <div className="mt-8 flex flex-wrap gap-3">

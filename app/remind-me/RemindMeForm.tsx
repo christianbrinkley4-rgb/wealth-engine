@@ -3,6 +3,7 @@
 import { BellRing, CalendarClock, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
 
+import { MedicareDates } from "@/components/MedicareDates";
 import { AGENT, REMINDER_CONSENT_TEXT } from "@/lib/agent";
 import { readAttribution } from "@/lib/attribution";
 import {
@@ -18,7 +19,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 const fieldClass =
-  "min-h-14 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-[18px] text-[var(--color-navy)] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]";
+  "min-h-14 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-18 text-[var(--color-navy)] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]";
 
 type Result =
   | { kind: "done"; windowOpensOn: string | null }
@@ -30,6 +31,9 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
   const [email, setEmail] = useState("");
   const [birthMonth, setBirthMonth] = useState("");
   const [birthYear, setBirthYear] = useState("");
+  /* Stamped in the change handler so the dates panel can show a countdown
+     without reading the clock during render. */
+  const [todayMs, setTodayMs] = useState<number | null>(null);
   const [consent, setConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -50,7 +54,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
 
     const cleanEmail = email.trim().toLowerCase();
     if (!EMAIL_REGEX.test(cleanEmail)) {
-      setError("That email doesn't look right — check it so the reminder reaches you.");
+      setError("That email doesn’t look right — check it so the reminder reaches you.");
       return;
     }
     if (kind === "t65" && (!birthMonth || !birthYear)) {
@@ -58,7 +62,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
       return;
     }
     if (!consent) {
-      setError("Check the box so I know it's alright to email you.");
+      setError("Check the box so I know it’s alright to email you.");
       return;
     }
 
@@ -104,7 +108,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
         setResult({ kind: "done", windowOpensOn: data?.windowOpensOn ?? null });
       }
     } catch {
-      setError(`Something went wrong. Email me at ${AGENT.email} and I'll add you by hand.`);
+      setError(`Something went wrong. Email me at ${AGENT.email} and I’ll add you by hand.`);
       setSubmitting(false);
     }
   }
@@ -112,26 +116,26 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
   if (result?.kind === "already-open") {
     return (
       <div className="card-surface border-l-4 border-l-[var(--color-gold-ink)] p-6 md:p-8">
-        <h2 className="text-[24px] font-bold text-[var(--color-navy)]">
+        <h2 className="text-24 font-bold text-[var(--color-navy)]">
           Your window is open right now.
         </h2>
-        <p className="mt-3 text-[18px] leading-relaxed text-[var(--color-navy)]">
+        <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]">
           {result.message} Rather than a reminder, this is worth a conversation — enrolling early in
           the window means coverage starts sooner, and the supplemental-coverage window that runs
-          alongside it is the one time your health history can&apos;t count against you.
+          alongside it is the one time your health history can’t count against you.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <a
             href={AGENT.schedulingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-14 flex-1 items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 text-[18px] font-semibold text-[var(--color-paper)]"
+            className="text-18 inline-flex min-h-14 flex-1 items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)]"
           >
             Book a time to talk →
           </a>
           <a
             href={AGENT.phoneHref}
-            className="inline-flex min-h-14 flex-1 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-6 text-[18px] font-semibold text-[var(--color-navy)]"
+            className="text-18 inline-flex min-h-14 flex-1 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)]"
           >
             {AGENT.phone}
           </a>
@@ -144,19 +148,19 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
     return (
       <div className="card-surface p-6 text-center md:p-8">
         <CheckCircle2 className="mx-auto size-12 text-[var(--color-success)]" aria-hidden />
-        <h2 className="mt-4 text-[24px] font-bold text-[var(--color-navy)]">That&apos;s set.</h2>
-        <p className="mt-3 text-[18px] leading-relaxed text-[var(--color-navy)]">
+        <h2 className="text-24 mt-4 font-bold text-[var(--color-navy)]">That’s set.</h2>
+        <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]">
           {result.windowOpensOn ? (
             <>
               Your window opens on{" "}
               <strong>{formatLongDate(new Date(`${result.windowOpensOn}T00:00:00Z`))}</strong>, and
-              I&apos;ll email you a couple of weeks before that.
+              I’ll email you a couple of weeks before that.
             </>
           ) : (
-            <>I&apos;ll email you before your window opens.</>
+            <>I’ll email you before your window opens.</>
           )}
         </p>
-        <p className="mt-3 text-[17px] leading-relaxed text-[var(--color-ink-muted)]">
+        <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
           Nothing to do until then — check your inbox for a confirmation with my details in case
           anything comes up sooner.
         </p>
@@ -165,215 +169,240 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="card-surface p-6 md:p-8">
-      <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
-        <label htmlFor="remind-website">Website</label>
-        <input
-          id="remind-website"
-          name="website"
-          type="text"
-          tabIndex={-1}
-          autoComplete="off"
-          value={honeypot}
-          onChange={(e) => setHoneypot(e.target.value)}
-        />
-      </div>
-
-      <fieldset className="border-0 p-0">
-        <legend className="mb-3 text-[18px] font-medium text-[var(--color-navy)]">
-          Which reminder do you want?
-        </legend>
-        <div className="flex flex-col gap-3">
-          {(
-            [
-              {
-                value: "t65" as const,
-                Icon: CalendarClock,
-                title: "I'm turning 65",
-                blurb: "I'll email you before your seven-month sign-up window opens.",
-              },
-              {
-                value: "aep" as const,
-                Icon: BellRing,
-                title: "I'm already on Medicare",
-                blurb: "I'll email you before the annual window opens on October 15.",
-              },
-            ] as const
-          ).map((option) => (
-            <label
-              key={option.value}
-              className={`flex cursor-pointer gap-4 rounded-xl border-2 p-4 transition-colors ${
-                kind === option.value
-                  ? "border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
-                  : "border-gray-300 bg-white hover:border-[var(--color-navy)]/40"
-              }`}
-            >
-              <input
-                type="radio"
-                name="kind"
-                value={option.value}
-                checked={kind === option.value}
-                onChange={() => {
-                  setKind(option.value);
-                  setError(null);
-                }}
-                className="mt-1 size-5 shrink-0"
-              />
-              <span>
-                <span className="block text-[19px] font-semibold text-[var(--color-navy)]">
-                  {option.title}
-                </span>
-                <span className="mt-1 block text-[16px] leading-snug text-[var(--color-ink-muted)]">
-                  {option.blurb}
-                </span>
-              </span>
-            </label>
-          ))}
+    <>
+      <form onSubmit={handleSubmit} noValidate className="card-surface p-6 md:p-8">
+        <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
+          <label htmlFor="remind-website">Website</label>
+          <input
+            id="remind-website"
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+          />
         </div>
-      </fieldset>
 
-      {kind === "t65" ? (
-        <div className="mt-6">
-          <span className="mb-2 block text-[18px] font-medium text-[var(--color-navy)]">
-            When do you turn 65?
-          </span>
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <label htmlFor="remind-month" className="sr-only">
-                Month you turn 65
-              </label>
-              <select
-                id="remind-month"
-                value={birthMonth}
-                onChange={(e) => setBirthMonth(e.target.value)}
-                className={fieldClass}
+        <fieldset className="border-0 p-0">
+          <legend className="text-18 mb-3 font-medium text-[var(--color-navy)]">
+            Which reminder do you want?
+          </legend>
+          <div className="flex flex-col gap-3">
+            {(
+              [
+                {
+                  value: "t65" as const,
+                  Icon: CalendarClock,
+                  title: "I’m turning 65",
+                  blurb: "I’ll email you before your seven-month sign-up window opens.",
+                },
+                {
+                  value: "aep" as const,
+                  Icon: BellRing,
+                  title: "I’m already on Medicare",
+                  blurb: "I’ll email you before the annual window opens on October 15.",
+                },
+              ] as const
+            ).map((option) => (
+              <label
+                key={option.value}
+                className={`flex cursor-pointer gap-4 rounded-xl border-2 p-4 transition-colors ${
+                  kind === option.value
+                    ? "border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+                    : "border-gray-300 bg-white hover:border-[var(--color-navy)]/40"
+                }`}
               >
-                <option value="">Month</option>
-                {MONTHS.map((month, index) => (
-                  <option key={month} value={index + 1}>
-                    {month}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="remind-year" className="sr-only">
-                Year you were born
+                <input
+                  type="radio"
+                  name="kind"
+                  value={option.value}
+                  checked={kind === option.value}
+                  onChange={() => {
+                    setKind(option.value);
+                    setError(null);
+                  }}
+                  className="mt-1 size-5 shrink-0"
+                />
+                <span>
+                  <span className="text-19 block font-semibold text-[var(--color-navy)]">
+                    {option.title}
+                  </span>
+                  <span className="text-16 mt-1 block leading-snug text-[var(--color-ink-muted)]">
+                    {option.blurb}
+                  </span>
+                </span>
               </label>
-              <select
-                id="remind-year"
-                value={birthYear}
-                onChange={(e) => setBirthYear(e.target.value)}
-                className={fieldClass}
-              >
-                <option value="">Birth year</option>
-                {years.map((year) => (
-                  <option key={year} value={year}>
-                    {year}
-                  </option>
-                ))}
-              </select>
-            </div>
+            ))}
           </div>
+        </fieldset>
 
-          {preview ? (
-            <p className="mt-3 rounded-lg bg-[rgba(15,34,65,0.04)] px-4 py-3 text-[17px] leading-relaxed text-[var(--color-navy)]">
-              {preview.status === "upcoming" ? (
-                <>
-                  Your window opens <strong>{formatLongDate(preview.opensOn)}</strong> and closes{" "}
-                  {formatLongDate(preview.closesOn)}.
-                </>
-              ) : preview.status === "open" ? (
-                <>
-                  Your window is <strong>open now</strong> and closes{" "}
-                  {formatLongDate(preview.closesOn)} — worth a conversation rather than a reminder.
-                </>
-              ) : (
-                <>
-                  That window closed on {formatLongDate(preview.closesOn)}. There may still be
-                  options — worth a quick call.
-                </>
-              )}
-            </p>
-          ) : null}
+        {kind === "t65" ? (
+          <div className="mt-6">
+            <span className="text-18 mb-2 block font-medium text-[var(--color-navy)]">
+              When do you turn 65?
+            </span>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label htmlFor="remind-month" className="sr-only">
+                  Month you turn 65
+                </label>
+                <select
+                  id="remind-month"
+                  value={birthMonth}
+                  onChange={(e) => {
+                    setBirthMonth(e.target.value);
+                    setTodayMs(Date.now());
+                  }}
+                  className={fieldClass}
+                >
+                  <option value="">Month</option>
+                  {MONTHS.map((month, index) => (
+                    <option key={month} value={index + 1}>
+                      {month}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label htmlFor="remind-year" className="sr-only">
+                  Year you were born
+                </label>
+                <select
+                  id="remind-year"
+                  value={birthYear}
+                  onChange={(e) => {
+                    setBirthYear(e.target.value);
+                    setTodayMs(Date.now());
+                  }}
+                  className={fieldClass}
+                >
+                  <option value="">Birth year</option>
+                  {years.map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            {preview ? (
+              <p className="text-17 mt-3 rounded-lg bg-[rgba(15,34,65,0.04)] px-4 py-3 leading-relaxed text-[var(--color-navy)]">
+                {preview.status === "upcoming" ? (
+                  <>
+                    Your window opens <strong>{formatLongDate(preview.opensOn)}</strong> and closes{" "}
+                    {formatLongDate(preview.closesOn)}. Your dates are below.
+                  </>
+                ) : preview.status === "open" ? (
+                  <>
+                    Your window is <strong>open now</strong> and closes{" "}
+                    {formatLongDate(preview.closesOn)} — worth a conversation rather than a
+                    reminder.
+                  </>
+                ) : (
+                  <>
+                    That window closed on {formatLongDate(preview.closesOn)}. There may still be
+                    options — worth a quick call.
+                  </>
+                )}
+              </p>
+            ) : null}
+          </div>
+        ) : null}
+
+        {kind === "aep" ? (
+          <p className="text-17 mt-6 rounded-lg bg-[rgba(15,34,65,0.04)] px-4 py-3 leading-relaxed text-[var(--color-navy)]">
+            The next annual window opens{" "}
+            <strong>{formatLongDate(getNextAepReminder().opensOn)}</strong> and closes December 7.
+            I’ll email you a couple of weeks ahead of it.
+          </p>
+        ) : null}
+
+        <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div>
+            <label
+              htmlFor="remind-name"
+              className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
+            >
+              Your name{" "}
+              <span className="font-normal text-[var(--color-ink-muted)]">(optional)</span>
+            </label>
+            <input
+              id="remind-name"
+              autoComplete="name"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              className={fieldClass}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="remind-email"
+              className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
+            >
+              Email
+            </label>
+            <input
+              id="remind-email"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={fieldClass}
+            />
+          </div>
         </div>
-      ) : null}
 
-      {kind === "aep" ? (
-        <p className="mt-6 rounded-lg bg-[rgba(15,34,65,0.04)] px-4 py-3 text-[17px] leading-relaxed text-[var(--color-navy)]">
-          The next annual window opens{" "}
-          <strong>{formatLongDate(getNextAepReminder().opensOn)}</strong> and closes December 7.
-          I&apos;ll email you a couple of weeks ahead of it.
-        </p>
-      ) : null}
-
-      <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <div>
-          <label
-            htmlFor="remind-name"
-            className="mb-2 block text-[18px] font-medium text-[var(--color-navy)]"
-          >
-            Your name <span className="font-normal text-[var(--color-ink-muted)]">(optional)</span>
-          </label>
+        <label className="text-16 mt-5 flex cursor-pointer gap-3 rounded-xl bg-[rgba(15,34,65,0.04)] px-4 py-4 leading-relaxed text-[var(--color-navy)]">
           <input
-            id="remind-name"
-            autoComplete="name"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            className={fieldClass}
+            type="checkbox"
+            checked={consent}
+            onChange={(e) => setConsent(e.target.checked)}
+            className="mt-1 size-5 shrink-0 rounded border-gray-400"
+          />
+          <span>{REMINDER_CONSENT_TEXT}</span>
+        </label>
+
+        {TURNSTILE_SITE_KEY ? (
+          <div className="cf-turnstile mt-4" data-sitekey={TURNSTILE_SITE_KEY} data-theme="light" />
+        ) : null}
+
+        {error ? (
+          <p role="alert" className="text-17 mt-4 text-[var(--color-error)]">
+            {error}
+          </p>
+        ) : null}
+
+        <button
+          type="submit"
+          disabled={submitting}
+          className="text-18 mt-6 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-70"
+        >
+          {submitting ? "Setting it up…" : "Remind me →"}
+        </button>
+
+        <p className="text-16 mt-3 text-center text-[var(--color-ink-muted)]">
+          One email when your window opens. No newsletter, no sales calls.
+        </p>
+      </form>
+
+      {/*
+        The dates are the reason most people opened this page. Show them as
+        soon as there is enough to compute them, whether or not the visitor
+        goes on to hand over an email address.
+      */}
+      {kind === "t65" && birthMonth && birthYear ? (
+        <div className="mt-8">
+          <MedicareDates
+            birthMonth={Number(birthMonth)}
+            birthYear={Number(birthYear)}
+            todayMs={todayMs}
           />
         </div>
-        <div>
-          <label
-            htmlFor="remind-email"
-            className="mb-2 block text-[18px] font-medium text-[var(--color-navy)]"
-          >
-            Email
-          </label>
-          <input
-            id="remind-email"
-            type="email"
-            inputMode="email"
-            autoComplete="email"
-            placeholder="you@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className={fieldClass}
-          />
-        </div>
-      </div>
-
-      <label className="mt-5 flex cursor-pointer gap-3 rounded-xl bg-[rgba(15,34,65,0.04)] px-4 py-4 text-[16px] leading-relaxed text-[var(--color-navy)]">
-        <input
-          type="checkbox"
-          checked={consent}
-          onChange={(e) => setConsent(e.target.checked)}
-          className="mt-1 size-5 shrink-0 rounded border-gray-400"
-        />
-        <span>{REMINDER_CONSENT_TEXT}</span>
-      </label>
-
-      {TURNSTILE_SITE_KEY ? (
-        <div className="cf-turnstile mt-4" data-sitekey={TURNSTILE_SITE_KEY} data-theme="light" />
       ) : null}
-
-      {error ? (
-        <p role="alert" className="mt-4 text-[17px] text-[var(--color-error)]">
-          {error}
-        </p>
-      ) : null}
-
-      <button
-        type="submit"
-        disabled={submitting}
-        className="mt-6 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 text-[18px] font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-70"
-      >
-        {submitting ? "Setting it up…" : "Remind me →"}
-      </button>
-
-      <p className="mt-3 text-center text-[16px] text-[var(--color-ink-muted)]">
-        One email when your window opens. No newsletter, no sales calls.
-      </p>
-    </form>
+    </>
   );
 }

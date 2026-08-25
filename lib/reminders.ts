@@ -1,9 +1,9 @@
 /**
  * Enrollment-window reminders.
  *
- * Most people who land on this site aren't ready to talk — they turn 65 in
+ * Most people who land on this site aren’t ready to talk — they turn 65 in
  * seven months, or their annual window is months away. Asking them for a phone
- * call is the wrong ask; asking whether they'd like to be told when their
+ * call is the wrong ask; asking whether they’d like to be told when their
  * window actually opens is a real service, and it converts a "not yet" into a
  * lead with a date on it.
  *
@@ -79,6 +79,60 @@ export function getT65Window(
     now < opensOn.getTime() ? "upcoming" : now > closesOn.getTime() ? "closed" : "open";
 
   return { opensOn, closesOn, birthdayMonth, sendOn, status };
+}
+
+/**
+ * The dates a person turning 65 actually has to act on.
+ *
+ * getT65Window answers "when may I sign up." These answer the three questions
+ * that follow it, and they are the ones people get wrong:
+ *
+ *   signUpBy       The end of the three months *before* the birthday month.
+ *                  Sign up by then and coverage starts on time; sign up later
+ *                  and it starts the month after you enrol, so there is a gap.
+ *
+ *   coverageStarts Assuming they sign up by signUpBy. Since the Consolidated
+ *                  Appropriations Act took effect in 2023 a late-in-window
+ *                  enrolment starts the first of the following month rather
+ *                  than being delayed two or three, which is why this is worth
+ *                  stating rather than leaving as folklore.
+ *
+ *   medigapOpens/  The six-month Medigap open enrolment window, beginning the
+ *   medigapCloses  first month a person is both 65 and enrolled in Part B.
+ *                  Inside it no insurer may refuse them or charge more for
+ *                  their health history; outside it, in most states, both are
+ *                  allowed. It cannot be reopened, which makes it the single
+ *                  most expensive date on this page to miss.
+ *
+ * ASSUMPTION: that Part B starts in the month they turn 65, which is what
+ * happens when someone enrols during the first half of their window. Anyone
+ * delaying Part B because they are still working has a different Medigap
+ * window, opening whenever Part B eventually starts. The UI says so.
+ *
+ * NOT MODELLED: the birthday-on-the-first rule. Medicare treats someone born
+ * on the 1st as turning 65 in the previous month, which shifts every date here
+ * back by one. This function only receives a month and a year, so the UI flags
+ * it rather than guessing.
+ */
+export interface T65Dates {
+  signUpBy: Date;
+  coverageStarts: Date;
+  medigapOpens: Date;
+  medigapCloses: Date;
+}
+
+export function getT65Dates(birthMonth: number, birthYear: number): T65Dates {
+  const turns65Year = birthYear + 65;
+  const monthIndex = birthMonth - 1;
+
+  return {
+    // Last day of the month before the birthday month.
+    signUpBy: endOfMonth(turns65Year, monthIndex - 1),
+    coverageStarts: startOfMonth(turns65Year, monthIndex),
+    medigapOpens: startOfMonth(turns65Year, monthIndex),
+    // Six months inclusive of the month it opens.
+    medigapCloses: endOfMonth(turns65Year, monthIndex + 5),
+  };
 }
 
 /**

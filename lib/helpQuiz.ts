@@ -76,7 +76,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
       },
       {
         id: "medicare_question",
-        prompt: "What's the part you'd most like sorted out?",
+        prompt: "What’s the part you’d most like sorted out?",
         options: [
           { value: "when_to_enroll", label: "When I have to sign up, and by when" },
           { value: "which_coverage", label: "How the coverage choices differ" },
@@ -137,7 +137,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
           { value: "myself", label: "Me" },
           { value: "spouse", label: "My spouse" },
           { value: "both", label: "Both of us" },
-          { value: "someone_else", label: "Someone else I'm helping" },
+          { value: "someone_else", label: "Someone else I’m helping" },
         ],
       },
     ],
@@ -168,7 +168,7 @@ export const BRANCH_QUESTIONS: Record<InterestTopic, HelpQuizQuestion[]> = {
  * The free-text box on the contact step.
  *
  * It exists because landing pages make specific promises — "tell me who you
- * see", "have me look at my premium" — and a fixed multiple-choice quiz can't
+ * see", "have me look at my premium" — and a fixed multiple-choice quiz can’t
  * keep them. The prompt changes to match wherever they came from, so the
  * button and the question finally agree with each other.
  */
@@ -188,13 +188,13 @@ export const ASK_PROMPTS: Record<AskContext, { label: string; placeholder: strin
     placeholder: "I retired in March and the amount jumped in January",
   },
   parent: {
-    label: "What's going on with them?",
+    label: "What’s going on with them?",
     placeholder: "Mom turns 65 in April and still works part time",
   },
   general: {
-    label: "Anything specific you'd like me to look at?",
+    label: "Anything specific you’d like me to look at?",
     placeholder:
-      "Doctors you want to keep, a letter that didn't make sense, a premium that changed",
+      "Doctors you want to keep, a letter that didn’t make sense, a premium that changed",
   },
 };
 
@@ -204,7 +204,7 @@ export const INCOME_OPTIONS: HelpQuizOption[] = [
   { value: "80k_120k", label: "$80,000 – $120,000" },
   { value: "120k_200k", label: "$120,000 – $200,000" },
   { value: "over_200k", label: "Over $200,000" },
-  { value: "prefer_not", label: "I'd rather not say" },
+  { value: "prefer_not", label: "I’d rather not say" },
 ];
 
 /** topic → 2 questions → value → contact */
@@ -242,18 +242,18 @@ export const STEP_LABELS: Record<HelpQuizPhase, string> = {
  */
 export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): HelpQuizValueBeat {
   const note =
-    "This is general information, not advice about your specific situation. That's what the call is for.";
+    "This is general information, not advice about your specific situation. That’s what the call is for.";
 
   if (topic === "medicare") {
     const stage = answers.medicare_stage;
 
     if (stage === "turning_65_soon") {
       return {
-        headline: "Your sign-up window is seven months long, and it's already running.",
+        headline: "Your sign-up window is seven months long, and it’s already running.",
         lede: "It opens three months before the month you turn 65, includes your birthday month, and closes three months after. Miss it without qualifying coverage elsewhere and the Part B penalty is permanent.",
         points: [
-          "The Part B late penalty is 10% for every full 12 months you could have had it and didn't — and you pay it for as long as you have Part B.",
-          "There's a separate six-month window for Medigap that starts the month you're 65 and enrolled in Part B. Inside it you can't be turned down or charged more for your health history. Outside it, in most states, you can.",
+          "The Part B late penalty is 10% for every full 12 months you could have had it and didn’t — and you pay it for as long as you have Part B.",
+          "There’s a separate six-month window for Medigap that starts the month you’re 65 and enrolled in Part B. Inside it you can’t be turned down or charged more for your health history. Outside it, in most states, you can.",
           "Signing up early in the window means coverage starts the month you turn 65. Signing up late in it can push your start date back.",
         ],
         note,
@@ -263,7 +263,7 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
     if (stage === "past_65_still_working") {
       return {
         headline: "Whether you can delay Part B depends on how many people your employer employs.",
-        lede: "This is the detail that catches working people out. Group coverage at a large employer generally lets you delay Part B penalty-free. At a small employer, Medicare usually becomes your primary payer whether or not you've enrolled.",
+        lede: "This is the detail that catches working people out. Group coverage at a large employer generally lets you delay Part B penalty-free. At a small employer, Medicare usually becomes your primary payer whether or not you’ve enrolled.",
         points: [
           "Twenty or more employees: your group plan generally stays primary, and you get a Special Enrollment Period of eight months after the job or the coverage ends.",
           "Fewer than twenty employees: Medicare usually pays first, and staying off Part B can leave you with claims nobody covers.",
@@ -278,8 +278,8 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
         headline: "Your premium is based on a tax return from two years ago.",
         lede: "Medicare looks back two years to decide whether you pay the standard Part B premium or an income-related amount on top of it. So a one-time event — selling a house, a large withdrawal, a Roth conversion — shows up on your premium two years later.",
         points: [
-          "If your income dropped because of a life-changing event — retiring, losing a job, marriage, divorce, a spouse's death — you can ask Social Security to use current income instead, on Form SSA-44. Many people never find out this exists.",
-          "Coverage can be changed each year between October 15 and December 7. If you're on Medicare Advantage there's a second window, January 1 to March 31.",
+          "If your income dropped because of a life-changing event — retiring, losing a job, marriage, divorce, a spouse’s death — you can ask Social Security to use current income instead, on Form SSA-44. Many people never find out this exists.",
+          "Coverage can be changed each year between October 15 and December 7. If you’re on Medicare Advantage there’s a second window, January 1 to March 31.",
           "Drug coverage is worth re-checking annually even if nothing about your health changed — the plans change around you.",
         ],
         note,
@@ -288,14 +288,14 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
 
     // "Helping a spouse or parent" is usually an adult child doing the
     // research, who needs to know what to ask and what they are allowed to
-    // do on someone else's behalf.
+    // do on someone else’s behalf.
     return {
-      headline: "You can do the research, but you can't sign for them.",
-      lede: "The hardest part of helping a parent through this is usually not the plans — it's that Medicare and Social Security won't discuss their account with you unless they've authorized it. Sorting that out first saves weeks.",
+      headline: "You can do the research, but you can’t sign for them.",
+      lede: "The hardest part of helping a parent through this is usually not the plans — it’s that Medicare and Social Security won’t discuss their account with you unless they’ve authorized it. Sorting that out first saves weeks.",
       points: [
-        "Social Security needs written authorization before they'll talk to you about someone else's record. Getting that in place early is the difference between one phone call and five.",
-        "The deadline you're working to: their sign-up window runs seven months — the three months before the month they turn 65, that month, and the three after. Missing it means a Part B penalty of 10% for every full 12 months they could have had it, for as long as they have it.",
-        "The one that gets missed: a separate six-month window for supplemental coverage opens when they're 65 and enrolled in Part B. Inside it their health history can't be used against them. Outside it, in most states, it can — which matters most for exactly the parents whose health is already a worry.",
+        "Social Security needs written authorization before they’ll talk to you about someone else’s record. Getting that in place early is the difference between one phone call and five.",
+        "The deadline you’re working to: their sign-up window runs seven months — the three months before the month they turn 65, that month, and the three after. Missing it means a Part B penalty of 10% for every full 12 months they could have had it, for as long as they have it.",
+        "The one that gets missed: a separate six-month window for supplemental coverage opens when they’re 65 and enrolled in Part B. Inside it their health history can’t be used against them. Outside it, in most states, it can — which matters most for exactly the parents whose health is already a worry.",
       ],
       note,
     };
@@ -310,7 +310,7 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
         lede: "You can start any time between 62 and 70. Claiming before full retirement age permanently reduces the monthly benefit; waiting past it adds delayed retirement credits of about 8% a year. After 70 there is nothing more to gain by waiting.",
         points: [
           "For anyone born in 1960 or later, full retirement age is 67 — not 65, which is the number most people still have in their head.",
-          "For a married couple the bigger question is usually the higher earner's start date, because that benefit is what the survivor keeps.",
+          "For a married couple the bigger question is usually the higher earner’s start date, because that benefit is what the survivor keeps.",
           "Claiming early while still working can trigger the earnings test, which withholds part of the benefit until full retirement age.",
         ],
         note,
@@ -320,11 +320,11 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
     if (focus === "taxes" || focus === "income_order") {
       return {
         headline:
-          "The years between retiring and 73 are usually the cheapest tax years you'll ever have.",
+          "The years between retiring and 73 are usually the cheapest tax years you’ll ever have.",
         lede: "Once required minimum distributions start at 73, your taxable income is set by a formula instead of by you. The gap between your last paycheck and that first RMD is the window where the order you draw from accounts actually changes the total tax bill.",
         points: [
           "Required minimum distributions currently begin at 73, and move to 75 for people born in 1960 or later.",
-          "Moving money to Roth during that gap can lower later RMDs — but a conversion at 63 raises the income Medicare looks at when you're 65, because of the two-year lookback.",
+          "Moving money to Roth during that gap can lower later RMDs — but a conversion at 63 raises the income Medicare looks at when you’re 65, because of the two-year lookback.",
           "When one spouse dies the survivor files as single, often on similar income. That bracket change surprises people more than any other single thing in retirement.",
         ],
         note,
@@ -348,10 +348,10 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
   if (cover === "review_existing") {
     return {
       headline: "Start with what the policy actually is, and who it currently pays.",
-      lede: "Most reviews turn up one of two things: coverage that quietly ends sooner than expected, or a beneficiary who hasn't been right for years.",
+      lede: "Most reviews turn up one of two things: coverage that quietly ends sooner than expected, or a beneficiary who hasn’t been right for years.",
       points: [
         "The beneficiary form on the policy controls who gets the money. It overrides what your will says — an ex-spouse listed there still gets paid.",
-        "Coverage through an employer usually ends when the job does, and is rarely portable at a price worth paying. It's the most common gap I see at retirement.",
+        "Coverage through an employer usually ends when the job does, and is rarely portable at a price worth paying. It’s the most common gap I see at retirement.",
         "Term coverage is level for a set number of years and then gets expensive fast. Knowing your exact end date is the whole ballgame.",
       ],
       note,
@@ -373,11 +373,11 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
 
   return {
     headline: "The real question is how many more years the money is needed for.",
-    lede: "Whether coverage should be temporary or permanent comes down to how long the need lasts — not to which product someone wants to sell you. That's a question you can answer yourself before you talk to anyone.",
+    lede: "Whether coverage should be temporary or permanent comes down to how long the need lasts — not to which product someone wants to sell you. That’s a question you can answer yourself before you talk to anyone.",
     points: [
       "If the need ends — a mortgage paid off, a spouse reaching their own pension or Social Security — term coverage for exactly that long is usually the honest answer.",
-      "If the need doesn't end, permanent coverage exists for that, and it costs meaningfully more. Both are legitimate; the mismatch is what costs people money.",
-      "Group coverage through work generally ends at retirement, so it's worth knowing now what remains after your last day.",
+      "If the need doesn’t end, permanent coverage exists for that, and it costs meaningfully more. Both are legitimate; the mismatch is what costs people money.",
+      "Group coverage through work generally ends at retirement, so it’s worth knowing now what remains after your last day.",
     ],
     note,
   };

@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
   try {
     if (isRateLimited(`reminders:${ip}`, { limit: 8, windowMs: 60_000 })) {
       return NextResponse.json(
-        { error: "That's a few too many in a row. Try again in a minute." },
+        { error: "That’s a few too many in a row. Try again in a minute." },
         { status: 429 },
       );
     }
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
     const turnstile = await verifyTurnstile(body.turnstile_token, ip);
     if (!turnstile.ok) {
       return NextResponse.json(
-        { error: "Couldn't verify that you're a person. Refresh and try once more." },
+        { error: "Couldn’t verify that you’re a person. Refresh and try once more." },
         { status: 400 },
       );
     }
@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
     if (!hasSupabaseAdminConfig()) {
       console.error("[reminders] Supabase not configured — reminder NOT saved.");
       return NextResponse.json(
-        { error: `I couldn't save that. Email me at ${AGENT.email} and I'll add you by hand.` },
+        { error: `I couldn’t save that. Email me at ${AGENT.email} and I’ll add you by hand.` },
         { status: 503 },
       );
     }
@@ -165,7 +165,7 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error("[reminders] save failed:", error.message);
       return NextResponse.json(
-        { error: `I couldn't save that. Email me at ${AGENT.email} and I'll add you by hand.` },
+        { error: `I couldn’t save that. Email me at ${AGENT.email} and I’ll add you by hand.` },
         { status: 500 },
       );
     }
@@ -183,7 +183,7 @@ export async function POST(request: NextRequest) {
   } catch (err) {
     console.error("[reminders] Unhandled error:", err);
     return NextResponse.json(
-      { error: `Something went wrong. Email me at ${AGENT.email} and I'll sort it out.` },
+      { error: `Something went wrong. Email me at ${AGENT.email} and I’ll sort it out.` },
       { status: 500 },
     );
   }

@@ -222,7 +222,7 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<bo
     "",
     attributionLines ? `Came from:\n${attributionLines}` : "Came from: (no campaign tags)",
     "",
-    "They've already received their answers by email and a link to book time.",
+    "They’ve already received their answers by email and a link to book time.",
     "Call within one business day.",
   ]
     .filter((line) => line !== "")
@@ -295,48 +295,50 @@ export async function sendProspectAutoReply(input: {
   const text = [
     `Hi ${firstName},`,
     "",
-    `Thanks for the questions about ${topic.toLowerCase()}. Here's what you saw on the site, so you have it in writing:`,
+    `Thanks for the questions about ${topic.toLowerCase()}. Here’s what you saw on the site, so you have it in writing:`,
     "",
-    beat.headline.toUpperCase(),
+    // Not upper-cased: a full sentence in caps reads as a marketing blast, and
+    // this email’s whole job is to look like it came from a person.
+    beat.headline,
     "",
     beat.lede,
     "",
     ...beat.points.map((p) => `• ${p}`),
     "",
-    "That's general information rather than advice about your particular situation — which is what I'd like to talk through with you.",
+    "That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.",
     "",
     `You can book a time here: ${AGENT.schedulingUrl}`,
     `Or just call or text me: ${AGENT.phone}`,
     "",
-    "If I don't hear from you first, I'll reach out within one business day.",
+    "If I don’t hear from you first, I’ll reach out within one business day.",
     "",
     AGENT.name,
     "Licensed insurance agent · " + AGENT.city + ", " + AGENT.state,
     AGENT.email,
     SITE_URL,
     "",
-    "You're receiving this because you asked me to get in touch through my website. Reply 'stop' and I won't contact you again.",
+    "You’re receiving this because you asked me to get in touch through my website. Reply STOP and I won’t contact you again.",
   ].join("\n");
 
   const html = `
     <div style="font-family:Georgia,serif;font-size:17px;line-height:1.6;color:#0f2241;max-width:560px">
       <p>Hi ${escapeHtml(firstName)},</p>
-      <p>Thanks for the questions about ${escapeHtml(topic.toLowerCase())}. Here's what you saw on the site, so you have it in writing:</p>
+      <p>Thanks for the questions about ${escapeHtml(topic.toLowerCase())}. Here’s what you saw on the site, so you have it in writing:</p>
       <p style="font-size:19px;font-weight:600;margin:24px 0 8px">${escapeHtml(beat.headline)}</p>
       <p>${escapeHtml(beat.lede)}</p>
       <ul style="padding-left:20px">
         ${beat.points.map((p) => `<li style="margin-bottom:10px">${escapeHtml(p)}</li>`).join("")}
       </ul>
-      <p style="color:#4a5563;font-size:15px">That's general information rather than advice about your particular situation — which is what I'd like to talk through with you.</p>
+      <p style="color:#4a5563;font-size:15px">That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.</p>
       <p style="margin:28px 0">
         <a href="${AGENT.schedulingUrl}" style="background:#0f2241;color:#f5f0e8;padding:14px 22px;border-radius:8px;text-decoration:none;display:inline-block;font-family:Helvetica,Arial,sans-serif;font-weight:600">Book a time to talk</a>
       </p>
-      <p>Or just call or text me: <strong>${AGENT.phone}</strong>. If I don't hear from you first, I'll reach out within one business day.</p>
+      <p>Or just call or text me: <strong>${AGENT.phone}</strong>. If I don’t hear from you first, I’ll reach out within one business day.</p>
       <p style="margin-top:28px">${escapeHtml(AGENT.name)}<br>
       <span style="color:#4a5563">Licensed insurance agent · ${AGENT.city}, ${AGENT.state}</span><br>
       <a href="mailto:${AGENT.email}" style="color:#0f2241">${AGENT.email}</a></p>
       <p style="color:#6b7280;font-size:13px;border-top:1px solid #d1d5db;padding-top:12px;margin-top:28px">
-        You're receiving this because you asked me to get in touch through my website. Reply "stop" and I won't contact you again.
+        You’re receiving this because you asked me to get in touch through my website. Reply STOP and I won’t contact you again.
       </p>
     </div>`;
 
@@ -375,11 +377,11 @@ async function sendCalculatorAutoReply(input: {
   const text = [
     `Hi ${firstName},`,
     "",
-    `Here's the ${label.toLowerCase()} you ran on my site.`,
+    `Here’s the ${label.toLowerCase()} you ran on my site.`,
     "",
     figure,
     "",
-    "Two things worth knowing about that number: it's an estimate for education rather than a quote, and Medicare sets premiums from a tax return two years old — so if your income has changed since then, the real figure can differ, and in some cases it can be appealed.",
+    "Two things worth knowing about that number: it’s an estimate for education rather than a quote, and Medicare sets premiums from a tax return two years old — so if your income has changed since then, the real figure can differ, and in some cases it can be appealed.",
     "",
     `Happy to walk through what applies to you. Book a time: ${AGENT.schedulingUrl}`,
     `Or call or text me: ${AGENT.phone}`,
@@ -388,7 +390,7 @@ async function sendCalculatorAutoReply(input: {
     `Licensed insurance agent · ${AGENT.city}, ${AGENT.state}`,
     AGENT.email,
     "",
-    "You're receiving this because you asked me to email your results. Reply 'stop' and I won't contact you again.",
+    "You’re receiving this because you asked me to email your results. Reply STOP and I won’t contact you again.",
   ]
     .filter((line): line is string => line !== null)
     .join("\n");
@@ -451,27 +453,27 @@ export async function sendReminderSignupConfirmation(input: {
       ? [
           `Your Medicare sign-up window opens on ${opens}. It stays open for seven months in total — the three months before the month you turn 65, that month, and the three months after.`,
           "",
-          `I'll email you on ${remindOn}, a couple of weeks ahead of it, so you have time to look at options rather than deciding in a hurry.`,
+          `I’ll email you on ${remindOn}, a couple of weeks ahead of it, so you have time to look at options rather than deciding in a hurry.`,
           "",
-          "Nothing to do until then. If something changes or you'd rather talk sooner, just call me.",
+          "Nothing to do until then. If something changes or you’d rather talk sooner, just call me.",
         ]
       : [
-          `Medicare's annual window runs October 15 to December 7, and this year it opens on ${opens}.`,
+          `Medicare’s annual window runs October 15 to December 7, and this year it opens on ${opens}.`,
           "",
-          `I'll email you on ${remindOn} so you have a couple of weeks to look at whether your current coverage still fits before the window closes.`,
+          `I’ll email you on ${remindOn} so you have a couple of weeks to look at whether your current coverage still fits before the window closes.`,
           "",
-          "Nothing to do until then. Worth knowing: drug plans change their pricing and covered medications every year, so it's worth a look even when nothing about your health has changed.",
+          "Nothing to do until then. Worth knowing: drug plans change their pricing and covered medications every year, so it’s worth a look even when nothing about your health has changed.",
         ];
 
   const text = [
     `Hi ${firstName},`,
     "",
-    "That's set.",
+    "That’s set.",
     "",
     ...body,
     reminderSignature(),
     "",
-    "You're receiving this because you asked for a reminder on my website. Reply 'stop' and I'll remove you.",
+    "You’re receiving this because you asked for a reminder on my website. Reply STOP and I’ll remove you.",
   ].join("\n");
 
   try {
@@ -517,7 +519,7 @@ export async function sendReminderDue(input: {
           "",
           "• The window runs seven months — three months before the month you turn 65, that month, and three months after. Signing up early in it means coverage starts the month you turn 65; leaving it late pushes your start date back.",
           "• If you miss it without other qualifying coverage, the Part B late penalty is 10% for every full 12 months you could have had it — and you pay it for as long as you have Part B.",
-          "• There's a separate six-month window for supplemental coverage that starts the month you're 65 and enrolled in Part B. Inside it your health history can't be used against you. Outside it, in most states, it can.",
+          "• There’s a separate six-month window for supplemental coverage that starts the month you’re 65 and enrolled in Part B. Inside it your health history can’t be used against you. Outside it, in most states, it can.",
           "",
           "No charge to talk any of this through, and no obligation. Book a time here:",
           AGENT.schedulingUrl,
@@ -525,9 +527,9 @@ export async function sendReminderDue(input: {
           `Or just call me: ${AGENT.phone}`,
         ]
       : [
-          `You asked me to let you know when Medicare's annual window opened. It opens on ${opens} and closes December 7.`,
+          `You asked me to let you know when Medicare’s annual window opened. It opens on ${opens} and closes December 7.`,
           "",
-          "It's worth a look even if nothing about your health has changed — plans change their pricing, their networks, and their covered medications every year, so the plan that fit last year may not be the one that fits now.",
+          "It’s worth a look even if nothing about your health has changed — plans change their pricing, their networks, and their covered medications every year, so the plan that fit last year may not be the one that fits now.",
           "",
           "Happy to check whether your current coverage is still the right one. No charge, no obligation:",
           AGENT.schedulingUrl,
@@ -541,7 +543,7 @@ export async function sendReminderDue(input: {
     ...body,
     reminderSignature(),
     "",
-    "You're receiving this because you asked for this reminder. Reply 'stop' and I won't contact you again.",
+    "You’re receiving this because you asked for this reminder. Reply STOP and I won’t contact you again.",
   ].join("\n");
 
   try {
@@ -550,7 +552,7 @@ export async function sendReminderDue(input: {
       subject:
         input.kind === "t65"
           ? "Your Medicare sign-up window is about to open"
-          : "Medicare's annual window opens soon",
+          : "Medicare’s annual window opens soon",
       text,
       replyTo: AGENT.email,
     });

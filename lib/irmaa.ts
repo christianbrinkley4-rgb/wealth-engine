@@ -7,7 +7,7 @@
  *
  * CRITICAL ACCOUNTING NOTE:
  * IRMAA is based on Modified Adjusted Gross Income (MAGI) from 2 years prior.
- * 2026 premiums are determined by the user's 2024 tax return MAGI — not
+ * 2026 premiums are determined by the user’s 2024 tax return MAGI — not
  * their current income. The wizard should surface this distinction to the user.
  *
  * FILING STATUS NOTE:
@@ -148,7 +148,7 @@ export function getBrackets(filingStatus: FilingStatus): IrmaaBracket[] {
 /**
  * Calculates the estimated 2026 Medicare Part B premium.
  *
- * @param income - User's estimated 2024 MAGI (the year used for 2026 determination)
+ * @param income - User’s estimated 2024 MAGI (the year used for 2026 determination)
  * @param filingStatus - "individual" or "married_jointly"
  * @returns The matching IrmaaBracket with premium, tier name, and surcharge.
  *
@@ -191,7 +191,7 @@ export function calculatePartBPremium(income: number, filingStatus: FilingStatus
  * getPlainEnglishSummary(result, 150000, "individual")
  * // → "At your income level ($150,000), you fall into the Tier 2 IRMAA
  * //    bracket. You will pay $405.80/month — $202.90 more than the
- * //    standard premium. That's approximately $2,434.80 more per year."
+ * //    standard premium. That’s approximately $2,434.80 more per year."
  */
 export function getPlainEnglishSummary(
   bracket: IrmaaBracket,

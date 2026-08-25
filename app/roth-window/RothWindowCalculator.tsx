@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ArrowRight, CheckCircle2, Info, User, Users } from "lucide-react";
 import { Suspense, useMemo, useState } from "react";
-import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { ConversionMeter } from "@/components/charts/ConversionMeter";
 import { EmailResultsCapture } from "@/components/EmailResultsCapture";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -77,25 +77,11 @@ function RothWindowCalculatorInner() {
   }
 
   return (
-    <main className="app-shell pb-12">
-      <section className="card-surface mt-4 p-6 md:p-8">
-        <p className="text-[14px] font-medium tracking-[0.1em] text-[var(--color-gold)] uppercase">
-          2026 Roth Conversion Calculator
-        </p>
-        <h1 className="mt-2 text-[32px] leading-tight font-bold text-[var(--color-navy)] md:text-[40px]">
-          How much can you convert without raising your Medicare premium?
-        </h1>
-        <p className="mt-3 max-w-2xl text-[18px] leading-relaxed text-[var(--color-ink-muted)]">
-          Most CPAs run your Roth conversion against income-tax brackets and miss the IRMAA
-          surcharge — which is determined by your MAGI from two years prior. Convert too much in
-          2026 and you will see a higher Medicare premium in 2028.
-        </p>
-      </section>
-
+    <>
       <section className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
         <Card className="card-surface border-gray-300 bg-white text-[var(--color-navy)]">
           <CardHeader className="p-6 pb-2">
-            <CardTitle className="text-[18px] font-semibold text-[var(--color-navy)]">
+            <CardTitle className="text-18 font-semibold text-[var(--color-navy)]">
               Step 1 — Your tax filing status
             </CardTitle>
           </CardHeader>
@@ -122,8 +108,8 @@ function RothWindowCalculatorInner() {
                   strokeWidth={1.5}
                   aria-hidden
                 />
-                <div className="text-[18px] font-bold">Individual</div>
-                <p className="mt-1 text-[15px] text-[var(--color-ink-muted)]">
+                <div className="text-18 font-bold">Individual</div>
+                <p className="text-15 mt-1 text-[var(--color-ink-muted)]">
                   Single, widowed, or filing separately.
                 </p>
               </button>
@@ -149,8 +135,8 @@ function RothWindowCalculatorInner() {
                   strokeWidth={1.5}
                   aria-hidden
                 />
-                <div className="text-[18px] font-bold">Married filing jointly</div>
-                <p className="mt-1 text-[15px] text-[var(--color-ink-muted)]">
+                <div className="text-18 font-bold">Married filing jointly</div>
+                <p className="text-15 mt-1 text-[var(--color-ink-muted)]">
                   Combined return with your spouse.
                 </p>
               </button>
@@ -160,12 +146,12 @@ function RothWindowCalculatorInner() {
 
         <Card className="card-surface border-gray-300 bg-white text-[var(--color-navy)]">
           <CardHeader className="p-6 pb-2">
-            <CardTitle className="text-[18px] font-semibold text-[var(--color-navy)]">
+            <CardTitle className="text-18 font-semibold text-[var(--color-navy)]">
               Step 2 — Your expected 2026 MAGI (before any conversion)
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 p-6 pt-2">
-            <p className="text-center text-[36px] font-bold text-[var(--color-navy)]">
+            <p className="text-36 text-center font-bold text-[var(--color-navy)]">
               {formatMoney(magi)}
             </p>
             <Slider
@@ -181,7 +167,7 @@ function RothWindowCalculatorInner() {
               className="[&_[role=slider]]:h-6 [&_[role=slider]]:w-6 [&_[role=slider]]:p-2"
             />
             <div className="flex items-center gap-3">
-              <span className="text-[14px] text-[var(--color-ink-muted)]">Or type:</span>
+              <span className="text-14 text-[var(--color-ink-muted)]">Or type:</span>
               <Input
                 value={magiInput}
                 onChange={(event) =>
@@ -190,11 +176,11 @@ function RothWindowCalculatorInner() {
                 onBlur={(event) => handleMagiInputCommit(event.target.value)}
                 inputMode="numeric"
                 placeholder="110000"
-                className="h-11 max-w-[160px] text-[16px]"
+                className="text-16 h-11 max-w-[160px]"
               />
             </div>
-            <p className="flex gap-2 text-[14px] leading-relaxed text-[var(--color-ink-muted)]">
-              <Info className="mt-0.5 size-4 shrink-0 text-[var(--color-gold)]" aria-hidden />
+            <p className="text-14 flex gap-2 leading-relaxed text-[var(--color-ink-muted)]">
+              <Info className="mt-0.5 size-4 shrink-0 text-[var(--color-gold-ink)]" aria-hidden />
               <span>
                 Modified Adjusted Gross Income — your AGI plus tax-exempt interest. Use your most
                 recent 1040 if unsure.
@@ -207,32 +193,32 @@ function RothWindowCalculatorInner() {
       <section className="mt-8">
         <Card className="card-surface border-gray-300 bg-white text-[var(--color-navy)]">
           <CardHeader className="p-6 pb-2">
-            <CardTitle className="text-[20px] text-[var(--color-ink-muted)]">
+            <CardTitle className="text-20 text-[var(--color-ink-muted)]">
               Your Roth conversion window
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6 p-6 pt-2">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               <div className="rounded-xl bg-[var(--color-paper)] p-5">
-                <p className="text-[14px] tracking-[0.08em] text-[var(--color-ink-muted)] uppercase">
+                <p className="text-14 tracking-[0.08em] text-[var(--color-ink-muted)] uppercase">
                   Current bracket
                 </p>
-                <p className="mt-2 text-[22px] font-bold text-[var(--color-navy)]">
+                <p className="text-22 mt-2 font-bold text-[var(--color-navy)]">
                   {result.currentBracket.bracketName}
                 </p>
-                <p className="text-[14px] text-[var(--color-ink-muted)]">
-                  {formatMoneyCents(result.currentBracket.partBPremium)} / mo Part B
+                <p className="text-14 text-[var(--color-ink-muted)]">
+                  {formatMoneyCents(result.currentBracket.partBPremium)}/mo Part B
                 </p>
               </div>
 
               <div className="rounded-xl bg-[var(--color-paper)] p-5">
-                <p className="text-[14px] tracking-[0.08em] text-[var(--color-ink-muted)] uppercase">
+                <p className="text-14 tracking-[0.08em] text-[var(--color-ink-muted)] uppercase">
                   Max conversion this year
                 </p>
-                <p className="mt-2 text-[28px] font-bold text-[var(--color-navy)]">
+                <p className="text-28 mt-2 font-bold text-[var(--color-navy)]">
                   {isAtTop ? "No IRMAA ceiling left" : formatMoney(headroom)}
                 </p>
-                <p className="text-[14px] text-[var(--color-ink-muted)]">
+                <p className="text-14 text-[var(--color-ink-muted)]">
                   {isAtTop
                     ? "You are already in the top bracket."
                     : "Keeps you in the same Medicare bracket."}
@@ -240,10 +226,10 @@ function RothWindowCalculatorInner() {
               </div>
 
               <div className="rounded-xl bg-[var(--color-paper)] p-5">
-                <p className="text-[14px] tracking-[0.08em] text-[var(--color-ink-muted)] uppercase">
+                <p className="text-14 tracking-[0.08em] text-[var(--color-ink-muted)] uppercase">
                   Cost if you cross
                 </p>
-                <p className="mt-2 text-[28px] font-bold text-[var(--color-navy)]">
+                <p className="text-28 mt-2 font-bold text-[var(--color-navy)]">
                   {isAtTop
                     ? "—"
                     : formatMoney(
@@ -252,14 +238,21 @@ function RothWindowCalculatorInner() {
                           : result.oneBracketCrossingAnnualCost,
                       )}
                 </p>
-                <p className="text-[14px] text-[var(--color-ink-muted)]">
+                <p className="text-14 text-[var(--color-ink-muted)]">
                   Annual Medicare surcharge in 2028
                   {filingStatus === "married_jointly" ? " (both spouses)" : ""}.
                 </p>
               </div>
             </div>
 
-            <p className="border-l-4 border-[var(--color-gold)] bg-amber-50/80 px-4 py-3 text-[16px] leading-relaxed text-[var(--color-navy)]">
+            <ConversionMeter
+              magi={magi}
+              currentBracket={result.currentBracket}
+              nextBracket={result.nextBracket}
+              headroom={headroom}
+            />
+
+            <p className="text-16 border-l-4 border-[var(--color-gold-ink)] bg-amber-50/80 px-4 py-3 leading-relaxed text-[var(--color-navy)]">
               {headline}
             </p>
           </CardContent>
@@ -270,14 +263,27 @@ function RothWindowCalculatorInner() {
         <section className="mt-6">
           <Card className="card-surface border-gray-300 bg-white text-[var(--color-navy)]">
             <CardHeader className="p-6 pb-2">
-              <CardTitle className="text-[18px] text-[var(--color-ink-muted)]">
+              <CardTitle className="text-18 text-[var(--color-ink-muted)]">
                 Cost of crossing each higher bracket
               </CardTitle>
             </CardHeader>
             <CardContent className="p-0">
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-[16px]">
-                  <thead className="bg-[var(--color-paper)] text-[14px] text-[var(--color-ink-muted)] uppercase">
+              {/*
+                A table that scrolls sideways with no indication that it does is
+                a table most people read three of four columns of. The hint is
+                mobile-only because the table fits from sm up.
+              */}
+              <p className="text-14 px-6 pb-2 text-[var(--color-ink-muted)] sm:hidden">
+                Scroll sideways to see every column →
+              </p>
+              <div
+                className="overflow-x-auto"
+                tabIndex={0}
+                role="region"
+                aria-label="Cost of crossing each higher bracket"
+              >
+                <table className="text-16 w-full text-left">
+                  <thead className="text-14 bg-[var(--color-paper)] text-[var(--color-ink-muted)] uppercase">
                     <tr>
                       <th className="px-6 py-3">Bracket</th>
                       <th className="px-6 py-3">Max conversion to reach</th>
@@ -295,8 +301,8 @@ function RothWindowCalculatorInner() {
                       >
                         <td className="px-6 py-4 font-semibold text-[var(--color-navy)]">
                           {projection.bracket.bracketName}
-                          <span className="ml-2 text-[14px] font-normal text-[var(--color-ink-muted)]">
-                            {formatMoneyCents(projection.bracket.partBPremium)} / mo
+                          <span className="text-14 ml-2 font-normal text-[var(--color-ink-muted)]">
+                            {formatMoneyCents(projection.bracket.partBPremium)}/mo
                           </span>
                         </td>
                         <td className="px-6 py-4 text-[var(--color-navy)]">
@@ -324,31 +330,31 @@ function RothWindowCalculatorInner() {
         <section className="mt-6">
           <Card className="card-surface border-gray-300 bg-white text-[var(--color-navy)]">
             <CardHeader className="p-6 pb-2">
-              <CardTitle className="text-[18px] text-[var(--color-ink-muted)]">
+              <CardTitle className="text-18 text-[var(--color-ink-muted)]">
                 A {DEFAULT_LADDER_YEARS}-year conversion ladder at this MAGI
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6 pt-2">
-              <p className="text-[16px] leading-relaxed text-[var(--color-ink-muted)]">
+              <p className="text-16 leading-relaxed text-[var(--color-ink-muted)]">
                 If your income stays flat at {formatMoney(magi)}, you could convert this much each
                 year without ever leaving your current Medicare bracket:
               </p>
               <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
                 {ladder.map((year) => (
                   <div key={year.yearLabel} className="rounded-xl bg-[var(--color-paper)] p-4">
-                    <p className="text-[14px] tracking-[0.08em] text-[var(--color-ink-muted)] uppercase">
+                    <p className="text-14 tracking-[0.08em] text-[var(--color-ink-muted)] uppercase">
                       {year.yearLabel}
                     </p>
-                    <p className="mt-1 text-[22px] font-bold text-[var(--color-navy)]">
+                    <p className="text-22 mt-1 font-bold text-[var(--color-navy)]">
                       {formatMoney(year.maxConversion)}
                     </p>
-                    <p className="text-[13px] text-[var(--color-ink-muted)]">
+                    <p className="text-13 text-[var(--color-ink-muted)]">
                       Cumulative {formatMoney(year.cumulativeConverted)}
                     </p>
                   </div>
                 ))}
               </div>
-              <p className="mt-4 text-[14px] leading-relaxed text-[var(--color-ink-muted)] italic">
+              <p className="text-14 mt-4 leading-relaxed text-[var(--color-ink-muted)] italic">
                 Up to {formatMoney(ladderTotal)} converted over {DEFAULT_LADDER_YEARS} years —
                 without changing your IRMAA bracket. Real-world ladders should be re-run yearly
                 against actual income; this is a planning starting point, not tax advice.
@@ -361,27 +367,27 @@ function RothWindowCalculatorInner() {
       <section className="mt-6">
         <Card className="card-surface border-gray-300 bg-white text-[var(--color-navy)]">
           <CardHeader className="p-6 pb-2">
-            <CardTitle className="text-[20px] text-[var(--color-ink-muted)]">
-              Want a free walkthrough?
+            <CardTitle className="text-20 text-[var(--color-ink-muted)]">
+              Want to talk it through?
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 p-6 pt-2">
-            <p className="text-[18px] leading-relaxed">
-              Christian is a UNCG Master&apos;s in Accounting student in Greensboro. If you want to
-              talk through your conversion window — or Medicare alongside it — leave a short note
-              and he aims to reach out within one business day.
+            <p className="text-18 leading-relaxed">
+              I’m a licensed insurance agent in Greensboro, finishing a master’s in accounting at
+              UNCG — which is why I’d rather talk about conversion timing than sell you something.
+              Tell me what you’re weighing up and I’ll come back to you within one business day. No
+              charge.
             </p>
             <Button
               asChild
-              className="h-14 w-full bg-[var(--color-navy)] text-[18px] text-[var(--color-paper)]"
+              className="text-18 h-14 w-full bg-[var(--color-navy)] text-[var(--color-paper)]"
             >
               <Link href="/start">Start with what you need help with →</Link>
             </Button>
-            <p className="flex items-center gap-2 text-[14px] text-[var(--color-ink-muted)]">
-              <ArrowRight className="size-4 text-[var(--color-gold)]" aria-hidden />
-              Optional estimate tool:{" "}
+            <p className="text-16 flex items-center gap-2 text-[var(--color-ink-muted)]">
+              <ArrowRight className="size-4 shrink-0 text-[var(--color-gold-ink)]" aria-hidden />
               <Link href="/medicare" className="underline underline-offset-2">
-                Medicare estimate
+                Estimate your own Medicare premium
               </Link>
             </p>
           </CardContent>
@@ -402,15 +408,28 @@ function RothWindowCalculatorInner() {
           }`,
         }}
       />
-
-      <ComplianceDisclosure variant="medicare" showEstimateNote />
-    </main>
+    </>
   );
 }
 
+/**
+ * `useSearchParams` puts everything below it behind a Suspense boundary, and a
+ * boundary with `fallback={null}` inside a statically prerendered page makes
+ * Next bail the whole route out to client-side rendering: the built HTML for
+ * this page contained a BAILOUT marker and no content at all — no heading, no
+ * copy, nothing for a crawler to read or a slow connection to show.
+ *
+ * The static half of the page now lives in page.tsx, which is a server
+ * component, so the shell ships as HTML. Only the interactive calculator —
+ * the part that genuinely depends on the query string — waits here.
+ */
 export function RothWindowCalculator() {
   return (
-    <Suspense fallback={null}>
+    <Suspense
+      fallback={
+        <p className="text-18 mt-6 text-[var(--color-ink-muted)]">Loading the calculator…</p>
+      }
+    >
       <RothWindowCalculatorInner />
     </Suspense>
   );

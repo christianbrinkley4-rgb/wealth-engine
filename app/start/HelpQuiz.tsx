@@ -33,7 +33,7 @@ import { cn } from "@/lib/utils";
 /**
  * Only the non-identifying part of the quiz is persisted. Name, email and
  * phone stay in component state — household computers are the norm in this
- * audience and an abandoned session shouldn't leave contact details on disk.
+ * audience and an abandoned session shouldn’t leave contact details on disk.
  */
 type StoredQuiz = {
   topic: InterestTopic | null;
@@ -82,7 +82,7 @@ function sanitize(raw: StoredQuiz): StoredQuiz {
 
 function optionButtonClass(selected: boolean) {
   return cn(
-    "relative min-h-14 w-full rounded-xl border-2 bg-white px-5 py-5 text-left text-[18px] leading-snug font-semibold text-[var(--color-navy)] transition-[border-color,background-color] duration-150",
+    "relative min-h-14 w-full rounded-xl border-2 bg-white px-5 py-5 text-left text-18 leading-snug font-semibold text-[var(--color-navy)] transition-[border-color,background-color] duration-150",
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]",
     selected
       ? "border-[3px] border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
@@ -91,7 +91,7 @@ function optionButtonClass(selected: boolean) {
 }
 
 const fieldClass =
-  "min-h-14 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-[18px] text-[var(--color-navy)] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]";
+  "min-h-14 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-18 text-[var(--color-navy)] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]";
 
 interface UrlEntry {
   topic: InterestTopic;
@@ -202,7 +202,7 @@ export function HelpQuiz() {
 
   const valueBeat = topic && stored.phase === "value" ? getValueBeat(topic, stored.answers) : null;
 
-  // Move focus to the new question so screen reader and keyboard users aren't
+  // Move focus to the new question so screen reader and keyboard users aren’t
   // stranded at the top of the document after each step.
   useEffect(() => {
     headingRef.current?.focus();
@@ -277,15 +277,15 @@ export function HelpQuiz() {
     const hasPhone = phoneDigits.length >= 10;
 
     if (cleanName.length < 2) {
-      setError("Add your name so I know who I'm asking for.");
+      setError("Add your name so I know who I’m asking for.");
       return;
     }
     if (!EMAIL_REGEX.test(cleanEmail)) {
-      setError("That email doesn't look right — check it so my reply reaches you.");
+      setError("That email doesn’t look right — check it so my reply reaches you.");
       return;
     }
     if (phoneDigits.length > 0 && phoneDigits.length < 10) {
-      setError("That phone number is short a few digits. Leave it blank if you'd rather I email.");
+      setError("That phone number is short a few digits. Leave it blank if you’d rather I email.");
       return;
     }
     if (zipDigits.length !== 5) {
@@ -293,7 +293,7 @@ export function HelpQuiz() {
       return;
     }
     if (!consent) {
-      setError("Check the box so I know it's alright to contact you.");
+      setError("Check the box so I know it’s alright to contact you.");
       return;
     }
 
@@ -335,7 +335,10 @@ export function HelpQuiz() {
         }),
       });
 
-      const data = (await res.json().catch(() => null)) as { error?: string } | null;
+      const data = (await res.json().catch(() => null)) as {
+        error?: string;
+        emailConfigured?: boolean;
+      } | null;
 
       if (!res.ok) {
         setError(
@@ -347,7 +350,14 @@ export function HelpQuiz() {
       }
 
       clearStored();
-      router.push(thankYouUrl({ source: "help_quiz", topic, eventId }));
+      router.push(
+        thankYouUrl({
+          source: "help_quiz",
+          topic,
+          eventId,
+          emailConfigured: data?.emailConfigured,
+        }),
+      );
     } catch {
       setError(`Something went wrong on my end. Please try again, or call me at ${AGENT.phone}.`);
       setSubmitting(false);
@@ -360,7 +370,7 @@ export function HelpQuiz() {
     <div className="mx-auto w-full max-w-[640px]">
       {resumePrompt ? (
         <div className="card-surface mb-8 border-l-4 border-l-[var(--color-gold-ink)] p-5">
-          <p className="text-[17px] text-[var(--color-navy)]">
+          <p className="text-17 text-[var(--color-navy)]">
             You have answers in progress for{" "}
             <strong>{topic ? TOPIC_LABELS[topic] : "another topic"}</strong>. Pick up where you left
             off, or start fresh with <strong>{TOPIC_LABELS[resumePrompt]}</strong>?
@@ -369,7 +379,7 @@ export function HelpQuiz() {
             <button
               type="button"
               onClick={() => setResumeDismissed(true)}
-              className="min-h-12 flex-1 rounded-lg border-2 border-[var(--color-navy)] px-4 text-[16px] font-semibold text-[var(--color-navy)]"
+              className="text-16 min-h-12 flex-1 rounded-lg border-2 border-[var(--color-navy)] px-4 font-semibold text-[var(--color-navy)]"
             >
               Keep going
             </button>
@@ -385,7 +395,7 @@ export function HelpQuiz() {
                 });
                 setResumeDismissed(true);
               }}
-              className="min-h-12 flex-1 rounded-lg bg-[var(--color-navy)] px-4 text-[16px] font-semibold text-[var(--color-paper)]"
+              className="text-16 min-h-12 flex-1 rounded-lg bg-[var(--color-navy)] px-4 font-semibold text-[var(--color-paper)]"
             >
               Start fresh
             </button>
@@ -398,7 +408,7 @@ export function HelpQuiz() {
           <button
             type="button"
             onClick={goBack}
-            className="inline-flex min-h-12 items-center gap-2 rounded-lg px-2 text-[18px] font-medium text-[var(--color-navy)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+            className="text-18 inline-flex min-h-12 items-center gap-2 rounded-lg px-2 font-medium text-[var(--color-navy)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
           >
             <ArrowLeft className="size-5 shrink-0" aria-hidden />
             Back
@@ -406,7 +416,7 @@ export function HelpQuiz() {
         ) : (
           <span className="min-h-12" />
         )}
-        <p className="text-[16px] font-medium text-[var(--color-ink-muted)]" aria-live="polite">
+        <p className="text-16 font-medium text-[var(--color-ink-muted)]" aria-live="polite">
           Step {stepNumber} of {HELP_QUIZ_TOTAL_STEPS} · {STEP_LABELS[stored.phase]}
         </p>
       </div>
@@ -431,13 +441,13 @@ export function HelpQuiz() {
             id="quiz-heading"
             ref={headingRef}
             tabIndex={-1}
-            className="text-[28px] leading-tight font-bold text-[var(--color-navy)] outline-none md:text-[32px]"
+            className="text-28 md:text-32 leading-tight font-bold text-[var(--color-navy)] outline-none"
           >
             What can I help you sort out?
           </h1>
-          <p className="mt-3 text-[18px] leading-relaxed text-[var(--color-navy)]/85">
-            Two quick questions, then I&apos;ll show you what usually matters most in your
-            situation. No cost, and nothing to sign.
+          <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
+            Two quick questions, then I’ll show you what usually matters most in your situation. No
+            cost, and nothing to sign.
           </p>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {TOPICS.map((item) => {
@@ -458,10 +468,8 @@ export function HelpQuiz() {
                     strokeWidth={1.5}
                     aria-hidden
                   />
-                  <span className="text-[22px] font-bold text-[var(--color-navy)]">
-                    {item.label}
-                  </span>
-                  <span className="text-[16px] leading-snug font-normal text-[var(--color-ink-muted)]">
+                  <span className="text-22 font-bold text-[var(--color-navy)]">{item.label}</span>
+                  <span className="text-16 leading-snug font-normal text-[var(--color-ink-muted)]">
                     {TOPIC_META[item.id].blurb}
                   </span>
                 </button>
@@ -473,7 +481,7 @@ export function HelpQuiz() {
 
       {stored.phase === "branch" && currentBranch ? (
         <section aria-labelledby="quiz-heading">
-          <p className="text-[14px] font-medium tracking-[0.08em] text-[var(--color-gold-ink)] uppercase">
+          <p className="text-14 font-medium tracking-[0.08em] text-[var(--color-gold-ink)] uppercase">
             {topic ? TOPIC_LABELS[topic] : ""}
           </p>
 
@@ -483,7 +491,7 @@ export function HelpQuiz() {
             explanation reads as a glitch.
           */}
           {preAnswered ? (
-            <p className="mt-2 text-[17px] leading-relaxed text-[var(--color-ink-muted)]">
+            <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
               You said: <span className="font-medium text-[var(--color-navy)]">{preAnswered}</span>{" "}
               <button
                 type="button"
@@ -498,12 +506,12 @@ export function HelpQuiz() {
             id="quiz-heading"
             ref={headingRef}
             tabIndex={-1}
-            className="mt-2 text-[26px] leading-tight font-bold text-[var(--color-navy)] outline-none md:text-[28px]"
+            className="text-26 md:text-28 mt-2 leading-tight font-bold text-[var(--color-navy)] outline-none"
           >
             {currentBranch.prompt}
           </h1>
           {currentBranch.help ? (
-            <p className="mt-2 text-[18px] leading-relaxed text-[var(--color-ink-muted)]">
+            <p className="text-18 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
               {currentBranch.help}
             </p>
           ) : null}
@@ -534,23 +542,23 @@ export function HelpQuiz() {
       {stored.phase === "value" && valueBeat ? (
         <section aria-labelledby="quiz-heading">
           <div className="card-surface border-l-4 border-l-[var(--color-gold-ink)] p-6 md:p-8">
-            <p className="text-[14px] font-medium tracking-[0.08em] text-[var(--color-gold-ink)] uppercase">
+            <p className="text-14 font-medium tracking-[0.08em] text-[var(--color-gold-ink)] uppercase">
               Based on your answers
             </p>
             <h1
               id="quiz-heading"
               ref={headingRef}
               tabIndex={-1}
-              className="mt-3 text-[24px] leading-tight font-bold text-[var(--color-navy)] outline-none md:text-[27px]"
+              className="text-24 md:text-27 mt-3 leading-tight font-bold text-[var(--color-navy)] outline-none"
             >
               {valueBeat.headline}
             </h1>
-            <p className="mt-4 text-[18px] leading-relaxed text-[var(--color-navy)]">
+            <p className="text-18 mt-4 leading-relaxed text-[var(--color-navy)]">
               {valueBeat.lede}
             </p>
             <ul className="mt-5 flex flex-col gap-3">
               {valueBeat.points.map((point) => (
-                <li key={point} className="flex gap-3 text-[17px] leading-relaxed">
+                <li key={point} className="text-17 flex gap-3 leading-relaxed">
                   <CheckCircle2
                     className="mt-1 size-5 shrink-0 text-[var(--color-gold-ink)]"
                     aria-hidden
@@ -559,7 +567,7 @@ export function HelpQuiz() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 border-t border-gray-300 pt-4 text-[15px] leading-relaxed text-[var(--color-ink-muted)]">
+            <p className="text-15 mt-5 border-t border-gray-300 pt-4 leading-relaxed text-[var(--color-ink-muted)]">
               {valueBeat.note}
             </p>
           </div>
@@ -570,11 +578,11 @@ export function HelpQuiz() {
               recordPartial("contact");
               patch({ phase: "contact" });
             }}
-            className="mt-8 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 text-[18px] font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+            className="text-18 mt-8 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
           >
             Send me this, and answer my questions
           </button>
-          <p className="mt-3 text-center text-[16px] text-[var(--color-ink-muted)]">
+          <p className="text-16 mt-3 text-center text-[var(--color-ink-muted)]">
             Or just call me:{" "}
             <a href={AGENT.phoneHref} className="font-semibold text-[var(--color-navy)] underline">
               {AGENT.phone}
@@ -587,13 +595,13 @@ export function HelpQuiz() {
             them — a dated reminder is the honest ask for that person.
           */}
           {topic === "medicare" ? (
-            <p className="mt-6 border-t border-gray-300 pt-6 text-center text-[16px] leading-relaxed text-[var(--color-ink-muted)]">
+            <p className="text-16 mt-6 border-t border-gray-300 pt-6 text-center leading-relaxed text-[var(--color-ink-muted)]">
               Not ready to talk yet?{" "}
               <Link
                 href="/remind-me"
                 className="font-medium text-[var(--color-navy)] underline underline-offset-2"
               >
-                I&apos;ll email you when your enrollment window opens
+                I’ll email you when your enrollment window opens
               </Link>{" "}
               — one email, nothing else.
             </p>
@@ -607,13 +615,13 @@ export function HelpQuiz() {
             id="quiz-heading"
             ref={headingRef}
             tabIndex={-1}
-            className="text-[26px] leading-tight font-bold text-[var(--color-navy)] outline-none md:text-[28px]"
+            className="text-26 md:text-28 leading-tight font-bold text-[var(--color-navy)] outline-none"
           >
             Where should I send it?
           </h1>
-          <p className="mt-3 text-[18px] leading-relaxed text-[var(--color-navy)]/85">
-            You&apos;ll get your answers by email right away. Then I&apos;ll follow up personally —
-            usually the same day, always within one business day.
+          <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
+            You’ll get your answers by email right away. Then I’ll follow up personally — usually
+            the same day, always within one business day.
           </p>
 
           <form onSubmit={submitContact} className="relative mt-8 space-y-5" noValidate>
@@ -633,7 +641,7 @@ export function HelpQuiz() {
             <div>
               <label
                 htmlFor="help-quiz-name"
-                className="mb-2 block text-[18px] font-medium text-[var(--color-navy)]"
+                className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
               >
                 Your name
               </label>
@@ -650,7 +658,7 @@ export function HelpQuiz() {
             <div>
               <label
                 htmlFor="help-quiz-email"
-                className="mb-2 block text-[18px] font-medium text-[var(--color-navy)]"
+                className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
               >
                 Email
               </label>
@@ -671,7 +679,7 @@ export function HelpQuiz() {
               <div>
                 <label
                   htmlFor="help-quiz-phone"
-                  className="mb-2 block text-[18px] font-medium text-[var(--color-navy)]"
+                  className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
                 >
                   Phone{" "}
                   <span className="font-normal text-[var(--color-ink-muted)]">
@@ -693,7 +701,7 @@ export function HelpQuiz() {
               <div>
                 <label
                   htmlFor="help-quiz-zip"
-                  className="mb-2 block text-[18px] font-medium text-[var(--color-navy)]"
+                  className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
                 >
                   ZIP code
                 </label>
@@ -718,7 +726,7 @@ export function HelpQuiz() {
             <div>
               <label
                 htmlFor="help-quiz-note"
-                className="mb-2 block text-[18px] font-medium text-[var(--color-navy)]"
+                className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
               >
                 {ASK_PROMPTS[askContext].label}{" "}
                 <span className="font-normal text-[var(--color-ink-muted)]">(optional)</span>
@@ -731,9 +739,9 @@ export function HelpQuiz() {
                 placeholder={ASK_PROMPTS[askContext].placeholder}
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
-                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-[18px] leading-relaxed text-[var(--color-navy)] outline-none placeholder:text-[var(--color-ink-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+                className="text-18 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 leading-relaxed text-[var(--color-navy)] outline-none placeholder:text-[var(--color-ink-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
               />
-              <p className="mt-2 text-[16px] leading-relaxed text-[var(--color-ink-muted)]">
+              <p className="text-16 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
                 Whatever you write here is what I look up before I call you.
               </p>
             </div>
@@ -741,14 +749,14 @@ export function HelpQuiz() {
             <div>
               <label
                 htmlFor="help-quiz-income"
-                className="mb-2 block text-[18px] font-medium text-[var(--color-navy)]"
+                className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
               >
                 Household income{" "}
                 <span className="font-normal text-[var(--color-ink-muted)]">(optional)</span>
               </label>
-              <p className="mb-2 text-[16px] leading-relaxed text-[var(--color-ink-muted)]">
+              <p className="text-16 mb-2 leading-relaxed text-[var(--color-ink-muted)]">
                 Only useful because Medicare premiums and tax brackets are set by income. Skip it if
-                you&apos;d rather talk about it later.
+                you’d rather talk about it later.
               </p>
               <select
                 id="help-quiz-income"
@@ -766,7 +774,7 @@ export function HelpQuiz() {
               </select>
             </div>
 
-            <label className="flex cursor-pointer gap-3 rounded-xl bg-[rgba(15,34,65,0.04)] px-4 py-4 text-left text-[16px] leading-relaxed text-[var(--color-navy)]">
+            <label className="text-16 flex cursor-pointer gap-3 rounded-xl bg-[rgba(15,34,65,0.04)] px-4 py-4 text-left leading-relaxed text-[var(--color-navy)]">
               <input
                 type="checkbox"
                 checked={consent}
@@ -785,7 +793,7 @@ export function HelpQuiz() {
             </label>
 
             {phone.replace(/\D/g, "").length >= 10 ? (
-              <label className="flex cursor-pointer gap-3 rounded-xl bg-[rgba(15,34,65,0.04)] px-4 py-4 text-left text-[15px] leading-relaxed text-[var(--color-navy)]">
+              <label className="text-15 flex cursor-pointer gap-3 rounded-xl bg-[rgba(15,34,65,0.04)] px-4 py-4 text-left leading-relaxed text-[var(--color-navy)]">
                 <input
                   type="checkbox"
                   checked={smsConsent}
@@ -804,7 +812,7 @@ export function HelpQuiz() {
             ) : null}
 
             {error ? (
-              <p role="alert" className="text-[16px] text-[var(--color-error)]">
+              <p role="alert" className="text-16 text-[var(--color-error)]">
                 {error}
               </p>
             ) : null}
@@ -812,7 +820,7 @@ export function HelpQuiz() {
             <button
               type="submit"
               disabled={submitting}
-              className="inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 text-[18px] font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] disabled:cursor-not-allowed disabled:opacity-70"
+              className="text-18 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] disabled:cursor-not-allowed disabled:opacity-70"
             >
               {submitting ? "Sending…" : "Send my answers"}
             </button>

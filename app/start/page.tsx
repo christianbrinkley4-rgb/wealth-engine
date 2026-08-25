@@ -7,7 +7,7 @@ import { HelpQuiz } from "./HelpQuiz";
 export const metadata: Metadata = {
   title: "What can I help you sort out?",
   description:
-    "Two questions about Medicare, retirement income, or life insurance, and you’ll have a real answer. Christian Brinkley, a licensed agent in Greensboro, follows up personally.",
+    "Two questions about Medicare, retirement income, or life insurance, and you’ll have a real answer. A licensed agent in Greensboro follows up personally.",
   alternates: { canonical: "/start" },
 };
 

@@ -63,28 +63,31 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full bg-[var(--color-paper)] pb-20 text-[var(--color-navy)] md:pb-0">
         <TopRouteChrome />
-        {children}
+        {/* Target for the skip link; the pages render their own <main> inside. */}
+        <div id="main-content" tabIndex={-1} className="outline-none">
+          {children}
+        </div>
 
-        <footer className="app-shell border-t border-gray-300 py-10 text-[17px] leading-relaxed text-[var(--color-navy)]">
-          <p className="text-[18px] font-semibold">{AGENT.name}</p>
+        <footer className="app-shell text-17 border-t border-gray-300 py-10 leading-relaxed text-[var(--color-navy)]">
+          <p className="text-18 font-semibold">{AGENT.name}</p>
           <p className="mt-1 text-[var(--color-ink-muted)]">
             Licensed insurance agent · {AGENT.city}, {AGENT.state} ·{" "}
             <a href={AGENT.phoneHref} className="underline underline-offset-2">
               {AGENT.phone}
             </a>
           </p>
-          <p className="mt-1 text-[16px] text-[var(--color-ink-muted)]">
-            {AGENT.hours}. {AGENT.afterHoursPromise}
+          <p className="text-16 mt-1 text-[var(--color-ink-muted)]">
+            {AGENT.hours} {AGENT.afterHoursPromise}
           </p>
 
-          <p className="mt-5 max-w-3xl text-[15px] text-[var(--color-ink-muted)]">
+          <p className="text-15 mt-5 max-w-[72ch] text-[var(--color-ink-muted)]">
             {GOVERNMENT_DISCLAIMER} This site is operated by {AGENT.name}, a licensed insurance
             agent who represents a limited number of insurance companies. It is not affiliated with
             the University of North Carolina at Greensboro. Nothing here is tax, legal, or
             investment advice.
           </p>
 
-          <p className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[16px]">
+          <p className="text-16 mt-5 flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/start" className="underline underline-offset-2">
               Ask a question
             </Link>
@@ -114,7 +117,7 @@ export default function RootLayout({
             </Link>
           </p>
 
-          <p className="mt-5 text-[15px] text-[var(--color-ink-muted)]">
+          <p className="text-15 mt-5 text-[var(--color-ink-muted)]">
             © {year} {AGENT.name}. All rights reserved.
           </p>
         </footer>

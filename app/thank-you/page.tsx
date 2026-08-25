@@ -21,6 +21,8 @@ function ThankYouInner() {
   const topicRaw = searchParams.get("topic");
   const topic = topicLabel(topicRaw);
   const eventId = searchParams.get("eid");
+  /* Set by the API when no email provider is configured — see thankYouUrl. */
+  const emailUnavailable = searchParams.get("noemail") === "1";
 
   // The conversion event. Shares its id with the server-side event so the ad
   // platform counts one lead rather than two.
@@ -36,18 +38,28 @@ function ThankYouInner() {
       <div className="mx-auto max-w-2xl">
         <div className="text-center">
           <CheckCircle2 className="mx-auto size-12 text-[var(--color-success)]" aria-hidden />
-          <h1 className="mt-5 text-[30px] font-semibold tracking-tight text-balance text-[var(--color-navy)] md:text-[34px]">
-            {isHelpQuiz ? "Got it — check your email." : "You're all set."}
+          <h1 className="text-30 md:text-34 mt-5 font-semibold tracking-tight text-balance text-[var(--color-navy)]">
+            {emailUnavailable
+              ? "Got it — I have your answers."
+              : isHelpQuiz
+                ? "Got it — check your email."
+                : "You’re all set."}
           </h1>
-          <p className="mt-4 text-[18px] leading-relaxed text-[var(--color-navy)]">
-            {isHelpQuiz ? (
+          <p className="text-18 mt-4 leading-relaxed text-[var(--color-navy)]">
+            {emailUnavailable ? (
+              <>
+                They came straight to me{topic ? <> about {topic.toLowerCase()}</> : null}, and I’ll
+                follow up personally — usually the same day, always within one business day. If you
+                would rather not wait, the number below is mine.
+              </>
+            ) : isHelpQuiz ? (
               <>
                 Your answers are on their way to your inbox right now
-                {topic ? <> about {topic.toLowerCase()}</> : null}. I&apos;ll follow up personally —
+                {topic ? <> about {topic.toLowerCase()}</> : null}. I’ll follow up personally —
                 usually the same day, always within one business day.
               </>
             ) : (
-              "Thanks. I'll follow up if you asked me to get in touch."
+              "Thanks. I’ll follow up if you asked me to get in touch."
             )}
           </p>
         </div>
@@ -61,12 +73,12 @@ function ThankYouInner() {
               aria-hidden
             />
             <div>
-              <h2 className="text-[22px] font-semibold text-[var(--color-navy)]">
+              <h2 className="text-22 font-semibold text-[var(--color-navy)]">
                 Want to pick the time yourself?
               </h2>
-              <p className="mt-2 text-[17px] leading-relaxed text-[var(--color-ink-muted)]">
-                Grab any slot that suits you — 15 minutes is usually plenty. Otherwise I&apos;ll
-                reach out and we&apos;ll find a time.
+              <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                Grab whichever slot suits you — the booking page shows how long I’ve set aside.
+                Otherwise I’ll reach out and we’ll find a time.
               </p>
             </div>
           </div>
@@ -75,7 +87,7 @@ function ThankYouInner() {
             href={AGENT.schedulingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 text-[18px] font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
+            className="text-18 mt-6 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
           >
             Book a time to talk →
           </a>
@@ -84,30 +96,29 @@ function ThankYouInner() {
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <a
             href={AGENT.phoneHref}
-            className="flex min-h-16 items-center justify-center gap-3 rounded-xl border-2 border-[var(--color-navy)] bg-white px-4 text-[18px] font-semibold text-[var(--color-navy)]"
+            className="text-18 flex min-h-16 items-center justify-center gap-3 rounded-xl border-2 border-[var(--color-navy)] bg-white px-4 font-semibold text-[var(--color-navy)]"
           >
             <Phone className="size-5" aria-hidden />
             {AGENT.phone}
           </a>
           <a
             href={`mailto:${AGENT.email}`}
-            className="flex min-h-16 items-center justify-center gap-3 rounded-xl border-2 border-[var(--color-navy)] bg-white px-4 text-[17px] font-semibold break-all text-[var(--color-navy)]"
+            className="text-17 flex min-h-16 items-center justify-center gap-3 rounded-xl border-2 border-[var(--color-navy)] bg-white px-4 font-semibold break-all text-[var(--color-navy)]"
           >
             <Mail className="size-5 shrink-0" aria-hidden />
             Email me
           </a>
         </div>
 
-        <p className="mt-8 text-center text-[16px] leading-relaxed text-[var(--color-ink-muted)]">
-          Nothing arrived in a few minutes? Check your spam folder for a message from{" "}
-          {AGENT.name.split(" ")[0]}, or just call me.
-        </p>
+        {emailUnavailable ? null : (
+          <p className="text-16 mt-8 text-center leading-relaxed text-[var(--color-ink-muted)]">
+            Nothing arrived in a few minutes? Check your spam folder for a message from{" "}
+            {AGENT.name.split(" ")[0]}, or just call me.
+          </p>
+        )}
 
         <div className="mt-10 text-center">
-          <Link
-            href="/"
-            className="text-[16px] text-[var(--color-navy)] underline underline-offset-4"
-          >
+          <Link href="/" className="text-16 text-[var(--color-navy)] underline underline-offset-4">
             ← Back to home
           </Link>
         </div>

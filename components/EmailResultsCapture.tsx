@@ -46,11 +46,11 @@ export function EmailResultsCapture({
     const cleanEmail = email.trim().toLowerCase();
 
     if (!EMAIL_REGEX.test(cleanEmail)) {
-      setError("That email doesn't look right — check it so my reply reaches you.");
+      setError("That email doesn’t look right — check it so my reply reaches you.");
       return;
     }
     if (!consent) {
-      setError("Check the box so I know it's alright to contact you.");
+      setError("Check the box so I know it’s alright to contact you.");
       return;
     }
 
@@ -76,14 +76,18 @@ export function EmailResultsCapture({
         }),
       });
 
+      const data = (await res.json().catch(() => ({}))) as {
+        error?: string;
+        emailConfigured?: boolean;
+      };
+
       if (!res.ok) {
-        const data = (await res.json().catch(() => ({}))) as { error?: string };
         setError(data.error ?? "Something went wrong on my end. Try again?");
         setSubmitState("error");
         return;
       }
 
-      router.push(thankYouUrl({ source, eventId }));
+      router.push(thankYouUrl({ source, eventId, emailConfigured: data.emailConfigured }));
     } catch {
       setError(`Something went wrong on my end. Try again, or call me at ${AGENT.phone}.`);
       setSubmitState("error");
@@ -99,13 +103,13 @@ export function EmailResultsCapture({
     >
       <h2
         id="results-capture-heading"
-        className="flex items-center gap-3 text-[22px] font-semibold text-[var(--color-navy)]"
+        className="text-22 flex items-center gap-3 font-semibold text-[var(--color-navy)]"
       >
         <Mail className="size-6 shrink-0 text-[var(--color-gold-ink)]" aria-hidden />
         {isRoth ? "Send me this conversion estimate" : "Send me these numbers"}
       </h2>
-      <p className="mt-2 text-[17px] leading-relaxed text-[var(--color-ink-muted)]">
-        I&apos;ll email you a copy and follow up personally about what it means for your situation —
+      <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+        I’ll email you a copy and follow up personally about what it means for your situation —
         usually the same day, always within one business day.
       </p>
 
@@ -113,7 +117,7 @@ export function EmailResultsCapture({
         <div>
           <label
             htmlFor="results-name"
-            className="mb-2 block text-[17px] font-medium text-[var(--color-navy)]"
+            className="text-17 mb-2 block font-medium text-[var(--color-navy)]"
           >
             Your name <span className="font-normal text-[var(--color-ink-muted)]">(optional)</span>
           </label>
@@ -123,14 +127,14 @@ export function EmailResultsCapture({
             autoComplete="name"
             value={fullName}
             onChange={(event) => setFullName(event.target.value)}
-            className="min-h-14 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-[18px] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+            className="text-18 min-h-14 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
           />
         </div>
 
         <div>
           <label
             htmlFor="results-email"
-            className="mb-2 block text-[17px] font-medium text-[var(--color-navy)]"
+            className="text-17 mb-2 block font-medium text-[var(--color-navy)]"
           >
             Email
           </label>
@@ -148,11 +152,11 @@ export function EmailResultsCapture({
             }}
             aria-invalid={!!error}
             aria-describedby={error ? "results-capture-error" : undefined}
-            className="min-h-14 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-[18px] outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+            className="text-18 min-h-14 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
           />
         </div>
 
-        <label className="flex cursor-pointer gap-3 rounded-lg bg-[rgba(15,34,65,0.04)] px-4 py-4 text-[16px] leading-relaxed text-[var(--color-navy)]">
+        <label className="text-16 flex cursor-pointer gap-3 rounded-lg bg-[rgba(15,34,65,0.04)] px-4 py-4 leading-relaxed text-[var(--color-navy)]">
           <input
             type="checkbox"
             checked={consent}
@@ -163,11 +167,7 @@ export function EmailResultsCapture({
         </label>
 
         {error ? (
-          <p
-            id="results-capture-error"
-            role="alert"
-            className="text-[17px] text-[var(--color-error)]"
-          >
+          <p id="results-capture-error" role="alert" className="text-17 text-[var(--color-error)]">
             {error}
           </p>
         ) : null}
@@ -175,7 +175,7 @@ export function EmailResultsCapture({
         <button
           type="submit"
           disabled={submitState === "loading"}
-          className="inline-flex min-h-14 w-full items-center justify-center rounded-lg bg-[var(--color-navy)] px-6 text-[18px] font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-70"
+          className="text-18 inline-flex min-h-14 w-full items-center justify-center rounded-lg bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-70"
         >
           {submitState === "loading" ? "Sending…" : "Email it to me →"}
         </button>

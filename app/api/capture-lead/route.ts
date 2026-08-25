@@ -72,7 +72,7 @@ interface LeadPayload {
 }
 
 const CONFIG_ERROR = {
-  error: `I can't save that right now — please email me at ${AGENT.email} or call ${AGENT.phone} and I'll pick it up directly.`,
+  error: `I can’t save that right now — please email me at ${AGENT.email} or call ${AGENT.phone} and I’ll pick it up directly.`,
   code: "storage_unavailable",
 };
 
@@ -124,7 +124,7 @@ export async function POST(request: NextRequest) {
   try {
     if (isRateLimited(`capture-lead:${ip}`, { limit: 10, windowMs: 60_000 })) {
       return NextResponse.json(
-        { error: "That's a few too many submissions in a row. Try again in a minute." },
+        { error: "That’s a few too many submissions in a row. Try again in a minute." },
         { status: 429 },
       );
     }
@@ -136,7 +136,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid request." }, { status: 400 });
     }
 
-    // Honeypot: pretend it worked so the bot doesn't retry with a new shape.
+    // Honeypot: pretend it worked so the bot doesn’t retry with a new shape.
     if (typeof body.website === "string" && body.website.trim().length > 0) {
       return NextResponse.json({ success: true });
     }
@@ -156,7 +156,7 @@ export async function POST(request: NextRequest) {
 
     // A partial session is analytics. If storage is down there is nothing worth
     // rescuing, so fail quietly rather than showing the visitor an error for
-    // something they didn't ask for.
+    // something they didn’t ask for.
     if (!supabase && body.stage === "partial") {
       return NextResponse.json({ success: true, stage: "partial" });
     }
@@ -166,7 +166,7 @@ export async function POST(request: NextRequest) {
     const quiz_answers = normalizeQuizAnswers(body.quiz_answers);
 
     /* ---------------------------------------------------------------
-     * Partial lead: someone reached the contact step and hasn't given
+     * Partial lead: someone reached the contact step and hasn’t given
      * details yet. No contact info, no consent — just enough to know an
      * ad produced real interest and where it stalled.
      * ------------------------------------------------------------- */
@@ -196,7 +196,7 @@ export async function POST(request: NextRequest) {
     const turnstile = await verifyTurnstile(body.turnstile_token, ip);
     if (!turnstile.ok) {
       return NextResponse.json(
-        { error: "Couldn't verify that you're a person. Refresh the page and try once more." },
+        { error: "Couldn’t verify that you’re a person. Refresh the page and try once more." },
         { status: 400 },
       );
     }
@@ -242,14 +242,14 @@ export async function POST(request: NextRequest) {
       }
       if (!interest_topic) {
         return NextResponse.json(
-          { error: "Please choose what you'd like help with.", field: "interest_topic" },
+          { error: "Please choose what you’d like help with.", field: "interest_topic" },
           { status: 400 },
         );
       }
       // Consent is proven, not assumed: we store what they saw and agreed to.
       if (body.consent_given !== true || !body.consent_text) {
         return NextResponse.json(
-          { error: "Please check the consent box so I know it's alright to contact you." },
+          { error: "Please check the consent box so I know it’s alright to contact you." },
           { status: 400 },
         );
       }
@@ -303,9 +303,9 @@ export async function POST(request: NextRequest) {
     };
 
     /*
-     * Storage is best-effort; the alert is not. A lead that reaches Christian's
+     * Storage is best-effort; the alert is not. A lead that reaches Christian’s
      * inbox but not the database is a bad day. A lead that reaches neither is a
-     * paid click thrown away — so if the insert can't happen, we still send the
+     * paid click thrown away — so if the insert can’t happen, we still send the
      * notification and tell the visitor it went through, because it did.
      */
     let stored = false;
@@ -384,7 +384,11 @@ export async function POST(request: NextRequest) {
         }),
       ]);
 
-      return NextResponse.json({ success: true, stored: false });
+      return NextResponse.json({
+        success: true,
+        stored: false,
+        emailConfigured: isLeadNotifyConfigured(),
+      });
     }
 
     // Everything past this point is delivery, not storage. The lead is already
@@ -426,12 +430,25 @@ export async function POST(request: NextRequest) {
       }),
     ]);
 
-    return NextResponse.json({ success: true, updated: Boolean(existing), stored });
+    /*
+     * `emailConfigured` is not a detail the visitor needs, but the thank-you
+     * page does. Without an email provider set, sendProspectAutoReply is a
+     * no-op — and the confirmation page was still telling people their answers
+     * were on their way to their inbox. Promising an email that cannot be sent
+     * is worse than not promising one, particularly on a site whose entire
+     * argument is that it does what it says.
+     */
+    return NextResponse.json({
+      success: true,
+      updated: Boolean(existing),
+      stored,
+      emailConfigured: isLeadNotifyConfigured(),
+    });
   } catch (err) {
     console.error("[capture-lead] Unhandled error:", err);
     return NextResponse.json(
       {
-        error: `Something went wrong saving that. Please email me at ${AGENT.email} and I'll follow up directly.`,
+        error: `Something went wrong saving that. Please email me at ${AGENT.email} and I’ll follow up directly.`,
       },
       { status: 500 },
     );

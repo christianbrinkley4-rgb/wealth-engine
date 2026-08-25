@@ -18,8 +18,15 @@ const STATIC_ROUTES: Array<{
   { path: "/roth-window", changeFrequency: "weekly", priority: 0.55 },
 ];
 
+/**
+ * Stamped when the content last actually changed, not at build time. Using
+ * `new Date()` told crawlers every page on the site had been rewritten on
+ * every deploy, which is the fastest way to have lastmod ignored entirely.
+ */
+const CONTENT_LAST_REVIEWED = "2026-08-24";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = CONTENT_LAST_REVIEWED;
   return STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
     url: `${SITE_URL}${path}`,
     lastModified,

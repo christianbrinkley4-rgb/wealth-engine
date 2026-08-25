@@ -12,11 +12,11 @@ export const dynamic = "force-dynamic";
  *
  * Runs daily from Vercel Cron (see vercel.json). Vercel signs its own cron
  * requests with CRON_SECRET; anything else needs that secret as a bearer token,
- * so this can't be triggered by someone who finds the URL.
+ * so this can’t be triggered by someone who finds the URL.
  *
  * Deliberately small batches and one row updated per send: if the function is
  * killed halfway, the reminders already sent are marked sent, and the rest are
- * picked up by tomorrow's run.
+ * picked up by tomorrow’s run.
  */
 
 const BATCH_SIZE = 50;
@@ -79,7 +79,7 @@ export async function GET(request: NextRequest) {
     });
 
     if (!delivered) {
-      // Leave it unsent so tomorrow's run tries again.
+      // Leave it unsent so tomorrow’s run tries again.
       failed += 1;
       continue;
     }

@@ -3,6 +3,8 @@
  * builders, JSON-LD blocks, sitemap, and robots.
  */
 
+import type { Metadata } from "next";
+
 import { AGENT } from "@/lib/agent";
 
 const FALLBACK_SITE_URL = "https://wealth-engine.app";
@@ -23,6 +25,38 @@ export const SITE_OWNER_PHONE = "+1-919-408-6671";
 export const SITE_OWNER_EMAIL = AGENT.email;
 export const SITE_LOCALITY = AGENT.city;
 export const SITE_REGION = AGENT.state;
+
+/**
+ * Per-page Open Graph, merged with the site-wide bits.
+ *
+ * Next replaces the parent segment's `openGraph` object wholesale when a page
+ * declares its own — it does not merge. Six pages declared a title and
+ * description and in doing so dropped og:image, og:site_name and og:locale, so
+ * the landing pages that get shared to Facebook and Nextdoor were the only
+ * ones posting as a bare grey box. Build the object here instead of by hand.
+ */
+export function pageOpenGraph(input: {
+  title: string;
+  description: string;
+  path: string;
+}): NonNullable<Metadata["openGraph"]> {
+  return {
+    type: "website",
+    siteName: SITE_NAME,
+    locale: "en_US",
+    title: input.title,
+    description: input.description,
+    url: input.path,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${SITE_OWNER} — licensed insurance agent in ${SITE_LOCALITY}, ${SITE_REGION}`,
+      },
+    ],
+  };
+}
 
 export function absoluteUrl(path: string): string {
   if (!path.startsWith("/")) return `${SITE_URL}/${path}`;

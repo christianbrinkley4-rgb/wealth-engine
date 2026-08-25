@@ -89,7 +89,7 @@ export function readAttribution(): Attribution | null {
 }
 
 /**
- * Meta's browser and server events must share an id so the Conversions API
+ * Meta’s browser and server events must share an id so the Conversions API
  * deduplicates them instead of double-counting the lead.
  */
 export function newEventId(): string {
