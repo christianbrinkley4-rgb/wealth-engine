@@ -443,7 +443,7 @@ export function HelpQuiz() {
             tabIndex={-1}
             className="text-28 md:text-32 leading-tight font-bold text-[var(--color-navy)] outline-none"
           >
-            What can I help you sort out?
+            What can I help you figure out?
           </h1>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
             Two quick questions, then I’ll show you what usually matters most in your situation. No

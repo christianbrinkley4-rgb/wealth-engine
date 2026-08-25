@@ -332,7 +332,7 @@ export function MedicareWizard() {
             step={1}
             onChange={(age) => updateState({ age })}
             format={(value) => String(value)}
-            inputWidthClass="w-28"
+            inputMaxWidthClass="max-w-32"
           />
           <div className="px-2 py-2">
             <Slider

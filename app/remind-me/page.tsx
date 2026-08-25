@@ -35,7 +35,7 @@ export default function RemindMePage() {
           Most people who find this site aren’t ready to decide anything — they turn 65 next spring,
           or their annual window is months away. The mistake that costs money isn’t picking the
           wrong plan, it’s missing the date. Pick the month you turn 65 and your dates appear below
-          straight away, with no email needed. Whether I remind you nearer the time is up to you.
+          right away, with no email needed. Whether I remind you nearer the time is up to you.
         </p>
 
         <div className="mt-8">

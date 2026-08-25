@@ -86,7 +86,7 @@ export default function HelpingAParentPage() {
                 You’re the one reading about Medicare at 11pm. Not them.
               </h1>
               <p className="text-20 mt-5 max-w-xl leading-relaxed text-[var(--color-ink-muted)]">
-                Someone has to work out what Mom or Dad needs to do and by when, and it’s usually
+                Someone has to figure out what Mom or Dad needs to do and by when, and it’s usually
                 whichever adult child is best at forms. Here’s the short version — the dates that
                 matter, the paperwork that blocks you, and what to actually ask.
               </p>
@@ -135,7 +135,7 @@ export default function HelpingAParentPage() {
 
       <section className="bg-white py-14 md:py-18">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Four things to sort out first</h2>
+          <h2 className="text-28 font-semibold">Four things to settle first</h2>
           <ol className="mt-8 flex flex-col gap-8">
             {FIRST_STEPS.map((step, index) => (
               <li key={step.title} className="flex gap-5">

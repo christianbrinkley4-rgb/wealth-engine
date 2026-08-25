@@ -36,9 +36,9 @@ export default function AboutPage() {
                 Licensed insurance agent · {AGENT.city}, {AGENT.state}
               </p>
               <p className="text-19 mt-4 max-w-xl leading-relaxed text-[var(--color-ink-muted)]">
-                {AGENT.linesOfAuthority.join(" and ")} licensed in {AGENT.licensedStates.join(", ")}
-                . Finishing a master’s in accounting at UNC Greensboro. This site is my own — it
-                isn’t a call center or a lead-generation company.
+                Licensed in {AGENT.licensedStates.join(", ")}, and finishing a master’s in
+                accounting at UNC Greensboro. This site is mine. It isn’t a call center, and it
+                isn’t a lead company dressed up to look like one person.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -75,7 +75,7 @@ export default function AboutPage() {
             explained anywhere you’d naturally look.
           </p>
           <p>
-            So the deal here is simple: tell me what you’re trying to work out, and I’ll tell you
+            So the deal here is simple: tell me what you’re trying to figure out, and I’ll tell you
             the part that matters. If that turns into me helping you with coverage, good. If it
             turns into me telling you that you’re already fine, or that you need an accountant
             rather than an agent, that’s a good outcome too — and it happens regularly.
@@ -106,10 +106,7 @@ export default function AboutPage() {
               Licensing and education
             </h2>
             <ul className="text-17 mt-4 list-disc space-y-3 pl-5 leading-relaxed text-[var(--color-navy)]">
-              <li>
-                Licensed insurance producer — {AGENT.linesOfAuthority.join(", ")} — in{" "}
-                {AGENT.licensedStates.join(", ")}
-              </li>
+              <li>Licensed insurance agent in {AGENT.licensedStates.join(", ")}</li>
               {hasPublishableNpn() ? <li>National Producer Number {AGENT.npn}</li> : null}
               <li>Master’s in Accounting, University of North Carolina at Greensboro</li>
               <li>Coursework in individual tax and financial planning</li>

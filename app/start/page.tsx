@@ -5,7 +5,7 @@ import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { HelpQuiz } from "./HelpQuiz";
 
 export const metadata: Metadata = {
-  title: "What can I help you sort out?",
+  title: "What can I help you figure out?",
   description:
     "Two questions about Medicare, retirement income, or life insurance, and you’ll have a real answer. A licensed agent in Greensboro follows up personally.",
   alternates: { canonical: "/start" },

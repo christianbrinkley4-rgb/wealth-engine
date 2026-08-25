@@ -32,7 +32,15 @@ export const AGENT = {
   /** TODO: states where you hold a resident/non-resident producer license. */
   licensedStates: ["North Carolina"],
 
-  /** TODO: the lines of authority on your license. */
+  /**
+   * Kept for the record, deliberately not printed anywhere.
+   *
+   * "Life and Accident & Health licensed in North Carolina" is how a licence
+   * reads on a state database, not how anyone introduces themselves. On the
+   * page it made a real agent sound like a form. The pages say "licensed
+   * agent" and name the state; the lines of authority are a detail nobody
+   * outside the industry has ever asked about.
+   */
   linesOfAuthority: ["Life", "Accident & Health"],
 
   education: "Master’s in Accounting, UNC Greensboro",
@@ -44,7 +52,7 @@ export const AGENT = {
    */
   hours: "Monday through Friday, 9am to 7pm, and Saturday mornings.",
   afterHoursPromise:
-    "Call outside those hours and leave a message — I return calls first thing the next working day.",
+    "Call outside those hours and leave a message. I return calls first thing the next business day.",
 } as const;
 
 /**

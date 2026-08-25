@@ -106,6 +106,9 @@ export default function RootLayout({
             <Link href="/about" className="underline underline-offset-2">
               About
             </Link>
+            <Link href="/plan" className="underline underline-offset-2">
+              Conversion timing planner
+            </Link>
             <Link href="/medicare" className="underline underline-offset-2">
               Medicare estimate
             </Link>

@@ -44,8 +44,8 @@ const TOPICS = [
 
 const FAQ = [
   {
-    q: "What do you actually do for me?",
-    a: "Work out what you need, check your doctors and prescriptions against the plans I can offer for the year your coverage starts, do the enrollment paperwork with you, and answer the phone afterwards when a claim is denied or a letter makes no sense. That last part is most of the job and there is no fee for any of it.",
+    q: "What do you do for me, exactly?",
+    a: "Figure out what you need, check your doctors and prescriptions against the plans I can offer for the year your coverage starts, do the enrollment paperwork with you, and answer the phone afterwards when a claim is denied or a letter makes no sense. That last part is most of the job and there is no fee for any of it.",
   },
   {
     q: "What does this cost?",
@@ -57,11 +57,11 @@ const FAQ = [
   },
   {
     q: "Is this going to turn into ten phone calls from strangers?",
-    a: "No. Your answers come to me and stay with me. I don’t sell leads and I don’t pass your name to a call center or a lead network. One person — me — reads what you wrote and calls you.",
+    a: "No. Your answers come to me and stay with me. I don’t sell leads, and I don’t pass your name to a call center or a lead network. One person reads what you wrote, and that person calls you.",
   },
   {
-    q: "What actually happens after I submit the form?",
-    a: "You get an email straight away with your answers and the guidance you saw on screen. Then I call or email you personally, usually the same day and always within one business day. If you’d rather pick the time, there’s a scheduling link in that email.",
+    q: "What happens after I send the form?",
+    a: "I read it myself, and it doesn’t go to anyone else. Then I call or email you, usually the same day and always within one business day. If a particular time is easier for you, say so and I’ll send you a link to pick one.",
   },
   {
     q: "Do I have to buy anything?",
@@ -87,13 +87,13 @@ export default function HomePage() {
               </p>
 
               <h1 className="text-34 md:text-46 mt-4 leading-[1.12] font-semibold tracking-tight text-balance text-[var(--color-navy)]">
-                Turning 65 means the phone never stops. I’m not one of those calls.
+                Medicare answers from one licensed agent in Greensboro.
               </h1>
 
               <p className="text-20 mt-5 max-w-xl leading-relaxed text-[var(--color-ink-muted)]">
-                I’m one person, licensed and based here in Greensboro. Ask me what you actually want
-                to know and I’ll answer it — before I ask you for anything, and whether or not we
-                ever work together.
+                Turning 65 means the phone never stops ringing. I’m not one of those calls. Ask me
+                what you want to know and I’ll answer it, before I ask you for anything, and whether
+                or not we ever work together.
               </p>
 
               {/*
@@ -128,7 +128,8 @@ export default function HomePage() {
                 </a>
               </div>
               <p className="text-16 mt-4 text-[var(--color-ink-muted)]">
-                Two questions, then a real answer. No cost, and your information is never sold.
+                A couple of questions, then a real answer. No cost, and your information is never
+                sold.
               </p>
               <p className="text-16 mt-2 text-[var(--color-ink-muted)]">
                 {AGENT.hours} {AGENT.afterHoursPromise}
@@ -175,6 +176,64 @@ export default function HomePage() {
       </section>
 
       {/*
+        ---------- what the job is ----------
+        The page above this one lists six things I won't do. Nowhere did it say
+        what I will do, which left "ask a question" as the entire offer — an
+        invitation to a conversation with no stated destination. People do not
+        hand over a phone number for an ambiguous outcome, and an agent whose
+        service is never described reads as someone with nothing to describe.
+      */}
+      <section className="bg-white py-16 md:py-20">
+        <div className="measure-prose mx-auto max-w-3xl px-4">
+          <h2 className="text-30 font-semibold text-[var(--color-navy)]">
+            What working with me looks like
+          </h2>
+          <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Four things. That’s the whole job.
+          </p>
+
+          <ol className="mt-8 flex flex-col gap-6">
+            {[
+              {
+                t: "Figure out what you need",
+                b: "Which doctors you want to keep. What prescriptions you take. Whether you travel, and what you could live with paying if something went wrong. About twenty minutes, and most of it isn’t about money.",
+              },
+              {
+                t: "Compare what I can offer against it",
+                b: "I check your doctors and your prescriptions against the plans available where you live, for the year your coverage starts. If something I can’t offer suits you better, I’ll say so and tell you where to find it.",
+              },
+              {
+                t: "Do the paperwork with you",
+                b: "Enrollment forms, Social Security, the Medigap application, an SSA-44 if your premium was set on income you no longer earn. I sit with you while it happens, on the phone or at your kitchen table.",
+              },
+              {
+                t: "Pick up the phone afterwards",
+                b: "A denied claim. A drug that stopped being covered. The notice in September saying your plan is changing. This is most of the work, and there’s no fee for it either.",
+              },
+            ].map((step, index) => (
+              <li key={step.t} className="flex gap-5 border-t border-gray-300 pt-5">
+                <span className="text-18 flex size-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy)] font-bold text-[var(--color-paper)]">
+                  {index + 1}
+                </span>
+                <div>
+                  <h3 className="text-20 font-semibold text-[var(--color-navy)]">{step.t}</h3>
+                  <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                    {step.b}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+
+          <p className="text-18 mt-8 border-l-4 border-[var(--color-gold-ink)] py-2 pl-5 leading-relaxed text-[var(--color-navy)]">
+            <strong>None of it costs you anything.</strong> The insurance company sets your premium,
+            and it’s the same whether you enroll through me, through a call center, or on your own.
+            So the only real question is who you’d rather have answering the phone in March.
+          </p>
+        </div>
+      </section>
+
+      {/*
         ---------- what I won’t do ----------
         The most credible thing on the page, because a call center can’t copy
         it. Every one of these is a promise a boiler room would never make, and
@@ -193,7 +252,7 @@ export default function HomePage() {
             {[
               {
                 t: "I won’t call you from six different numbers",
-                b: "You’ll hear from one person at one number — mine. If you’d rather I email, say so and I’ll email.",
+                b: "You’ll hear from one person, at one number, and it’s mine. If you’d rather I email, say so and I’ll email.",
               },
               {
                 t: "I won’t put you on a list",
@@ -201,19 +260,19 @@ export default function HomePage() {
               },
               {
                 t: "I won’t read you a script",
-                b: 'If you ask something I don’t know, you’ll get "I don’t know, let me find out" rather than a rehearsed answer that sounds close enough.',
+                b: "If you ask something I don’t know, you’ll get “I don’t know, let me find out” rather than a rehearsed answer that sounds close enough.",
               },
               {
                 t: "I won’t push you to decide on the first call",
-                b: "Most of these decisions have a deadline months away. If you need to think, or talk to your spouse, or call your doctor’s office first — that’s the right thing to do.",
+                b: "Most of these decisions have a deadline months away. If you need to think it over, talk to your spouse, or call your doctor’s office first, that’s the right thing to do.",
               },
               {
                 t: "I won’t disappear after you enroll",
-                b: "That’s when the actual questions start — a denied claim, a drug that isn’t covered, a letter that makes no sense. Same number, same person, and no charge for any of it.",
+                b: "That’s when the real questions start. A denied claim, a drug that isn’t covered, a letter that makes no sense. Same number, same person, and no charge for any of it.",
               },
               {
                 t: "I won’t pretend I can show you everything",
-                b: "I represent a limited number of insurance companies, so there are plans I can’t offer you. When one of those is the better fit, I’ll tell you — you can take that to Medicare.gov, 1-800-MEDICARE, or another agent.",
+                b: "I represent a limited number of insurance companies, so there are plans I can’t offer you. When one of those is the better fit, I’ll tell you, and you can take that to Medicare.gov, 1-800-MEDICARE, or another agent.",
               },
             ].map((item) => (
               <li key={item.t} className="border-t border-gray-300 pt-5">
@@ -227,65 +286,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/*
-        ---------- what the job actually is ----------
-        The page above this one lists six things I won't do. Nowhere did it say
-        what I will do, which left "ask a question" as the entire offer — an
-        invitation to a conversation with no stated destination. People do not
-        hand over a phone number for an ambiguous outcome, and an agent whose
-        service is never described reads as someone with nothing to describe.
-      */}
-      <section className="bg-white py-16 md:py-20">
-        <div className="measure-prose mx-auto max-w-3xl px-4">
-          <h2 className="text-30 font-semibold text-[var(--color-navy)]">
-            What I actually do for you
-          </h2>
-          <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Not a mystery, and not a sales funnel. This is the whole job.
-          </p>
-
-          <ol className="mt-8 flex flex-col gap-6">
-            {[
-              {
-                t: "Work out what you actually need",
-                b: "Which doctors you want to keep, what prescriptions you take, whether you travel, what you can live with paying when something goes wrong. Twenty minutes of questions, and most of them are not about money.",
-              },
-              {
-                t: "Compare what I can offer against it",
-                b: "I check your doctors and your drugs against the specific plans available where you live — for the year the coverage starts, not the year you are reading this. If something I cannot offer fits you better, I say so and tell you where to get it.",
-              },
-              {
-                t: "Do the paperwork with you",
-                b: "Enrollment forms, Social Security, the Medigap application, an SSA-44 if your premium was set on income you no longer have. Sitting with you while it happens, on the phone or at your kitchen table.",
-              },
-              {
-                t: "Pick up the phone afterwards",
-                b: "A denied claim, a drug that stopped being covered, a letter that makes no sense, the annual notice in September saying your plan is changing. This is most of the actual work, and it is the part that has no fee attached either.",
-              },
-            ].map((step, index) => (
-              <li key={step.t} className="flex gap-5 border-t border-gray-300 pt-5">
-                <span className="text-18 flex size-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy)] font-bold text-[var(--color-paper)]">
-                  {index + 1}
-                </span>
-                <div>
-                  <h3 className="text-20 font-semibold text-[var(--color-navy)]">{step.t}</h3>
-                  <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                    {step.b}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-
-          <p className="text-18 mt-8 border-l-4 border-[var(--color-gold-ink)] py-2 pl-5 leading-relaxed text-[var(--color-navy)]">
-            <strong>None of that costs you anything.</strong> Your premium is set by the insurance
-            company and is the same whether you enroll through me, through a call center, or on your
-            own — so the only question worth asking is who you would rather have answering the phone
-            in March.
-          </p>
-        </div>
-      </section>
-
       {/* ---------- what happens next ---------- */}
       <section className="bg-[var(--color-paper)] py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
@@ -296,18 +296,18 @@ export default function HomePage() {
             {[
               {
                 n: "1",
-                t: "You get your answers by email",
-                b: "Straight away — the same guidance you saw on screen, in writing, so you can read it again or show it to your spouse.",
+                t: "I read what you sent",
+                b: "Me, personally. Not an assistant, and it doesn’t go to anyone else. What you write is what I look up before we talk.",
               },
               {
                 n: "2",
-                t: "I read what you wrote",
-                b: "Me personally — not an assistant, and not handed to anyone else. What you write is what I look up before we speak.",
+                t: "I call or email you",
+                b: "Usually the same day, and always within one business day. If you’d rather email than talk, say so and that’s what I’ll do.",
               },
               {
                 n: "3",
-                t: "I call or email you",
-                b: "Usually the same day, always within one business day. Pick your own time from the link in the email if you’d rather.",
+                t: "You decide what happens next",
+                b: "Sometimes that’s a plan comparison. Sometimes it’s me telling you what you have is fine. Either way there’s nothing to sign and no one calls you again unless you ask.",
               },
             ].map((step) => (
               <li key={step.n} className="flex flex-col gap-3">
@@ -366,7 +366,7 @@ export default function HomePage() {
                 {
                   Icon: ShieldCheck,
                   title: "Licensed agent",
-                  body: `${AGENT.linesOfAuthority.join(" and ")} licensed in ${AGENT.licensedStates.join(", ")}`,
+                  body: `Licensed in ${AGENT.licensedStates.join(", ")}, and this is what I do full time`,
                 },
                 {
                   Icon: Phone,
@@ -375,8 +375,8 @@ export default function HomePage() {
                 },
                 {
                   Icon: Clock,
-                  title: "Answers straight away",
-                  body: "By email the moment you send them, before we ever speak",
+                  title: "A fast answer",
+                  body: "Usually the same day, and always within one business day",
                 },
                 {
                   Icon: MapPin,
@@ -408,7 +408,7 @@ export default function HomePage() {
       <section className="bg-white py-16 md:py-20">
         <div className="measure-prose mx-auto max-w-3xl px-4">
           <h2 className="text-30 font-semibold text-[var(--color-navy)]">
-            The questions people actually ask me
+            The questions people ask me most
           </h2>
           <dl className="mt-8 flex flex-col gap-7">
             {FAQ.map((item) => (
@@ -480,6 +480,9 @@ export default function HomePage() {
           </Link>
           <Link href="/roth-window" className="underline underline-offset-2">
             Roth conversion estimate
+          </Link>
+          <Link href="/plan" className="underline underline-offset-2">
+            What conversion timing costs
           </Link>
         </div>
       </section>

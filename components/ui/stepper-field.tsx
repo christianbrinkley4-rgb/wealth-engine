@@ -26,7 +26,7 @@ export function StepperField({
   step,
   onChange,
   format,
-  inputWidthClass = "w-40",
+  inputMaxWidthClass = "max-w-48",
 }: {
   id: string;
   /** Visible above the control; also names the group for assistive tech. */
@@ -38,7 +38,12 @@ export function StepperField({
   onChange: (next: number) => void;
   /** How the number reads in the field — currency, a plain age, and so on. */
   format: (value: number) => string;
-  inputWidthClass?: string;
+  /**
+   * A cap, not a fixed width. The field flexes down so the control still fits
+   * a 375px phone when the reader has raised their browser font size, which is
+   * exactly the combination this audience is most likely to be in.
+   */
+  inputMaxWidthClass?: string;
 }) {
   const clamp = (next: number) => Math.min(max, Math.max(min, next));
 
@@ -52,7 +57,7 @@ export function StepperField({
     "inline-flex size-12 shrink-0 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.06)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] disabled:cursor-not-allowed disabled:opacity-40";
 
   return (
-    <div className="flex items-center justify-center gap-3">
+    <div className="flex w-full items-center justify-center gap-3">
       <button
         type="button"
         onClick={() => onChange(clamp(value - step))}
@@ -71,7 +76,7 @@ export function StepperField({
         value={format(value)}
         onChange={(event) => commitTyped(event.target.value)}
         onBlur={(event) => commitTyped(event.target.value)}
-        className={`text-28 h-14 ${inputWidthClass} rounded-xl border border-gray-300 bg-white text-center font-semibold text-[var(--color-navy)] tabular-nums outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]`}
+        className={`text-28 h-14 min-w-0 flex-1 ${inputMaxWidthClass} rounded-xl border border-gray-300 bg-white text-center font-semibold text-[var(--color-navy)] tabular-nums outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]`}
       />
 
       <button

@@ -15,6 +15,7 @@ const STATIC_ROUTES: Array<{
   { path: "/about", changeFrequency: "monthly", priority: 0.7 },
   { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/plan", changeFrequency: "weekly", priority: 0.8 },
   { path: "/roth-window", changeFrequency: "weekly", priority: 0.55 },
 ];
 

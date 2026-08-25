@@ -33,8 +33,7 @@ export function ComplianceDisclosure({
 
       <div className="mt-3 space-y-3">
         <p>
-          {AGENT.name} is a licensed insurance agent ({AGENT.linesOfAuthority.join(", ")}) in{" "}
-          {AGENT.licensedStates.join(", ")}
+          {AGENT.name} is a licensed insurance agent in {AGENT.licensedStates.join(", ")}
           {/* Never print a placeholder NPN on a licensed agent’s disclosure. */}
           {hasPublishableNpn() ? `, National Producer Number ${AGENT.npn}` : ""}. This site is his
           own. He represents a limited number of insurance companies and does not offer every plan

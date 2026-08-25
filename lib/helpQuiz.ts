@@ -104,7 +104,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
       },
       {
         id: "planning_focus",
-        prompt: "What do you want to sort out first?",
+        prompt: "What do you want to tackle first?",
         options: [
           { value: "social_security", label: "When to start Social Security" },
           { value: "income_order", label: "Which accounts to draw from first" },

@@ -8,6 +8,7 @@ import { AGENT } from "@/lib/agent";
 
 const HIDE_PREFIXES = [
   "/start",
+  "/plan",
   "/medicare",
   "/roth-window",
   "/remind-me",
