@@ -19,11 +19,21 @@ import { cn } from "@/lib/utils";
  * should never have to find a menu, and five links fit.
  */
 
+/**
+ * The four areas, not four Medicare questions.
+ *
+ * This read "Can I keep my doctor?", "My premium went up" and "Helping a
+ * parent" — three of five links, every one of them Medicare. A visitor who
+ * scans the top of a page before reading it concluded this was a Medicare
+ * site no matter what the headline said, and anyone here about income or
+ * life insurance left. The Medicare guides are still linked from the pages
+ * where they belong and from the footer.
+ */
 const NAV = [
-  { href: "/start", label: "Ask a question" },
-  { href: "/keep-my-doctor", label: "Can I keep my doctor?" },
-  { href: "/irmaa-appeal", label: "My premium went up" },
-  { href: "/helping-a-parent", label: "Helping a parent" },
+  { href: "/start?topic=medicare&stage=turning_65_soon", label: "Turning 65" },
+  { href: "/start?topic=medicare&stage=already_on_medicare", label: "Already on Medicare" },
+  { href: "/retirement-income", label: "Retirement income" },
+  { href: "/life-insurance", label: "Life insurance" },
   { href: "/about", label: "About me" },
 ] as const;
 

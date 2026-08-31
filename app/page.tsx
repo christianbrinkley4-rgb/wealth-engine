@@ -25,31 +25,39 @@ const primaryCta =
   "inline-flex h-16 min-h-16 w-full shrink-0 items-center justify-center rounded-[12px] bg-[var(--color-navy)] px-6 text-20 font-semibold text-balance text-[var(--color-paper)] transition-opacity hover:opacity-95 md:w-auto md:min-w-[280px] md:px-8";
 
 /**
- * The four things he actually helps with.
+ * The four situations people actually arrive in.
  *
- * Annuities had a page and no route to it from the front door, and the band
- * showed three areas while the practice covers four. A visitor should be able
- * to find their own question here in about a second — that is the job of this
- * row, and it is also how the page states its scope without a list-shaped
- * headline.
- */
-/**
- * The five ways in, written the way somebody would actually say them.
+ * Written the way somebody would say it rather than the way the industry
+ * files it: nobody with an old 401(k) thinks "retirement income", and nobody
+ * thinks "I need an annuity" — they think about the money lasting. Medicare
+ * splits in two because turning 65 and the annual window are different
+ * questions, asked by different people, at different times of the year.
  *
- * These were four cards labelled Medicare / Retirement income / Life
- * insurance / Annuities, which asks a visitor to translate their problem into
- * the industry's vocabulary before they can click. Somebody with an old 401(k)
- * does not think "retirement income", they think "what do I do with my old
- * 401(k)". Every row lands somewhere that answers straight away rather than on
- * a form, and the last one exists because a list of four always misses
- * somebody.
+ * Each one lands somewhere that answers rather than on a form.
  */
-const QUESTIONS = [
-  { q: "When do I have to sign up for Medicare?", href: "/remind-me" },
-  { q: "What do I do with my old 401(k)?", href: "/retirement-income" },
-  { q: "Is the life insurance I have enough?", href: "/start?topic=life_insurance" },
-  { q: "Somebody\u2019s pitching me an annuity. Is it any good?", href: "/annuities" },
-  { q: "Something else \u2014 just ask me", href: "/start" },
+const SITUATIONS = [
+  {
+    q: "I\u2019m turning 65",
+    blurb: "When you have to sign up, what happens if you miss it, and the dates in your case",
+    href: "/start?topic=medicare&stage=turning_65_soon",
+  },
+  {
+    q: "I\u2019m already on Medicare",
+    blurb:
+      "Whether to change anything in this year\u2019s window, and why your premium is what it is",
+    href: "/start?topic=medicare&stage=already_on_medicare",
+  },
+  {
+    q: "I\u2019m working out my retirement income",
+    blurb:
+      "An old 401(k), Social Security timing, and what a withdrawal does to your premium later",
+    href: "/start?topic=financial_planning",
+  },
+  {
+    q: "I have a question about life insurance",
+    blurb: "Whether what you have is enough, and what happens to it when the job ends",
+    href: "/start?topic=life_insurance",
+  },
 ] as const;
 
 const FAQ = [
@@ -97,9 +105,9 @@ export default function HomePage() {
 
               <p className="text-20 mt-5 max-w-xl leading-relaxed text-[var(--color-ink-muted)]">
                 The company behind that ad has never been to Greensboro. I have — I’m one licensed
-                agent here in the Triad, and I answer Medicare, retirement income, life insurance
-                and annuity questions myself. Before I ask you for anything, and whether or not we
-                ever work together.
+                agent here in the Triad, and I answer Medicare, retirement and life insurance
+                questions myself. Before I ask you for anything, and whether or not we ever work
+                together.
               </p>
 
               {/*
@@ -188,25 +196,29 @@ export default function HomePage() {
       </section>
 
       {/*
-        The ways in. Full width under the hero so no card is stranded, and
-        two columns rather than four so the questions stay readable as
-        sentences instead of being squeezed into labels.
+        The four situations, two across so each keeps a line of explanation
+        underneath rather than being squeezed into a label.
       */}
       <section className="bg-[var(--color-paper)] pb-14 md:pb-20">
         <div className="mx-auto max-w-6xl px-4">
-          <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
-            {QUESTIONS.map((item) => (
+          <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {SITUATIONS.map((item) => (
               <li key={item.q}>
                 <Link
                   href={item.href}
-                  className="group flex min-h-16 items-center justify-between gap-4 rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
+                  className="group flex min-h-[132px] flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-6 py-5 transition-colors hover:border-[var(--color-navy)]"
                 >
-                  <span className="text-19 font-semibold text-[var(--color-navy)]">{item.q}</span>
-                  <span
-                    aria-hidden
-                    className="text-20 shrink-0 text-[var(--color-gold-ink)] transition-transform group-hover:translate-x-1"
-                  >
-                    →
+                  <span className="text-20 font-semibold text-[var(--color-navy)]">
+                    {item.q}
+                    <span
+                      aria-hidden
+                      className="ml-2 inline-block text-[var(--color-gold-ink)] transition-transform group-hover:translate-x-1"
+                    >
+                      →
+                    </span>
+                  </span>
+                  <span className="text-16 mt-2 leading-snug text-[var(--color-ink-muted)]">
+                    {item.blurb}
                   </span>
                 </Link>
               </li>
