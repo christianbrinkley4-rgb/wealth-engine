@@ -33,27 +33,23 @@ const primaryCta =
  * row, and it is also how the page states its scope without a list-shaped
  * headline.
  */
-const TOPICS = [
-  {
-    label: "Medicare",
-    href: "/start?topic=medicare",
-    blurb: "Enrollment windows, what the parts cover, why your premium is what it is",
-  },
-  {
-    label: "Retirement income",
-    href: "/start?topic=financial_planning",
-    blurb: "Social Security timing, which accounts to draw from, taxes in retirement",
-  },
-  {
-    label: "Life insurance",
-    href: "/start?topic=life_insurance",
-    blurb: "Coverage that ends at retirement, final expenses, reviewing what you have",
-  },
-  {
-    label: "Annuities",
-    href: "/annuities",
-    blurb: "What one actually does, when it is the wrong answer, and reading a proposal",
-  },
+/**
+ * The five ways in, written the way somebody would actually say them.
+ *
+ * These were four cards labelled Medicare / Retirement income / Life
+ * insurance / Annuities, which asks a visitor to translate their problem into
+ * the industry's vocabulary before they can click. Somebody with an old 401(k)
+ * does not think "retirement income", they think "what do I do with my old
+ * 401(k)". Every row lands somewhere that answers straight away rather than on
+ * a form, and the last one exists because a list of four always misses
+ * somebody.
+ */
+const QUESTIONS = [
+  { q: "When do I have to sign up for Medicare?", href: "/remind-me" },
+  { q: "What do I do with my old 401(k)?", href: "/retirement-income" },
+  { q: "Is the life insurance I have enough?", href: "/start?topic=life_insurance" },
+  { q: "Somebody\u2019s pitching me an annuity. Is it any good?", href: "/annuities" },
+  { q: "Something else \u2014 just ask me", href: "/start" },
 ] as const;
 
 const FAQ = [
@@ -92,18 +88,18 @@ export default function HomePage() {
           <div className="grid grid-cols-1 items-start gap-12 md:grid-cols-[3fr_2fr] md:gap-14">
             <div>
               <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-                Greensboro · Piedmont Triad
+                Greensboro · High Point · Winston-Salem
               </p>
 
               <h1 className="text-34 md:text-46 mt-4 leading-[1.12] font-semibold tracking-tight text-balance text-[var(--color-navy)]">
-                Get a real answer before you give up your phone number.
+                What are you trying to figure out?
               </h1>
 
               <p className="text-20 mt-5 max-w-xl leading-relaxed text-[var(--color-ink-muted)]">
-                Medicare, retirement income, life insurance, annuities. I’m one licensed agent here
-                in Greensboro — not a call center, and not a form that hands your number to a dozen
-                strangers. Tell me what you’re trying to work out and I’ll answer it, whether or not
-                we ever work together.
+                The company behind that ad has never been to Greensboro. I have — I’m one licensed
+                agent here in the Triad, and I answer Medicare, retirement income, life insurance
+                and annuity questions myself. Before I ask you for anything, and whether or not we
+                ever work together.
               </p>
 
               {/*
@@ -192,32 +188,30 @@ export default function HomePage() {
       </section>
 
       {/*
-        The three topics, as a band rather than a column.
-
-        They used to sit inside the hero's left column, which left a 479x282
-        hole beside them and made the hero 1,159px tall — pushing the call to
-        action below the fold. Out here they are three across, the hero loses
-        about 300px, and the page gains a piece of structure instead of a stack
-        of narrow boxes.
+        The ways in. Full width under the hero so no card is stranded, and
+        two columns rather than four so the questions stay readable as
+        sentences instead of being squeezed into labels.
       */}
       <section className="bg-[var(--color-paper)] pb-14 md:pb-20">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {TOPICS.map((topic) => (
-              <Link
-                key={topic.label}
-                href={topic.href}
-                className="group flex min-h-[132px] flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-6 py-5 transition-colors hover:border-[var(--color-navy)]"
-              >
-                <span className="text-20 font-semibold text-[var(--color-navy)]">
-                  {topic.label} →
-                </span>
-                <span className="text-16 mt-2 leading-snug text-[var(--color-ink-muted)]">
-                  {topic.blurb}
-                </span>
-              </Link>
+          <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
+            {QUESTIONS.map((item) => (
+              <li key={item.q}>
+                <Link
+                  href={item.href}
+                  className="group flex min-h-16 items-center justify-between gap-4 rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
+                >
+                  <span className="text-19 font-semibold text-[var(--color-navy)]">{item.q}</span>
+                  <span
+                    aria-hidden
+                    className="text-20 shrink-0 text-[var(--color-gold-ink)] transition-transform group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
