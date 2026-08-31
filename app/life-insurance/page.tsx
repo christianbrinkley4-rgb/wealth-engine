@@ -32,27 +32,27 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Term or whole life?",
-    a: "It comes down to how many more years the money is needed for. If the need ends — a mortgage paid off, a spouse reaching their own pension or Social Security — term coverage for exactly that long is usually the honest answer. If the need does not end, permanent coverage exists for that and costs meaningfully more. Both are legitimate; the mismatch between them is what costs people money.",
+    a: "It comes down to how many more years the money needs to be there. If the need ends — a mortgage paid off, a spouse reaching their own pension or Social Security — term coverage for exactly that long is usually the honest answer. If it doesn’t end, permanent coverage exists for that, and it costs a good deal more. Both are legitimate. It’s the mismatch between them that costs people money.",
   },
   {
     q: "I have coverage through work. Is that enough?",
-    a: "It is worth knowing exactly what happens to it when the job does. Group coverage generally ends with employment and is rarely portable at a price worth paying, which is the most common gap I find at retirement — someone believes they are covered and the coverage left with the badge.",
+    a: "Find out exactly what happens to it when the job ends. Group coverage usually ends with the job, and it’s rarely portable at a price worth paying. It’s the most common gap I find at retirement — somebody thinks they’re covered, and the coverage left with the badge.",
   },
   {
     q: "How much do I need?",
-    a: "Start from what would actually have to be paid rather than a multiple of income. A mortgage balance, the years until a spouse's own benefits start, what a funeral costs here, whether anyone depends on you. That arithmetic usually lands somewhere quite different from the number a calculator produces.",
+    a: "Start from what would actually have to get paid, not a multiple of your income. The mortgage balance. The years until your spouse’s own benefits start. What a funeral runs around here. Whether anybody depends on you. That math usually lands somewhere well away from what a calculator tells you.",
   },
   {
     q: "I am in my sixties. Is it too late?",
-    a: "No, but price rises with every year and a change in health can remove options entirely. That is not a sales line, it is how underwriting works, and it is the reason waiting is the expensive choice in this one particular case.",
+    a: "No, but the price goes up every year, and a change in health can take options off the table completely. That isn’t a sales line, it’s how underwriting works. It’s also why waiting is the expensive choice in this one case.",
   },
   {
     q: "What should I check on the policy I already have?",
-    a: "Two things, and both take five minutes. Who the beneficiary is — that form controls who gets paid and overrides your will, and an ex-spouse listed there still gets the money. And when the coverage actually ends, because term policies are level for a set number of years and then get expensive quickly.",
+    a: "Two things, and both take five minutes. Who the beneficiary is — that form decides who gets paid, it overrides your will, and an ex-spouse still listed there still gets the money. And when the coverage actually ends, because term policies hold their price for a set number of years and then climb fast.",
   },
   {
     q: "Do you charge for a review?",
-    a: "No. A good share of these end with me telling someone what they have is fine, which is a real answer and takes about twenty minutes.",
+    a: "No. A good share of them end with me telling somebody what they’ve got is fine. That’s a real answer, and it takes about twenty minutes.",
   },
 ] as const;
 
@@ -104,9 +104,9 @@ export default function LifeInsurancePage() {
           </h1>
           <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
             How many more years does the money need to be there? Answer that honestly and the
-            product mostly picks itself. Almost every expensive mistake in this business comes from
-            answering it backwards — buying permanent coverage for a temporary need, or term
-            coverage for a permanent one.
+            product mostly picks itself. Nearly every expensive mistake I see comes from getting it
+            backwards — permanent coverage bought for a temporary need, or term coverage for a
+            permanent one.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -132,19 +132,19 @@ export default function LifeInsurancePage() {
           <h2 className="text-28 font-semibold">If the need ends</h2>
           <p className="text-18 mt-4 leading-relaxed">
             A mortgage with eleven years left. A spouse who reaches their own Social Security at 67.
-            A child who finishes school in six years. These are needs with an end date, and term
-            coverage for exactly that long is the honest answer — you are insuring a period, and you
-            should pay for a period.
+            A child who finishes school in six years. Those are needs with an end date. Term
+            coverage for exactly that long is the honest answer — you’re insuring a stretch of time,
+            so pay for a stretch of time.
           </p>
           <h2 className="text-28 mt-10 font-semibold">If it does not</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            Final expenses. A disabled adult child. A tax bill that arrives whenever you do. Those
-            do not expire, and permanent coverage exists for them. It costs meaningfully more and
-            that is not a trick — you are buying a longer promise.
+            Final expenses. A disabled adult child. A tax bill that shows up whenever you do. Those
+            don’t expire, and permanent coverage exists for them. It costs a good deal more, and
+            that isn’t a trick. You’re buying a longer promise.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Both are legitimate products. The money is lost in the mismatch, and the mismatch is
-            usually created by whoever was selling rather than by whoever was buying.
+            Both are legitimate products. People lose money in the mismatch between them, and it’s
+            usually the person selling who creates it, not the person buying.
           </p>
         </div>
       </section>
@@ -165,8 +165,8 @@ export default function LifeInsurancePage() {
             </li>
           </ol>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            Neither of those requires buying anything, and neither requires me. But if you would
-            rather someone read it with you, that is twenty minutes and there is no charge.
+            Neither one means buying anything, and neither one needs me. But if you’d rather
+            somebody read it with you, that’s twenty minutes and it doesn’t cost anything.
           </p>
         </div>
       </section>
@@ -195,8 +195,8 @@ export default function LifeInsurancePage() {
         <div className="app-shell max-w-2xl text-center">
           <h2 className="text-28 font-semibold">Want someone to read your policy with you?</h2>
           <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            Bring what you have. Twenty minutes, no charge, and a fair chance the answer is that you
-            are already fine.
+            Bring what you’ve got. Twenty minutes, no charge, and a fair chance the answer is that
+            you’re already fine.
           </p>
           <Link
             href="/start?topic=life_insurance"

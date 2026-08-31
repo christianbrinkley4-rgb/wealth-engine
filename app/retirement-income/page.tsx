@@ -41,46 +41,46 @@ export const metadata: Metadata = {
 const OPTIONS = [
   {
     t: "Leave it where it is",
-    b: "Many plans let a former employee stay. It is the least effort and sometimes the best answer, particularly if the plan has institutional pricing you would not get elsewhere. What to check is whether the plan forces you out below a balance threshold, and what it charges you now that payroll no longer subsidises it.",
+    b: "Plenty of plans let you stay after you leave. It’s the least effort and sometimes the best answer, especially if the plan has pricing you couldn’t get on your own. Check two things: whether they push you out below a certain balance, and what they charge you now that payroll isn’t covering part of it.",
   },
   {
     t: "Roll it to an IRA",
-    b: "The most common move, and the one with the most people financially interested in you making it. It generally widens what you can hold and changes who charges you. Done as a direct trustee-to-trustee transfer there is no tax; done by cheque to yourself there are withholding rules and a 60-day clock, and missing that clock is expensive.",
+    b: "The most common move, and the one the most people have a financial interest in you making. It usually widens what you can hold and changes who charges you. Done as a direct transfer between institutions, there’s no tax. Done by check to you, there’s withholding and a 60-day clock — and missing that clock is expensive.",
   },
   {
     t: "Roll it into a new employer's plan",
-    b: "Available if you are still working somewhere with a plan that accepts transfers. Worth knowing because still-working money in an active employer plan can be exempt from required distributions in a way IRA money is not.",
+    b: "An option if you’re still working somewhere whose plan takes transfers. Worth knowing about, because money in the plan where you still work can be exempt from required withdrawals in a way IRA money isn’t.",
   },
   {
     t: "Cash it out",
-    b: "Almost always the expensive option. The whole amount becomes income in one year, which is both a tax bill and — the part nobody mentions — a spike in the income Medicare looks at two years later.",
+    b: "Almost always the expensive one. The whole amount becomes income in a single year. That’s a tax bill, and — the part nobody mentions — a spike in the income Medicare looks at two years later.",
   },
 ] as const;
 
 const FAQ = [
   {
     q: "When do required minimum distributions start?",
-    a: "Currently at 73, moving to 75 for people born in 1960 or later. From that point the amount you must withdraw is set by a formula rather than by you, which is why the years before it matter so much.",
+    a: "Right now at 73, moving to 75 if you were born in 1960 or later. From then on, a formula decides how much you take out instead of you. That’s why the years before it matter so much.",
   },
   {
     q: "Why do people talk about the years between retiring and 73?",
-    a: "Because that gap is usually the lowest-income stretch of an entire adult life — the paycheck has stopped and required distributions have not started. What you do in those years is the only period where the order you draw from accounts meaningfully changes the total tax paid.",
+    a: "Because it’s usually the lowest-income stretch of your whole adult life. The paycheck has stopped and the required withdrawals haven’t started. Those years are the only window where the order you pull from accounts really changes what you pay in total.",
   },
   {
     q: "How does any of this touch Medicare?",
-    a: "Medicare sets the income-related part of your premium from a tax return two years old. So a large withdrawal or a Roth conversion at 63 shows up on your first Medicare premium at 65, and a big one-off year can raise premiums for both spouses. That link is the single most overlooked thing in this area.",
+    a: "Medicare sets the income-related part of your premium from a tax return two years old. So a big withdrawal or a Roth conversion at 63 lands on your first Medicare premium at 65 — and if you’re married, on both of your premiums. That connection is the most overlooked thing in this whole area.",
   },
   {
     q: "Is a rollover taxable?",
-    a: "A direct transfer between institutions is not. Taking a distribution personally and moving it yourself starts a 60-day clock and mandatory withholding, and if it is not completed the whole amount becomes taxable income. If you do it, do it as a direct transfer.",
+    a: "A direct transfer between institutions isn’t. Taking the money yourself and moving it starts a 60-day clock and mandatory withholding, and if you don’t finish in time the whole amount becomes taxable income. If you do this, do it as a direct transfer.",
   },
   {
     q: "Can you advise me on how to invest it?",
-    a: "No, and I will say so rather than blur it. I hold an insurance licence, not a securities licence, and I am not a registered investment adviser. What I can do is explain how the deadlines and the tax mechanics work, and tell you when the question you are asking belongs to a CPA or an adviser.",
+    a: "No, and I’d rather say that plainly than blur it. I hold an insurance license, not a securities license, and I’m not a registered investment adviser. What I can do is explain how the deadlines and the tax side work, and tell you when your question belongs to a CPA or an adviser.",
   },
   {
     q: "So what do you actually help with here?",
-    a: "The Medicare side of the decision, which is the part most people miss and the part I am licensed for — how a withdrawal or a conversion lands on your premium two years later, and what the timing is worth. There is a tool on this site that calculates exactly that, and there is no charge for talking it through.",
+    a: "The Medicare side of it, which is the part most people miss and the part I’m licensed for. How a withdrawal or a conversion lands on your premium two years later, and what the timing is worth in dollars. There’s a tool on this site that works it out, and talking it through doesn’t cost anything.",
   },
 ] as const;
 
@@ -131,10 +131,9 @@ export default function RetirementIncomePage() {
             What to do with a 401(k) when you retire
           </h1>
           <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
-            There are four options and a set of deadlines attached to them. This page explains what
-            each one does and what it costs you to get wrong. It does not tell you which to pick,
-            because that depends on things a web page cannot know and, in part, on a licence I do
-            not hold.
+            You have four options, and each one comes with its own deadlines. This page explains
+            what they do and what it costs you to get them wrong. It won’t tell you which to pick —
+            that depends on things a web page can’t know, and partly on a license I don’t hold.
           </p>
         </div>
       </section>
@@ -164,21 +163,21 @@ export default function RetirementIncomePage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The window nobody tells you about</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            Between the day the paycheck stops and the day required distributions begin at 73, your
-            taxable income is lower than it has been in decades and lower than it will be again.
-            That gap is the only stretch where the order you draw from accounts changes the total
-            tax you pay across retirement.
+            Between the day your paycheck stops and the day required withdrawals start at 73, your
+            taxable income is lower than it’s been in decades and lower than it’ll be again. That
+            gap is the only stretch where the order you pull from accounts changes what you pay in
+            total.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
-            It is also where the Medicare trap sits. Because premiums are set from a return two
-            years old, a large withdrawal or a Roth conversion in your early sixties arrives on your
-            first Medicare premium — for both spouses, if you are married. Getting the tax right and
-            the Medicare timing wrong is a common and expensive combination.
+            It’s also where the Medicare trap sits. Premiums come from a return two years old, so a
+            big withdrawal or a Roth conversion in your early sixties shows up on your first
+            Medicare premium — on both of them, if you’re married. Getting the tax right and the
+            Medicare timing wrong is a common and expensive combination.
           </p>
           <div className="card-surface mt-8 border-l-4 border-l-[var(--color-gold-ink)] p-6">
             <p className="text-18 leading-relaxed">
-              There is a calculator on this site for exactly that interaction: what converting all
-              at once costs in Medicare surcharges, against spreading it under your bracket ceiling.
+              There’s a calculator on this site for exactly that: what converting all at once costs
+              you in Medicare surcharges, against spreading it under your bracket ceiling.
             </p>
             <Link
               href="/plan"
@@ -194,16 +193,16 @@ export default function RetirementIncomePage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Where I stop</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            I am a licensed insurance agent finishing a master&rsquo;s in accounting, not a
-            registered investment adviser and not yet a CPA. I do not manage money, recommend
-            investments, or advise on what to hold inside a 401(k) or an IRA. Anyone in this
+            I’m a licensed insurance agent finishing a master&rsquo;s in accounting. I’m not a
+            registered investment adviser and I’m not a CPA yet. I don’t manage money, recommend
+            investments, or tell you what to hold inside a 401(k) or an IRA. Anybody in this
             business who blurs that line is telling you something useful about themselves.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            What I do know well is the part where retirement income collides with Medicare, because
-            that is the intersection of what I studied and what I am licensed for. If your question
-            is about how a withdrawal affects your premium, that is mine. If it is about how the
-            money should be invested, that is an adviser&rsquo;s, and I will say so.
+            What I do know well is where retirement income runs into Medicare, because that’s where
+            what I studied meets what I’m licensed for. If your question is how a withdrawal hits
+            your premium, that one’s mine. If it’s how the money should be invested, that’s an
+            adviser&rsquo;s, and I’ll tell you so.
           </p>
         </div>
       </section>
@@ -232,8 +231,8 @@ export default function RetirementIncomePage() {
         <div className="app-shell max-w-2xl text-center">
           <h2 className="text-28 font-semibold">Working out the timing?</h2>
           <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            Tell me what you are weighing up and I will tell you what it does to your Medicare
-            premium — and which parts you should be asking a CPA or an adviser instead.
+            Tell me what you’re weighing up and I’ll tell you what it does to your Medicare premium,
+            and which parts you should be asking a CPA or an adviser about instead.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
             <a

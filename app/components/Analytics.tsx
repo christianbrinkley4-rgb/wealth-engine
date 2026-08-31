@@ -5,10 +5,16 @@
  * a third-party script on a site with no campaign IDs configured, so local dev
  * and preview deploys stay clean.
  *
- * Set in Vercel to switch a pixel on:
+ * Set in Vercel to switch one on:
  *   NEXT_PUBLIC_META_PIXEL_ID
  *   NEXT_PUBLIC_GA4_ID
  *   NEXT_PUBLIC_NEXTDOOR_PIXEL_ID
+ *   NEXT_PUBLIC_SIMPLE_ANALYTICS  ("true" — no id needed)
+ *
+ * Simple Analytics is cookieless and collects no personal data, so it needs no
+ * consent banner and nothing about it contradicts the promise this site makes
+ * about not passing people's information around. It measures traffic. It does
+ * not optimise an ad — only the Meta pixel does that.
  *
  * The matching server-side Meta Lead event lives in lib/metaCapi.ts and shares
  * an event_id with the browser event so Meta counts one lead, not two.
@@ -22,6 +28,7 @@ import { captureAttribution } from "@/lib/attribution";
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const NEXTDOOR_PIXEL_ID = process.env.NEXT_PUBLIC_NEXTDOOR_PIXEL_ID;
+const SIMPLE_ANALYTICS = process.env.NEXT_PUBLIC_SIMPLE_ANALYTICS === "true";
 
 declare global {
   interface Window {
@@ -91,6 +98,14 @@ window.gtag=gtag;gtag('js',new Date());
 gtag('config','${GA4_ID}');`}
           </Script>
         </>
+      ) : null}
+
+      {SIMPLE_ANALYTICS ? (
+        <Script
+          src="https://scripts.simpleanalyticscdn.com/latest.js"
+          strategy="afterInteractive"
+          data-collect-dnt="false"
+        />
       ) : null}
 
       {NEXTDOOR_PIXEL_ID ? (

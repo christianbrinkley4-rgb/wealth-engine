@@ -30,6 +30,10 @@ const NAV = [
 export function TopRouteChrome() {
   const pathname = usePathname();
 
+  // Paid-traffic landing pages carry their own minimal header; a nav bar
+  // there is five ways to leave before calling.
+  if (pathname?.startsWith("/lp/")) return null;
+
   return (
     <header>
       {/*

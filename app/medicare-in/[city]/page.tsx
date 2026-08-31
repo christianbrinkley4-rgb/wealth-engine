@@ -133,11 +133,11 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Why the county matters more than the city</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            Medicare Advantage and Part D plans are sold county by county. An insurance company can
-            offer a plan in {city.county} and not in the county next door, and where it offers both,
-            the premium and the extras can be different. So the first thing worth establishing about{" "}
-            {city.name} is not which company advertises hardest here. It is that you are shopping
-            from the {city.county} list.
+            Advantage and Part D plans get sold county by county. An insurance company can offer a
+            plan in {city.county} and skip the county next door. Where it sells in both, the premium
+            and the extras can still be different. So the first thing to get straight about{" "}
+            {city.name} isn’t which company advertises hardest here. It’s that you’re shopping from
+            the {city.county} list.
           </p>
           {city.countyNote ? (
             <p className="text-18 mt-4 border-l-4 border-[var(--color-gold-ink)] py-2 pl-5 leading-relaxed">
@@ -159,9 +159,9 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             ))}
           </ul>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Named because that is where most people here are seen, and nothing more. I have no
-            affiliation with any of them, and you will not find a table on this site claiming which
-            plans they take — those arrangements are renegotiated every year, and a stale table is
+            I’ve named them because that’s where most people here get seen, and for no other reason.
+            I’m not affiliated with any of them, and you won’t find a table on this site claiming
+            which plans they take. Those deals get renegotiated every year, and a stale table is
             exactly how somebody picks a plan and loses their doctor.{" "}
             <Link href="/keep-my-doctor" className="underline underline-offset-2">
               Here is how to check it properly
@@ -210,8 +210,8 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
                   <span className="text-16 mt-1 leading-snug text-[var(--color-ink-muted)]">
                     {other.county}
                     {other.county !== city.county
-                      ? " — a different plan list from here"
-                      : " — the same plan list as here"}
+                      ? " — a different plan list from yours"
+                      : " — the same plan list as yours"}
                   </span>
                 </Link>
               </li>
@@ -248,8 +248,8 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         <div className="app-shell max-w-2xl text-center">
           <h2 className="text-28 font-semibold">Tell me who you see in {city.name}</h2>
           <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            Give me the names and I will check them against what I can offer in {city.county}, and
-            tell you plainly when something I cannot offer suits you better.
+            Give me the names and I’ll check them against what I can offer in {city.county}. If
+            something I can’t offer suits you better, I’ll tell you that instead.
           </p>
           <Link
             href={startHref}

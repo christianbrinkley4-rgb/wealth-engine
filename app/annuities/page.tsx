@@ -25,7 +25,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 export const metadata: Metadata = {
   title: { absolute: "Annuities in Greensboro, NC — Straight Answers, No Pitch" },
   description:
-    "What a fixed or indexed annuity does, when it is the wrong answer, and what to ask before signing. From a licensed agent in Greensboro. No cost to talk.",
+    "What a fixed or indexed annuity does, when it’s the wrong answer, and what to ask before you sign. From a licensed agent in Greensboro. No cost to talk.",
   alternates: { canonical: "/annuities" },
   openGraph: pageOpenGraph({
     title: "Annuities, explained without the pitch",
@@ -38,46 +38,46 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "What does an annuity actually do?",
-    a: "You hand an insurance company a sum of money, and in exchange it promises income — either starting now or starting later, for a set number of years or for as long as you live. That is the whole idea. Everything else is terms and conditions on top of it.",
+    a: "You hand an insurance company money. It promises you income back — starting now or starting later, for a set number of years or for as long as you live. That’s the whole idea. Everything else is terms and conditions stacked on top of it.",
   },
   {
     q: "Is an annuity a good investment?",
-    a: "It is generally not an investment, and treating it as one is where people get disappointed. It is insurance against running out of money, and it is priced like insurance. If what you want is growth, an annuity is usually the wrong tool. If what you want is a floor under your income that does not move when the market does, it is the tool built for that.",
+    a: "It’s generally not an investment, and treating it like one is where people end up disappointed. It’s insurance against running out of money, and it’s priced like insurance. If you want growth, this is the wrong tool. If you want a floor under your income that doesn’t move when the market does, it’s the tool built for exactly that.",
   },
   {
     q: "What is the catch?",
-    a: "Access. Most of these contracts charge you to take more than a set amount out during the early years, and that surrender period can run several years. If there is any chance you need that money back soon, that is the reason not to do it, and it is the question I ask first rather than last.",
+    a: "Access. Most of these contracts charge you for taking out more than a set amount in the early years, and that surrender period can run a while. If there’s any chance you need the money back soon, that’s your reason not to do it. It’s the first thing I ask, not the last.",
   },
   {
     q: "Can I put my 401(k) into one?",
-    a: "Money from a 401(k) can be moved into a fixed or indexed annuity, and whether it should be is a different question that depends on what the 401(k) is currently doing and what else you have. I am licensed for insurance products, not securities, so if the right answer involves staying invested in the market, that is a conversation for an investment adviser and I will tell you so.",
+    a: "You can move money from a 401(k) into a fixed or indexed annuity. Whether you should is a different question, and it depends on what that 401(k) is doing now and what else you’ve got. I’m licensed for insurance, not securities. If the right answer is to stay invested in the market, that’s a conversation for an adviser and I’ll tell you so.",
   },
   {
     q: "Do you sell variable annuities?",
-    a: "No. Variable annuities are securities and require a securities licence, which I do not hold. I work with fixed and indexed contracts. If a variable product is genuinely what suits you, you need someone registered for it.",
+    a: "No. Those are securities and need a securities license, which I don’t have. I work with fixed and indexed contracts. If a variable product is genuinely what suits you, you need somebody registered for it.",
   },
   {
     q: "How are you paid on an annuity?",
-    a: "The insurance company pays a commission when a contract is issued. You do not pay me a fee, and the rate on your contract is what the company sets. I will tell you the shape of that arrangement on any product I show you if you ask, and it is a reasonable thing to ask.",
+    a: "The insurance company pays a commission when the contract is issued. You don’t pay me a fee, and your rate is whatever the company sets. Ask me how that works on anything I show you and I’ll tell you. It’s a fair question.",
   },
 ] as const;
 
 const WRONG_FITS = [
   {
     t: "You might need the money in the next few years",
-    b: "Surrender charges exist precisely to stop that. If the money is earmarked for a roof, a car, or an unknown, it should not be in a contract that penalises you for reaching it.",
+    b: "Surrender charges exist to stop exactly that. If the money is spoken for — a roof, a car, something you can’t name yet — it shouldn’t be sitting in a contract that charges you for reaching it.",
   },
   {
     t: "You are looking for growth",
-    b: "An indexed annuity limits how much of a good year you keep, in exchange for not participating in a bad one. That trade is worth making for stability and a poor one to make for return.",
+    b: "An indexed annuity caps how much of a good year you keep, in exchange for sitting out the bad ones. That’s a fair trade if you want stability. It’s a bad one if you want a return.",
   },
   {
     t: "Somebody has quoted you a number that sounds too good",
-    b: "Illustrated values are not guaranteed values, and the two are printed on the same page in similar type. The guaranteed column is the promise. Everything else is an illustration of what could happen.",
+    b: "Illustrated values aren’t guaranteed values, and they’re printed on the same page in the same size type. The guaranteed column is the promise. Everything next to it is a picture of what might happen.",
   },
   {
     t: "It would take most of what you have",
-    b: "An annuity is a floor, not a foundation for everything. If a proposal moves the large majority of your savings into one contract, that is worth a second opinion from someone who is not being paid on it.",
+    b: "An annuity is a floor, not the whole house. If somebody’s proposal moves most of your savings into one contract, get a second opinion from a person who isn’t paid on it.",
   },
 ] as const;
 
@@ -129,9 +129,8 @@ export default function AnnuitiesPage() {
           </h1>
           <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
             Annuities are the most oversold product in this business and the most misunderstood, and
-            those two facts are related. Here is what one actually does, the four situations where
-            it is the wrong answer, and the questions worth asking anybody who puts a proposal in
-            front of you — including me.
+            those two things are related. Here’s what one actually does, the four times the answer
+            is no, and what to ask anybody who puts a proposal in front of you. Me included.
           </p>
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -157,14 +156,14 @@ export default function AnnuitiesPage() {
           <h2 className="text-28 font-semibold">What you are actually buying</h2>
           <p className="text-18 mt-4 leading-relaxed">
             You give an insurance company money. It promises to pay you income — now or later, for a
-            fixed number of years or for as long as you live. That promise is the product. It is not
-            a fund, it is not a market position, and its value to you is not its return. Its value
-            is that the payment arrives whether or not the market cooperated that year.
+            set number of years or for as long as you live. That promise is the product. It isn’t a
+            fund and it isn’t a market position, and what it’s worth to you isn’t the return. It’s
+            that the payment shows up whether or not the market had a good year.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            The honest case for one is narrow and real: you have enough saved that running out is
-            unlikely but not impossible, and you would rather convert some of that uncertainty into
-            a payment you can count on. That is insurance, and it is a reasonable thing to buy.
+            The honest case for one is narrow, and it’s real. You’ve saved enough that running out
+            is unlikely but not impossible, and you’d rather turn some of that uncertainty into a
+            payment you can count on. That’s insurance, and it’s a reasonable thing to buy.
           </p>
         </div>
       </section>
@@ -173,7 +172,7 @@ export default function AnnuitiesPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Four times the answer is no</h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-            If any of these describes you, the right move is to keep your money where it is.
+            If any of these sounds like you, keep your money where it is.
           </p>
           <ul className="mt-8 flex flex-col gap-6">
             {WRONG_FITS.map((item) => (
@@ -192,16 +191,16 @@ export default function AnnuitiesPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">What I am and am not licensed for</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            I hold a North Carolina insurance licence, which covers fixed and indexed annuities,
-            life insurance, and Medicare. Variable annuities are securities and require a securities
-            licence I do not hold. Neither am I a registered investment adviser, so I do not manage
-            portfolios or advise on what to hold in a 401(k) or brokerage account.
+            I hold a North Carolina insurance license. It covers fixed and indexed annuities, life
+            insurance, and Medicare. Variable annuities are securities and need a license I don’t
+            have. I’m not a registered investment adviser either, so I don’t manage portfolios or
+            tell you what to hold in a 401(k) or a brokerage account.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            That matters here more than on most pages, because a great deal of annuity marketing is
-            aimed at money currently invested in the market. If the right answer for you is to leave
-            it invested, you need somebody registered to tell you how — and I will say so rather
-            than sell around it.
+            That matters more here than on most pages, because a lot of annuity marketing is aimed
+            at money that’s currently in the market. If the right answer for you is to leave it
+            there, you need somebody registered to tell you how. I’ll say so instead of selling
+            around it.
           </p>
         </div>
       </section>
@@ -230,9 +229,9 @@ export default function AnnuitiesPage() {
         <div className="app-shell max-w-2xl text-center">
           <h2 className="text-28 font-semibold">Have a proposal in front of you?</h2>
           <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            Bring it. I will read the guaranteed column with you, tell you what the surrender
-            schedule actually says, and tell you if I think it is wrong for you — including when the
-            honest answer is to do nothing.
+            Bring it. I’ll read the guaranteed column with you and tell you what the surrender
+            schedule actually says. If I think it’s wrong for you, I’ll say that too, including when
+            the honest answer is to do nothing at all.
           </p>
           <a
             href={AGENT.phoneHref}

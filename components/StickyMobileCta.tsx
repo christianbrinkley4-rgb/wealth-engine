@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { AGENT } from "@/lib/agent";
 
 const HIDE_PREFIXES = [
+  "/lp",
   "/start",
   "/plan",
   "/medicare",
