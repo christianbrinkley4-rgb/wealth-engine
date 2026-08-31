@@ -129,33 +129,16 @@ export default function HomePage() {
               <p className="text-16 mt-2 text-[var(--color-ink-muted)]">
                 {AGENT.hours} {AGENT.afterHoursPromise}
               </p>
-
-              <div className="mt-10 flex flex-col gap-3">
-                {TOPICS.map((topic) => (
-                  <Link
-                    key={topic.label}
-                    href={topic.href}
-                    className="group flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
-                  >
-                    <span className="text-18 font-semibold text-[var(--color-navy)]">
-                      {topic.label} →
-                    </span>
-                    <span className="text-16 mt-1 leading-snug text-[var(--color-ink-muted)]">
-                      {topic.blurb}
-                    </span>
-                  </Link>
-                ))}
-              </div>
             </div>
 
-            <figure className="m-0">
+            <figure className="m-0 md:ml-auto md:max-w-[360px]">
               <Image
                 src="/christian-brinkley.jpg"
                 alt={`${AGENT.name}, licensed insurance agent in Greensboro, North Carolina`}
                 width={1200}
                 height={1600}
                 priority
-                sizes="(max-width: 768px) 100vw, 380px"
+                sizes="(max-width: 768px) 100vw, 360px"
                 className="w-full rounded-2xl border border-[rgba(15,34,65,0.1)] object-cover shadow-[0_12px_40px_rgba(15,34,65,0.10)]"
               />
               <figcaption className="text-16 mt-4 leading-snug text-[var(--color-navy)]">
@@ -165,7 +148,60 @@ export default function HomePage() {
                 </span>
                 <span className="block text-[var(--color-ink-muted)]">{AGENT.education}</span>
               </figcaption>
+
+              {/*
+                The hero had roughly 200px of empty column under this caption.
+                Four things a sceptical reader can check, in the place they are
+                already looking, rather than a void.
+              */}
+              <ul className="mt-6 flex flex-col gap-3 border-t border-[rgba(15,34,65,0.12)] pt-5">
+                {[
+                  "Licensed in North Carolina",
+                  "You reach me, not a call center",
+                  "No cost, and nothing to sign",
+                  "Your information is never sold",
+                ].map((point) => (
+                  <li key={point} className="text-16 flex gap-3 leading-snug">
+                    <ShieldCheck
+                      className="mt-0.5 size-5 shrink-0 text-[var(--color-gold-ink)]"
+                      strokeWidth={1.75}
+                      aria-hidden
+                    />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </figure>
+          </div>
+        </div>
+      </section>
+
+      {/*
+        The three topics, as a band rather than a column.
+
+        They used to sit inside the hero's left column, which left a 479x282
+        hole beside them and made the hero 1,159px tall — pushing the call to
+        action below the fold. Out here they are three across, the hero loses
+        about 300px, and the page gains a piece of structure instead of a stack
+        of narrow boxes.
+      */}
+      <section className="bg-[var(--color-paper)] pb-14 md:pb-20">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {TOPICS.map((topic) => (
+              <Link
+                key={topic.label}
+                href={topic.href}
+                className="group flex min-h-[132px] flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-6 py-5 transition-colors hover:border-[var(--color-navy)]"
+              >
+                <span className="text-20 font-semibold text-[var(--color-navy)]">
+                  {topic.label} →
+                </span>
+                <span className="text-16 mt-2 leading-snug text-[var(--color-ink-muted)]">
+                  {topic.blurb}
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
