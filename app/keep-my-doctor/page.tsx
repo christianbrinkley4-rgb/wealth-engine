@@ -252,6 +252,13 @@ export default function KeepMyDoctorPage() {
       </section>
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
+        <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">
+          Still deciding between the two routes rather than checking a plan?{" "}
+          <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+            Medicare Advantage compared with Medigap
+          </Link>{" "}
+          walks through what actually decides it.
+        </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
     </main>

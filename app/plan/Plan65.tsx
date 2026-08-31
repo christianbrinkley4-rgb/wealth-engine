@@ -257,9 +257,9 @@ export function Plan65() {
             >
               <AlertTriangle className="mt-0.5 size-5 shrink-0" aria-hidden color={WARN} />
               <span>
-                At {age}, this year&rsquo;s income is already being watched. Medicare sets your
-                first premium from the return you file two years before you turn 65, so a conversion
-                now shows up on your premium then.
+                At {age}, this year’s income is already being watched. Medicare sets your first
+                premium from the return you file two years before you turn 65, so a conversion now
+                shows up on your premium then.
               </span>
             </p>
           ) : null}
@@ -451,8 +451,8 @@ export function Plan65() {
             </li>
             <li>
               <strong className="text-[var(--color-navy)]">Growth and inflation.</strong> Every
-              figure is in today&rsquo;s dollars against the published 2026 schedule. The brackets
-              move most years.
+              figure is in today’s dollars against the published 2026 schedule. The brackets move
+              most years.
             </li>
             <li>
               <strong className="text-[var(--color-navy)]">Your actual plans.</strong> Which doctors

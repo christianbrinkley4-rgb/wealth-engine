@@ -43,6 +43,12 @@ export function SiteFooter() {
         <Link href="/start" className="underline underline-offset-2">
           Ask a question
         </Link>
+        <Link href="/annual-enrollment" className="underline underline-offset-2">
+          Annual enrollment
+        </Link>
+        <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+          Advantage vs Medigap
+        </Link>
         <Link href="/keep-my-doctor" className="underline underline-offset-2">
           Keep my doctor?
         </Link>
@@ -60,6 +66,9 @@ export function SiteFooter() {
         </Link>
         <Link href="/life-insurance" className="underline underline-offset-2">
           Life insurance
+        </Link>
+        <Link href="/social-security-timing" className="underline underline-offset-2">
+          When to take Social Security
         </Link>
         <Link href="/retirement-income" className="underline underline-offset-2">
           401(k) at retirement

@@ -272,6 +272,13 @@ export default function IrmaaAppealPage() {
       </section>
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
+        <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">
+          If the increase came with a letter about next year’s plan rather than your income,{" "}
+          <Link href="/annual-enrollment" className="underline underline-offset-2">
+            the annual enrollment page
+          </Link>{" "}
+          is the one you want.
+        </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
     </main>

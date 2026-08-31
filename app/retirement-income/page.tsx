@@ -193,16 +193,16 @@ export default function RetirementIncomePage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Where I stop</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            I’m a licensed insurance agent finishing a master&rsquo;s in accounting. I’m not a
-            registered investment adviser and I’m not a CPA yet. I don’t manage money, recommend
-            investments, or tell you what to hold inside a 401(k) or an IRA. Anybody in this
-            business who blurs that line is telling you something useful about themselves.
+            I’m a licensed insurance agent finishing a master’s in accounting. I’m not a registered
+            investment adviser and I’m not a CPA yet. I don’t manage money, recommend investments,
+            or tell you what to hold inside a 401(k) or an IRA. Anybody in this business who blurs
+            that line is telling you something useful about themselves.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             What I do know well is where retirement income runs into Medicare, because that’s where
             what I studied meets what I’m licensed for. If your question is how a withdrawal hits
             your premium, that one’s mine. If it’s how the money should be invested, that’s an
-            adviser&rsquo;s, and I’ll tell you so.
+            adviser’s, and I’ll tell you so.
           </p>
         </div>
       </section>
@@ -253,6 +253,15 @@ export default function RetirementIncomePage() {
       </section>
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
+        <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">
+          The other half of this decision is when you turn on Social Security, because the years
+          between retiring and claiming are the ones where a withdrawal does the most damage — and
+          the most good.{" "}
+          <Link href="/social-security-timing" className="underline underline-offset-2">
+            When to take Social Security
+          </Link>{" "}
+          covers what each claiming age costs and what it does to your Medicare premium later.
+        </p>
         <ComplianceDisclosure />
       </div>
     </main>

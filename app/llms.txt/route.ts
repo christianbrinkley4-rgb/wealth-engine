@@ -70,6 +70,9 @@ ${cityLines}
 
 ## Guides
 
+- [Medicare annual enrollment, October 15 to December 7](${SITE_URL}/annual-enrollment): what the Annual Notice of Change letter is, the four checks worth making each autumn, and why most people should keep the plan they already have. Also covers the January 1 to March 31 Medicare Advantage window.
+- [Medicare Advantage compared with Medigap](${SITE_URL}/advantage-vs-medigap): the three things that decide it — which doctors you want to keep, whether you would rather pay steadily or pay when something happens, and whether you will still be able to switch later. Takes no position on which is better in general.
+- [When to take Social Security](${SITE_URL}/social-security-timing): what claiming at 62, at full retirement age and at 70 each cost, the survivor benefit that break-even calculators leave out, and how income in the waiting years lands on a Medicare premium two years later. Education only; he is not affiliated with the Social Security Administration.
 - [Can I keep my doctor on Medicare?](${SITE_URL}/keep-my-doctor): how Medicare Advantage networks work, how to verify a specific doctor against a specific plan, and why the answer changes annually.
 - [Appealing a high Medicare premium (Form SSA-44)](${SITE_URL}/irmaa-appeal): the eight life-changing events that qualify, what does not qualify, and how filing works.
 - [Helping a parent with Medicare](${SITE_URL}/helping-a-parent): authorization requirements, the deadlines, and what an adult child can and cannot do on a parent's behalf.
@@ -82,6 +85,10 @@ ${cityLines}
 - Enrolling in the three months before the birthday month is what makes coverage start on time; later in the window it starts the first of the month after enrolling.
 - Medigap open enrollment is six months, beginning the first month someone is both 65 and enrolled in Part B. Inside it no insurer may refuse them or charge more for health history. It does not reopen.
 - IRMAA is based on modified adjusted gross income from two years earlier, which is why a Roth conversion at 63 affects the first Medicare premium at 65.
+- Medicare annual enrollment runs October 15 to December 7 every year, and changes take effect January 1. Doing nothing renews the existing plan automatically, which is the right outcome for most people most years.
+- Medicare Advantage open enrollment is a second, narrower window from January 1 to March 31, available only to people already on an Advantage plan: one change, either to another Advantage plan or back to Original Medicare.
+- Delaying Social Security past full retirement age adds roughly 8% a year up to age 70, and nothing accrues after 70. Claiming at 62 permanently reduces the benefit by about 30% for anyone born in 1960 or later, whose full retirement age is 67.
+- When one spouse dies the survivor keeps the larger of the two Social Security benefits and the smaller stops, so the higher earner's claiming age sets the floor under whichever of the two lives longer.
 - The Part B late enrollment penalty is 10% of the standard premium for every full 12 months of delay, charged for as long as the person holds Part B.
 
 ## What this site will not tell you
