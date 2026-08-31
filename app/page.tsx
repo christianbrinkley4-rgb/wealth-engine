@@ -24,6 +24,15 @@ export const metadata: Metadata = {
 const primaryCta =
   "inline-flex h-16 min-h-16 w-full shrink-0 items-center justify-center rounded-[12px] bg-[var(--color-navy)] px-6 text-20 font-semibold text-balance text-[var(--color-paper)] transition-opacity hover:opacity-95 md:w-auto md:min-w-[280px] md:px-8";
 
+/**
+ * The four things he actually helps with.
+ *
+ * Annuities had a page and no route to it from the front door, and the band
+ * showed three areas while the practice covers four. A visitor should be able
+ * to find their own question here in about a second — that is the job of this
+ * row, and it is also how the page states its scope without a list-shaped
+ * headline.
+ */
 const TOPICS = [
   {
     label: "Medicare",
@@ -39,6 +48,11 @@ const TOPICS = [
     label: "Life insurance",
     href: "/start?topic=life_insurance",
     blurb: "Coverage that ends at retirement, final expenses, reviewing what you have",
+  },
+  {
+    label: "Annuities",
+    href: "/annuities",
+    blurb: "What one actually does, when it is the wrong answer, and reading a proposal",
   },
 ] as const;
 
@@ -82,13 +96,14 @@ export default function HomePage() {
               </p>
 
               <h1 className="text-34 md:text-46 mt-4 leading-[1.12] font-semibold tracking-tight text-balance text-[var(--color-navy)]">
-                Medicare answers from one licensed agent in Greensboro.
+                Get a real answer before you give up your phone number.
               </h1>
 
               <p className="text-20 mt-5 max-w-xl leading-relaxed text-[var(--color-ink-muted)]">
-                Turning 65 means the phone never stops ringing. I’m not one of those calls. Ask me
-                what you want to know and I’ll answer it, before I ask you for anything, and whether
-                or not we ever work together.
+                Medicare, retirement income, life insurance, annuities. I’m one licensed agent here
+                in Greensboro — not a call center, and not a form that hands your number to a dozen
+                strangers. Tell me what you’re trying to work out and I’ll answer it, whether or not
+                we ever work together.
               </p>
 
               {/*
@@ -98,9 +113,9 @@ export default function HomePage() {
               */}
               <div className="mt-6 max-w-xl border-l-4 border-[var(--color-gold-ink)] bg-white/70 py-3 pl-5">
                 <p className="text-18 leading-relaxed text-[var(--color-navy)]">
-                  <strong>For instance:</strong> Medicare sets your premium from a tax return two
-                  years old. So if you retired last year, you’re being charged on what you earned
-                  while you were still working — and there’s a form that can fix it.
+                  <strong>Here’s the kind of thing I mean.</strong> Medicare sets your premium from
+                  a tax return two years old. So if you retired last year, you’re being charged on
+                  what you earned while you were still working — and there’s a form that can fix it.
                 </p>
                 <Link
                   href="/irmaa-appeal"
@@ -187,7 +202,7 @@ export default function HomePage() {
       */}
       <section className="bg-[var(--color-paper)] pb-14 md:pb-20">
         <div className="mx-auto max-w-6xl px-4">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {TOPICS.map((topic) => (
               <Link
                 key={topic.label}

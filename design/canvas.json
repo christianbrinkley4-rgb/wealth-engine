@@ -1,0 +1,46 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1200, "h": 880, "title": "A — Four questions (leading)" },
+    { "file": "DirectionB.dc.html", "x": 1320, "y": 0, "w": 1200, "h": 880, "title": "B — Ask me one thing" },
+    { "file": "DirectionC.dc.html", "x": 2640, "y": 0, "w": 1200, "h": 880, "title": "C — The local alternative" },
+    { "file": "Audit.dc.html", "x": 0, "y": 1080, "w": 1080, "h": 1020, "title": "Competitive audit" }
+  ],
+  "annotations": [
+    {
+      "id": "the-problem",
+      "x": 0,
+      "y": -230,
+      "w": 560,
+      "text": "The problem you spotted\n\nThe live home page leads with \"Medicare answers from one licensed agent in Greensboro.\" You now advertise four services. Somebody who searched for annuity help reads \"Medicare\" and leaves.\n\nI narrowed that headline earlier this session. It was wrong once you had four service lines."
+    },
+    {
+      "id": "direction-a",
+      "x": 0,
+      "y": 920,
+      "w": 380,
+      "text": "A — Four questions, one person\n\nNames all four services in the headline's premise and puts them in a row nobody can miss.\n\nTradeoff: a category headline rather than a sharp emotional hook. Safest for mixed ad traffic."
+    },
+    {
+      "id": "direction-b",
+      "x": 1320,
+      "y": 920,
+      "w": 380,
+      "text": "B — Ask me one thing\n\nThe question IS the interface. Each row is a real question in the visitor's words; the services are implied.\n\nTradeoff: strongest match to \"answer questions\" positioning, but a visitor scanning for \"annuities\" has to read to find it."
+    },
+    {
+      "id": "direction-c",
+      "x": 2640,
+      "y": 920,
+      "w": 380,
+      "text": "C — The local alternative\n\nLeads with the thing no competitor can answer: they are not from here. Dark hero, services below as a 2x2.\n\nTradeoff: most distinctive and most confrontational. Defines you against them rather than on your own terms."
+    },
+    {
+      "id": "audit-note",
+      "x": 1160,
+      "y": 1080,
+      "w": 420,
+      "text": "Read the audit board bottom-left.\n\nYou beat the national sites on the four things that need judgment, and lose on the three that need paperwork and a credit card.\n\nNo redesign fixes the bottom half of that table."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}
