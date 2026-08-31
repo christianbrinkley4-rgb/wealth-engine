@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { agentConfigGaps } from "@/lib/agent";
-import { isLeadNotifyConfigured } from "@/lib/notifyLead";
+import { isLeadNotifyConfigured, isProspectEmailConfigured } from "@/lib/notifyLead";
 
 /**
  * Is this deployment actually able to do its job?
@@ -39,7 +39,7 @@ export function GET(request: NextRequest) {
     process.env.SUPABASE_SERVICE_ROLE_KEY,
   );
   const notifyConfigured = isLeadNotifyConfigured();
-  const autoReplyConfigured = Boolean(process.env.RESEND_API_KEY && process.env.RESEND_FROM);
+  const autoReplyConfigured = isProspectEmailConfigured();
 
   const blocking: string[] = [];
   if (!storageConfigured) blocking.push("Leads cannot be saved: Supabase is not configured.");

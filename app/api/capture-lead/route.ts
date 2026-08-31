@@ -5,6 +5,7 @@ import { scoreLead } from "@/lib/leadScoring";
 import { sendMetaLeadEvent } from "@/lib/metaCapi";
 import {
   isLeadNotifyConfigured,
+  isProspectEmailConfigured,
   notifyLeadCaptured,
   sendProspectAutoReply,
 } from "@/lib/notifyLead";
@@ -387,7 +388,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: true,
         stored: false,
-        emailConfigured: isLeadNotifyConfigured(),
+        emailConfigured: isProspectEmailConfigured(),
       });
     }
 
@@ -442,7 +443,7 @@ export async function POST(request: NextRequest) {
       success: true,
       updated: Boolean(existing),
       stored,
-      emailConfigured: isLeadNotifyConfigured(),
+      emailConfigured: isProspectEmailConfigured(),
     });
   } catch (err) {
     console.error("[capture-lead] Unhandled error:", err);

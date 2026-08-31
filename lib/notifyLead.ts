@@ -408,7 +408,20 @@ async function sendCalculatorAutoReply(input: {
 }
 
 export function isLeadNotifyConfigured() {
-  return makeConfigured() || resendConfigured() || smsConfigured();
+  return makeConfigured() || smsConfigured() || resendConfigured();
+}
+
+/**
+ * Can this deployment actually email the person who filled the form?
+ *
+ * Distinct from isLeadNotifyConfigured, which answers the different question
+ * of whether *Christian* would be told. Those come apart: an SMS alert or a
+ * Make webhook tells him a lead arrived without giving the visitor anything,
+ * and the confirmation page must not promise an email in that case. Only
+ * Resend sends the prospect auto-reply, so only Resend counts here.
+ */
+export function isProspectEmailConfigured() {
+  return resendConfigured();
 }
 
 /* ---------------------------------------------------------------------------
