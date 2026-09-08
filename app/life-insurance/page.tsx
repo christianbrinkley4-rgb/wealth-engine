@@ -105,7 +105,7 @@ export default function LifeInsurancePage() {
             serviceJsonLd({
               name: "Life insurance review",
               description:
-                "personal review of existing coverage anywhere about 30 minutes from downtown Greensboro. Free consultation. No obligation to buy.",
+                "Personal review of existing coverage within about 30 minutes of downtown Greensboro. Free consultation. No obligation to buy.",
               path: "/life-insurance",
             }),
           ),
@@ -187,9 +187,7 @@ export default function LifeInsurancePage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">
-            I sit down within 30 minutes, not on a national queue
-          </h2>
+          <h2 className="text-28 font-semibold">Personal help across the Triad</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {SERVICE_AREA_LEDE} Life insurance is not sold by county the way Medicare Advantage is.
             What changes by town is who is across the table.

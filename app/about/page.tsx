@@ -101,11 +101,11 @@ export default function AboutPage() {
           </p>
           <p>
             My approach is simple: tell me what you’re trying to figure out, and I’ll tell you the
-            part that matters. We can do that in person or by phone —
-            anywhere I can reach in about 30 minutes from downtown Greensboro, not only the three
-            largest cities. If that turns into me helping you with coverage, good. If it turns into
-            me telling you that you’re already fine, or that you need an accountant rather than an
-            agent, that’s a good outcome too — and it happens regularly.
+            part that matters. We can do that in person or by phone — anywhere I can reach in about
+            30 minutes from downtown Greensboro, not only the three largest cities. If that turns
+            into me helping you with coverage, good. If it turns into me telling you that you’re
+            already fine, or that you need an accountant rather than an agent, that’s a good outcome
+            too — and it happens regularly.
           </p>
           <p>
             The accounting side of my background is why I keep dragging these conversations back to

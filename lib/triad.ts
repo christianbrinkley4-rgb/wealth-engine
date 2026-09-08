@@ -1,5 +1,5 @@
 /**
- * The kitchen-table service area: anywhere about 30 minutes from downtown
+ * The in-person service area: anywhere about 30 minutes from downtown
  * Greensboro.
  *
  * High Point and Winston-Salem stay in. They are not the outer edge. The
@@ -163,7 +163,7 @@ export const TRIAD_CITIES: TriadCity[] = [
     lifeFaq: [
       {
         q: "Do you actually come to High Point?",
-        a: "in person or by phone. I’m licensed in North Carolina and I live in Greensboro — that’s a drive, not a national phone service.",
+        a: "Yes. Meet in person or by phone. I’m licensed in North Carolina and based in Greensboro.",
       },
       {
         q: "My coverage is through work. Should I replace it before I retire?",
@@ -253,7 +253,7 @@ export const TRIAD_CITIES: TriadCity[] = [
       },
       {
         q: "Will you meet in Winston-Salem?",
-        a: "in person or by phone. I’m licensed in North Carolina.",
+        a: "Yes. Meet in person or by phone. I’m licensed in North Carolina.",
       },
       {
         q: "Does Forsyth vs Guilford matter for a 401(k)?",
@@ -339,7 +339,7 @@ export const TRIAD_CITIES: TriadCity[] = [
     intro:
       "Summerfield is north Guilford, about twenty minutes from downtown Greensboro up 220. Medicare Advantage here is the Guilford County list — the same one Greensboro sees. What is different is the household: more people who moved out for land and still drive into Cone for every appointment.",
     localDetail:
-      "The plan has to include the Greensboro doctors you actually use. Living in Summerfield does not change the county list. It does change how far you are willing to drive for a specialist, and that is the conversation I can have at the table than on a script.",
+      "The plan has to include the Greensboro doctors you actually use. Living in Summerfield does not change the county list, but it may change how far you are willing to drive for a specialist. A personal review can account for both.",
     nearby: ["Oak Ridge", "Stokesdale", "Browns Summit", "Greensboro"],
     faq: [
       {
@@ -407,7 +407,7 @@ export const TRIAD_CITIES: TriadCity[] = [
     intro:
       "Jamestown sits between Greensboro and High Point, about twenty minutes from downtown either way, and it is Guilford County. Your Medicare list is the Greensboro list. Your doctors might be at High Point Medical Center. That split is the local fact. The town is small. The county line is not ambiguous here the way it is in Kernersville.",
     localDetail:
-      "Guilford College Road households often have a primary doctor in one city and a specialist in the other. The plan has to cover both, by name, for the year coverage starts. I can check that at your table than assume Jamestown works like Greensboro because it shares a county.",
+      "Guilford College Road households often have a primary doctor in one city and a specialist in the other. The plan has to cover both, by name, for the year coverage starts. I can check both rather than assume Jamestown works like Greensboro because it shares a county.",
     nearby: ["High Point", "Greensboro", "Pleasant Garden", "Archdale"],
     faq: [
       {
@@ -575,7 +575,7 @@ export const TRIAD_CITIES: TriadCity[] = [
     retirementIntro:
       "Archdale is Randolph County for Medicare and often a High Point 401(k). Those are different rules. I can sit down and separate them. I am not a registered investment adviser.",
     retirementDetail:
-      "A rollover is the same paperwork as in Greensboro. The Advantage list is not. If you are turning 65, look at both in the same meeting. That’s why I can be at the table than on a national matching site.",
+      "Rollover rules do not change by city, but Medicare Advantage availability does change by county. If you are turning 65, a personal review can consider both.",
     retirementFaq: [
       {
         q: "Are you a financial advisor in Archdale?",
@@ -706,7 +706,7 @@ export const TRIAD_CITIES: TriadCity[] = [
     retirementIntro:
       "Pleasant Garden is Guilford Medicare and usually a Greensboro 401(k). I explain what a withdrawal does to the premium two years later. I do not pick investments.",
     retirementDetail:
-      "Being south of the city does not change IRMAA. It does mean I can sit down here than ask you to drive in for a conversation that takes twenty minutes.",
+      "Being south of the city does not change IRMAA. I can meet here in person or review the timing with you by phone.",
     retirementFaq: [
       {
         q: "Are you a retirement planner in Pleasant Garden?",
@@ -931,7 +931,7 @@ export const TRIAD_CITIES: TriadCity[] = [
     intro:
       "Gibsonville is about twenty minutes east of downtown Greensboro and it sits on two counties. That is the Medicare story. A house on the Guilford side is on the Greensboro list. A house on the Alamance side is on the Burlington list. The town name is the same. The plan menus are not.",
     localDetail:
-      "People here use Cone in Greensboro, Alamance Regional, or both. Elon is next door. I can look at the tax bill and the doctors’ names in person than let a ZIP code decide it.",
+      "People here use Cone in Greensboro, Alamance Regional, or both. Elon is next door. A personal review can consider both the tax timing and the physicians you use.",
     nearby: ["Whitsett", "Elon", "Burlington", "McLeansville", "Greensboro"],
     faq: [
       {
@@ -1427,7 +1427,7 @@ export function placeCheckBeat(city: TriadCity): string {
   const nextDoor =
     contrasts.length > 0
       ? ` Next door, ${contrasts.map((place) => `${place.name} (${place.county})`).join(" and ")} shops from a different Advantage list.`
-      : ` Nearby ${city.nearby[0]} is still a local service area; people search the town name, not the county.`;
+      : ` Nearby ${city.nearby[0]} is still within the local service area; people search the town name, not the county.`;
   return `${drive}. What I actually check is whether a plan sold for ${city.county} includes the places people here use — ${hospitals}.${nextDoor}`;
 }
 

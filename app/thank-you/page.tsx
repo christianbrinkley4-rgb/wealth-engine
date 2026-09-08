@@ -176,9 +176,8 @@ function ThankYouInner() {
                 Want to pick the time yourself?
               </h2>
               <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                Grab whichever slot suits you — in person or by phone. The
-                booking page shows how long I’ve set aside. Otherwise I’ll reach out and we’ll find
-                a time.
+                Grab whichever slot suits you — in person or by phone. The booking page shows how
+                long I’ve set aside. Otherwise I’ll reach out and we’ll find a time.
               </p>
             </div>
           </div>

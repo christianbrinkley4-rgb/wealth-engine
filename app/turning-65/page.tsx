@@ -179,21 +179,15 @@ export default function Turning65Page() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">
-            What this looks like within 30 minutes of Greensboro
-          </h2>
+          <h2 className="text-28 font-semibold">Why your county and physicians matter</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Medicare Advantage and Part D plans are sold by county. Guilford, Forsyth, Randolph,
-            Davidson, Alamance, and Rockingham all show up inside a half-hour drive of downtown
-            Greensboro. Kernersville sits on a county line. Archdale is Randolph next to High Point.
-            That is the kind of thing a national phone service will not know, and it is why
-            I can sit down with your doctors’ names than mail you a packet.
+            Medicare Advantage and Part D availability varies by county, even among nearby Triad
+            communities. A personal review starts with your home county and the physicians and
+            health systems you want to keep.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Around here the first question is almost always whether a specific doctor at Cone
-            Health, Novant, or Wake Forest Baptist stays in network. You can find that out before
-            you sign anything. You cannot find it from a table on a website — those contracts get
-            renegotiated every year.
+            Networks can change each year. Confirm each physician and prescription for the plan year
+            your coverage begins before enrolling.
           </p>
           <GuideTownLinks />
         </div>

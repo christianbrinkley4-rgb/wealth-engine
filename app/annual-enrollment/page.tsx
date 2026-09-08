@@ -70,7 +70,7 @@ const FAQ = [
   },
   {
     q: "Do I have to do anything?",
-    a: "Do nothing and your plan renews itself. That’s the right answer for most people most years, and I can tell you so than talk you into a change you didn’t need.",
+    a: "Your plan generally renews automatically. A review can confirm whether the costs, prescriptions, and physician network still fit before you decide whether to make a change.",
   },
   {
     q: "How do I know if I should switch?",
@@ -86,7 +86,7 @@ const FAQ = [
   },
   {
     q: "Will you sit down with me and look at the letter?",
-    a: "in person or by phone. Bring the Annual Notice of Change and a list of your prescriptions. Twenty minutes, no cost, and I’ll tell you if you should do nothing.",
+    a: "Yes. Meet in person or by phone. Bring the Annual Notice of Change and a list of your prescriptions. The review is free, and keeping your current coverage may be the right outcome.",
   },
   {
     q: "My premium went up and I didn’t change anything. Why?",

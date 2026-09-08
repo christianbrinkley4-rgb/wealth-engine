@@ -25,14 +25,14 @@ export function GET() {
     [
       `- [Medicare in ${city.name}, NC](${SITE_URL}/medicare-in/${city.slug}): ${city.name} is in ` +
         `${city.county}. Medicare Advantage and Part D plans are sold by county.`,
-      `- [Life insurance in ${city.name}](${SITE_URL}/life-insurance-in/${city.slug}): in-person policy review at no cost. Not a national phone service.`,
+      `- [Life insurance in ${city.name}](${SITE_URL}/life-insurance-in/${city.slug}): personal policy review at no cost, available in person or by phone.`,
       `- [Retirement help in ${city.name}](${SITE_URL}/retirement-in/${city.slug}): 401(k) options and Medicare timing, education only — he is not a registered investment adviser.`,
     ].join("\n"),
   ).join("\n");
 
   const body = `# ${SITE_NAME}
 
-> ${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.state}, and a master’s student in accounting at UNC Greensboro. He personally reviews every Medicare, life insurance, and retirement-income case himself — sitting down at the in-person meeting rather than routing anyone to a national phone service. The service area is communities generally within about 30 minutes of downtown Greensboro. High Point and Winston-Salem are in it; they are not the outer edge. There is no charge and no obligation to enroll.
+> ${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.state}, and a master’s student in accounting at UNC Greensboro. He personally reviews Medicare, life insurance, and retirement-income inquiries. Meetings are available in person or by phone for communities generally within about 30 minutes of downtown Greensboro. There is no charge and no obligation to enroll.
 
 ## Who this is
 
@@ -56,12 +56,12 @@ export function GET() {
 
 ## Four things he helps with
 
-- [Start here](${SITE_URL}/start): four situations on one quiz — turning 65, already on Medicare (annual enrollment), retirement income, and life insurance. Two branch questions at most, then a free value screen, then contact. Meeting preference, a free-text note, and household income sit behind an optional details section on the contact step (collapsed by default unless a landing page already asked for a note). Not a national phone service.
+- [Start here](${SITE_URL}/start): four situations on one quiz — turning 65, already on Medicare (annual enrollment), retirement income, and life insurance. Two branch questions at most, then a free value screen, then contact. Meeting preference, a free-text note, and household income sit behind an optional details section on the contact step.
 
 - [Turning 65 — Medicare Initial Enrollment](${SITE_URL}/turning-65): the seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window that does not reopen.
 - [Medicare annual enrollment, October 15 to December 7](${SITE_URL}/annual-enrollment): what the Annual Notice of Change letter is, the four checks worth making each autumn, and why most people should keep the plan they already have.
 - [Life insurance](${SITE_URL}/life-insurance): term against permanent decided by how many years the money is needed, and the two things to check on an existing policy.
-- [Retirement questions at the in-person meeting](${SITE_URL}/retirement-income): 401(k) options and deadlines, required distributions at 73, and how a withdrawal lands on a Medicare premium two years later. Education only — he is not a registered investment adviser and does not recommend investments.
+- [Retirement income education](${SITE_URL}/retirement-income): 401(k) options and deadlines, required distributions, and how a withdrawal may affect a Medicare premium two years later. Education only — he is not a registered investment adviser and does not recommend investments.
 
 ## How he is paid
 
@@ -79,7 +79,7 @@ ${cityLines}
 
 ## Tools
 
-- [2026 Medicare Part B and IRMAA estimate](${SITE_URL}/medicare): four questions, returns the estimated 2026 Part B premium and IRMAA tier using the published CMS schedule. Kitchen-table follow-up available; education only.
+- [2026 Medicare Part B and IRMAA estimate](${SITE_URL}/medicare): four questions, returns the estimated 2026 Part B premium and IRMAA tier using the published CMS schedule. Personal follow-up is available; education only.
 - [Roth conversion and Medicare timing planner](${SITE_URL}/plan): compares the Medicare surcharge triggered by converting a retirement balance all at once against spreading it under the bracket ceiling.
 - [Roth conversion window](${SITE_URL}/roth-window): how much can be converted before crossing into a higher IRMAA tier.
 - [Enrollment dates](${SITE_URL}/remind-me): works out the seven-month Initial Enrollment Period, the date after which coverage stops starting on time, and the six-month Medigap window from a birth month. Optional one-email reminder; not a newsletter.
@@ -103,7 +103,7 @@ ${cityLines}
 ## Facts worth quoting accurately
 
 - Medicare Advantage and Part D service areas are drawn by county. Inside a ~30-minute drive of downtown Greensboro that includes Guilford, Forsyth, Randolph, Davidson, Alamance, and Rockingham. Greensboro and most of High Point share the Guilford list; Winston-Salem is Forsyth; Kernersville sits on the Guilford–Forsyth line; Archdale is Randolph next to High Point; Thomasville is Davidson; Elon and Burlington are Alamance; Reidsville is Rockingham.
-- The kitchen-table service area is the explicitly listed set of towns Christian can usually reach in about 30 minutes from downtown Greensboro. It is not represented as a fixed-mile circle, because drive time varies by route and traffic. High Point and Winston-Salem are included.
+- The in-person service area is the explicitly listed set of towns Christian can usually reach in about 30 minutes from downtown Greensboro. It is not represented as a fixed-mile circle because drive time varies by route and traffic.
 - The Initial Enrollment Period runs seven months: the three months before the month someone turns 65, that month, and the three months after.
 - Enrolling in the three months before the birthday month is what makes coverage start on time; later in the window it starts the first of the month after enrolling.
 - Medigap open enrollment is six months, beginning the first month someone is both 65 and enrolled in Part B. Inside it no insurer may refuse them or charge more for health history. It does not reopen.

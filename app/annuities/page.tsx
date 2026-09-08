@@ -133,7 +133,7 @@ export default function AnnuitiesPage() {
         lede="Annuities are the most oversold product in this business and the most misunderstood, and those two things are related. Here’s what one actually does, the four times the answer is no, and what to ask anybody who puts a proposal in front of you. Me included."
         secondaryHref="/start?topic=financial_planning"
         secondaryLabel="Ask a question first →"
-        note="in person or by phone. No cost — and I will tell you when the appropriate answer is to do nothing."
+        note="Meet in person or by phone. No cost — and I will tell you when the appropriate answer is to do nothing."
       />
 
       <section className="bg-white py-14">

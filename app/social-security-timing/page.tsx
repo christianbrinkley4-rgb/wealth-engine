@@ -159,7 +159,7 @@ export default function SocialSecurityTimingPage() {
         lede="The break-even math is the easy part, and it’s all anybody puts online. What decides it for most households is the piece those calculators leave out — what happens to the benefit when one spouse dies, and what your income in the waiting years does to your Medicare premium two years later."
         secondaryHref="/start?topic=financial_planning"
         secondaryLabel="Talk it through →"
-        note="in person or by phone. No cost, and nobody is paid on the date you pick — including me."
+        note="Meet in person or by phone. No cost, and nobody is paid on the date you pick — including me."
       />
 
       <section className="bg-white py-14">

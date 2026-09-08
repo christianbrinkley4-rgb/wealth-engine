@@ -7,7 +7,7 @@ import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 import { placesByCounty, SERVICE_AREA_LABEL, SERVICE_AREA_LEDE, TRIAD_CITIES } from "@/lib/triad";
 
 export const metadata: Metadata = {
-  title: { absolute: "local, personalized help Within 30 Minutes of Downtown Greensboro, NC" },
+  title: { absolute: "Local, Personalized Help Near Greensboro, NC" },
   description:
     "Medicare, life insurance, and retirement questions answered in person anywhere about 30 minutes from downtown Greensboro — including High Point, Winston-Salem, Kernersville, Summerfield, Jamestown, and the towns in between. Not only the three big cities.",
   alternates: { canonical: "/service-area" },

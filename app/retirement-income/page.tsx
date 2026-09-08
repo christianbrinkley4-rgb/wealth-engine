@@ -38,12 +38,12 @@ import { SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
 export const metadata: Metadata = {
   title: { absolute: "Retirement Planning Help in Greensboro, NC — 401(k) & Medicare Timing" },
   description:
-    "What to do with an old 401(k), what changes at 73, and how a withdrawal hits your Medicare premium two years later. local, personalized help from a Greensboro agent — education, not investment advice.",
+    "Learn how 401(k) options, required distributions, and retirement income can affect Medicare premiums. Local education from a Greensboro insurance agent.",
   alternates: { canonical: "/retirement-income" },
   openGraph: pageOpenGraph({
     title: "Retirement questions, answered in person in Greensboro",
     description:
-      "Four options for an old 401(k), the tax window before 73, and the Medicare timing most people miss. Not a national phone service, and not a registered adviser.",
+      "Educational guidance on 401(k) options, retirement-income timing, and potential Medicare premium effects.",
     path: "/retirement-income",
   }),
 };
@@ -63,7 +63,7 @@ const OPTIONS = [
   },
   {
     t: "Cash it out",
-    b: "Almost always the expensive one. The whole amount becomes income in a single year. That’s a tax bill, and — the part nobody mentions — a spike in the income Medicare looks at two years later.",
+    b: "A cash distribution may make the taxable amount income in a single year and can affect the income Medicare reviews two years later. A CPA or registered investment adviser can help assess the consequences for your situation.",
   },
 ] as const;
 
@@ -74,7 +74,7 @@ const FAQ = [
   },
   {
     q: "Why do people talk about the years between retiring and 73?",
-    a: "Because it’s usually the lowest-income stretch of your whole adult life. The paycheck has stopped and the required withdrawals haven’t started. Those years are the only window where the order you pull from accounts really changes what you pay in total.",
+    a: "For some households, the years after paychecks stop and before required distributions begin may bring lower taxable income. That can make the timing of withdrawals and conversions worth discussing with a CPA or registered investment adviser.",
   },
   {
     q: "How does any of this touch Medicare?",
@@ -82,11 +82,11 @@ const FAQ = [
   },
   {
     q: "Is a rollover taxable?",
-    a: "A direct transfer between institutions isn’t. Taking the money yourself and moving it starts a 60-day clock and mandatory withholding, and if you don’t finish in time the whole amount becomes taxable income. If you do this, do it as a direct transfer.",
+    a: "A direct rollover is generally not taxable at the time of transfer. Receiving the funds yourself can trigger withholding and a 60-day rollover deadline. Confirm the rules and your circumstances with the plan administrator and a qualified tax professional.",
   },
   {
     q: "Can you advise me on how to invest it?",
-    a: "No, and I can say that plainly than blur it. I hold an insurance license, not a securities license, and I’m not a registered investment adviser. What I can do is explain how the deadlines and the tax side work, and tell you when your question belongs to a CPA or an adviser.",
+    a: "No. I hold an insurance license, not a securities license, and I am not a registered investment adviser. I can provide general education about deadlines and Medicare interactions, then identify questions for a CPA or registered investment adviser.",
   },
   {
     q: "So what do you actually help with here?",
@@ -188,12 +188,11 @@ export default function RetirementIncomePage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">The window nobody tells you about</h2>
+          <h2 className="text-28 font-semibold">The years before required distributions</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            Between the day your paycheck stops and the day required withdrawals start at 73, your
-            taxable income is lower than it’s been in decades and lower than it’ll be again. That
-            gap is the only stretch where the order you pull from accounts changes what you pay in
-            total.
+            For some households, taxable income falls after work ends and before required
+            distributions begin. The timing of withdrawals and conversions during those years may
+            affect taxes and future Medicare premiums.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
             It’s also where the Medicare income-timing issue sits. Premiums come from a return two
@@ -221,9 +220,8 @@ export default function RetirementIncomePage() {
           <h2 className="text-28 font-semibold">Where I stop</h2>
           <p className="text-18 mt-4 leading-relaxed">
             I’m a licensed insurance agent finishing a master’s in accounting. I’m not a registered
-            investment adviser and I’m not a CPA yet. I don’t manage money, recommend investments,
-            or tell you what to hold inside a 401(k) or an IRA. Anybody in this business who blurs
-            that line is telling you something useful about themselves.
+            investment adviser or a CPA. I don’t manage money, recommend investments, or tell you
+            what to hold inside a 401(k) or an IRA.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             What I do know well is where retirement income runs into Medicare, because that’s where
@@ -256,9 +254,9 @@ export default function RetirementIncomePage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">local, personalized help within 30 minutes</h2>
+          <h2 className="text-28 font-semibold">Local retirement and Medicare education</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            {SERVICE_AREA_LEDE} National matching sites will send you to whoever bought the lead.
+            {SERVICE_AREA_LEDE} Meet directly with Christian in person or by phone.
           </p>
           <FeaturedPlaceCards
             hrefFor={(place) => `/retirement-in/${place.slug}`}
