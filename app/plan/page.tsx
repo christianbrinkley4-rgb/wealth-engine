@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { ServiceHero } from "@/app/components/ServiceHero";
 import { Plan65 } from "@/app/plan/Plan65";
-import { AGENT } from "@/lib/agent";
-import { pageOpenGraph } from "@/lib/seo";
+import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
+import { SERVICE_AREA_LABEL } from "@/lib/triad";
 
 /**
  * Server shell, deliberately.
@@ -29,26 +31,49 @@ export const metadata: Metadata = {
 
 export default function PlanPage() {
   return (
-    <main className="app-shell pb-16">
-      <header className="mt-6 max-w-3xl">
-        <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-          {AGENT.city} · {AGENT.region} · Free, and nothing is sent anywhere
-        </p>
-        <h1 className="text-32 md:text-40 mt-2 leading-tight font-semibold tracking-tight text-balance text-[var(--color-navy)]">
-          What does the timing of a Roth conversion cost you in Medicare?
-        </h1>
-        <p className="measure-prose text-19 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Most conversion advice stops at the income tax. Medicare charges a second bill on the same
-          income two years later, and unlike the tax, this one is decided almost entirely by which
-          years you convert in. Move the sliders and the difference shows up on the right.
-        </p>
-      </header>
+    <main className="pb-16 text-[var(--color-navy)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Conversion timing", path: "/plan" },
+            ]),
+          ),
+        }}
+      />
 
-      <Plan65 />
+      <ServiceHero
+        crumbs={[{ name: "Home", href: "/" }, { name: "Conversion timing" }]}
+        eyebrow={`${SERVICE_AREA_LABEL} · free, nothing is sent anywhere`}
+        title="What does the timing of a Roth conversion cost you in Medicare?"
+        lede="Most conversion advice stops at the income tax. Medicare charges a second bill on the same income two years later, and unlike the tax, this one is decided almost entirely by which years you convert in. Move the sliders and the difference shows up on the right."
+        secondaryHref="/start?topic=financial_planning"
+        secondaryLabel="Ask a retirement question →"
+        note="Education only — I am not a registered investment adviser. How to invest the money is an adviser’s question, and I’ll say so."
+        proof={[
+          "Licensed in North Carolina",
+          "Kitchen-table walkthroughs within ~30 minutes of Greensboro",
+          "Official 2026 CMS IRMAA schedule",
+          "No cost, and I will not invent investment advice",
+        ]}
+      />
 
-      <div className="measure-prose max-w-3xl">
-        <ComplianceDisclosure variant="medicare" showEstimateNote />
+      <div className="app-shell">
+        <Plan65 />
+
+        <div className="measure-prose max-w-3xl">
+          <ComplianceDisclosure variant="medicare" showEstimateNote />
+        </div>
       </div>
+
+      <KitchenTableClose
+        heading="Want this walked through at the table?"
+        body="I’ll sit down and tell you what a conversion does to a Medicare premium, and which parts belong to a CPA or a registered adviser."
+        href="/start?topic=financial_planning"
+        label="Ask a retirement question →"
+      />
     </main>
   );
 }

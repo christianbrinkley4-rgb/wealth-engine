@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { GuideTownLinks } from "@/app/components/GuideTownLinks";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { LeadCluster } from "@/app/components/LeadCluster";
+import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
  * When to claim Social Security — the biggest retirement-income question
@@ -130,51 +133,34 @@ export default function SocialSecurityTimingPage() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            howToJsonLd({
+              name: "How to think about Social Security timing",
+              description:
+                "What claiming at 62, at full retirement age, and at 70 each costs, before the survivor and Medicare pieces most calculators skip.",
+              path: "/social-security-timing",
+              steps: AGES.map((item) => ({ name: `${item.age}: ${item.head}`, text: item.b })),
+            }),
+          ),
+        }}
+      />
 
-      <section className="bg-[var(--color-paper)] pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="measure-prose app-shell max-w-3xl">
-          <nav aria-label="Breadcrumb" className="text-16 text-[var(--color-ink-muted)]">
-            <Link href="/" className="underline underline-offset-2">
-              Home
-            </Link>
-            <span aria-hidden> › </span>
-            <Link href="/retirement-income" className="underline underline-offset-2">
-              Retirement income
-            </Link>
-            <span aria-hidden> › </span>
-            <span>Social Security timing</span>
-          </nav>
-
-          <p className="text-13 mt-4 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-            {AGENT.city} · High Point · Winston-Salem
-          </p>
-          <h1 className="text-32 md:text-42 mt-3 leading-[1.12] font-semibold tracking-tight text-balance">
-            When should you take Social Security?
-          </h1>
-          <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
-            The break-even math is the easy part, and it’s all anybody puts online. What decides it
-            for most households is the piece those calculators leave out — what happens to the
-            benefit when one spouse dies, and what your income in the waiting years does to your
-            Medicare premium two years later.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href={AGENT.phoneHref}
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center gap-2 rounded-[12px] bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
-            >
-              <Phone className="size-5 shrink-0" aria-hidden />
-              {AGENT.phone}
-            </a>
-            <Link
-              href="/start?topic=financial_planning"
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.05)]"
-            >
-              Talk it through →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Retirement income", href: "/retirement-income" },
+          { name: "Social Security timing" },
+        ]}
+        eyebrow={`${AGENT.city} · ${AGENT.region}`}
+        title="When should you take Social Security?"
+        lede="The break-even math is the easy part, and it’s all anybody puts online. What decides it for most households is the piece those calculators leave out — what happens to the benefit when one spouse dies, and what your income in the waiting years does to your Medicare premium two years later."
+        secondaryHref="/start?topic=financial_planning"
+        secondaryLabel="Talk it through →"
+        note="Kitchen table, coffee shop, or the phone. No cost, and nobody is paid on the date you pick — including me."
+      />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -245,6 +231,7 @@ export default function SocialSecurityTimingPage() {
             Your own numbers come from your Social Security statement at ssa.gov, and it’s worth
             pulling before any conversation about this — including one with me.
           </p>
+          <GuideTownLinks kind="retirement" heading="Retirement pages for the towns I drive to" />
         </div>
       </section>
 
@@ -265,34 +252,19 @@ export default function SocialSecurityTimingPage() {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
+          <LeadCluster
+            current="/retirement-income"
+            heading="Medicare, life insurance, and the retirement page itself"
+          />
         </div>
       </section>
 
-      <section className="bg-white py-14">
-        <div className="app-shell max-w-2xl text-center">
-          <h2 className="text-28 font-semibold">Bring your statement and your questions</h2>
-          <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            I’ll walk through what each claiming age does to your income, your spouse’s income later
-            on, and your Medicare premium. No cost, and no appointment needed to ask.
-          </p>
-          <Link
-            href="/start?topic=financial_planning"
-            className="text-18 mt-8 inline-flex min-h-14 min-w-[260px] items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 py-4 font-semibold text-[var(--color-paper)]"
-          >
-            Start here →
-          </Link>
-          <p className="text-17 mt-6 text-[var(--color-ink-muted)]">
-            Or call{" "}
-            <a
-              href={AGENT.phoneHref}
-              className="font-semibold text-[var(--color-navy)] underline underline-offset-2"
-            >
-              {AGENT.phone}
-            </a>{" "}
-            — {AGENT.hours}
-          </p>
-        </div>
-      </section>
+      <KitchenTableClose
+        heading="Bring your statement and your questions"
+        body="I’ll walk through what each claiming age does to your income, your spouse’s income later on, and your Medicare premium. No cost, and no appointment needed to ask."
+        href="/start?topic=financial_planning"
+        label="Start here →"
+      />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure />

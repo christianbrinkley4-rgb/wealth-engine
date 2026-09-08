@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-
-import { pageOpenGraph } from "@/lib/seo";
 import Link from "next/link";
-import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { GuideTownLinks } from "@/app/components/GuideTownLinks";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
  * The tax-aware moat, as a page.
@@ -63,6 +64,25 @@ const NOT_QUALIFYING = [
   "An inheritance, or a distribution from an inherited account",
 ] as const;
 
+const FILING_STEPS = [
+  {
+    name: "Wait for the determination letter",
+    text: "Social Security tells you what your premium will be and which tax year they used. That letter is what you’re responding to.",
+  },
+  {
+    name: "Fill in Form SSA-44",
+    text: "You state which event happened, when, and what you expect your income to be for the more recent year.",
+  },
+  {
+    name: "Bring evidence",
+    text: "Whatever proves the event — a letter from your employer, a death certificate, a marriage certificate, a pension statement — plus something supporting the income figure you’re claiming.",
+  },
+  {
+    name: "File it with Social Security",
+    text: "Your local office or the national line can take it — not Medicare, and not the IRS.",
+  },
+] as const;
+
 const FAQ = [
   {
     q: "How would I even know this applies to me?",
@@ -85,38 +105,55 @@ const FAQ = [
 export default function IrmaaAppealPage() {
   return (
     <main className="text-[var(--color-navy)]">
-      <section className="bg-[var(--color-paper)] pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="measure-prose app-shell max-w-3xl">
-          <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-            Medicare premiums · Form SSA-44
-          </p>
-          <h1 className="text-32 md:text-42 mt-3 leading-[1.12] font-semibold tracking-tight text-balance">
-            You retired last year. Medicare is charging you on what you earned two years ago.
-          </h1>
-          <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
-            That is not a mistake — it’s how the rules work. Medicare sets the income-related part
-            of your premium from a tax return two years old. But if the reason your income was high
-            back then has since ended, there is a form for that, and most people have never heard of
-            it.
-          </p>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "IRMAA appeal", path: "/irmaa-appeal" },
+            ]),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            articleJsonLd({
+              headline: "Appealing a high Medicare premium (Form SSA-44)",
+              description:
+                "Medicare sets your premium from a tax return two years old. The eight life-changing events that qualify, and how filing Form SSA-44 actually works.",
+              path: "/irmaa-appeal",
+              datePublished: "2026-08-31",
+              dateModified: "2026-08-31",
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            howToJsonLd({
+              name: "How to file Form SSA-44 for a Medicare IRMAA appeal",
+              description:
+                "Four steps to ask Social Security to recalculate a Medicare premium after a qualifying life-changing event.",
+              path: "/irmaa-appeal",
+              steps: FILING_STEPS,
+            }),
+          ),
+        }}
+      />
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Link
-              href="/start?topic=medicare&stage=already_on_medicare&ask=premium"
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
-            >
-              Have me look at it →
-            </Link>
-            <a
-              href={AGENT.phoneHref}
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center gap-2 rounded-[12px] border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.05)]"
-            >
-              <Phone className="size-5" aria-hidden />
-              {AGENT.phone}
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        crumbs={[{ name: "Home", href: "/" }, { name: "IRMAA appeal" }]}
+        eyebrow={`${AGENT.city} · Form SSA-44`}
+        title="You retired last year. Medicare is charging you on what you earned two years ago."
+        lede="That is not a mistake — it’s how the rules work. Medicare sets the income-related part of your premium from a tax return two years old. But if the reason your income was high back then has since ended, there is a form for that, and most people have never heard of it."
+        secondaryHref="/start?topic=medicare&stage=already_on_medicare&ask=premium"
+        secondaryLabel="Have me look at it →"
+      />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -180,24 +217,14 @@ export default function IrmaaAppealPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">How filing actually goes</h2>
           <ol className="text-18 mt-6 flex flex-col gap-5 leading-relaxed">
-            <li>
-              <strong>Wait for the determination letter.</strong> Social Security tells you what
-              your premium will be and which tax year they used. That letter is what you’re
-              responding to.
-            </li>
-            <li>
-              <strong>Fill in Form SSA-44.</strong> You state which event happened, when, and what
-              you expect your income to be for the more recent year.
-            </li>
-            <li>
-              <strong>Bring evidence.</strong> Whatever proves the event — a letter from your
-              employer, a death certificate, a marriage certificate, a pension statement — plus
-              something supporting the income figure you’re claiming.
-            </li>
-            <li>
-              <strong>File it with Social Security</strong>, not with Medicare and not with the IRS.
-              Your local office or the national line can take it.
-            </li>
+            {FILING_STEPS.map((step, index) => (
+              <li key={step.name}>
+                <strong>
+                  {index + 1}. {step.name}.
+                </strong>{" "}
+                {step.text}
+              </li>
+            ))}
           </ol>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Get the current form and the authoritative rules from{" "}
@@ -212,6 +239,7 @@ export default function IrmaaAppealPage() {
             . Do not rely on this page for the filing itself — it changes, and they are the ones who
             decide.
           </p>
+          <GuideTownLinks heading="I sit down in these towns if you would rather not file this alone" />
         </div>
       </section>
 
@@ -230,46 +258,17 @@ export default function IrmaaAppealPage() {
           </dl>
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: FAQ.map((item) => ({
-                  "@type": "Question",
-                  name: item.q,
-                  acceptedAnswer: { "@type": "Answer", text: item.a },
-                })),
-              }),
-            }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
         </div>
       </section>
 
-      <section className="bg-white py-14">
-        <div className="app-shell max-w-2xl text-center">
-          <h2 className="text-28 font-semibold">Not sure whether yours qualifies?</h2>
-          <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            Tell me what changed and I’ll tell you straight whether it’s one of the eight. No
-            charge, and no obligation to do anything else.
-          </p>
-          <Link
-            href="/start?topic=medicare&stage=already_on_medicare&ask=premium"
-            className="text-18 mt-8 inline-flex min-h-14 min-w-[260px] items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 py-4 font-semibold text-[var(--color-paper)]"
-          >
-            Tell me what changed →
-          </Link>
-          <p className="text-17 mt-6 text-[var(--color-ink-muted)]">
-            Or call{" "}
-            <a
-              href={AGENT.phoneHref}
-              className="font-semibold text-[var(--color-navy)] underline underline-offset-2"
-            >
-              {AGENT.phone}
-            </a>{" "}
-            — {AGENT.hours}
-          </p>
-        </div>
-      </section>
+      <KitchenTableClose
+        heading="Not sure whether yours qualifies?"
+        body="Tell me what changed and I’ll tell you straight whether it’s one of the eight. No charge, and no obligation to do anything else."
+        href="/start?topic=medicare&stage=already_on_medicare&ask=premium"
+        label="Tell me what changed →"
+      />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">

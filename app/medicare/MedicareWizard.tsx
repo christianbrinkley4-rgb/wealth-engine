@@ -4,7 +4,6 @@ import Link from "next/link";
 import { CheckCircle2, User, Users } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { IrmaaLadder } from "@/components/charts/IrmaaLadder";
 import { EmailResultsCapture } from "@/components/EmailResultsCapture";
 import { Button } from "@/components/ui/button";
@@ -148,14 +147,14 @@ export function MedicareWizard() {
     );
 
   return (
-    <main className="app-shell pb-10">
-      <header className="mt-6">
+    <div className="app-shell py-10">
+      <header>
         <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
           Free estimate · No account, no SSN
         </p>
-        <h1 className="text-28 md:text-32 mt-2 leading-tight font-semibold tracking-tight text-[var(--color-navy)]">
+        <h2 className="text-24 md:text-28 mt-2 leading-tight font-semibold tracking-tight text-[var(--color-navy)]">
           What will your 2026 Medicare Part B premium be?
-        </h1>
+        </h2>
         <p className="measure-prose text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
           Four questions. The answer depends on your income and how you file, because Medicare adds
           an income-related amount — IRMAA — on top of the standard premium.
@@ -586,8 +585,7 @@ export function MedicareWizard() {
             </>
           ) : null}
         </div>
-        <ComplianceDisclosure variant="medicare" showEstimateNote />
       </section>
-    </main>
+    </div>
   );
 }

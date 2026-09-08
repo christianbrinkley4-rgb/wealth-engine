@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { AGENT } from "@/lib/agent";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { ServiceHero } from "@/app/components/ServiceHero";
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  pageOpenGraph,
+  serviceJsonLd,
+} from "@/lib/seo";
+import { FeaturedPlaceCards, ServiceAreaTownList } from "@/app/components/ServiceAreaTownList";
+import { LeadCluster } from "@/app/components/LeadCluster";
+import { SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
 
 /**
  * Life insurance, organised around the only question that decides it.
@@ -17,14 +26,14 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Life Insurance in Greensboro, NC — Licensed Local Agent" },
+  title: { absolute: "Life Insurance in Greensboro, NC — Kitchen-Table Review" },
   description:
-    "Term or permanent comes down to how long the money is needed, not to what someone wants to sell. Plus the two things to check on a policy you already have.",
+    "A licensed Greensboro agent will sit down and read your policy with you at no cost. Term or permanent comes down to how long the money is needed — not to what someone wants to sell.",
   alternates: { canonical: "/life-insurance" },
   openGraph: pageOpenGraph({
-    title: "Life insurance, decided by how long the money is needed",
+    title: "Life insurance, reviewed at your kitchen table in Greensboro",
     description:
-      "The one question that settles term against permanent, and what to check on the policy you already have.",
+      "The one question that settles term against permanent, and what to check on the policy you already have. No call center.",
     path: "/life-insurance",
   }),
 };
@@ -52,7 +61,11 @@ const FAQ = [
   },
   {
     q: "Do you charge for a review?",
-    a: "No. A good share of them end with me telling somebody what they’ve got is fine. That’s a real answer, and it takes about twenty minutes.",
+    a: "No. A good share of them end with me telling somebody what they’ve got is fine. That’s a real answer, and it takes about twenty minutes — at your kitchen table, a coffee shop, or on the phone.",
+  },
+  {
+    q: "Do you meet in Greensboro, High Point, and Winston-Salem?",
+    a: "Yes — and in the towns within about 30 minutes of downtown Greensboro. Kernersville, Summerfield, Jamestown, Oak Ridge, Archdale, and the rest. Kitchen table, a coffee shop, or the phone. Same person either way, and nothing to sign first.",
   },
 ] as const;
 
@@ -85,47 +98,28 @@ export default function LifeInsurancePage() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            serviceJsonLd({
+              name: "Life insurance review",
+              description:
+                "Kitchen-table review of existing coverage anywhere about 30 minutes from downtown Greensboro. No cost, no obligation to buy.",
+              path: "/life-insurance",
+            }),
+          ),
+        }}
+      />
 
-      <section className="bg-[var(--color-paper)] pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="measure-prose app-shell max-w-3xl">
-          <nav aria-label="Breadcrumb" className="text-16 text-[var(--color-ink-muted)]">
-            <Link href="/" className="underline underline-offset-2">
-              Home
-            </Link>
-            <span aria-hidden> › </span>
-            <span>Life insurance</span>
-          </nav>
-
-          <p className="text-13 mt-4 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-            {AGENT.city} · {AGENT.region}
-          </p>
-          <h1 className="text-32 md:text-42 mt-3 leading-[1.12] font-semibold tracking-tight text-balance">
-            Life insurance comes down to one question, and it is not which product.
-          </h1>
-          <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
-            How many more years does the money need to be there? Answer that honestly and the
-            product mostly picks itself. Nearly every expensive mistake I see comes from getting it
-            backwards — permanent coverage bought for a temporary need, or term coverage for a
-            permanent one.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href={AGENT.phoneHref}
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center gap-2 rounded-[12px] bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
-            >
-              <Phone className="size-5 shrink-0" aria-hidden />
-              {AGENT.phone}
-            </a>
-            <Link
-              href="/start?topic=life_insurance"
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.05)]"
-            >
-              Ask a question first →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        crumbs={[{ name: "Home", href: "/" }, { name: "Life insurance" }]}
+        eyebrow={SERVICE_AREA_LABEL}
+        title="Life insurance comes down to one question, and it is not which product."
+        lede="How many more years does the money need to be there? Answer that honestly and the product mostly picks itself. I’ll sit down at your kitchen table and read what you already have — at no cost, and with no obligation to buy anything."
+        secondaryHref="/start?topic=life_insurance"
+        secondaryLabel="Ask a question first →"
+      />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -191,31 +185,41 @@ export default function LifeInsurancePage() {
         </div>
       </section>
 
-      <section className="bg-[var(--color-paper)] py-14">
-        <div className="app-shell max-w-2xl text-center">
-          <h2 className="text-28 font-semibold">Want someone to read your policy with you?</h2>
-          <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            Bring what you’ve got. Twenty minutes, no charge, and a fair chance the answer is that
-            you’re already fine.
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">
+            I sit down within 30 minutes, not on a national queue
+          </h2>
+          <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            {SERVICE_AREA_LEDE} Life insurance is not sold by county the way Medicare Advantage is.
+            What changes by town is who is across the table.
           </p>
-          <Link
-            href="/start?topic=life_insurance"
-            className="text-18 mt-8 inline-flex min-h-14 min-w-[260px] items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 py-4 font-semibold text-[var(--color-paper)]"
-          >
-            Start here →
-          </Link>
-          <p className="text-17 mt-6 text-[var(--color-ink-muted)]">
-            Or call{" "}
-            <a
-              href={AGENT.phoneHref}
-              className="font-semibold text-[var(--color-navy)] underline underline-offset-2"
-            >
-              {AGENT.phone}
-            </a>{" "}
-            — serving Greensboro, High Point, Winston-Salem and the rest of the Triad.
+          <FeaturedPlaceCards
+            hrefFor={(place) => `/life-insurance-in/${place.slug}`}
+            labelFor={(place) => `Life insurance in ${place.name}`}
+          />
+          <p className="text-13 mt-8 font-medium tracking-[0.1em] text-[var(--color-gold-ink)] uppercase">
+            Also within about 30 minutes
           </p>
+          <ServiceAreaTownList hrefFor={(place) => `/life-insurance-in/${place.slug}`} />
+          <p className="text-17 mt-6">
+            <Link href="/service-area" className="underline underline-offset-2">
+              Every town in the service area →
+            </Link>
+          </p>
+          <LeadCluster
+            current="/life-insurance"
+            heading="Medicare and retirement, same kitchen table"
+          />
         </div>
       </section>
+
+      <KitchenTableClose
+        heading="Want someone to read your policy with you?"
+        body="Bring what you’ve got. Twenty minutes at your kitchen table or on the phone, no charge, and a fair chance the answer is that you’re already fine."
+        href="/start?topic=life_insurance"
+        label="Start here →"
+      />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure />

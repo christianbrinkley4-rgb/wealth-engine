@@ -8,6 +8,20 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: dirname,
   },
+  /**
+   * Short ad / habit URLs. The canonical paid pages live under the longer
+   * slugs in lib/landingPages.ts; these keep a mistyped or abbreviated link
+   * from 404ing into a dead end.
+   */
+  async redirects() {
+    return [
+      {
+        source: "/lp/retirement",
+        destination: "/lp/retirement-income",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

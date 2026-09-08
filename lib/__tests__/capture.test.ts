@@ -7,8 +7,23 @@ import {
   getValueBeat,
   HELP_QUIZ_TOPICS,
   isHelpQuizTopic,
+  phaseToStepNumber,
+  quizTotalSteps,
+  QUIZ_SITUATIONS,
   TOPIC_META,
 } from "@/lib/helpQuiz";
+import { LANDING_CONTRAST, LANDING_PAGES } from "@/lib/landingPages";
+import { AGENT } from "@/lib/agent";
+import { localBusinessJsonLd, SITE_URL } from "@/lib/seo";
+import {
+  HIGH_INTENT_SLUGS,
+  nearbyCountyContrasts,
+  getTriadCity,
+  lifePlaceBeat,
+  placeCheckBeat,
+  retirementPlaceBeat,
+  TRIAD_CITIES,
+} from "@/lib/triad";
 import { thankYouUrl } from "@/lib/thankYouUrl";
 
 /**
@@ -93,6 +108,16 @@ describe("describeAnswers", () => {
     });
   });
 
+  it("includes kitchen-table meeting preference when provided", () => {
+    const described = describeAnswers("medicare", {
+      meet_preference: "kitchen_table",
+    });
+    expect(described).toContainEqual({
+      question: "How they’d like to talk",
+      answer: "Sit down at my kitchen table",
+    });
+  });
+
   it("skips unanswered questions", () => {
     expect(describeAnswers("life_insurance", {})).toEqual([]);
   });
@@ -157,6 +182,33 @@ describe("calculatePartBPremium", () => {
   });
 });
 
+describe("quiz situations", () => {
+  it("maps the four homepage doors onto real quiz branches", () => {
+    expect(QUIZ_SITUATIONS.map((s) => s.id)).toEqual([
+      "turning_65",
+      "annual_enrollment",
+      "retirement",
+      "life",
+    ]);
+  });
+
+  it("pre-answers Medicare stage with values the first question actually has", () => {
+    const first = TOPIC_META.medicare.questions[0];
+    for (const situation of QUIZ_SITUATIONS) {
+      if (!situation.firstAnswer) continue;
+      expect(situation.firstAnswer.questionId).toBe(first.id);
+      expect(first.options.map((o) => o.value)).toContain(situation.firstAnswer.value);
+    }
+  });
+
+  it("shortens the progress bar when question one was already answered", () => {
+    expect(quizTotalSteps(true)).toBe(4);
+    expect(phaseToStepNumber("branch", 1, true)).toBe(2);
+    expect(phaseToStepNumber("contact", 0, true)).toBe(4);
+    expect(phaseToStepNumber("topic", 0, true)).toBe(1);
+  });
+});
+
 describe("adult-child entry point", () => {
   /**
    * /helping-a-parent links to
@@ -215,5 +267,171 @@ describe("local lead scoring", () => {
     expect(scoreLead({ source: "help_quiz", zip_code: "10001" }).score).toBe(
       scoreLead({ source: "help_quiz" }).score,
     );
+  });
+});
+
+describe("service area honesty", () => {
+  it("keeps twenty town pages and five high-intent towns that already exist", () => {
+    expect(TRIAD_CITIES).toHaveLength(20);
+    expect(HIGH_INTENT_SLUGS).toHaveLength(5);
+    for (const slug of HIGH_INTENT_SLUGS) {
+      expect(getTriadCity(slug)?.slug).toBe(slug);
+    }
+    expect(TRIAD_CITIES.some((city) => city.slug === "walkertown")).toBe(false);
+    expect(TRIAD_CITIES.some((city) => city.slug === "asheboro")).toBe(false);
+    expect(TRIAD_CITIES.some((city) => city.slug === "clemmons")).toBe(false);
+  });
+
+  it("flags Kernersville neighbors on a different Medicare list", () => {
+    const kernersville = getTriadCity("kernersville");
+    expect(kernersville).toBeTruthy();
+    const contrasts = nearbyCountyContrasts(kernersville!);
+    expect(contrasts.some((place) => place.slug === "greensboro")).toBe(true);
+  });
+
+  it("does not turn a drive-time promise into a county-wide or mileage-radius claim", () => {
+    expect(Math.max(...TRIAD_CITIES.map((city) => city.minutesFromDowntown))).toBeLessThanOrEqual(
+      30,
+    );
+    expect(JSON.stringify(localBusinessJsonLd())).not.toContain("GeoCircle");
+  });
+
+  it("does not publish guessed identity or domain facts", () => {
+    expect(AGENT.education).toMatch(/student/i);
+    expect(SITE_URL).not.toBe("https://wealth-engine.app");
+  });
+});
+
+describe("four lead funnels", () => {
+  it("maps each quiz door onto a capture topic the API accepts", () => {
+    const apiTopics = ["medicare", "financial_planning", "life_insurance"];
+    for (const situation of QUIZ_SITUATIONS) {
+      expect(apiTopics).toContain(situation.topic);
+      expect(HELP_QUIZ_TOPICS).toContain(situation.topic);
+    }
+  });
+
+  it("gives turning 65 and AEP different Medicare value screens", () => {
+    const t65 = getValueBeat("medicare", { medicare_stage: "turning_65_soon" });
+    const aep = getValueBeat("medicare", { medicare_stage: "already_on_medicare" });
+    expect(t65.headline).not.toBe(aep.headline);
+    expect(t65.headline).toMatch(/seven months/i);
+    expect(t65.lede).toMatch(/three months/i);
+    expect(aep.lede).toMatch(/two years/i);
+  });
+
+  it("gives life and retirement their own value screens", () => {
+    const life = getValueBeat("life_insurance", { life_cover: "review_existing" });
+    const retirement = getValueBeat("financial_planning", { planning_focus: "taxes" });
+    expect(life.headline).toMatch(/polic/i);
+    expect(retirement.lede).toMatch(/73/);
+    expect(life.headline).not.toBe(retirement.headline);
+  });
+
+  it("gives leaving-money a beneficiary-form answer instead of the generic calendar", () => {
+    const leaving = getValueBeat("financial_planning", { planning_focus: "leaving_money" });
+    const calendar = getValueBeat("financial_planning", {});
+    expect(leaving.headline).toMatch(/beneficiary|will/i);
+    expect(leaving.lede).toMatch(/beneficiary/i);
+    expect(leaving.headline).not.toBe(calendar.headline);
+  });
+
+  it("keeps each town's Medicare check sentence unique", () => {
+    const beats = TRIAD_CITIES.map((city) => placeCheckBeat(city));
+    expect(new Set(beats).size).toBe(TRIAD_CITIES.length);
+    for (const city of TRIAD_CITIES) {
+      expect(placeCheckBeat(city)).toContain(city.name);
+      expect(placeCheckBeat(city)).toContain(city.county);
+    }
+  });
+
+  it("keeps life and retirement place beats unique across towns", () => {
+    expect(new Set(TRIAD_CITIES.map((city) => lifePlaceBeat(city))).size).toBe(TRIAD_CITIES.length);
+    expect(new Set(TRIAD_CITIES.map((city) => retirementPlaceBeat(city))).size).toBe(
+      TRIAD_CITIES.length,
+    );
+  });
+
+  it("keeps FAQ answers substantive enough to quote", () => {
+    for (const city of TRIAD_CITIES) {
+      for (const item of [...city.faq, ...city.lifeFaq, ...city.retirementFaq]) {
+        expect(item.a.length, `${city.slug}: ${item.q}`).toBeGreaterThanOrEqual(50);
+        expect(item.a).not.toMatch(/^(Yes|No|None)\.?$/i);
+      }
+    }
+  });
+
+  it("keeps intro copy unique across towns for all three local page types", () => {
+    expect(new Set(TRIAD_CITIES.map((city) => city.intro)).size).toBe(TRIAD_CITIES.length);
+    expect(new Set(TRIAD_CITIES.map((city) => city.lifeIntro)).size).toBe(TRIAD_CITIES.length);
+    expect(new Set(TRIAD_CITIES.map((city) => city.retirementIntro)).size).toBe(
+      TRIAD_CITIES.length,
+    );
+  });
+});
+
+describe("paid landing pages", () => {
+  it("covers the four lead angles plus the annuity proposal angle", () => {
+    expect(LANDING_PAGES.map((page) => page.slug)).toEqual(
+      expect.arrayContaining([
+        "turning-65",
+        "annual-enrollment",
+        "life-insurance",
+        "retirement-income",
+      ]),
+    );
+  });
+
+  it("deep-links life-insurance ads into a real first-question answer", () => {
+    const page = LANDING_PAGES.find((item) => item.slug === "life-insurance");
+    expect(page).toBeTruthy();
+    const staged = page!.options.filter((option) => option.href.includes("stage="));
+    expect(staged.length).toBeGreaterThanOrEqual(3);
+    const lifeValues = TOPIC_META.life_insurance.questions[0].options.map((o) => o.value);
+    for (const option of staged) {
+      const stage = new URL(option.href, "https://example.com").searchParams.get("stage");
+      expect(lifeValues).toContain(stage);
+    }
+  });
+
+  it("keeps four self-ID options and valid deep links on every paid page", () => {
+    const knownPaths = new Set([
+      "/remind-me",
+      "/keep-my-doctor",
+      "/annual-enrollment",
+      "/life-insurance",
+      "/annuities",
+      "/plan",
+      "/irmaa-appeal",
+      "/retirement-income",
+      "/start",
+    ]);
+
+    for (const page of LANDING_PAGES) {
+      expect(page.options.length, page.slug).toBe(4);
+      expect(page.promises.length, page.slug).toBeGreaterThanOrEqual(3);
+      for (const option of page.options) {
+        const url = new URL(option.href, "https://example.com");
+        if (url.pathname === "/start") {
+          const topic = url.searchParams.get("topic");
+          expect(HELP_QUIZ_TOPICS, `${page.slug}: ${option.label}`).toContain(topic);
+          const stage = url.searchParams.get("stage");
+          if (stage && topic && isHelpQuizTopic(topic)) {
+            const values = TOPIC_META[topic].questions[0].options.map((o) => o.value);
+            expect(values, `${page.slug}: ${option.label}`).toContain(stage);
+          }
+        } else {
+          expect(knownPaths.has(url.pathname), `${page.slug}: ${option.href}`).toBe(true);
+        }
+      }
+    }
+  });
+
+  it("keeps the mill-vs-kitchen-table contrast substantive", () => {
+    expect(LANDING_CONTRAST.length).toBeGreaterThanOrEqual(3);
+    for (const row of LANDING_CONTRAST) {
+      expect(row.them.length).toBeGreaterThan(10);
+      expect(row.us.length).toBeGreaterThan(10);
+    }
   });
 });

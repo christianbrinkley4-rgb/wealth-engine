@@ -50,7 +50,7 @@ export default function OpengraphImage() {
             maxWidth: 940,
           }}
         >
-          Medicare and retirement questions, answered by one licensed agent.
+          Medicare and retirement questions, answered at your kitchen table.
         </div>
         <div
           style={{
@@ -61,7 +61,7 @@ export default function OpengraphImage() {
             maxWidth: 900,
           }}
         >
-          No cost to talk. Your information is never sold.
+          No call center. No cost. I review every case myself.
         </div>
       </div>
 

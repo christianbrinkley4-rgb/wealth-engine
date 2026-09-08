@@ -97,7 +97,10 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
       } | null;
 
       if (!res.ok) {
-        setError(data?.error ?? `Something went wrong. Email me at ${AGENT.email}.`);
+        setError(
+          data?.error ??
+            `I couldn’t save that. Call me at ${AGENT.phone} or email ${AGENT.email} and I’ll add you by hand.`,
+        );
         setSubmitting(false);
         return;
       }
@@ -371,9 +374,18 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
         ) : null}
 
         {error ? (
-          <p role="alert" className="text-17 mt-4 text-[var(--color-error)]">
-            {error}
-          </p>
+          <div
+            role="alert"
+            className="mt-4 rounded-xl border border-[rgba(185,79,92,0.35)] bg-[rgba(185,79,92,0.06)] px-4 py-3"
+          >
+            <p className="text-17 text-[var(--color-error)]">{error}</p>
+            <a
+              href={AGENT.phoneHref}
+              className="text-17 mt-2 inline-flex font-semibold text-[var(--color-navy)] underline underline-offset-2"
+            >
+              Call {AGENT.phone}
+            </a>
+          </div>
         ) : null}
 
         <button

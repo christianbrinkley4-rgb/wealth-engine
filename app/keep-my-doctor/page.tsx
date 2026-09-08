@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-
-import { pageOpenGraph } from "@/lib/seo";
 import Link from "next/link";
-import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { AGENT } from "@/lib/agent";
+import { GuideTownLinks } from "@/app/components/GuideTownLinks";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { ServiceHero } from "@/app/components/ServiceHero";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
  * The first real question anyone asks, answered locally.
@@ -80,41 +80,55 @@ const FAQ = [
 export default function KeepMyDoctorPage() {
   return (
     <main className="text-[var(--color-navy)]">
-      <section className="bg-[var(--color-paper)] pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="measure-prose app-shell max-w-3xl">
-          <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-            Greensboro & the Triad
-          </p>
-          <h1 className="text-32 md:text-42 mt-3 leading-[1.12] font-semibold tracking-tight text-balance">
-            “Can I keep my doctor?”
-          </h1>
-          <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
-            It’s the first thing almost everyone asks, and it’s the question a national call center
-            answers worst — because the answer depends on which practices around here take which
-            specific plan, and that isn’t something a script in another state knows.
-          </p>
-          <p className="text-19 mt-4 leading-relaxed">
-            The good news is that it’s knowable before you commit to anything. Here’s how the answer
-            is actually determined, and how to check it properly.
-          </p>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Keep my doctor", path: "/keep-my-doctor" },
+            ]),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            articleJsonLd({
+              headline: "Can I keep my doctor on Medicare?",
+              description:
+                "How Medicare Advantage networks work in the Greensboro area, and how to verify a specific doctor against a specific plan.",
+              path: "/keep-my-doctor",
+              datePublished: "2026-08-31",
+              dateModified: "2026-08-31",
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            howToJsonLd({
+              name: "How to check whether your doctor accepts a Medicare plan",
+              description:
+                "Five steps to verify a specific doctor against a specific plan before you enroll.",
+              path: "/keep-my-doctor",
+              steps: CHECK_STEPS.map((step) => ({ name: step.title, text: step.body })),
+            }),
+          ),
+        }}
+      />
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Link
-              href="/start?topic=medicare&ask=doctors"
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
-            >
-              Tell me who you see →
-            </Link>
-            <a
-              href={AGENT.phoneHref}
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center gap-2 rounded-[12px] border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.05)]"
-            >
-              <Phone className="size-5" aria-hidden />
-              {AGENT.phone}
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        crumbs={[{ name: "Home", href: "/" }, { name: "Keep my doctor" }]}
+        eyebrow="Greensboro & the Triad"
+        title="“Can I keep my doctor?”"
+        lede="It’s the first thing almost everyone asks, and it’s the question a national call center answers worst — because the answer depends on which practices around here take which specific plan. The good news is that it’s knowable before you commit to anything."
+        secondaryHref="/start?topic=medicare&ask=doctors"
+        secondaryLabel="Tell me who you see →"
+      />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -188,6 +202,7 @@ export default function KeepMyDoctorPage() {
             their doctor. Checking it properly for your specific doctors takes me a few minutes, so
             ask me instead of trusting a table.
           </p>
+          <GuideTownLinks heading="Check the county first — then the doctor" />
           <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             I have no affiliation with any of those health systems; they’re named here only because
             they’re where most people in the area are seen.
@@ -210,46 +225,17 @@ export default function KeepMyDoctorPage() {
           </dl>
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: FAQ.map((item) => ({
-                  "@type": "Question",
-                  name: item.q,
-                  acceptedAnswer: { "@type": "Answer", text: item.a },
-                })),
-              }),
-            }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
         </div>
       </section>
 
-      <section className="bg-white py-14">
-        <div className="app-shell max-w-2xl text-center">
-          <h2 className="text-28 font-semibold">Tell me who you see</h2>
-          <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            Give me the names and I’ll check them against what I can offer — and tell you plainly
-            when something I can’t offer would suit you better.
-          </p>
-          <Link
-            href="/start?topic=medicare&ask=doctors"
-            className="text-18 mt-8 inline-flex min-h-14 min-w-[260px] items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 py-4 font-semibold text-[var(--color-paper)]"
-          >
-            Start here →
-          </Link>
-          <p className="text-17 mt-6 text-[var(--color-ink-muted)]">
-            Or call{" "}
-            <a
-              href={AGENT.phoneHref}
-              className="font-semibold text-[var(--color-navy)] underline underline-offset-2"
-            >
-              {AGENT.phone}
-            </a>{" "}
-            — {AGENT.hours}
-          </p>
-        </div>
-      </section>
+      <KitchenTableClose
+        heading="Tell me who you see"
+        body="Give me the names and I’ll check them against what I can offer — and tell you plainly when something I can’t offer would suit you better."
+        href="/start?topic=medicare&ask=doctors"
+        label="Start here →"
+      />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">

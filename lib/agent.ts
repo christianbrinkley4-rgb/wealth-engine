@@ -43,7 +43,7 @@ export const AGENT = {
    */
   linesOfAuthority: ["Life", "Accident & Health"],
 
-  education: "Master’s in Accounting, UNC Greensboro",
+  education: "Master’s student in Accounting at UNC Greensboro",
 
   /**
    * A stated promise you keep beats an implied one you break. National call
@@ -54,6 +54,9 @@ export const AGENT = {
   afterHoursPromise:
     "Call outside those hours and leave a message. I return calls first thing the next business day.",
 } as const;
+
+/** Add verified 24-hour times only when the exact Saturday window is known. */
+export const SATURDAY_HOURS: { opens: string; closes: string } | null = null;
 
 /**
  * TODO: set both counts to your actual contracted numbers, then have your FMO
@@ -83,7 +86,8 @@ export const TPMO_DISCLAIMER =
 
 /** True once the licensing details in AGENT have been filled in. */
 export function hasPublishableNpn(): boolean {
-  return !AGENT.npn.startsWith("TODO");
+  const value: string = AGENT.npn.trim();
+  return /^\d{1,10}$/.test(value) && !/^0+$/.test(value);
 }
 
 /** Flags anything still unset, for the /api/health check and the build log. */

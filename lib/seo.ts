@@ -5,14 +5,78 @@
 
 import type { Metadata } from "next";
 
-import { AGENT } from "@/lib/agent";
+import {
+  AGENT,
+  hasPublishableNpn,
+  SATURDAY_HOURS,
+  TPMO_ORGANIZATION_COUNT,
+  TPMO_PRODUCT_COUNT,
+} from "@/lib/agent";
+import { placeNames, SERVICE_AREA_LEDE } from "@/lib/triad";
 
-const FALLBACK_SITE_URL = "https://wealth-engine.app";
+const LOCAL_SITE_URL = "http://localhost:3000";
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL?.trim() || FALLBACK_SITE_URL).replace(
-  /\/$/,
-  "",
-);
+const PLACEHOLDER_HOST = /(^|\.)example\.(com|org|net)$|your[-.]?domain|placeholder/i;
+const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "0.0.0.0", "::1"]);
+const RESERVED_HOST = /\.(test|invalid|example|localhost)$/i;
+const PRIVATE_IPV4 = /^(10\.|127\.|169\.254\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|0\.)/;
+
+/** A canonical origin must be a real public HTTPS host before indexing is safe. */
+export function isValidPublicSiteUrl(raw: string | undefined): boolean {
+  if (!raw?.trim()) return false;
+  try {
+    const url = new URL(raw.trim());
+    return (
+      url.protocol === "https:" &&
+      !url.username &&
+      !url.password &&
+      !LOCAL_HOSTS.has(url.hostname.toLowerCase()) &&
+      !url.hostname.endsWith(".local") &&
+      !RESERVED_HOST.test(url.hostname) &&
+      !PRIVATE_IPV4.test(url.hostname) &&
+      !url.hostname.startsWith("[") &&
+      !PLACEHOLDER_HOST.test(url.hostname) &&
+      url.pathname === "/" &&
+      !url.search &&
+      !url.hash
+    );
+  } catch {
+    return false;
+  }
+}
+
+export const SITE_URL_CONFIGURED = isValidPublicSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
+export const SITE_URL = (
+  SITE_URL_CONFIGURED ? process.env.NEXT_PUBLIC_SITE_URL!.trim() : LOCAL_SITE_URL
+).replace(/\/$/, "");
+
+function configured(value: string | undefined): boolean {
+  return Boolean(value?.trim()) && !/replace|placeholder|your[_-]?/i.test(value!);
+}
+
+const LEAD_CAPTURE_CONFIGURED =
+  (configured(process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL) &&
+    configured(process.env.SUPABASE_SERVICE_ROLE_KEY)) ||
+  (configured(process.env.RESEND_API_KEY) && configured(process.env.RESEND_FROM)) ||
+  configured(process.env.MAKE_WEBHOOK_URL) ||
+  (configured(process.env.TWILIO_ACCOUNT_SID) &&
+    configured(process.env.TWILIO_AUTH_TOKEN) &&
+    configured(process.env.TWILIO_FROM_NUMBER) &&
+    configured(process.env.ALERT_SMS_TO));
+
+/**
+ * A real origin is not enough to make regulated lead-generation content safe
+ * to index. Keep crawlers out until the verified licensing/TPMO facts and a
+ * working lead path are all configured.
+ */
+export const SITE_INDEXABLE =
+  SITE_URL_CONFIGURED &&
+  hasPublishableNpn() &&
+  Number.isInteger(TPMO_ORGANIZATION_COUNT) &&
+  (TPMO_ORGANIZATION_COUNT ?? 0) > 0 &&
+  Number.isInteger(TPMO_PRODUCT_COUNT) &&
+  (TPMO_PRODUCT_COUNT ?? 0) > 0 &&
+  LEAD_CAPTURE_CONFIGURED;
 
 /**
  * The old name ("UNCG Wealth Engine") implied a university endorsement and
@@ -58,6 +122,18 @@ export function pageOpenGraph(input: {
   };
 }
 
+export function pageTwitter(input: {
+  title: string;
+  description: string;
+}): NonNullable<Metadata["twitter"]> {
+  return {
+    card: "summary_large_image",
+    title: input.title,
+    description: input.description,
+    images: ["/twitter-image"],
+  };
+}
+
 export function absoluteUrl(path: string): string {
   if (!path.startsWith("/")) return `${SITE_URL}/${path}`;
   return `${SITE_URL}${path}`;
@@ -75,23 +151,12 @@ export function absoluteUrl(path: string): string {
  *
  * Deliberately a service-area business rather than a storefront: there is no
  * public street address, so this describes where he works rather than
- * inventing a place. `GeoCircle` says that honestly; a `geo` point on a
- * building he does not have would not.
+ * inventing a place. The explicit city list is more honest than converting
+ * "about 30 minutes" into a circular mileage claim.
  */
 export function localBusinessJsonLd() {
-  const areaServed = [
-    "Greensboro",
-    "High Point",
-    "Winston-Salem",
-    "Kernersville",
-    "Summerfield",
-    "Jamestown",
-    "Oak Ridge",
-    "Clemmons",
-    "Archdale",
-    "Thomasville",
-  ].map((name) => ({
-    "@type": "City",
+  const areaServed = placeNames().map((name) => ({
+    "@type": "City" as const,
     name,
     address: { "@type": "PostalAddress", addressRegion: SITE_REGION, addressCountry: "US" },
   }));
@@ -121,8 +186,9 @@ export function localBusinessJsonLd() {
         jobTitle: "Licensed Insurance Agent",
         description:
           `${SITE_OWNER} is a licensed insurance agent in ${SITE_LOCALITY}, ` +
-          `${SITE_REGION}, who answers Medicare, retirement income, and life ` +
-          "insurance questions for households across the Piedmont Triad.",
+          `${SITE_REGION}, and a master’s student in accounting at UNC Greensboro. ` +
+          "He personally reviews every Medicare, life insurance, and retirement " +
+          "income case himself — at the kitchen table, not through a call center.",
         image: `${SITE_URL}/christian-brinkley.jpg`,
         telephone: SITE_OWNER_PHONE,
         email: SITE_OWNER_EMAIL,
@@ -136,16 +202,18 @@ export function localBusinessJsonLd() {
           "Medicare Part B premiums",
           "IRMAA income-related monthly adjustment amount",
           "Medicare Initial Enrollment Period",
+          "Medicare Annual Enrollment Period",
+          "Medicare Advantage open enrollment",
           "Medigap open enrollment",
           "Medicare Advantage networks",
+          "Turning 65 Medicare enrollment",
+          "Life insurance",
+          "Term life insurance",
           "Roth conversions and Medicare premiums",
           "Social Security Form SSA-44",
           "Retirement income planning",
+          "401(k) rollover tax timing",
         ],
-        alumniOf: {
-          "@type": "CollegeOrUniversity",
-          name: "University of North Carolina at Greensboro",
-        },
         worksFor: { "@id": `${SITE_URL}/#service` },
         address,
       },
@@ -154,32 +222,40 @@ export function localBusinessJsonLd() {
         "@id": `${SITE_URL}/#service`,
         name: SITE_NAME,
         description:
-          "Medicare, retirement income, and life insurance questions answered " +
-          `by a licensed agent in ${SITE_LOCALITY}, ${SITE_REGION}. No cost to talk.`,
+          "Medicare initial enrollment, annual enrollment, life insurance, and " +
+          "retirement income questions answered in person by one licensed agent " +
+          `in ${SITE_LOCALITY}, ${SITE_REGION}. ${SERVICE_AREA_LEDE} ` +
+          "No cost and no obligation to enroll.",
         provider: { "@id": `${SITE_URL}/#christian` },
         founder: { "@id": `${SITE_URL}/#christian` },
-        areaServed,
-        /* A service area, stated as one, rather than a shopfront that does not exist. */
-        serviceArea: {
-          "@type": "GeoCircle",
-          geoMidpoint: {
-            "@type": "GeoCoordinates",
-            // The centre of Greensboro, as the middle of the area served.
-            latitude: 36.0726,
-            longitude: -79.792,
+        serviceType: [
+          "Medicare Initial Enrollment counseling",
+          "Medicare Annual Enrollment review",
+          "Life insurance review",
+          "Retirement income and Medicare timing education",
+        ],
+        availableChannel: [
+          {
+            "@type": "ServiceChannel",
+            serviceType: "In-person meeting at the client's home",
+            availableLanguage: "English",
           },
-          geoRadius: "48000",
-        },
+          {
+            "@type": "ServiceChannel",
+            serviceType: "Telephone consultation",
+            availableLanguage: "English",
+          },
+        ],
+        areaServed,
         knowsLanguage: "en-US",
         telephone: SITE_OWNER_PHONE,
         email: SITE_OWNER_EMAIL,
         url: SITE_URL,
         image: `${SITE_URL}/opengraph-image`,
         /*
-         * The hours are published in prose in the footer of every page and were
-         * never marked up, which is a plain local-search signal left on the
-         * floor. CONFIRM the Saturday window — the copy says "Saturday
-         * mornings" and this encodes that as 9am to noon.
+         * Only the exact weekday hours are marked up. "Saturday mornings" is
+         * intentionally left as prose until an exact opening and closing time
+         * is confirmed.
          */
         openingHoursSpecification: [
           {
@@ -188,26 +264,78 @@ export function localBusinessJsonLd() {
             opens: "09:00",
             closes: "19:00",
           },
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: "Saturday",
-            opens: "09:00",
-            closes: "12:00",
-          },
+          ...(SATURDAY_HOURS
+            ? [
+                {
+                  "@type": "OpeningHoursSpecification" as const,
+                  dayOfWeek: ["Saturday"],
+                  opens: SATURDAY_HOURS.opens,
+                  closes: SATURDAY_HOURS.closes,
+                },
+              ]
+            : []),
         ],
         address,
         hasOfferCatalog: {
           "@type": "OfferCatalog",
-          name: "What this costs",
+          name: "How a household in the Piedmont Triad gets help",
           itemListElement: [
             {
               "@type": "Offer",
               price: "0",
               priceCurrency: "USD",
-              description:
-                "There is no fee to ask a question, to compare coverage, or for " +
-                "help after you enrol. Insurance companies pay a commission when " +
-                "someone enrols through an agent; your premium is not higher for it.",
+              itemOffered: {
+                "@type": "Service",
+                name: "Medicare Initial Enrollment (Turning 65)",
+                url: `${SITE_URL}/turning-65`,
+                description:
+                  "Personal review of the seven-month Initial Enrollment Period, " +
+                  "coverage start dates, and the six-month Medigap window. In person " +
+                  "or by phone. No cost and no obligation.",
+                provider: { "@id": `${SITE_URL}/#christian` },
+              },
+            },
+            {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              itemOffered: {
+                "@type": "Service",
+                name: "Medicare Annual Enrollment review",
+                url: `${SITE_URL}/annual-enrollment`,
+                description:
+                  "A fall review of the Annual Notice of Change, prescriptions, and " +
+                  "doctors — including when the honest answer is to keep the plan you have.",
+                provider: { "@id": `${SITE_URL}/#christian` },
+              },
+            },
+            {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              itemOffered: {
+                "@type": "Service",
+                name: "Life insurance review",
+                url: `${SITE_URL}/life-insurance`,
+                description:
+                  "Whether existing coverage is enough, what happens when job coverage " +
+                  "ends, and the one question that settles term against permanent.",
+                provider: { "@id": `${SITE_URL}/#christian` },
+              },
+            },
+            {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              itemOffered: {
+                "@type": "Service",
+                name: "Retirement income and Medicare timing",
+                url: `${SITE_URL}/retirement-income`,
+                description:
+                  "What an old 401(k), a Roth conversion, or a large withdrawal does " +
+                  "to a Medicare premium two years later. Education, not investment advice.",
+                provider: { "@id": `${SITE_URL}/#christian` },
+              },
             },
           ],
         },
@@ -267,6 +395,53 @@ export function faqJsonLd(items: ReadonlyArray<{ q: string; a: string }>) {
       "@type": "Question",
       name: item.q,
       acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
+
+/** Per-page Service markup so the four lead URLs name the offer, not only the article. */
+export function serviceJsonLd(input: { name: string; description: string; path: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: input.name,
+    description: input.description,
+    url: `${SITE_URL}${input.path}`,
+    provider: { "@id": `${SITE_URL}/#christian` },
+    areaServed: placeNames().map((name) => ({ "@type": "City", name })),
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      description: "No cost and no obligation to enroll or buy.",
+    },
+  };
+}
+
+/**
+ * Step-by-step pages (turning 65, annual enrollment) should say they are
+ * HowTos. Assistants quote numbered procedures more readily than essays, and
+ * search results can show the steps under the listing.
+ */
+export function howToJsonLd(input: {
+  name: string;
+  description: string;
+  path: string;
+  steps: ReadonlyArray<{ name: string; text: string }>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: input.name,
+    description: input.description,
+    url: `${SITE_URL}${input.path}`,
+    inLanguage: "en-US",
+    author: { "@id": `${SITE_URL}/#christian` },
+    step: input.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
     })),
   };
 }

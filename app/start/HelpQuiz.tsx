@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, CheckCircle2, HeartPulse, PiggyBank, Shield } from "lucide-react";
+import { ArrowLeft, CalendarDays, CheckCircle2, HeartPulse, Landmark, Shield } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -12,20 +12,22 @@ import { newEventId, readAttribution } from "@/lib/attribution";
 import {
   ASK_PROMPTS,
   BRANCH_QUESTIONS,
+  describeAnswers,
   getValueBeat,
-  HELP_QUIZ_TOTAL_STEPS,
   INCOME_OPTIONS,
   isAskContext,
   isInterestTopic,
+  MEET_OPTIONS,
   phaseToStepNumber,
+  quizTotalSteps,
+  QUIZ_SITUATIONS,
   STEP_LABELS,
   TOPIC_LABELS,
-  TOPIC_META,
-  TOPICS,
   type AskContext,
   type HelpQuizPhase,
   type InterestTopic,
   type QuizAnswers,
+  type QuizSituation,
 } from "@/lib/helpQuiz";
 import { thankYouUrl } from "@/lib/thankYouUrl";
 import { cn } from "@/lib/utils";
@@ -40,6 +42,7 @@ type StoredQuiz = {
   branchIndex: number;
   answers: QuizAnswers;
   phase: HelpQuizPhase;
+  skippedFirst: boolean;
 };
 
 const STORAGE_KEY = "help_quiz_v2";
@@ -49,14 +52,16 @@ const INITIAL: StoredQuiz = {
   branchIndex: 0,
   answers: {},
   phase: "topic",
+  skippedFirst: false,
 };
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const TOPIC_ICONS: Record<InterestTopic, typeof Shield> = {
-  medicare: Shield,
-  financial_planning: PiggyBank,
-  life_insurance: HeartPulse,
+const SITUATION_ICONS: Record<string, typeof Shield> = {
+  turning_65: Shield,
+  annual_enrollment: CalendarDays,
+  retirement: Landmark,
+  life: HeartPulse,
 };
 
 const PHASES: HelpQuizPhase[] = ["topic", "branch", "value", "contact"];
@@ -77,6 +82,7 @@ function sanitize(raw: StoredQuiz): StoredQuiz {
     branchIndex,
     answers: raw?.answers && typeof raw.answers === "object" ? raw.answers : {},
     phase: topic ? phase : "topic",
+    skippedFirst: Boolean(raw?.skippedFirst) && Boolean(topic),
   };
 }
 
@@ -159,6 +165,7 @@ export function HelpQuiz() {
           phase: "branch",
           answers: linked.answers,
           branchIndex: linked.skipFirst ? 1 : 0,
+          skippedFirst: linked.skipFirst,
         }
       : persisted;
 
@@ -178,6 +185,7 @@ export function HelpQuiz() {
   const [phone, setPhone] = useState("");
   const [zip, setZip] = useState("");
   const [income, setIncome] = useState("");
+  const [meet, setMeet] = useState("");
   const [note, setNote] = useState("");
   const [consent, setConsent] = useState(false);
   const [smsConsent, setSmsConsent] = useState(false);
@@ -190,7 +198,9 @@ export function HelpQuiz() {
   const topic = stored.topic;
   const branchQuestions = topic ? BRANCH_QUESTIONS[topic] : [];
   const currentBranch = branchQuestions[stored.branchIndex];
-  const stepNumber = phaseToStepNumber(stored.phase, stored.branchIndex);
+  const skippedFirst = stored.skippedFirst && stored.branchIndex > 0;
+  const totalSteps = quizTotalSteps(skippedFirst);
+  const stepNumber = phaseToStepNumber(stored.phase, stored.branchIndex, skippedFirst);
 
   // The label of question one when a landing page answered it for them.
   const preAnswered =
@@ -213,8 +223,25 @@ export function HelpQuiz() {
     setError(null);
   }
 
-  function selectTopic(next: InterestTopic) {
-    patch({ topic: next, branchIndex: 0, answers: {}, phase: "branch" });
+  function selectSituation(situation: QuizSituation) {
+    const first = situation.firstAnswer;
+    if (first) {
+      patch({
+        topic: situation.topic,
+        branchIndex: 1,
+        answers: { [first.questionId]: first.value },
+        phase: "branch",
+        skippedFirst: true,
+      });
+      return;
+    }
+    patch({
+      topic: situation.topic,
+      branchIndex: 0,
+      answers: {},
+      phase: "branch",
+      skippedFirst: false,
+    });
   }
 
   function selectBranchAnswer(questionId: string, value: string) {
@@ -234,8 +261,25 @@ export function HelpQuiz() {
       return patch({ phase: "branch", branchIndex: Math.max(0, branchQuestions.length - 1) });
     }
     if (stored.phase === "branch") {
-      if (stored.branchIndex > 0) return patch({ branchIndex: stored.branchIndex - 1 });
-      return patch({ phase: "topic", topic: null, answers: {}, branchIndex: 0 });
+      if (stored.branchIndex > 0) {
+        if (stored.skippedFirst) {
+          return patch({
+            phase: "topic",
+            topic: null,
+            answers: {},
+            branchIndex: 0,
+            skippedFirst: false,
+          });
+        }
+        return patch({ branchIndex: stored.branchIndex - 1 });
+      }
+      return patch({
+        phase: "topic",
+        topic: null,
+        answers: {},
+        branchIndex: 0,
+        skippedFirst: false,
+      });
     }
   }
 
@@ -320,6 +364,7 @@ export function HelpQuiz() {
           interest_topic: topic,
           quiz_answers: {
             ...stored.answers,
+            ...(meet ? { meet_preference: meet } : {}),
             ...(income ? { income_range: income } : {}),
             ...(note.trim() ? { note: note.trim().slice(0, 1000) } : {}),
           },
@@ -337,13 +382,20 @@ export function HelpQuiz() {
 
       const data = (await res.json().catch(() => null)) as {
         error?: string;
+        code?: string;
+        phone?: string;
+        phoneHref?: string;
+        email?: string;
         emailConfigured?: boolean;
       } | null;
 
       if (!res.ok) {
+        const configFail = data?.code === "storage_unavailable" || res.status === 503;
         setError(
           data?.error ??
-            `Something went wrong on my end. Please try again, or email me directly at ${AGENT.email}.`,
+            (configFail
+              ? `I can’t save that right now — please call me at ${AGENT.phone} or email ${AGENT.email}.`
+              : `Something went wrong on my end. Please try again, or call me at ${AGENT.phone}.`),
         );
         setSubmitting(false);
         return;
@@ -392,6 +444,7 @@ export function HelpQuiz() {
                   phase: "branch",
                   answers: linked?.answers ?? {},
                   branchIndex: linked?.skipFirst ? 1 : 0,
+                  skippedFirst: Boolean(linked?.skipFirst),
                 });
                 setResumeDismissed(true);
               }}
@@ -417,7 +470,7 @@ export function HelpQuiz() {
           <span className="min-h-12" />
         )}
         <p className="text-16 font-medium text-[var(--color-ink-muted)]" aria-live="polite">
-          Step {stepNumber} of {HELP_QUIZ_TOTAL_STEPS} · {STEP_LABELS[stored.phase]}
+          Step {stepNumber} of {totalSteps} · {STEP_LABELS[stored.phase]}
         </p>
       </div>
 
@@ -425,52 +478,52 @@ export function HelpQuiz() {
         className="mb-8 h-3 overflow-hidden rounded-full bg-[rgba(15,34,65,0.08)]"
         role="progressbar"
         aria-valuemin={1}
-        aria-valuemax={HELP_QUIZ_TOTAL_STEPS}
+        aria-valuemax={totalSteps}
         aria-valuenow={stepNumber}
-        aria-label={`Step ${stepNumber} of ${HELP_QUIZ_TOTAL_STEPS}`}
+        aria-label={`Step ${stepNumber} of ${totalSteps}`}
       >
         <div
           className="h-full rounded-full bg-[var(--color-navy)] transition-all duration-200 ease-in-out"
-          style={{ width: `${(stepNumber / HELP_QUIZ_TOTAL_STEPS) * 100}%` }}
+          style={{ width: `${(stepNumber / totalSteps) * 100}%` }}
         />
       </div>
 
       {stored.phase === "topic" ? (
         <section aria-labelledby="quiz-heading">
-          <h1
+          <h2
             id="quiz-heading"
             ref={headingRef}
             tabIndex={-1}
-            className="text-28 md:text-32 leading-tight font-bold text-[var(--color-navy)] outline-none"
+            className="text-26 md:text-28 leading-tight font-bold text-[var(--color-navy)] outline-none"
           >
-            What can I help you figure out?
-          </h1>
+            Pick what you need help with
+          </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
-            Two quick questions, then I’ll show you what usually matters most in your situation. No
-            cost, and nothing to sign.
+            One tap, two questions at most, then a real answer. If we talk after that, it can be at
+            your kitchen table — same person who reads this, not a call center.
           </p>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {TOPICS.map((item) => {
-              const Icon = TOPIC_ICONS[item.id];
+            {QUIZ_SITUATIONS.map((item) => {
+              const Icon = SITUATION_ICONS[item.id] ?? Shield;
               return (
                 <button
                   key={item.id}
                   type="button"
-                  onClick={() => selectTopic(item.id)}
+                  onClick={() => selectSituation(item)}
                   className={cn(
-                    "card-surface flex min-h-[140px] flex-col items-start gap-3 p-6 text-left transition-[border-color,transform] duration-150",
-                    "hover:scale-[1.01] hover:border-[var(--color-gold-ink)]",
+                    "card-surface flex min-h-[148px] flex-col items-start gap-3 p-6 text-left transition-[border-color,box-shadow] duration-150",
+                    "hover:border-[var(--color-navy)] hover:shadow-[0_8px_28px_rgba(15,34,65,0.08)]",
                     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]",
                   )}
                 >
                   <Icon
-                    className="size-10 text-[var(--color-navy)]"
+                    className="size-8 text-[var(--color-gold-ink)]"
                     strokeWidth={1.5}
                     aria-hidden
                   />
                   <span className="text-22 font-bold text-[var(--color-navy)]">{item.label}</span>
                   <span className="text-16 leading-snug font-normal text-[var(--color-ink-muted)]">
-                    {TOPIC_META[item.id].blurb}
+                    {item.blurb}
                   </span>
                 </button>
               );
@@ -495,21 +548,21 @@ export function HelpQuiz() {
               You said: <span className="font-medium text-[var(--color-navy)]">{preAnswered}</span>{" "}
               <button
                 type="button"
-                onClick={() => patch({ branchIndex: 0 })}
+                onClick={() => patch({ branchIndex: 0, skippedFirst: false })}
                 className="font-medium text-[var(--color-navy)] underline underline-offset-2"
               >
                 change
               </button>
             </p>
           ) : null}
-          <h1
+          <h2
             id="quiz-heading"
             ref={headingRef}
             tabIndex={-1}
             className="text-26 md:text-28 mt-2 leading-tight font-bold text-[var(--color-navy)] outline-none"
           >
             {currentBranch.prompt}
-          </h1>
+          </h2>
           {currentBranch.help ? (
             <p className="text-18 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
               {currentBranch.help}
@@ -545,14 +598,14 @@ export function HelpQuiz() {
             <p className="text-14 font-medium tracking-[0.08em] text-[var(--color-gold-ink)] uppercase">
               Based on your answers
             </p>
-            <h1
+            <h2
               id="quiz-heading"
               ref={headingRef}
               tabIndex={-1}
               className="text-24 md:text-27 mt-3 leading-tight font-bold text-[var(--color-navy)] outline-none"
             >
               {valueBeat.headline}
-            </h1>
+            </h2>
             <p className="text-18 mt-4 leading-relaxed text-[var(--color-navy)]">
               {valueBeat.lede}
             </p>
@@ -580,7 +633,7 @@ export function HelpQuiz() {
             }}
             className="text-18 mt-8 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
           >
-            Send me this, and answer my questions
+            Continue — I’ll follow up myself
           </button>
           <p className="text-16 mt-3 text-center text-[var(--color-ink-muted)]">
             Or just call me:{" "}
@@ -611,18 +664,39 @@ export function HelpQuiz() {
 
       {stored.phase === "contact" ? (
         <section aria-labelledby="quiz-heading">
-          <h1
+          <h2
             id="quiz-heading"
             ref={headingRef}
             tabIndex={-1}
             className="text-26 md:text-28 leading-tight font-bold text-[var(--color-navy)] outline-none"
           >
-            Where should I send it?
-          </h1>
+            How should I reach you?
+          </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
-            You’ll get your answers by email right away. Then I’ll follow up personally — usually
-            the same day, always within one business day.
+            Name, email, ZIP, and the checkbox — then send. I’ll follow up myself, usually the same
+            day. Nothing is sold to a lead mill.
           </p>
+
+          {topic ? (
+            <ul className="mt-5 flex flex-col gap-2 rounded-xl border border-[rgba(15,34,65,0.12)] bg-white px-5 py-4">
+              {describeAnswers(topic, stored.answers).map((row) => (
+                <li key={row.question} className="text-16 leading-snug">
+                  <span className="text-[var(--color-ink-muted)]">{row.question}</span>
+                  <span className="mt-0.5 block font-medium text-[var(--color-navy)]">
+                    {row.answer}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
+          <div className="card-surface mt-6 border-l-4 border-l-[var(--color-gold-ink)] p-5">
+            <p className="text-17 leading-relaxed text-[var(--color-navy)]">
+              <strong>{AGENT.name}</strong> reads every submission. Your name is not sold to a lead
+              network, and you will not get ten calls from strangers. One licensed agent in{" "}
+              {AGENT.city}. No cost, no obligation. {AGENT.hours}
+            </p>
+          </div>
 
           <form onSubmit={submitContact} className="relative mt-8 space-y-5" noValidate>
             <div className="absolute top-auto -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
@@ -682,9 +756,7 @@ export function HelpQuiz() {
                   className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
                 >
                   Phone{" "}
-                  <span className="font-normal text-[var(--color-ink-muted)]">
-                    (optional — fastest way to get an answer)
-                  </span>
+                  <span className="font-normal text-[var(--color-ink-muted)]">(optional)</span>
                 </label>
                 <input
                   id="help-quiz-phone"
@@ -716,63 +788,106 @@ export function HelpQuiz() {
                   onChange={(e) => setZip(e.target.value.replace(/\D/g, "").slice(0, 5))}
                   className={fieldClass}
                 />
+                <p className="text-15 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                  Plans follow the county, not the town name.
+                </p>
               </div>
             </div>
 
             {/*
-              The box that makes the landing-page buttons honest. Someone who
-              clicked "tell me who you see" gets asked exactly that.
+              Optional fields used to sit in the main path and make the last step
+              feel longer than the quiz. Keep them one tap away; open by default
+              only when a landing page already asked for a note.
             */}
-            <div>
-              <label
-                htmlFor="help-quiz-note"
-                className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
-              >
-                {ASK_PROMPTS[askContext].label}{" "}
-                <span className="font-normal text-[var(--color-ink-muted)]">(optional)</span>
-              </label>
-              <textarea
-                id="help-quiz-note"
-                name="note"
-                rows={3}
-                maxLength={1000}
-                placeholder={ASK_PROMPTS[askContext].placeholder}
-                value={note}
-                onChange={(e) => setNote(e.target.value)}
-                className="text-18 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 leading-relaxed text-[var(--color-navy)] outline-none placeholder:text-[var(--color-ink-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
-              />
-              <p className="text-16 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                Whatever you write here is what I look up before I call you.
-              </p>
-            </div>
+            <details
+              className="rounded-xl border border-[rgba(15,34,65,0.12)] bg-white px-4 py-3"
+              open={askContext !== "general"}
+            >
+              <summary className="text-17 cursor-pointer font-medium text-[var(--color-navy)]">
+                Optional details — how to meet, a note, income
+              </summary>
+              <div className="mt-4 space-y-5 border-t border-gray-200 pt-4">
+                <fieldset>
+                  <legend className="text-17 mb-2 font-medium text-[var(--color-navy)]">
+                    How would you like to talk?
+                  </legend>
+                  <div className="flex flex-col gap-2">
+                    {MEET_OPTIONS.map((opt) => (
+                      <label
+                        key={opt.value}
+                        className={cn(
+                          "text-16 flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border-2 px-4 py-3",
+                          meet === opt.value
+                            ? "border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+                            : "border-gray-300 bg-white",
+                        )}
+                      >
+                        <input
+                          type="radio"
+                          name="meet_preference"
+                          value={opt.value}
+                          checked={meet === opt.value}
+                          onChange={() => setMeet(opt.value)}
+                          className="size-4 shrink-0"
+                        />
+                        {opt.label}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
 
-            <div>
-              <label
-                htmlFor="help-quiz-income"
-                className="text-18 mb-2 block font-medium text-[var(--color-navy)]"
-              >
-                Household income{" "}
-                <span className="font-normal text-[var(--color-ink-muted)]">(optional)</span>
-              </label>
-              <p className="text-16 mb-2 leading-relaxed text-[var(--color-ink-muted)]">
-                Only useful because Medicare premiums and tax brackets are set by income. Skip it if
-                you’d rather talk about it later.
-              </p>
-              <select
-                id="help-quiz-income"
-                name="income_range"
-                value={income}
-                onChange={(e) => setIncome(e.target.value)}
-                className={fieldClass}
-              >
-                <option value="">Prefer to skip this</option>
-                {INCOME_OPTIONS.map((opt) => (
-                  <option key={opt.value} value={opt.value}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+                <div>
+                  <label
+                    htmlFor="help-quiz-note"
+                    className="text-17 mb-2 block font-medium text-[var(--color-navy)]"
+                  >
+                    {ASK_PROMPTS[askContext].label}
+                  </label>
+                  <textarea
+                    id="help-quiz-note"
+                    name="note"
+                    rows={3}
+                    maxLength={1000}
+                    placeholder={ASK_PROMPTS[askContext].placeholder}
+                    value={note}
+                    onChange={(e) => setNote(e.target.value)}
+                    className="text-17 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 leading-relaxed text-[var(--color-navy)] outline-none placeholder:text-[var(--color-ink-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+                  />
+                  <p className="text-15 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                    Whatever you write here is what I look up before I call you.
+                  </p>
+                </div>
+
+                {topic !== "life_insurance" ? (
+                  <div>
+                    <label
+                      htmlFor="help-quiz-income"
+                      className="text-17 mb-2 block font-medium text-[var(--color-navy)]"
+                    >
+                      Household income
+                    </label>
+                    <p className="text-15 mb-2 leading-relaxed text-[var(--color-ink-muted)]">
+                      Only useful because Medicare premiums follow income from two years ago. Skip
+                      it if you would rather talk about it later.
+                    </p>
+                    <select
+                      id="help-quiz-income"
+                      name="income_range"
+                      value={income}
+                      onChange={(e) => setIncome(e.target.value)}
+                      className={fieldClass}
+                    >
+                      <option value="">Prefer to skip this</option>
+                      {INCOME_OPTIONS.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                ) : null}
+              </div>
+            </details>
 
             <label className="text-16 flex cursor-pointer gap-3 rounded-xl bg-[rgba(15,34,65,0.04)] px-4 py-4 text-left leading-relaxed text-[var(--color-navy)]">
               <input
@@ -812,9 +927,18 @@ export function HelpQuiz() {
             ) : null}
 
             {error ? (
-              <p role="alert" className="text-16 text-[var(--color-error)]">
-                {error}
-              </p>
+              <div
+                role="alert"
+                className="rounded-xl border border-[rgba(185,79,92,0.35)] bg-[rgba(185,79,92,0.06)] px-4 py-3"
+              >
+                <p className="text-16 text-[var(--color-error)]">{error}</p>
+                <a
+                  href={AGENT.phoneHref}
+                  className="text-16 mt-2 inline-flex font-semibold text-[var(--color-navy)] underline underline-offset-2"
+                >
+                  Call {AGENT.phone}
+                </a>
+              </div>
             ) : null}
 
             <button
@@ -824,6 +948,16 @@ export function HelpQuiz() {
             >
               {submitting ? "Sending…" : "Send my answers"}
             </button>
+            <p className="text-15 text-center text-[var(--color-ink-muted)]">
+              Or call{" "}
+              <a
+                href={AGENT.phoneHref}
+                className="font-semibold text-[var(--color-navy)] underline"
+              >
+                {AGENT.phone}
+              </a>{" "}
+              — same person.
+            </p>
           </form>
         </section>
       ) : null}

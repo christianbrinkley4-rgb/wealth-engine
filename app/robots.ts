@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/lib/seo";
+import { SITE_INDEXABLE, SITE_URL } from "@/lib/seo";
 
 /**
  * Every crawler is allowed, and the AI ones are named on purpose.
@@ -28,7 +28,13 @@ const AI_CRAWLERS = [
   "CCBot",
 ];
 
-export default function robots(): MetadataRoute.Robots {
+export function buildRobots(siteUrl: string, publicUrlConfigured: boolean): MetadataRoute.Robots {
+  if (!publicUrlConfigured) {
+    return {
+      rules: { userAgent: "*", disallow: "/" },
+    };
+  }
+
   return {
     rules: [
       {
@@ -44,7 +50,14 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       })),
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }
+
+export default function robots(): MetadataRoute.Robots {
+  return buildRobots(SITE_URL, SITE_INDEXABLE);
+}
+
+// /llms.txt is listed in sitemap.ts so assistants and crawlers can find the
+// plain-text brief without a non-standard robots field.

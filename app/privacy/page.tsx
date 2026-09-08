@@ -65,15 +65,26 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-22 font-bold">Who else touches it</h2>
             <p className="mt-2 text-[var(--color-ink-muted)]">
-              Running a website means a few companies process data on my behalf. They may only act
-              on my instructions and may not use your information for their own purposes:
+              Running a website means a few companies may process data on my behalf. They may only
+              act on my instructions and may not use your information for their own purposes:
             </p>
             <ul className="mt-3 list-disc space-y-2 pl-6 text-[var(--color-ink-muted)]">
               <li>Vercel — hosts the site</li>
-              <li>Supabase — stores the submissions</li>
-              <li>Resend — sends the email you receive and the alert I receive</li>
-              <li>Cloudflare — checks that form submissions come from people, not bots</li>
-              <li>The analytics and advertising providers named above</li>
+              <li>Supabase — stores the submissions, when that storage is configured</li>
+              <li>
+                Resend (or another email / SMS provider I configure) — sends the reply you asked for
+                and the alert that reaches me. If that provider is not configured, I still receive
+                the submission in storage and follow up by phone or email myself; the form will not
+                invent a delivery it cannot make.
+              </li>
+              <li>
+                Cloudflare Turnstile — when bot protection is turned on, checks that form
+                submissions come from people, not bots
+              </li>
+              <li>
+                The analytics and advertising providers named above — only when those tools are
+                actually installed on a given deployment
+              </li>
               <li>
                 If you choose to apply for coverage, the insurance carrier you select — and only
                 then

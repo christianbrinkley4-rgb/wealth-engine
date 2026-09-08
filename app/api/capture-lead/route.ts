@@ -73,8 +73,11 @@ interface LeadPayload {
 }
 
 const CONFIG_ERROR = {
-  error: `I can’t save that right now — please email me at ${AGENT.email} or call ${AGENT.phone} and I’ll pick it up directly.`,
-  code: "storage_unavailable",
+  error: `I can’t save that right now — please call me at ${AGENT.phone} or email ${AGENT.email} and I’ll pick it up directly.`,
+  code: "storage_unavailable" as const,
+  phone: AGENT.phone,
+  phoneHref: AGENT.phoneHref,
+  email: AGENT.email,
 };
 
 function normalizePhoneDigits(value: string | null | undefined) {
@@ -449,7 +452,11 @@ export async function POST(request: NextRequest) {
     console.error("[capture-lead] Unhandled error:", err);
     return NextResponse.json(
       {
-        error: `Something went wrong saving that. Please email me at ${AGENT.email} and I’ll follow up directly.`,
+        error: `Something went wrong saving that. Please call ${AGENT.phone} or email ${AGENT.email} and I’ll follow up directly.`,
+        code: "capture_failed",
+        phone: AGENT.phone,
+        phoneHref: AGENT.phoneHref,
+        email: AGENT.email,
       },
       { status: 500 },
     );

@@ -1,10 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { AGENT } from "@/lib/agent";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
+import { GuideTownLinks } from "@/app/components/GuideTownLinks";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { LeadCluster } from "@/app/components/LeadCluster";
+import { ServiceHero } from "@/app/components/ServiceHero";
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  howToJsonLd,
+  pageOpenGraph,
+  serviceJsonLd,
+} from "@/lib/seo";
 
 /**
  * The door that was missing.
@@ -76,6 +85,10 @@ const FAQ = [
     a: "This window is for Medicare Advantage and Part D drug plans. Medigap runs on its own schedule — you can apply any time of year, but outside your original six-month window an insurer in North Carolina is allowed to review your health history and say no.",
   },
   {
+    q: "Will you sit down with me and look at the letter?",
+    a: "Yes. Kitchen table, a coffee shop, or the phone. Bring the Annual Notice of Change and a list of your prescriptions. Twenty minutes, no cost, and I’ll tell you if you should do nothing.",
+  },
+  {
     q: "My premium went up and I didn’t change anything. Why?",
     a: "That’s often IRMAA rather than your plan — an income-based surcharge Medicare sets from your tax return two years back. A one-time event in that year, like selling a house or a large withdrawal, can raise your premium long after the money is gone. If your income has since dropped for a qualifying reason, it can be appealed.",
   },
@@ -110,47 +123,42 @@ export default function AnnualEnrollmentPage() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            howToJsonLd({
+              name: "How to review your Medicare plan during annual enrollment",
+              description:
+                "Four checks worth making between October 15 and December 7, starting with the Annual Notice of Change.",
+              path: "/annual-enrollment",
+              steps: STEPS.map((step) => ({ name: step.t, text: step.b })),
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            serviceJsonLd({
+              name: "Medicare Annual Enrollment review",
+              description:
+                "A fall review of the Annual Notice of Change, prescriptions, and doctors — including when the honest answer is to keep the plan you have.",
+              path: "/annual-enrollment",
+            }),
+          ),
+        }}
+      />
 
-      <section className="bg-[var(--color-paper)] pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="measure-prose app-shell max-w-3xl">
-          <nav aria-label="Breadcrumb" className="text-16 text-[var(--color-ink-muted)]">
-            <Link href="/" className="underline underline-offset-2">
-              Home
-            </Link>
-            <span aria-hidden> › </span>
-            <span>Annual enrollment</span>
-          </nav>
-
-          <p className="text-13 mt-4 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-            October 15 – December 7 · {AGENT.city}, {AGENT.state}
-          </p>
-          <h1 className="text-32 md:text-42 mt-3 leading-[1.12] font-semibold tracking-tight text-balance">
-            Most people should keep the plan they have.
-          </h1>
-          <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
-            From the middle of October to the first week of December your mailbox fills up and the
-            phone starts ringing, and every one of those calls gets paid when you switch. I don’t.
-            Here’s how to work out in about twenty minutes whether anything actually needs to change
-            — and most years, for most people, nothing does.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href={AGENT.phoneHref}
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center gap-2 rounded-[12px] bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
-            >
-              <Phone className="size-5 shrink-0" aria-hidden />
-              {AGENT.phone}
-            </a>
-            <Link
-              href="/start?topic=medicare&stage=already_on_medicare"
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.05)]"
-            >
-              Have me check your plan →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment" }]}
+        eyebrow="October 15 – December 7 · Greensboro, NC"
+        title="Most people should keep the plan they have."
+        lede="From the middle of October to the first week of December your mailbox fills up and the phone starts ringing. My review costs you nothing; if you enroll through me, an insurance company may pay me a commission. Here’s how to work out in about twenty minutes whether anything actually needs to change — and when keeping what you have is the better answer."
+        secondaryHref="/start?topic=medicare&stage=already_on_medicare"
+        secondaryLabel="Have me check your plan →"
+      />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -202,13 +210,15 @@ export default function AnnualEnrollmentPage() {
             </div>
           </dl>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            Advantage and Part D plans are sold county by county, so what’s available in Guilford
-            isn’t the same list as Forsyth or Davidson.{" "}
-            <Link href="/medicare-in/greensboro" className="underline underline-offset-2">
+            Advantage and Part D plans are sold county by county. Inside a 30-minute drive of
+            downtown Greensboro that means Guilford, Forsyth, Randolph, Davidson, Alamance, and
+            Rockingham — Kernersville sits on a line, Archdale is Randolph next to High Point.{" "}
+            <Link href="/service-area" className="underline underline-offset-2">
               What that means where you live
             </Link>
             .
           </p>
+          <GuideTownLinks />
         </div>
       </section>
 
@@ -229,34 +239,19 @@ export default function AnnualEnrollmentPage() {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
+          <LeadCluster
+            current="/annual-enrollment"
+            heading="Turning 65, life insurance, or a retirement question instead?"
+          />
         </div>
       </section>
 
-      <section className="bg-[var(--color-paper)] py-14">
-        <div className="app-shell max-w-2xl text-center">
-          <h2 className="text-28 font-semibold">Send me your notice and your prescriptions</h2>
-          <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            I’ll tell you whether anything changed that matters to you, including when the answer is
-            that nothing did. No appointment, no pitch.
-          </p>
-          <Link
-            href="/start?topic=medicare&stage=already_on_medicare"
-            className="text-18 mt-8 inline-flex min-h-14 min-w-[260px] items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 py-4 font-semibold text-[var(--color-paper)]"
-          >
-            Start here →
-          </Link>
-          <p className="text-17 mt-6 text-[var(--color-ink-muted)]">
-            Or call{" "}
-            <a
-              href={AGENT.phoneHref}
-              className="font-semibold text-[var(--color-navy)] underline underline-offset-2"
-            >
-              {AGENT.phone}
-            </a>{" "}
-            — {AGENT.hours}
-          </p>
-        </div>
-      </section>
+      <KitchenTableClose
+        heading="Send me your notice and your prescriptions"
+        body="I’ll tell you whether anything changed that matters to you, including when the answer is that nothing did. No appointment, no pitch."
+        href="/start?topic=medicare&stage=already_on_medicare"
+        label="Start here →"
+      />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />

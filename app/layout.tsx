@@ -1,18 +1,33 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter } from "next/font/google";
+import { Inter, Source_Serif_4 } from "next/font/google";
 
 import { Analytics } from "@/app/components/Analytics";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { TopRouteChrome } from "@/app/components/TopRouteChrome";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
-import { localBusinessJsonLd, SITE_NAME, SITE_OWNER, SITE_URL } from "@/lib/seo";
+import {
+  localBusinessJsonLd,
+  SITE_LOCALITY,
+  SITE_INDEXABLE,
+  SITE_NAME,
+  SITE_OWNER,
+  SITE_REGION,
+  SITE_URL,
+} from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
+  subsets: ["latin"],
+  weight: ["600", "700"],
   display: "swap",
 });
 
@@ -25,7 +40,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Medicare, retirement income, and life insurance questions answered by a licensed agent in Greensboro, NC. No cost to talk, and your information is never sold.",
+    "Licensed Greensboro agent Christian Brinkley reviews Medicare (turning 65 and AEP), life insurance, and retirement questions in person — at your kitchen table. No cost, no call center.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_OWNER }],
   alternates: { canonical: "/" },
@@ -35,19 +50,33 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: `${SITE_OWNER} | ${SITE_NAME}`,
     description:
-      "Two questions and a real answer, from a licensed agent in Greensboro — before you give up your phone number.",
+      "Medicare, life insurance, and retirement help from one licensed agent in the Triad. Kitchen table, not a call center.",
     locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: `${SITE_OWNER} — licensed insurance agent in ${SITE_LOCALITY}, ${SITE_REGION}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_OWNER} | ${SITE_NAME}`,
     description:
-      "Medicare and retirement questions answered by a licensed agent in Greensboro, NC.",
+      "Medicare, life insurance, and retirement help from a licensed Greensboro agent. Kitchen table, not a call center.",
+    images: ["/twitter-image"],
   },
   robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large" },
+    index: SITE_INDEXABLE,
+    follow: SITE_INDEXABLE,
+    googleBot: {
+      index: SITE_INDEXABLE,
+      follow: SITE_INDEXABLE,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+    },
   },
 };
 
@@ -57,7 +86,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en" className={`${inter.variable} ${sourceSerif.variable} h-full antialiased`}>
       <body className="min-h-full bg-[var(--color-paper)] pb-20 text-[var(--color-navy)] md:pb-0">
         {/*
           Site-wide, because an entity a search engine or a language model only

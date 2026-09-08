@@ -125,7 +125,13 @@ export async function POST(request: NextRequest) {
     if (!hasSupabaseAdminConfig()) {
       console.error("[reminders] Supabase not configured — reminder NOT saved.");
       return NextResponse.json(
-        { error: `I couldn’t save that. Email me at ${AGENT.email} and I’ll add you by hand.` },
+        {
+          error: `I couldn’t save that reminder. Call me at ${AGENT.phone} or email ${AGENT.email} and I’ll add you by hand.`,
+          code: "storage_unavailable",
+          phone: AGENT.phone,
+          phoneHref: AGENT.phoneHref,
+          email: AGENT.email,
+        },
         { status: 503 },
       );
     }
@@ -165,7 +171,13 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error("[reminders] save failed:", error.message);
       return NextResponse.json(
-        { error: `I couldn’t save that. Email me at ${AGENT.email} and I’ll add you by hand.` },
+        {
+          error: `I couldn’t save that reminder. Call me at ${AGENT.phone} or email ${AGENT.email} and I’ll add you by hand.`,
+          code: "storage_unavailable",
+          phone: AGENT.phone,
+          phoneHref: AGENT.phoneHref,
+          email: AGENT.email,
+        },
         { status: 500 },
       );
     }

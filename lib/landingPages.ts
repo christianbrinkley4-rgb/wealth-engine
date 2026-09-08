@@ -44,7 +44,7 @@ export interface LandingPage {
 }
 
 const UNIVERSAL_PROMISES = [
-  "One person calls you. Not six numbers, not a call center.",
+  "I sit down with you — not a call center.",
   "Your information is never sold or passed to another agent.",
   "No fee, ever — the insurance company pays me if you enroll.",
 ];
@@ -52,10 +52,10 @@ const UNIVERSAL_PROMISES = [
 export const LANDING_PAGES: LandingPage[] = [
   {
     slug: "medicare",
-    eyebrow: "Greensboro · Piedmont Triad",
+    eyebrow: "Greensboro · Piedmont Triad · kitchen table",
     headline: "Medicare questions, answered by one licensed agent in Greensboro.",
     subhead:
-      "I’ll answer what you actually want to know before I ask you for anything, and whether or not we ever work together. No cost, and your information isn’t sold.",
+      "I’ll answer what you actually want to know before I ask you for anything — at your kitchen table, a coffee shop, or on the phone. No cost, and your information isn’t sold to another agent.",
     chooseHeading: "Or start online — which one is you?",
     options: [
       { label: "I’m turning 65 soon", href: "/start?topic=medicare&stage=turning_65_soon" },
@@ -76,10 +76,10 @@ export const LANDING_PAGES: LandingPage[] = [
   },
   {
     slug: "turning-65",
-    eyebrow: "Turning 65 in the Triad",
+    eyebrow: "Turning 65 in the Triad · ~30 minutes of Greensboro",
     headline: "Your Medicare window is seven months long, and it’s already running.",
     subhead:
-      "It opens three months before the month you turn 65 and closes three months after. Miss it without other coverage and the Part B penalty is permanent. Tell me the month you turn 65 and I’ll tell you your exact dates — no email needed.",
+      "It opens three months before the month you turn 65 and closes three months after. Miss it without other coverage and the Part B penalty is permanent. I’ll sit down at your kitchen table and walk through your actual dates — at no cost.",
     chooseHeading: "Where are you in it?",
     options: [
       { label: "See my exact dates", href: "/remind-me" },
@@ -102,16 +102,52 @@ export const LANDING_PAGES: LandingPage[] = [
       "Turning 65? See the exact dates your Medicare enrollment window opens and closes, plus the Medigap window most people miss. Free, from a Greensboro agent.",
   },
   {
+    slug: "annual-enrollment",
+    eyebrow: "October 15 – December 7 · Piedmont Triad",
+    headline: "Most people should keep the Medicare plan they have.",
+    subhead:
+      "I’ll read your Annual Notice of Change and your prescriptions with you, at your kitchen table or on the phone, and tell you whether anything actually needs to change. Most years, for most people, nothing does. No cost, and I don’t get paid for talking you into a switch.",
+    chooseHeading: "Where are you in it?",
+    options: [
+      {
+        label: "I got the letter and I’m not sure",
+        href: "/start?topic=medicare&stage=already_on_medicare",
+      },
+      {
+        label: "A drug I take got more expensive",
+        href: "/start?topic=medicare&stage=already_on_medicare",
+      },
+      { label: "I want to keep my doctor", href: "/keep-my-doctor" },
+      { label: "Explain the window first", href: "/annual-enrollment" },
+    ],
+    promises: [
+      ...UNIVERSAL_PROMISES,
+      "If you should keep what you have, that’s what I’ll tell you.",
+    ],
+    compliance: "medicare",
+    description:
+      "Medicare annual enrollment without the sales pitch. A licensed Greensboro agent will check whether anything actually needs to change — at no cost.",
+  },
+  {
     slug: "life-insurance",
-    eyebrow: "Greensboro · Piedmont Triad",
+    eyebrow: "Greensboro · Piedmont Triad · kitchen table",
     headline: "Life insurance comes down to one question, and it isn’t which product.",
     subhead:
-      "How many more years does the money need to be there? Answer that and the product mostly picks itself. I’ll read what you already have with you, for free, and a good share of these end with me saying you’re already fine.",
+      "How many more years does the money need to be there? Answer that and the product mostly picks itself. I’ll sit down and read what you already have with you, for free — and a good share of these end with me saying you’re already fine.",
     chooseHeading: "What are you trying to sort out?",
     options: [
-      { label: "I want to review a policy I have", href: "/start?topic=life_insurance" },
-      { label: "My work coverage ends when I retire", href: "/start?topic=life_insurance" },
-      { label: "I’m thinking about final expenses", href: "/start?topic=life_insurance" },
+      {
+        label: "I want to review a policy I have",
+        href: "/start?topic=life_insurance&stage=review_existing",
+      },
+      {
+        label: "My work coverage ends when I retire",
+        href: "/start?topic=life_insurance&stage=replace_income",
+      },
+      {
+        label: "I’m thinking about final expenses",
+        href: "/start?topic=life_insurance&stage=final_expenses",
+      },
       { label: "Just explain term vs whole life", href: "/life-insurance" },
     ],
     promises: [...UNIVERSAL_PROMISES, "If what you have already works, that’s what I’ll tell you."],
@@ -124,13 +160,22 @@ export const LANDING_PAGES: LandingPage[] = [
     eyebrow: "Greensboro · Piedmont Triad",
     headline: "Have an annuity proposal in front of you? Let me read it with you.",
     subhead:
-      "I’ll show you the guaranteed column, tell you what the surrender schedule actually says, and tell you if I think it’s wrong for you — including when the honest answer is to do nothing at all.",
+      "I’ll show you the guaranteed column, tell you what the surrender schedule actually says, and tell you if I think it’s wrong for you — including when the honest answer is to do nothing at all. Kitchen table or the phone. No cost.",
     chooseHeading: "Where are you with it?",
     options: [
-      { label: "Somebody sent me a proposal", href: "/start?topic=financial_planning" },
-      { label: "I want income I can count on", href: "/start?topic=financial_planning" },
+      {
+        label: "Somebody sent me a proposal",
+        href: "/start?topic=financial_planning&stage=retiring_soon",
+      },
+      {
+        label: "I want income I can count on",
+        href: "/start?topic=financial_planning&stage=recently_retired",
+      },
       { label: "Explain how annuities work first", href: "/annuities" },
-      { label: "I’m not sure it’s right for me", href: "/annuities" },
+      {
+        label: "This is really a retirement-income question",
+        href: "/start?topic=financial_planning",
+      },
     ],
     promises: [
       ...UNIVERSAL_PROMISES,
@@ -145,11 +190,14 @@ export const LANDING_PAGES: LandingPage[] = [
     eyebrow: "Greensboro · Piedmont Triad",
     headline: "A big withdrawal at 63 shows up on your Medicare premium at 65.",
     subhead:
-      "Medicare sets premiums from a tax return two years old, so the timing of a Roth conversion or a large withdrawal can cost a couple thousand a year for both spouses. I’ll show you what your timing is worth. That part is arithmetic, and it’s free.",
+      "Medicare sets premiums from a tax return two years old, so the timing of a Roth conversion or a large withdrawal can cost a couple thousand a year for both spouses. I’ll sit down and show you what your timing is worth. That part is arithmetic, and it’s free.",
     chooseHeading: "What are you working out?",
     options: [
       { label: "See what my timing costs", href: "/plan" },
-      { label: "What to do with an old 401(k)", href: "/retirement-income" },
+      {
+        label: "What to do with an old 401(k)",
+        href: "/start?topic=financial_planning&stage=retiring_soon",
+      },
       { label: "My premium went up and I don’t know why", href: "/irmaa-appeal" },
       { label: "Just talk it through", href: "/start?topic=financial_planning" },
     ],
@@ -162,6 +210,19 @@ export const LANDING_PAGES: LandingPage[] = [
       "A withdrawal or Roth conversion at 63 lands on your first Medicare premium at 65. See what the timing is worth, free, from a Greensboro agent.",
   },
 ];
+
+export const LANDING_CONTRAST = [
+  {
+    them: "A call center that bought your click",
+    us: "One licensed agent who will drive to your kitchen table",
+  },
+  { them: "Your name sold to whoever pays", us: "Your answers come to me and stop there" },
+  { them: "Pressure to enroll today", us: "I’ll tell you when what you have is already fine" },
+  {
+    them: "A form that never reaches a real person",
+    us: "I read every case myself — usually the same day",
+  },
+] as const;
 
 export function getLandingPage(slug: string): LandingPage | undefined {
   return LANDING_PAGES.find((page) => page.slug === slug);

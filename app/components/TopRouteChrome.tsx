@@ -20,18 +20,16 @@ import { cn } from "@/lib/utils";
  */
 
 /**
- * The four areas, not four Medicare questions.
+ * The four lead paths, each to an indexed page that answers first.
  *
- * This read "Can I keep my doctor?", "My premium went up" and "Helping a
- * parent" — three of five links, every one of them Medicare. A visitor who
- * scans the top of a page before reading it concluded this was a Medicare
- * site no matter what the headline said, and anyone here about income or
- * life insurance left. The Medicare guides are still linked from the pages
- * where they belong and from the footer.
+ * These used to deep-link into the quiz. That converted, but it left the
+ * organic pages (turning 65, annual enrollment) with no nav traffic, which is
+ * how a site loses the searches it was written to win.
  */
 const NAV = [
-  { href: "/start?topic=medicare&stage=turning_65_soon", label: "Turning 65" },
-  { href: "/start?topic=medicare&stage=already_on_medicare", label: "Already on Medicare" },
+  { href: "/start", label: "Ask a question" },
+  { href: "/turning-65", label: "Turning 65" },
+  { href: "/annual-enrollment", label: "Annual enrollment" },
   { href: "/retirement-income", label: "Retirement income" },
   { href: "/life-insurance", label: "Life insurance" },
   { href: "/about", label: "About me" },
@@ -58,10 +56,10 @@ export function TopRouteChrome() {
         Skip to the main content
       </a>
       <div className="trust-pill sticky top-0 z-50 w-full">
-        <div className="app-shell flex min-h-12 flex-wrap items-center justify-between gap-x-4 gap-y-1 py-2">
+        <div className="app-shell flex min-h-12 flex-wrap items-center justify-between gap-x-4 gap-y-1 py-2.5">
           <Link
             href="/"
-            className="text-15 leading-snug font-medium text-[var(--color-paper)] no-underline"
+            className="text-15 leading-snug font-semibold tracking-tight text-[var(--color-paper)] no-underline"
           >
             {AGENT.name} · Licensed agent · {AGENT.city}
           </Link>
@@ -79,16 +77,16 @@ export function TopRouteChrome() {
         aria-label="Main"
         className="border-b border-[rgba(15,34,65,0.12)] bg-[var(--color-paper)]"
       >
-        <ul className="app-shell flex list-none flex-wrap gap-x-6 gap-y-1 px-4 py-2">
+        <ul className="app-shell flex list-none flex-wrap gap-x-6 gap-y-1 px-4 py-3">
           {NAV.map((item) => {
-            const active = pathname === item.href;
+            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "text-17 inline-flex min-h-11 items-center font-medium text-[var(--color-navy)] underline-offset-4 hover:underline",
+                    "text-17 inline-flex min-h-12 items-center font-medium text-[var(--color-navy)] underline-offset-4 hover:underline",
                     active && "underline decoration-2",
                   )}
                 >

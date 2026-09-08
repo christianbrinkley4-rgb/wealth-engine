@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { GuideTownLinks } from "@/app/components/GuideTownLinks";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
  * The comparison everybody searches and almost nobody answers straight.
@@ -107,45 +109,29 @@ export default function AdvantageVsMedigapPage() {
         }}
       />
 
-      <section className="bg-[var(--color-paper)] pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="measure-prose app-shell max-w-3xl">
-          <nav aria-label="Breadcrumb" className="text-16 text-[var(--color-ink-muted)]">
-            <Link href="/" className="underline underline-offset-2">
-              Home
-            </Link>
-            <span aria-hidden> › </span>
-            <span>Advantage vs Medigap</span>
-          </nav>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            howToJsonLd({
+              name: "How to decide between Medicare Advantage and Medigap",
+              description:
+                "The three things that actually decide the choice, including the deadline that makes it harder to reverse.",
+              path: "/advantage-vs-medigap",
+              steps: DECIDERS.map((item) => ({ name: item.t, text: item.b })),
+            }),
+          ),
+        }}
+      />
 
-          <p className="text-13 mt-4 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-            {AGENT.city} · {AGENT.region}
-          </p>
-          <h1 className="text-32 md:text-42 mt-3 leading-[1.12] font-semibold tracking-tight text-balance">
-            Medicare Advantage or Medigap? Neither one wins in general.
-          </h1>
-          <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
-            Almost every page you will find on this comparison is published by somebody who sells
-            one of the two. Here is the version I would give a neighbor: three things decide it, and
-            one of them has a deadline that doesn’t come back.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href={AGENT.phoneHref}
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center gap-2 rounded-[12px] bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
-            >
-              <Phone className="size-5 shrink-0" aria-hidden />
-              {AGENT.phone}
-            </a>
-            <Link
-              href="/start?topic=medicare&stage=turning_65_soon"
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.05)]"
-            >
-              Tell me your situation →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        crumbs={[{ name: "Home", href: "/" }, { name: "Advantage vs Medigap" }]}
+        eyebrow={`${AGENT.city} · ${AGENT.region}`}
+        title="Medicare Advantage or Medigap? Neither one wins in general."
+        lede="Almost every page on this comparison is published by somebody who sells one of the two. Here is the version I would give a neighbor: three things decide it, and one of them has a deadline that doesn’t come back."
+        secondaryHref="/start?topic=medicare&stage=turning_65_soon"
+        secondaryLabel="Tell me your situation →"
+      />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -219,6 +205,7 @@ export default function AdvantageVsMedigapPage() {
             </Link>{" "}
             is a separate page, because it is the step that settles this for most households.
           </p>
+          <GuideTownLinks />
         </div>
       </section>
 
@@ -242,31 +229,12 @@ export default function AdvantageVsMedigapPage() {
         </div>
       </section>
 
-      <section className="bg-white py-14">
-        <div className="app-shell max-w-2xl text-center">
-          <h2 className="text-28 font-semibold">Tell me who you see and what you take</h2>
-          <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            I’ll check both routes against your actual doctors and prescriptions, and tell you
-            plainly when the better fit is something I can’t offer.
-          </p>
-          <Link
-            href="/start?topic=medicare&stage=turning_65_soon"
-            className="text-18 mt-8 inline-flex min-h-14 min-w-[260px] items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 py-4 font-semibold text-[var(--color-paper)]"
-          >
-            Start here →
-          </Link>
-          <p className="text-17 mt-6 text-[var(--color-ink-muted)]">
-            Or call{" "}
-            <a
-              href={AGENT.phoneHref}
-              className="font-semibold text-[var(--color-navy)] underline underline-offset-2"
-            >
-              {AGENT.phone}
-            </a>{" "}
-            — {AGENT.hours}
-          </p>
-        </div>
-      </section>
+      <KitchenTableClose
+        heading="Tell me who you see and what you take"
+        body="I’ll check both routes against your actual doctors and prescriptions, and tell you plainly when the better fit is something I can’t offer."
+        href="/start?topic=medicare&stage=turning_65_soon"
+        label="Start here →"
+      />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-
-import { pageOpenGraph } from "@/lib/seo";
-import Image from "next/image";
 import Link from "next/link";
-import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { GuideTownLinks } from "@/app/components/GuideTownLinks";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT, COMPENSATION_DISCLOSURE } from "@/lib/agent";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
  * Written for the adult child, not the person turning 65.
@@ -20,7 +20,7 @@ import { AGENT, COMPENSATION_DISCLOSURE } from "@/lib/agent";
  */
 
 export const metadata: Metadata = {
-  title: "Helping a parent with Medicare",
+  title: { absolute: "Helping a Parent with Medicare — Greensboro, NC" },
   description:
     "If you are the one researching for Mom or Dad: the deadlines that matter, what you are allowed to do on their behalf, and what to ask. Greensboro, NC.",
   alternates: { canonical: "/helping-a-parent" },
@@ -75,63 +75,56 @@ const FAQ = [
 export default function HelpingAParentPage() {
   return (
     <main className="text-[var(--color-navy)]">
-      <section className="bg-[var(--color-paper)] pt-8 pb-14 md:pt-12 md:pb-20">
-        <div className="app-shell">
-          <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[3fr_2fr] md:gap-14">
-            <div>
-              <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-                For the son or daughter doing the research
-              </p>
-              <h1 className="text-32 md:text-42 mt-4 leading-[1.12] font-semibold tracking-tight text-balance">
-                You’re the one reading about Medicare at 11pm. Not them.
-              </h1>
-              <p className="text-20 mt-5 max-w-xl leading-relaxed text-[var(--color-ink-muted)]">
-                Someone has to figure out what Mom or Dad needs to do and by when, and it’s usually
-                whichever adult child is best at forms. Here’s the short version — the dates that
-                matter, the paperwork that blocks you, and what to actually ask.
-              </p>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", path: "/" },
+              { name: "Helping a parent", path: "/helping-a-parent" },
+            ]),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            articleJsonLd({
+              headline: "Helping a parent with Medicare",
+              description:
+                "Authorization, the seven-month sign-up window, and the Medigap deadline an adult child needs to pin down first.",
+              path: "/helping-a-parent",
+              datePublished: "2026-08-31",
+              dateModified: "2026-08-31",
+            }),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            howToJsonLd({
+              name: "How to help a parent with Medicare",
+              description:
+                "Four things to settle first: authorization, the exact month they turn 65, whether they can delay Part B, and the Medigap window that closes quietly.",
+              path: "/helping-a-parent",
+              steps: FIRST_STEPS.map((step) => ({ name: step.title, text: step.body })),
+            }),
+          ),
+        }}
+      />
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-                <Link
-                  href={START_HREF}
-                  className="text-19 inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
-                >
-                  Tell me their situation →
-                </Link>
-                <a
-                  href={AGENT.phoneHref}
-                  className="text-19 inline-flex h-16 min-h-16 items-center justify-center gap-2 rounded-[12px] border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.05)]"
-                >
-                  <Phone className="size-5" aria-hidden />
-                  {AGENT.phone}
-                </a>
-              </div>
-              <p className="text-16 mt-4 text-[var(--color-ink-muted)]">
-                One question and you’ll get the part that matters. No cost, and I’m happy to have
-                you both on the call.
-              </p>
-            </div>
-
-            <figure className="m-0">
-              <Image
-                src="/christian-brinkley.jpg"
-                alt={`${AGENT.name}, licensed insurance agent in Greensboro, North Carolina`}
-                width={1200}
-                height={1600}
-                priority
-                sizes="(max-width: 768px) 100vw, 340px"
-                className="w-full rounded-2xl border border-[rgba(15,34,65,0.1)] object-cover shadow-[0_12px_40px_rgba(15,34,65,0.10)]"
-              />
-              <figcaption className="text-16 mt-4 leading-snug">
-                <span className="text-18 block font-semibold">{AGENT.name}</span>
-                <span className="block text-[var(--color-ink-muted)]">
-                  Licensed insurance agent · {AGENT.city}, {AGENT.state}
-                </span>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        crumbs={[{ name: "Home", href: "/" }, { name: "Helping a parent" }]}
+        eyebrow={`For the son or daughter · ${AGENT.city}`}
+        title="You’re the one reading about Medicare at 11pm. Not them."
+        lede="Someone has to figure out what Mom or Dad needs to do and by when, and it’s usually whichever adult child is best at forms. Here’s the short version — the dates that matter, the paperwork that blocks you, and what to actually ask."
+        secondaryHref={START_HREF}
+        secondaryLabel="Tell me their situation →"
+        note="One question and you’ll get the part that matters. No cost, and I’m happy to have you both on the call."
+      />
 
       <section className="bg-white py-14 md:py-18">
         <div className="measure-prose app-shell max-w-3xl">
@@ -188,45 +181,23 @@ export default function HelpingAParentPage() {
           </dl>
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                mainEntity: FAQ.map((item) => ({
-                  "@type": "Question",
-                  name: item.q,
-                  acceptedAnswer: { "@type": "Answer", text: item.a },
-                })),
-              }),
-            }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
         </div>
       </section>
 
-      <section className="bg-[var(--color-paper)] py-14 md:py-18">
-        <div className="app-shell max-w-2xl text-center">
-          <h2 className="text-28 font-semibold">Tell me where they are and I’ll help</h2>
-          <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            One question about their situation, and you’ll have something useful whether or not we
-            ever speak.
-          </p>
-          <Link
-            href={START_HREF}
-            className="text-18 mt-8 inline-flex min-h-14 min-w-[260px] items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 py-4 font-semibold text-[var(--color-paper)]"
-          >
-            Start here →
-          </Link>
-          <p className="text-17 mt-6 text-[var(--color-ink-muted)]">
-            Or call{" "}
-            <a
-              href={AGENT.phoneHref}
-              className="font-semibold text-[var(--color-navy)] underline underline-offset-2"
-            >
-              {AGENT.phone}
-            </a>
-          </p>
+      <section className="bg-[var(--color-paper)] py-12">
+        <div className="measure-prose app-shell max-w-3xl">
+          <GuideTownLinks heading="If they live in one of these towns" />
         </div>
       </section>
+
+      <KitchenTableClose
+        heading="Tell me where they are and I’ll help"
+        body="One question about their situation, and you’ll have something useful whether or not we ever speak."
+        href={START_HREF}
+        label="Start here →"
+      />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />

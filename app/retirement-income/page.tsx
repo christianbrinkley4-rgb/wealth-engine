@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { AGENT } from "@/lib/agent";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { ServiceHero } from "@/app/components/ServiceHero";
+import {
+  articleJsonLd,
+  breadcrumbJsonLd,
+  faqJsonLd,
+  howToJsonLd,
+  pageOpenGraph,
+  serviceJsonLd,
+} from "@/lib/seo";
+import { FeaturedPlaceCards, ServiceAreaTownList } from "@/app/components/ServiceAreaTownList";
+import { LeadCluster } from "@/app/components/LeadCluster";
+import { SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
 
 /**
  * The 401(k) and retirement-income territory, as education rather than advice.
@@ -26,14 +36,14 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "What to Do With a 401(k) at Retirement — Greensboro, NC" },
+  title: { absolute: "Retirement Planning Help in Greensboro, NC — 401(k) & Medicare Timing" },
   description:
-    "The four options for an old 401(k), what changes at 73, and why the years before it decide your tax bill. Plain explanation from a Greensboro agent, no pitch.",
+    "What to do with an old 401(k), what changes at 73, and how a withdrawal hits your Medicare premium two years later. Kitchen-table help from a Greensboro agent — education, not investment advice.",
   alternates: { canonical: "/retirement-income" },
   openGraph: pageOpenGraph({
-    title: "What to do with a 401(k) when you retire",
+    title: "Retirement questions, answered at your kitchen table in Greensboro",
     description:
-      "Four options, the deadlines that come with them, and the tax window most people do not know they are in.",
+      "Four options for an old 401(k), the tax window before 73, and the Medicare timing most people miss. Not a call center, and not a registered adviser.",
     path: "/retirement-income",
   }),
 };
@@ -82,6 +92,10 @@ const FAQ = [
     q: "So what do you actually help with here?",
     a: "The Medicare side of it, which is the part most people miss and the part I’m licensed for. How a withdrawal or a conversion lands on your premium two years later, and what the timing is worth in dollars. There’s a tool on this site that works it out, and talking it through doesn’t cost anything.",
   },
+  {
+    q: "Are you a financial advisor?",
+    a: "No. I’m a licensed insurance agent finishing a master’s in accounting. I’m not a registered investment adviser. If you searched for a retirement advisor, I can still sit down and explain the tax and Medicare timing — and I’ll tell you plainly when the rest of the question belongs to someone with that license.",
+  },
 ] as const;
 
 export default function RetirementIncomePage() {
@@ -113,30 +127,43 @@ export default function RetirementIncomePage() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            serviceJsonLd({
+              name: "Retirement income and Medicare timing",
+              description:
+                "401(k) options, Social Security timing, and how a withdrawal lands on a Medicare premium. Education, not investment advice.",
+              path: "/retirement-income",
+            }),
+          ),
+        }}
+      />
 
-      <section className="bg-[var(--color-paper)] pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="measure-prose app-shell max-w-3xl">
-          <nav aria-label="Breadcrumb" className="text-16 text-[var(--color-ink-muted)]">
-            <Link href="/" className="underline underline-offset-2">
-              Home
-            </Link>
-            <span aria-hidden> › </span>
-            <span>Retirement income</span>
-          </nav>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            howToJsonLd({
+              name: "What to do with a 401(k) when you retire",
+              description:
+                "The four options for an old 401(k), the deadlines attached to each, and how a withdrawal lands on a Medicare premium two years later.",
+              path: "/retirement-income",
+              steps: OPTIONS.map((option) => ({ name: option.t, text: option.b })),
+            }),
+          ),
+        }}
+      />
 
-          <p className="text-13 mt-4 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-            {AGENT.city} · {AGENT.region}
-          </p>
-          <h1 className="text-32 md:text-42 mt-3 leading-[1.12] font-semibold tracking-tight text-balance">
-            What to do with a 401(k) when you retire
-          </h1>
-          <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
-            You have four options, and each one comes with its own deadlines. This page explains
-            what they do and what it costs you to get them wrong. It won’t tell you which to pick —
-            that depends on things a web page can’t know, and partly on a license I don’t hold.
-          </p>
-        </div>
-      </section>
+      <ServiceHero
+        crumbs={[{ name: "Home", href: "/" }, { name: "Retirement income" }]}
+        eyebrow={SERVICE_AREA_LABEL}
+        title="Retirement questions a licensed agent can actually answer"
+        lede="You have four options for an old 401(k), and each one comes with deadlines. I’ll sit down and explain what they do to your taxes and your Medicare premium — then tell you which parts belong to a CPA or a registered adviser. No cost, no obligation, and I am not holding myself out as a financial advisor."
+        secondaryHref="/start?topic=financial_planning"
+        secondaryLabel="Ask a question →"
+      />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -227,30 +254,38 @@ export default function RetirementIncomePage() {
         </div>
       </section>
 
-      <section className="bg-white py-14">
-        <div className="app-shell max-w-2xl text-center">
-          <h2 className="text-28 font-semibold">Working out the timing?</h2>
-          <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            Tell me what you’re weighing up and I’ll tell you what it does to your Medicare premium,
-            and which parts you should be asking a CPA or an adviser about instead.
+      <section className="bg-[var(--color-paper)] py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Kitchen-table help within 30 minutes</h2>
+          <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            {SERVICE_AREA_LEDE} National matching sites will send you to whoever bought the lead.
           </p>
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href={AGENT.phoneHref}
-              className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)]"
-            >
-              <Phone className="size-5 shrink-0" aria-hidden />
-              {AGENT.phone}
-            </a>
-            <Link
-              href="/start?topic=financial_planning"
-              className="text-18 inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-8 font-semibold text-[var(--color-navy)]"
-            >
-              Ask a question →
+          <FeaturedPlaceCards
+            hrefFor={(place) => `/retirement-in/${place.slug}`}
+            labelFor={(place) => `Retirement help in ${place.name}`}
+          />
+          <p className="text-13 mt-8 font-medium tracking-[0.1em] text-[var(--color-gold-ink)] uppercase">
+            Also within about 30 minutes
+          </p>
+          <ServiceAreaTownList hrefFor={(place) => `/retirement-in/${place.slug}`} />
+          <p className="text-17 mt-6">
+            <Link href="/service-area" className="underline underline-offset-2">
+              Every town in the service area →
             </Link>
-          </div>
+          </p>
+          <LeadCluster
+            current="/retirement-income"
+            heading="Medicare enrollment and life insurance, if those are the actual questions"
+          />
         </div>
       </section>
+
+      <KitchenTableClose
+        heading="Working out the timing?"
+        body="Tell me what you’re weighing up and I’ll tell you what it does to your Medicare premium, and which parts you should be asking a CPA or an adviser about instead. No cost, no obligation."
+        href="/start?topic=financial_planning"
+        label="Ask a question →"
+      />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">

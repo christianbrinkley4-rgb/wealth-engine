@@ -78,16 +78,30 @@ export function EmailResultsCapture({
 
       const data = (await res.json().catch(() => ({}))) as {
         error?: string;
+        code?: string;
         emailConfigured?: boolean;
       };
 
       if (!res.ok) {
-        setError(data.error ?? "Something went wrong on my end. Try again?");
+        const configFail = data.code === "storage_unavailable" || res.status === 503;
+        setError(
+          data.error ??
+            (configFail
+              ? `I can’t save that right now — please call me at ${AGENT.phone} or email ${AGENT.email}.`
+              : "Something went wrong on my end. Try again?"),
+        );
         setSubmitState("error");
         return;
       }
 
-      router.push(thankYouUrl({ source, eventId, emailConfigured: data.emailConfigured }));
+      router.push(
+        thankYouUrl({
+          source,
+          topic: isRoth ? "financial_planning" : "medicare",
+          eventId,
+          emailConfigured: data.emailConfigured,
+        }),
+      );
     } catch {
       setError(`Something went wrong on my end. Try again, or call me at ${AGENT.phone}.`);
       setSubmitState("error");
@@ -167,9 +181,19 @@ export function EmailResultsCapture({
         </label>
 
         {error ? (
-          <p id="results-capture-error" role="alert" className="text-17 text-[var(--color-error)]">
-            {error}
-          </p>
+          <div
+            id="results-capture-error"
+            role="alert"
+            className="rounded-xl border border-[rgba(185,79,92,0.35)] bg-[rgba(185,79,92,0.06)] px-4 py-3"
+          >
+            <p className="text-17 text-[var(--color-error)]">{error}</p>
+            <a
+              href={AGENT.phoneHref}
+              className="text-17 mt-2 inline-flex font-semibold text-[var(--color-navy)] underline underline-offset-2"
+            >
+              Or call {AGENT.phone}
+            </a>
+          </div>
         ) : null}
 
         <button

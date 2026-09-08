@@ -62,7 +62,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
     id: "medicare",
     label: "Medicare",
     shortLabel: "Medicare",
-    blurb: "Turning 65, already enrolled, or helping someone else.",
+    blurb: "Turning 65, already enrolled, or helping someone else. I’ll sit down with you.",
     questions: [
       {
         id: "medicare_stage",
@@ -90,7 +90,8 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
     id: "financial_planning",
     label: "Retirement income",
     shortLabel: "Income",
-    blurb: "Social Security timing, withdrawals, and taxes in retirement.",
+    blurb:
+      "Social Security, an old 401(k), and what a withdrawal does to Medicare. Not investment advice.",
     questions: [
       {
         id: "planning_stage",
@@ -118,7 +119,8 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
     id: "life_insurance",
     label: "Life insurance",
     shortLabel: "Life",
-    blurb: "Coverage that ends at retirement, final expenses, or a legacy.",
+    blurb:
+      "Whether what you have is enough, and what happens when the job ends. I’ll read it with you.",
     questions: [
       {
         id: "life_cover",
@@ -143,6 +145,50 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
     ],
   },
 };
+
+/**
+ * The first screen of /start. Four cards, matching the four indexed lead
+ * pages — not three generic topics. Turning 65 and annual enrollment both
+ * land on Medicare, but they skip the "where are you" question because the
+ * card already answered it.
+ */
+export interface QuizSituation {
+  id: string;
+  topic: HelpQuizTopic;
+  label: string;
+  blurb: string;
+  /** When set, the first branch question is pre-answered and skipped. */
+  firstAnswer?: { questionId: string; value: string };
+}
+
+export const QUIZ_SITUATIONS: QuizSituation[] = [
+  {
+    id: "turning_65",
+    topic: "medicare",
+    label: "Turning 65",
+    blurb: "Your seven-month window, when coverage starts, and what happens if you miss it.",
+    firstAnswer: { questionId: "medicare_stage", value: "turning_65_soon" },
+  },
+  {
+    id: "annual_enrollment",
+    topic: "medicare",
+    label: "Already on Medicare",
+    blurb: "The fall window, the letter that came, and whether anything actually needs to change.",
+    firstAnswer: { questionId: "medicare_stage", value: "already_on_medicare" },
+  },
+  {
+    id: "retirement",
+    topic: "financial_planning",
+    label: "Retirement income",
+    blurb: "An old 401(k), Social Security timing, and what a withdrawal does to Medicare.",
+  },
+  {
+    id: "life",
+    topic: "life_insurance",
+    label: "Life insurance",
+    blurb: "Whether what you have is enough, and what happens when the job ends.",
+  },
+];
 
 export const TOPIC_ORDER: HelpQuizTopic[] = ["medicare", "financial_planning", "life_insurance"];
 
@@ -207,28 +253,49 @@ export const INCOME_OPTIONS: HelpQuizOption[] = [
   { value: "prefer_not", label: "I’d rather not say" },
 ];
 
-/** topic → 2 questions → value → contact */
+/** topic → 2 questions → value → contact. Shorter when a card already answered question one. */
 export const HELP_QUIZ_TOTAL_STEPS = 5;
 
 export type HelpQuizPhase = "topic" | "branch" | "value" | "contact";
 
-export function phaseToStepNumber(phase: HelpQuizPhase, branchIndex: number): number {
-  switch (phase) {
-    case "topic":
-      return 1;
-    case "branch":
-      return 2 + Math.min(Math.max(branchIndex, 0), 1);
-    case "value":
-      return 4;
-    case "contact":
-      return 5;
-    default:
-      return 1;
-  }
+export function phaseToStepNumber(
+  phase: HelpQuizPhase,
+  branchIndex: number,
+  skippedFirst = false,
+): number {
+  const raw = (() => {
+    switch (phase) {
+      case "topic":
+        return 1;
+      case "branch":
+        return 2 + Math.min(Math.max(branchIndex, 0), 1);
+      case "value":
+        return 4;
+      case "contact":
+        return 5;
+      default:
+        return 1;
+    }
+  })();
+
+  if (skippedFirst && raw > 1) return raw - 1;
+  return raw;
 }
 
+export function quizTotalSteps(skippedFirst: boolean): number {
+  return skippedFirst ? HELP_QUIZ_TOTAL_STEPS - 1 : HELP_QUIZ_TOTAL_STEPS;
+}
+
+/** Optional, on the contact step — kitchen-table vs phone is the local wedge. */
+export const MEET_OPTIONS: HelpQuizOption[] = [
+  { value: "kitchen_table", label: "Sit down at my kitchen table" },
+  { value: "coffee_shop", label: "A coffee shop nearby" },
+  { value: "phone", label: "A phone call is enough" },
+  { value: "email", label: "Email is enough for now" },
+];
+
 export const STEP_LABELS: Record<HelpQuizPhase, string> = {
-  topic: "Pick a topic",
+  topic: "What you need",
   branch: "Your situation",
   value: "What this means",
   contact: "Where to reach you",
@@ -331,6 +398,19 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
       };
     }
 
+    if (focus === "leaving_money") {
+      return {
+        headline: "Who gets the money is often decided by a form, not by the will.",
+        lede: "Retirement accounts, life insurance, and many bank products pay whoever is named on the beneficiary form. That designation overrides what the will says. Cleaning those up is usually more useful than buying a new product.",
+        points: [
+          "An ex-spouse still listed as beneficiary still gets paid — even after a divorce and a rewritten will. That is one of the most common expensive surprises in this work.",
+          "Inherited IRAs now generally have to be emptied within ten years for most non-spouse heirs, which can create a tax bill the family did not budget for.",
+          "Life insurance paid to a named beneficiary usually moves outside probate and faster than anything that has to go through an estate. The form has to be current for that to help anyone.",
+        ],
+        note,
+      };
+    }
+
     return {
       headline: "Three dates set the shape of almost every retirement income plan.",
       lede: "Before the details, the calendar. Most of the decisions people agonize over are really about which of these three doors to walk through first.",
@@ -402,6 +482,11 @@ export function describeAnswers(
     if (!value) continue;
     const label = question.options.find((o) => o.value === value)?.label ?? value;
     out.push({ question: question.prompt, answer: label });
+  }
+  const meet = answers.meet_preference;
+  if (meet) {
+    const label = MEET_OPTIONS.find((o) => o.value === meet)?.label ?? meet;
+    out.push({ question: "How they’d like to talk", answer: label });
   }
   const income = answers.income_range;
   if (income) {

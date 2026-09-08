@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { LeadCluster } from "@/app/components/LeadCluster";
+import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
  * Annuities, written to be trusted rather than to convert.
@@ -110,46 +111,30 @@ export default function AnnuitiesPage() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            howToJsonLd({
+              name: "How to tell when an annuity is the wrong answer",
+              description:
+                "Four situations where a fixed or indexed annuity is the wrong tool, including surrender charges, growth-seeking, illustrated rates, and putting most of your savings in one contract.",
+              path: "/annuities",
+              steps: WRONG_FITS.map((item) => ({ name: item.t, text: item.b })),
+            }),
+          ),
+        }}
+      />
 
-      <section className="bg-[var(--color-paper)] pt-8 pb-12 md:pt-12 md:pb-16">
-        <div className="measure-prose app-shell max-w-3xl">
-          <nav aria-label="Breadcrumb" className="text-16 text-[var(--color-ink-muted)]">
-            <Link href="/" className="underline underline-offset-2">
-              Home
-            </Link>
-            <span aria-hidden> › </span>
-            <span>Annuities</span>
-          </nav>
-
-          <p className="text-13 mt-4 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-            {AGENT.city} · {AGENT.region}
-          </p>
-          <h1 className="text-32 md:text-42 mt-3 leading-[1.12] font-semibold tracking-tight text-balance">
-            Annuities, explained by someone willing to tell you not to buy one.
-          </h1>
-          <p className="text-20 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
-            Annuities are the most oversold product in this business and the most misunderstood, and
-            those two things are related. Here’s what one actually does, the four times the answer
-            is no, and what to ask anybody who puts a proposal in front of you. Me included.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <a
-              href={AGENT.phoneHref}
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center gap-2 rounded-[12px] bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
-            >
-              <Phone className="size-5 shrink-0" aria-hidden />
-              {AGENT.phone}
-            </a>
-            <Link
-              href="/start?topic=financial_planning"
-              className="text-19 inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.05)]"
-            >
-              Ask a question first →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServiceHero
+        crumbs={[{ name: "Home", href: "/" }, { name: "Annuities" }]}
+        eyebrow={`${AGENT.city} · ${AGENT.region}`}
+        title="Annuities, explained by someone willing to tell you not to buy one."
+        lede="Annuities are the most oversold product in this business and the most misunderstood, and those two things are related. Here’s what one actually does, the four times the answer is no, and what to ask anybody who puts a proposal in front of you. Me included."
+        secondaryHref="/start?topic=financial_planning"
+        secondaryLabel="Ask a question first →"
+        note="Kitchen table, coffee shop, or the phone. No cost — and I will tell you when the honest answer is to do nothing."
+      />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -222,29 +207,16 @@ export default function AnnuitiesPage() {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
+          <LeadCluster current="/retirement-income" heading="Related kitchen-table paths" />
         </div>
       </section>
 
-      <section className="bg-white py-14">
-        <div className="app-shell max-w-2xl text-center">
-          <h2 className="text-28 font-semibold">Have a proposal in front of you?</h2>
-          <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            Bring it. I’ll read the guaranteed column with you and tell you what the surrender
-            schedule actually says. If I think it’s wrong for you, I’ll say that too, including when
-            the honest answer is to do nothing at all.
-          </p>
-          <a
-            href={AGENT.phoneHref}
-            className="text-18 mt-8 inline-flex min-h-14 min-w-[260px] items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-8 py-4 font-semibold text-[var(--color-paper)]"
-          >
-            <Phone className="size-5 shrink-0" aria-hidden />
-            {AGENT.phone}
-          </a>
-          <p className="text-17 mt-6 text-[var(--color-ink-muted)]">
-            Serving Greensboro, High Point, Winston-Salem and the rest of the Triad. {AGENT.hours}
-          </p>
-        </div>
-      </section>
+      <KitchenTableClose
+        heading="Have a proposal in front of you?"
+        body="Bring it. I’ll read the guaranteed column with you and tell you what the surrender schedule actually says. If I think it’s wrong for you, I’ll say that too, including when the honest answer is to do nothing at all."
+        href="/start?topic=financial_planning"
+        label="Ask a question first →"
+      />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure />
