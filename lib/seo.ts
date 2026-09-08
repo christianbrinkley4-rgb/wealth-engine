@@ -46,8 +46,13 @@ export function isValidPublicSiteUrl(raw: string | undefined): boolean {
 }
 
 export const SITE_URL_CONFIGURED = isValidPublicSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
+const VERCEL_DEPLOYMENT_URL = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL.replace(/^https?:\/\//, "").replace(/\/$/, "")}`
+  : null;
 export const SITE_URL = (
-  SITE_URL_CONFIGURED ? process.env.NEXT_PUBLIC_SITE_URL!.trim() : LOCAL_SITE_URL
+  SITE_URL_CONFIGURED
+    ? process.env.NEXT_PUBLIC_SITE_URL!.trim()
+    : (VERCEL_DEPLOYMENT_URL ?? LOCAL_SITE_URL)
 ).replace(/\/$/, "");
 
 function configured(value: string | undefined): boolean {

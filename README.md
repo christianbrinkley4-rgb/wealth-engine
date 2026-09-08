@@ -58,7 +58,8 @@ npm run build
 ```
 
 Before connecting a real domain, omit `NEXT_PUBLIC_SITE_URL`; the generated
-robots policy and page metadata will disallow indexing rather than publish a
-preview origin as canonical. A preview deployment is not approval to promote
-Medicare content; confirm `MEDICARE_TPMO_SCOPE` and obtain any required
-carrier/FMO advertising approval first.
+preview origin is used for internally generated absolute URLs, while robots and
+page metadata disallow indexing and do not treat it as the final public origin.
+A preview deployment is not approval to promote Medicare content; confirm
+`MEDICARE_TPMO_SCOPE` and obtain any required carrier/FMO advertising approval
+first.
