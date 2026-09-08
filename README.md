@@ -37,9 +37,12 @@ or service credentials.
 
 Verified business inputs are deliberately not environment placeholders:
 
-- Replace `AGENT.npn` in `lib/agent.ts` with the verified NPN.
-- Set `TPMO_ORGANIZATION_COUNT` and `TPMO_PRODUCT_COUNT` in `lib/agent.ts`
-  only after the applicable Medicare counts are confirmed.
+- `AGENT.npn` in `lib/agent.ts` is optional public information. Leave it null
+  unless the agent chooses to publish a verified NPN.
+- Set `MEDICARE_TPMO_SCOPE` after confirming Medicare contracting with the FMO
+  or upline. If it is `multiple-organizations`, set the verified
+  `TPMO_ORGANIZATION_COUNT` and `TPMO_PRODUCT_COUNT`; CMS does not require those
+  counts for a TPMO selling for only one MA organization/Part D sponsor.
 - Add only permissioned, verified entries to `lib/testimonials.ts`.
 - Keep `SATURDAY_HOURS` in `lib/agent.ts` null until exact hours are confirmed.
 
@@ -55,4 +58,7 @@ npm run build
 ```
 
 Before connecting a real domain, omit `NEXT_PUBLIC_SITE_URL`; the generated
-robots policy will disallow all crawling rather than index a preview origin.
+robots policy and page metadata will disallow indexing rather than publish a
+preview origin as canonical. A preview deployment is not approval to promote
+Medicare content; confirm `MEDICARE_TPMO_SCOPE` and obtain any required
+carrier/FMO advertising approval first.

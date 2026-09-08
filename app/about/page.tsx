@@ -170,15 +170,7 @@ export default function AboutPage() {
             </h2>
             <ul className="text-17 mt-4 list-disc space-y-3 pl-5 leading-relaxed text-[var(--color-navy)]">
               <li>Licensed insurance agent in {AGENT.licensedStates.join(", ")}</li>
-              {hasPublishableNpn() ? (
-                <li>National Producer Number {AGENT.npn}</li>
-              ) : (
-                <li>
-                  National Producer Number is not printed on this site yet. Ask me for it, or look
-                  me up on the North Carolina Department of Insurance license search — I will not
-                  invent a number here.
-                </li>
-              )}
+              {hasPublishableNpn() ? <li>National Producer Number {AGENT.npn}</li> : null}
               <li>Master’s in Accounting, University of North Carolina at Greensboro</li>
               <li>Coursework in individual tax and financial planning</li>
             </ul>

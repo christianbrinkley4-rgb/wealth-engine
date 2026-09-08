@@ -1,5 +1,5 @@
 import {
-  hasPublishableNpn,
+  MEDICARE_TPMO_SCOPE,
   SATURDAY_HOURS,
   TPMO_ORGANIZATION_COUNT,
   TPMO_PRODUCT_COUNT,
@@ -25,8 +25,8 @@ export type ReadinessServices = {
 export type ReadinessInput = {
   production: boolean;
   siteUrl?: string;
-  npnValid: boolean;
   medicareMarketing: boolean;
+  medicareTpmoScope: "unconfirmed" | "one-organization" | "multiple-organizations";
   tpmoOrganizationCount: number | null;
   tpmoProductCount: number | null;
   testimonialsConfigured: boolean;
@@ -65,13 +65,15 @@ export function assessReadiness(input: ReadinessInput): ReadinessReport {
   if (!publicSeoConfigured) {
     fatal.push({
       code: "public_site_url",
-      message: "Set NEXT_PUBLIC_SITE_URL to the final public HTTPS origin.",
+      message:
+        "Set NEXT_PUBLIC_SITE_URL to the final public HTTPS origin before indexing or promotion.",
     });
   }
-  if (!input.npnValid) {
+  if (input.medicareMarketing && input.medicareTpmoScope === "unconfirmed") {
     fatal.push({
-      code: "npn",
-      message: "Replace the placeholder AGENT.npn with the agent’s verified NPN.",
+      code: "tpmo_scope",
+      message:
+        "Confirm whether the agent sells Medicare plans for one or multiple organizations before public Medicare marketing.",
     });
   }
   if (!leadCaptureReady) {
@@ -82,11 +84,13 @@ export function assessReadiness(input: ReadinessInput): ReadinessReport {
   }
   if (
     input.medicareMarketing &&
+    input.medicareTpmoScope === "multiple-organizations" &&
     (!positiveCount(input.tpmoOrganizationCount) || !positiveCount(input.tpmoProductCount))
   ) {
     fatal.push({
       code: "tpmo_counts",
-      message: "Set verified Medicare TPMO organization and product counts in lib/agent.ts.",
+      message:
+        "A multi-organization TPMO must set verified Medicare organization and product counts in lib/agent.ts.",
     });
   }
   if (!input.testimonialsConfigured) {
@@ -147,8 +151,8 @@ export function getReadinessReport(env: NodeJS.ProcessEnv = process.env): Readin
   return assessReadiness({
     production: env.NODE_ENV === "production",
     siteUrl: env.NEXT_PUBLIC_SITE_URL,
-    npnValid: hasPublishableNpn(),
     medicareMarketing: true,
+    medicareTpmoScope: MEDICARE_TPMO_SCOPE,
     tpmoOrganizationCount: TPMO_ORGANIZATION_COUNT,
     tpmoProductCount: TPMO_PRODUCT_COUNT,
     testimonialsConfigured: hasTestimonials(),

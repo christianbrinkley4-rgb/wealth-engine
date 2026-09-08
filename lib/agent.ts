@@ -2,15 +2,14 @@
  * Single source of truth for who runs this site and what must be disclosed.
  *
  * ─────────────────────────────────────────────────────────────────────────
- * ACTION REQUIRED — every value marked TODO must be filled in before ads run.
+ * ACTION REQUIRED — every value marked TODO must be verified before ads run.
  * Nothing else in the codebase hardcodes this information, so this is the only
  * file to edit when a license, carrier count, or phone number changes.
  * ─────────────────────────────────────────────────────────────────────────
  *
- * The Medicare disclaimers below reproduce the language CMS requires of Third
- * Party Marketing Organizations. Confirm the exact wording and the plan/carrier
- * counts with your FMO or upline compliance desk before launch — the counts
- * change whenever your contracts change.
+ * The Medicare disclaimer below follows the federal TPMO rule. Confirm whether
+ * the agent sells plans for one or multiple Medicare organizations with the FMO
+ * or upline compliance desk before public Medicare marketing.
  */
 
 export const AGENT = {
@@ -26,8 +25,12 @@ export const AGENT = {
   /** Booking link shown on the thank-you page and in the auto-response email. */
   schedulingUrl: "https://calendly.com/christianbrinkley4/30min",
 
-  /** TODO: your National Producer Number. Shown in the footer disclosure. */
-  npn: "TODO_NPN",
+  /**
+   * Optional public identifier. North Carolina requires a valid producer
+   * license, but its general advertising rules do not require an NPN on a
+   * public website. Set this only if the agent wants to publish it.
+   */
+  npn: null as string | null,
 
   /** TODO: states where you hold a resident/non-resident producer license. */
   licensedStates: ["North Carolina"],
@@ -59,15 +62,15 @@ export const AGENT = {
 export const SATURDAY_HOURS: { opens: string; closes: string } | null = null;
 
 /**
- * TODO: set both counts to your actual contracted numbers, then have your FMO
- * confirm the sentence. CMS expects this on Medicare marketing materials from a
- * TPMO that does not offer every plan in the area.
- *
- * Until the counts are filled in, the site renders the disclaimer WITHOUT the
- * "we represent N organizations" sentence rather than printing a placeholder.
- * A visible "[TODO]" on a licensed agent’s disclosure is worse than the shorter
- * version, but the shorter version is still incomplete — fill these in.
+ * CMS requires the standardized count disclaimer only for a TPMO that sells
+ * plans on behalf of more than one MA organization or Part D sponsor. Do not
+ * infer this from the number of insurers represented for non-Medicare products.
  */
+export const MEDICARE_TPMO_SCOPE = "unconfirmed" as
+  | "unconfirmed"
+  | "one-organization"
+  | "multiple-organizations";
+
 export const TPMO_ORGANIZATION_COUNT: number | null = null;
 export const TPMO_PRODUCT_COUNT: number | null = null;
 
@@ -77,7 +80,9 @@ const TPMO_BASE =
   "(SHIP) to get information on all of your options.";
 
 export const TPMO_DISCLAIMER =
-  TPMO_ORGANIZATION_COUNT != null && TPMO_PRODUCT_COUNT != null
+  MEDICARE_TPMO_SCOPE === "multiple-organizations" &&
+  TPMO_ORGANIZATION_COUNT != null &&
+  TPMO_PRODUCT_COUNT != null
     ? "We do not offer every plan available in your area. Currently we represent " +
       `${TPMO_ORGANIZATION_COUNT} organizations which offer ${TPMO_PRODUCT_COUNT} products ` +
       "in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local " +
@@ -86,15 +91,19 @@ export const TPMO_DISCLAIMER =
 
 /** True once the licensing details in AGENT have been filled in. */
 export function hasPublishableNpn(): boolean {
-  const value: string = AGENT.npn.trim();
+  const value = AGENT.npn?.trim() ?? "";
   return /^\d{1,10}$/.test(value) && !/^0+$/.test(value);
 }
 
 /** Flags anything still unset, for the /api/health check and the build log. */
 export function agentConfigGaps(): string[] {
   const gaps: string[] = [];
-  if (!hasPublishableNpn()) gaps.push("AGENT.npn is still a placeholder");
-  if (TPMO_ORGANIZATION_COUNT == null || TPMO_PRODUCT_COUNT == null) {
+  if (MEDICARE_TPMO_SCOPE === "unconfirmed") {
+    gaps.push("Medicare TPMO organization scope is unconfirmed");
+  } else if (
+    MEDICARE_TPMO_SCOPE === "multiple-organizations" &&
+    (TPMO_ORGANIZATION_COUNT == null || TPMO_PRODUCT_COUNT == null)
+  ) {
     gaps.push("TPMO carrier/product counts are not set");
   }
   return gaps;

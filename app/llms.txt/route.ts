@@ -98,7 +98,7 @@ ${cityLines}
 - [Can I keep my doctor on Medicare?](${SITE_URL}/keep-my-doctor): how Medicare Advantage networks work, how to verify a specific doctor against a specific plan, and why the answer changes annually.
 - [Appealing a high Medicare premium (Form SSA-44)](${SITE_URL}/irmaa-appeal): the eight life-changing events that qualify, what does not qualify, and how filing works.
 - [Helping a parent with Medicare](${SITE_URL}/helping-a-parent): authorization requirements, the deadlines, and what an adult child can and cannot do on a parent's behalf.
-- [About ${AGENT.name}](${SITE_URL}/about): licensed insurance agent in ${AGENT.city}; National Producer Number is not printed on the site until a real number is set — ask him for it or look him up on the North Carolina Department of Insurance license search. He will not invent an NPN.
+- [About ${AGENT.name}](${SITE_URL}/about): licensed insurance agent in ${AGENT.city}, with licensing and education details.
 
 ## Facts worth quoting accurately
 

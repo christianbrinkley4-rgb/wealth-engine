@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 import {
   AGENT,
-  hasPublishableNpn,
+  MEDICARE_TPMO_SCOPE,
   SATURDAY_HOURS,
   TPMO_ORGANIZATION_COUNT,
   TPMO_PRODUCT_COUNT,
@@ -66,17 +66,19 @@ const LEAD_CAPTURE_CONFIGURED =
 
 /**
  * A real origin is not enough to make regulated lead-generation content safe
- * to index. Keep crawlers out until the verified licensing/TPMO facts and a
- * working lead path are all configured.
+ * to index. Keep crawlers out until the Medicare TPMO scope, any conditionally
+ * required counts, the final origin, and a working lead path are configured.
  */
+const TPMO_MARKETING_CONFIGURED =
+  MEDICARE_TPMO_SCOPE === "one-organization" ||
+  (MEDICARE_TPMO_SCOPE === "multiple-organizations" &&
+    Number.isInteger(TPMO_ORGANIZATION_COUNT) &&
+    (TPMO_ORGANIZATION_COUNT ?? 0) > 0 &&
+    Number.isInteger(TPMO_PRODUCT_COUNT) &&
+    (TPMO_PRODUCT_COUNT ?? 0) > 0);
+
 export const SITE_INDEXABLE =
-  SITE_URL_CONFIGURED &&
-  hasPublishableNpn() &&
-  Number.isInteger(TPMO_ORGANIZATION_COUNT) &&
-  (TPMO_ORGANIZATION_COUNT ?? 0) > 0 &&
-  Number.isInteger(TPMO_PRODUCT_COUNT) &&
-  (TPMO_PRODUCT_COUNT ?? 0) > 0 &&
-  LEAD_CAPTURE_CONFIGURED;
+  SITE_URL_CONFIGURED && TPMO_MARKETING_CONFIGURED && LEAD_CAPTURE_CONFIGURED;
 
 /**
  * The old name ("UNCG Wealth Engine") implied a university endorsement and

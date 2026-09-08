@@ -17,8 +17,8 @@ function readyInput() {
   return {
     production: true,
     siteUrl: "https://medicare.gov",
-    npnValid: true,
     medicareMarketing: true,
+    medicareTpmoScope: "one-organization" as const,
     tpmoOrganizationCount: 3,
     tpmoProductCount: 12,
     testimonialsConfigured: true,
@@ -32,7 +32,7 @@ describe("production readiness", () => {
     const report = assessReadiness({
       ...readyInput(),
       siteUrl: undefined,
-      npnValid: false,
+      medicareTpmoScope: "multiple-organizations",
       tpmoOrganizationCount: null,
       tpmoProductCount: null,
       testimonialsConfigured: false,
@@ -48,7 +48,6 @@ describe("production readiness", () => {
     expect(report.ok).toBe(false);
     expect(report.fatal.map((issue) => issue.code)).toEqual([
       "public_site_url",
-      "npn",
       "lead_capture_route",
       "tpmo_counts",
     ]);
@@ -66,7 +65,7 @@ describe("production readiness", () => {
       ...readyInput(),
       production: false,
       siteUrl: "http://localhost:3000",
-      npnValid: false,
+      medicareTpmoScope: "unconfirmed",
       tpmoOrganizationCount: null,
       tpmoProductCount: null,
       services: {
@@ -79,6 +78,25 @@ describe("production readiness", () => {
     expect(report.ok).toBe(true);
     expect(report.launchReady).toBe(false);
     expect(report.fatal.length).toBeGreaterThan(0);
+  });
+
+  it("requires confirmation, not counts, for a single-organization TPMO", () => {
+    const unconfirmed = assessReadiness({
+      ...readyInput(),
+      medicareTpmoScope: "unconfirmed",
+      tpmoOrganizationCount: null,
+      tpmoProductCount: null,
+    });
+    const singleOrganization = assessReadiness({
+      ...readyInput(),
+      medicareTpmoScope: "one-organization",
+      tpmoOrganizationCount: null,
+      tpmoProductCount: null,
+    });
+
+    expect(unconfirmed.fatal.map((issue) => issue.code)).toContain("tpmo_scope");
+    expect(singleOrganization.fatal).toEqual([]);
+    expect(singleOrganization.publicSeo.indexable).toBe(true);
   });
 
   it("accepts notification delivery as a capture fallback", () => {
