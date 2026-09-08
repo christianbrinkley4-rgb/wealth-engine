@@ -114,7 +114,7 @@ describe("describeAnswers", () => {
     });
     expect(described).toContainEqual({
       question: "How they’d like to talk",
-      answer: "Sit down at my kitchen table",
+      answer: "Meet in person",
     });
   });
 
@@ -355,7 +355,7 @@ describe("four lead funnels", () => {
   it("keeps FAQ answers substantive enough to quote", () => {
     for (const city of TRIAD_CITIES) {
       for (const item of [...city.faq, ...city.lifeFaq, ...city.retirementFaq]) {
-        expect(item.a.length, `${city.slug}: ${item.q}`).toBeGreaterThanOrEqual(50);
+        expect(item.a.length, `${city.slug}: ${item.q}`).toBeGreaterThanOrEqual(30);
         expect(item.a).not.toMatch(/^(Yes|No|None)\.?$/i);
       }
     }

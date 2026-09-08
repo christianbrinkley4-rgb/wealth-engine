@@ -62,7 +62,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
     id: "medicare",
     label: "Medicare",
     shortLabel: "Medicare",
-    blurb: "Turning 65, already enrolled, or helping someone else. I’ll sit down with you.",
+    blurb: "Enrollment timing, current coverage, or helping a family member.",
     questions: [
       {
         id: "medicare_stage",
@@ -81,7 +81,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
           { value: "when_to_enroll", label: "When I have to sign up, and by when" },
           { value: "which_coverage", label: "How the coverage choices differ" },
           { value: "cost_surprises", label: "Why my premium is what it is" },
-          { value: "all_of_it", label: "Honestly, all of it" },
+          { value: "all_of_it", label: "I need help with the full picture" },
         ],
       },
     ],
@@ -90,8 +90,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
     id: "financial_planning",
     label: "Retirement income",
     shortLabel: "Income",
-    blurb:
-      "Social Security, an old 401(k), and what a withdrawal does to Medicare. Not investment advice.",
+    blurb: "Social Security, 401(k) options, and how retirement income may affect Medicare.",
     questions: [
       {
         id: "planning_stage",
@@ -119,8 +118,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
     id: "life_insurance",
     label: "Life insurance",
     shortLabel: "Life",
-    blurb:
-      "Whether what you have is enough, and what happens when the job ends. I’ll read it with you.",
+    blurb: "Review personal and employer coverage, beneficiaries, and policy end dates.",
     questions: [
       {
         id: "life_cover",
@@ -166,27 +164,27 @@ export const QUIZ_SITUATIONS: QuizSituation[] = [
     id: "turning_65",
     topic: "medicare",
     label: "Turning 65",
-    blurb: "Your seven-month window, when coverage starts, and what happens if you miss it.",
+    blurb: "Coordinate Part B, employer coverage, HSA timing, and Medigap deadlines.",
     firstAnswer: { questionId: "medicare_stage", value: "turning_65_soon" },
   },
   {
     id: "annual_enrollment",
     topic: "medicare",
     label: "Already on Medicare",
-    blurb: "The fall window, the letter that came, and whether anything actually needs to change.",
+    blurb: "Review next year’s costs, prescriptions, and physician networks.",
     firstAnswer: { questionId: "medicare_stage", value: "already_on_medicare" },
   },
   {
     id: "retirement",
     topic: "financial_planning",
     label: "Retirement income",
-    blurb: "An old 401(k), Social Security timing, and what a withdrawal does to Medicare.",
+    blurb: "Understand how Social Security, withdrawals, and IRMAA may fit together.",
   },
   {
     id: "life",
     topic: "life_insurance",
     label: "Life insurance",
-    blurb: "Whether what you have is enough, and what happens when the job ends.",
+    blurb: "Check employer coverage, beneficiaries, end dates, and family needs.",
   },
 ];
 
@@ -250,7 +248,7 @@ export const INCOME_OPTIONS: HelpQuizOption[] = [
   { value: "80k_120k", label: "$80,000 – $120,000" },
   { value: "120k_200k", label: "$120,000 – $200,000" },
   { value: "over_200k", label: "Over $200,000" },
-  { value: "prefer_not", label: "I’d rather not say" },
+  { value: "prefer_not", label: "I can not say" },
 ];
 
 /** topic → 2 questions → value → contact. Shorter when a card already answered question one. */
@@ -286,12 +284,12 @@ export function quizTotalSteps(skippedFirst: boolean): number {
   return skippedFirst ? HELP_QUIZ_TOTAL_STEPS - 1 : HELP_QUIZ_TOTAL_STEPS;
 }
 
-/** Optional, on the contact step — kitchen-table vs phone is the local wedge. */
+/** Optional meeting preference on the contact step. */
 export const MEET_OPTIONS: HelpQuizOption[] = [
-  { value: "kitchen_table", label: "Sit down at my kitchen table" },
-  { value: "coffee_shop", label: "A coffee shop nearby" },
-  { value: "phone", label: "A phone call is enough" },
-  { value: "email", label: "Email is enough for now" },
+  { value: "kitchen_table", label: "Meet in person" },
+  { value: "coffee_shop", label: "Meet at a convenient public location" },
+  { value: "phone", label: "Talk by phone" },
+  { value: "email", label: "Start by email" },
 ];
 
 export const STEP_LABELS: Record<HelpQuizPhase, string> = {
@@ -308,16 +306,15 @@ export const STEP_LABELS: Record<HelpQuizPhase, string> = {
  * the calculators, where they can be updated in one place.
  */
 export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): HelpQuizValueBeat {
-  const note =
-    "This is general information, not advice about your specific situation. That’s what the call is for.";
+  const note = "This is general information, not individualized tax, legal, or investment advice.";
 
   if (topic === "medicare") {
     const stage = answers.medicare_stage;
 
     if (stage === "turning_65_soon") {
       return {
-        headline: "Your sign-up window is seven months long, and it’s already running.",
-        lede: "It opens three months before the month you turn 65, includes your birthday month, and closes three months after. Miss it without qualifying coverage elsewhere and the Part B penalty is permanent.",
+        headline: "Your Medicare timeline spans seven months.",
+        lede: "It begins three months before your birthday month. Employer coverage, HSA contributions, a younger spouse, and Medigap timing can all affect the next step.",
         points: [
           "The Part B late penalty is 10% for every full 12 months you could have had it and didn’t — and you pay it for as long as you have Part B.",
           "There’s a separate six-month window for Medigap that starts the month you’re 65 and enrolled in Part B. Inside it you can’t be turned down or charged more for your health history. Outside it, in most states, you can.",
@@ -342,7 +339,7 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
 
     if (stage === "already_on_medicare") {
       return {
-        headline: "Your premium is based on a tax return from two years ago.",
+        headline: "Review coverage changes before you renew.",
         lede: "Medicare looks back two years to decide whether you pay the standard Part B premium or an income-related amount on top of it. So a one-time event — selling a house, a large withdrawal, a Roth conversion — shows up on your premium two years later.",
         points: [
           "If your income dropped because of a life-changing event — retiring, losing a job, marriage, divorce, a spouse’s death — you can ask Social Security to use current income instead, on Form SSA-44. Many people never find out this exists.",
@@ -455,7 +452,7 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
     headline: "The real question is how many more years the money is needed for.",
     lede: "Whether coverage should be temporary or permanent comes down to how long the need lasts — not to which product someone wants to sell you. That’s a question you can answer yourself before you talk to anyone.",
     points: [
-      "If the need ends — a mortgage paid off, a spouse reaching their own pension or Social Security — term coverage for exactly that long is usually the honest answer.",
+      "If the need ends — a mortgage paid off, a spouse reaching their own pension or Social Security — term coverage for exactly that long is usually the appropriate answer.",
       "If the need doesn’t end, permanent coverage exists for that, and it costs meaningfully more. Both are legitimate; the mismatch is what costs people money.",
       "Group coverage through work generally ends at retirement, so it’s worth knowing now what remains after your last day.",
     ],

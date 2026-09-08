@@ -54,13 +54,13 @@ export default function MedicarePage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Part B & IRMAA estimate" }]}
         eyebrow={`${SERVICE_AREA_LABEL} · free estimate`}
         title="Estimate your 2026 Part B premium"
-        lede="Four questions. The published CMS schedule. No account, no Social Security number, and no call center. When you are done, we can sit down about what the number actually means for your household."
+        lede="Four questions. The published CMS schedule. No account, no Social Security number, and no national phone service. When you are done, we can sit down about what the number actually means for your household."
         secondaryHref="/remind-me"
         secondaryLabel="See enrollment dates →"
         note="Nothing you type here is sent anywhere until you choose to email the result to yourself."
         proof={[
           "Licensed in North Carolina",
-          "Kitchen table, coffee shop, or the phone",
+          "in person or by phone",
           "Official 2026 CMS tiers — education only",
           "Your information is never sold",
         ]}
@@ -69,7 +69,7 @@ export default function MedicarePage() {
       <MedicareWizard />
 
       <KitchenTableClose
-        heading="Want the number explained at your kitchen table?"
+        heading="Want the number explained in person?"
         body="The calculator shows a tier. Sitting down is how we talk about whether a conversion, a withdrawal, or an appeal is the next move — without inventing advice I am not licensed to give."
         href="/start?topic=medicare"
         label="Ask a question →"

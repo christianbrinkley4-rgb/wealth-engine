@@ -7,20 +7,20 @@ import { SERVICE_AREA_LABEL } from "@/lib/triad";
 import { HelpQuiz } from "./HelpQuiz";
 
 export const metadata: Metadata = {
-  title: "What can I help you figure out?",
+  title: "Get a Personal Medicare and Coverage Review",
   description:
-    "Two questions about turning 65, annual enrollment, life insurance, or retirement income. A licensed Greensboro agent follows up in person — kitchen table, not a call center.",
+    "Answer a few questions about Medicare, life insurance, or retirement timing. A local licensed agent personally reviews your situation.",
   alternates: { canonical: "/start" },
   openGraph: pageOpenGraph({
-    title: "What can I help you figure out?",
+    title: "Get a personal Medicare and coverage review",
     description:
-      "Turning 65, annual enrollment, life insurance, or retirement income — two questions, then a real answer from a Greensboro agent.",
+      "Share your situation and get a personal review from a Greensboro-based licensed agent.",
     path: "/start",
   }),
   twitter: pageTwitter({
-    title: "What can I help you figure out?",
+    title: "Get a personal Medicare and coverage review",
     description:
-      "Turning 65, annual enrollment, life insurance, or retirement income — two questions, then a real answer from a Greensboro agent.",
+      "Share your situation and get a personal review from a Greensboro-based licensed agent.",
   }),
 };
 
@@ -39,17 +39,16 @@ export default function StartPage() {
             {SERVICE_AREA_LABEL}
           </p>
           <h1 className="font-heading text-28 md:text-32 mt-2 leading-tight font-bold">
-            What can I help you figure out?
+            Get a clear second set of eyes
           </h1>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-paper)]/90">
-            Turning 65, annual enrollment, life insurance, or retirement income — one tap, then a
-            real answer from a local agent. Kitchen table, not a call center. No cost, nothing to
-            sign.
+            Choose your situation, answer a few focused questions, and review the key considerations
+            before deciding whether to schedule a conversation.
           </p>
           <ul className="text-16 mt-5 flex flex-col gap-2 text-[var(--color-paper)]/80">
             <li>Licensed in North Carolina · master&apos;s student at UNCG</li>
-            <li>Your information is never sold</li>
-            <li>Usually same-day follow-up</li>
+            <li>Personal review from one local licensed agent</li>
+            <li>Free consultation · no obligation</li>
           </ul>
         </div>
       </section>

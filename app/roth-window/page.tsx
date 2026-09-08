@@ -50,7 +50,7 @@ export default function RothWindowPage() {
         note="Education only. I sit down for the Medicare timing piece; how to invest the converted dollars is an adviser’s question."
         proof={[
           "Licensed in North Carolina",
-          "Kitchen table within ~30 minutes of Greensboro",
+          "in-person meeting within ~30 minutes of Greensboro",
           "Official 2026 CMS IRMAA brackets",
           "No cost to talk through the number",
         ]}
@@ -62,7 +62,7 @@ export default function RothWindowPage() {
       </div>
 
       <KitchenTableClose
-        heading="Want the window explained at your kitchen table?"
+        heading="Want the window explained in person?"
         body="I’ll walk through what a conversion does to a Part B premium two years later, and tell you plainly which parts need a CPA or a registered adviser."
         href="/start?topic=financial_planning"
         label="Ask a retirement question →"

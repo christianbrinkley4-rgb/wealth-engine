@@ -325,7 +325,7 @@ export function HelpQuiz() {
       return;
     }
     if (!EMAIL_REGEX.test(cleanEmail)) {
-      setError("That email doesn’t look right — check it so my reply reaches you.");
+      setError("Enter a valid email address so I can reply.");
       return;
     }
     if (phoneDigits.length > 0 && phoneDigits.length < 10) {
@@ -333,7 +333,7 @@ export function HelpQuiz() {
       return;
     }
     if (zipDigits.length !== 5) {
-      setError("Enter your 5-digit ZIP code — coverage options are set locally.");
+      setError("Enter your 5-digit ZIP code. Medicare plan availability is local.");
       return;
     }
     if (!consent) {
@@ -394,7 +394,7 @@ export function HelpQuiz() {
         setError(
           data?.error ??
             (configFail
-              ? `I can’t save that right now — please call me at ${AGENT.phone} or email ${AGENT.email}.`
+              ? `I can’t save your request right now. Please call ${AGENT.phone} or email ${AGENT.email}.`
               : `Something went wrong on my end. Please try again, or call me at ${AGENT.phone}.`),
         );
         setSubmitting(false);
@@ -499,8 +499,7 @@ export function HelpQuiz() {
             Pick what you need help with
           </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
-            One tap, two questions at most, then a real answer. If we talk after that, it can be at
-            your kitchen table — same person who reads this, not a call center.
+            Answer a few focused questions to see the key considerations for your situation.
           </p>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {QUIZ_SITUATIONS.map((item) => {
@@ -633,7 +632,7 @@ export function HelpQuiz() {
             }}
             className="text-18 mt-8 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
           >
-            Continue — I’ll follow up myself
+            Continue to personal review
           </button>
           <p className="text-16 mt-3 text-center text-[var(--color-ink-muted)]">
             Or just call me:{" "}
@@ -673,8 +672,8 @@ export function HelpQuiz() {
             How should I reach you?
           </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
-            Name, email, ZIP, and the checkbox — then send. I’ll follow up myself, usually the same
-            day. Nothing is sold to a lead mill.
+            Share your contact details and Christian will personally review your answers. Follow-up
+            is usually the same day and always within one business day.
           </p>
 
           {topic ? (
@@ -692,9 +691,8 @@ export function HelpQuiz() {
 
           <div className="card-surface mt-6 border-l-4 border-l-[var(--color-gold-ink)] p-5">
             <p className="text-17 leading-relaxed text-[var(--color-navy)]">
-              <strong>{AGENT.name}</strong> reads every submission. Your name is not sold to a lead
-              network, and you will not get ten calls from strangers. One licensed agent in{" "}
-              {AGENT.city}. No cost, no obligation. {AGENT.hours}
+              <strong>{AGENT.name}</strong> personally reviews every submission. Your inquiry is not
+              sold or distributed to other agents. Free consultation. No obligation. {AGENT.hours}
             </p>
           </div>
 
@@ -804,7 +802,7 @@ export function HelpQuiz() {
               open={askContext !== "general"}
             >
               <summary className="text-17 cursor-pointer font-medium text-[var(--color-navy)]">
-                Optional details — how to meet, a note, income
+                Add optional details
               </summary>
               <div className="mt-4 space-y-5 border-t border-gray-200 pt-4">
                 <fieldset>
@@ -956,7 +954,7 @@ export function HelpQuiz() {
               >
                 {AGENT.phone}
               </a>{" "}
-              — same person.
+              to speak directly with Christian.
             </p>
           </form>
         </section>

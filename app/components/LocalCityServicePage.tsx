@@ -49,10 +49,10 @@ const COPY: Record<
     startHref: "/start?topic=life_insurance",
     compliance: "general",
     pick: (city) => ({ intro: city.lifeIntro, detail: city.lifeDetail, faq: city.lifeFaq }),
-    title: (city) => `Life Insurance in ${city}, NC — Licensed Local Agent`,
+    title: (city) => `Life Insurance Review in ${city}, NC`,
     description: (city) =>
-      `A licensed Greensboro agent will sit down in ${city} and read your life insurance with you at no cost. Not a call center. No obligation to buy.`,
-    headline: (city) => `Life insurance in ${city}, read with you at the kitchen table`,
+      `Get a personal life insurance review in ${city}. Check employer coverage, beneficiaries, policy dates, and family needs with a local licensed agent.`,
+    headline: (city) => `Personal life insurance review in ${city}`,
     closeHeading: "Want me to read the policy with you?",
     closeBody: (city) =>
       `Bring what you have. I’ll sit down in ${city} or talk on the phone. Twenty minutes, no charge, and a fair chance you’re already fine.`,
@@ -70,10 +70,10 @@ const COPY: Record<
       detail: city.retirementDetail,
       faq: city.retirementFaq,
     }),
-    title: (city) => `Retirement Planning Help in ${city}, NC — Kitchen-Table Review`,
+    title: (city) => `Retirement and Medicare Education in ${city}, NC`,
     description: (city) =>
-      `401(k) options, Social Security timing, and Medicare premiums explained in person in ${city}. Licensed agent, not a registered adviser. No cost, no call center.`,
-    headline: (city) => `Retirement questions in ${city}, answered at your kitchen table`,
+      `Learn how 401(k) options, Social Security timing, and retirement income may affect Medicare in ${city}. Education, not investment advice.`,
+    headline: (city) => `Coordinate retirement income and Medicare in ${city}`,
     closeHeading: "Want to talk through the timing?",
     closeBody: (city) =>
       `I’ll sit down in ${city} and tell you what a withdrawal does to Medicare, and which parts belong to a CPA or a registered adviser.`,
@@ -164,7 +164,9 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
         title={copy.headline(city.name)}
         lede={content.intro}
         secondaryHref={copy.startHref}
-        secondaryLabel="Ask a question →"
+        secondaryLabel={
+          kind === "life" ? "Review my coverage →" : "Check Medicare income effects →"
+        }
       />
 
       <section className="bg-white py-14">
@@ -204,9 +206,8 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Also serving</h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-            Nearby kitchen-table visits include {city.nearby.join(", ")} when they fall within the
-            roughly 30-minute service area. Being in the same county does not automatically put a
-            household inside that radius.
+            In-person service is also available in nearby communities, including{" "}
+            {city.nearby.join(", ")}. Phone consultations are available throughout North Carolina.
           </p>
           <ul className="mt-6 flex flex-col gap-3">
             {others.map((other) => (

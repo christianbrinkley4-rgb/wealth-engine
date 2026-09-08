@@ -57,7 +57,7 @@ const CHECK_STEPS = [
 const FAQ = [
   {
     q: "Does Original Medicare have a network?",
-    a: "No. With Original Medicare you can see any provider in the country who accepts Medicare, which most do. The trade-off is what it doesn’t cap — which is why people pair it with supplemental coverage. If keeping a specific set of doctors is your top priority, this is the route that protects it.",
+    a: "With Original Medicare you can see any provider in the country who accepts Medicare, which most do. The trade-off is what it doesn’t cap — which is why people pair it with supplemental coverage. If keeping a specific set of doctors is your top priority, this is the route that protects it.",
   },
   {
     q: "And Medicare Advantage?",
@@ -125,7 +125,7 @@ export default function KeepMyDoctorPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Keep my doctor" }]}
         eyebrow="Greensboro & the Triad"
         title="“Can I keep my doctor?”"
-        lede="It’s the first thing almost everyone asks, and it’s the question a national call center answers worst — because the answer depends on which practices around here take which specific plan. The good news is that it’s knowable before you commit to anything."
+        lede="It’s the first thing almost everyone asks, and it’s the question a national phone service answers worst — because the answer depends on which practices around here take which specific plan. The good news is that it’s knowable before you commit to anything."
         secondaryHref="/start?topic=medicare&ask=doctors"
         secondaryLabel="Tell me who you see →"
       />

@@ -66,7 +66,7 @@ export default function RemindMePage() {
               picking the wrong plan, it’s missing the date.
             </p>
             <p className="text-16 mt-5 text-[var(--color-paper)]/70">
-              One email from me, not a call center. Or call{" "}
+              One email from me, not a national phone service. Or call{" "}
               <a
                 href={AGENT.phoneHref}
                 className="font-semibold text-[var(--color-paper)] underline"

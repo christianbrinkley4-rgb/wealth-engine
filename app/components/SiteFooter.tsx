@@ -37,7 +37,7 @@ export function SiteFooter() {
               {AGENT.hours} {AGENT.afterHoursPromise}
             </p>
             <p className="text-15 mt-4 max-w-[40ch] leading-relaxed text-[var(--color-ink-muted)]">
-              {SERVICE_AREA_LEDE} No cost. No obligation.
+              {SERVICE_AREA_LEDE} Free consultation. No obligation.
             </p>
           </div>
 

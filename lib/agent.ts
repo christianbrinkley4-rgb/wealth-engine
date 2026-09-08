@@ -122,7 +122,7 @@ export const ESTIMATE_DISCLAIMER =
   "Medicare.gov or with a professional you choose.";
 
 /**
- * The honest answer to the question every prospect is silently asking.
+ * the appropriate answer to the question every prospect is silently asking.
  *
  * Note the second sentence. An agent who represents a limited number of
  * carriers has to say so — it is the difference between a personal-brand site

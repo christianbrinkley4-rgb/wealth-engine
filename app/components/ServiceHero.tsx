@@ -14,9 +14,9 @@ import { AGENT } from "@/lib/agent";
 
 const DEFAULT_PROOF = [
   "Licensed in North Carolina",
-  "I sit down with you — not a call center",
-  "No cost, no obligation, nothing to sign",
-  "Your information is never sold",
+  "Personal review from a local agent",
+  "Meet in person or by phone",
+  "Free consultation. No obligation.",
 ] as const;
 
 export function ServiceHero({
@@ -87,7 +87,7 @@ export function ServiceHero({
               <div className="text-16 mt-4 text-[var(--color-paper)]/70">{note}</div>
             ) : (
               <p className="text-16 mt-4 text-[var(--color-paper)]/70">
-                Kitchen table, coffee shop, or the phone. No cost, and no obligation to enroll.
+                Free consultation. No obligation to enroll.
               </p>
             )}
           </div>

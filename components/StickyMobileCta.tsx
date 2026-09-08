@@ -57,7 +57,7 @@ export function StickyMobileCta() {
         </Link>
       </div>
       <p className="text-14 mt-2 text-center text-[var(--color-ink-muted)]">
-        {AGENT.phone} · no cost, and you reach me, not a call center
+        {AGENT.phone} · no cost, and you reach me, not a national phone service
       </p>
     </div>
   );

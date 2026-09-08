@@ -98,7 +98,7 @@ const FAQ = [
   },
   {
     q: "Does it cost anything to have you look at this?",
-    a: "No. I’m not a tax preparer and I don’t file the form for you, but I can tell you whether your situation looks like one of the eight events, what evidence you’d need, and where it goes. If it turns out you need a CPA, I’ll say so.",
+    a: "I’m not a tax preparer and I don’t file the form for you, but I can tell you whether your situation looks like one of the eight events, what evidence you’d need, and where it goes. If it turns out you need a CPA, I’ll say so.",
   },
 ] as const;
 

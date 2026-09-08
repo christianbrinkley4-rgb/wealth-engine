@@ -26,14 +26,14 @@ import { SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Life Insurance in Greensboro, NC — Kitchen-Table Review" },
+  title: { absolute: "Life Insurance in Greensboro, NC — personal review" },
   description:
     "A licensed Greensboro agent will sit down and read your policy with you at no cost. Term or permanent comes down to how long the money is needed — not to what someone wants to sell.",
   alternates: { canonical: "/life-insurance" },
   openGraph: pageOpenGraph({
-    title: "Life insurance, reviewed at your kitchen table in Greensboro",
+    title: "Life insurance, reviewed in person in Greensboro",
     description:
-      "The one question that settles term against permanent, and what to check on the policy you already have. No call center.",
+      "The one question that settles term against permanent, and what to check on the policy you already have. No national phone service.",
     path: "/life-insurance",
   }),
 };
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Term or whole life?",
-    a: "It comes down to how many more years the money needs to be there. If the need ends — a mortgage paid off, a spouse reaching their own pension or Social Security — term coverage for exactly that long is usually the honest answer. If it doesn’t end, permanent coverage exists for that, and it costs a good deal more. Both are legitimate. It’s the mismatch between them that costs people money.",
+    a: "It comes down to how many more years the money needs to be there. If the need ends — a mortgage paid off, a spouse reaching their own pension or Social Security — term coverage for exactly that long is usually the appropriate answer. If it doesn’t end, permanent coverage exists for that, and it costs a good deal more. Both are legitimate. It’s the mismatch between them that costs people money.",
   },
   {
     q: "I have coverage through work. Is that enough?",
@@ -61,11 +61,11 @@ const FAQ = [
   },
   {
     q: "Do you charge for a review?",
-    a: "No. A good share of them end with me telling somebody what they’ve got is fine. That’s a real answer, and it takes about twenty minutes — at your kitchen table, a coffee shop, or on the phone.",
+    a: "A good share of them end with me telling somebody what they’ve got is fine. That’s a real answer, and it takes about twenty minutes — in person or by phone.",
   },
   {
     q: "Do you meet in Greensboro, High Point, and Winston-Salem?",
-    a: "Yes — and in the towns within about 30 minutes of downtown Greensboro. Kernersville, Summerfield, Jamestown, Oak Ridge, Archdale, and the rest. Kitchen table, a coffee shop, or the phone. Same person either way, and nothing to sign first.",
+    a: "Yes — and in the towns within about 30 minutes of downtown Greensboro. Kernersville, Summerfield, Jamestown, Oak Ridge, Archdale, and the rest. In person or by phone. Same person either way, and no obligation.",
   },
 ] as const;
 
@@ -105,7 +105,7 @@ export default function LifeInsurancePage() {
             serviceJsonLd({
               name: "Life insurance review",
               description:
-                "Kitchen-table review of existing coverage anywhere about 30 minutes from downtown Greensboro. No cost, no obligation to buy.",
+                "personal review of existing coverage anywhere about 30 minutes from downtown Greensboro. Free consultation. No obligation to buy.",
               path: "/life-insurance",
             }),
           ),
@@ -115,10 +115,10 @@ export default function LifeInsurancePage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Life insurance" }]}
         eyebrow={SERVICE_AREA_LABEL}
-        title="Life insurance comes down to one question, and it is not which product."
-        lede="How many more years does the money need to be there? Answer that honestly and the product mostly picks itself. I’ll sit down at your kitchen table and read what you already have — at no cost, and with no obligation to buy anything."
+        title="Protect the people who depend on you"
+        lede="Review employer and personal coverage, beneficiaries, policy end dates, and how long your family may need protection. Work directly with a local licensed agent."
         secondaryHref="/start?topic=life_insurance"
-        secondaryLabel="Ask a question first →"
+        secondaryLabel="Get a personal coverage review →"
       />
 
       <section className="bg-white py-14">
@@ -127,8 +127,8 @@ export default function LifeInsurancePage() {
           <p className="text-18 mt-4 leading-relaxed">
             A mortgage with eleven years left. A spouse who reaches their own Social Security at 67.
             A child who finishes school in six years. Those are needs with an end date. Term
-            coverage for exactly that long is the honest answer — you’re insuring a stretch of time,
-            so pay for a stretch of time.
+            coverage for exactly that long is the appropriate answer — you’re insuring a stretch of
+            time, so pay for a stretch of time.
           </p>
           <h2 className="text-28 mt-10 font-semibold">If it does not</h2>
           <p className="text-18 mt-4 leading-relaxed">
@@ -209,16 +209,16 @@ export default function LifeInsurancePage() {
           </p>
           <LeadCluster
             current="/life-insurance"
-            heading="Medicare and retirement, same kitchen table"
+            heading="Medicare and retirement, same in-person meeting"
           />
         </div>
       </section>
 
       <KitchenTableClose
-        heading="Want someone to read your policy with you?"
-        body="Bring what you’ve got. Twenty minutes at your kitchen table or on the phone, no charge, and a fair chance the answer is that you’re already fine."
+        heading="Ready for a personal policy review?"
+        body="Bring your current policy and employer coverage details. Consultations are free and available in person or by phone."
         href="/start?topic=life_insurance"
-        label="Start here →"
+        label="Review my coverage →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

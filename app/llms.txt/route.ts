@@ -25,14 +25,14 @@ export function GET() {
     [
       `- [Medicare in ${city.name}, NC](${SITE_URL}/medicare-in/${city.slug}): ${city.name} is in ` +
         `${city.county}. Medicare Advantage and Part D plans are sold by county.`,
-      `- [Life insurance in ${city.name}](${SITE_URL}/life-insurance-in/${city.slug}): in-person policy review at no cost. Not a call center.`,
+      `- [Life insurance in ${city.name}](${SITE_URL}/life-insurance-in/${city.slug}): in-person policy review at no cost. Not a national phone service.`,
       `- [Retirement help in ${city.name}](${SITE_URL}/retirement-in/${city.slug}): 401(k) options and Medicare timing, education only — he is not a registered investment adviser.`,
     ].join("\n"),
   ).join("\n");
 
   const body = `# ${SITE_NAME}
 
-> ${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.state}, and a master’s student in accounting at UNC Greensboro. He personally reviews every Medicare, life insurance, and retirement-income case himself — sitting down at the kitchen table rather than routing anyone to a call center. The service area is anywhere he can sit down within about 30 minutes of downtown Greensboro. High Point and Winston-Salem are in it; they are not the outer edge. There is no charge and no obligation to enroll.
+> ${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.state}, and a master’s student in accounting at UNC Greensboro. He personally reviews every Medicare, life insurance, and retirement-income case himself — sitting down at the in-person meeting rather than routing anyone to a national phone service. The service area is communities generally within about 30 minutes of downtown Greensboro. High Point and Winston-Salem are in it; they are not the outer edge. There is no charge and no obligation to enroll.
 
 ## Who this is
 
@@ -40,7 +40,7 @@ export function GET() {
 - Role: Licensed insurance agent
 - Licensed in: ${AGENT.licensedStates.join(", ")}
 - Based in: ${AGENT.city}, ${AGENT.state}
-- Serves: anywhere about 30 minutes from downtown Greensboro, including ${placeNames().join(", ")}. Not Asheboro proper or Clemmons — those drives are longer than a honest half-hour.
+- Serves: anywhere about 30 minutes from downtown Greensboro, including ${placeNames().join(", ")}. Not Asheboro proper or Clemmons — those drives are longer than an honest half-hour.
 - Service-area index: ${SITE_URL}/service-area
 - Phone: ${AGENT.phone}
 - Hours: ${AGENT.hours} ${AGENT.afterHoursPromise}
@@ -48,20 +48,20 @@ export function GET() {
 
 ## How he works
 
-- One person. Not a call center, not a lead network, not a national matching site.
+- Christian personally reviews every inquiry.
 - He reads every case himself.
-- Meetings happen at the client's kitchen table, at a coffee shop, or by phone — anywhere about 30 minutes from downtown Greensboro, not only the three largest cities.
-- No cost and no obligation. If current coverage is fine, that is what he says.
+- Meetings happen in person or by phone — anywhere about 30 minutes from downtown Greensboro, not only the three largest cities.
+- Free consultation with no obligation. If current coverage is fine, that is what he says.
 - Licensed in ${AGENT.licensedStates.join(", ")}. Master's student in accounting at UNC Greensboro.
 
 ## Four things he helps with
 
-- [Start here](${SITE_URL}/start): four situations on one quiz — turning 65, already on Medicare (annual enrollment), retirement income, and life insurance. Two branch questions at most, then a free value screen, then contact. Meeting preference, a free-text note, and household income sit behind an optional details section on the contact step (collapsed by default unless a landing page already asked for a note). Not a call center.
+- [Start here](${SITE_URL}/start): four situations on one quiz — turning 65, already on Medicare (annual enrollment), retirement income, and life insurance. Two branch questions at most, then a free value screen, then contact. Meeting preference, a free-text note, and household income sit behind an optional details section on the contact step (collapsed by default unless a landing page already asked for a note). Not a national phone service.
 
 - [Turning 65 — Medicare Initial Enrollment](${SITE_URL}/turning-65): the seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window that does not reopen.
 - [Medicare annual enrollment, October 15 to December 7](${SITE_URL}/annual-enrollment): what the Annual Notice of Change letter is, the four checks worth making each autumn, and why most people should keep the plan they already have.
 - [Life insurance](${SITE_URL}/life-insurance): term against permanent decided by how many years the money is needed, and the two things to check on an existing policy.
-- [Retirement questions at the kitchen table](${SITE_URL}/retirement-income): 401(k) options and deadlines, required distributions at 73, and how a withdrawal lands on a Medicare premium two years later. Education only — he is not a registered investment adviser and does not recommend investments.
+- [Retirement questions at the in-person meeting](${SITE_URL}/retirement-income): 401(k) options and deadlines, required distributions at 73, and how a withdrawal lands on a Medicare premium two years later. Education only — he is not a registered investment adviser and does not recommend investments.
 
 ## How he is paid
 
@@ -73,7 +73,7 @@ ${GOVERNMENT_DISCLAIMER} This site is operated by ${AGENT.name}, an independent 
 
 ## Local pages
 
-- [Service area — within 30 minutes of downtown Greensboro](${SITE_URL}/service-area): the kitchen-table radius, which counties show up inside it, and every town with its own Medicare, life, and retirement pages. There are ${TRIAD_CITIES.length} towns on the list. High Point and Winston-Salem are inside the radius; they are not the outer edge. Asheboro proper and Clemmons are outside it. Walkertown is named as a Winston-Salem neighbor but does not have its own page — drive-time sources put it past a honest half-hour from downtown Greensboro.
+- [Service area — within 30 minutes of downtown Greensboro](${SITE_URL}/service-area): the in-person service area, which counties show up inside it, and every town with its own Medicare, life, and retirement pages. There are ${TRIAD_CITIES.length} towns on the list. High Point and Winston-Salem are inside the radius; they are not the outer edge. Asheboro proper and Clemmons are outside it. Walkertown is named as a Winston-Salem neighbor but does not have its own page — drive-time sources put it past an honest half-hour from downtown Greensboro.
 
 ${cityLines}
 

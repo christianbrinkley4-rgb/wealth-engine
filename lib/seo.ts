@@ -195,7 +195,7 @@ export function localBusinessJsonLd() {
           `${SITE_OWNER} is a licensed insurance agent in ${SITE_LOCALITY}, ` +
           `${SITE_REGION}, and a master’s student in accounting at UNC Greensboro. ` +
           "He personally reviews every Medicare, life insurance, and retirement " +
-          "income case himself — at the kitchen table, not through a call center.",
+          "income case himself — at the in-person meeting, not through a national phone service.",
         image: `${SITE_URL}/christian-brinkley.jpg`,
         telephone: SITE_OWNER_PHONE,
         email: SITE_OWNER_EMAIL,
@@ -232,7 +232,7 @@ export function localBusinessJsonLd() {
           "Medicare initial enrollment, annual enrollment, life insurance, and " +
           "retirement income questions answered in person by one licensed agent " +
           `in ${SITE_LOCALITY}, ${SITE_REGION}. ${SERVICE_AREA_LEDE} ` +
-          "No cost and no obligation to enroll.",
+          "Free consultation with no obligation to enroll.",
         provider: { "@id": `${SITE_URL}/#christian` },
         founder: { "@id": `${SITE_URL}/#christian` },
         serviceType: [
@@ -298,7 +298,7 @@ export function localBusinessJsonLd() {
                 description:
                   "Personal review of the seven-month Initial Enrollment Period, " +
                   "coverage start dates, and the six-month Medigap window. In person " +
-                  "or by phone. No cost and no obligation.",
+                  "or by phone. Free consultation with no obligation.",
                 provider: { "@id": `${SITE_URL}/#christian` },
               },
             },
@@ -312,7 +312,7 @@ export function localBusinessJsonLd() {
                 url: `${SITE_URL}/annual-enrollment`,
                 description:
                   "A fall review of the Annual Notice of Change, prescriptions, and " +
-                  "doctors — including when the honest answer is to keep the plan you have.",
+                  "doctors — including when the appropriate answer is to keep the plan you have.",
                 provider: { "@id": `${SITE_URL}/#christian` },
               },
             },
@@ -420,7 +420,7 @@ export function serviceJsonLd(input: { name: string; description: string; path: 
       "@type": "Offer",
       price: "0",
       priceCurrency: "USD",
-      description: "No cost and no obligation to enroll or buy.",
+      description: "Free consultation with no obligation to enroll or buy.",
     },
   };
 }

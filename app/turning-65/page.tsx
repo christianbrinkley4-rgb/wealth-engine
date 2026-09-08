@@ -25,7 +25,7 @@ import {
 export const metadata: Metadata = {
   title: { absolute: "Turning 65? Medicare Initial Enrollment in Greensboro, NC" },
   description:
-    "Your Medicare window is seven months long. When coverage starts, what happens if you miss it, and the six-month Medigap window. A licensed Greensboro agent will sit down with you at no cost.",
+    "Build your Medicare timeline around employer coverage, HSA contributions, Part B, Medigap, and a younger spouse with a local Greensboro agent.",
   alternates: { canonical: "/turning-65" },
   openGraph: pageOpenGraph({
     title: "Turning 65: your Medicare window, explained for Greensboro",
@@ -73,7 +73,7 @@ const FAQ = [
   },
   {
     q: "Do you meet in person in Greensboro?",
-    a: "Yes. Your kitchen table, a coffee shop, or the phone. No cost and no obligation either way. I read every case myself — there is no call center behind this page.",
+    a: "Meet in person or by phone. Free consultation with no obligation either way. I read every case myself — there is no national phone service behind this page.",
   },
   {
     q: "What does this cost?",
@@ -131,7 +131,7 @@ export default function Turning65Page() {
             serviceJsonLd({
               name: "Medicare Initial Enrollment (Turning 65)",
               description:
-                "In-person review of the seven-month Initial Enrollment Period in the Piedmont Triad. No cost, no obligation.",
+                "In-person review of the seven-month Initial Enrollment Period in the Piedmont Triad. Free consultation. No obligation.",
               path: "/turning-65",
             }),
           ),
@@ -141,10 +141,10 @@ export default function Turning65Page() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Turning 65" }]}
         eyebrow="Initial Enrollment Period · Greensboro, NC"
-        title="Your Medicare window is seven months long, and it is already running."
-        lede="It opens three months before the month you turn 65 and closes three months after. Miss it without other creditable coverage and the Part B penalty is permanent. I will sit down at your kitchen table, walk through your actual dates, and tell you whether you need to do anything this month — at no cost, and with no obligation to enroll."
+        title="Build your Medicare timeline before 65"
+        lede="Coordinate Part B, employer coverage, HSA contributions, Medigap timing, physicians, and coverage for a younger spouse. Christian will personally review your dates and explain the next steps."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon"
-        secondaryLabel="See what applies to me →"
+        secondaryLabel="Review my Medicare timeline →"
         note={
           <>
             Or{" "}
@@ -186,8 +186,8 @@ export default function Turning65Page() {
             Medicare Advantage and Part D plans are sold by county. Guilford, Forsyth, Randolph,
             Davidson, Alamance, and Rockingham all show up inside a half-hour drive of downtown
             Greensboro. Kernersville sits on a county line. Archdale is Randolph next to High Point.
-            That is the kind of thing a national call center will not know, and it is why I would
-            rather sit down with your doctors’ names than mail you a packet.
+            That is the kind of thing a national phone service will not know, and it is why
+            I can sit down with your doctors’ names than mail you a packet.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Around here the first question is almost always whether a specific doctor at Cone
@@ -240,10 +240,10 @@ export default function Turning65Page() {
       </section>
 
       <KitchenTableClose
-        heading="Want me to walk through your dates with you?"
-        body="Kitchen table, coffee shop, or the phone. No cost, no obligation, and I will tell you if you should wait."
+        heading="Ready to review your Medicare timeline?"
+        body="Get a personal review of your dates, current coverage, and next steps. Meet in person or by phone."
         href="/start?topic=medicare&stage=turning_65_soon"
-        label="Start here →"
+        label="Review my timeline →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

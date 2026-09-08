@@ -114,7 +114,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
                 {AGENT.hours} {AGENT.afterHoursPromise}
               </p>
               <p className="text-16 mt-2 text-[var(--color-paper)]/70">
-                Kitchen table, coffee shop, or the phone. No cost, and your name is never sold.
+                in person or by phone. No cost, and your name is never sold.
               </p>
             </div>
 
@@ -174,12 +174,12 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
       <section className="border-y border-[rgba(15,34,65,0.1)] bg-white py-12">
         <div className="app-shell max-w-4xl">
           <h2 className="text-26 font-semibold">
-            Those ads match you with a stranger. I sit down.
+            Those ads match you through a matching service. I sit down.
           </h2>
           <div className="mt-8 overflow-hidden rounded-xl border border-[rgba(15,34,65,0.12)]">
             <div className="grid grid-cols-1 bg-[var(--color-paper)] md:grid-cols-2">
               <p className="text-13 border-b border-[rgba(15,34,65,0.1)] px-6 py-3 font-medium tracking-[0.08em] text-[var(--color-ink-muted)] uppercase md:border-r">
-                The national mills
+                large online marketplaces
               </p>
               <p className="text-13 hidden border-b border-[rgba(15,34,65,0.1)] px-6 py-3 font-medium tracking-[0.08em] text-[var(--color-navy)] uppercase md:block">
                 Here

@@ -11,12 +11,12 @@ import { SERVICE_AREA_LABEL } from "@/lib/triad";
 export const metadata: Metadata = {
   title: "About Christian Brinkley",
   description:
-    "Christian Brinkley is a licensed insurance agent in Greensboro and a UNCG master’s student. He reviews every case himself — at your kitchen table, no cost, no obligation.",
+    "Christian Brinkley is a licensed insurance agent in Greensboro and a UNCG master’s student. He reviews every case himself — in person, Free consultation. No obligation.",
   alternates: { canonical: "/about" },
   openGraph: pageOpenGraph({
     title: "About Christian Brinkley — licensed Greensboro agent",
     description:
-      "A local master’s student and licensed agent who sits down at your kitchen table instead of sending you to a call center.",
+      "A local master’s student and licensed agent who sits down in person instead of sending you to a national phone service.",
     path: "/about",
   }),
 };
@@ -61,9 +61,9 @@ export default function AboutPage() {
               </p>
               <p className="text-19 mt-4 max-w-xl leading-relaxed text-[var(--color-paper)]/85">
                 Licensed in {AGENT.licensedStates.join(", ")}, and finishing a master’s in
-                accounting at UNC Greensboro. This site is mine. It isn’t a call center, and it
-                isn’t a lead company dressed up to look like one person. If we talk, we sit down at
-                your kitchen table — or on the phone, if that’s easier.
+                accounting at UNC Greensboro. This site is mine. It isn’t a national phone service,
+                and it isn’t a lead company dressed up to look like one person. If we talk, we sit
+                down at your home — or on the phone, if that’s easier.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -100,12 +100,12 @@ export default function AboutPage() {
             explained anywhere you’d naturally look.
           </p>
           <p>
-            So the deal here is simple: tell me what you’re trying to figure out, and I’ll tell you
-            the part that matters. We can do that at your kitchen table, at a coffee shop, or on the
-            phone — anywhere I can reach in about 30 minutes from downtown Greensboro, not only the
-            three largest cities. If that turns into me helping you with coverage, good. If it turns
-            into me telling you that you’re already fine, or that you need an accountant rather than
-            an agent, that’s a good outcome too — and it happens regularly.
+            My approach is simple: tell me what you’re trying to figure out, and I’ll tell you the
+            part that matters. We can do that in person or by phone —
+            anywhere I can reach in about 30 minutes from downtown Greensboro, not only the three
+            largest cities. If that turns into me helping you with coverage, good. If it turns into
+            me telling you that you’re already fine, or that you need an accountant rather than an
+            agent, that’s a good outcome too — and it happens regularly.
           </p>
           <p>
             The accounting side of my background is why I keep dragging these conversations back to
@@ -139,11 +139,11 @@ export default function AboutPage() {
               },
               {
                 t: "I get an alert",
-                b: "When email or text alerting is configured on this site, I am notified as soon as you submit. If that alerting is down, the submission is still saved — and you should call or email me directly so nothing waits on a silent inbox.",
+                b: "I receive an alert when your request is submitted. If you need immediate help, call or email me directly.",
               },
               {
                 t: "You hear from me",
-                b: "Usually the same day, always within one business day. Kitchen table, coffee shop, or the phone — whichever you asked for. There is an operator health check on this deployment that reports whether storage and alerting are actually wired; it is not a public marketing page.",
+                b: "Usually the same day, always within one business day. In person or by phone — whichever you asked for. ",
               },
             ].map((step, index) => (
               <li key={step.t} className="flex gap-5 border-t border-gray-300 pt-5">

@@ -26,18 +26,18 @@ import {
 export const metadata: Metadata = {
   title: { absolute: "Medicare, Life Insurance & Retirement Help in Greensboro, NC" },
   description:
-    "Licensed Greensboro agent Christian Brinkley reviews Medicare (turning 65 and AEP), life insurance, and retirement questions in person — at your kitchen table. No cost, no call center.",
+    "Personal Medicare, life insurance, and retirement education for Greensboro-area households. Work directly with local licensed agent Christian Brinkley.",
   alternates: { canonical: "/" },
   openGraph: pageOpenGraph({
     title: "Medicare, life insurance & retirement help in Greensboro",
     description:
-      "One licensed agent in the Triad. Your kitchen table. No call center, no cost, no obligation.",
+      "Get a personal review from a local licensed agent. Meet in person or by phone. Free consultation, with no obligation.",
     path: "/",
   }),
   twitter: pageTwitter({
     title: "Medicare, life insurance & retirement help in Greensboro",
     description:
-      "One licensed agent in the Triad. Your kitchen table. No call center, no cost, no obligation.",
+      "Get a personal review from a local licensed agent. Meet in person or by phone. Free consultation, with no obligation.",
   }),
 };
 
@@ -56,82 +56,80 @@ const SITUATIONS = [
   {
     Icon: ShieldCheck,
     label: "Turning 65",
-    q: "Your seven-month Medicare window",
-    blurb: "When you have to sign up, what happens if you miss it, and the dates in your case",
+    q: "Build your Medicare timeline",
+    blurb: "Coordinate employer coverage, Part B, Medigap, HSA contributions, and a younger spouse",
     href: "/turning-65",
   },
   {
     Icon: CalendarDays,
     label: "Annual enrollment",
-    q: "Already on Medicare this fall",
-    blurb: "Whether to change anything in this year’s window, and why most people should not",
+    q: "Review your current coverage",
+    blurb: "Check next year’s costs, prescriptions, and physician networks before you decide",
     href: "/annual-enrollment",
   },
   {
     Icon: Landmark,
     label: "Retirement income",
-    q: "An old 401(k) and Social Security",
-    blurb:
-      "What a withdrawal does to your Medicare premium two years later — and the four options for the account",
+    q: "Coordinate income and Medicare",
+    blurb: "Understand how Social Security, withdrawals, and the IRMAA lookback fit together",
     href: "/retirement-income",
   },
   {
     Icon: HeartPulse,
     label: "Life insurance",
-    q: "Whether what you have is enough",
-    blurb:
-      "The one question that settles term against permanent, and what happens when the job ends",
+    q: "Review your family’s protection",
+    blurb: "Check personal and employer coverage, beneficiaries, end dates, and ongoing needs",
     href: "/life-insurance",
   },
 ] as const;
 
 const CONTRAST = [
   {
-    them: "A call center in another state",
-    us: "One licensed agent who lives in Greensboro",
+    them: "A broad online marketplace",
+    us: "A personal review with one local agent",
   },
   {
-    them: "Your name sold to whoever pays",
-    us: "Your answers come to me and stop there",
+    them: "A general recommendation",
+    us: "Your physicians, prescriptions, dates, and priorities",
   },
   {
-    them: "A script and a close on the first call",
-    us: "I sit down at your kitchen table — or we talk on the phone",
+    them: "Phone-only support",
+    us: "Meet in person or by phone",
   },
   {
-    them: "Pressure to enroll today",
-    us: "I’ll tell you when what you have is already fine",
+    them: "A one-time transaction",
+    us: "A local relationship before and after enrollment",
   },
 ] as const;
 
 const FAQ = [
   {
     q: "What do you do for me, exactly?",
-    a: "Figure out what you need, check your doctors and prescriptions against the plans I can offer for the year your coverage starts, do the enrollment paperwork with you, and answer the phone afterwards when a claim is denied or a letter makes no sense. That last part is most of the job and there is no fee for any of it. If you’d rather do this at your kitchen table than on the phone, that’s the usual way.",
+    a: "I help you organize your timeline, compare the plans I represent, verify physicians and prescriptions, and complete enrollment if you choose. You can also contact me later when coverage questions come up.",
   },
   {
     q: "Will you actually come to my house?",
-    a: "Yes. Anywhere I can sit down within about 30 minutes of downtown Greensboro — Greensboro itself, High Point, Winston-Salem, Kernersville, Summerfield, Jamestown, and the towns in between. Kitchen table, a coffee shop, or the phone if that’s easier. There is no charge either way, and nothing to sign before we talk.",
+    a: "I meet with clients across Greensboro and nearby communities. Consultations are free and available in person or by phone.",
   },
   {
     q: "What does this cost?",
-    a: "Nothing. There is no fee to ask me a question, to compare options, or for me to sit down with you. No obligation to enroll or buy anything.",
+    a: "Consultations and plan comparisons are free. There is no obligation to enroll or purchase coverage.",
   },
   {
     q: "So how do you get paid?",
     a: COMPENSATION_DISCLOSURE,
   },
   {
-    q: "Is this going to turn into ten phone calls from strangers?",
-    a: "No. Your answers come to me and stay with me. I don’t sell leads, and I don’t pass your name to a call center or a lead network. One person reads what you wrote, and that person calls you — or sits down with you.",
+    q: "Who receives my information?",
+    a: "Your inquiry goes directly to Christian Brinkley. It is not sold or distributed to other agents.",
   },
   {
     q: "What happens after I send the form?",
-    a: "I read it myself, and it doesn’t go to anyone else. Then I call or email you, usually the same day and always within one business day. If a particular time is easier for you, say so and I’ll send you a link to pick one. A lot of people would rather I come by than talk on the phone. That’s fine.",
+    a: "Christian reviews your answers and follows up by phone or email, usually the same day and within one business day. You can choose an in-person or phone consultation.",
   },
   {
     q: "Do I have to buy anything?",
-    a: "No. A good share of these conversations end with me telling someone their current coverage is fine, or that what they need is a CPA or an attorney rather than an agent. That’s a useful answer too.",
+    a: "The consultation is free and there is no obligation. If your question requires a CPA, attorney, or registered investment adviser, I will say so.",
   },
 ] as const;
 
@@ -148,26 +146,24 @@ export default function HomePage() {
               </p>
 
               <h1 className="text-34 md:text-46 mt-4 leading-[1.12] font-semibold text-balance">
-                Medicare and retirement help at your kitchen table in Greensboro
+                Make confident Medicare decisions before 65
               </h1>
 
               <p className="text-20 mt-5 max-w-xl leading-relaxed text-[var(--color-paper)]/85">
-                Turning 65, annual enrollment, life insurance, and retirement income — reviewed in
-                person by one licensed agent who lives here. I’m a master’s student in accounting at
-                UNCG. I read every case myself. No cost, no obligation, and never a call center.
+                Coordinate enrollment dates, employer coverage, HSA timing, physicians, and
+                retirement income with a local licensed agent who reviews every case personally.
               </p>
 
               <div className="mt-6 max-w-xl border-l-4 border-[var(--color-gold)] bg-white/5 py-3 pl-5">
                 <p className="text-18 leading-relaxed">
-                  <strong>The company behind that ad has never been to Greensboro.</strong> I have.
-                  If we work together, we sit down at your table — or we talk on the phone. Either
-                  way it’s me, and it doesn’t cost you anything.
+                  <strong>Work directly with Christian Brinkley.</strong> Meet in person or by phone
+                  for a private, one-on-one review. Free consultation. No obligation.
                 </p>
               </div>
 
               <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
                 <Button asChild className={primaryCta}>
-                  <Link href="/start">Ask your question →</Link>
+                  <Link href="/start">Review my Medicare timeline →</Link>
                 </Button>
                 <a
                   href={AGENT.phoneHref}
@@ -178,8 +174,7 @@ export default function HomePage() {
                 </a>
               </div>
               <p className="text-16 mt-4 text-[var(--color-paper)]/70">
-                A couple of questions, then a real answer. No cost, and your information is never
-                sold.
+                Answer a few questions so Christian can prepare for your conversation.
               </p>
               <p className="text-16 mt-2 text-[var(--color-paper)]/70">
                 {AGENT.hours} {AGENT.afterHoursPromise}
@@ -207,9 +202,9 @@ export default function HomePage() {
               <ul className="mt-6 flex flex-col gap-3 border-t border-white/15 pt-5">
                 {[
                   "Licensed in North Carolina",
-                  "I sit down with you — not a call center",
-                  "No cost, no obligation, nothing to sign",
-                  "Your information is never sold",
+                  "Personal review from one local agent",
+                  "Meet in person or by phone",
+                  "Free consultation with no obligation",
                 ].map((point) => (
                   <li key={point} className="text-16 flex gap-3 leading-snug">
                     <ShieldCheck
@@ -230,10 +225,10 @@ export default function HomePage() {
       <section className="bg-[var(--color-paper)] py-14 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
           <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
-            Four things I help with
+            Choose the help you need
           </p>
           <h2 className="text-30 mt-3 font-semibold text-[var(--color-navy)]">
-            What are you trying to figure out?
+            Start with your current decision
           </h2>
           <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
             {SITUATIONS.map((item) => (
@@ -269,9 +264,9 @@ export default function HomePage() {
             ))}
           </ul>
           <p className="text-17 mt-6">
-            Not sure which door?{" "}
+            Not sure where to begin?{" "}
             <Link href="/start" className="font-semibold underline underline-offset-2">
-              Two questions, then a real answer →
+              Find the right starting point →
             </Link>
           </p>
         </div>
@@ -284,12 +279,11 @@ export default function HomePage() {
             {SERVICE_AREA_LABEL}
           </p>
           <h2 className="text-30 mt-3 font-semibold text-[var(--color-navy)]">
-            Kitchen-table help in the towns around Greensboro
+            Local help across the Triad
           </h2>
           <p className="text-18 mt-4 max-w-2xl leading-relaxed text-[var(--color-ink-muted)]">
-            {SERVICE_AREA_LEDE} Medicare Advantage is sold by county. Guilford, Forsyth, Randolph,
-            Davidson, Alamance, and Rockingham all show up inside this drive. Each town has its own
-            pages — not a name swapped into a template.
+            {SERVICE_AREA_LEDE} Local pages explain the county-specific Medicare details that can
+            affect plan availability and physician networks.
           </p>
           <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
             {featuredPlaces().map((city) => (
@@ -389,30 +383,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ---------- kitchen table vs the mills ---------- */}
+      {/* ---------- local service difference ---------- */}
       <section className="border-y border-[rgba(15,34,65,0.1)] bg-white py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4">
           <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold-ink)] uppercase">
             Why this is different
           </p>
           <h2 className="text-30 mt-3 max-w-3xl font-semibold text-[var(--color-navy)]">
-            Those sites match you with a stranger. I sit down at your kitchen table.
+            A personal review, built around your priorities
           </h2>
           <p className="text-18 mt-4 max-w-2xl leading-relaxed text-[var(--color-ink-muted)]">
-            SmartAsset, the Medicare quote sites, the life-insurance mills — they are built to sell
-            your phone number. This one is built so a neighbor can ask a question and one person
-            answers it, in person, at no cost and with no obligation.
+            Your Medicare decision may affect employer coverage, HSA contributions, a younger
+            spouse, established physicians, and retirement income. A careful review considers the
+            full picture before comparing plans.
           </p>
           <p className="text-18 mt-4 max-w-2xl leading-relaxed text-[var(--color-ink-muted)]">
-            You will not get a ranked list of advisors in three ZIP codes. You get one licensed
-            agent who lives in Greensboro, a master’s student at UNCG, and a calendar that includes
-            driving to your kitchen table.
+            Christian is a Greensboro-based licensed agent and UNCG accounting master’s student. He
+            personally reviews each case and is available in person or by phone.
           </p>
 
           <div className="mt-10 overflow-hidden rounded-xl border border-[rgba(15,34,65,0.12)]">
             <div className="grid grid-cols-1 bg-[var(--color-paper)] md:grid-cols-2">
               <p className="text-13 border-b border-[rgba(15,34,65,0.1)] px-6 py-3 font-medium tracking-[0.08em] text-[var(--color-ink-muted)] uppercase md:border-r">
-                The national sites
+                General marketplace
               </p>
               <p className="text-13 hidden border-b border-[rgba(15,34,65,0.1)] px-6 py-3 font-medium tracking-[0.08em] text-[var(--color-navy)] uppercase md:block">
                 Here
@@ -440,7 +433,7 @@ export default function HomePage() {
           </div>
           <p className="text-18 mt-8">
             <Link href="/start" className="font-semibold underline underline-offset-2">
-              Ask a question without talking to a mill →
+              Get a personal coverage review →
             </Link>
           </p>
         </div>
@@ -467,8 +460,8 @@ export default function HomePage() {
                 b: "I check your doctors and your prescriptions against the plans available where you live, for the year your coverage starts. If something I can’t offer suits you better, I’ll say so and tell you where to find it.",
               },
               {
-                t: "Sit down with you while the paperwork happens",
-                b: "Enrollment forms, Social Security, the Medigap application, an SSA-44 if your premium was set on income you no longer earn. Your kitchen table, a coffee shop, or the phone — whichever is easier. I don’t send you a portal and disappear.",
+                t: "Help you complete the next step",
+                b: "If you decide to enroll, I help with the application and explain what to expect. Meetings are available in person or by phone.",
               },
               {
                 t: "Pick up the phone afterwards",
@@ -490,9 +483,8 @@ export default function HomePage() {
           </ol>
 
           <p className="text-18 mt-8 border-l-4 border-[var(--color-gold-ink)] py-2 pl-5 leading-relaxed text-[var(--color-navy)]">
-            <strong>None of it costs you anything.</strong> The insurance company sets your premium,
-            and it’s the same whether you enroll through me, through a call center, or on your own.
-            So the only real question is who you’d rather have answering the phone in March.
+            <strong>The consultation is free.</strong> If you enroll through me, the insurance
+            company may pay a commission. Your premium is not increased for using my help.
           </p>
         </div>
       </section>
@@ -500,37 +492,36 @@ export default function HomePage() {
       {/* ---------- what I won’t do ---------- */}
       <section className="border-y border-[rgba(15,34,65,0.1)] bg-white py-16 md:py-20">
         <div className="measure-prose mx-auto max-w-3xl px-4">
-          <h2 className="text-30 font-semibold text-[var(--color-navy)]">What I won’t do</h2>
+          <h2 className="text-30 font-semibold text-[var(--color-navy)]">What you can expect</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            You already know how this usually goes. So here is what happens instead, stated plainly
-            enough that you can hold me to it.
+            Clear communication, a thoughtful review, and time to make your own decision.
           </p>
 
           <ul className="mt-8 flex flex-col gap-6">
             {[
               {
-                t: "I won’t call you from six different numbers",
-                b: "You’ll hear from one person, at one number, and it’s mine. If you’d rather I email, say so and I’ll email.",
+                t: "One point of contact",
+                b: "You work directly with Christian by phone or email.",
               },
               {
-                t: "I won’t put you on a list",
-                b: "Your answers come to me and stop there. Nothing is sold, and nothing goes to another agent or a lead company.",
+                t: "Respect for your privacy",
+                b: "Your inquiry is not sold or distributed to other agents.",
               },
               {
-                t: "I won’t read you a script",
-                b: "If you ask something I don’t know, you’ll get “I don’t know, let me find out” rather than a rehearsed answer that sounds close enough.",
+                t: "Answers based on your situation",
+                b: "The review starts with your dates, coverage, physicians, prescriptions, and priorities.",
               },
               {
-                t: "I won’t push you to decide on the first call",
-                b: "Most of these decisions have a deadline months away. If you need to think it over, talk to your spouse, or call your doctor’s office first, that’s the right thing to do.",
+                t: "Time to consider your options",
+                b: "You can review the information, speak with your spouse, and confirm details before deciding.",
               },
               {
-                t: "I won’t disappear after you enroll",
-                b: "That’s when the real questions start. A denied claim, a drug that isn’t covered, a letter that makes no sense. Same number, same person, and no charge for any of it.",
+                t: "Support after enrollment",
+                b: "You can contact the same local agent when coverage questions arise.",
               },
               {
-                t: "I won’t pretend I can show you everything",
-                b: "I represent a limited number of insurance companies, so there are plans I can’t offer you. When one of those is the better fit, I’ll tell you, and you can take that to Medicare.gov, 1-800-MEDICARE, or another agent.",
+                t: "Clear scope and disclosures",
+                b: "I represent a limited number of insurance companies and cannot offer every plan. Medicare.gov and 1-800-MEDICARE remain available for a complete market view.",
               },
             ].map((item) => (
               <li key={item.t} className="border-t border-gray-300 pt-5">
@@ -564,8 +555,8 @@ export default function HomePage() {
               },
               {
                 n: "3",
-                t: "We sit down — or you decide that’s enough",
-                b: "Kitchen table, coffee shop, or the phone. Sometimes that’s a plan comparison. Sometimes it’s me telling you what you have is fine. Either way there’s nothing to sign.",
+                t: "Choose how to meet",
+                b: "Meet in person or by phone. The consultation is free, and the decision remains yours.",
               },
             ].map((step) => (
               <li key={step.n} className="flex flex-col gap-3">
@@ -596,20 +587,18 @@ export default function HomePage() {
                 style={{ color: "rgba(245, 240, 232, 0.9)" }}
               >
                 <p>
-                  Most Medicare forms online hand your phone number to a dozen strangers who all
-                  call at once. I built this because there ought to be a version where a neighbor
-                  asks a question and one person answers it — at the kitchen table, not from a
-                  cubicle in another state.
+                  Medicare often overlaps with retirement, tax, and family decisions. I built this
+                  practice to give Triad households a clear local point of contact for those
+                  conversations.
                 </p>
                 <p>
-                  I’m a licensed insurance agent in Greensboro, finishing a master’s in accounting
-                  at UNCG. The accounting half is why I’d rather talk about enrollment deadlines and
-                  tax brackets than sell you something you don’t need — and it’s why I can help with
-                  the parts most agents hand back to you.
+                  I’m a licensed insurance agent in Greensboro and a master’s student in accounting
+                  at UNCG. That training supports a careful approach to enrollment dates, IRMAA, and
+                  the way Medicare fits into retirement decisions.
                 </p>
                 <p>
-                  If we end up working together, good. If this ends with me telling you your current
-                  coverage is fine, that’s a real answer too, and it happens often.
+                  My role is to help you understand the options I represent and decide whether one
+                  fits. There is no obligation to make a change.
                 </p>
               </div>
               <Button
@@ -690,14 +679,14 @@ export default function HomePage() {
       <section className="bg-[var(--color-paper)] py-16 md:py-20">
         <div className="mx-auto max-w-2xl px-4 text-center">
           <h2 className="text-30 font-semibold text-[var(--color-navy)]">
-            Start with whatever’s bothering you
+            Get a clear second set of eyes
           </h2>
           <p className="text-18 mt-4 text-[var(--color-ink-muted)]">
-            Two questions and you’ll have something useful, whether or not we ever sit down.
+            Share your situation, review the key considerations, and choose whether to talk.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4">
             <Button asChild className={paperPrimaryCta}>
-              <Link href="/start">Ask your question →</Link>
+              <Link href="/start">Start my personal review →</Link>
             </Button>
             <a
               href={AGENT.phoneHref}

@@ -44,19 +44,19 @@ export interface LandingPage {
 }
 
 const UNIVERSAL_PROMISES = [
-  "I sit down with you — not a call center.",
-  "Your information is never sold or passed to another agent.",
-  "No fee, ever — the insurance company pays me if you enroll.",
+  "Personal review from a local licensed agent.",
+  "Meet in person or by phone.",
+  "Free consultation. No obligation.",
 ];
 
 export const LANDING_PAGES: LandingPage[] = [
   {
     slug: "medicare",
-    eyebrow: "Greensboro · Piedmont Triad · kitchen table",
-    headline: "Medicare questions, answered by one licensed agent in Greensboro.",
+    eyebrow: "Local Medicare guidance · Piedmont Triad",
+    headline: "Get a personal Medicare coverage review",
     subhead:
-      "I’ll answer what you actually want to know before I ask you for anything — at your kitchen table, a coffee shop, or on the phone. No cost, and your information isn’t sold to another agent.",
-    chooseHeading: "Or start online — which one is you?",
+      "Review your enrollment timing, physicians, prescriptions, and coverage priorities with one Greensboro-based licensed agent.",
+    chooseHeading: "Choose your Medicare situation",
     options: [
       { label: "I’m turning 65 soon", href: "/start?topic=medicare&stage=turning_65_soon" },
       {
@@ -69,18 +69,18 @@ export const LANDING_PAGES: LandingPage[] = [
         href: "/start?topic=medicare&stage=helping_spouse_or_parent",
       },
     ],
-    promises: [...UNIVERSAL_PROMISES, "If your current coverage is fine, I’ll tell you that."],
+    promises: [...UNIVERSAL_PROMISES, "Your inquiry is not sold to other agents."],
     compliance: "medicare",
     description:
-      "A licensed agent in Greensboro answers your Medicare question before asking you for anything. No cost, and your information is never sold.",
+      "Get a free personal Medicare review from a local licensed agent in Greensboro. Meet in person or by phone.",
   },
   {
     slug: "turning-65",
-    eyebrow: "Turning 65 in the Triad · ~30 minutes of Greensboro",
-    headline: "Your Medicare window is seven months long, and it’s already running.",
+    eyebrow: "Turning 65 in the Piedmont Triad",
+    headline: "Build your Medicare timeline before 65",
     subhead:
-      "It opens three months before the month you turn 65 and closes three months after. Miss it without other coverage and the Part B penalty is permanent. I’ll sit down at your kitchen table and walk through your actual dates — at no cost.",
-    chooseHeading: "Where are you in it?",
+      "Coordinate Part B, employer coverage, HSA contributions, Medigap timing, physicians, and coverage for a younger spouse.",
+    chooseHeading: "Where are you in the process?",
     options: [
       { label: "See my exact dates", href: "/remind-me" },
       { label: "I turn 65 within a year", href: "/start?topic=medicare&stage=turning_65_soon" },
@@ -104,10 +104,10 @@ export const LANDING_PAGES: LandingPage[] = [
   {
     slug: "annual-enrollment",
     eyebrow: "October 15 – December 7 · Piedmont Triad",
-    headline: "Most people should keep the Medicare plan they have.",
+    headline: "Review your Medicare coverage for next year",
     subhead:
-      "I’ll read your Annual Notice of Change and your prescriptions with you, at your kitchen table or on the phone, and tell you whether anything actually needs to change. Most years, for most people, nothing does. No cost, and I don’t get paid for talking you into a switch.",
-    chooseHeading: "Where are you in it?",
+      "Check next year’s costs, prescription coverage, and physician networks before deciding whether to keep or change your plan.",
+    chooseHeading: "What would you like to review?",
     options: [
       {
         label: "I got the letter and I’m not sure",
@@ -126,14 +126,14 @@ export const LANDING_PAGES: LandingPage[] = [
     ],
     compliance: "medicare",
     description:
-      "Medicare annual enrollment without the sales pitch. A licensed Greensboro agent will check whether anything actually needs to change — at no cost.",
+      "Review next year’s Medicare costs, prescriptions, and physician networks with a local licensed agent. Free consultation.",
   },
   {
     slug: "life-insurance",
-    eyebrow: "Greensboro · Piedmont Triad · kitchen table",
-    headline: "Life insurance comes down to one question, and it isn’t which product.",
+    eyebrow: "Personal life insurance review · Piedmont Triad",
+    headline: "Protect the people who depend on you",
     subhead:
-      "How many more years does the money need to be there? Answer that and the product mostly picks itself. I’ll sit down and read what you already have with you, for free — and a good share of these end with me saying you’re already fine.",
+      "Review employer and personal coverage, beneficiaries, policy end dates, and how long your family may need protection.",
     chooseHeading: "What are you trying to sort out?",
     options: [
       {
@@ -158,9 +158,9 @@ export const LANDING_PAGES: LandingPage[] = [
   {
     slug: "annuities",
     eyebrow: "Greensboro · Piedmont Triad",
-    headline: "Have an annuity proposal in front of you? Let me read it with you.",
+    headline: "Understand an annuity before you decide",
     subhead:
-      "I’ll show you the guaranteed column, tell you what the surrender schedule actually says, and tell you if I think it’s wrong for you — including when the honest answer is to do nothing at all. Kitchen table or the phone. No cost.",
+      "Review the guarantees, surrender schedule, access to funds, and insurance features with a local licensed agent.",
     chooseHeading: "Where are you with it?",
     options: [
       {
@@ -188,9 +188,9 @@ export const LANDING_PAGES: LandingPage[] = [
   {
     slug: "retirement-income",
     eyebrow: "Greensboro · Piedmont Triad",
-    headline: "A big withdrawal at 63 shows up on your Medicare premium at 65.",
+    headline: "Coordinate retirement income with Medicare",
     subhead:
-      "Medicare sets premiums from a tax return two years old, so the timing of a Roth conversion or a large withdrawal can cost a couple thousand a year for both spouses. I’ll sit down and show you what your timing is worth. That part is arithmetic, and it’s free.",
+      "Understand how Social Security timing, withdrawals, Roth conversions, and the two-year IRMAA lookback may fit together.",
     chooseHeading: "What are you working out?",
     options: [
       { label: "See what my timing costs", href: "/plan" },
@@ -213,14 +213,14 @@ export const LANDING_PAGES: LandingPage[] = [
 
 export const LANDING_CONTRAST = [
   {
-    them: "A call center that bought your click",
-    us: "One licensed agent who will drive to your kitchen table",
+    them: "General online information",
+    us: "A personal review with one local agent",
   },
-  { them: "Your name sold to whoever pays", us: "Your answers come to me and stop there" },
-  { them: "Pressure to enroll today", us: "I’ll tell you when what you have is already fine" },
+  { them: "A broad recommendation", us: "Your dates, physicians, prescriptions, and priorities" },
+  { them: "Phone-only support", us: "Meet in person or by phone" },
   {
-    them: "A form that never reaches a real person",
-    us: "I read every case myself — usually the same day",
+    them: "Multiple points of contact",
+    us: "Christian personally reviews every inquiry",
   },
 ] as const;
 

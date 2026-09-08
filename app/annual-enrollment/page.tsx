@@ -34,7 +34,7 @@ import {
 export const metadata: Metadata = {
   title: { absolute: "Medicare Annual Enrollment, Oct 15–Dec 7 — Greensboro, NC" },
   description:
-    "What actually changes for you this fall, the one letter that matters, and why most people should keep the plan they have. Straight answers from a local licensed agent.",
+    "Review next year’s Medicare costs, prescriptions, and physician networks with a local licensed agent before deciding whether to keep or change coverage.",
   alternates: { canonical: "/annual-enrollment" },
   openGraph: pageOpenGraph({
     title: "Medicare annual enrollment, without the sales pitch",
@@ -70,7 +70,7 @@ const FAQ = [
   },
   {
     q: "Do I have to do anything?",
-    a: "No. Do nothing and your plan renews itself. That’s the right answer for most people most years, and I’d rather tell you so than talk you into a change you didn’t need.",
+    a: "Do nothing and your plan renews itself. That’s the right answer for most people most years, and I can tell you so than talk you into a change you didn’t need.",
   },
   {
     q: "How do I know if I should switch?",
@@ -86,7 +86,7 @@ const FAQ = [
   },
   {
     q: "Will you sit down with me and look at the letter?",
-    a: "Yes. Kitchen table, a coffee shop, or the phone. Bring the Annual Notice of Change and a list of your prescriptions. Twenty minutes, no cost, and I’ll tell you if you should do nothing.",
+    a: "in person or by phone. Bring the Annual Notice of Change and a list of your prescriptions. Twenty minutes, no cost, and I’ll tell you if you should do nothing.",
   },
   {
     q: "My premium went up and I didn’t change anything. Why?",
@@ -144,7 +144,7 @@ export default function AnnualEnrollmentPage() {
             serviceJsonLd({
               name: "Medicare Annual Enrollment review",
               description:
-                "A fall review of the Annual Notice of Change, prescriptions, and doctors — including when the honest answer is to keep the plan you have.",
+                "A fall review of the Annual Notice of Change, prescriptions, and doctors — including when the appropriate answer is to keep the plan you have.",
               path: "/annual-enrollment",
             }),
           ),
@@ -154,10 +154,10 @@ export default function AnnualEnrollmentPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment" }]}
         eyebrow="October 15 – December 7 · Greensboro, NC"
-        title="Most people should keep the plan they have."
-        lede="From the middle of October to the first week of December your mailbox fills up and the phone starts ringing. My review costs you nothing; if you enroll through me, an insurance company may pay me a commission. Here’s how to work out in about twenty minutes whether anything actually needs to change — and when keeping what you have is the better answer."
+        title="Review your Medicare coverage for next year"
+        lede="Compare next year’s costs, prescription coverage, and physician networks before deciding whether to keep or change your plan. Christian provides a personal review in person or by phone."
         secondaryHref="/start?topic=medicare&stage=already_on_medicare"
-        secondaryLabel="Have me check your plan →"
+        secondaryLabel="Review my coverage →"
       />
 
       <section className="bg-white py-14">
@@ -247,10 +247,10 @@ export default function AnnualEnrollmentPage() {
       </section>
 
       <KitchenTableClose
-        heading="Send me your notice and your prescriptions"
-        body="I’ll tell you whether anything changed that matters to you, including when the answer is that nothing did. No appointment, no pitch."
+        heading="Get a personal coverage review"
+        body="Bring your Annual Notice of Change and prescription list. We will review the details that may affect your care and costs."
         href="/start?topic=medicare&stage=already_on_medicare"
-        label="Start here →"
+        label="Review my coverage →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

@@ -7,7 +7,7 @@ import { AGENT } from "@/lib/agent";
  * no share image at all, so every link shared to Facebook, Nextdoor, iMessage
  * or a text message rendered as an empty grey box with a URL under it — the
  * least trustworthy thing a link can look like, on a site whose whole argument
- * is that it isn’t a lead mill.
+ * is that it isn’t a lead marketplace.
  */
 
 export const alt = `${AGENT.name} — licensed insurance agent in ${AGENT.city}, ${AGENT.state}`;
@@ -50,7 +50,7 @@ export default function OpengraphImage() {
             maxWidth: 940,
           }}
         >
-          Medicare and retirement questions, answered at your kitchen table.
+          Medicare and retirement questions, answered in person.
         </div>
         <div
           style={{
@@ -61,7 +61,7 @@ export default function OpengraphImage() {
             maxWidth: 900,
           }}
         >
-          No call center. No cost. I review every case myself.
+          No national phone service. No cost. I review every case myself.
         </div>
       </div>
 

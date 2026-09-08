@@ -103,7 +103,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           __html: JSON.stringify(
             serviceJsonLd({
               name: `Medicare help in ${city.name}`,
-              description: `In-person Medicare review in ${city.name} (${city.county}). No cost, no call center.`,
+              description: `In-person Medicare review in ${city.name} (${city.county}). No cost, no national phone service.`,
               path: `/medicare-in/${city.slug}`,
             }),
           ),
@@ -179,7 +179,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Also serving</h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-            Nearby kitchen-table visits include {city.nearby.join(", ")} when they fall within the
+            Nearby in-person meetings include {city.nearby.join(", ")} when they fall within the
             roughly 30-minute service area. County lines decide Medicare plan lists; they do not
             expand the in-person radius.
           </p>
@@ -213,7 +213,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               >
                 <span className="text-18 font-semibold">Life insurance in {city.name} →</span>
                 <span className="text-16 mt-1 leading-snug text-[var(--color-ink-muted)]">
-                  Read the policy at the kitchen table. No cost, no obligation.
+                  Read the policy at the in-person meeting. Free consultation. No obligation.
                 </span>
               </Link>
             </li>

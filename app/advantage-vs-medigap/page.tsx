@@ -14,7 +14,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  * "Medicare Advantage vs Medigap" is the single biggest decision query in the
  * turning-65 space, and nearly every page ranking for it is published by
  * somebody who sells one of the two. This one takes the position the rest of
- * the site takes: neither is better in general, the honest answer depends on
+ * the site takes: neither is better in general, the appropriate answer depends on
  * three specific things about you, and one of the three has a deadline that
  * never comes back.
  *

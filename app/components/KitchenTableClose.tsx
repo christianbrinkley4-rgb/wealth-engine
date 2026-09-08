@@ -35,7 +35,7 @@ export function KitchenTableClose({
           </Link>
         </div>
         <p className="text-16 mt-6 text-[var(--color-ink-muted)]">
-          Kitchen table, coffee shop, or the phone — {AGENT.hours}
+          Free consultation in person or by phone. {AGENT.hours}
         </p>
       </div>
     </section>

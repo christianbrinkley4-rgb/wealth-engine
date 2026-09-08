@@ -55,7 +55,7 @@ const FAQ = [
   },
   {
     q: "Do you sell variable annuities?",
-    a: "No. Those are securities and need a securities license, which I don’t have. I work with fixed and indexed contracts. If a variable product is genuinely what suits you, you need somebody registered for it.",
+    a: "Those are securities and need a securities license, which I don’t have. I work with fixed and indexed contracts. If a variable product is genuinely what suits you, you need somebody registered for it.",
   },
   {
     q: "How are you paid on an annuity?",
@@ -133,7 +133,7 @@ export default function AnnuitiesPage() {
         lede="Annuities are the most oversold product in this business and the most misunderstood, and those two things are related. Here’s what one actually does, the four times the answer is no, and what to ask anybody who puts a proposal in front of you. Me included."
         secondaryHref="/start?topic=financial_planning"
         secondaryLabel="Ask a question first →"
-        note="Kitchen table, coffee shop, or the phone. No cost — and I will tell you when the honest answer is to do nothing."
+        note="in person or by phone. No cost — and I will tell you when the appropriate answer is to do nothing."
       />
 
       <section className="bg-white py-14">
@@ -213,7 +213,7 @@ export default function AnnuitiesPage() {
 
       <KitchenTableClose
         heading="Have a proposal in front of you?"
-        body="Bring it. I’ll read the guaranteed column with you and tell you what the surrender schedule actually says. If I think it’s wrong for you, I’ll say that too, including when the honest answer is to do nothing at all."
+        body="Bring it. I’ll read the guaranteed column with you and tell you what the surrender schedule actually says. If I think it’s wrong for you, I’ll say that too, including when the appropriate answer is to do nothing at all."
         href="/start?topic=financial_planning"
         label="Ask a question first →"
       />

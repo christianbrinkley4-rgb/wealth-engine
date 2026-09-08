@@ -374,8 +374,8 @@ function RothWindowCalculatorInner() {
           <CardContent className="space-y-4 p-6 pt-2">
             <p className="text-18 leading-relaxed">
               I’m a licensed insurance agent in Greensboro, finishing a master’s in accounting at
-              UNCG — which is why I’d rather talk about conversion timing than sell you something.
-              Tell me what you’re weighing up and I’ll come back to you within one business day. No
+              UNCG — which is why I can talk about conversion timing than sell you something. Tell
+              me what you’re weighing up and I’ll come back to you within one business day. No
               charge.
             </p>
             <Button

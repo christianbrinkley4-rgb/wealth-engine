@@ -38,12 +38,12 @@ import { SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
 export const metadata: Metadata = {
   title: { absolute: "Retirement Planning Help in Greensboro, NC — 401(k) & Medicare Timing" },
   description:
-    "What to do with an old 401(k), what changes at 73, and how a withdrawal hits your Medicare premium two years later. Kitchen-table help from a Greensboro agent — education, not investment advice.",
+    "What to do with an old 401(k), what changes at 73, and how a withdrawal hits your Medicare premium two years later. local, personalized help from a Greensboro agent — education, not investment advice.",
   alternates: { canonical: "/retirement-income" },
   openGraph: pageOpenGraph({
-    title: "Retirement questions, answered at your kitchen table in Greensboro",
+    title: "Retirement questions, answered in person in Greensboro",
     description:
-      "Four options for an old 401(k), the tax window before 73, and the Medicare timing most people miss. Not a call center, and not a registered adviser.",
+      "Four options for an old 401(k), the tax window before 73, and the Medicare timing most people miss. Not a national phone service, and not a registered adviser.",
     path: "/retirement-income",
   }),
 };
@@ -86,7 +86,7 @@ const FAQ = [
   },
   {
     q: "Can you advise me on how to invest it?",
-    a: "No, and I’d rather say that plainly than blur it. I hold an insurance license, not a securities license, and I’m not a registered investment adviser. What I can do is explain how the deadlines and the tax side work, and tell you when your question belongs to a CPA or an adviser.",
+    a: "No, and I can say that plainly than blur it. I hold an insurance license, not a securities license, and I’m not a registered investment adviser. What I can do is explain how the deadlines and the tax side work, and tell you when your question belongs to a CPA or an adviser.",
   },
   {
     q: "So what do you actually help with here?",
@@ -94,7 +94,7 @@ const FAQ = [
   },
   {
     q: "Are you a financial advisor?",
-    a: "No. I’m a licensed insurance agent finishing a master’s in accounting. I’m not a registered investment adviser. If you searched for a retirement advisor, I can still sit down and explain the tax and Medicare timing — and I’ll tell you plainly when the rest of the question belongs to someone with that license.",
+    a: "I’m a licensed insurance agent finishing a master’s in accounting. I’m not a registered investment adviser. If you searched for a retirement advisor, I can still sit down and explain the tax and Medicare timing — and I’ll tell you plainly when the rest of the question belongs to someone with that license.",
   },
 ] as const;
 
@@ -159,10 +159,10 @@ export default function RetirementIncomePage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Retirement income" }]}
         eyebrow={SERVICE_AREA_LABEL}
-        title="Retirement questions a licensed agent can actually answer"
-        lede="You have four options for an old 401(k), and each one comes with deadlines. I’ll sit down and explain what they do to your taxes and your Medicare premium — then tell you which parts belong to a CPA or a registered adviser. No cost, no obligation, and I am not holding myself out as a financial advisor."
+        title="Coordinate retirement income with Medicare"
+        lede="Understand how 401(k) options, Social Security timing, withdrawals, and the two-year IRMAA lookback may fit together. This is education from a licensed insurance agent, not individualized investment advice."
         secondaryHref="/start?topic=financial_planning"
-        secondaryLabel="Ask a question →"
+        secondaryLabel="Check Medicare income effects →"
       />
 
       <section className="bg-white py-14">
@@ -196,10 +196,10 @@ export default function RetirementIncomePage() {
             total.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
-            It’s also where the Medicare trap sits. Premiums come from a return two years old, so a
-            big withdrawal or a Roth conversion in your early sixties shows up on your first
-            Medicare premium — on both of them, if you’re married. Getting the tax right and the
-            Medicare timing wrong is a common and expensive combination.
+            It’s also where the Medicare income-timing issue sits. Premiums come from a return two
+            years old, so a big withdrawal or a Roth conversion in your early sixties shows up on
+            your first Medicare premium — on both of them, if you’re married. Getting the tax right
+            and the Medicare timing wrong is a common and expensive combination.
           </p>
           <div className="card-surface mt-8 border-l-4 border-l-[var(--color-gold-ink)] p-6">
             <p className="text-18 leading-relaxed">
@@ -256,7 +256,7 @@ export default function RetirementIncomePage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Kitchen-table help within 30 minutes</h2>
+          <h2 className="text-28 font-semibold">local, personalized help within 30 minutes</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {SERVICE_AREA_LEDE} National matching sites will send you to whoever bought the lead.
           </p>
@@ -281,8 +281,8 @@ export default function RetirementIncomePage() {
       </section>
 
       <KitchenTableClose
-        heading="Working out the timing?"
-        body="Tell me what you’re weighing up and I’ll tell you what it does to your Medicare premium, and which parts you should be asking a CPA or an adviser about instead. No cost, no obligation."
+        heading="Check how income may affect Medicare"
+        body="Review the two-year income lookback and identify which questions belong with a CPA or registered investment adviser."
         href="/start?topic=financial_planning"
         label="Ask a question →"
       />

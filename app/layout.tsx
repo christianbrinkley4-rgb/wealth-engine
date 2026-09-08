@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Licensed Greensboro agent Christian Brinkley reviews Medicare (turning 65 and AEP), life insurance, and retirement questions in person — at your kitchen table. No cost, no call center.",
+    "Licensed Greensboro agent Christian Brinkley reviews Medicare (turning 65 and AEP), life insurance, and retirement questions in person — in person. No cost, no national phone service.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_OWNER }],
   alternates: { canonical: "/" },
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: `${SITE_OWNER} | ${SITE_NAME}`,
     description:
-      "Medicare, life insurance, and retirement help from one licensed agent in the Triad. Kitchen table, not a call center.",
+      "Medicare, life insurance, and retirement help from one licensed agent in the Triad. in-person meeting, not a national phone service.",
     locale: "en_US",
     images: [
       {
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_OWNER} | ${SITE_NAME}`,
     description:
-      "Medicare, life insurance, and retirement help from a licensed Greensboro agent. Kitchen table, not a call center.",
+      "Medicare, life insurance, and retirement help from a licensed Greensboro agent. in-person meeting, not a national phone service.",
     images: ["/twitter-image"],
   },
   robots: {

@@ -7,7 +7,7 @@ import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 import { placesByCounty, SERVICE_AREA_LABEL, SERVICE_AREA_LEDE, TRIAD_CITIES } from "@/lib/triad";
 
 export const metadata: Metadata = {
-  title: { absolute: "Kitchen-Table Help Within 30 Minutes of Downtown Greensboro, NC" },
+  title: { absolute: "local, personalized help Within 30 Minutes of Downtown Greensboro, NC" },
   description:
     "Medicare, life insurance, and retirement questions answered in person anywhere about 30 minutes from downtown Greensboro — including High Point, Winston-Salem, Kernersville, Summerfield, Jamestown, and the towns in between. Not only the three big cities.",
   alternates: { canonical: "/service-area" },
@@ -29,7 +29,7 @@ const FAQ = [
   },
   {
     q: "Do you only sit down in Greensboro, High Point, and Winston-Salem?",
-    a: "No. Those are the three hubs. Kernersville, Summerfield, Jamestown, Oak Ridge, Archdale, and the rest of the towns on this page are first-class kitchen-table visits.",
+    a: "Those are the three hubs. Kernersville, Summerfield, Jamestown, Oak Ridge, Archdale, and the rest of the towns on this page are first-class in-person meetings.",
   },
 ] as const;
 
@@ -150,7 +150,7 @@ export default function ServiceAreaPage() {
 
       <KitchenTableClose
         heading="Want me to come to your table?"
-        body="Greensboro, High Point, Winston-Salem, or a town in between. No cost, no obligation, and I’ll tell you if what you have is already fine."
+        body="Greensboro, High Point, Winston-Salem, or a town in between. Free consultation. No obligation, and I’ll tell you if what you have is already fine."
         href="/start"
         label="Start here →"
       />
