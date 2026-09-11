@@ -8,7 +8,10 @@ const STATIC_ROUTES: Array<{
   priority: number;
 }> = [
   { path: "/", changeFrequency: "weekly", priority: 1.0 },
-  { path: "/start", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/care-coverage", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/long-term-care-insurance", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/short-term-care-insurance", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/critical-illness-insurance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/turning-65", changeFrequency: "weekly", priority: 0.95 },
   { path: "/annual-enrollment", changeFrequency: "weekly", priority: 0.95 },
   { path: "/advantage-vs-medigap", changeFrequency: "monthly", priority: 0.9 },
@@ -16,10 +19,8 @@ const STATIC_ROUTES: Array<{
   { path: "/keep-my-doctor", changeFrequency: "monthly", priority: 0.9 },
   { path: "/helping-a-parent", changeFrequency: "monthly", priority: 0.9 },
   { path: "/irmaa-appeal", changeFrequency: "monthly", priority: 0.85 },
-  { path: "/remind-me", changeFrequency: "monthly", priority: 0.75 },
   { path: "/service-area", changeFrequency: "monthly", priority: 0.9 },
   { path: "/about", changeFrequency: "monthly", priority: 0.85 },
-  { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
   { path: "/plan", changeFrequency: "weekly", priority: 0.8 },
   { path: "/annuities", changeFrequency: "monthly", priority: 0.85 },
@@ -33,7 +34,7 @@ const STATIC_ROUTES: Array<{
  * `new Date()` told crawlers every page on the site had been rewritten on
  * every deploy, which is the fastest way to have lastmod ignored entirely.
  */
-const CONTENT_LAST_REVIEWED = "2026-09-03";
+const CONTENT_LAST_REVIEWED = "2026-09-10";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = CONTENT_LAST_REVIEWED;
@@ -68,11 +69,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority,
     })),
     ...cityRoutes,
-    {
-      url: `${SITE_URL}/llms.txt`,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.4,
-    },
   ];
 }

@@ -92,7 +92,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               description: `How ${city.county} determines which Medicare plans are available in ${city.name}.`,
               path: `/medicare-in/${city.slug}`,
               datePublished: "2026-08-25",
-              dateModified: "2026-09-03",
+              dateModified: "2026-09-10",
             }),
           ),
         }}
@@ -103,7 +103,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           __html: JSON.stringify(
             serviceJsonLd({
               name: `Medicare help in ${city.name}`,
-              description: `In-person Medicare review in ${city.name} (${city.county}). No cost, no national phone service.`,
+              description: `Personal Medicare help in ${city.name} (${city.county}). No-cost consultations at home or by phone.`,
               path: `/medicare-in/${city.slug}`,
             }),
           ),
@@ -126,7 +126,9 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <CitySnapshot city={city} />
-          <h2 className="text-28 mt-10 font-semibold">What I actually check in {city.name}</h2>
+          <h2 className="text-28 mt-10 font-semibold">
+            Your doctors, your coverage, your priorities
+          </h2>
           <p className="text-18 mt-4 leading-relaxed">{placeCheckBeat(city)}</p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {city.localDetail}
@@ -136,19 +138,18 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Where people in {city.name} are treated</h2>
+          <h2 className="text-28 font-semibold">Hospitals and health systems near {city.name}</h2>
           <ul className="text-18 mt-4 flex list-disc flex-col gap-2 pl-6 leading-relaxed">
             {city.hospitals.map((hospital) => (
               <li key={hospital}>{hospital}</li>
             ))}
           </ul>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            I’ve named them because that’s where most people here get seen, and for no other reason.
-            I’m not affiliated with any of them, and you won’t find a table on this site claiming
-            which plans they take. Those deals get renegotiated every year, and a stale table is
-            exactly how somebody picks a plan and loses their doctor.{" "}
+            If you receive care through one of these health systems, we can check the specific
+            doctors and hospitals you use. Provider participation can change, so it’s worth
+            confirming the details before you enroll. I’m not affiliated with these health systems.{" "}
             <Link href="/keep-my-doctor" className="underline underline-offset-2">
-              Here is how to check it properly
+              Learn how to check your doctors
             </Link>
             .
           </p>
@@ -179,12 +180,12 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Also serving</h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-            Nearby in-person meetings include {city.nearby.join(", ")} when they fall within the
-            roughly 30-minute service area. County lines decide Medicare plan lists; they do not
-            expand the in-person radius.
+            Nearby communities include {city.nearby.join(", ")}. If you’d like a home visit, get in
+            touch and we can arrange a convenient time and location. Phone consultations are also
+            available throughout North Carolina.
           </p>
 
-          <h3 className="text-20 mt-8 font-semibold">Nearby towns I also sit down in</h3>
+          <h3 className="text-20 mt-8 font-semibold">Medicare help in nearby communities</h3>
           <ul className="mt-3 flex flex-col gap-3">
             {others.map((other) => (
               <li key={other.slug}>
@@ -195,9 +196,6 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
                   <span className="text-18 font-semibold">Medicare in {other.name} →</span>
                   <span className="text-16 mt-1 leading-snug text-[var(--color-ink-muted)]">
                     {other.county}
-                    {other.county !== city.county
-                      ? " — a different plan list from yours"
-                      : " — the same plan list as yours"}
                   </span>
                 </Link>
               </li>
@@ -259,7 +257,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             </li>
             <li>
               <Link href="/service-area" className="underline underline-offset-2">
-                Every town within 30 minutes of downtown Greensboro
+                View all communities I serve{" "}
               </Link>
             </li>
             <li>

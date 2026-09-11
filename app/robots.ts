@@ -2,15 +2,9 @@ import type { MetadataRoute } from "next";
 import { SITE_INDEXABLE, SITE_URL } from "@/lib/seo";
 
 /**
- * Every crawler is allowed, and the AI ones are named on purpose.
- *
- * A bare `User-Agent: *` already permits them, so this changes no behaviour
- * today. It is here because the ones that matter to a local business now are
- * the assistants people ask "who can help me with Medicare in High Point",
- * and being named explicitly means a later blanket change never silently
- * removes this site from that answer. Google-Extended in particular governs
- * whether the content can be used to ground AI Overviews and Gemini, which is
- * the single largest AI surface a Triad search will touch.
+ * Permit search and assistant access once the site is ready for indexing.
+ * Naming a crawler does not improve ranking or guarantee a citation.
+ * Google Search controls apply to AI Overviews; Google-Extended is separate.
  */
 const AI_CRAWLERS = [
   "GPTBot",
@@ -59,5 +53,4 @@ export default function robots(): MetadataRoute.Robots {
   return buildRobots(SITE_URL, SITE_INDEXABLE);
 }
 
-// /llms.txt is listed in sitemap.ts so assistants and crawlers can find the
-// plain-text brief without a non-standard robots field.
+// /llms.txt is an optional public brief, not an indexing requirement.

@@ -11,16 +11,23 @@ import { TOPIC_LABELS, type InterestTopic } from "@/lib/helpQuiz";
 
 function topicLabel(raw: string | null): string | null {
   if (!raw) return null;
-  if (raw in TOPIC_LABELS) return TOPIC_LABELS[raw as InterestTopic];
+  if (Object.hasOwn(TOPIC_LABELS, raw)) return TOPIC_LABELS[raw as InterestTopic];
   return null;
 }
 
 const NEXT_READS: Record<InterestTopic, Array<{ href: string; label: string; blurb: string }>> = {
+  care_coverage: [
+    {
+      href: "/care-coverage",
+      label: "Care and critical illness coverage",
+      blurb: "Questions to bring to a conversation about your family’s protection",
+    },
+  ],
   medicare: [
     {
       href: "/turning-65",
       label: "Turning 65",
-      blurb: "The seven-month window and the Medigap deadline most people miss",
+      blurb: "Medicare enrollment dates and when to review Medigap options",
     },
     {
       href: "/annual-enrollment",
@@ -74,7 +81,8 @@ function ThankYouInner() {
   const source = searchParams.get("source") ?? "";
   const topicRaw = searchParams.get("topic");
   const topic = topicLabel(topicRaw);
-  const topicKey = topicRaw && topicRaw in TOPIC_LABELS ? (topicRaw as InterestTopic) : null;
+  const topicKey =
+    topicRaw && Object.hasOwn(TOPIC_LABELS, topicRaw) ? (topicRaw as InterestTopic) : null;
   const eventId = searchParams.get("eid");
   /* Set by the API when no email provider is configured — see thankYouUrl. */
   const emailUnavailable = searchParams.get("noemail") === "1";
@@ -103,20 +111,19 @@ function ThankYouInner() {
   const lede = emailUnavailable ? (
     <>
       They came straight to me{topic ? <> about {topic.toLowerCase()}</> : null}, and I’ll follow up
-      personally — usually the same day, always within one business day. If you would rather not
-      wait, the number below is mine.
+      personally. If you would rather not wait, the number below is mine.
     </>
   ) : isHelpQuiz ? (
     <>
       Your answers are on their way to your inbox right now
-      {topic ? <> about {topic.toLowerCase()}</> : null}. I’ll follow up personally — usually the
-      same day, always within one business day.
+      {topic ? <> about {topic.toLowerCase()}</> : null}. I’ll follow up personally to talk through
+      your next step.
     </>
   ) : isWizard ? (
     <>
       I’ll look at what you entered
-      {topic ? <> for {topic.toLowerCase()}</> : null} and follow up personally — usually the same
-      day, always within one business day. If you’d rather talk through the numbers now, call me.
+      {topic ? <> for {topic.toLowerCase()}</> : null} and follow up personally. If you’d rather
+      talk through the numbers now, call me.
     </>
   ) : isReminder ? (
     <>
@@ -131,6 +138,9 @@ function ThankYouInner() {
   );
 
   const reads = topicKey ? NEXT_READS[topicKey] : null;
+  const schedulingHref = topicKey
+    ? `${AGENT.schedulingUrl}?topic=${encodeURIComponent(topicKey)}`
+    : AGENT.schedulingUrl;
 
   return (
     <div className="bg-[var(--color-paper)] px-4 py-14 md:py-20">
@@ -173,23 +183,22 @@ function ThankYouInner() {
             />
             <div>
               <h2 className="text-22 font-semibold text-[var(--color-navy)]">
-                Want to pick the time yourself?
+                Let’s arrange a conversation.
               </h2>
               <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                Grab whichever slot suits you — in person or by phone. The booking page shows how
-                long I’ve set aside. Otherwise I’ll reach out and we’ll find a time.
+                Choose how to get in touch, or check available times when online booking is open.
+                Your inquiry is saved; you do not need to send it again. I’ll follow up to arrange a
+                time.
               </p>
             </div>
           </div>
 
-          <a
-            href={AGENT.schedulingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={schedulingHref}
             className="text-18 mt-6 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
           >
-            Book a time to talk →
-          </a>
+            Conversation options →
+          </Link>
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">

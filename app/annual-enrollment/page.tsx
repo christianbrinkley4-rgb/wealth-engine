@@ -34,32 +34,32 @@ import {
 export const metadata: Metadata = {
   title: { absolute: "Medicare Annual Enrollment, Oct 15–Dec 7 — Greensboro, NC" },
   description:
-    "Review next year’s Medicare costs, prescriptions, and physician networks with a local licensed agent before deciding whether to keep or change coverage.",
+    "Review next year’s Medicare costs, prescriptions, and doctors with a local licensed agent before deciding whether to keep or change coverage.",
   alternates: { canonical: "/annual-enrollment" },
   openGraph: pageOpenGraph({
-    title: "Medicare annual enrollment, without the sales pitch",
+    title: "Reviewing your Medicare coverage for next year",
     description:
-      "Most people should keep what they have. Here is how to tell whether you are one of them.",
+      "A personal review of your coverage, costs, doctors, and prescriptions can help you decide whether to make a change.",
     path: "/annual-enrollment",
   }),
 };
 
 const STEPS = [
   {
-    t: "Find the letter, not the commercials",
-    b: "Your plan mails an Annual Notice of Change every September. It’s dull, and it’s the only document that matters, because it lists exactly what your plan is doing differently in January — premium, deductible, copays, drug list. Ten minutes with that letter tells you more than a month of television.",
+    t: "Start with your Annual Notice of Change",
+    b: "Your plan’s Annual Notice of Change explains changes to coverage and costs for the coming year. Keep it with your current plan information so we can review the details together.",
   },
   {
     t: "Check your prescriptions against next year’s list",
-    b: "This is where people get hurt. Plans drop medications and move them between tiers every year, so a drug that cost you a little in December can cost a lot in January with no warning beyond that letter. Check each one by name.",
+    b: "Check each prescription, including its dosage and your preferred pharmacy. Drug coverage and costs can change even if your medicines stay the same.",
   },
   {
     t: "Check your doctors are still in network",
     b: "Networks change in both directions — a practice can leave a plan, and a plan can drop a health system. Around here that usually means Cone Health, Novant or Atrium Health Wake Forest Baptist, and it’s worth confirming rather than assuming.",
   },
   {
-    t: "Only then look at whether anything else fits better",
-    b: "If your drugs are covered, your doctors are in, and the costs look about the same, you’re done. Do nothing and your coverage rolls over on its own. Switching because a mailer told you to is how people end up worse off than they started.",
+    t: "Compare your options with your current coverage",
+    b: "Once you’ve reviewed your doctors, prescriptions, and costs, you can decide whether to keep your current plan or consider a change. There’s no need to change simply because you received an advertisement.",
   },
 ] as const;
 
@@ -70,19 +70,19 @@ const FAQ = [
   },
   {
     q: "Do I have to do anything?",
-    a: "Your plan generally renews automatically. A review can confirm whether the costs, prescriptions, and physician network still fit before you decide whether to make a change.",
+    a: "Your plan generally renews automatically. A review can confirm whether the costs, prescription coverage, and choice of doctors still fit your needs before you decide whether to make a change.",
   },
   {
     q: "How do I know if I should switch?",
-    a: "Three things. Did a prescription you take get dropped or moved to a worse tier, did a doctor you see leave the network, and did your out-of-pocket costs jump. If all three are no, keep what you have. If any one is yes, it’s worth a real look.",
+    a: "Consider whether your doctors, prescription coverage, expected costs, or personal needs have changed. We can compare those details before you decide whether a different plan would suit you.",
   },
   {
     q: "Why do I get so much mail and so many calls this time of year?",
-    a: "Because the whole industry is paid on plans that change hands during those eight weeks. The volume tells you about the commission structure, not about whether your plan is still right for you.",
+    a: "Annual enrollment brings a lot of advertising. You don’t have to respond to every letter or call. Start with your current plan and your own needs, and ask for help if something is unclear.",
   },
   {
     q: "Can I change my Medigap policy during this window?",
-    a: "This window is for Medicare Advantage and Part D drug plans. Medigap runs on its own schedule — you can apply any time of year, but outside your original six-month window an insurer in North Carolina is allowed to review your health history and say no.",
+    a: "Annual enrollment applies to Medicare Advantage and Part D plans. Medigap has different rules. Outside your Medigap open enrollment period or another protected situation, an insurer may review your health when you apply.",
   },
   {
     q: "Will you sit down with me and look at the letter?",
@@ -90,7 +90,7 @@ const FAQ = [
   },
   {
     q: "My premium went up and I didn’t change anything. Why?",
-    a: "That’s often IRMAA rather than your plan — an income-based surcharge Medicare sets from your tax return two years back. A one-time event in that year, like selling a house or a large withdrawal, can raise your premium long after the money is gone. If your income has since dropped for a qualifying reason, it can be appealed.",
+    a: "A premium increase can come from a plan change or from an income-related Medicare charge called IRMAA. Bring the notice so we can identify the reason and discuss what you can do next.",
   },
 ] as const;
 
@@ -113,12 +113,12 @@ export default function AnnualEnrollmentPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Medicare annual enrollment, without the sales pitch",
+              headline: "Reviewing your Medicare coverage for next year",
               description:
-                "What changes for you this fall, the one letter that matters, and why most people should keep the plan they have.",
+                "How to review your plan’s changes, prescription coverage, doctors, and costs before the annual enrollment deadline.",
               path: "/annual-enrollment",
               datePublished: "2026-08-31",
-              dateModified: "2026-08-31",
+              dateModified: "2026-09-10",
             }),
           ),
         }}
@@ -155,7 +155,7 @@ export default function AnnualEnrollmentPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment" }]}
         eyebrow="October 15 – December 7 · Greensboro, NC"
         title="Review your Medicare coverage for next year"
-        lede="Compare next year’s costs, prescription coverage, and physician networks before deciding whether to keep or change your plan. Christian provides a personal review in person or by phone."
+        lede="A yearly review can help you make sure your Medicare coverage still fits. We’ll look at next year’s costs, prescriptions, and doctors together before you decide whether to keep your plan or make a change."
         secondaryHref="/start?topic=medicare&stage=already_on_medicare"
         secondaryLabel="Review my coverage →"
       />
@@ -210,9 +210,8 @@ export default function AnnualEnrollmentPage() {
             </div>
           </dl>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            Advantage and Part D plans are sold county by county. Inside a 30-minute drive of
-            downtown Greensboro that means Guilford, Forsyth, Randolph, Davidson, Alamance, and
-            Rockingham — Kernersville sits on a line, Archdale is Randolph next to High Point.{" "}
+            Medicare Advantage options can vary by county. We’ll check the plans available at your
+            home address and review the doctors, hospitals, and pharmacies you use.{" "}
             <Link href="/service-area" className="underline underline-offset-2">
               What that means where you live
             </Link>

@@ -24,12 +24,12 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Annuities in Greensboro, NC — Straight Answers, No Pitch" },
+  title: { absolute: "Annuities and Retirement Income | Greensboro, NC" },
   description:
     "What a fixed or indexed annuity does, when it’s the wrong answer, and what to ask before you sign. From a licensed agent in Greensboro. No cost to talk.",
   alternates: { canonical: "/annuities" },
   openGraph: pageOpenGraph({
-    title: "Annuities, explained without the pitch",
+    title: "Understanding annuities and retirement income",
     description:
       "When a fixed or indexed annuity makes sense, when it does not, and the questions worth asking first.",
     path: "/annuities",
@@ -39,46 +39,46 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "What does an annuity actually do?",
-    a: "You hand an insurance company money. It promises you income back — starting now or starting later, for a set number of years or for as long as you live. That’s the whole idea. Everything else is terms and conditions stacked on top of it.",
+    a: "An annuity is a contract with an insurance company. Depending on the contract, it can help build savings for retirement or provide income now or later. Benefits, fees, access to your money, and guarantees vary.",
   },
   {
     q: "Is an annuity a good investment?",
-    a: "It’s generally not an investment, and treating it like one is where people end up disappointed. It’s insurance against running out of money, and it’s priced like insurance. If you want growth, this is the wrong tool. If you want a floor under your income that doesn’t move when the market does, it’s the tool built for exactly that.",
+    a: "An annuity may be one part of a retirement income plan. Different types have different risks and features. We can discuss the insurance products I offer and involve a financial advisor when reviewing how they fit with your investments.",
   },
   {
     q: "What is the catch?",
-    a: "Access. Most of these contracts charge you for taking out more than a set amount in the early years, and that surrender period can run a while. If there’s any chance you need the money back soon, that’s your reason not to do it. It’s the first thing I ask, not the last.",
+    a: "Understand when you can withdraw money and what charges may apply. Early withdrawals can involve surrender charges, other adjustments, or taxes. Keep your emergency needs in mind before committing money.",
   },
   {
     q: "Can I put my 401(k) into one?",
-    a: "You can move money from a 401(k) into a fixed or indexed annuity. Whether you should is a different question, and it depends on what that 401(k) is doing now and what else you’ve got. I’m licensed for insurance, not securities. If the right answer is to stay invested in the market, that’s a conversation for an adviser and I’ll tell you so.",
+    a: "Some retirement funds may be eligible for a rollover to an annuity. Before deciding, review your current plan, costs, tax treatment, and access to your money with the appropriate financial and tax professionals.",
   },
   {
     q: "Do you sell variable annuities?",
-    a: "Those are securities and need a securities license, which I don’t have. I work with fixed and indexed contracts. If a variable product is genuinely what suits you, you need somebody registered for it.",
+    a: "Variable annuities require a securities license. I offer fixed and fixed indexed insurance products. For securities or investment advice, I work with an advisor.",
   },
   {
     q: "How are you paid on an annuity?",
-    a: "The insurance company pays a commission when the contract is issued. You don’t pay me a fee, and your rate is whatever the company sets. Ask me how that works on anything I show you and I’ll tell you. It’s a fair question.",
+    a: "The insurance company pays me a commission when a contract is issued. I’ll explain how I’m paid and review the contract’s costs and terms with you before you decide.",
   },
 ] as const;
 
 const WRONG_FITS = [
   {
     t: "You might need the money in the next few years",
-    b: "Surrender charges exist to stop exactly that. If the money is spoken for — a roof, a car, something you can’t name yet — it shouldn’t be sitting in a contract that charges you for reaching it.",
+    b: "Consider the savings you need for emergencies, household expenses, and other planned purchases. Review withdrawal limits and charges before placing money in an annuity.",
   },
   {
     t: "You are looking for growth",
-    b: "An indexed annuity caps how much of a good year you keep, in exchange for sitting out the bad ones. That’s a fair trade if you want stability. It’s a bad one if you want a return.",
+    b: "A fixed indexed annuity may limit the interest credited through caps, participation rates, or other terms. Understand those limits and how interest is calculated before comparing it with other options.",
   },
   {
-    t: "Somebody has quoted you a number that sounds too good",
-    b: "Illustrated values aren’t guaranteed values, and they’re printed on the same page in the same size type. The guaranteed column is the promise. Everything next to it is a picture of what might happen.",
+    t: "You’re unsure which figures are guaranteed",
+    b: "Ask which values are guaranteed and which are illustrations. Review the conditions behind any income amount, interest credit, or optional benefit shown in a proposal.",
   },
   {
     t: "It would take most of what you have",
-    b: "An annuity is a floor, not the whole house. If somebody’s proposal moves most of your savings into one contract, get a second opinion from a person who isn’t paid on it.",
+    b: "Consider how much of your savings you would still have available for other needs. A financial advisor can help assess the proposal alongside the rest of your retirement plan.",
   },
 ] as const;
 
@@ -101,12 +101,12 @@ export default function AnnuitiesPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Annuities in Greensboro, explained without the pitch",
+              headline: "Understanding annuities in Greensboro",
               description:
                 "What a fixed or indexed annuity does, when it is the wrong answer, and what to ask before signing.",
               path: "/annuities",
               datePublished: "2026-08-25",
-              dateModified: "2026-08-25",
+              dateModified: "2026-09-10",
             }),
           ),
         }}
@@ -116,9 +116,9 @@ export default function AnnuitiesPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             howToJsonLd({
-              name: "How to tell when an annuity is the wrong answer",
+              name: "Questions to ask before choosing an annuity",
               description:
-                "Four situations where a fixed or indexed annuity is the wrong tool, including surrender charges, growth-seeking, illustrated rates, and putting most of your savings in one contract.",
+                "Review access to your money, how interest is credited, guarantees, and how an annuity would fit with your other savings.",
               path: "/annuities",
               steps: WRONG_FITS.map((item) => ({ name: item.t, text: item.b })),
             }),
@@ -129,26 +129,25 @@ export default function AnnuitiesPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Annuities" }]}
         eyebrow={`${AGENT.city} · ${AGENT.region}`}
-        title="Annuities, explained by someone willing to tell you not to buy one."
-        lede="Annuities are the most oversold product in this business and the most misunderstood, and those two things are related. Here’s what one actually does, the four times the answer is no, and what to ask anybody who puts a proposal in front of you. Me included."
+        title="Could an annuity fit your retirement plans?"
+        lede="If you’re considering an annuity, you deserve time to understand it. We can discuss how it works, what it costs, when you can access your money, and whether it fits your retirement needs."
         secondaryHref="/start?topic=financial_planning"
         secondaryLabel="Ask a question first →"
-        note="Meet in person or by phone. No cost — and I will tell you when the appropriate answer is to do nothing."
+        note="Meet at home or by phone. Your consultation is no cost, with no obligation to buy anything."
       />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">What you are actually buying</h2>
+          <h2 className="text-28 font-semibold"> Understanding the contract </h2>
           <p className="text-18 mt-4 leading-relaxed">
-            You give an insurance company money. It promises to pay you income — now or later, for a
-            set number of years or for as long as you live. That promise is the product. It isn’t a
-            fund and it isn’t a market position, and what it’s worth to you isn’t the return. It’s
-            that the payment shows up whether or not the market had a good year.
+            An annuity is a contract with an insurance company. Some contracts provide income right
+            away; others allow you to save for income later. Payment options, interest, fees, and
+            guarantees depend on the contract.{" "}
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            The honest case for one is narrow, and it’s real. You’ve saved enough that running out
-            is unlikely but not impossible, and you’d rather turn some of that uncertainty into a
-            payment you can count on. That’s insurance, and it’s a reasonable thing to buy.
+            Before considering a contract, think about the income you already have, what you need
+            for everyday expenses, and the savings you want to keep available. We can review those
+            questions together.{" "}
           </p>
         </div>
       </section>
@@ -157,7 +156,7 @@ export default function AnnuitiesPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Four times the answer is no</h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-            If any of these sounds like you, keep your money where it is.
+            Take time to discuss these questions before making a decision.{" "}
           </p>
           <ul className="mt-8 flex flex-col gap-6">
             {WRONG_FITS.map((item) => (
@@ -182,10 +181,9 @@ export default function AnnuitiesPage() {
             tell you what to hold in a 401(k) or a brokerage account.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            That matters more here than on most pages, because a lot of annuity marketing is aimed
-            at money that’s currently in the market. If the right answer for you is to leave it
-            there, you need somebody registered to tell you how. I’ll say so instead of selling
-            around it.
+            For financial planning, I work with an advisor. We can involve the right professional to
+            discuss how an insurance product would fit with the rest of your retirement
+            finances.{" "}
           </p>
         </div>
       </section>
@@ -207,13 +205,16 @@ export default function AnnuitiesPage() {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
-          <LeadCluster current="/retirement-income" heading="Related kitchen-table paths" />
+          <LeadCluster
+            current="/retirement-income"
+            heading="More help with retirement and insurance"
+          />
         </div>
       </section>
 
       <KitchenTableClose
         heading="Have a proposal in front of you?"
-        body="Bring it. I’ll read the guaranteed column with you and tell you what the surrender schedule actually says. If I think it’s wrong for you, I’ll say that too, including when the appropriate answer is to do nothing at all."
+        body="Bring the proposal or a statement from a contract you already own. We can review the guarantees, fees, withdrawal rules, and your questions together. There’s no obligation to make a change."
         href="/start?topic=financial_planning"
         label="Ask a question first →"
       />

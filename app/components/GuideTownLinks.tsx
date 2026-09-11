@@ -16,7 +16,7 @@ const PREFIX: Record<Kind, string> = {
  */
 export function GuideTownLinks({
   kind = "medicare",
-  heading = "Kitchen-table pages for the towns I actually drive to",
+  heading = "Medicare help in your community",
 }: {
   kind?: Kind;
   heading?: string;
@@ -39,7 +39,7 @@ export function GuideTownLinks({
         ))}
         <li>
           <Link href="/service-area" className="text-17 font-medium underline underline-offset-2">
-            All {TRIAD_CITIES.length} towns →
+            View all {TRIAD_CITIES.length} communities →
           </Link>
         </li>
       </ul>

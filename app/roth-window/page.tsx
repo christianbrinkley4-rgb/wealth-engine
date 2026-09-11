@@ -44,13 +44,13 @@ export default function RothWindowPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Roth conversion window" }]}
         eyebrow={`${SERVICE_AREA_LABEL} · 2026 IRMAA window`}
         title="How much can you convert without raising your Medicare premium?"
-        lede="Roth conversions are usually planned against income-tax brackets alone. The part that gets missed is IRMAA — the Medicare surcharge set by your MAGI from two years earlier. Convert too much in 2026 and you see it on your Medicare premium in 2028."
+        lede="A Roth conversion may increase the income Medicare uses to calculate future premiums. Explore an estimate using 2026 rates, then discuss the timing with a qualified tax professional or financial advisor. Future Medicare rates may differ."
         secondaryHref="/plan"
         secondaryLabel="Compare lump vs spread →"
-        note="Education only. I sit down for the Medicare timing piece; how to invest the converted dollars is an adviser’s question."
+        note="I can help explain the Medicare side of the estimate and identify questions for your tax professional or advisor."
         proof={[
           "Licensed in North Carolina",
-          "in-person meeting within ~30 minutes of Greensboro",
+          "At-home or phone consultations in the Triad",
           "Official 2026 CMS IRMAA brackets",
           "No cost to talk through the number",
         ]}
@@ -62,8 +62,8 @@ export default function RothWindowPage() {
       </div>
 
       <KitchenTableClose
-        heading="Want the window explained in person?"
-        body="I’ll walk through what a conversion does to a Part B premium two years later, and tell you plainly which parts need a CPA or a registered adviser."
+        heading="Would you like to discuss your estimate?"
+        body="We can review how retirement income may affect Medicare and discuss which questions need a CPA or financial advisor. Your consultation is no cost."
         href="/start?topic=financial_planning"
         label="Ask a retirement question →"
       />

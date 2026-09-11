@@ -61,7 +61,7 @@ export default function OpengraphImage() {
             maxWidth: 900,
           }}
         >
-          No national phone service. No cost. I review every case myself.
+          Personal Medicare and insurance help. No-cost consultation.
         </div>
       </div>
 

@@ -44,20 +44,20 @@ export function StickyMobileCta() {
       <div className="flex gap-3">
         <a
           href={AGENT.phoneHref}
-          className="text-18 flex h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] font-bold text-[var(--color-paper)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+          className="text-18 flex h-14 flex-1 items-center justify-center gap-2 rounded-lg bg-[#254f46] font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
         >
           <Phone className="size-5 shrink-0" aria-hidden />
           Call me
         </a>
         <Link
           href="/start"
-          className="text-18 flex h-14 flex-1 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] bg-white font-bold text-[var(--color-navy)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+          className="text-18 flex h-14 flex-1 items-center justify-center rounded-lg border-2 border-[#254f46] bg-white font-bold text-[#254f46] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
         >
-          Ask online
+          Free consultation
         </Link>
       </div>
       <p className="text-14 mt-2 text-center text-[var(--color-ink-muted)]">
-        {AGENT.phone} · no cost, and you reach me, not a national phone service
+        No cost · No obligation · {AGENT.name}
       </p>
     </div>
   );

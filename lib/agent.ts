@@ -23,7 +23,7 @@ export const AGENT = {
   email: "christianbrinkley4@gmail.com",
 
   /** Booking link shown on the thank-you page and in the auto-response email. */
-  schedulingUrl: "https://calendly.com/christianbrinkley4/30min",
+  schedulingUrl: "/schedule",
 
   /**
    * Optional public identifier. North Carolina requires a valid producer
@@ -53,9 +53,9 @@ export const AGENT = {
    * centers answer at 8pm on a Sunday; you can’t, so say what you actually do
    * instead of leaving people guessing.
    */
-  hours: "Monday through Friday, 9am to 7pm, and Saturday mornings.",
+  hours: "Appointments daily at 9am, 11am, 1pm, 3pm, and 5pm, Eastern time.",
   afterHoursPromise:
-    "Call outside those hours and leave a message. I return calls first thing the next business day.",
+    "If I’m with a family or away from the phone, leave a message and I’ll follow up personally.",
 } as const;
 
 /** Add verified 24-hour times only when the exact Saturday window is known. */

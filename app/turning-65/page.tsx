@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MedicareTimeline } from "@/components/MedicareTimeline";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
@@ -38,11 +39,11 @@ export const metadata: Metadata = {
 const STEPS = [
   {
     t: "Find the month you turn 65",
-    b: "The Initial Enrollment Period is seven months: the three months before the month you turn 65, that month, and the three months after. It is already running if your birthday is inside that stretch. It is not a year. It is not the fall annual window — that one is for people already on Medicare.",
+    b: "Your Initial Enrollment Period usually covers seven months: the three months before the month you turn 65, your birthday month, and the three months after. If your birthday is on the first of the month, the dates shift one month earlier.",
   },
   {
     t: "Enroll in the three months before your birthday month if you want coverage on time",
-    b: "Sign up in those first three months and Part B starts the month you turn 65. Sign up during your birthday month or later in the window and coverage starts the first of the month after you enroll. That gap is how people end up uncovered for a stretch they thought was already handled.",
+    b: "For most people, enrolling before the birthday month allows Part B to begin when they turn 65. Enrolling during or after that month generally means coverage begins the following month. Use the date tool below to check your estimated timeline.",
   },
   {
     t: "Know the Part B late penalty before you delay",
@@ -50,7 +51,7 @@ const STEPS = [
   },
   {
     t: "Mark the six-month Medigap window separately",
-    b: "It begins the first month you are both 65 and enrolled in Part B. Inside it, no insurer in North Carolina may refuse you or charge more because of health history. It does not reopen. People mix this up with the seven-month Medicare window and lose guaranteed-issue rights they cannot get back.",
+    b: "Your Medigap open enrollment period begins the first month you’re 65 or older and enrolled in Part B. It lasts six months and provides protections when buying a policy. Other protections may apply in certain situations, so check before changing coverage later.",
   },
 ] as const;
 
@@ -65,15 +66,15 @@ const FAQ = [
   },
   {
     q: "What is the difference between turning 65 and annual enrollment?",
-    a: "Turning 65 is the Initial Enrollment Period — a one-time seven-month window around your 65th birthday. Annual enrollment is October 15 to December 7 every year, for people already on Medicare who might change an Advantage or Part D plan. They are different doors, for different people, at different times.",
+    a: "Your Initial Enrollment Period is based on your 65th birthday. Annual enrollment, from October 15 to December 7, is a separate opportunity to review or change Medicare Advantage and Part D coverage. We can help you identify the dates that apply to you.",
   },
   {
     q: "Can I keep my doctor?",
-    a: "Original Medicare lets you see any doctor who accepts it. Medicare Advantage uses networks, and those networks are redrawn every year. Around here that usually means Cone Health, Novant, or Atrium Health Wake Forest Baptist — and the answer has to be checked by name, for the year your coverage starts, not guessed from a table.",
+    a: "Original Medicare lets you see providers who accept Medicare. Medicare Advantage plans generally use networks. We can check your doctors and hospitals for the specific plan and year you’re considering.",
   },
   {
     q: "Do you meet in person in Greensboro?",
-    a: "Meet in person or by phone. Free consultation with no obligation either way. I read every case myself — there is no national phone service behind this page.",
+    a: "We can meet at your home, at a convenient public location, or by phone. Your consultation is no cost, with no obligation to enroll. You’ll work directly with me.",
   },
   {
     q: "What does this cost?",
@@ -105,7 +106,7 @@ export default function Turning65Page() {
                 "The seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window that does not reopen.",
               path: "/turning-65",
               datePublished: "2026-08-31",
-              dateModified: "2026-08-31",
+              dateModified: "2026-09-10",
             }),
           ),
         }}
@@ -142,20 +143,27 @@ export default function Turning65Page() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Turning 65" }]}
         eyebrow="Initial Enrollment Period · Greensboro, NC"
         title="Build your Medicare timeline before 65"
-        lede="Coordinate Part B, employer coverage, HSA contributions, Medigap timing, physicians, and coverage for a younger spouse. Christian will personally review your dates and explain the next steps."
+        lede="You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered. I’ll help you understand your next steps."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon"
         secondaryLabel="Review my Medicare timeline →"
         note={
           <>
             Or{" "}
-            <Link href="/remind-me" className="font-medium underline underline-offset-2">
-              get your exact dates without giving a phone number
+            <Link href="#enrollment-dates" className="font-medium underline underline-offset-2">
+              see your estimated enrollment dates without sharing contact details
             </Link>
             .
           </>
         }
       />
 
+      <section
+        id="enrollment-dates"
+        className="personal-shell py-12"
+        aria-label="Find your Medicare enrollment dates"
+      >
+        <MedicareTimeline currentYear={new Date().getUTCFullYear()} />
+      </section>
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The four things to get right</h2>
@@ -179,15 +187,18 @@ export default function Turning65Page() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Why your county and physicians matter</h2>
+          <h2 className="text-28 font-semibold">
+            {" "}
+            Your doctors and the plans available where you live{" "}
+          </h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Medicare Advantage and Part D availability varies by county, even among nearby Triad
-            communities. A personal review starts with your home county and the physicians and
-            health systems you want to keep.
+            Medicare Advantage options can vary by county. A personal review starts with where you
+            live, the doctors you see, and the care you need. We’ll check prescription coverage
+            too.{" "}
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Networks can change each year. Confirm each physician and prescription for the plan year
-            your coverage begins before enrolling.
+            Provider networks and prescription coverage can change. Check the doctors and
+            medications you need for the plan year you’re considering.{" "}
           </p>
           <GuideTownLinks />
         </div>
@@ -197,19 +208,16 @@ export default function Turning65Page() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Already on Medicare instead?</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            This page is for the first enrollment. If you already have Medicare and the mail is
-            piling up this fall, that is a different window — October 15 to December 7 — and most
-            people should keep the plan they have.
+            Already on Medicare? Annual enrollment runs from October 15 through December 7. It’s a
+            chance to review your coverage for the coming year and decide whether to keep it or make
+            a change.{" "}
           </p>
           <p className="text-17 mt-4">
             <Link href="/annual-enrollment" className="font-medium underline underline-offset-2">
               Medicare annual enrollment →
             </Link>
           </p>
-          <LeadCluster
-            current="/turning-65"
-            heading="Life, retirement, and the other Medicare door"
-          />
+          <LeadCluster current="/turning-65" heading="More help as you prepare for retirement" />
         </div>
       </section>
 

@@ -8,8 +8,9 @@
  * Set META_CAPI_ACCESS_TOKEN and NEXT_PUBLIC_META_PIXEL_ID to enable; without
  * them this is a no-op.
  *
- * Personal data is SHA-256 hashed before it leaves the server, which is what
- * Meta requires — never send a raw email address.
+ * Contact identifiers are SHA-256 hashed, but remain matchable personal data.
+ * Enable only after the applicable consent and platform data-use requirements
+ * have been reviewed. Service topics and visitor URL/query text are not sent.
  */
 
 import crypto from "node:crypto";
@@ -29,7 +30,31 @@ export interface CapiLeadInput {
   userAgent?: string | null;
   fbclid?: string | null;
   sourceUrl?: string;
-  topic?: string | null;
+}
+
+const NEUTRAL_SOURCE_PATHS = new Set(["/", "/start", "/about", "/schedule", "/thank-you"]);
+
+/** Keep only a real, neutral page URL on this deployment's configured origin. */
+export function metaSourceUrl(raw: string | undefined): string | null {
+  try {
+    if (!raw || !process.env.NEXT_PUBLIC_SITE_URL?.trim()) return null;
+    const canonical = new URL(process.env.NEXT_PUBLIC_SITE_URL.trim());
+    const source = new URL(raw);
+    if (
+      canonical.protocol !== "https:" ||
+      canonical.username ||
+      canonical.password ||
+      source.origin !== canonical.origin ||
+      source.username ||
+      source.password ||
+      !NEUTRAL_SOURCE_PATHS.has(source.pathname)
+    ) {
+      return null;
+    }
+    return `${source.origin}${source.pathname}`;
+  } catch {
+    return null;
+  }
 }
 
 function hash(value: string | null | undefined): string | undefined {
@@ -46,6 +71,10 @@ export function isMetaCapiConfigured(): boolean {
 /** Never throws — a tracking failure must not fail a lead submission. */
 export async function sendMetaLeadEvent(input: CapiLeadInput): Promise<void> {
   if (!isMetaCapiConfigured()) return;
+  const sourceUrl = metaSourceUrl(input.sourceUrl);
+  // Meta requires the event's website URL. Skip when it cannot be supplied
+  // safely; do not invent a different page or expose a service-specific URL.
+  if (!sourceUrl) return;
 
   const [firstName, ...restName] = (input.firstName ?? "").split(" ");
   const lastName = input.lastName ?? restName.join(" ");
@@ -72,9 +101,8 @@ export async function sendMetaLeadEvent(input: CapiLeadInput): Promise<void> {
         event_time: Math.floor(Date.now() / 1000),
         event_id: input.eventId,
         action_source: "website",
-        event_source_url: input.sourceUrl,
+        event_source_url: sourceUrl,
         user_data: userData,
-        custom_data: { content_category: input.topic ?? undefined },
       },
     ],
   };

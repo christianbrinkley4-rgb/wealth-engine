@@ -68,17 +68,17 @@ export function ServiceHero({
               {lede}
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
               <a
                 href={AGENT.phoneHref}
-                className="text-19 inline-flex h-16 min-h-16 items-center justify-center gap-2 rounded-[12px] bg-[var(--color-paper)] px-8 font-semibold text-[var(--color-navy)] transition-opacity hover:opacity-95"
+                className="text-19 inline-flex min-h-16 shrink-0 items-center justify-center gap-2 rounded-[12px] bg-[var(--color-paper)] px-8 py-3 font-semibold whitespace-nowrap text-[var(--color-navy)] transition-opacity hover:opacity-95"
               >
                 <Phone className="size-5 shrink-0" aria-hidden />
                 {AGENT.phone}
               </a>
               <Link
                 href={secondaryHref}
-                className="text-19 inline-flex h-16 min-h-16 items-center justify-center rounded-[12px] border-2 border-[var(--color-paper)]/70 px-6 font-semibold transition-colors hover:bg-white/10"
+                className="text-19 inline-flex min-h-16 items-center justify-center rounded-[12px] border-2 border-[var(--color-paper)]/70 px-6 py-3 text-center font-semibold transition-colors hover:bg-white/10"
               >
                 {secondaryLabel}
               </Link>

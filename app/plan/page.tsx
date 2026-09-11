@@ -48,15 +48,15 @@ export default function PlanPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Conversion timing" }]}
         eyebrow={`${SERVICE_AREA_LABEL} · free, nothing is sent anywhere`}
         title="What does the timing of a Roth conversion cost you in Medicare?"
-        lede="Most conversion advice stops at the income tax. Medicare charges a second bill on the same income two years later, and unlike the tax, this one is decided almost entirely by which years you convert in. Move the sliders and the difference shows up on the right."
+        lede="A Roth conversion can affect both taxes and Medicare premiums. This tool compares two timing examples using 2026 Medicare rates. It can help you prepare questions for your tax professional or financial advisor."
         secondaryHref="/start?topic=financial_planning"
         secondaryLabel="Ask a retirement question →"
-        note="Education only — I am not a registered investment adviser. How to invest the money is an adviser’s question, and I’ll say so."
+        note="This tool provides general information. A qualified tax professional or financial advisor can help you evaluate a conversion for your situation."
         proof={[
           "Licensed in North Carolina",
-          "Kitchen-table walkthroughs within ~30 minutes of Greensboro",
+          "Personal help in Greensboro and nearby communities",
           "Official 2026 CMS IRMAA schedule",
-          "No cost, and I will not invent investment advice",
+          "No-cost consultation with a local licensed agent",
         ]}
       />
 
@@ -69,8 +69,8 @@ export default function PlanPage() {
       </div>
 
       <KitchenTableClose
-        heading="Want this walked through at the table?"
-        body="I’ll sit down and tell you what a conversion does to a Medicare premium, and which parts belong to a CPA or a registered adviser."
+        heading="Would you like help understanding your estimate?"
+        body="We can discuss how retirement income may affect Medicare and identify questions to take to your CPA or financial advisor."
         href="/start?topic=financial_planning"
         label="Ask a retirement question →"
       />

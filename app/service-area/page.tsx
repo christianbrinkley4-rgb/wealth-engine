@@ -4,15 +4,15 @@ import Link from "next/link";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
-import { placesByCounty, SERVICE_AREA_LABEL, SERVICE_AREA_LEDE, TRIAD_CITIES } from "@/lib/triad";
+import { placesByCounty, SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
 
 export const metadata: Metadata = {
   title: { absolute: "Local, Personalized Help Near Greensboro, NC" },
   description:
-    "Medicare, life insurance, and retirement questions answered in person anywhere about 30 minutes from downtown Greensboro — including High Point, Winston-Salem, Kernersville, Summerfield, Jamestown, and the towns in between. Not only the three big cities.",
+    "Meet Christian Brinkley for a no-cost consultation about Medicare, insurance, and retirement questions. Serving Greensboro, High Point, Winston-Salem, and nearby communities.",
   alternates: { canonical: "/service-area" },
   openGraph: pageOpenGraph({
-    title: "Within 30 minutes of downtown Greensboro",
+    title: "Personal help close to home in the Triad",
     description: SERVICE_AREA_LEDE,
     path: "/service-area",
   }),
@@ -20,16 +20,16 @@ export const metadata: Metadata = {
 
 const FAQ = [
   {
-    q: "How far will you actually drive?",
-    a: "About 30 minutes from downtown Greensboro in ordinary traffic. High Point and Winston-Salem are inside that. Burlington, Reidsville, Thomasville, and Randleman are the edges. Asheboro proper and Clemmons are farther, so they are not on the list.",
+    q: "Which communities do you serve?",
+    a: "I meet with people in Greensboro, High Point, Winston-Salem, and the surrounding communities listed below. If you don’t see your town, get in touch and we can discuss a convenient way to meet.",
   },
   {
-    q: "Why does each town have its own Medicare page?",
-    a: "Medicare Advantage and Part D are sold by county. Guilford, Forsyth, Randolph, Davidson, Alamance, and Rockingham all show up inside this drive. Two kitchens fifteen minutes apart can be shopping from different lists.",
+    q: "Does where I live affect my Medicare choices?",
+    a: "Yes. Medicare Advantage plan availability can vary by county. We’ll check the options for your home address, along with your doctors, prescriptions, and coverage needs.",
   },
   {
-    q: "Do you only sit down in Greensboro, High Point, and Winston-Salem?",
-    a: "Those are the three hubs. Kernersville, Summerfield, Jamestown, Oak Ridge, Archdale, and the rest of the towns on this page are first-class in-person meetings.",
+    q: "Can we meet at my home?",
+    a: "Yes. We can arrange a home visit, meet at a convenient public location, or talk by phone. You’re welcome to include your spouse or another family member. The consultation is no cost, with no obligation to buy anything.",
   },
 ] as const;
 
@@ -57,25 +57,25 @@ export default function ServiceAreaPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Service area" }]}
         eyebrow={SERVICE_AREA_LABEL}
-        title="If I can sit down at your table in about 30 minutes, you’re in the service area."
-        lede="High Point and Winston-Salem are in it. They are not the outer edge. Kernersville, Summerfield, Jamestown, Oak Ridge, Archdale, and the rest of the towns on this page are first-class — each with its own Medicare county facts, not a city name swapped into a template."
+        title="Personal help close to home."
+        lede="Whether you’re getting ready to retire or already enjoying retirement, I’m here to help you understand your Medicare and insurance options. I serve Greensboro, High Point, Winston-Salem, and nearby communities, including Kernersville, Summerfield, Jamestown, Oak Ridge, and Archdale."
         secondaryHref="/start"
-        secondaryLabel="Ask a question →"
+        secondaryLabel="Request a free consultation →"
       />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">What “30 minutes” actually means</h2>
+          <h2 className="text-28 font-semibold">Let’s meet where you’re comfortable</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Downtown Greensboro is the center. I drive to the household. Burlington and Reidsville
-            are the highway edges — about half an hour on I-40 and US-29 in ordinary traffic.
-            Randleman is as far toward Asheboro as I claim in person. Asheboro proper and Clemmons
-            are farther than that, so they are not on this list.
+            I’m based in Greensboro and offer home visits throughout the surrounding area. We can
+            also meet at a convenient public location or talk by phone. There’s no need to have
+            everything figured out before we talk. Bring your questions, and we’ll take them one at
+            a time.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Medicare Advantage is sold by county. Inside this radius you will find Guilford,
-            Forsyth, Randolph, Davidson, Alamance, and Rockingham. Two kitchens fifteen minutes
-            apart can be shopping from different lists. That is why each town has its own page.
+            The communities below are grouped by county because your location can affect your
+            Medicare Advantage options. Your doctors, prescriptions, and budget matter too. We’ll
+            look at those together before you decide on your next step.
           </p>
         </div>
       </section>
@@ -95,10 +95,7 @@ export default function ServiceAreaPage() {
                 >
                   <p className="text-18 font-semibold">{place.name}</p>
                   <p className="text-16 mt-1 text-[var(--color-ink-muted)]">
-                    {place.minutesFromDowntown === 0
-                      ? "Where I live"
-                      : `About ${place.minutesFromDowntown} minutes`}
-                    {place.countyNote ? " · county line to confirm" : ""}
+                    Home visits and phone consultations
                   </p>
                   <p className="text-16 mt-3 flex flex-wrap gap-x-3 gap-y-1">
                     <Link
@@ -130,10 +127,9 @@ export default function ServiceAreaPage() {
       <section className="bg-white py-12">
         <div className="measure-prose app-shell max-w-3xl">
           <p className="text-17 leading-relaxed text-[var(--color-ink-muted)]">
-            {TRIAD_CITIES.length} places, each with Medicare, life insurance, and retirement pages.
-            If your town is not named and you are still about 30 minutes from downtown Greensboro,
-            call me. The list is the towns I can document honestly — not a claim that nobody else
-            can get a visit.
+            Don’t see your town? Please get in touch. We can check whether a home visit is available
+            or arrange a phone conversation. Phone consultations are available throughout North
+            Carolina.
           </p>
           <dl className="mt-10 flex flex-col gap-7">
             {FAQ.map((item) => (
@@ -149,10 +145,10 @@ export default function ServiceAreaPage() {
       </section>
 
       <KitchenTableClose
-        heading="Want me to come to your table?"
-        body="Greensboro, High Point, Winston-Salem, or a town in between. Free consultation. No obligation, and I’ll tell you if what you have is already fine."
+        heading="Let’s talk about what matters to you."
+        body="We can review your coverage, answer your questions, and discuss the next steps for you and your family. Your consultation is no cost, with no obligation to buy anything."
         href="/start"
-        label="Start here →"
+        label="Request a free consultation →"
       />
     </main>
   );

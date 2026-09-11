@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { AGENT } from "@/lib/agent";
+import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
+import { normalizeUsPhone } from "@/lib/contact";
+import { captureInCommandCenter, commandCenterConfig } from "@/lib/commandCenter";
 import { scoreLead } from "@/lib/leadScoring";
 import { sendMetaLeadEvent } from "@/lib/metaCapi";
 import {
   isLeadNotifyConfigured,
-  isProspectEmailConfigured,
   notifyLeadCaptured,
   sendProspectAutoReply,
 } from "@/lib/notifyLead";
@@ -24,7 +25,12 @@ const VALID_SOURCES = [
   "about_page_cta",
 ] as const;
 
-const VALID_INTEREST_TOPICS = ["medicare", "financial_planning", "life_insurance"] as const;
+const VALID_INTEREST_TOPICS = [
+  "medicare",
+  "financial_planning",
+  "life_insurance",
+  "care_coverage",
+] as const;
 
 type ValidSource = (typeof VALID_SOURCES)[number];
 type InterestTopic = (typeof VALID_INTEREST_TOPICS)[number];
@@ -80,11 +86,6 @@ const CONFIG_ERROR = {
   email: AGENT.email,
 };
 
-function normalizePhoneDigits(value: string | null | undefined) {
-  if (!value) return "";
-  return value.replace(/\D/g, "");
-}
-
 function isValidSource(value: string | undefined): value is ValidSource {
   return VALID_SOURCES.includes(value as ValidSource);
 }
@@ -96,7 +97,14 @@ function isValidInterestTopic(value: string | undefined): value is InterestTopic
 function normalizeQuizAnswers(value: LeadPayload["quiz_answers"]): Record<string, unknown> | null {
   if (value == null) return null;
   if (typeof value !== "object" || Array.isArray(value)) return null;
-  return value;
+  return Object.fromEntries(
+    Object.entries(value)
+      .slice(0, 25)
+      .filter(
+        ([key, item]) => key !== "__proto__" && key !== "constructor" && typeof item === "string",
+      )
+      .map(([key, item]) => [key.slice(0, 60), (item as string).slice(0, 1000)]),
+  );
 }
 
 function normalizeAttribution(value: Attribution | null | undefined): Attribution | null {
@@ -135,7 +143,18 @@ export async function POST(request: NextRequest) {
 
     let body: LeadPayload;
     try {
-      body = (await request.json()) as LeadPayload;
+      const raw = await request.text();
+      if (raw.length > 32768) {
+        return NextResponse.json(
+          { error: "Please shorten your message and try again." },
+          { status: 413 },
+        );
+      }
+      const parsed: unknown = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+        return NextResponse.json({ error: "Invalid request." }, { status: 400 });
+      }
+      body = parsed as LeadPayload;
     } catch {
       return NextResponse.json({ error: "Invalid request." }, { status: 400 });
     }
@@ -145,7 +164,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true });
     }
 
-    const storageAvailable = hasSupabaseAdminConfig();
+    const commandCenter = Boolean(commandCenterConfig());
+    const storageAvailable = !commandCenter && hasSupabaseAdminConfig();
     let supabase: ReturnType<typeof getSupabaseAdmin> | null = null;
 
     if (storageAvailable) {
@@ -154,7 +174,7 @@ export async function POST(request: NextRequest) {
       } catch (configErr) {
         console.error("[capture-lead] Supabase client init failed:", configErr);
       }
-    } else {
+    } else if (!commandCenter) {
       console.error("[capture-lead] Supabase is not configured.");
     }
 
@@ -199,6 +219,17 @@ export async function POST(request: NextRequest) {
      * ------------------------------------------------------------- */
     const turnstile = await verifyTurnstile(body.turnstile_token, ip);
     if (!turnstile.ok) {
+      if (turnstile.reason === "verification-unavailable") {
+        return NextResponse.json(
+          {
+            error: `The form check is temporarily unavailable. Please try again shortly, or call me at ${AGENT.phone}. Your request has not been submitted.`,
+            code: "verification_unavailable",
+            phone: AGENT.phone,
+            phoneHref: AGENT.phoneHref,
+          },
+          { status: 503, headers: { "Retry-After": "30" } },
+        );
+      }
       return NextResponse.json(
         { error: "Couldn’t verify that you’re a person. Refresh the page and try once more." },
         { status: 400 },
@@ -210,32 +241,36 @@ export async function POST(request: NextRequest) {
     }
     const source = body.source;
 
-    const email = body.email?.trim().toLowerCase() ?? "";
-    if (!EMAIL_REGEX.test(email)) {
+    const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+    if (email.length > 254 || !EMAIL_REGEX.test(email)) {
       return NextResponse.json(
         { error: "Please enter a valid email address.", field: "email" },
         { status: 400 },
       );
     }
 
-    const full_name = body.full_name?.trim() || null;
-    const phoneDigits = normalizePhoneDigits(body.phone_number);
-    if (phoneDigits.length > 0 && phoneDigits.length < 10) {
+    const full_name =
+      typeof body.full_name === "string" ? body.full_name.trim().slice(0, 120) || null : null;
+    const phoneDigits = normalizeUsPhone(body.phone_number);
+    if (phoneDigits === null) {
       return NextResponse.json(
-        { error: "Please enter a complete phone number, or leave it blank.", field: "phone" },
+        {
+          error: "Enter a 10-digit US phone number, with or without +1, or leave it blank.",
+          field: "phone",
+        },
         { status: 400 },
       );
     }
-    const phone_number = phoneDigits.length >= 10 ? phoneDigits.slice(0, 10) : null;
+    const phone_number = phoneDigits || null;
 
-    const zipDigits = body.zip_code?.replace(/\D/g, "").slice(0, 5) || "";
-    if (source === "help_quiz" && zipDigits.length !== 5) {
+    const zipDigits = typeof body.zip_code === "string" ? body.zip_code.trim() : "";
+    if (source === "help_quiz" && !/^\d{5}$/.test(zipDigits)) {
       return NextResponse.json(
         { error: "Please enter a valid 5-digit ZIP code.", field: "zip_code" },
         { status: 400 },
       );
     }
-    const zip_code = zipDigits.length === 5 ? zipDigits : null;
+    const zip_code = /^\d{5}$/.test(zipDigits) ? zipDigits : null;
 
     if (source === "help_quiz") {
       if (!full_name) {
@@ -251,7 +286,11 @@ export async function POST(request: NextRequest) {
         );
       }
       // Consent is proven, not assumed: we store what they saw and agreed to.
-      if (body.consent_given !== true || !body.consent_text) {
+      if (
+        body.consent_given !== true ||
+        body.consent_text !== CONSENT_TEXT ||
+        body.consent_version !== CONSENT_VERSION
+      ) {
         return NextResponse.json(
           { error: "Please check the consent box so I know it’s alright to contact you." },
           { status: 400 },
@@ -259,6 +298,19 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    for (const field of ["age", "annual_income", "calculated_premium"] as const) {
+      const value = body[field];
+      if (
+        value != null &&
+        (typeof value !== "number" || !Number.isFinite(value) || value < 0 || value > 1e9)
+      ) {
+        return NextResponse.json({ error: "Please enter a valid number.", field }, { status: 400 });
+      }
+    }
+    const verifiedConsent =
+      body.consent_given === true &&
+      body.consent_text === CONSENT_TEXT &&
+      body.consent_version === CONSENT_VERSION;
     const filing_status =
       body.filing_status === "individual" || body.filing_status === "married_jointly"
         ? body.filing_status
@@ -288,19 +340,29 @@ export async function POST(request: NextRequest) {
       age,
       annual_income,
       calculated_premium: body.calculated_premium ?? null,
-      irmaa_bracket: body.irmaa_bracket ?? null,
+      irmaa_bracket:
+        typeof body.irmaa_bracket === "string" ? body.irmaa_bracket.slice(0, 100) : null,
       // Proof of consent, not a hardcoded boolean.
-      consent_given: body.consent_given === true,
-      consent_text: body.consent_text ?? null,
-      consent_version: body.consent_version ?? null,
+      consent_given: verifiedConsent,
+      consent_text: verifiedConsent ? CONSENT_TEXT : null,
+      consent_version: verifiedConsent ? CONSENT_VERSION : null,
       consent_ip: ip,
       consent_user_agent: userAgent?.slice(0, 400) ?? null,
       consent_at: new Date().toISOString(),
       // Permission to call is not permission to text, so this is its own flag
       // with its own stored wording — and it only counts with a phone number.
-      sms_consent: Boolean(body.sms_consent) && Boolean(phone_number),
-      sms_consent_text: body.sms_consent && phone_number ? (body.sms_consent_text ?? null) : null,
-      sms_consent_at: body.sms_consent && phone_number ? new Date().toISOString() : null,
+      sms_consent:
+        body.sms_consent === true &&
+        body.sms_consent_text === SMS_CONSENT_TEXT &&
+        Boolean(phone_number),
+      sms_consent_text:
+        body.sms_consent === true && body.sms_consent_text === SMS_CONSENT_TEXT && phone_number
+          ? SMS_CONSENT_TEXT
+          : null,
+      sms_consent_at:
+        body.sms_consent === true && body.sms_consent_text === SMS_CONSENT_TEXT && phone_number
+          ? new Date().toISOString()
+          : null,
       lead_score: score,
       irmaa_risk_status: risk,
       status: "new",
@@ -315,8 +377,19 @@ export async function POST(request: NextRequest) {
     let stored = false;
     let existing: { id: string; lead_score: number | null } | null = null;
     let finalScore = score;
+    let duplicate = false;
+    let requiresReview = false;
 
-    if (supabase) {
+    if (commandCenter) {
+      try {
+        const receipt = await captureInCommandCenter(row);
+        stored = receipt.stored;
+        duplicate = receipt.duplicate;
+        requiresReview = receipt.requires_review;
+      } catch (storageError) {
+        console.error("[capture-lead] Command center capture failed:", storageError);
+      }
+    } else if (supabase) {
       try {
         // De-duplicate repeat submissions from the same person in the same day.
         const cutoff = new Date(Date.now() - 86_400_000).toISOString();
@@ -376,30 +449,41 @@ export async function POST(request: NextRequest) {
         return NextResponse.json(CONFIG_ERROR, { status: 503 });
       }
 
-      await Promise.allSettled([
-        sendProspectAutoReply({
-          email,
-          full_name,
-          interest_topic,
-          quiz_answers,
-          source,
-          calculated_premium: body.calculated_premium ?? null,
-          irmaa_bracket: body.irmaa_bracket ?? null,
-        }),
+      const emailDelivery = await Promise.allSettled([
+        commandCenter
+          ? Promise.resolve(false)
+          : sendProspectAutoReply({
+              email,
+              full_name,
+              interest_topic,
+              quiz_answers,
+              source,
+              calculated_premium: body.calculated_premium ?? null,
+              irmaa_bracket: body.irmaa_bracket ?? null,
+            }),
       ]);
 
       return NextResponse.json({
         success: true,
         stored: false,
-        emailConfigured: isProspectEmailConfigured(),
+        emailConfigured: emailDelivery[0].status === "fulfilled" && emailDelivery[0].value === true,
       });
     }
 
     // Everything past this point is delivery, not storage. The lead is already
     // safe, so no failure here may turn into an error for the visitor.
     const sourceUrl = request.headers.get("referer") ?? undefined;
+    if (duplicate) {
+      // A network retry must not create another follow-up task or send another email.
+      return NextResponse.json({
+        success: true,
+        updated: true,
+        stored: true,
+        emailConfigured: false,
+      });
+    }
 
-    await Promise.allSettled([
+    const delivery = await Promise.allSettled([
       notifyLeadCaptured({
         source,
         email,
@@ -411,17 +495,20 @@ export async function POST(request: NextRequest) {
         lead_score: finalScore,
         attribution,
       }),
-      sendProspectAutoReply({
-        email,
-        full_name,
-        interest_topic,
-        quiz_answers,
-        source,
-        calculated_premium: body.calculated_premium ?? null,
-        irmaa_bracket: body.irmaa_bracket ?? null,
-      }),
+      requiresReview
+        ? Promise.resolve(false)
+        : sendProspectAutoReply({
+            email,
+            full_name,
+            interest_topic,
+            quiz_answers,
+            source,
+            calculated_premium: body.calculated_premium ?? null,
+            irmaa_bracket: body.irmaa_bracket ?? null,
+          }),
       sendMetaLeadEvent({
-        eventId: body.event_id ?? `lead_${Date.now()}`,
+        eventId:
+          typeof body.event_id === "string" ? body.event_id.slice(0, 100) : `lead_${Date.now()}`,
         email,
         phone: phone_number,
         zip: zip_code,
@@ -430,7 +517,6 @@ export async function POST(request: NextRequest) {
         userAgent,
         fbclid: attribution?.fbclid ?? null,
         sourceUrl,
-        topic: interest_topic,
       }),
     ]);
 
@@ -446,7 +532,7 @@ export async function POST(request: NextRequest) {
       success: true,
       updated: Boolean(existing),
       stored,
-      emailConfigured: isProspectEmailConfigured(),
+      emailConfigured: delivery[1].status === "fulfilled" && delivery[1].value === true,
     });
   } catch (err) {
     console.error("[capture-lead] Unhandled error:", err);

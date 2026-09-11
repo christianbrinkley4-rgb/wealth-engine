@@ -14,6 +14,7 @@ import crypto from "node:crypto";
 import { AGENT } from "@/lib/agent";
 import { describeAnswers, getValueBeat, isHelpQuizTopic, TOPIC_LABELS } from "@/lib/helpQuiz";
 import { formatLongDate } from "@/lib/reminders";
+import { SITE_URL as PUBLIC_SITE_URL } from "@/lib/seo";
 
 const MAKE_WEBHOOK_URL = process.env.MAKE_WEBHOOK_URL?.trim() || "";
 const MAKE_WEBHOOK_SECRET = process.env.MAKE_WEBHOOK_SECRET?.trim() || "";
@@ -21,6 +22,13 @@ const RESEND_API_KEY = process.env.RESEND_API_KEY?.trim() || "";
 const LEAD_NOTIFY_EMAIL = process.env.LEAD_NOTIFY_EMAIL?.trim() || AGENT.email;
 const RESEND_FROM = process.env.RESEND_FROM?.trim() || "";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "";
+
+/** Keep the selected service, never names, email addresses, or answers, in booking links. */
+function bookingPageUrl(topic: string | null | undefined): string {
+  const url = new URL(AGENT.schedulingUrl, PUBLIC_SITE_URL);
+  if (isHelpQuizTopic(topic)) url.searchParams.set("topic", topic);
+  return url.toString();
+}
 
 // Optional SMS alert. Set all three to switch it on.
 const TWILIO_ACCOUNT_SID = process.env.TWILIO_ACCOUNT_SID?.trim() || "";
@@ -87,6 +95,7 @@ async function sendEmail(options: {
 
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
+    signal: AbortSignal.timeout(8000),
     headers: {
       Authorization: `Bearer ${RESEND_API_KEY}`,
       "Content-Type": "application/json",
@@ -136,7 +145,12 @@ async function postMakeWebhook(payload: LeadNotifyPayload) {
       signal: controller.signal,
     });
     if (!res.ok && res.status >= 500) {
-      const retry = await fetch(MAKE_WEBHOOK_URL, { method: "POST", headers, body });
+      const retry = await fetch(MAKE_WEBHOOK_URL, {
+        method: "POST",
+        headers,
+        body,
+        signal: AbortSignal.timeout(8000),
+      });
       return { ok: retry.ok, skipped: false as const, status: retry.status };
     }
     return { ok: res.ok, skipped: false as const, status: res.status };
@@ -222,8 +236,8 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<bo
     "",
     attributionLines ? `Came from:\n${attributionLines}` : "Came from: (no campaign tags)",
     "",
-    "They’ve already received their answers by email and a link to book time.",
-    "Call within one business day.",
+    "Review their answers and preferred contact details in the command center.",
+    "Check for an existing appointment before following up.",
   ]
     .filter((line) => line !== "")
     .join("\n");
@@ -273,16 +287,15 @@ export async function sendProspectAutoReply(input: {
   source?: string;
   calculated_premium?: number | null;
   irmaa_bracket?: string | null;
-}): Promise<void> {
+}): Promise<boolean> {
   if (!resendConfigured()) {
     console.error("[notifyLead] Auto-reply skipped — RESEND_API_KEY / RESEND_FROM not set.");
-    return;
+    return false;
   }
 
   // Calculator captures have figures instead of quiz answers.
   if (!isHelpQuizTopic(input.interest_topic)) {
-    await sendCalculatorAutoReply(input);
-    return;
+    return sendCalculatorAutoReply(input);
   }
 
   const firstName = (input.full_name || "").trim().split(" ")[0] || "there";
@@ -291,6 +304,7 @@ export async function sendProspectAutoReply(input: {
     (input.quiz_answers ?? {}) as Record<string, string>,
   );
   const topic = TOPIC_LABELS[input.interest_topic];
+  const bookingUrl = bookingPageUrl(input.interest_topic);
 
   const text = [
     `Hi ${firstName},`,
@@ -307,10 +321,10 @@ export async function sendProspectAutoReply(input: {
     "",
     "That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.",
     "",
-    `You can book a time here: ${AGENT.schedulingUrl}`,
+    `You can arrange a conversation here: ${bookingUrl}`,
     `Or just call or text me: ${AGENT.phone}`,
     "",
-    "If I don’t hear from you first, I’ll reach out within one business day.",
+    "Your request came directly to me. You can reply to this email with a question.",
     "",
     AGENT.name,
     "Licensed insurance agent · " + AGENT.city + ", " + AGENT.state,
@@ -331,9 +345,9 @@ export async function sendProspectAutoReply(input: {
       </ul>
       <p style="color:#4a5563;font-size:15px">That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.</p>
       <p style="margin:28px 0">
-        <a href="${AGENT.schedulingUrl}" style="background:#0f2241;color:#f5f0e8;padding:14px 22px;border-radius:8px;text-decoration:none;display:inline-block;font-family:Helvetica,Arial,sans-serif;font-weight:600">Book a time to talk</a>
+        <a href="${escapeHtml(bookingUrl)}" style="background:#0f2241;color:#f5f0e8;padding:14px 22px;border-radius:8px;text-decoration:none;display:inline-block;font-family:Helvetica,Arial,sans-serif;font-weight:600">Arrange a conversation</a>
       </p>
-      <p>Or just call or text me: <strong>${AGENT.phone}</strong>. If I don’t hear from you first, I’ll reach out within one business day.</p>
+      <p>Or just call or text me: <strong>${AGENT.phone}</strong>. Your request came directly to me, and you can reply to this email with a question.</p>
       <p style="margin-top:28px">${escapeHtml(AGENT.name)}<br>
       <span style="color:#4a5563">Licensed insurance agent · ${AGENT.city}, ${AGENT.state}</span><br>
       <a href="mailto:${AGENT.email}" style="color:#0f2241">${AGENT.email}</a></p>
@@ -343,15 +357,17 @@ export async function sendProspectAutoReply(input: {
     </div>`;
 
   try {
-    await sendEmail({
+    const result = await sendEmail({
       to: input.email,
       subject: `Your ${topic.toLowerCase()} questions — from ${AGENT.name}`,
       text,
       html,
       replyTo: AGENT.email,
     });
+    return result.ok;
   } catch (error) {
     console.error("[notifyLead] auto-reply failed:", error);
+    return false;
   }
 }
 
@@ -362,10 +378,11 @@ async function sendCalculatorAutoReply(input: {
   source?: string;
   calculated_premium?: number | null;
   irmaa_bracket?: string | null;
-}): Promise<void> {
+}): Promise<boolean> {
   const firstName = (input.full_name || "").trim().split(" ")[0] || "there";
   const isRoth = input.source === "roth_calculator";
   const label = isRoth ? "Roth conversion estimate" : "Medicare premium estimate";
+  const bookingUrl = bookingPageUrl(isRoth ? "financial_planning" : "medicare");
 
   const figure =
     input.calculated_premium != null && input.calculated_premium > 0
@@ -383,7 +400,7 @@ async function sendCalculatorAutoReply(input: {
     "",
     "Two things worth knowing about that number: it’s an estimate for education rather than a quote, and Medicare sets premiums from a tax return two years old — so if your income has changed since then, the real figure can differ, and in some cases it can be appealed.",
     "",
-    `Happy to walk through what applies to you. Book a time: ${AGENT.schedulingUrl}`,
+    `Happy to walk through what applies to you. Arrange a conversation: ${bookingUrl}`,
     `Or call or text me: ${AGENT.phone}`,
     "",
     AGENT.name,
@@ -396,14 +413,16 @@ async function sendCalculatorAutoReply(input: {
     .join("\n");
 
   try {
-    await sendEmail({
+    const result = await sendEmail({
       to: input.email,
       subject: `Your ${label.toLowerCase()} — from ${AGENT.name}`,
       text,
       replyTo: AGENT.email,
     });
+    return result.ok;
   } catch (error) {
     console.error("[notifyLead] calculator auto-reply failed:", error);
+    return false;
   }
 }
 
@@ -535,7 +554,7 @@ export async function sendReminderDue(input: {
           "• There’s a separate six-month window for supplemental coverage that starts the month you’re 65 and enrolled in Part B. Inside it your health history can’t be used against you. Outside it, in most states, it can.",
           "",
           "No charge to talk any of this through, and no obligation. Book a time here:",
-          AGENT.schedulingUrl,
+          bookingPageUrl("medicare"),
           "",
           `Or just call me: ${AGENT.phone}`,
         ]
@@ -545,7 +564,7 @@ export async function sendReminderDue(input: {
           "It’s worth a look even if nothing about your health has changed — plans change their pricing, their networks, and their covered medications every year, so the plan that fit last year may not be the one that fits now.",
           "",
           "Happy to check whether your current coverage is still the right one. No charge, no obligation:",
-          AGENT.schedulingUrl,
+          bookingPageUrl("medicare"),
           "",
           `Or just call me: ${AGENT.phone}`,
         ];

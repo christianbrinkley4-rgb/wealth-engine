@@ -36,9 +36,7 @@ export function FeaturedPlaceCards({
           </p>
           <h3 className="text-22 mt-2 font-semibold">{city.name}</h3>
           <p className="text-16 mt-2 text-[var(--color-ink-muted)]">
-            {city.minutesFromDowntown === 0
-              ? "Downtown — where I live"
-              : `About ${city.minutesFromDowntown} minutes from downtown Greensboro`}
+            Meet at home or talk by phone
           </p>
           <Link
             href={hrefFor(city)}

@@ -37,7 +37,7 @@ const START_HREF = "/start?topic=medicare&stage=helping_spouse_or_parent&ask=par
 const FIRST_STEPS = [
   {
     title: "Get authorization before you need it",
-    body: "Social Security won’t discuss your parent’s record with you until they’ve authorized it in writing, and Medicare works the same way. Everyone discovers this on the phone call where it stops them. Sorting it out first turns a five-call problem into a one-call problem.",
+    body: "Ask your parent how they would like you to help, and check what authorization Medicare, Social Security, or their insurer needs before discussing their personal information. Different organizations may use different forms.",
   },
   {
     title: "Find out the exact month",
@@ -56,11 +56,11 @@ const FIRST_STEPS = [
 const FAQ = [
   {
     q: "Can I enroll my parent myself?",
-    a: "Not without authorization. You can do all the research, sit in on the calls, and help them compare — but the decision and the signature have to be theirs unless you hold power of attorney or they’ve filed authorization with Social Security. Worth starting that paperwork now if it isn’t already in place.",
+    a: "You can help research options, organize paperwork, and join a conversation with your parent’s permission. Taking action on their behalf may require separate legal authority. Confirm what the relevant agency or plan requires.",
   },
   {
     q: "My parent is overwhelmed and doesn’t want to talk about it. What do I do?",
-    a: "Start with the date rather than the decision. Almost everyone relaxes once they know exactly how long they have, and most of the panic comes from not knowing whether they’ve already missed something. Usually they haven’t.",
+    a: "Start by asking what concerns them most. You can work through one question at a time, beginning with any upcoming dates. If they would like help, we can have a conversation together at their pace.",
   },
   {
     q: "They live in the Triad but I don’t. Can you still help?",
@@ -96,7 +96,7 @@ export default function HelpingAParentPage() {
                 "Authorization, the seven-month sign-up window, and the Medigap deadline an adult child needs to pin down first.",
               path: "/helping-a-parent",
               datePublished: "2026-08-31",
-              dateModified: "2026-08-31",
+              dateModified: "2026-09-10",
             }),
           ),
         }}
@@ -119,11 +119,11 @@ export default function HelpingAParentPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Helping a parent" }]}
         eyebrow={`For the son or daughter · ${AGENT.city}`}
-        title="You’re the one reading about Medicare at 11pm. Not them."
-        lede="Someone has to figure out what Mom or Dad needs to do and by when, and it’s usually whichever adult child is best at forms. Here’s the short version — the dates that matter, the paperwork that blocks you, and what to actually ask."
+        title="Helping a parent with Medicare? You can work through it together."
+        lede="If you’re helping a parent understand Medicare, there can be a lot to sort through. This guide covers enrollment dates, current coverage, and ways to support them while keeping their wishes at the center of the conversation."
         secondaryHref={START_HREF}
         secondaryLabel="Tell me their situation →"
-        note="One question and you’ll get the part that matters. No cost, and I’m happy to have you both on the call."
+        note="You’re welcome to join your parent for a no-cost consultation, in person or by phone."
       />
 
       <section className="bg-white py-14 md:py-18">
@@ -149,19 +149,16 @@ export default function HelpingAParentPage() {
 
       <section className="bg-[var(--color-navy)] py-14 text-[var(--color-paper)] md:py-18">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-26 font-semibold">
-            If their window hasn’t opened yet, don’t hold it in your head
-          </h2>
+          <h2 className="text-26 font-semibold">Keep their enrollment dates somewhere handy </h2>
           <p className="text-18 mt-4 leading-relaxed" style={{ color: "rgba(245,240,232,0.9)" }}>
-            The single most common way this goes wrong is that someone works out the right answer
-            eight months early and then life happens. Give me the month they turn 65 and I’ll email
-            you before the window opens — one email, nothing else.
+            Our Medicare date tool can help you find their estimated enrollment window and save it
+            to a calendar. You can use it without sharing a name, email, or phone number.{" "}
           </p>
           <Link
-            href="/remind-me"
+            href="/turning-65#enrollment-dates"
             className="text-18 mt-7 inline-flex min-h-14 items-center justify-center rounded-xl bg-[var(--color-paper)] px-7 font-semibold text-[var(--color-navy)]"
           >
-            Set a reminder →
+            Find their Medicare dates →
           </Link>
         </div>
       </section>
@@ -188,13 +185,13 @@ export default function HelpingAParentPage() {
 
       <section className="bg-[var(--color-paper)] py-12">
         <div className="measure-prose app-shell max-w-3xl">
-          <GuideTownLinks heading="If they live in one of these towns" />
+          <GuideTownLinks heading="Medicare help near your parent" />
         </div>
       </section>
 
       <KitchenTableClose
-        heading="Tell me where they are and I’ll help"
-        body="One question about their situation, and you’ll have something useful whether or not we ever speak."
+        heading="Let’s talk through your family’s questions."
+        body="We can arrange a conversation with your parent and anyone they would like to include. No cost and no obligation."
         href={START_HREF}
         label="Start here →"
       />

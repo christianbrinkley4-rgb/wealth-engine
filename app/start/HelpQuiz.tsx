@@ -2,13 +2,15 @@
 
 import { ArrowLeft, CalendarDays, CheckCircle2, HeartPulse, Landmark, Shield } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 
 import { useIsClient } from "@/hooks/useIsClient";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
 import { newEventId, readAttribution } from "@/lib/attribution";
+import { normalizeUsPhone } from "@/lib/contact";
 import {
   ASK_PROMPTS,
   BRANCH_QUESTIONS,
@@ -68,6 +70,25 @@ const PHASES: HelpQuizPhase[] = ["topic", "branch", "value", "contact"];
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
+type TurnstileApi = {
+  ready: (callback: () => void) => void;
+  render: (
+    container: HTMLElement,
+    options: {
+      sitekey: string;
+      theme: "light";
+      "error-callback": () => void;
+    },
+  ) => string | undefined;
+  getResponse: (widgetId: string) => string | undefined;
+  reset: (widgetId: string) => void;
+  remove: (widgetId: string) => void;
+};
+
+function turnstileApi(): TurnstileApi | undefined {
+  return (window as Window & { turnstile?: TurnstileApi }).turnstile;
+}
+
 function sanitize(raw: StoredQuiz): StoredQuiz {
   const topic = isInterestTopic(raw?.topic) ? raw.topic : null;
   const phase = PHASES.includes(raw?.phase) ? raw.phase : "topic";
@@ -115,10 +136,8 @@ interface UrlEntry {
  * researching for a parent, say — hand people straight to the second question
  * instead of asking them something the page already established.
  */
-function readUrlEntry(): UrlEntry | null {
-  if (typeof window === "undefined") return null;
+function readUrlEntry(params: Pick<URLSearchParams, "get">): UrlEntry | null {
   try {
-    const params = new URLSearchParams(window.location.search);
     const topic = params.get("topic");
     if (!isInterestTopic(topic)) return null;
 
@@ -142,9 +161,12 @@ function readUrlEntry(): UrlEntry | null {
 
 export function HelpQuiz() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const entryKey = searchParams.toString();
   const isClient = useIsClient();
   const [raw, setRaw, clearStored] = useLocalStorage<StoredQuiz>(STORAGE_KEY, INITIAL);
-  const [urlEntry] = useState(readUrlEntry);
+  const urlEntry = readUrlEntry(searchParams);
+  const [dismissedEntry, setDismissedEntry] = useState<string | null>(null);
   const [resumeDismissed, setResumeDismissed] = useState(false);
 
   // Before hydration, render exactly what the server rendered: the topic
@@ -152,7 +174,7 @@ export function HelpQuiz() {
   // come from the browser, and using them on the first client render would mean
   // the markup no longer matches the prerendered HTML.
   const persisted = isClient ? sanitize(raw) : INITIAL;
-  const linked = isClient ? urlEntry : null;
+  const linked = isClient && dismissedEntry !== entryKey ? urlEntry : null;
   const linkedTopic = linked?.topic ?? null;
 
   // A deep link from the home page is honored without writing to storage —
@@ -186,6 +208,7 @@ export function HelpQuiz() {
   const [zip, setZip] = useState("");
   const [income, setIncome] = useState("");
   const [meet, setMeet] = useState("");
+  const [bestTime, setBestTime] = useState("");
   const [note, setNote] = useState("");
   const [consent, setConsent] = useState(false);
   const [smsConsent, setSmsConsent] = useState(false);
@@ -193,6 +216,10 @@ export function HelpQuiz() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const turnstileContainerRef = useRef<HTMLDivElement>(null);
+  const turnstileWidgetRef = useRef<string | null>(null);
+  const [turnstileReady, setTurnstileReady] = useState(false);
+  const [turnstileRender, setTurnstileRender] = useState(0);
 
   const askContext = linked?.ask ?? "general";
   const topic = stored.topic;
@@ -217,6 +244,62 @@ export function HelpQuiz() {
   useEffect(() => {
     headingRef.current?.focus();
   }, [stored.phase, stored.branchIndex]);
+
+  // The final step can mount after the script loads. Render this widget explicitly
+  // and remove it when the visitor leaves the step; the rest of their answers stay put.
+  useEffect(() => {
+    const container = turnstileContainerRef.current;
+    const api = turnstileApi();
+    const sitekey = TURNSTILE_SITE_KEY;
+    if (stored.phase !== "contact" || !turnstileReady || !container || !api || !sitekey) return;
+
+    let disposed = false;
+    let widgetId: string | undefined;
+    api.ready(() => {
+      if (disposed) return;
+      try {
+        widgetId = api.render(container, {
+          sitekey,
+          theme: "light",
+          "error-callback": () => {
+            if (!disposed) {
+              setError("The form check couldn’t finish. Please try it again, or call me directly.");
+            }
+          },
+        });
+        turnstileWidgetRef.current = widgetId ?? null;
+      } catch {
+        setError("The form check couldn’t load. Please try again, or call me directly.");
+      }
+    });
+
+    return () => {
+      disposed = true;
+      turnstileWidgetRef.current = null;
+      if (widgetId) {
+        try {
+          api.remove(widgetId);
+        } catch {
+          // A navigation or blocked script may already have removed the widget.
+        }
+      }
+    };
+  }, [stored.phase, turnstileReady, turnstileRender]);
+
+  function resetFormCheck() {
+    if (!TURNSTILE_SITE_KEY) return;
+    const widgetId = turnstileWidgetRef.current;
+    try {
+      if (!widgetId) throw new Error("Widget not ready");
+      const api = turnstileApi();
+      if (!api) throw new Error("Form check unavailable");
+      api.reset(widgetId);
+    } catch {
+      // Re-create the check if its previous instance can no longer be reset.
+      turnstileWidgetRef.current = null;
+      setTurnstileRender((value) => value + 1);
+    }
+  }
 
   function patch(partial: Partial<StoredQuiz>) {
     setRaw(sanitize({ ...stored, ...partial }));
@@ -263,6 +346,7 @@ export function HelpQuiz() {
     if (stored.phase === "branch") {
       if (stored.branchIndex > 0) {
         if (stored.skippedFirst) {
+          setDismissedEntry(entryKey);
           return patch({
             phase: "topic",
             topic: null,
@@ -273,6 +357,7 @@ export function HelpQuiz() {
         }
         return patch({ branchIndex: stored.branchIndex - 1 });
       }
+      setDismissedEntry(entryKey);
       return patch({
         phase: "topic",
         topic: null,
@@ -317,8 +402,8 @@ export function HelpQuiz() {
     const cleanName = fullName.trim();
     const cleanEmail = email.trim().toLowerCase();
     const zipDigits = zip.replace(/\D/g, "").slice(0, 5);
-    const phoneDigits = phone.replace(/\D/g, "");
-    const hasPhone = phoneDigits.length >= 10;
+    const phoneDigits = normalizeUsPhone(phone);
+    const hasPhone = Boolean(phoneDigits);
 
     if (cleanName.length < 2) {
       setError("Add your name so I know who I’m asking for.");
@@ -328,8 +413,10 @@ export function HelpQuiz() {
       setError("Enter a valid email address so I can reply.");
       return;
     }
-    if (phoneDigits.length > 0 && phoneDigits.length < 10) {
-      setError("That phone number is short a few digits. Leave it blank if you’d rather I email.");
+    if (phoneDigits === null) {
+      setError(
+        "Enter a 10-digit US phone number, with or without +1. Leave it blank if you’d rather I email.",
+      );
       return;
     }
     if (zipDigits.length !== 5) {
@@ -347,9 +434,14 @@ export function HelpQuiz() {
     const eventId = newEventId();
 
     try {
-      const turnstileToken =
-        (document.querySelector('input[name="cf-turnstile-response"]') as HTMLInputElement | null)
-          ?.value ?? "";
+      const widgetId = turnstileWidgetRef.current;
+      const turnstileToken = widgetId ? (turnstileApi()?.getResponse(widgetId) ?? "") : "";
+      if (TURNSTILE_SITE_KEY && !turnstileToken) {
+        setError("Please complete the form check before sending. Your answers are still here.");
+        setSubmitting(false);
+        resetFormCheck();
+        return;
+      }
 
       const res = await fetch("/api/capture-lead", {
         method: "POST",
@@ -359,12 +451,13 @@ export function HelpQuiz() {
           source: "help_quiz",
           email: cleanEmail,
           full_name: cleanName,
-          phone_number: phoneDigits.slice(0, 10) || null,
+          phone_number: phoneDigits || null,
           zip_code: zipDigits,
           interest_topic: topic,
           quiz_answers: {
             ...stored.answers,
             ...(meet ? { meet_preference: meet } : {}),
+            ...(bestTime.trim() ? { best_time: bestTime.trim().slice(0, 150) } : {}),
             ...(income ? { income_range: income } : {}),
             ...(note.trim() ? { note: note.trim().slice(0, 1000) } : {}),
           },
@@ -390,6 +483,9 @@ export function HelpQuiz() {
       } | null;
 
       if (!res.ok) {
+        // Siteverify consumes a token even if saving or another server check fails.
+        // Always get a new one before the visitor retries the request.
+        resetFormCheck();
         const configFail = data?.code === "storage_unavailable" || res.status === 503;
         setError(
           data?.error ??
@@ -411,6 +507,7 @@ export function HelpQuiz() {
         }),
       );
     } catch {
+      resetFormCheck();
       setError(`Something went wrong on my end. Please try again, or call me at ${AGENT.phone}.`);
       setSubmitting(false);
     }
@@ -420,6 +517,17 @@ export function HelpQuiz() {
 
   return (
     <div className="mx-auto w-full max-w-[640px]">
+      {TURNSTILE_SITE_KEY ? (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+          onLoad={() => setTurnstileReady(true)}
+          onReady={() => setTurnstileReady(true)}
+          onError={() =>
+            setError("The form check couldn’t load. Please try again, or call me directly.")
+          }
+        />
+      ) : null}
       {resumePrompt ? (
         <div className="card-surface mb-8 border-l-4 border-l-[var(--color-gold-ink)] p-5">
           <p className="text-17 text-[var(--color-navy)]">
@@ -499,7 +607,8 @@ export function HelpQuiz() {
             Pick what you need help with
           </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
-            Answer a few focused questions to see the key considerations for your situation.
+            Answer a few questions about what you need help with. You can read a helpful starting
+            point before sharing your contact details.{" "}
           </p>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {QUIZ_SITUATIONS.map((item) => {
@@ -641,21 +750,16 @@ export function HelpQuiz() {
             </a>
           </p>
 
-          {/*
-            The off-ramp. Someone whose window is eight months out has no reason
-            to give up a phone number today, and pushing them harder just loses
-            them — a dated reminder is the honest ask for that person.
-          */}
+          {/* Offer the working calendar tool without requiring contact details. */}
           {topic === "medicare" ? (
             <p className="text-16 mt-6 border-t border-gray-300 pt-6 text-center leading-relaxed text-[var(--color-ink-muted)]">
               Not ready to talk yet?{" "}
               <Link
-                href="/remind-me"
+                href="/turning-65#enrollment-dates"
                 className="font-medium text-[var(--color-navy)] underline underline-offset-2"
               >
-                I’ll email you when your enrollment window opens
-              </Link>{" "}
-              — one email, nothing else.
+                Find your Medicare dates and save them to your calendar.
+              </Link>
             </p>
           ) : null}
         </section>
@@ -672,8 +776,8 @@ export function HelpQuiz() {
             How should I reach you?
           </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
-            Share your contact details and Christian will personally review your answers. Follow-up
-            is usually the same day and always within one business day.
+            Share your contact details and Christian will personally review your answers and get in
+            touch about the next step. If you’d like to talk sooner, call the number below.
           </p>
 
           {topic ? (
@@ -787,7 +891,7 @@ export function HelpQuiz() {
                   className={fieldClass}
                 />
                 <p className="text-15 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                  Plans follow the county, not the town name.
+                  Your ZIP helps me check your service area and local coverage options.
                 </p>
               </div>
             </div>
@@ -797,42 +901,59 @@ export function HelpQuiz() {
               feel longer than the quiz. Keep them one tap away; open by default
               only when a landing page already asked for a note.
             */}
+            <fieldset>
+              <legend className="text-17 mb-2 font-medium text-[var(--color-navy)]">
+                How would you like to talk?
+              </legend>
+              <div className="flex flex-col gap-2">
+                {MEET_OPTIONS.map((opt) => (
+                  <label
+                    key={opt.value}
+                    className={cn(
+                      "text-16 flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border-2 px-4 py-3",
+                      meet === opt.value
+                        ? "border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+                        : "border-gray-300 bg-white",
+                    )}
+                  >
+                    <input
+                      type="radio"
+                      name="meet_preference"
+                      value={opt.value}
+                      checked={meet === opt.value}
+                      onChange={() => setMeet(opt.value)}
+                      className="size-4 shrink-0"
+                    />
+                    {opt.label}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
             <details
               className="rounded-xl border border-[rgba(15,34,65,0.12)] bg-white px-4 py-3"
               open={askContext !== "general"}
             >
               <summary className="text-17 cursor-pointer font-medium text-[var(--color-navy)]">
-                Add optional details
+                Add a preferred time or more details (optional)
               </summary>
               <div className="mt-4 space-y-5 border-t border-gray-200 pt-4">
-                <fieldset>
-                  <legend className="text-17 mb-2 font-medium text-[var(--color-navy)]">
-                    How would you like to talk?
-                  </legend>
-                  <div className="flex flex-col gap-2">
-                    {MEET_OPTIONS.map((opt) => (
-                      <label
-                        key={opt.value}
-                        className={cn(
-                          "text-16 flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border-2 px-4 py-3",
-                          meet === opt.value
-                            ? "border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
-                            : "border-gray-300 bg-white",
-                        )}
-                      >
-                        <input
-                          type="radio"
-                          name="meet_preference"
-                          value={opt.value}
-                          checked={meet === opt.value}
-                          onChange={() => setMeet(opt.value)}
-                          className="size-4 shrink-0"
-                        />
-                        {opt.label}
-                      </label>
-                    ))}
-                  </div>
-                </fieldset>
+                <div>
+                  <label htmlFor="help-quiz-best-time" className="text-17 mb-2 block font-medium">
+                    When is a good time to reach you?
+                  </label>
+                  <input
+                    id="help-quiz-best-time"
+                    name="best_time"
+                    value={bestTime}
+                    onChange={(event) => setBestTime(event.target.value)}
+                    maxLength={150}
+                    placeholder="For example, weekday afternoons after 2"
+                    className={fieldClass}
+                  />
+                  <p className="text-15 mt-2 text-[var(--color-ink-muted)]">
+                    I’ll confirm a time with you. This does not reserve an appointment.
+                  </p>
+                </div>
 
                 <div>
                   <label
@@ -852,11 +973,12 @@ export function HelpQuiz() {
                     className="text-17 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 leading-relaxed text-[var(--color-navy)] outline-none placeholder:text-[var(--color-ink-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
                   />
                   <p className="text-15 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                    Whatever you write here is what I look up before I call you.
+                    Share the questions you’d like to discuss so I can prepare for our
+                    conversation.{" "}
                   </p>
                 </div>
 
-                {topic !== "life_insurance" ? (
+                {topic === "medicare" || topic === "financial_planning" ? (
                   <div>
                     <label
                       htmlFor="help-quiz-income"
@@ -865,8 +987,8 @@ export function HelpQuiz() {
                       Household income
                     </label>
                     <p className="text-15 mb-2 leading-relaxed text-[var(--color-ink-muted)]">
-                      Only useful because Medicare premiums follow income from two years ago. Skip
-                      it if you would rather talk about it later.
+                      This can help us discuss income-related Medicare premiums. You’re welcome to
+                      leave it blank and talk about it later.{" "}
                     </p>
                     <select
                       id="help-quiz-income"
@@ -920,9 +1042,7 @@ export function HelpQuiz() {
               </label>
             ) : null}
 
-            {TURNSTILE_SITE_KEY ? (
-              <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-theme="light" />
-            ) : null}
+            {TURNSTILE_SITE_KEY ? <div ref={turnstileContainerRef} /> : null}
 
             {error ? (
               <div

@@ -186,8 +186,8 @@ export function MedicareWizard() {
         <div {...stepProps(1)}>
           <h2 className="text-24 leading-tight font-semibold">What is your ZIP code?</h2>
           <p className="text-18 text-[var(--color-ink-muted)]">
-            Plans, networks, and prices are set locally, so this tells me what actually applies
-            where you live.
+            Your ZIP code helps me check the area I serve and local plan options if you ask for a
+            review. It does not change this Part B premium estimate.{" "}
           </p>
           <Input
             value={formState.zip}

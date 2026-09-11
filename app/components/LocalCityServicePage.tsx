@@ -53,10 +53,10 @@ const COPY: Record<
     description: (city) =>
       `Get a personal life insurance review in ${city}. Check employer coverage, beneficiaries, policy dates, and family needs with a local licensed agent.`,
     headline: (city) => `Personal life insurance review in ${city}`,
-    closeHeading: "Want me to read the policy with you?",
+    closeHeading: "Would you like to review your coverage together?",
     closeBody: (city) =>
-      `Bring what you have. I’ll sit down in ${city} or talk on the phone. Twenty minutes, no charge, and a fair chance you’re already fine.`,
-    closeLabel: "Start here →",
+      `We can meet at your home in ${city} or talk by phone. Bring your current policy and your questions. The consultation is no cost, with no obligation to buy anything.`,
+    closeLabel: "Request a free consultation →",
   },
   retirement: {
     crumb: "Retirement income",
@@ -74,9 +74,9 @@ const COPY: Record<
     description: (city) =>
       `Learn how 401(k) options, Social Security timing, and retirement income may affect Medicare in ${city}. Education, not investment advice.`,
     headline: (city) => `Coordinate retirement income and Medicare in ${city}`,
-    closeHeading: "Want to talk through the timing?",
+    closeHeading: "Let’s talk about your retirement questions.",
     closeBody: (city) =>
-      `I’ll sit down in ${city} and tell you what a withdrawal does to Medicare, and which parts belong to a CPA or a registered adviser.`,
+      `We can meet in ${city} to discuss your Medicare and insurance needs. For financial planning, I work with an advisor so you have the right support.`,
     closeLabel: "Ask a question →",
   },
 };
@@ -165,14 +165,14 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
         lede={content.intro}
         secondaryHref={copy.startHref}
         secondaryLabel={
-          kind === "life" ? "Review my coverage →" : "Check Medicare income effects →"
+          kind === "life" ? "Review my coverage →" : "Discuss my retirement questions →"
         }
       />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <CitySnapshot city={city} />
-          <h2 className="text-28 mt-10 font-semibold">What is different here</h2>
+          <h2 className="text-28 mt-10 font-semibold">What we can review together</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {content.detail}
           </p>
@@ -184,7 +184,7 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Questions from {city.name}</h2>
+          <h2 className="text-28 font-semibold">Questions you may have</h2>
           <dl className="mt-8 flex flex-col gap-7">
             {content.faq.map((item) => (
               <div key={item.q} className="border-t border-gray-300 pt-6">
@@ -230,7 +230,7 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
             </Link>
             {" · "}
             <Link href="/service-area" className="underline underline-offset-2">
-              All towns within 30 minutes
+              View all communities
             </Link>
             {" · "}
             <Link href={`/medicare-in/${city.slug}`} className="underline underline-offset-2">

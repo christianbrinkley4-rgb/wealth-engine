@@ -51,11 +51,11 @@ export const metadata: Metadata = {
 const OPTIONS = [
   {
     t: "Leave it where it is",
-    b: "Plenty of plans let you stay after you leave. It’s the least effort and sometimes the best answer, especially if the plan has pricing you couldn’t get on your own. Check two things: whether they push you out below a certain balance, and what they charge you now that payroll isn’t covering part of it.",
+    b: "Your former employer’s plan may let you keep the account. Review its investment options, fees, withdrawal rules, and any minimum balance requirements with the plan administrator.",
   },
   {
     t: "Roll it to an IRA",
-    b: "The most common move, and the one the most people have a financial interest in you making. It usually widens what you can hold and changes who charges you. Done as a direct transfer between institutions, there’s no tax. Done by check to you, there’s withholding and a 60-day clock — and missing that clock is expensive.",
+    b: "An IRA rollover can change your investment options, fees, and account rules. Discuss those differences and the tax treatment with a qualified professional before moving money.",
   },
   {
     t: "Roll it into a new employer's plan",
@@ -70,15 +70,15 @@ const OPTIONS = [
 const FAQ = [
   {
     q: "When do required minimum distributions start?",
-    a: "Right now at 73, moving to 75 if you were born in 1960 or later. From then on, a formula decides how much you take out instead of you. That’s why the years before it matter so much.",
+    a: "For many people, required minimum distributions begin at 73. The starting age is 75 for people born in 1960 or later. Your account type and circumstances can also affect the rules.",
   },
   {
-    q: "Why do people talk about the years between retiring and 73?",
+    q: "Why review withdrawals before required distributions begin?",
     a: "For some households, the years after paychecks stop and before required distributions begin may bring lower taxable income. That can make the timing of withdrawals and conversions worth discussing with a CPA or registered investment adviser.",
   },
   {
-    q: "How does any of this touch Medicare?",
-    a: "Medicare sets the income-related part of your premium from a tax return two years old. So a big withdrawal or a Roth conversion at 63 lands on your first Medicare premium at 65 — and if you’re married, on both of your premiums. That connection is the most overlooked thing in this whole area.",
+    q: "How can retirement income affect Medicare costs?",
+    a: "Medicare generally uses income from two years earlier to determine whether an income-related charge applies. A large taxable withdrawal or Roth conversion may affect future premiums. We can identify the questions to discuss with your tax professional or advisor.",
   },
   {
     q: "Is a rollover taxable?",
@@ -89,12 +89,12 @@ const FAQ = [
     a: "No. I hold an insurance license, not a securities license, and I am not a registered investment adviser. I can provide general education about deadlines and Medicare interactions, then identify questions for a CPA or registered investment adviser.",
   },
   {
-    q: "So what do you actually help with here?",
-    a: "The Medicare side of it, which is the part most people miss and the part I’m licensed for. How a withdrawal or a conversion lands on your premium two years later, and what the timing is worth in dollars. There’s a tool on this site that works it out, and talking it through doesn’t cost anything.",
+    q: "How can you help with my retirement questions?",
+    a: "I help you understand your Medicare and insurance options and how they relate to retirement. For financial planning, I work with an advisor. We can discuss your priorities and identify the right next steps.",
   },
   {
     q: "Are you a financial advisor?",
-    a: "I’m a licensed insurance agent finishing a master’s in accounting. I’m not a registered investment adviser. If you searched for a retirement advisor, I can still sit down and explain the tax and Medicare timing — and I’ll tell you plainly when the rest of the question belongs to someone with that license.",
+    a: "I’m a licensed insurance agent and an accounting master’s student at UNCG. I work with an advisor for retirement financial planning, and I can help you prepare questions for a CPA when tax advice is needed.",
   },
 ] as const;
 
@@ -122,7 +122,7 @@ export default function RetirementIncomePage() {
                 "The four options, the deadlines attached to each, and how a withdrawal lands on a Medicare premium two years later.",
               path: "/retirement-income",
               datePublished: "2026-08-25",
-              dateModified: "2026-08-25",
+              dateModified: "2026-09-10",
             }),
           ),
         }}
@@ -160,7 +160,7 @@ export default function RetirementIncomePage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Retirement income" }]}
         eyebrow={SERVICE_AREA_LABEL}
         title="Coordinate retirement income with Medicare"
-        lede="Understand how 401(k) options, Social Security timing, withdrawals, and the two-year IRMAA lookback may fit together. This is education from a licensed insurance agent, not individualized investment advice."
+        lede="Retiring can change where your monthly income comes from and what you pay for Medicare. I can help you understand the Medicare questions and work with an advisor for financial planning."
         secondaryHref="/start?topic=financial_planning"
         secondaryLabel="Check Medicare income effects →"
       />
@@ -195,15 +195,15 @@ export default function RetirementIncomePage() {
             affect taxes and future Medicare premiums.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
-            It’s also where the Medicare income-timing issue sits. Premiums come from a return two
-            years old, so a big withdrawal or a Roth conversion in your early sixties shows up on
-            your first Medicare premium — on both of them, if you’re married. Getting the tax right
-            and the Medicare timing wrong is a common and expensive combination.
+            A change in retirement income may also affect what you pay for Medicare. Looking at both
+            together can help you prepare for future costs. A qualified tax professional or advisor
+            can assess your individual situation.{" "}
           </p>
           <div className="card-surface mt-8 border-l-4 border-l-[var(--color-gold-ink)] p-6">
             <p className="text-18 leading-relaxed">
-              There’s a calculator on this site for exactly that: what converting all at once costs
-              you in Medicare surcharges, against spreading it under your bracket ceiling.
+              Our calculator compares the estimated Medicare premium effect of two Roth conversion
+              timing examples using 2026 rates. You can review the results with your tax
+              professional or financial advisor.{" "}
             </p>
             <Link
               href="/plan"
@@ -217,17 +217,17 @@ export default function RetirementIncomePage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Where I stop</h2>
+          <h2 className="text-28 font-semibold">How I can help</h2>
           <p className="text-18 mt-4 leading-relaxed">
             I’m a licensed insurance agent finishing a master’s in accounting. I’m not a registered
             investment adviser or a CPA. I don’t manage money, recommend investments, or tell you
             what to hold inside a 401(k) or an IRA.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            What I do know well is where retirement income runs into Medicare, because that’s where
-            what I studied meets what I’m licensed for. If your question is how a withdrawal hits
-            your premium, that one’s mine. If it’s how the money should be invested, that’s an
-            adviser’s, and I’ll tell you so.
+            I help you understand how insurance and Medicare fit into your retirement decisions. For
+            financial planning, I work with an advisor and can coordinate a conversation with your
+            permission. The advisor explains their services, qualifications, and any fees before you
+            decide to work together. Tax advice belongs with a qualified tax professional.
           </p>
         </div>
       </section>
@@ -263,7 +263,7 @@ export default function RetirementIncomePage() {
             labelFor={(place) => `Retirement help in ${place.name}`}
           />
           <p className="text-13 mt-8 font-medium tracking-[0.1em] text-[var(--color-gold-ink)] uppercase">
-            Also within about 30 minutes
+            Retirement help in nearby communities{" "}
           </p>
           <ServiceAreaTownList hrefFor={(place) => `/retirement-in/${place.slug}`} />
           <p className="text-17 mt-6">
@@ -273,7 +273,7 @@ export default function RetirementIncomePage() {
           </p>
           <LeadCluster
             current="/retirement-income"
-            heading="Medicare enrollment and life insurance, if those are the actual questions"
+            heading="More help with Medicare and insurance"
           />
         </div>
       </section>
@@ -287,13 +287,12 @@ export default function RetirementIncomePage() {
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">
-          The other half of this decision is when you turn on Social Security, because the years
-          between retiring and claiming are the ones where a withdrawal does the most damage — and
-          the most good.{" "}
+          Your Social Security start date is another part of retirement planning. Consider your
+          income needs, your spouse’s benefits, and other savings as you compare your options.{" "}
           <Link href="/social-security-timing" className="underline underline-offset-2">
             When to take Social Security
           </Link>{" "}
-          covers what each claiming age costs and what it does to your Medicare premium later.
+          explains the main ages and questions to discuss with your advisor.{" "}
         </p>
         <ComplianceDisclosure />
       </div>

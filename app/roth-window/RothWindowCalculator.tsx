@@ -239,7 +239,7 @@ function RothWindowCalculatorInner() {
                       )}
                 </p>
                 <p className="text-14 text-[var(--color-ink-muted)]">
-                  Annual Medicare surcharge in 2028
+                  Estimated annual surcharge using 2026 rates{" "}
                   {filingStatus === "married_jointly" ? " (both spouses)" : ""}.
                 </p>
               </div>
@@ -373,10 +373,10 @@ function RothWindowCalculatorInner() {
           </CardHeader>
           <CardContent className="space-y-4 p-6 pt-2">
             <p className="text-18 leading-relaxed">
-              I’m a licensed insurance agent in Greensboro, finishing a master’s in accounting at
-              UNCG — which is why I can explain conversion timing without selling you something.
-              Tell me what you’re weighing up and I’ll come back to you within one business day. No
-              charge.
+              I’m Christian, a licensed insurance agent and accounting master’s student in
+              Greensboro. I can help explain how retirement income relates to Medicare and work with
+              an advisor for financial planning. You’re welcome to bring your questions to a no-cost
+              consultation.{" "}
             </p>
             <Button
               asChild

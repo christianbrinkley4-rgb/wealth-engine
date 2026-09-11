@@ -54,7 +54,7 @@ export default function MedicarePage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Part B & IRMAA estimate" }]}
         eyebrow={`${SERVICE_AREA_LABEL} · free estimate`}
         title="Estimate your 2026 Part B premium"
-        lede="Four questions. The published CMS schedule. No account, no Social Security number, and no national phone service. When you are done, we can sit down about what the number actually means for your household."
+        lede="Answer a few questions to estimate your 2026 Medicare Part B premium using published Medicare rates. No account or Social Security number is needed. If you have questions about the result, I’m happy to help."
         secondaryHref="/remind-me"
         secondaryLabel="See enrollment dates →"
         note="Nothing you type here is sent anywhere until you choose to email the result to yourself."
@@ -69,8 +69,8 @@ export default function MedicarePage() {
       <MedicareWizard />
 
       <KitchenTableClose
-        heading="Want the number explained in person?"
-        body="The calculator shows a tier. Sitting down is how we talk about whether a conversion, a withdrawal, or an appeal is the next move — without inventing advice I am not licensed to give."
+        heading="Would you like help understanding your estimate?"
+        body="We can review what the estimate means for your Medicare costs and identify any questions for Social Security, your tax professional, or your financial advisor. Your consultation is no cost."
         href="/start?topic=medicare"
         label="Ask a question →"
       />

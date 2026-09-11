@@ -4,17 +4,17 @@ const LEADS = [
   {
     href: "/turning-65",
     label: "Turning 65",
-    blurb: "The seven-month Initial Enrollment window",
+    blurb: "When to enroll and how to get started",
   },
   {
     href: "/annual-enrollment",
     label: "Annual enrollment",
-    blurb: "Already on Medicare this fall",
+    blurb: "Review your coverage for the coming year",
   },
   {
     href: "/life-insurance",
     label: "Life insurance",
-    blurb: "Whether what you have is enough",
+    blurb: "Review the protection your family needs",
   },
   {
     href: "/retirement-income",
@@ -25,7 +25,7 @@ const LEADS = [
 
 export function LeadCluster({
   current,
-  heading = "The four things I help with",
+  heading = "Other questions I can help with",
 }: {
   current?: string;
   heading?: string;

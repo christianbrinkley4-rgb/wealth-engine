@@ -29,12 +29,12 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 export const metadata: Metadata = {
   title: { absolute: "When to Take Social Security — Greensboro, NC" },
   description:
-    "62, full retirement age, or 70. What each choice actually costs, the survivor benefit most break-even math ignores, and how it lands on your Medicare premium later.",
+    "Understand how your Social Security start date can affect monthly income, benefits for a spouse, and retirement planning. Personal education in Greensboro.",
   alternates: { canonical: "/social-security-timing" },
   openGraph: pageOpenGraph({
     title: "When to take Social Security",
     description:
-      "The break-even math is the easy part. The survivor benefit and the Medicare surcharge are what people miss.",
+      "Your income needs, family circumstances, and other savings all matter when choosing when to start Social Security.",
     path: "/social-security-timing",
   }),
 };
@@ -43,43 +43,43 @@ const AGES = [
   {
     age: "62",
     head: "The earliest you can claim",
-    b: "You lock in roughly 30 percent less than your full benefit, permanently — not until full retirement age, permanently. It is the right answer for some people, particularly if you are in poor health or you need the money to stop working. It is the wrong answer if you picked it because it was simply the first door available.",
+    b: "For someone born in 1960 or later, starting at 62 reduces the monthly retirement benefit by about 30% compared with starting at full retirement age. Consider your income needs, health, and other resources when reviewing this option.",
   },
   {
     age: "67",
     head: "Full retirement age",
-    b: "For anyone born in 1960 or later, this is 67. Claim here and you get the benefit your earnings record actually says you earned, with no reduction and no bonus, and the earnings test stops applying so you can work as much as you like.",
+    b: "If you were born in 1960 or later, your full retirement age is 67. Starting then gives you your full retirement benefit based on your earnings record. The retirement earnings limit no longer applies once you reach full retirement age.",
   },
   {
     age: "70",
     head: "The last useful year to wait",
-    b: "Every year you delay past full retirement age adds about 8 percent, up to age 70. Nothing accrues after that, so waiting past 70 costs you money for nothing. That 8 percent is guaranteed and adjusted for inflation each year afterwards, which is a hard return to find anywhere else.",
+    b: "Waiting beyond full retirement age increases your monthly benefit through delayed retirement credits, up to age 70. Credits do not continue after 70. Your Social Security statement can help you compare the estimated amounts.",
   },
 ] as const;
 
 const MISSED = [
   {
     t: "The survivor benefit, if you are married",
-    b: "This is the one that gets left out of every break-even calculator. When one of you dies, the survivor keeps the larger of the two benefits and the smaller one stops. So the higher earner is not really choosing their own income — they are setting the floor under whichever of you lives longer, for the rest of that person’s life. That usually argues for the higher earner waiting, even when their own break-even age looks unattractive.",
+    b: "If you’re married, consider how each start date may affect the income available to a surviving spouse. Social Security can explain the survivor rules for your circumstances.",
   },
   {
     t: "What it does to your Medicare premium two years later",
-    b: "Medicare sets your Part B and Part D premiums from a tax return two years back. Which accounts you draw from while you wait to claim can push that return over a bracket line and raise your premium in a year you have forgotten about it. The waiting years are often the best years you will ever get for a Roth conversion, and also the easiest years to trip the surcharge by accident.",
+    b: "Medicare generally looks at income from two years earlier when calculating income-related charges. Withdrawals and other taxable income during retirement may affect future premiums, so it’s useful to discuss taxes and Medicare together.",
   },
   {
     t: "How much of the benefit gets taxed",
-    b: "Up to 85 percent of your Social Security can be taxable depending on your other income, and those thresholds have never been indexed to inflation, so more people cross them every year. Two households with the same total income can owe noticeably different tax on the same benefit, purely because of which accounts the rest of the money came out of.",
+    b: "Depending on your other income, part of your Social Security benefits may be taxable. A qualified tax professional can help you estimate the effect on your household and plan for any taxes due.",
   },
   {
     t: "Working while you claim, before full retirement age",
-    b: "Claim before full retirement age and keep working, and earnings above an annual limit withhold part of your benefit. It is not lost forever — your benefit is recalculated upward at full retirement age — but it surprises people who did not expect their first checks to be smaller than the statement said.",
+    b: "If you receive benefits while working before full retirement age, earnings above an annual limit can reduce the payments you receive. Social Security can explain the current limit and how your benefit is adjusted when you reach full retirement age.",
   },
 ] as const;
 
 const FAQ = [
   {
     q: "What is the best age to take Social Security?",
-    a: "There is no single answer, and anybody who gives you one without asking about your health, your marriage and your other income is guessing. The three things that decide it are how long you expect to need the money, whether somebody would inherit your benefit as a survivor, and what you would otherwise be living on in the meantime.",
+    a: "The best timing depends on your income needs, health, family situation, and other resources. Compare the estimates on your Social Security statement and discuss how you would cover expenses at each starting age.",
   },
   {
     q: "How much less do I get at 62?",
@@ -87,19 +87,19 @@ const FAQ = [
   },
   {
     q: "Is waiting until 70 worth it?",
-    a: "Roughly 8 percent a year, guaranteed and inflation-adjusted, is a real return that is hard to match elsewhere. Whether it is worth it to you depends on what you would live on while you wait and how long you expect to collect. For a married couple’s higher earner it is worth more than the break-even math suggests, because it also raises what the survivor keeps.",
+    a: "Waiting past full retirement age can increase your monthly benefit, up to age 70. Whether waiting fits your situation depends on your other income, savings, health, and family needs.",
   },
   {
     q: "Does taking Social Security affect my Medicare premium?",
-    a: "Indirectly, and it catches people. Medicare sets your premium from your income two years earlier, so the accounts you draw from while waiting to claim — a large IRA withdrawal, a Roth conversion, selling property — can push you over a bracket line and raise your premium later. Planning the two together is most of the value in doing this properly.",
+    a: "Your overall income can affect Medicare’s income-related premium charges. If you plan to use retirement savings while waiting to start Social Security, review the potential tax and Medicare effects with a qualified professional.",
   },
   {
     q: "Can I change my mind after I claim?",
-    a: "There is a narrow withdrawal window within twelve months of claiming, and it requires paying back what you have received, and you only get to do it once. There is also the option at full retirement age of suspending your benefit to earn delayed credits. Both are real, both are limited, and neither is a substitute for getting the first decision right.",
+    a: "There are limited options to withdraw an application or suspend benefits, with different eligibility and repayment rules. Contact Social Security before making a change so you understand how it may affect you and anyone receiving benefits on your record.",
   },
   {
     q: "Do you sell Social Security?",
-    a: "Nobody does — it is a federal benefit, and I am not affiliated with the Social Security Administration. I am a licensed insurance agent, so I can walk through the timing, the survivor question and the Medicare consequences with you, and I will tell you plainly when what you need is a CPA or a registered investment adviser instead of me.",
+    a: "Social Security is a federal benefit. I’m a licensed insurance agent and am not affiliated with the Social Security Administration. I can help explain how Medicare fits with your retirement questions and work with an advisor for financial planning.",
   },
 ] as const;
 
@@ -125,10 +125,10 @@ export default function SocialSecurityTimingPage() {
             articleJsonLd({
               headline: "When to take Social Security",
               description:
-                "What claiming at 62, 67 or 70 actually costs, the survivor benefit break-even math ignores, and how the decision lands on your Medicare premium two years later.",
+                "Understand the main Social Security starting ages and questions about income, family benefits, and Medicare to discuss before you decide.",
               path: "/social-security-timing",
               datePublished: "2026-08-31",
-              dateModified: "2026-08-31",
+              dateModified: "2026-09-10",
             }),
           ),
         }}
@@ -140,7 +140,7 @@ export default function SocialSecurityTimingPage() {
             howToJsonLd({
               name: "How to think about Social Security timing",
               description:
-                "What claiming at 62, at full retirement age, and at 70 each costs, before the survivor and Medicare pieces most calculators skip.",
+                "Compare the main starting ages and consider how Social Security fits with your household’s retirement income needs.",
               path: "/social-security-timing",
               steps: AGES.map((item) => ({ name: `${item.age}: ${item.head}`, text: item.b })),
             }),
@@ -156,10 +156,10 @@ export default function SocialSecurityTimingPage() {
         ]}
         eyebrow={`${AGENT.city} · ${AGENT.region}`}
         title="When should you take Social Security?"
-        lede="The break-even math is the easy part, and it’s all anybody puts online. What decides it for most households is the piece those calculators leave out — what happens to the benefit when one spouse dies, and what your income in the waiting years does to your Medicare premium two years later."
+        lede="Choosing when to start Social Security is a personal decision. Here are the main ages to know and questions to consider about your monthly income, your family, and the savings you may use in retirement."
         secondaryHref="/start?topic=financial_planning"
         secondaryLabel="Talk it through →"
-        note="Meet in person or by phone. No cost, and nobody is paid on the date you pick — including me."
+        note="Bring your Social Security statement and your questions. We can talk in person or by phone at no cost."
       />
 
       <section className="bg-white py-14">
@@ -181,16 +181,16 @@ export default function SocialSecurityTimingPage() {
             ))}
           </div>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            You can claim in any month in between, not just on those three birthdays. The benefit
-            adjusts month by month, so a decision to wait another six months is a real decision and
-            not a rounding error.
+            You can start benefits in the months between these ages. Your estimated monthly benefit
+            changes with your starting date, so you can compare the timing that works for your
+            plans.{" "}
           </p>
         </div>
       </section>
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">What the calculators leave out</h2>
+          <h2 className="text-28 font-semibold"> Other questions to consider </h2>
           <ul className="mt-8 flex flex-col gap-6">
             {MISSED.map((item) => (
               <li key={item.t} className="border-t border-gray-300 pt-5">
@@ -206,32 +206,32 @@ export default function SocialSecurityTimingPage() {
             className="text-18 mt-8 border-l-4 py-3 pl-5 leading-relaxed"
             style={{ borderColor: "#7a5c12" }}
           >
-            The years between retiring and claiming are usually the lowest-income years of your
-            life, which makes them the best years for a Roth conversion and the easiest years to
-            trigger a Medicare surcharge by accident.{" "}
+            Your income may change between leaving work and starting Social Security. A qualified
+            tax professional or financial advisor can help you consider withdrawals, taxes, and
+            possible Medicare premium effects during that time.{" "}
             <Link href="/plan" className="underline underline-offset-2">
-              There’s a calculator here that shows both at once
+              Our calculator estimates the Medicare premium effect of a Roth conversion{" "}
             </Link>{" "}
-            — how much you can convert before you cross the next bracket line.
+            using 2026 rates. It can help you prepare questions for a tax professional or financial
+            advisor.{" "}
           </p>
         </div>
       </section>
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Where I stop</h2>
+          <h2 className="text-28 font-semibold"> How I can help </h2>
           <p className="text-18 mt-4 leading-relaxed">
-            I’m a licensed insurance agent, not a registered investment adviser and not the Social
-            Security Administration. I can walk through the timing, the survivor question and the
-            Medicare consequences, and I’ll say so plainly when the answer you need is a CPA’s or an
-            adviser’s. Nobody sells Social Security, so nobody is paid on which date you pick,
-            including me.
+            I’m a licensed insurance agent and work with an advisor for financial planning. I can
+            help explain how Medicare fits with your retirement questions. Social Security can
+            confirm your benefits, and a qualified professional can advise on taxes or
+            investments.{" "}
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Your own numbers come from your Social Security statement at ssa.gov, and it’s worth
-            pulling before any conversation about this — including one with me.
+            Your Social Security statement at ssa.gov shows your personal benefit estimates. Having
+            a copy handy can make the conversation more useful.{" "}
           </p>
-          <GuideTownLinks kind="retirement" heading="Retirement pages for the towns I drive to" />
+          <GuideTownLinks kind="retirement" heading="Retirement and Medicare help near you" />
         </div>
       </section>
 
@@ -254,14 +254,14 @@ export default function SocialSecurityTimingPage() {
           />
           <LeadCluster
             current="/retirement-income"
-            heading="Medicare, life insurance, and the retirement page itself"
+            heading="More help with retirement and insurance"
           />
         </div>
       </section>
 
       <KitchenTableClose
         heading="Bring your statement and your questions"
-        body="I’ll walk through what each claiming age does to your income, your spouse’s income later on, and your Medicare premium. No cost, and no appointment needed to ask."
+        body="We can discuss your retirement and Medicare questions and identify the information to review with Social Security or your advisor. Your consultation is no cost, with no obligation."
         href="/start?topic=financial_planning"
         label="Start here →"
       />

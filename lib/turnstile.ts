@@ -9,6 +9,8 @@
  * NEXT_PUBLIC_TURNSTILE_SITE_KEY and the secret in TURNSTILE_SECRET_KEY.
  */
 
+import { isIP } from "node:net";
+
 const SECRET = process.env.TURNSTILE_SECRET_KEY?.trim() || "";
 
 export function isTurnstileConfigured(): boolean {
@@ -21,7 +23,10 @@ export async function verifyTurnstile(
 ): Promise<{ ok: boolean; reason?: string }> {
   if (!isTurnstileConfigured()) return { ok: true };
 
-  if (!token) return { ok: false, reason: "missing-token" };
+  if (typeof token !== "string" || !token.trim()) {
+    return { ok: false, reason: "missing-token" };
+  }
+  if (token.length > 2048) return { ok: false, reason: "invalid-token" };
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
@@ -30,17 +35,23 @@ export async function verifyTurnstile(
     const res = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ secret: SECRET, response: token, remoteip: ip }),
+      body: JSON.stringify({
+        secret: SECRET,
+        response: token,
+        ...(isIP(ip) ? { remoteip: ip } : {}),
+      }),
       signal: controller.signal,
     });
 
+    if (!res.ok) return { ok: false, reason: "verification-unavailable" };
     const data = (await res.json()) as { success?: boolean; "error-codes"?: string[] };
-    if (data.success) return { ok: true };
-    return { ok: false, reason: data["error-codes"]?.join(",") ?? "rejected" };
+    if (data?.success === true) return { ok: true };
+    return { ok: false, reason: "rejected" };
   } catch {
-    // Cloudflare being unreachable must not cost a real lead.
-    console.error("[turnstile] verification unreachable — allowing submission through");
-    return { ok: true };
+    // Configured verification must not become a bypass during an outage.
+    // The form keeps the visitor's answers and offers a retry/contact path.
+    console.error("[turnstile] verification unavailable — submission was not accepted");
+    return { ok: false, reason: "verification-unavailable" };
   } finally {
     clearTimeout(timeout);
   }

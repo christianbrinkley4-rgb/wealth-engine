@@ -28,11 +28,12 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 export const metadata: Metadata = {
   title: { absolute: "Medicare Advantage vs Medigap — Greensboro, NC" },
   description:
-    "Neither one is better in general. The three things that decide it for you, and the deadline that makes the choice harder to undo than most comparisons admit.",
+    "Compare Medicare Advantage with Original Medicare and Medigap. Learn how doctors, costs, prescriptions, and enrollment rules can affect your choice.",
   alternates: { canonical: "/advantage-vs-medigap" },
   openGraph: pageOpenGraph({
-    title: "Medicare Advantage vs Medigap, decided honestly",
-    description: "Three things decide it, and one of them has a deadline that does not come back.",
+    title: "Understanding Medicare Advantage and Medigap",
+    description:
+      "Understand the differences in coverage, costs, and enrollment rules before you decide.",
     path: "/advantage-vs-medigap",
   }),
 };
@@ -40,26 +41,26 @@ export const metadata: Metadata = {
 const DECIDERS = [
   {
     t: "Which doctors you want to keep",
-    b: "Original Medicare with a Medigap policy has no network — any provider in the country who takes Medicare, and most do. Advantage plans work through networks, like the insurance you had at work. If keeping a particular specialist matters more to you than anything else, that is the whole answer and you can stop reading.",
+    b: "Original Medicare generally lets you see providers who accept Medicare nationwide. Medicare Advantage plans generally use networks. Check the doctors and hospitals you want to keep with either option.",
   },
   {
-    t: "Whether you would rather pay steadily or pay when something happens",
-    b: "Medigap costs more every month and very little when you are ill. Advantage usually costs less every month — sometimes nothing beyond your Part B premium — and more when you use it, up to the plan's out-of-pocket maximum. Neither is cheaper in the abstract. One is predictable and one is contingent, and people genuinely differ on which they can live with.",
+    t: "Your monthly budget and costs when you receive care",
+    b: "Compare the monthly premiums and what you could pay when you need care. Costs depend on the specific Medigap or Medicare Advantage plan, so it’s helpful to look at both routine care and a year with higher medical expenses.",
   },
   {
     t: "Whether you will still be able to switch later",
-    b: "This is the one that gets left out. During your six-month Medigap open enrollment window, no insurer may turn you down or charge you more for your health history. Outside it, in most states, they can — so going Advantage first and moving to Medigap at 70 may mean answering health questions, and the answer can be no.",
+    b: "Your six-month Medigap open enrollment period begins when you’re 65 or older and enrolled in Part B. After it ends, health questions may affect your application unless another protection applies. We can help you understand the rules before you change coverage.",
   },
 ] as const;
 
 const FAQ = [
   {
     q: "Which one is better?",
-    a: "Neither, in general — and anybody who answers that question without asking about your doctors, your prescriptions and your appetite for risk is telling you about their contracts rather than your situation. What is true is that they fail in different directions: Medigap costs you more every month and almost nothing when you are sick, Advantage costs less every month and more when you use it.",
+    a: "The choice depends on your doctors, prescriptions, budget, and preferences. We can compare the options and talk through the costs and coverage you would have with each.",
   },
   {
     q: "Can I switch from Medicare Advantage to Medigap later?",
-    a: "You can apply. Whether you are accepted is the question. Outside your six-month Medigap open enrollment window, most states let an insurer use your health history to decline you or charge more. Some states have extra protections and North Carolina is not generous here, so treat the first decision as harder to reverse than it looks.",
+    a: "You may be able to, but acceptance is not always guaranteed. Before leaving your Medicare Advantage plan, check Medigap eligibility, any health questions, and whether you have guaranteed-issue or trial rights.",
   },
   {
     q: "Do I need a drug plan with each?",
@@ -67,15 +68,15 @@ const FAQ = [
   },
   {
     q: "Are the extras on Advantage plans worth it?",
-    a: "Dental, vision and hearing benefits are real and people use them. They are also usually capped at amounts smaller than a single significant procedure. Worth having, not worth choosing a plan for on their own.",
+    a: "Some Medicare Advantage plans include dental, vision, or hearing benefits. Review their limits, provider requirements, and costs along with the plan’s medical and prescription coverage.",
   },
   {
     q: "What if my spouse and I want different things?",
-    a: "Then take different plans. There is no rule that a couple has to match, and choosing together when you use different doctors is a common way one of you ends up unhappy.",
+    a: "You and your spouse can choose different Medicare plans. Each person’s doctors, prescriptions, and health needs deserve a separate review.",
   },
   {
     q: "Which do you recommend?",
-    a: "It depends on your answers to the three things above, and I will tell you plainly when the better fit is something I cannot offer — I represent a limited number of insurance companies. Tell me who you see and what you take, and I will check both routes against it.",
+    a: "We’ll begin with your needs and compare the options I offer. I represent a limited number of insurance companies, and I’ll explain where you can find information about other Medicare choices.",
   },
 ] as const;
 
@@ -98,12 +99,11 @@ export default function AdvantageVsMedigapPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Medicare Advantage vs Medigap, decided honestly",
-              description:
-                "The three things that actually decide it, and why the first choice is harder to reverse than most comparisons admit.",
+              headline: "Understanding Medicare Advantage and Medigap",
+              description: "Questions to consider before you choose",
               path: "/advantage-vs-medigap",
               datePublished: "2026-08-31",
-              dateModified: "2026-08-31",
+              dateModified: "2026-09-10",
             }),
           ),
         }}
@@ -116,7 +116,7 @@ export default function AdvantageVsMedigapPage() {
             howToJsonLd({
               name: "How to decide between Medicare Advantage and Medigap",
               description:
-                "The three things that actually decide the choice, including the deadline that makes it harder to reverse.",
+                "Doctors, costs, and enrollment rules to consider when comparing Medicare Advantage and Medigap.",
               path: "/advantage-vs-medigap",
               steps: DECIDERS.map((item) => ({ name: item.t, text: item.b })),
             }),
@@ -127,35 +127,35 @@ export default function AdvantageVsMedigapPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Advantage vs Medigap" }]}
         eyebrow={`${AGENT.city} · ${AGENT.region}`}
-        title="Medicare Advantage or Medigap? Neither one wins in general."
-        lede="Almost every page on this comparison is published by somebody who sells one of the two. Here is the version I would give a neighbor: three things decide it, and one of them has a deadline that doesn’t come back."
+        title="Which Medicare option fits your needs?"
+        lede="Medicare Advantage and Medigap work differently. Here’s a starting point for understanding your choices, including what you may pay, which doctors you can see, and what to know about enrolling."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon"
         secondaryLabel="Tell me your situation →"
       />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">The two routes, in one paragraph each</h2>
+          <h2 className="text-28 font-semibold"> Two ways to arrange your coverage </h2>
           <p className="text-18 mt-4 leading-relaxed">
-            <strong>Original Medicare plus a Medigap policy.</strong> Medicare pays its share, the
-            Medigap policy pays most of what is left, and you buy a Part D drug plan separately. No
-            network — any provider in the country who takes Medicare. You pay a monthly premium for
-            the Medigap policy on top of your Part B premium, and very little when you are actually
-            ill.
+            <strong>Original Medicare with a Medigap policy.</strong> Medigap helps pay certain
+            costs that Original Medicare leaves to you, such as deductibles and coinsurance. What it
+            pays depends on the policy. You pay a separate Medigap premium, and you can generally
+            see providers nationwide who accept Medicare. Prescription coverage is available through
+            a separate Part D plan.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
-            <strong>Medicare Advantage.</strong> A private plan takes over your Part A and Part B
-            coverage, usually bundles in drug coverage, and often adds dental, vision or hearing.
-            Premiums are lower and sometimes zero beyond Part B. In exchange you use a network, some
-            care needs prior authorization, and you pay as you go until you hit the plan’s
-            out-of-pocket maximum.
+            <strong>Medicare Advantage.</strong> A private insurance plan provides your Part A and
+            Part B benefits, and most plans include prescription coverage. You continue paying your
+            Part B premium and may have an additional plan premium. Review the provider network, any
+            approval requirements for care, copayments, and the yearly limit on covered medical
+            costs. Some plans also offer dental, vision, or hearing benefits.
           </p>
         </div>
       </section>
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">The three things that actually decide it</h2>
+          <h2 className="text-28 font-semibold"> Questions to consider before you choose </h2>
           <ol className="mt-8 flex flex-col gap-6">
             {DECIDERS.map((item, index) => (
               <li key={item.t} className="flex gap-5 border-t border-gray-300 pt-5">
@@ -176,34 +176,36 @@ export default function AdvantageVsMedigapPage() {
             className="text-18 mt-8 border-l-4 py-3 pl-5 leading-relaxed"
             style={{ borderColor: "#7a5c12" }}
           >
-            <strong>The part most comparisons leave out.</strong> People describe this as a choice
-            you can revisit. You can always switch Advantage plans in the annual window — that part
-            is true. Moving to a Medigap policy years later is the part that isn’t, because by then
-            your health history is allowed to count against you.{" "}
-            <Link href="/remind-me" className="underline underline-offset-2">
-              Your Medigap window has exact dates
+            <strong> Before you change coverage. </strong> Changing from Medicare Advantage to
+            Original Medicare does not automatically guarantee you can buy a Medigap policy. Check
+            your eligibility and any protections that apply before making a change.{" "}
+            <Link
+              href="https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/when"
+              className="underline underline-offset-2"
+            >
+              Medicare.gov explains when you can buy Medigap
             </Link>
-            , and they are worth knowing before you decide anything.
+            , including situations with additional protections.
           </p>
         </div>
       </section>
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Around here specifically</h2>
+          <h2 className="text-28 font-semibold">Choosing coverage in the Triad</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            Which Advantage plans you can buy at all depends on your county — they are sold county
-            by county, so Guilford and Forsyth have different lineups. Medigap doesn’t work that
-            way: a Medigap policy travels with you, which matters if you spend part of the year
-            somewhere else or expect to move closer to family later.
+            Medicare Advantage options can vary by county. When we compare plans, we’ll use your
+            home address and check the doctors and hospitals you want to use. If you travel often or
+            spend part of the year with family elsewhere, bring that up too so we can review how
+            each option covers care away from home.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Most people here are with Cone Health, Atrium Health Wake Forest Baptist or Novant, and
-            plenty use more than one.{" "}
+            If you see doctors with Cone Health, Atrium Health Wake Forest Baptist, Novant Health,
+            or another provider, our guide to{" "}
             <Link href="/keep-my-doctor" className="underline underline-offset-2">
-              How to check a specific doctor against a specific plan
+              checking your doctors before choosing a plan
             </Link>{" "}
-            is a separate page, because it is the step that settles this for most households.
+            can help you confirm the providers you want to keep seeing.{" "}
           </p>
           <GuideTownLinks />
         </div>
@@ -231,7 +233,7 @@ export default function AdvantageVsMedigapPage() {
 
       <KitchenTableClose
         heading="Tell me who you see and what you take"
-        body="I’ll check both routes against your actual doctors and prescriptions, and tell you plainly when the better fit is something I can’t offer."
+        body="We can review your doctors, prescriptions, and budget together. The consultation is no cost, with no obligation to enroll."
         href="/start?topic=medicare&stage=turning_65_soon"
         label="Start here →"
       />

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
   description:
     "Answer a few questions about Medicare, life insurance, or retirement timing. A local licensed agent personally reviews your situation.",
   alternates: { canonical: "/start" },
+  robots: { index: false, follow: true },
   openGraph: pageOpenGraph({
     title: "Get a personal Medicare and coverage review",
     description:
@@ -39,11 +41,11 @@ export default function StartPage() {
             {SERVICE_AREA_LABEL}
           </p>
           <h1 className="font-heading text-28 md:text-32 mt-2 leading-tight font-bold">
-            Get a clear second set of eyes
+            Request your free consultation
           </h1>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-paper)]/90">
-            Choose your situation, answer a few focused questions, and review the key considerations
-            before deciding whether to schedule a conversation.
+            Tell me what matters to you and your family. We can meet at your home, at a convenient
+            public location, by phone, or by video. No cost and no obligation to buy anything.
           </p>
           <ul className="text-16 mt-5 flex flex-col gap-2 text-[var(--color-paper)]/80">
             <li>Licensed in North Carolina · master&apos;s student at UNCG</li>
@@ -54,7 +56,9 @@ export default function StartPage() {
       </section>
       <section className="bg-[var(--color-paper)] py-10 md:py-14">
         <div className="app-shell">
-          <HelpQuiz />
+          <Suspense fallback={<p role="status">Loading your questions…</p>}>
+            <HelpQuiz />
+          </Suspense>
           <div className="mx-auto w-full max-w-[640px]">
             <ComplianceDisclosure variant="medicare" />
           </div>

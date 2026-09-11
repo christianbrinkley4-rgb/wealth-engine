@@ -11,12 +11,12 @@ import { SERVICE_AREA_LABEL } from "@/lib/triad";
 export const metadata: Metadata = {
   title: "About Christian Brinkley",
   description:
-    "Christian Brinkley is a licensed insurance agent in Greensboro and a UNCG master’s student. He reviews every case himself — in person, Free consultation. No obligation.",
+    "Meet Christian Brinkley, a local licensed insurance agent and UNCG master’s student. Personal Medicare and insurance help at home or by phone. No-cost consultation.",
   alternates: { canonical: "/about" },
   openGraph: pageOpenGraph({
     title: "About Christian Brinkley — licensed Greensboro agent",
     description:
-      "A local master’s student and licensed agent who sits down in person instead of sending you to a national phone service.",
+      "Get to know Christian, his connection to the Triad, and his approach to helping families throughout retirement.",
     path: "/about",
   }),
 };
@@ -60,10 +60,10 @@ export default function AboutPage() {
                 Licensed insurance agent · {AGENT.city}, {AGENT.state}
               </p>
               <p className="text-19 mt-4 max-w-xl leading-relaxed text-[var(--color-paper)]/85">
-                Licensed in {AGENT.licensedStates.join(", ")}, and finishing a master’s in
-                accounting at UNC Greensboro. This site is mine. It isn’t a national phone service,
-                and it isn’t a lead company dressed up to look like one person. If we talk, we sit
-                down at your home — or on the phone, if that’s easier.
+                I’m a licensed insurance agent in {AGENT.licensedStates.join(", ")}, working toward
+                my master’s in accounting at UNC Greensboro. I sit down with families at their
+                kitchen tables to understand their questions and what they want to protect. Your
+                insurance consultation is no cost, with no obligation to buy anything.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -88,29 +88,26 @@ export default function AboutPage() {
       <section className="border-t border-[rgba(15,34,65,0.08)] bg-white py-14">
         <div className="measure-prose app-shell text-18 max-w-3xl space-y-7 leading-[1.85] text-[var(--color-navy)]">
           <p>
-            I grew up around here and I still live here. What got me into this work was watching how
-            differently two people can end up on the same decision — one who happened to hear about
-            a deadline in time, and one who didn’t.
+            My life and my education are here in the Triad. I want to be someone you know and can
+            come back to throughout retirement. A policy is one decision; the questions continue
+            when your health, family, work, and priorities change.
           </p>
           <p>
-            Most of what goes wrong with Medicare isn’t someone picking the wrong plan. It’s a
-            seven-month enrollment window that quietly closed, or a six-month window for
-            supplemental coverage that nobody mentioned, or a premium set from a tax return two
-            years old that could have been appealed. None of that is complicated. It just isn’t
-            explained anywhere you’d naturally look.
+            We can start with Medicare, life insurance, long-term or short-term care, critical
+            illness coverage, or annuities. We’ll look at what you already have, discuss your needs
+            and budget, and work toward a clear next step. You’re welcome to include your spouse or
+            another family member.
           </p>
           <p>
-            My approach is simple: tell me what you’re trying to figure out, and I’ll tell you the
-            part that matters. We can do that in person or by phone — anywhere I can reach in about
-            30 minutes from downtown Greensboro, not only the three largest cities. If that turns
-            into me helping you with coverage, good. If it turns into me telling you that you’re
-            already fine, or that you need an accountant rather than an agent, that’s a good outcome
-            too — and it happens regularly.
+            My approach is to listen first, explain the options I offer in plain language, and give
+            you room to decide. We can meet at your home, at a convenient public location, or by
+            phone. If your current coverage still fits, that is a useful conclusion too.
           </p>
           <p>
-            The accounting side of my background is why I keep dragging these conversations back to
-            taxes and timing. Insurance and tax questions in retirement are the same question most
-            of the time, and very few people get to talk to someone looking at both.
+            My accounting studies help me understand how retirement decisions connect. I’m currently
+            a licensed insurance agent, and I work with an advisor for retirement financial
+            planning. Tax, legal, and investment advice belongs with the appropriately qualified
+            professional. I’ll help you identify when that conversation would be useful.
           </p>
         </div>
       </section>
@@ -129,21 +126,21 @@ export default function AboutPage() {
       <section className="border-t border-[rgba(15,34,65,0.08)] bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold text-[var(--color-navy)]">
-            What happens when you send a form
+            What happens when you get in touch{" "}
           </h2>
           <ol className="mt-8 flex flex-col gap-6">
             {[
               {
                 t: "Your answers are stored",
-                b: "They go into a private database I control. They are not sold, and they are not passed to another agent or a lead network.",
+                b: "Your information comes directly to me. It is kept private and is never sold or sent to other agents.",
               },
               {
                 t: "I get an alert",
-                b: "I receive an alert when your request is submitted. If you need immediate help, call or email me directly.",
+                b: "Your request comes straight to me for a personal review. If you’d like to talk sooner, call or email me directly.",
               },
               {
                 t: "You hear from me",
-                b: "Usually the same day, always within one business day. In person or by phone — whichever you asked for. ",
+                b: "I’ll get in touch so we can arrange a time and place that work for you, including a visit at home or a phone conversation.",
               },
             ].map((step, index) => (
               <li key={step.t} className="flex gap-5 border-t border-gray-300 pt-5">
@@ -180,13 +177,13 @@ export default function AboutPage() {
 
       <section className="border-t border-[rgba(15,34,65,0.08)] bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <LeadCluster heading="Four things I sit down and walk through" />
+          <LeadCluster heading="Questions I can help with" />
         </div>
       </section>
 
       <KitchenTableClose
         heading="What are you trying to figure out?"
-        body="Two questions, and you’ll have something useful before I ask for anything."
+        body="Tell me what’s on your mind. We can arrange a no-cost conversation about your coverage and next steps."
         href="/start"
         label="Ask your question →"
       />

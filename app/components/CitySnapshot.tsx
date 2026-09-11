@@ -7,10 +7,6 @@ import { isHighIntentPlace, nearbyCountyContrasts, type TriadCity } from "@/lib/
  * that the templates used to bury in one interchangeable county paragraph.
  */
 export function CitySnapshot({ city }: { city: TriadCity }) {
-  const drive =
-    city.minutesFromDowntown === 0
-      ? "Where I live"
-      : `About ${city.minutesFromDowntown} minutes from downtown Greensboro`;
   const contrasts = nearbyCountyContrasts(city);
   const deep = isHighIntentPlace(city.slug);
 
@@ -21,20 +17,16 @@ export function CitySnapshot({ city }: { city: TriadCity }) {
       </p>
       <dl className="mt-4 flex flex-col gap-3">
         <div>
-          <dt className="text-15 font-medium text-[var(--color-ink-muted)]">Drive</dt>
-          <dd className="text-17 mt-0.5">{drive}</dd>
+          <dt className="text-15 font-medium text-[var(--color-ink-muted)]">Ways to meet</dt>
+          <dd className="text-17 mt-0.5">At home, at a public location, or by phone</dd>
         </div>
         <div>
           <dt className="text-15 font-medium text-[var(--color-ink-muted)]">Medicare county</dt>
           <dd className="text-17 mt-0.5">{city.county}</dd>
         </div>
         <div>
-          <dt className="text-15 font-medium text-[var(--color-ink-muted)]">Households</dt>
-          <dd className="text-17 mt-0.5">{city.population}</dd>
-        </div>
-        <div>
           <dt className="text-15 font-medium text-[var(--color-ink-muted)]">
-            Where people are treated
+            Nearby hospitals and health systems
           </dt>
           <dd className="text-17 mt-0.5">{city.hospitals.join("; ")}</dd>
         </div>
@@ -46,7 +38,7 @@ export function CitySnapshot({ city }: { city: TriadCity }) {
       ) : null}
       {contrasts.length > 0 ? (
         <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Nearby towns on a different Medicare list:{" "}
+          Nearby communities in other counties:{" "}
           {contrasts.map((place, index) => (
             <span key={place.slug}>
               {index > 0 ? ", " : ""}
@@ -56,12 +48,12 @@ export function CitySnapshot({ city }: { city: TriadCity }) {
               ({place.county})
             </span>
           ))}
-          . Life insurance and a 401(k) do not follow that line. Advantage does.
+          . Medicare Advantage plan availability may differ, so we’ll check your home address.
         </p>
       ) : deep ? (
         <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Neighbors on this list share {city.county}. Advantage still has to include the specific
-          practice, for the year coverage starts.
+          When comparing Medicare Advantage plans in {city.county}, we’ll check your doctors and
+          hospitals for the year your coverage will begin.
         </p>
       ) : null}
     </aside>

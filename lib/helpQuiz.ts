@@ -13,7 +13,12 @@
  *    income bracket to ask a question.
  */
 
-export const HELP_QUIZ_TOPICS = ["medicare", "financial_planning", "life_insurance"] as const;
+export const HELP_QUIZ_TOPICS = [
+  "medicare",
+  "financial_planning",
+  "life_insurance",
+  "care_coverage",
+] as const;
 
 export type HelpQuizTopic = (typeof HELP_QUIZ_TOPICS)[number];
 
@@ -76,7 +81,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
       },
       {
         id: "medicare_question",
-        prompt: "What’s the part you’d most like sorted out?",
+        prompt: "What would you most like help understanding?",
         options: [
           { value: "when_to_enroll", label: "When I have to sign up, and by when" },
           { value: "which_coverage", label: "How the coverage choices differ" },
@@ -104,12 +109,40 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
       },
       {
         id: "planning_focus",
-        prompt: "What do you want to tackle first?",
+        prompt: "Which question would you like to start with?",
         options: [
           { value: "social_security", label: "When to start Social Security" },
           { value: "income_order", label: "Which accounts to draw from first" },
           { value: "taxes", label: "Keeping taxes down in retirement" },
           { value: "leaving_money", label: "Leaving money to family cleanly" },
+          { value: "annuities", label: "Annuities and retirement income options" },
+        ],
+      },
+    ],
+  },
+  care_coverage: {
+    id: "care_coverage",
+    label: "Care and critical illness coverage",
+    shortLabel: "Care coverage",
+    blurb: "Planning for care needs and the financial impact of a serious illness.",
+    questions: [
+      {
+        id: "care_focus",
+        prompt: "What would you like to talk about?",
+        options: [
+          { value: "long_term", label: "Long-term care insurance" },
+          { value: "short_term", label: "Short-term care insurance" },
+          { value: "critical_illness", label: "Critical illness insurance" },
+          { value: "explore", label: "I’m not sure—help me understand the options" },
+        ],
+      },
+      {
+        id: "care_for",
+        prompt: "Who are you planning for?",
+        options: [
+          { value: "myself", label: "Myself" },
+          { value: "couple", label: "My spouse and me" },
+          { value: "family", label: "A parent or another family member" },
         ],
       },
     ],
@@ -164,21 +197,21 @@ export const QUIZ_SITUATIONS: QuizSituation[] = [
     id: "turning_65",
     topic: "medicare",
     label: "Turning 65",
-    blurb: "Coordinate Part B, employer coverage, HSA timing, and Medigap deadlines.",
+    blurb: "Understand when to enroll and how Medicare fits with your current coverage.",
     firstAnswer: { questionId: "medicare_stage", value: "turning_65_soon" },
   },
   {
     id: "annual_enrollment",
     topic: "medicare",
     label: "Already on Medicare",
-    blurb: "Review next year’s costs, prescriptions, and physician networks.",
+    blurb: "Review your costs, prescriptions, and the doctors you want to keep.",
     firstAnswer: { questionId: "medicare_stage", value: "already_on_medicare" },
   },
   {
     id: "retirement",
     topic: "financial_planning",
     label: "Retirement income",
-    blurb: "Understand how Social Security, withdrawals, and IRMAA may fit together.",
+    blurb: "Discuss retirement income questions and how they may affect Medicare costs.",
   },
   {
     id: "life",
@@ -186,9 +219,20 @@ export const QUIZ_SITUATIONS: QuizSituation[] = [
     label: "Life insurance",
     blurb: "Check employer coverage, beneficiaries, end dates, and family needs.",
   },
+  {
+    id: "care",
+    topic: "care_coverage",
+    label: "Care and critical illness",
+    blurb: "Discuss long-term care, short-term care, and critical illness insurance.",
+  },
 ];
 
-export const TOPIC_ORDER: HelpQuizTopic[] = ["medicare", "financial_planning", "life_insurance"];
+export const TOPIC_ORDER: HelpQuizTopic[] = [
+  "medicare",
+  "financial_planning",
+  "life_insurance",
+  "care_coverage",
+];
 
 export const TOPICS: TopicOption[] = TOPIC_ORDER.map((id) => ({
   id,
@@ -200,12 +244,14 @@ export const TOPIC_LABELS: Record<InterestTopic, string> = {
   medicare: "Medicare",
   financial_planning: "Retirement income",
   life_insurance: "Life insurance",
+  care_coverage: "Care and critical illness coverage",
 };
 
 export const BRANCH_QUESTIONS: Record<InterestTopic, HelpQuizQuestion[]> = {
   medicare: TOPIC_META.medicare.questions,
   financial_planning: TOPIC_META.financial_planning.questions,
   life_insurance: TOPIC_META.life_insurance.questions,
+  care_coverage: TOPIC_META.care_coverage.questions,
 };
 
 /**
@@ -286,9 +332,10 @@ export function quizTotalSteps(skippedFirst: boolean): number {
 
 /** Optional meeting preference on the contact step. */
 export const MEET_OPTIONS: HelpQuizOption[] = [
-  { value: "kitchen_table", label: "Meet in person" },
+  { value: "kitchen_table", label: "Meet at my home" },
   { value: "coffee_shop", label: "Meet at a convenient public location" },
   { value: "phone", label: "Talk by phone" },
+  { value: "video", label: "Meet by video" },
   { value: "email", label: "Start by email" },
 ];
 
@@ -316,9 +363,9 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
         headline: "Your Medicare timeline spans seven months.",
         lede: "It begins three months before your birthday month. Employer coverage, HSA contributions, a younger spouse, and Medigap timing can all affect the next step.",
         points: [
-          "The Part B late penalty is 10% for every full 12 months you could have had it and didn’t — and you pay it for as long as you have Part B.",
-          "There’s a separate six-month window for Medigap that starts the month you’re 65 and enrolled in Part B. Inside it you can’t be turned down or charged more for your health history. Outside it, in most states, you can.",
-          "Signing up early in the window means coverage starts the month you turn 65. Signing up late in it can push your start date back.",
+          "If you delay Part B without qualifying for an exception, a late enrollment penalty may apply. Check how your current coverage works before deciding to wait.",
+          "Medigap has a separate six-month open enrollment period that begins when you’re 65 or older and enrolled in Part B. Health questions may affect later applications unless another protection applies.",
+          "Enrolling before your birthday month generally lets Part B begin when you turn 65. A birthday on the first of the month shifts the timing earlier. The date tool can help you find your estimated window.",
         ],
         note,
       };
@@ -326,12 +373,12 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
 
     if (stage === "past_65_still_working") {
       return {
-        headline: "Whether you can delay Part B depends on how many people your employer employs.",
-        lede: "This is the detail that catches working people out. Group coverage at a large employer generally lets you delay Part B penalty-free. At a small employer, Medicare usually becomes your primary payer whether or not you’ve enrolled.",
+        headline: "Check your work coverage before deciding when to enroll.",
+        lede: "Your employer’s size and the type of coverage you have can affect when you should enroll in Part B. Check with your benefits administrator and Medicare before deciding to delay.",
         points: [
-          "Twenty or more employees: your group plan generally stays primary, and you get a Special Enrollment Period of eight months after the job or the coverage ends.",
-          "Fewer than twenty employees: Medicare usually pays first, and staying off Part B can leave you with claims nobody covers.",
-          "COBRA and retiree coverage are not the same thing as active employer coverage for this rule — that mix-up is where the penalties usually come from.",
+          "With 20 or more employees, current employer coverage generally pays first. An eight-month Part B Special Enrollment Period generally follows the end of employment or that coverage, whichever happens first.",
+          "With fewer than 20 employees, Medicare generally pays first. Ask your employer how your coverage works before delaying enrollment.",
+          "COBRA and retiree coverage follow different rules from coverage through current employment. Check your enrollment timing with Medicare before relying on either to delay Part B.",
         ],
         note,
       };
@@ -340,11 +387,11 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
     if (stage === "already_on_medicare") {
       return {
         headline: "Review coverage changes before you renew.",
-        lede: "Medicare looks back two years to decide whether you pay the standard Part B premium or an income-related amount on top of it. So a one-time event — selling a house, a large withdrawal, a Roth conversion — shows up on your premium two years later.",
+        lede: "A yearly review can help you check your doctors, prescriptions, and costs. Your income may affect premiums too: Medicare generally looks at income from two years earlier when calculating income-related charges.",
         points: [
-          "If your income dropped because of a life-changing event — retiring, losing a job, marriage, divorce, a spouse’s death — you can ask Social Security to use current income instead, on Form SSA-44. Many people never find out this exists.",
-          "Coverage can be changed each year between October 15 and December 7. If you’re on Medicare Advantage there’s a second window, January 1 to March 31.",
-          "Drug coverage is worth re-checking annually even if nothing about your health changed — the plans change around you.",
+          "If your income fell after a qualifying life change, such as retirement, ask Social Security whether Form SSA-44 could help them review your income-related premium charges.",
+          "Medicare’s annual enrollment period runs October 15 through December 7. People already in Medicare Advantage also have a January 1 through March 31 period for certain changes.",
+          "Prescription coverage and provider networks can change. Review the details for the coming year even if your health needs have stayed the same.",
         ],
         note,
       };
@@ -354,12 +401,30 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
     // research, who needs to know what to ask and what they are allowed to
     // do on someone else’s behalf.
     return {
-      headline: "You can do the research, but you can’t sign for them.",
-      lede: "The hardest part of helping a parent through this is usually not the plans — it’s that Medicare and Social Security won’t discuss their account with you unless they’ve authorized it. Sorting that out first saves weeks.",
+      headline: "Start with how your family member would like you to help.",
+      lede: "You can help organize questions and paperwork. If you need to discuss personal records or act on a family member’s behalf, first check what permission or legal authority the agency or plan requires.",
       points: [
-        "Social Security needs written authorization before they’ll talk to you about someone else’s record. Getting that in place early is the difference between one phone call and five.",
-        "The deadline you’re working to: their sign-up window runs seven months — the three months before the month they turn 65, that month, and the three after. Missing it means a Part B penalty of 10% for every full 12 months they could have had it, for as long as they have it.",
-        "The one that gets missed: a separate six-month window for supplemental coverage opens when they’re 65 and enrolled in Part B. Inside it their health history can’t be used against them. Outside it, in most states, it can — which matters most for exactly the parents whose health is already a worry.",
+        "Medicare, Social Security, and insurers may have different requirements for sharing information. Ask which authorization is needed before calling on someone else’s behalf.",
+        "Help them check their Medicare enrollment dates and any current employer coverage. The initial period generally lasts seven months, with a timing adjustment for birthdays on the first of the month.",
+        "Ask about the separate Medigap open enrollment period, which begins when someone is 65 or older and enrolled in Part B. The timing and any other protections can affect their options.",
+      ],
+      note,
+    };
+  }
+
+  if (topic === "care_coverage") {
+    return {
+      headline:
+        answers.care_focus === "critical_illness"
+          ? "Start with the illnesses the policy actually covers."
+          : answers.care_focus === "short_term"
+            ? "Start with the length and kind of care a policy covers."
+            : "Start with the help your family would need.",
+      lede: "Care and critical illness policies cover different situations. We can compare their purpose, what triggers a benefit, and what a policy would leave for your family to pay.",
+      points: [
+        "For care coverage, ask where care can be received, what qualifies for benefits, and how long benefits can last.",
+        "For critical illness coverage, ask which diagnoses and definitions qualify. A policy does not cover every illness or expense.",
+        "Bring any existing policy to our consultation. We can review waiting periods, exclusions, benefit limits, and premiums together.",
       ],
       note,
     };
@@ -368,13 +433,25 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
   if (topic === "financial_planning") {
     const focus = answers.planning_focus;
 
+    if (focus === "annuities")
+      return {
+        headline: "Income is only one part of an annuity decision.",
+        lede: "We can discuss the insurance options I offer and how a contract could fit your income needs. A financial advisor can help assess how it fits alongside your investments.",
+        points: [
+          "Ask how and when income can start, what is guaranteed, and which conditions apply.",
+          "Review surrender charges, withdrawal limits, rider costs, and access to money for an emergency.",
+          "Bring an existing annuity statement if you have one. Understand the consequences before replacing a contract.",
+        ],
+        note,
+      };
+
     if (focus === "social_security") {
       return {
-        headline: "Waiting is worth roughly 8% a year — but only up to 70.",
+        headline: "Your Social Security start date affects monthly income.",
         lede: "You can start any time between 62 and 70. Claiming before full retirement age permanently reduces the monthly benefit; waiting past it adds delayed retirement credits of about 8% a year. After 70 there is nothing more to gain by waiting.",
         points: [
-          "For anyone born in 1960 or later, full retirement age is 67 — not 65, which is the number most people still have in their head.",
-          "For a married couple the bigger question is usually the higher earner’s start date, because that benefit is what the survivor keeps.",
+          "If you were born in 1960 or later, your full retirement age is 67.",
+          "If you’re married, consider how each start date may affect income for a surviving spouse. Social Security can explain the rules for your situation.",
           "Claiming early while still working can trigger the earnings test, which withholds part of the benefit until full retirement age.",
         ],
         note,
@@ -383,13 +460,12 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
 
     if (focus === "taxes" || focus === "income_order") {
       return {
-        headline:
-          "The years between retiring and 73 are usually the cheapest tax years you’ll ever have.",
-        lede: "Once required minimum distributions start at 73, your taxable income is set by a formula instead of by you. The gap between your last paycheck and that first RMD is the window where the order you draw from accounts actually changes the total tax bill.",
+        headline: "Your income needs can change after you retire.",
+        lede: "Before required withdrawals begin, it can be useful to review how you’ll draw from savings. Your account types, birth year, taxes, and Medicare costs all matter. A qualified tax professional or advisor can help with those decisions.",
         points: [
           "Required minimum distributions currently begin at 73, and move to 75 for people born in 1960 or later.",
           "Moving money to Roth during that gap can lower later RMDs — but a conversion at 63 raises the income Medicare looks at when you’re 65, because of the two-year lookback.",
-          "When one spouse dies the survivor files as single, often on similar income. That bracket change surprises people more than any other single thing in retirement.",
+          "A change in marital status can affect taxes and Medicare income thresholds. Review the implications with a qualified tax professional.",
         ],
         note,
       };
@@ -397,23 +473,23 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
 
     if (focus === "leaving_money") {
       return {
-        headline: "Who gets the money is often decided by a form, not by the will.",
-        lede: "Retirement accounts, life insurance, and many bank products pay whoever is named on the beneficiary form. That designation overrides what the will says. Cleaning those up is usually more useful than buying a new product.",
+        headline: "Keep your beneficiary information up to date.",
+        lede: "Beneficiary records help determine who receives funds from insurance policies and certain accounts. Review them after important family changes, and ask the insurer or account provider how to make updates.",
         points: [
-          "An ex-spouse still listed as beneficiary still gets paid — even after a divorce and a rewritten will. That is one of the most common expensive surprises in this work.",
+          "After a marriage, divorce, or death, review the people named on each policy and account. Legal rules can affect the outcome, so seek qualified advice when needed.",
           "Inherited IRAs now generally have to be emptied within ten years for most non-spouse heirs, which can create a tax bill the family did not budget for.",
-          "Life insurance paid to a named beneficiary usually moves outside probate and faster than anything that has to go through an estate. The form has to be current for that to help anyone.",
+          "Ask your insurer how benefits would be paid and what records your beneficiary would need. Keep the policy information somewhere a trusted family member can find it.",
         ],
         note,
       };
     }
 
     return {
-      headline: "Three dates set the shape of almost every retirement income plan.",
-      lede: "Before the details, the calendar. Most of the decisions people agonize over are really about which of these three doors to walk through first.",
+      headline: "Start with the dates that matter to your retirement.",
+      lede: "Your retirement date, Medicare enrollment, Social Security, and required withdrawals may happen at different times. Reviewing them together can help you prepare.",
       points: [
         "62 to 70: the Social Security window, where waiting adds roughly 8% a year after full retirement age.",
-        "73: required minimum distributions begin (75 if you were born in 1960 or later), and your taxable income stops being your choice.",
+        "Required minimum distributions generally begin at 73, or 75 for people born in 1960 or later. The rules also depend on your accounts and circumstances.",
         "Two years before 65: the income Medicare will use to set your first premium is already being recorded.",
       ],
       note,
@@ -424,12 +500,12 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
 
   if (cover === "review_existing") {
     return {
-      headline: "Start with what the policy actually is, and who it currently pays.",
-      lede: "Most reviews turn up one of two things: coverage that quietly ends sooner than expected, or a beneficiary who hasn’t been right for years.",
+      headline: "Let’s review the coverage you already have.",
+      lede: "A policy review can help you understand your coverage amount, premiums, beneficiaries, and how long the coverage lasts. Bring your current policy and any questions you have.",
       points: [
-        "The beneficiary form on the policy controls who gets the money. It overrides what your will says — an ex-spouse listed there still gets paid.",
-        "Coverage through an employer usually ends when the job does, and is rarely portable at a price worth paying. It’s the most common gap I see at retirement.",
-        "Term coverage is level for a set number of years and then gets expensive fast. Knowing your exact end date is the whole ballgame.",
+        "Check who is named to receive the policy benefit and whether the information reflects your current wishes. Your insurer can explain how to make changes.",
+        "Employer life insurance may change or end when you retire. Ask what continues, what it costs, and whether any deadlines apply.",
+        "Check when any level-premium period ends and what renewal would cost. The policy or insurer can explain your options.",
       ],
       note,
     };
@@ -437,23 +513,23 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
 
   if (cover === "final_expenses") {
     return {
-      headline: "This is a small policy, and the honest questions are about health and timing.",
+      headline: "Understand what final expense coverage would provide.",
       lede: "Final expense coverage is whole life in a modest amount, meant to keep funeral and medical costs off your family rather than to replace income. Price is driven by age and health at the time you apply.",
       points: [
-        "Rates go up with every year you wait, and a change in health can take options off the table entirely. Timing matters more here than in most insurance.",
+        "Cost and eligibility depend on the policy, your age, health, and other factors. We can discuss the options available to you.",
         "Some policies have a waiting period before the full benefit is payable. That detail is worth reading before anything is signed.",
-        "The beneficiary designation is what gets money to your family quickly — faster than anything that has to go through an estate.",
+        "Keep your beneficiary information current, and let someone you trust know where to find the policy and how to contact the insurer.",
       ],
       note,
     };
   }
 
   return {
-    headline: "The real question is how many more years the money is needed for.",
-    lede: "Whether coverage should be temporary or permanent comes down to how long the need lasts — not to which product someone wants to sell you. That’s a question you can answer yourself before you talk to anyone.",
+    headline: "Think about what your family would need help paying for.",
+    lede: "The length of coverage is one part of the choice. Your budget, current policies, savings, and family needs matter too. We can review those together.",
     points: [
-      "If the need ends — a mortgage paid off, a spouse reaching their own pension or Social Security — term coverage for exactly that long is usually the appropriate answer.",
-      "If the need doesn’t end, permanent coverage exists for that, and it costs meaningfully more. Both are legitimate; the mismatch is what costs people money.",
+      "Term insurance can provide coverage for a set period, such as while a mortgage is being paid. Review the end date and any renewal options.",
+      "Permanent life insurance is designed for longer-term coverage when policy requirements are met. Review its costs and how it would fit your needs over time.",
       "Group coverage through work generally ends at retirement, so it’s worth knowing now what remains after your last day.",
     ],
     note,
@@ -486,6 +562,8 @@ export function describeAnswers(
     out.push({ question: "How they’d like to talk", answer: label });
   }
   const income = answers.income_range;
+  if (answers.best_time)
+    out.push({ question: "Preferred time to connect", answer: answers.best_time });
   if (income) {
     const label = INCOME_OPTIONS.find((o) => o.value === income)?.label ?? income;
     out.push({ question: "Household income", answer: label });

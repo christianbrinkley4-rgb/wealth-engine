@@ -28,12 +28,12 @@ import { SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
 export const metadata: Metadata = {
   title: { absolute: "Life Insurance in Greensboro, NC — personal review" },
   description:
-    "A licensed Greensboro agent will sit down and read your policy with you at no cost. Term or permanent comes down to how long the money is needed — not to what someone wants to sell.",
+    "Review life insurance with Christian Brinkley in Greensboro. Understand your current coverage, your family’s needs, and what may change when you retire. No cost or obligation.",
   alternates: { canonical: "/life-insurance" },
   openGraph: pageOpenGraph({
     title: "Life insurance, reviewed in person in Greensboro",
     description:
-      "The one question that settles term against permanent, and what to check on the policy you already have. No national phone service.",
+      "Personal help reviewing your life insurance, beneficiaries, and coverage needs as you approach retirement.",
     path: "/life-insurance",
   }),
 };
@@ -41,31 +41,31 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Term or whole life?",
-    a: "It comes down to how many more years the money needs to be there. If the need ends — a mortgage paid off, a spouse reaching their own pension or Social Security — term coverage for exactly that long is usually the appropriate answer. If it doesn’t end, permanent coverage exists for that, and it costs a good deal more. Both are legitimate. It’s the mismatch between them that costs people money.",
+    a: "Term insurance covers a set period. Permanent insurance is designed to last longer when the policy’s requirements are met. We can discuss how long you need coverage, what you want it to help pay for, and what fits your budget.",
   },
   {
     q: "I have coverage through work. Is that enough?",
-    a: "Find out exactly what happens to it when the job ends. Group coverage usually ends with the job, and it’s rarely portable at a price worth paying. It’s the most common gap I find at retirement — somebody thinks they’re covered, and the coverage left with the badge.",
+    a: "Your coverage may change or end when you retire. Ask your employer what you can keep and what it would cost. Bring that information so we can review it alongside any personal policies.",
   },
   {
     q: "How much do I need?",
-    a: "Start from what would actually have to get paid, not a multiple of your income. The mortgage balance. The years until your spouse’s own benefits start. What a funeral runs around here. Whether anybody depends on you. That math usually lands somewhere well away from what a calculator tells you.",
+    a: "Think about the expenses your family would need help with, such as a mortgage, everyday bills, or final expenses. We can look at those needs alongside your savings, other income, and existing coverage.",
   },
   {
     q: "I am in my sixties. Is it too late?",
-    a: "No, but the price goes up every year, and a change in health can take options off the table completely. That isn’t a sales line, it’s how underwriting works. It’s also why waiting is the expensive choice in this one case.",
+    a: "You may still have options. Eligibility and cost depend on the policy, your age, health, and other factors. A conversation can help you understand what is available and whether additional coverage makes sense for you.",
   },
   {
     q: "What should I check on the policy I already have?",
-    a: "Two things, and both take five minutes. Who the beneficiary is — that form decides who gets paid, it overrides your will, and an ex-spouse still listed there still gets the money. And when the coverage actually ends, because term policies hold their price for a set number of years and then climb fast.",
+    a: "Check the coverage amount, premiums, beneficiary information, and how long the policy lasts. We can review any future changes to the cost or benefits and discuss questions to ask your insurer.",
   },
   {
     q: "Do you charge for a review?",
-    a: "A good share of them end with me telling somebody what they’ve got is fine. That’s a real answer, and it takes about twenty minutes — in person or by phone.",
+    a: "No. Your consultation is no cost, with no obligation to buy anything. If your current coverage still meets your needs, you may decide to keep it.",
   },
   {
     q: "Do you meet in Greensboro, High Point, and Winston-Salem?",
-    a: "Yes — and in the towns within about 30 minutes of downtown Greensboro. Kernersville, Summerfield, Jamestown, Oak Ridge, Archdale, and the rest. In person or by phone. Same person either way, and no obligation.",
+    a: "Yes. I serve Greensboro, High Point, Winston-Salem, and nearby communities, including Kernersville, Summerfield, Jamestown, Oak Ridge, and Archdale. We can arrange a home visit or talk by phone.",
   },
 ] as const;
 
@@ -88,12 +88,12 @@ export default function LifeInsurancePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Life insurance in Greensboro, decided by how long the money is needed",
+              headline: "Personal life insurance help in Greensboro",
               description:
-                "The question that settles term against permanent, and what to check on an existing policy.",
+                "Understand your life insurance options and what to review in an existing policy.",
               path: "/life-insurance",
               datePublished: "2026-08-25",
-              dateModified: "2026-08-25",
+              dateModified: "2026-09-10",
             }),
           ),
         }}
@@ -105,7 +105,7 @@ export default function LifeInsurancePage() {
             serviceJsonLd({
               name: "Life insurance review",
               description:
-                "Personal review of existing coverage within about 30 minutes of downtown Greensboro. Free consultation. No obligation to buy.",
+                "Personal reviews of existing life insurance in Greensboro and nearby communities. No-cost consultation, with no obligation to buy.",
               path: "/life-insurance",
             }),
           ),
@@ -123,22 +123,22 @@ export default function LifeInsurancePage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">If the need ends</h2>
+          <h2 className="text-28 font-semibold">Coverage for a set period of time</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            A mortgage with eleven years left. A spouse who reaches their own Social Security at 67.
-            A child who finishes school in six years. Those are needs with an end date. Term
-            coverage for exactly that long is the appropriate answer — you’re insuring a stretch of
-            time, so pay for a stretch of time.
+            Some needs change over time, such as paying off a mortgage or helping a family member
+            until another source of income begins. Term life insurance provides coverage for a set
+            period. We can review the length of coverage and what happens when that period ends.
           </p>
-          <h2 className="text-28 mt-10 font-semibold">If it does not</h2>
+          <h2 className="text-28 mt-10 font-semibold">Coverage for longer-term needs</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            Final expenses. A disabled adult child. A tax bill that shows up whenever you do. Those
-            don’t expire, and permanent coverage exists for them. It costs a good deal more, and
-            that isn’t a trick. You’re buying a longer promise.
+            You may want coverage to help with final expenses or provide support for a loved one
+            over a longer period. Permanent life insurance is designed for ongoing coverage when the
+            policy’s requirements are met. It’s important to understand the premiums and how the
+            policy works over time.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Both are legitimate products. People lose money in the mismatch between them, and it’s
-            usually the person selling who creates it, not the person buying.
+            The right fit depends on your needs, your budget, and the coverage you already have.
+            We’ll talk through those details before considering a new policy.
           </p>
         </div>
       </section>
@@ -148,19 +148,19 @@ export default function LifeInsurancePage() {
           <h2 className="text-28 font-semibold">If you already have a policy, check two things</h2>
           <ol className="mt-6 flex flex-col gap-5 text-[18px] leading-relaxed">
             <li>
-              <strong>Who the beneficiary is.</strong> That form controls who receives the money and
-              it overrides your will. An ex-spouse still named there is still paid. This is the most
-              common and most avoidable problem I find.
+              <strong>Who your beneficiaries are.</strong> Review the people named to receive the
+              benefit, especially after a marriage, divorce, death, or other family change. Ask your
+              insurer how to update the records if needed.
             </li>
             <li>
-              <strong>When it ends.</strong> Term policies are level for a set number of years and
-              then the price climbs steeply. Knowing your exact end date is the whole ballgame, and
-              it is printed on the policy.
+              <strong>How long the coverage lasts.</strong> Check the end date, any renewal options,
+              and whether the premium or benefits will change. Employer coverage deserves a review
+              before your last day of work.
             </li>
           </ol>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            Neither one means buying anything, and neither one needs me. But if you’d rather
-            somebody read it with you, that’s twenty minutes and it doesn’t cost anything.
+            You can review these details yourself or bring your policy to our consultation. I’m
+            happy to explain the wording and help you identify questions to ask.
           </p>
         </div>
       </section>
@@ -189,15 +189,15 @@ export default function LifeInsurancePage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Personal help across the Triad</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            {SERVICE_AREA_LEDE} Life insurance is not sold by county the way Medicare Advantage is.
-            What changes by town is who is across the table.
+            {SERVICE_AREA_LEDE} You’re welcome to include a spouse or family member in our
+            conversation.
           </p>
           <FeaturedPlaceCards
             hrefFor={(place) => `/life-insurance-in/${place.slug}`}
             labelFor={(place) => `Life insurance in ${place.name}`}
           />
           <p className="text-13 mt-8 font-medium tracking-[0.1em] text-[var(--color-gold-ink)] uppercase">
-            Also within about 30 minutes
+            Nearby communities
           </p>
           <ServiceAreaTownList hrefFor={(place) => `/life-insurance-in/${place.slug}`} />
           <p className="text-17 mt-6">
@@ -207,7 +207,7 @@ export default function LifeInsurancePage() {
           </p>
           <LeadCluster
             current="/life-insurance"
-            heading="Medicare and retirement, same in-person meeting"
+            heading="More questions as you approach retirement"
           />
         </div>
       </section>

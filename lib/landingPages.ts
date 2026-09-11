@@ -1,30 +1,9 @@
 /**
- * One landing page per ad angle.
- *
- * The single largest driver of both ad cost and conversion rate is message
- * match: the page has to say what the ad said. Somebody who clicked "what
- * happens to my 401(k) when I retire" and arrives on a general Medicare page
- * bounces, and the platform charges more for the next click because it can
- * see that happening. So each angle gets its own page rather than everything
- * pointing at the home page.
- *
- * Tag the ad URL and the rest measures itself — lib/attribution.ts already
- * stores utm_campaign and utm_content first-touch, and the lead_summary view
- * groups on them. For an A/B test put the angle in utm_campaign and the
- * creative in utm_content:
- *
- *   /lp/turning-65?utm_source=meta&utm_campaign=t65&utm_content=photo-a
- *   /lp/turning-65?utm_source=meta&utm_campaign=t65&utm_content=headline-b
- *
- * WHAT IS DELIBERATELY MISSING
- *
- * There is no "financial advisor" or "financial planning" angle here, and it
- * is not an oversight. Advertising a service is held to a higher standard than
- * writing about a subject: paid claims to be a financial advisor, by somebody
- * who is not a registered investment adviser, is the exact fact pattern state
- * securities regulators act on. The retirement-income angle below covers the
- * same searches from the side he is licensed for — the tax and Medicare timing
- * — and says plainly where his part stops.
+ * Match each ad to its subject and offer a direct consultation request.
+ * Start with a turning-65 pilot; AEP is a separate seasonal campaign.
+ * Campaign and creative labels identify submitted inquiries. Held appointment
+ * outcomes still need to be connected before reporting an appointment winner.
+ * See docs/APPOINTMENT-CAMPAIGNS.md for the testing plan and draft messages.
  */
 
 export interface LandingPage {
@@ -33,6 +12,12 @@ export interface LandingPage {
   eyebrow: string;
   headline: string;
   subhead: string;
+  /** Topic-specific consultation entry point. */
+  primaryHref: string;
+  /** One related educational next step for visitors who want to read first. */
+  guideHref: string;
+  /** Concrete topics for the consultation; these are not promises of a particular result. */
+  consultationTopics: [string, string, string];
   /** Heading above the four self-identification buttons. */
   chooseHeading: string;
   options: Array<{ label: string; href: string }>;
@@ -45,7 +30,7 @@ export interface LandingPage {
 
 const UNIVERSAL_PROMISES = [
   "Personal review from a local licensed agent.",
-  "Meet in person or by phone.",
+  "Meet in person, by phone, or by video.",
   "Free consultation. No obligation.",
 ];
 
@@ -55,7 +40,14 @@ export const LANDING_PAGES: LandingPage[] = [
     eyebrow: "Local Medicare guidance · Piedmont Triad",
     headline: "Get a personal Medicare coverage review",
     subhead:
-      "Review your enrollment timing, physicians, prescriptions, and coverage priorities with one Greensboro-based licensed agent.",
+      "Let’s review when to enroll, the doctors and prescriptions you want covered, and what matters to you. You’ll work directly with Christian, a licensed agent in Greensboro.",
+    primaryHref: "/start?topic=medicare",
+    guideHref: "/turning-65",
+    consultationTopics: [
+      "Your current coverage and when you may be able to enroll.",
+      "What to check for your doctors, prescriptions, and pharmacy.",
+      "The costs and coverage differences among the plans I represent.",
+    ],
     chooseHeading: "Choose your Medicare situation",
     options: [
       { label: "I’m turning 65 soon", href: "/start?topic=medicare&stage=turning_65_soon" },
@@ -72,17 +64,24 @@ export const LANDING_PAGES: LandingPage[] = [
     promises: [...UNIVERSAL_PROMISES, "Your inquiry is not sold to other agents."],
     compliance: "medicare",
     description:
-      "Get a free personal Medicare review from a local licensed agent in Greensboro. Meet in person or by phone.",
+      "Get a free personal Medicare review from Christian Brinkley, a local licensed agent in Greensboro. Meet in person, by phone, or by video.",
   },
   {
     slug: "turning-65",
     eyebrow: "Turning 65 in the Piedmont Triad",
-    headline: "Build your Medicare timeline before 65",
+    headline: "Turning 65? Let’s talk about Medicare.",
     subhead:
-      "Coordinate Part B, employer coverage, HSA contributions, Medigap timing, physicians, and coverage for a younger spouse.",
+      "Find out when to enroll, how Medicare works with your current coverage, and which options may fit your needs.",
+    primaryHref: "/start?topic=medicare&stage=turning_65_soon",
+    guideHref: "/turning-65",
+    consultationTopics: [
+      "Your enrollment dates and how Medicare works with coverage through work.",
+      "The differences between Medicare Advantage and Original Medicare with a supplement.",
+      "What to review for your doctors, prescriptions, and monthly budget.",
+    ],
     chooseHeading: "Where are you in the process?",
     options: [
-      { label: "See my exact dates", href: "/remind-me" },
+      { label: "Find my enrollment dates", href: "/remind-me" },
       { label: "I turn 65 within a year", href: "/start?topic=medicare&stage=turning_65_soon" },
       {
         label: "I’m past 65 and still working",
@@ -95,22 +94,29 @@ export const LANDING_PAGES: LandingPage[] = [
     ],
     promises: [
       ...UNIVERSAL_PROMISES,
-      "Your dates are free and take one click. No form in front of them.",
+      "Use the free date tool without sharing contact information.",
     ],
     compliance: "medicare",
     description:
-      "Turning 65? See the exact dates your Medicare enrollment window opens and closes, plus the Medigap window most people miss. Free, from a Greensboro agent.",
+      "Turning 65? Find your estimated Medicare enrollment dates and learn when to review Medigap options. Free help from a local Greensboro agent.",
   },
   {
     slug: "annual-enrollment",
     eyebrow: "October 15 – December 7 · Piedmont Triad",
     headline: "Review your Medicare coverage for next year",
     subhead:
-      "Check next year’s costs, prescription coverage, and physician networks before deciding whether to keep or change your plan.",
+      "Review next year’s costs, prescriptions, and doctors before deciding whether your current plan still fits.",
+    primaryHref: "/start?topic=medicare&stage=already_on_medicare",
+    guideHref: "/annual-enrollment",
+    consultationTopics: [
+      "Changes in your plan’s premiums, copays, and other costs for next year.",
+      "Whether your doctors, prescriptions, and pharmacy are covered by the plans you’re considering.",
+      "Whether to keep your current plan or consider a change during an enrollment period.",
+    ],
     chooseHeading: "What would you like to review?",
     options: [
       {
-        label: "I got the letter and I’m not sure",
+        label: "Help me understand my plan’s changes",
         href: "/start?topic=medicare&stage=already_on_medicare",
       },
       {
@@ -118,7 +124,7 @@ export const LANDING_PAGES: LandingPage[] = [
         href: "/start?topic=medicare&stage=already_on_medicare",
       },
       { label: "I want to keep my doctor", href: "/keep-my-doctor" },
-      { label: "Explain the window first", href: "/annual-enrollment" },
+      { label: "Explain annual enrollment", href: "/annual-enrollment" },
     ],
     promises: [
       ...UNIVERSAL_PROMISES,
@@ -126,7 +132,7 @@ export const LANDING_PAGES: LandingPage[] = [
     ],
     compliance: "medicare",
     description:
-      "Review next year’s Medicare costs, prescriptions, and physician networks with a local licensed agent. Free consultation.",
+      "Review next year’s Medicare costs, prescriptions, and doctors with a local licensed agent. No-cost consultation.",
   },
   {
     slug: "life-insurance",
@@ -134,7 +140,14 @@ export const LANDING_PAGES: LandingPage[] = [
     headline: "Protect the people who depend on you",
     subhead:
       "Review employer and personal coverage, beneficiaries, policy end dates, and how long your family may need protection.",
-    chooseHeading: "What are you trying to sort out?",
+    primaryHref: "/start?topic=life_insurance",
+    guideHref: "/life-insurance",
+    consultationTopics: [
+      "Who depends on you and the expenses you want your coverage to help with.",
+      "What your current policy provides, when it ends, and what happens when you leave work.",
+      "Coverage amounts, policy types, and premiums that make sense to consider for your budget.",
+    ],
+    chooseHeading: "What would you like help with?",
     options: [
       {
         label: "I want to review a policy I have",
@@ -142,34 +155,41 @@ export const LANDING_PAGES: LandingPage[] = [
       },
       {
         label: "My work coverage ends when I retire",
-        href: "/start?topic=life_insurance&stage=replace_income",
+        href: "/start?topic=life_insurance",
       },
       {
         label: "I’m thinking about final expenses",
         href: "/start?topic=life_insurance&stage=final_expenses",
       },
-      { label: "Just explain term vs whole life", href: "/life-insurance" },
+      { label: "Explain the types of life insurance", href: "/life-insurance" },
     ],
     promises: [...UNIVERSAL_PROMISES, "If what you have already works, that’s what I’ll tell you."],
     compliance: "general",
     description:
-      "Term or permanent depends on how long the money is needed. A licensed Greensboro agent will read your existing policy with you at no cost.",
+      "Review your current life insurance, family needs, and budget with a local licensed agent. Your consultation is no cost, with no obligation.",
   },
   {
     slug: "annuities",
     eyebrow: "Greensboro · Piedmont Triad",
     headline: "Understand an annuity before you decide",
     subhead:
-      "Review the guarantees, surrender schedule, access to funds, and insurance features with a local licensed agent.",
+      "Understand the guarantees, costs, and rules for taking money out before deciding whether an annuity fits your needs.",
+    primaryHref: "/start?topic=financial_planning",
+    guideHref: "/annuities",
+    consultationTopics: [
+      "The income an annuity is designed to provide and the conditions behind its guarantees.",
+      "Fees, surrender charges, and how much access you would have to your money.",
+      "How the insurance options I offer relate to questions for your financial advisor.",
+    ],
     chooseHeading: "Where are you with it?",
     options: [
       {
         label: "Somebody sent me a proposal",
-        href: "/start?topic=financial_planning&stage=retiring_soon",
+        href: "/start?topic=financial_planning",
       },
       {
         label: "I want income I can count on",
-        href: "/start?topic=financial_planning&stage=recently_retired",
+        href: "/start?topic=financial_planning",
       },
       { label: "Explain how annuities work first", href: "/annuities" },
       {
@@ -179,48 +199,61 @@ export const LANDING_PAGES: LandingPage[] = [
     ],
     promises: [
       ...UNIVERSAL_PROMISES,
-      "I don’t hold a securities license, and I’ll say so when that’s what you need.",
+      "I can explain the insurance options I offer and work with an advisor for financial planning.",
     ],
     compliance: "general",
     description:
-      "A licensed Greensboro agent will read an annuity proposal with you at no cost, including the surrender schedule and the guaranteed column.",
+      "Bring an annuity proposal or current contract to a no-cost review with a local licensed agent. We can discuss its guarantees, fees, and access to your money.",
   },
   {
     slug: "retirement-income",
     eyebrow: "Greensboro · Piedmont Triad",
-    headline: "Coordinate retirement income with Medicare",
+    headline: "Let’s talk about your retirement questions.",
     subhead:
-      "Understand how Social Security timing, withdrawals, Roth conversions, and the two-year IRMAA lookback may fit together.",
-    chooseHeading: "What are you working out?",
+      "We can start with your Medicare and insurance needs, your family’s priorities, and the questions on your mind. For financial planning, I work with an advisor so you have the right support.",
+    primaryHref: "/start?topic=financial_planning",
+    guideHref: "/retirement-income",
+    consultationTopics: [
+      "Your insurance needs as work ends and your household’s income changes.",
+      "Questions about Medicare, family protection, and possible future care expenses.",
+      "Which financial planning questions to discuss with an advisor I work with, and whether you’d like an introduction.",
+    ],
+    chooseHeading: "What would you like to discuss?",
     options: [
-      { label: "See what my timing costs", href: "/plan" },
+      { label: "Planning for retirement income", href: "/start?topic=financial_planning" },
       {
         label: "What to do with an old 401(k)",
-        href: "/start?topic=financial_planning&stage=retiring_soon",
+        href: "/start?topic=financial_planning",
       },
       { label: "My premium went up and I don’t know why", href: "/irmaa-appeal" },
-      { label: "Just talk it through", href: "/start?topic=financial_planning" },
+      { label: "Read about retirement and Medicare", href: "/retirement-income" },
     ],
     promises: [
       ...UNIVERSAL_PROMISES,
-      "I’m not a registered investment adviser. How to invest it is an adviser’s question, and I’ll say so.",
+      "I help with Medicare and insurance questions and work with an advisor for financial planning.",
     ],
     compliance: "general",
     description:
-      "A withdrawal or Roth conversion at 63 lands on your first Medicare premium at 65. See what the timing is worth, free, from a Greensboro agent.",
+      "Understand how retirement income can affect Medicare premiums. Local guidance from a Greensboro insurance agent, with financial planning coordinated through an advisor.",
   },
 ];
 
-export const LANDING_CONTRAST = [
+export const LANDING_SUPPORT = [
   {
-    them: "General online information",
-    us: "A personal review with one local agent",
+    title: "Someone you can get to know",
+    body: "You’ll work directly with Christian. Your request is never sold to other agents.",
   },
-  { them: "A broad recommendation", us: "Your dates, physicians, prescriptions, and priorities" },
-  { them: "Phone-only support", us: "Meet in person or by phone" },
   {
-    them: "Multiple points of contact",
-    us: "Christian personally reviews every inquiry",
+    title: "A conversation about your needs",
+    body: "We’ll start with your questions and the coverage you already have. You don’t need to have everything figured out.",
+  },
+  {
+    title: "A comfortable way to meet",
+    body: "Meet at home, at a convenient public location, by phone, or by video. A spouse or family member is welcome.",
+  },
+  {
+    title: "Help as your needs change",
+    body: "You can come back with questions throughout retirement, whether you need to review coverage or understand a letter.",
   },
 ] as const;
 

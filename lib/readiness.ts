@@ -7,6 +7,9 @@ import {
 import { isValidPublicSiteUrl } from "@/lib/seo";
 import { hasSupabaseAdminConfig } from "@/lib/supabase";
 import { hasTestimonials } from "@/lib/testimonials";
+import { schedulingConfiguration, SCHEDULING_TOPICS, type SchedulingTopic } from "@/lib/scheduling";
+import { commandCenterConfig } from "@/lib/commandCenter";
+import { calWebhookConfig } from "@/lib/calWebhook";
 
 export type ReadinessIssue = {
   code: string;
@@ -32,6 +35,16 @@ export type ReadinessInput = {
   testimonialsConfigured: boolean;
   exactSaturdayHoursConfigured: boolean;
   services: ReadinessServices;
+  scheduling?: boolean;
+  booking?: BookingConfiguration;
+};
+
+type BookingConfiguration = {
+  genericCalendarConfigured: boolean;
+  topicCalendarsConfigured: Record<SchedulingTopic, boolean>;
+  webhookConfigured: boolean;
+  webhookTopicsConfigured: Record<SchedulingTopic, boolean>;
+  commandCenterRouteConfigured: boolean;
 };
 
 export type ReadinessReport = {
@@ -41,6 +54,19 @@ export type ReadinessReport = {
   fatal: ReadinessIssue[];
   optional: ReadinessIssue[];
   configuredServices: ReadinessServices;
+  verification: {
+    mode: "configuration-only";
+    liveConnectionsChecked: false;
+  };
+  automation: {
+    configured: boolean;
+    liveVerified: false;
+    checks: Record<string, boolean>;
+  };
+  booking: BookingConfiguration & {
+    syncConfigured: boolean;
+    liveVerified: false;
+  };
   publicSeo: {
     configured: boolean;
     indexable: boolean;
@@ -56,11 +82,43 @@ function positiveCount(value: number | null): boolean {
   return Number.isInteger(value) && (value ?? 0) > 0;
 }
 
+function topicFlags(
+  predicate: (topic: SchedulingTopic) => boolean,
+): Record<SchedulingTopic, boolean> {
+  return Object.fromEntries(SCHEDULING_TOPICS.map((topic) => [topic, predicate(topic)])) as Record<
+    SchedulingTopic,
+    boolean
+  >;
+}
+
 export function assessReadiness(input: ReadinessInput): ReadinessReport {
   const fatal: ReadinessIssue[] = [];
   const optional: ReadinessIssue[] = [];
   const publicSeoConfigured = isValidPublicSiteUrl(input.siteUrl);
   const leadCaptureReady = input.services.leadStorage || input.services.leadNotification;
+  const booking = input.booking ?? {
+    genericCalendarConfigured: input.scheduling === true,
+    topicCalendarsConfigured: topicFlags(() => false),
+    webhookConfigured: false,
+    webhookTopicsConfigured: topicFlags(() => false),
+    commandCenterRouteConfigured: false,
+  };
+  const bookingSyncConfigured = booking.webhookConfigured && booking.commandCenterRouteConfigured;
+  const automationChecks = {
+    durableLeadStorage: input.services.leadStorage,
+    agentAlerts: input.services.leadNotification,
+    prospectEmailReplies: input.services.prospectEmail,
+    enrollmentReminders: input.services.reminderDelivery,
+    onlineScheduling: SCHEDULING_TOPICS.every(
+      (topic) => booking.topicCalendarsConfigured[topic] || booking.genericCalendarConfigured,
+    ),
+    appointmentSync: bookingSyncConfigured,
+    appointmentTopicMappings: SCHEDULING_TOPICS.every(
+      (topic) =>
+        !(booking.topicCalendarsConfigured[topic] || booking.genericCalendarConfigured) ||
+        booking.webhookTopicsConfigured[topic],
+    ),
+  };
 
   if (!publicSeoConfigured) {
     fatal.push({
@@ -114,6 +172,13 @@ export function assessReadiness(input: ReadinessInput): ReadinessReport {
     fatal,
     optional,
     configuredServices: input.services,
+    verification: { mode: "configuration-only", liveConnectionsChecked: false },
+    automation: {
+      configured: Object.values(automationChecks).every(Boolean),
+      liveVerified: false,
+      checks: automationChecks,
+    },
+    booking: { ...booking, syncConfigured: bookingSyncConfigured, liveVerified: false },
     publicSeo: {
       configured: publicSeoConfigured,
       indexable: publicSeoConfigured && fatal.length === 0,
@@ -142,15 +207,27 @@ export function getReadinessReport(env: NodeJS.ProcessEnv = process.env): Readin
     notPlaceholder(env.TWILIO_AUTH_TOKEN) &&
     notPlaceholder(env.TWILIO_FROM_NUMBER) &&
     notPlaceholder(env.ALERT_SMS_TO);
-  const storage =
+  const directStorage =
     env === process.env
       ? hasSupabaseAdminConfig()
       : notPlaceholder(env.SUPABASE_URL || env.NEXT_PUBLIC_SUPABASE_URL) &&
         notPlaceholder(env.SUPABASE_SERVICE_ROLE_KEY);
 
+  const storage = Boolean(commandCenterConfig(env)) || directStorage;
+  const calendars = schedulingConfiguration(env);
+  const webhook = calWebhookConfig(env);
   return assessReadiness({
     production: env.NODE_ENV === "production",
     siteUrl: env.NEXT_PUBLIC_SITE_URL,
+    booking: {
+      genericCalendarConfigured: Boolean(calendars.genericUrl),
+      topicCalendarsConfigured: topicFlags((topic) => Boolean(calendars.topicUrls[topic])),
+      webhookConfigured: Boolean(webhook),
+      webhookTopicsConfigured: topicFlags((topic) =>
+        Boolean(webhook && Object.values(webhook.eventTypes).includes(topic)),
+      ),
+      commandCenterRouteConfigured: Boolean(commandCenterConfig(env)),
+    },
     medicareMarketing: true,
     medicareTpmoScope: MEDICARE_TPMO_SCOPE,
     tpmoOrganizationCount: TPMO_ORGANIZATION_COUNT,
@@ -161,7 +238,7 @@ export function getReadinessReport(env: NodeJS.ProcessEnv = process.env): Readin
       leadStorage: storage,
       leadNotification: resend || make || sms,
       prospectEmail: resend,
-      reminderDelivery: storage && resend && present(env.CRON_SECRET),
+      reminderDelivery: directStorage && resend && present(env.CRON_SECRET),
       botProtection:
         notPlaceholder(env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) &&
         notPlaceholder(env.TURNSTILE_SECRET_KEY),

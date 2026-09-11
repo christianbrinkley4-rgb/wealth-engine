@@ -33,8 +33,8 @@ export const metadata: Metadata = {
 
 const CHECK_STEPS = [
   {
-    title: "Write down the actual names",
-    body: "Not “my cardiologist” — the practice name and the individual doctor. Networks are agreed practice by practice and sometimes doctor by doctor, so a practice being in-network doesn’t guarantee every physician in it is.",
+    title: "Make a list of your doctors",
+    body: "Include each doctor’s name, practice, and office location. This helps you check the specific providers you want to keep seeing.",
   },
   {
     title: "Check the plan’s own directory, for the right year",
@@ -42,26 +42,26 @@ const CHECK_STEPS = [
   },
   {
     title: "Then phone the practice’s billing office",
-    body: "This is the step people skip and the one that actually settles it. Ask specifically: “Do you accept this exact plan, for next year, and are you taking new Medicare patients?” Directories go out of date; billing offices know.",
+    body: "Ask whether your doctor participates in the exact plan you’re considering for the year your coverage starts. If you would be a new patient, ask whether the practice is accepting new patients with that coverage. Confirm the information with the plan as well.",
   },
   {
     title: "Ask about the hospital as well as the doctor",
-    body: "Your physician can be in-network at a hospital that isn’t, which is how people end up with a surprise on a surgery. Worth checking both.",
+    body: "Check your preferred hospital separately from your doctor. Their participation in a plan may differ, so include both in your review.",
   },
   {
     title: "Re-check every fall",
-    body: "Networks are renegotiated annually. A plan that covered your doctor this year may not next year, and the plan will not ring you about it.",
+    body: "Provider networks can change. Review your plan’s notices and check your doctors again when comparing coverage for the coming year.",
   },
 ] as const;
 
 const FAQ = [
   {
     q: "Does Original Medicare have a network?",
-    a: "With Original Medicare you can see any provider in the country who accepts Medicare, which most do. The trade-off is what it doesn’t cap — which is why people pair it with supplemental coverage. If keeping a specific set of doctors is your top priority, this is the route that protects it.",
+    a: "Original Medicare lets you see doctors and hospitals that accept Medicare across the United States. Ask your providers whether they accept Medicare, and review the costs you would pay yourself. You can also discuss whether Medicare Supplement insurance may fit your needs.",
   },
   {
     q: "And Medicare Advantage?",
-    a: "Those plans work through networks, like the insurance you had at work. Many people are perfectly happy on them and they often include extras Original Medicare doesn’t. But the network is the thing to check before you sign up, not after.",
+    a: "Medicare Advantage plans generally use provider networks. Network rules and costs vary by plan type, so check your doctors, hospitals, and any out-of-network coverage before you enroll.",
   },
   {
     q: "My doctor said they “take Medicare”. Is that the same answer?",
@@ -69,11 +69,11 @@ const FAQ = [
   },
   {
     q: "What if my spouse and I use different doctors?",
-    a: "Then you may want different plans. There’s no rule that a couple has to be on the same one, and choosing together when your needs differ is a common way people end up unhappy.",
+    a: "You can choose different Medicare plans. We can review each person’s doctors, prescriptions, and coverage needs while discussing your household budget together.",
   },
   {
     q: "Can you just check for me?",
-    a: "Yes, and that’s usually the fastest way. Tell me who you see and where you’d rather be treated, and I’ll come back with what I can offer that fits — and tell you honestly when the answer is that a plan I can’t offer suits you better.",
+    a: "Yes. Bring a list of your doctors and preferred hospitals. I can help check them against the plans I offer and explain where to find information about other Medicare options.",
   },
 ] as const;
 
@@ -101,7 +101,7 @@ export default function KeepMyDoctorPage() {
                 "How Medicare Advantage networks work in the Greensboro area, and how to verify a specific doctor against a specific plan.",
               path: "/keep-my-doctor",
               datePublished: "2026-08-31",
-              dateModified: "2026-08-31",
+              dateModified: "2026-09-10",
             }),
           ),
         }}
@@ -125,48 +125,47 @@ export default function KeepMyDoctorPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Keep my doctor" }]}
         eyebrow="Greensboro & the Triad"
         title="“Can I keep my doctor?”"
-        lede="It’s the first thing almost everyone asks, and it’s the question a national phone service answers worst — because the answer depends on which practices around here take which specific plan. The good news is that it’s knowable before you commit to anything."
+        lede="Your doctors know you and your health history. If you’d like to keep seeing them, let’s check how they fit with your Medicare options before you choose a plan."
         secondaryHref="/start?topic=medicare&ask=doctors"
         secondaryLabel="Tell me who you see →"
       />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">It comes down to which road you take</h2>
+          <h2 className="text-28 font-semibold">
+            How your coverage affects your choice of doctors
+          </h2>
           <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
             <div className="card-surface p-6">
               <h3 className="text-20 font-semibold">Original Medicare</h3>
               <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-                No network. Any provider in the country who accepts Medicare — and most do. If
-                keeping a particular specialist matters more than anything else, this is the route
-                that protects it. Usually paired with supplemental coverage, which has its own
-                six-month window at 65 when your health history can’t be held against you.
+                You can see doctors and hospitals across the country that accept Medicare. Check
+                with your providers, and review what you would pay for care. Medicare Supplement
+                insurance is a separate option that may help with some of those costs.
               </p>
             </div>
             <div className="card-surface p-6">
               <h3 className="text-20 font-semibold">Medicare Advantage</h3>
               <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-                Works through a network, like employer insurance did. Often includes extras, and
-                plenty of people are happy on one. But your doctors need checking against the
-                specific plan before you sign up — and again every fall, because networks are
-                renegotiated every year.
+                These plans generally use provider networks. Check each doctor and hospital against
+                the specific plan you’re considering. Benefits, network rules, and costs vary, and
+                they can change from one year to the next.
               </p>
             </div>
           </div>
           <p className="text-18 mt-6 leading-relaxed">
-            Neither is the right answer in general. Which one is right depends on who you see, how
-            often, and how much unpredictability you can live with — which is a twenty-minute
-            conversation, not a web page.
+            Your doctors are one part of the decision. We can also discuss your prescriptions,
+            budget, and travel plans to help you understand how the options fit your life.
           </p>
         </div>
       </section>
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">How to check properly</h2>
+          <h2 className="text-28 font-semibold">How to check your doctors before enrolling</h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-            If you do nothing else on this page, do step three. It is the one that settles the
-            question, and it is the one almost everybody skips.
+            These steps can help you confirm your coverage. If you’d like someone to work through
+            them with you, I’m happy to help.
           </p>
           <ol className="mt-8 flex flex-col gap-6">
             {CHECK_STEPS.map((step, index) => (
@@ -188,24 +187,21 @@ export default function KeepMyDoctorPage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Around here specifically</h2>
+          <h2 className="text-28 font-semibold">Care across the Triad</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            Most people in Greensboro and the surrounding towns are attached to one of the large
-            systems in the area — Cone Health locally, with Novant Health and Atrium Health Wake
-            Forest Baptist serving much of the wider Triad — plus a set of independent practices
-            people have often used for decades.
+            Whether you receive care through Cone Health, Novant Health, Atrium Health Wake Forest
+            Baptist, or an independent practice, we’ll start with the doctors and locations you use.
+            Include any specialists you see outside your hometown, too.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            I deliberately don’t publish a table of which plans each of them takes. Those
-            arrangements change annually, they vary plan by plan rather than by insurance company,
-            and a page that’s six months stale is exactly how somebody chooses a plan and then loses
-            their doctor. Checking it properly for your specific doctors takes me a few minutes, so
-            ask me instead of trusting a table.
+            Coverage depends on the specific plan and provider. Even within the same health system,
+            it’s helpful to check the doctors and office locations you use. We can review that
+            information together before you make a decision.
           </p>
-          <GuideTownLinks heading="Check the county first — then the doctor" />
+          <GuideTownLinks heading="Medicare help near you" />
           <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            I have no affiliation with any of those health systems; they’re named here only because
-            they’re where most people in the area are seen.
+            I’m not affiliated with these health systems. They’re examples of local providers we can
+            check as part of your coverage review.
           </p>
         </div>
       </section>
@@ -232,7 +228,7 @@ export default function KeepMyDoctorPage() {
 
       <KitchenTableClose
         heading="Tell me who you see"
-        body="Give me the names and I’ll check them against what I can offer — and tell you plainly when something I can’t offer would suit you better."
+        body="Bring a list of your doctors, hospitals, and prescriptions. We can review them together during a no-cost, no-obligation consultation."
         href="/start?topic=medicare&ask=doctors"
         label="Start here →"
       />
@@ -243,7 +239,7 @@ export default function KeepMyDoctorPage() {
           <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
             Medicare Advantage compared with Medigap
           </Link>{" "}
-          walks through what actually decides it.
+          explains the main differences and questions to consider.
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>

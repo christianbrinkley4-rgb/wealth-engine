@@ -8,7 +8,6 @@ import type { Metadata } from "next";
 import {
   AGENT,
   MEDICARE_TPMO_SCOPE,
-  SATURDAY_HOURS,
   TPMO_ORGANIZATION_COUNT,
   TPMO_PRODUCT_COUNT,
 } from "@/lib/agent";
@@ -49,10 +48,15 @@ export const SITE_URL_CONFIGURED = isValidPublicSiteUrl(process.env.NEXT_PUBLIC_
 const VERCEL_DEPLOYMENT_URL = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL.replace(/^https?:\/\//, "").replace(/\/$/, "")}`
   : null;
+const DEPLOYMENT_URL = [
+  process.env.DEPLOY_PRIME_URL,
+  process.env.URL,
+  VERCEL_DEPLOYMENT_URL ?? undefined,
+].find(isValidPublicSiteUrl);
 export const SITE_URL = (
   SITE_URL_CONFIGURED
     ? process.env.NEXT_PUBLIC_SITE_URL!.trim()
-    : (VERCEL_DEPLOYMENT_URL ?? LOCAL_SITE_URL)
+    : (DEPLOYMENT_URL ?? LOCAL_SITE_URL)
 ).replace(/\/$/, "");
 
 function configured(value: string | undefined): boolean {
@@ -60,6 +64,8 @@ function configured(value: string | undefined): boolean {
 }
 
 const LEAD_CAPTURE_CONFIGURED =
+  (configured(process.env.COMMAND_CENTER_INGEST_URL) &&
+    /^[a-f0-9]{64}$/.test(process.env.COMMAND_CENTER_INGEST_KEY || "")) ||
   (configured(process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL) &&
     configured(process.env.SUPABASE_SERVICE_ROLE_KEY)) ||
   (configured(process.env.RESEND_API_KEY) && configured(process.env.RESEND_FROM)) ||
@@ -90,7 +96,7 @@ export const SITE_INDEXABLE =
  * collided with WealthEngine, an existing financial-data company. This one
  * says only true things: the place and the subject.
  */
-export const SITE_NAME = "Triad Retirement Guidance";
+export const SITE_NAME = AGENT.name;
 export const SITE_OWNER = AGENT.name;
 export const SITE_OWNER_PHONE = "+1-919-408-6671";
 export const SITE_OWNER_EMAIL = AGENT.email;
@@ -194,16 +200,13 @@ export function localBusinessJsonLd() {
         description:
           `${SITE_OWNER} is a licensed insurance agent in ${SITE_LOCALITY}, ` +
           `${SITE_REGION}, and a master’s student in accounting at UNC Greensboro. ` +
-          "He personally reviews every Medicare, life insurance, and retirement " +
-          "income case himself — at the in-person meeting, not through a national phone service.",
+          "He helps individuals and families with Medicare, life insurance, care coverage, " +
+          "and annuities, and works with an advisor for financial planning.",
         image: `${SITE_URL}/christian-brinkley.jpg`,
         telephone: SITE_OWNER_PHONE,
         email: SITE_OWNER_EMAIL,
         url: `${SITE_URL}/about`,
-        /*
-         * What this person is a credible source on. Language models lean on
-         * this when deciding whether a page is worth quoting on a topic.
-         */
+        // Topics covered on the site; these do not assert additional credentials.
         knowsAbout: [
           "Medicare",
           "Medicare Part B premiums",
@@ -216,6 +219,10 @@ export function localBusinessJsonLd() {
           "Turning 65 Medicare enrollment",
           "Life insurance",
           "Term life insurance",
+          "Long-term care insurance",
+          "Short-term care insurance",
+          "Critical illness insurance",
+          "Annuities",
           "Roth conversions and Medicare premiums",
           "Social Security Form SSA-44",
           "Retirement income planning",
@@ -239,6 +246,10 @@ export function localBusinessJsonLd() {
           "Medicare Initial Enrollment counseling",
           "Medicare Annual Enrollment review",
           "Life insurance review",
+          "Long-term care insurance consultation",
+          "Short-term care insurance consultation",
+          "Critical illness insurance consultation",
+          "Annuity consultation",
           "Retirement income and Medicare timing education",
         ],
         availableChannel: [
@@ -259,29 +270,7 @@ export function localBusinessJsonLd() {
         email: SITE_OWNER_EMAIL,
         url: SITE_URL,
         image: `${SITE_URL}/opengraph-image`,
-        /*
-         * Only the exact weekday hours are marked up. "Saturday mornings" is
-         * intentionally left as prose until an exact opening and closing time
-         * is confirmed.
-         */
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            opens: "09:00",
-            closes: "19:00",
-          },
-          ...(SATURDAY_HOURS
-            ? [
-                {
-                  "@type": "OpeningHoursSpecification" as const,
-                  dayOfWeek: ["Saturday"],
-                  opens: SATURDAY_HOURS.opens,
-                  closes: SATURDAY_HOURS.closes,
-                },
-              ]
-            : []),
-        ],
+        // By appointment; the connected calendar supplies actual available slots.
         address,
         hasOfferCatalog: {
           "@type": "OfferCatalog",
@@ -325,8 +314,8 @@ export function localBusinessJsonLd() {
                 name: "Life insurance review",
                 url: `${SITE_URL}/life-insurance`,
                 description:
-                  "Whether existing coverage is enough, what happens when job coverage " +
-                  "ends, and the one question that settles term against permanent.",
+                  "Review existing policies, family needs, beneficiaries, budget, " +
+                  "and the differences between term and permanent coverage.",
                 provider: { "@id": `${SITE_URL}/#christian` },
               },
             },
@@ -344,6 +333,23 @@ export function localBusinessJsonLd() {
                 provider: { "@id": `${SITE_URL}/#christian` },
               },
             },
+            ...[
+              ["Long-term care insurance consultation", "/long-term-care-insurance"],
+              ["Short-term care insurance consultation", "/short-term-care-insurance"],
+              ["Critical illness insurance consultation", "/critical-illness-insurance"],
+              ["Annuity consultation", "/annuities"],
+            ].map(([name, path]) => ({
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              description: "No-cost, no-obligation consultation. Insurance coverage is not free.",
+              itemOffered: {
+                "@type": "Service",
+                name,
+                url: `${SITE_URL}${path}`,
+                provider: { "@id": `${SITE_URL}/#christian` },
+              },
+            })),
           ],
         },
       },
@@ -384,7 +390,12 @@ export function articleJsonLd(input: {
     headline: input.headline,
     description: input.description,
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${input.path}` },
-    author: { "@id": `${SITE_URL}/#christian` },
+    author: {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#christian`,
+      name: SITE_OWNER,
+      url: `${SITE_URL}/about`,
+    },
     publisher: { "@id": `${SITE_URL}/#service` },
     image: `${SITE_URL}/opengraph-image`,
     datePublished: input.datePublished,
@@ -393,7 +404,7 @@ export function articleJsonLd(input: {
   };
 }
 
-/** FAQ blocks, which are the most quotable thing on any of these pages. */
+/** Mark up only questions and answers that also appear on the page. */
 export function faqJsonLd(items: ReadonlyArray<{ q: string; a: string }>) {
   return {
     "@context": "https://schema.org",
@@ -426,9 +437,8 @@ export function serviceJsonLd(input: { name: string; description: string; path: 
 }
 
 /**
- * Step-by-step pages (turning 65, annual enrollment) should say they are
- * HowTos. Assistants quote numbered procedures more readily than essays, and
- * search results can show the steps under the listing.
+ * Describe visible procedures. Search engines determine presentation;
+ * this markup does not promise a rich result or an assistant citation.
  */
 export function howToJsonLd(input: {
   name: string;

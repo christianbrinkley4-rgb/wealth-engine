@@ -5,33 +5,14 @@ import { notFound } from "next/navigation";
 import { Check, Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { LeadCluster } from "@/app/components/LeadCluster";
 import { AGENT } from "@/lib/agent";
-import { getLandingPage, LANDING_CONTRAST, LANDING_PAGES } from "@/lib/landingPages";
+import { getLandingPage, LANDING_SUPPORT, LANDING_PAGES } from "@/lib/landingPages";
 import { pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 /**
- * The page paid traffic lands on, and nothing else.
- *
- * The rest of the site is built for someone browsing. This is built for
- * someone who clicked an ad eight seconds ago, and the difference is removal
- * rather than addition: no navigation, no footer link farm, no sticky bar
- * competing with the buttons. The chrome components each check for the /lp
- * prefix and render nothing, so this page offers five links where the home
- * page offers thirty-seven.
- *
- * Three things it keeps on purpose:
- *
- *   The phone first. This audience calls. Most landing pages in the category
- *   lead with a form because forms are easier to count.
- *
- *   Buttons that deep-link into the real quiz with the topic already chosen,
- *   so the first click happens here and costs nothing to make.
- *
- *   The CMS disclosures in full on Medicare angles. A Medicare marketing page
- *   without them is a compliance problem no conversion rate makes up for.
- *
- * noindex, so these never compete with the organic pages for the same terms.
+ * A focused page for each advertised service, with a consultation request,
+ * phone alternative, relevant guide, and applicable disclosures.
+ * Paid pages use noindex; the public guides serve organic search visitors.
  */
 
 export const dynamicParams = false;
@@ -73,7 +54,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="bg-[var(--color-paper)] text-[var(--color-navy)]">
-      {/* A header with no navigation: the number is the only thing to click. */}
+      {/* Keep the named agent and direct phone number easy to find. */}
       <div className="trust-pill w-full">
         <div className="app-shell flex min-h-12 flex-wrap items-center justify-between gap-x-4 gap-y-1 py-2">
           <span className="text-15 leading-snug font-medium text-[var(--color-paper)]">
@@ -103,18 +84,25 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
                 {page.subhead}
               </p>
 
-              <a
-                href={AGENT.phoneHref}
-                className="text-20 mt-8 inline-flex h-16 w-full items-center justify-center gap-3 rounded-[12px] bg-[var(--color-paper)] px-8 font-semibold text-[var(--color-navy)] transition-opacity hover:opacity-95 sm:w-auto"
+              <Link
+                href={page.primaryHref}
+                className="text-20 mt-8 inline-flex min-h-16 w-full items-center justify-center rounded-[12px] bg-[var(--color-paper)] px-6 py-4 text-center font-semibold text-[var(--color-navy)] transition-opacity hover:opacity-95 sm:w-auto"
               >
-                <Phone className="size-6 shrink-0" aria-hidden />
-                Call {AGENT.phone}
-              </a>
-              <p className="text-16 mt-3 text-[var(--color-paper)]/70">
-                {AGENT.hours} {AGENT.afterHoursPromise}
+                Request a free consultation →
+              </Link>
+              <p className="text-17 mt-3 text-[var(--color-paper)]/85">
+                No cost. No obligation to buy. Your request comes directly to Christian and is never
+                sold to other agents.
               </p>
-              <p className="text-16 mt-2 text-[var(--color-paper)]/70">
-                in person or by phone. No cost, and your name is never sold.
+              <p className="text-17 mt-3 text-[var(--color-paper)]/85">
+                Meet at your home in the Triad, at a convenient public location, by phone, or by
+                video. A family member is welcome.
+              </p>
+              <p className="text-18 mt-5 text-[var(--color-paper)]/85">
+                Prefer to call?{" "}
+                <a href={AGENT.phoneHref} className="font-semibold underline underline-offset-4">
+                  {AGENT.phone}
+                </a>
               </p>
             </div>
 
@@ -150,8 +138,8 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="app-shell max-w-5xl py-10 md:py-14">
-        <div className="measure-prose max-w-3xl">
+      <section className="app-shell grid max-w-5xl gap-10 py-10 md:grid-cols-2 md:py-14">
+        <div className="measure-prose">
           <h2 className="text-22 font-semibold">{page.chooseHeading}</h2>
           <ul className="mt-5 flex flex-col gap-3">
             {page.options.map((option) => (
@@ -169,32 +157,35 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
             ))}
           </ul>
         </div>
+        <aside className="rounded-2xl border border-[rgba(15,34,65,0.12)] bg-white p-6 md:p-7">
+          <h2 className="text-22 font-semibold">What we can cover together</h2>
+          <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
+            We’ll start with what matters to you. Here are a few things we can talk through:
+          </p>
+          <ul className="mt-5 flex flex-col gap-5">
+            {page.consultationTopics.map((topic) => (
+              <li key={topic} className="text-18 flex gap-3 leading-relaxed">
+                <Check className="mt-1 size-5 shrink-0 text-[var(--color-gold-ink)]" aria-hidden />
+                <span>{topic}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-16 mt-6 border-t border-gray-200 pt-5 leading-relaxed text-[var(--color-ink-muted)]">
+            If you have current coverage, keep the details handy for our conversation. It’s fine to
+            start with questions—you don’t need to have everything organized.
+          </p>
+        </aside>
       </section>
 
       <section className="border-y border-[rgba(15,34,65,0.1)] bg-white py-12">
         <div className="app-shell max-w-4xl">
-          <h2 className="text-26 font-semibold">
-            Those ads match you through a matching service. I sit down.
-          </h2>
-          <div className="mt-8 overflow-hidden rounded-xl border border-[rgba(15,34,65,0.12)]">
-            <div className="grid grid-cols-1 bg-[var(--color-paper)] md:grid-cols-2">
-              <p className="text-13 border-b border-[rgba(15,34,65,0.1)] px-6 py-3 font-medium tracking-[0.08em] text-[var(--color-ink-muted)] uppercase md:border-r">
-                large online marketplaces
-              </p>
-              <p className="text-13 hidden border-b border-[rgba(15,34,65,0.1)] px-6 py-3 font-medium tracking-[0.08em] text-[var(--color-navy)] uppercase md:block">
-                Here
-              </p>
-            </div>
-            {LANDING_CONTRAST.map((row) => (
-              <div
-                key={row.them}
-                className="grid grid-cols-1 border-t border-[rgba(15,34,65,0.1)] md:grid-cols-2"
-              >
-                <p className="text-17 px-6 py-4 text-[var(--color-ink-muted)] md:border-r md:border-[rgba(15,34,65,0.1)]">
-                  {row.them}
-                </p>
-                <p className="text-17 bg-[var(--color-paper)] px-6 py-4 font-medium text-[var(--color-navy)] md:bg-white">
-                  {row.us}
+          <h2 className="text-26 font-semibold">Personal help, at your pace</h2>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {LANDING_SUPPORT.map((item) => (
+              <div key={item.title} className="border-t border-gray-300 pt-5">
+                <h3 className="text-20 font-semibold">{item.title}</h3>
+                <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
+                  {item.body}
                 </p>
               </div>
             ))}
@@ -209,18 +200,18 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
             {[
               {
                 n: "1",
-                t: "I read what you sent",
-                b: "Me, personally. It doesn’t go to an assistant or anybody else.",
+                t: "I review your questions",
+                b: "Your request comes directly to me so I can understand what you’d like help with.",
               },
               {
                 n: "2",
-                t: "I call or email you",
-                b: "Usually the same day, always within one business day.",
+                t: "We confirm how and when to meet",
+                b: "Tell me how you prefer to be contacted. We’ll confirm a time and arrange an in-person, phone, or video conversation.",
               },
               {
                 n: "3",
-                t: "You decide what happens",
-                b: "Sometimes that’s comparing options. Sometimes it’s me saying you’re already fine.",
+                t: "We talk through your options",
+                b: "Bring your questions and any current coverage you’d like to review. You can take your time deciding what to do next.",
               },
             ].map((step) => (
               <li key={step.n} className="flex flex-col gap-2">
@@ -236,22 +227,37 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
       </section>
 
       <section className="app-shell max-w-2xl py-12 text-center">
-        <h2 className="text-26 font-semibold">The fastest way is still the phone.</h2>
-        <a
-          href={AGENT.phoneHref}
-          className="text-20 mt-6 inline-flex h-16 items-center justify-center gap-3 rounded-[12px] bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)]"
+        <h2 className="text-26 font-semibold">Ready to talk through your questions?</h2>
+        <Link
+          href={page.primaryHref}
+          className="text-20 mt-6 inline-flex min-h-16 items-center justify-center rounded-[12px] bg-[var(--color-navy)] px-6 py-4 font-semibold text-[var(--color-paper)]"
         >
-          <Phone className="size-6 shrink-0" aria-hidden />
-          {AGENT.phone}
-        </a>
+          Request a free consultation →
+        </Link>
+        <p className="text-17 mt-4 text-[var(--color-ink-muted)]">
+          No cost. No obligation to buy. You decide what to do next.
+        </p>
         <p className="text-16 mt-4 text-[var(--color-ink-muted)]">
-          {AGENT.hours} Or leave a message — I return calls the next business day.
+          Or call{" "}
+          <a href={AGENT.phoneHref} className="font-semibold underline underline-offset-4">
+            {AGENT.phone}
+          </a>
+          . {AGENT.afterHoursPromise}
         </p>
       </section>
 
       <section className="border-t border-[rgba(15,34,65,0.1)] bg-white py-12">
         <div className="measure-prose app-shell max-w-3xl">
-          <LeadCluster heading="Or read the longer page for your situation" />
+          <h2 className="text-24 font-semibold">Would you like to read a little more first?</h2>
+          <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
+            Take your time. The guide explains the main questions to consider before we talk.
+          </p>
+          <Link
+            href={page.guideHref}
+            className="text-18 mt-5 inline-block font-semibold underline underline-offset-4"
+          >
+            Read the guide →
+          </Link>
         </div>
       </section>
 

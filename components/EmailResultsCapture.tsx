@@ -123,8 +123,8 @@ export function EmailResultsCapture({
         {isRoth ? "Send me this conversion estimate" : "Send me these numbers"}
       </h2>
       <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-        I’ll email you a copy and follow up personally about what it means for your situation —
-        usually the same day, always within one business day.
+        Request a copy and a personal review of what these numbers could mean for your situation.
+        Your request goes directly to Christian.
       </p>
 
       <div className="mt-5 space-y-4">

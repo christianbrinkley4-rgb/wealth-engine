@@ -133,8 +133,16 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/remind-me" className="underline-offset-2 hover:underline">
-                  Remind me later
+                <Link href="/care-coverage" className="underline-offset-2 hover:underline">
+                  Care and critical illness coverage
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/turning-65#enrollment-dates"
+                  className="underline-offset-2 hover:underline"
+                >
+                  Find my Medicare dates
                 </Link>
               </li>
             </ul>
@@ -175,7 +183,7 @@ export function SiteFooter() {
                   href="/service-area"
                   className="font-medium underline-offset-2 hover:underline"
                 >
-                  All towns within 30 minutes →
+                  View all communities →
                 </Link>
               </li>
               <li>
@@ -196,11 +204,6 @@ export function SiteFooter() {
               <li>
                 <Link href="/privacy" className="underline-offset-2 hover:underline">
                   Privacy
-                </Link>
-              </li>
-              <li>
-                <Link href="/llms.txt" className="underline-offset-2 hover:underline">
-                  llms.txt
                 </Link>
               </li>
             </ul>

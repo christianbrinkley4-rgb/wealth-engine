@@ -1,4 +1,7 @@
 .next
+.next-preview
+.next-verify
+.cache
 node_modules
 coverage
 build

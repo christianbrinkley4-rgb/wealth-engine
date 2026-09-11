@@ -12,7 +12,7 @@ import {
   QUIZ_SITUATIONS,
   TOPIC_META,
 } from "@/lib/helpQuiz";
-import { LANDING_CONTRAST, LANDING_PAGES } from "@/lib/landingPages";
+import { LANDING_PAGES } from "@/lib/landingPages";
 import { AGENT } from "@/lib/agent";
 import { localBusinessJsonLd, SITE_URL } from "@/lib/seo";
 import {
@@ -114,7 +114,7 @@ describe("describeAnswers", () => {
     });
     expect(described).toContainEqual({
       question: "How they’d like to talk",
-      answer: "Meet in person",
+      answer: "Meet at my home",
     });
   });
 
@@ -183,12 +183,13 @@ describe("calculatePartBPremium", () => {
 });
 
 describe("quiz situations", () => {
-  it("maps the four homepage doors onto real quiz branches", () => {
+  it("maps the consultation options onto real quiz branches", () => {
     expect(QUIZ_SITUATIONS.map((s) => s.id)).toEqual([
       "turning_65",
       "annual_enrollment",
       "retirement",
       "life",
+      "care",
     ]);
   });
 
@@ -230,7 +231,7 @@ describe("adult-child entry point", () => {
 
     // Second person addressed to the helper, third person about the parent.
     expect(beat.headline).toMatch(/you/i);
-    expect(beat.lede).toMatch(/authoriz/i);
+    expect(beat.lede).toMatch(/permission|authoriz/i);
     expect(beat.points.join(" ")).toMatch(/Social Security/);
 
     // And it must not be the same answer someone turning 65 themselves gets.
@@ -304,7 +305,7 @@ describe("service area honesty", () => {
 
 describe("four lead funnels", () => {
   it("maps each quiz door onto a capture topic the API accepts", () => {
-    const apiTopics = ["medicare", "financial_planning", "life_insurance"];
+    const apiTopics = ["medicare", "financial_planning", "life_insurance", "care_coverage"];
     for (const situation of QUIZ_SITUATIONS) {
       expect(apiTopics).toContain(situation.topic);
       expect(HELP_QUIZ_TOPICS).toContain(situation.topic);
@@ -323,8 +324,9 @@ describe("four lead funnels", () => {
   it("gives life and retirement their own value screens", () => {
     const life = getValueBeat("life_insurance", { life_cover: "review_existing" });
     const retirement = getValueBeat("financial_planning", { planning_focus: "taxes" });
-    expect(life.headline).toMatch(/polic/i);
-    expect(retirement.lede).toMatch(/73/);
+    expect(life.lede).toMatch(/policy review/i);
+    expect(retirement.lede).toMatch(/required withdrawals/i);
+    expect(retirement.points.join(" ")).toMatch(/73.*75.*1960/);
     expect(life.headline).not.toBe(retirement.headline);
   });
 
@@ -341,7 +343,8 @@ describe("four lead funnels", () => {
     expect(new Set(beats).size).toBe(TRIAD_CITIES.length);
     for (const city of TRIAD_CITIES) {
       expect(placeCheckBeat(city)).toContain(city.name);
-      expect(placeCheckBeat(city)).toContain(city.county);
+      // County details live in CitySnapshot; the invitation checks the visitor's address.
+      expect(placeCheckBeat(city)).toContain("home address");
     }
   });
 
@@ -382,16 +385,30 @@ describe("paid landing pages", () => {
     );
   });
 
-  it("deep-links life-insurance ads into a real first-question answer", () => {
+  it("keeps life-insurance requests on topic and only prefills answers the visitor selected", () => {
     const page = LANDING_PAGES.find((item) => item.slug === "life-insurance");
     expect(page).toBeTruthy();
-    const staged = page!.options.filter((option) => option.href.includes("stage="));
-    expect(staged.length).toBeGreaterThanOrEqual(3);
     const lifeValues = TOPIC_META.life_insurance.questions[0].options.map((o) => o.value);
-    for (const option of staged) {
-      const stage = new URL(option.href, "https://example.com").searchParams.get("stage");
-      expect(lifeValues).toContain(stage);
+    for (const option of page!.options) {
+      const url = new URL(option.href, "https://example.com");
+      if (url.pathname === "/start") {
+        expect(url.searchParams.get("topic"), option.label).toBe("life_insurance");
+        const stage = url.searchParams.get("stage");
+        if (stage !== null) expect(lifeValues, option.label).toContain(stage);
+      } else {
+        expect(url.pathname, option.label).toBe("/life-insurance");
+      }
     }
+
+    // Losing work coverage does not tell us whether the visitor needs income
+    // replacement, final expenses, or another kind of family protection.
+    const workCoverage = page!.options.find(
+      (option) => option.label === "My work coverage ends when I retire",
+    );
+    expect(workCoverage).toBeTruthy();
+    expect(new URL(workCoverage!.href, "https://example.com").searchParams.has("stage")).toBe(
+      false,
+    );
   });
 
   it("keeps four self-ID options and valid deep links on every paid page", () => {
@@ -427,11 +444,18 @@ describe("paid landing pages", () => {
     }
   });
 
-  it("keeps the mill-vs-kitchen-table contrast substantive", () => {
-    expect(LANDING_CONTRAST.length).toBeGreaterThanOrEqual(3);
-    for (const row of LANDING_CONTRAST) {
-      expect(row.them.length).toBeGreaterThan(10);
-      expect(row.us.length).toBeGreaterThan(10);
+  it("takes each consultation request into the matching topic and valid stage", () => {
+    for (const page of LANDING_PAGES) {
+      const url = new URL(page.primaryHref, "https://example.com");
+      expect(url.pathname).toBe("/start");
+      const topic = url.searchParams.get("topic");
+      expect(topic && isHelpQuizTopic(topic)).toBe(true);
+      if (topic && isHelpQuizTopic(topic) && url.searchParams.has("stage")) {
+        expect(TOPIC_META[topic].questions[0].options.map((option) => option.value)).toContain(
+          url.searchParams.get("stage"),
+        );
+      }
+      expect(page.guideHref).not.toMatch(/^\/lp\//);
     }
   });
 });
