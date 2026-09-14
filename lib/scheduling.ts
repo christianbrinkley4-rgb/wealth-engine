@@ -48,7 +48,7 @@ const PUBLIC_SCHEDULING_ENV = {
     process.env.NEXT_PUBLIC_SCHEDULING_FINANCIAL_PLANNING_URL,
 };
 
-type SchedulingEnvironment = Partial<typeof PUBLIC_SCHEDULING_ENV>;
+type SchedulingEnvironment = Record<string, string | undefined>;
 
 export function isSchedulingTopic(value: unknown): value is SchedulingTopic {
   return typeof value === "string" && SCHEDULING_TOPICS.includes(value as SchedulingTopic);
