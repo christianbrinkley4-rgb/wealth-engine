@@ -5,7 +5,7 @@ import { CalendarClock, CheckCircle2, Mail, Phone, ShieldCheck } from "lucide-re
 import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
-import { trackLead } from "@/app/components/Analytics";
+import { trackLeadOnce } from "@/app/components/Analytics";
 import { AGENT } from "@/lib/agent";
 import { TOPIC_LABELS, type InterestTopic } from "@/lib/helpQuiz";
 
@@ -103,7 +103,7 @@ function ThankYouInner() {
   // platform counts one lead rather than two.
   useEffect(() => {
     if (!eventId) return;
-    trackLead(eventId, topicRaw ?? undefined);
+    trackLeadOnce(eventId, topicRaw ?? undefined);
   }, [eventId, topicRaw]);
 
   const isHelpQuiz = source === "help_quiz";

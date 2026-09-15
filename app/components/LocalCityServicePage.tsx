@@ -171,7 +171,7 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <CitySnapshot city={city} />
+          <CitySnapshot city={city} topic={kind} />
           <h2 className="text-28 mt-10 font-semibold">What we can review together</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {content.detail}

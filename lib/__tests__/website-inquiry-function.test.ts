@@ -17,11 +17,13 @@ const SECOND_ID = "1f0c4a52-25bd-4a63-9f1c-2a1b6f2c8d90";
 
 let handle: (request: Request) => Promise<Response>;
 let sent: ReturnType<typeof vi.fn>;
+let expectNoFetch = true;
 
 beforeAll(async () => {
   vi.stubGlobal("Deno", {
     env: {
       get: (name: string) =>
+        process.env[name] ||
         (
           ({
             SUPABASE_URL: "https://test-project.supabase.co",
@@ -43,10 +45,13 @@ beforeAll(async () => {
 beforeEach(() => {
   edgeStub.reset();
   sent.mockClear();
+  expectNoFetch = true;
 });
 
 afterEach(() => {
-  expect(sent, "the edge function must not make outbound requests").not.toHaveBeenCalled();
+  if (expectNoFetch) {
+    expect(sent, "the edge function must not make outbound requests").not.toHaveBeenCalled();
+  }
 });
 
 function post(body: unknown, headers: Record<string, string> = { "x-website-key": KEY }) {
@@ -81,6 +86,10 @@ describe("mark_delivery", () => {
           p_status: "sent",
           p_error: null,
           p_provider_id: "resend-abc123",
+          p_recipient: null,
+          p_subject: null,
+          p_body_text: null,
+          p_reply_to: null,
         },
       },
     ]);
@@ -101,6 +110,7 @@ describe("mark_delivery", () => {
     expect(args.p_status).toBe("failed_retryable");
     expect(args.p_error).toBe("x".repeat(500));
     expect(args.p_provider_id).toBeNull();
+    expect(args.p_body_text).toBeNull();
   });
 
   it("answers 200 and marked: false for a row that is already sent", async () => {
@@ -269,5 +279,68 @@ describe("dispatch", () => {
     edgeStub.rpcResults.set("capture_website_appointment", { data: { stored: true }, error: null });
     expect((await post({ action: "appointment", appointment: {} })).status).toBe(200);
     expect(edgeStub.rpcCalls.map((call) => call.name)).toEqual(["capture_website_appointment"]);
+  });
+});
+
+describe("retry_deliveries", () => {
+  beforeEach(() => {
+    expectNoFetch = false;
+    vi.stubEnv("RESEND_API_KEY", "test-resend");
+    vi.stubEnv("RESEND_FROM", "agent@example.invalid");
+  });
+
+  it("claims stored snapshots and reports each send through mark_website_delivery", async () => {
+    edgeStub.rpcResults.set("claim_website_deliveries", {
+      data: [
+        {
+          id: OUTBOX_ID,
+          job: "prospect_reply",
+          recipient: "visitor@example.invalid",
+          subject: "Your medicare questions",
+          body_text: "Hi there",
+          reply_to: "agent@example.invalid",
+        },
+      ],
+      error: null,
+    });
+    sent.mockResolvedValueOnce({
+      ok: true,
+      status: 200,
+      json: async () => ({ id: "resend-retry-1" }),
+    });
+
+    const response = await post({ action: "retry_deliveries" });
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ retried: 1, claimed: 1 });
+    expect(sent).toHaveBeenCalledTimes(1);
+    expect(edgeStub.rpcCalls.map((call) => call.name)).toEqual([
+      "claim_website_deliveries",
+      "mark_website_delivery",
+    ]);
+    expect(edgeStub.rpcCalls[1].args).toMatchObject({
+      p_outbox_id: OUTBOX_ID,
+      p_status: "sent",
+      p_provider_id: "resend-retry-1",
+    });
+  });
+
+  it("does not send when the function has no sender configured", async () => {
+    vi.stubEnv("RESEND_API_KEY", "");
+    vi.stubEnv("RESEND_FROM", "");
+    const response = await post({ action: "retry_deliveries" });
+    expect(await response.json()).toEqual({ retried: 0, skipped: "sender_unconfigured" });
+    expect(sent).not.toHaveBeenCalled();
+    expect(edgeStub.rpcCalls).toEqual([]);
+  });
+
+  it("cannot capture inquiries with the retry key", async () => {
+    edgeStub.key = { data: { name: "delivery-retry" }, error: null };
+    const response = await post({
+      action: "capture",
+      request_key: "a".repeat(64),
+      lead: { email: "a@b.invalid" },
+    });
+    expect(response.status).toBe(401);
+    expect(edgeStub.rpcCalls).toEqual([]);
   });
 });

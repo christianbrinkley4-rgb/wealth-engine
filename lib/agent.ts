@@ -46,7 +46,7 @@ export const AGENT = {
    */
   linesOfAuthority: ["Life", "Accident & Health"],
 
-  education: "Master’s student in Accounting at UNC Greensboro",
+  education: "Accounting master’s student at UNCG — expected completion June 2027",
 
   /**
    * A stated promise you keep beats an implied one you break. National call

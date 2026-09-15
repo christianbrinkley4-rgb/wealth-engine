@@ -29,6 +29,7 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const NEXTDOOR_PIXEL_ID = process.env.NEXT_PUBLIC_NEXTDOOR_PIXEL_ID;
 const SIMPLE_ANALYTICS = process.env.NEXT_PUBLIC_SIMPLE_ANALYTICS === "true";
+const META_ADS_ALLOWED = process.env.NEXT_PUBLIC_META_ADS_ALLOWED === "true";
 
 declare global {
   interface Window {
@@ -42,6 +43,7 @@ declare global {
 /** Fire the Lead conversion. Called from the thank-you page. */
 export function trackLead(eventId: string, topic?: string) {
   if (typeof window === "undefined") return;
+  if (!META_ADS_ALLOWED && !GA4_ID && !NEXTDOOR_PIXEL_ID) return;
   try {
     window.fbq?.("track", "Lead", { content_category: topic }, { eventID: eventId });
     window.gtag?.("event", "generate_lead", { event_id: eventId, topic });
@@ -49,6 +51,19 @@ export function trackLead(eventId: string, topic?: string) {
   } catch {
     // A blocked pixel must never break the confirmation page.
   }
+}
+
+/** Reloading thank-you is not a new inquiry. Count at most once per tab. */
+export function trackLeadOnce(eventId: string, topic?: string) {
+  if (typeof window === "undefined") return;
+  const key = `we-lead-pixel:${eventId}`;
+  try {
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, "1");
+  } catch {
+    // Private browsing can block storage; still fire once in this visit.
+  }
+  trackLead(eventId, topic);
 }
 
 export function Analytics() {
@@ -71,7 +86,7 @@ export function Analytics() {
 
   return (
     <>
-      {META_PIXEL_ID ? (
+      {META_ADS_ALLOWED && META_PIXEL_ID ? (
         <Script id="meta-pixel" strategy="afterInteractive">
           {`!function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

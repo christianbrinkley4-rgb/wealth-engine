@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { AGENT } from "@/lib/agent";
 import { breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { SERVICE_AREA_LABEL } from "@/lib/triad";
 
@@ -35,7 +36,7 @@ export default function StartPage() {
           __html: JSON.stringify(breadcrumbJsonLd([{ name: "Get started", path: "/start" }])),
         }}
       />
-      <section className="bg-[var(--color-navy)] py-10 text-[var(--color-paper)] md:py-12">
+      <section className="bg-[var(--color-navy)] py-7 text-[var(--color-paper)] md:py-12">
         <div className="mx-auto max-w-[640px] px-4">
           <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold)] uppercase">
             {SERVICE_AREA_LABEL}
@@ -44,14 +45,12 @@ export default function StartPage() {
             Request your free consultation
           </h1>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-paper)]/90">
-            Tell me what matters to you and your family. We can meet at your home, at a convenient
-            public location, by phone, or by video. No cost and no obligation to buy anything.
+            Tell me what matters to you. We can meet at home, nearby, by phone, or by video. No cost
+            and no obligation.
           </p>
-          <ul className="text-16 mt-5 flex flex-col gap-2 text-[var(--color-paper)]/80">
-            <li>Licensed in North Carolina · master&apos;s student at UNCG</li>
-            <li>Personal review from one local licensed agent</li>
-            <li>Free consultation · no obligation</li>
-          </ul>
+          <p className="text-16 mt-3 text-[var(--color-paper)]/80">
+            Licensed in North Carolina · {AGENT.education}
+          </p>
         </div>
       </section>
       <section className="bg-[var(--color-paper)] py-10 md:py-14">

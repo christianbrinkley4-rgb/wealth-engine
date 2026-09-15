@@ -175,6 +175,10 @@ async function recordDeliveries(
       markDelivery(outboxId, deliveryStatus(result), {
         error: result.error ?? null,
         providerId: result.providerId ?? null,
+        recipient: result.recipient ?? null,
+        subject: result.subject ?? null,
+        bodyText: result.bodyText ?? null,
+        replyTo: result.replyTo ?? null,
       }),
     ];
   });

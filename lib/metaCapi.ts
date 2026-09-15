@@ -5,8 +5,11 @@
  * this audience runs a lot of them. The server event always fires. Both events
  * carry the same event_id, so Meta deduplicates rather than counting two leads.
  *
- * Set META_CAPI_ACCESS_TOKEN and NEXT_PUBLIC_META_PIXEL_ID to enable; without
- * them this is a no-op.
+ * Set META_CAPI_ACCESS_TOKEN, NEXT_PUBLIC_META_PIXEL_ID, and
+ * NEXT_PUBLIC_META_ADS_ALLOWED=true to enable. Credentials alone are not
+ * enough: paid-acquisition measurement stays off until that explicit allow
+ * flag is set after the consent and platform review in the Astra spec.
+ * Without them this is a no-op.
  *
  * Contact identifiers are SHA-256 hashed, but remain matchable personal data.
  * Enable only after the applicable consent and platform data-use requirements
@@ -17,6 +20,7 @@ import crypto from "node:crypto";
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() || "";
 const ACCESS_TOKEN = process.env.META_CAPI_ACCESS_TOKEN?.trim() || "";
+const ADS_ALLOWED = process.env.NEXT_PUBLIC_META_ADS_ALLOWED === "true";
 const API_VERSION = "v21.0";
 
 export interface CapiLeadInput {
@@ -65,7 +69,7 @@ function hash(value: string | null | undefined): string | undefined {
 }
 
 export function isMetaCapiConfigured(): boolean {
-  return PIXEL_ID.length > 0 && ACCESS_TOKEN.length > 0;
+  return ADS_ALLOWED && PIXEL_ID.length > 0 && ACCESS_TOKEN.length > 0;
 }
 
 /** Never throws — a tracking failure must not fail a lead submission. */

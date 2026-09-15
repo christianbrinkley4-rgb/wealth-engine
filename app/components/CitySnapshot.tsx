@@ -2,13 +2,22 @@ import Link from "next/link";
 
 import { isHighIntentPlace, nearbyCountyContrasts, type TriadCity } from "@/lib/triad";
 
+export type CitySnapshotTopic = "medicare" | "life" | "retirement";
+
 /**
  * Facts already stored on the city record — drive time, county, hospitals —
  * that the templates used to bury in one interchangeable county paragraph.
  */
-export function CitySnapshot({ city }: { city: TriadCity }) {
+export function CitySnapshot({
+  city,
+  topic = "medicare",
+}: {
+  city: TriadCity;
+  topic?: CitySnapshotTopic;
+}) {
   const contrasts = nearbyCountyContrasts(city);
   const deep = isHighIntentPlace(city.slug);
+  const isLife = topic === "life";
 
   return (
     <aside className="rounded-xl border border-[rgba(15,34,65,0.12)] bg-[var(--color-paper)] p-6">
@@ -21,22 +30,40 @@ export function CitySnapshot({ city }: { city: TriadCity }) {
           <dd className="text-17 mt-0.5">At home, at a public location, or by phone</dd>
         </div>
         <div>
-          <dt className="text-15 font-medium text-[var(--color-ink-muted)]">Medicare county</dt>
+          <dt className="text-15 font-medium text-[var(--color-ink-muted)]">
+            {isLife ? "County" : "Medicare county"}
+          </dt>
           <dd className="text-17 mt-0.5">{city.county}</dd>
         </div>
-        <div>
-          <dt className="text-15 font-medium text-[var(--color-ink-muted)]">
-            Nearby hospitals and health systems
-          </dt>
-          <dd className="text-17 mt-0.5">{city.hospitals.join("; ")}</dd>
-        </div>
+        {isLife ? (
+          <div>
+            <dt className="text-15 font-medium text-[var(--color-ink-muted)]">
+              Helpful to have nearby
+            </dt>
+            <dd className="text-17 mt-0.5">
+              Your current policy, who you want protected, and any coverage through work
+            </dd>
+          </div>
+        ) : (
+          <div>
+            <dt className="text-15 font-medium text-[var(--color-ink-muted)]">
+              Nearby hospitals and health systems
+            </dt>
+            <dd className="text-17 mt-0.5">{city.hospitals.join("; ")}</dd>
+          </div>
+        )}
       </dl>
       {city.countyNote ? (
         <p className="text-16 mt-4 border-l-4 border-[var(--color-gold-ink)] py-1 pl-4 leading-relaxed">
           {city.countyNote}
         </p>
       ) : null}
-      {contrasts.length > 0 ? (
+      {isLife ? (
+        <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+          We can meet in {city.name} or talk by phone. Bring questions about what you already have
+          before we talk about anything new.
+        </p>
+      ) : contrasts.length > 0 ? (
         <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
           Nearby communities in other counties:{" "}
           {contrasts.map((place, index) => (

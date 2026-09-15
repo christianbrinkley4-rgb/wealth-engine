@@ -104,6 +104,10 @@ export type DeliveryResult = {
   /** Provider-side message id, when the provider returns one. */
   providerId?: string;
   error?: string;
+  recipient?: string;
+  subject?: string;
+  bodyText?: string;
+  replyTo?: string;
 };
 
 const DELIVERY_SKIPPED: DeliveryResult = { ok: false, retryable: false, skipped: true };
@@ -179,8 +183,21 @@ async function sendEmail(options: {
     });
   } catch (error) {
     console.error("[notifyLead] Resend unreachable:", error);
-    return transportFailure(error);
+    return {
+      ...transportFailure(error),
+      recipient: options.to,
+      subject: options.subject,
+      bodyText: options.text,
+      replyTo: options.replyTo,
+    };
   }
+
+  const snapshot = {
+    recipient: options.to,
+    subject: options.subject,
+    bodyText: options.text,
+    replyTo: options.replyTo,
+  };
 
   if (res.ok) {
     return {
@@ -188,6 +205,7 @@ async function sendEmail(options: {
       retryable: false,
       status: res.status,
       providerId: await readProviderId(res),
+      ...snapshot,
     };
   }
 
@@ -199,6 +217,7 @@ async function sendEmail(options: {
     retryable: isRetryableStatus(res.status),
     status: res.status,
     error: describeRejection(res.status, body, retryAfter),
+    ...snapshot,
   };
 }
 
@@ -373,6 +392,7 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<De
   let attempted = false;
   let retryable = false;
   const errors: string[] = [];
+  let snapshot: Pick<DeliveryResult, "recipient" | "subject" | "bodyText" | "replyTo"> | undefined;
 
   for (const result of results) {
     const value =
@@ -382,6 +402,14 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<De
     if (result.status === "rejected") console.error("[notifyLead] channel failed:", result.reason);
     if (value.skipped) continue;
     attempted = true;
+    if (value.recipient && value.bodyText) {
+      snapshot = {
+        recipient: value.recipient,
+        subject: value.subject,
+        bodyText: value.bodyText,
+        replyTo: value.replyTo,
+      };
+    }
     if (value.ok) {
       delivered ??= value;
       continue;
@@ -397,7 +425,12 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<De
   if (!attempted) return DELIVERY_SKIPPED;
 
   console.error("[notifyLead] EVERY CHANNEL FAILED — nobody was told about this lead.");
-  return { ok: false, retryable, error: errors.join(" | ").slice(0, 500) || undefined };
+  return {
+    ok: false,
+    retryable,
+    error: errors.join(" | ").slice(0, 500) || undefined,
+    ...snapshot,
+  };
 }
 
 /**

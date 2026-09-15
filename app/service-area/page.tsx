@@ -82,6 +82,28 @@ export default function ServiceAreaPage() {
         </div>
       </section>
 
+      <section className="border-t border-[rgba(15,34,65,0.08)] bg-white py-10">
+        <div className="app-shell mx-auto max-w-4xl">
+          <h2 className="text-22 font-semibold">Jump to a community</h2>
+          <nav aria-label="Communities I serve" className="mt-4">
+            <ul className="flex flex-wrap gap-2">
+              {groups.flatMap((group) =>
+                group.places.map((place) => (
+                  <li key={place.slug}>
+                    <a
+                      href={`#town-${place.slug}`}
+                      className="text-16 inline-flex min-h-11 items-center rounded-lg border border-[rgba(15,34,65,0.14)] bg-[var(--color-paper)] px-3 py-2"
+                    >
+                      {place.name}
+                    </a>
+                  </li>
+                )),
+              )}
+            </ul>
+          </nav>
+        </div>
+      </section>
+
       {groups.map((group) => (
         <section
           key={group.county}
@@ -92,29 +114,27 @@ export default function ServiceAreaPage() {
             <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {group.places.map((place) => (
                 <li
+                  id={`town-${place.slug}`}
                   key={place.slug}
-                  className="rounded-xl border border-[rgba(15,34,65,0.12)] bg-white px-5 py-4"
+                  className="scroll-mt-24 rounded-xl border border-[rgba(15,34,65,0.12)] bg-white px-5 py-4"
                 >
                   <p className="text-18 font-semibold">{place.name}</p>
-                  <p className="text-16 mt-1 text-[var(--color-ink-muted)]">
-                    Home visits and phone consultations
-                  </p>
-                  <p className="text-16 mt-3 flex flex-wrap gap-x-3 gap-y-1">
+                  <p className="text-16 mt-3 flex flex-wrap gap-2">
                     <Link
                       href={`/medicare-in/${place.slug}`}
-                      className="underline underline-offset-2"
+                      className="inline-flex min-h-11 items-center rounded-lg px-2 underline underline-offset-2"
                     >
                       Medicare
                     </Link>
                     <Link
                       href={`/life-insurance-in/${place.slug}`}
-                      className="underline underline-offset-2"
+                      className="inline-flex min-h-11 items-center rounded-lg px-2 underline underline-offset-2"
                     >
                       Life insurance
                     </Link>
                     <Link
                       href={`/retirement-in/${place.slug}`}
-                      className="underline underline-offset-2"
+                      className="inline-flex min-h-11 items-center rounded-lg px-2 underline underline-offset-2"
                     >
                       Retirement
                     </Link>

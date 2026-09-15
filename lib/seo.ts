@@ -202,7 +202,8 @@ export function localBusinessJsonLd() {
         jobTitle: "Licensed Insurance Agent",
         description:
           `${SITE_OWNER} is a licensed insurance agent in ${SITE_LOCALITY}, ` +
-          `${SITE_REGION}, and a master’s student in accounting at UNC Greensboro. ` +
+          `${SITE_REGION}, and an accounting master’s student at UNC Greensboro ` +
+          "(expected completion June 2027). " +
           "He helps individuals and families with Medicare, life insurance, care coverage, " +
           "and annuities, and works with an advisor for financial planning.",
         image: `${SITE_URL}/christian-brinkley.jpg`,
@@ -231,11 +232,10 @@ export function localBusinessJsonLd() {
           "Retirement income planning",
           "401(k) rollover tax timing",
         ],
-        worksFor: { "@id": `${SITE_URL}/#service` },
         address,
       },
       {
-        "@type": ["ProfessionalService", "InsuranceAgency"],
+        "@type": "ProfessionalService",
         "@id": `${SITE_URL}/#service`,
         name: SITE_NAME,
         description:
@@ -244,7 +244,6 @@ export function localBusinessJsonLd() {
           `in ${SITE_LOCALITY}, ${SITE_REGION}. ${SERVICE_AREA_LEDE} ` +
           "Free consultation with no obligation to enroll.",
         provider: { "@id": `${SITE_URL}/#christian` },
-        founder: { "@id": `${SITE_URL}/#christian` },
         serviceType: [
           "Medicare Initial Enrollment counseling",
           "Medicare Annual Enrollment review",

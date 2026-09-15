@@ -110,6 +110,25 @@ describe("delivery outbox", () => {
     });
   });
 
+  it("posts a message snapshot so a later retry can resend the same email", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(Response.json({ ok: true }));
+    connected(fetchMock);
+    await markDelivery("ob-1", "failed_retryable", {
+      error: "HTTP 500",
+      recipient: "visitor@example.invalid",
+      subject: "Your questions",
+      bodyText: "Hi there",
+      replyTo: "agent@example.invalid",
+    });
+    expect(
+      JSON.parse((fetchMock.mock.calls[0] as [string, { body: string }])[1].body),
+    ).toMatchObject({
+      body_text: "Hi there",
+      recipient: "visitor@example.invalid",
+      subject: "Your questions",
+    });
+  });
+
   it("records the failure text so the outcome is reviewable later", async () => {
     const fetchMock = vi.fn().mockResolvedValue(Response.json({ ok: true }));
     connected(fetchMock);

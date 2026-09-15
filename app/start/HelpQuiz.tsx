@@ -638,10 +638,9 @@ export function HelpQuiz() {
             Pick what you need help with
           </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
-            Answer a few questions about what you need help with. You can read a helpful starting
-            point before sharing your contact details.{" "}
+            Choose a topic. A few questions help me prepare before you share your contact details.
           </p>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {QUIZ_SITUATIONS.map((item) => {
               const Icon = SITUATION_ICONS[item.id] ?? Shield;
               return (
@@ -650,17 +649,17 @@ export function HelpQuiz() {
                   type="button"
                   onClick={() => selectSituation(item)}
                   className={cn(
-                    "card-surface flex min-h-[148px] flex-col items-start gap-3 p-6 text-left transition-[border-color,box-shadow] duration-150",
+                    "card-surface flex min-h-16 flex-col items-start gap-2 p-4 text-left transition-[border-color,box-shadow] duration-150",
                     "hover:border-[var(--color-navy)] hover:shadow-[0_8px_28px_rgba(15,34,65,0.08)]",
                     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]",
                   )}
                 >
                   <Icon
-                    className="size-8 text-[var(--color-gold-ink)]"
+                    className="size-6 text-[var(--color-gold-ink)]"
                     strokeWidth={1.5}
                     aria-hidden
                   />
-                  <span className="text-22 font-bold text-[var(--color-navy)]">{item.label}</span>
+                  <span className="text-20 font-bold text-[var(--color-navy)]">{item.label}</span>
                   <span className="text-16 leading-snug font-normal text-[var(--color-ink-muted)]">
                     {item.blurb}
                   </span>

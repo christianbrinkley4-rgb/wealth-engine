@@ -38,7 +38,7 @@ export default function AboutPage() {
 
       <section className="bg-[var(--color-navy)] py-12 text-[var(--color-paper)] md:py-16">
         <div className="app-shell">
-          <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[2fr_3fr] md:gap-14">
+          <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[2fr_3fr] md:gap-14">
             <Image
               src="/christian-brinkley.jpg"
               alt={`${AGENT.name}, licensed insurance agent in Greensboro, North Carolina`}
@@ -46,10 +46,10 @@ export default function AboutPage() {
               height={1600}
               priority
               sizes="(max-width: 768px) 100vw, 320px"
-              className="w-full max-w-[320px] rounded-2xl border border-white/15 object-cover shadow-[0_18px_50px_rgba(0,0,0,0.28)]"
+              className="order-2 h-52 w-full max-w-[320px] rounded-2xl border border-white/15 object-cover object-top shadow-[0_18px_50px_rgba(0,0,0,0.28)] md:order-1 md:h-auto"
             />
 
-            <div>
+            <div className="order-1 md:order-2">
               <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold)] uppercase">
                 {SERVICE_AREA_LABEL}
               </p>
@@ -168,7 +168,7 @@ export default function AboutPage() {
             <ul className="text-17 mt-4 list-disc space-y-3 pl-5 leading-relaxed text-[var(--color-navy)]">
               <li>Licensed insurance agent in {AGENT.licensedStates.join(", ")}</li>
               {hasPublishableNpn() ? <li>National Producer Number {AGENT.npn}</li> : null}
-              <li>Master’s in Accounting, University of North Carolina at Greensboro</li>
+              <li>{AGENT.education}</li>
               <li>Coursework in individual tax and financial planning</li>
             </ul>
           </div>

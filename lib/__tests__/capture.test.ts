@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 
 import { calculatePartBPremium, STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
 import { scoreLead } from "@/lib/leadScoring";
@@ -295,16 +297,32 @@ describe("service area honesty", () => {
       30,
     );
     expect(JSON.stringify(localBusinessJsonLd())).not.toContain("GeoCircle");
-    const service = localBusinessJsonLd()["@graph"].find((entity) => {
-      const type = entity["@type"];
-      return Array.isArray(type) ? type.includes("InsuranceAgency") : type === "InsuranceAgency";
-    });
+    const graph = localBusinessJsonLd()["@graph"];
+    const service = graph.find((entity) => entity["@type"] === "ProfessionalService");
     expect(service).toBeTruthy();
+    expect(JSON.stringify(graph)).not.toContain("InsuranceAgency");
+    expect(JSON.stringify(graph)).not.toContain("founder");
+    expect(JSON.stringify(graph)).not.toContain("worksFor");
   });
 
   it("does not publish guessed identity or domain facts", () => {
     expect(AGENT.education).toMatch(/student/i);
+    expect(AGENT.education).toMatch(/June 2027/);
     expect(SITE_URL).not.toBe("https://wealth-engine.app");
+  });
+
+  it("keeps life town pages from repeating Medicare county copy", () => {
+    const snapshot = readFileSync(
+      fileURLToPath(new URL("../../app/components/CitySnapshot.tsx", import.meta.url)),
+      "utf8",
+    );
+    const localPage = readFileSync(
+      fileURLToPath(new URL("../../app/components/LocalCityServicePage.tsx", import.meta.url)),
+      "utf8",
+    );
+    expect(localPage).toContain("topic={kind}");
+    expect(snapshot).toContain('isLife ? "County"');
+    expect(snapshot).toContain("Your current policy");
   });
 });
 

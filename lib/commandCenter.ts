@@ -122,7 +122,14 @@ export async function captureInCommandCenter(
 export async function markDelivery(
   outboxId: string,
   status: DeliveryStatus,
-  meta: { error?: string | null; providerId?: string | null } = {},
+  meta: {
+    error?: string | null;
+    providerId?: string | null;
+    recipient?: string | null;
+    subject?: string | null;
+    bodyText?: string | null;
+    replyTo?: string | null;
+  } = {},
 ): Promise<boolean> {
   const config = commandCenterConfig();
   if (!config || !OUTBOX_ID.test(outboxId)) return false;
@@ -136,6 +143,10 @@ export async function markDelivery(
         status,
         error: meta.error ? String(meta.error).slice(0, 500) : null,
         provider_id: meta.providerId ?? null,
+        recipient: meta.recipient ?? null,
+        subject: meta.subject ?? null,
+        body_text: meta.bodyText ?? null,
+        reply_to: meta.replyTo ?? null,
       }),
       signal: AbortSignal.timeout(8000),
       cache: "no-store",

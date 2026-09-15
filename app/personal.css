@@ -634,7 +634,7 @@
   margin-bottom: 1.2rem;
 }
 .timeline-tool label {
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 .timeline-date-fields {
@@ -675,7 +675,7 @@
 }
 .timeline-checkbox small {
   display: block;
-  font-size: 0.69rem;
+  font-size: 1rem;
   color: #53605f;
   margin-top: 0.2rem;
   font-weight: 400;
@@ -687,7 +687,7 @@
 .timeline-optional {
   font-weight: 400;
   color: #53605f;
-  font-size: 0.65rem;
+  font-size: 1rem;
   margin-left: 0.5rem;
 }
 .timeline-form-panel .personal-button {
@@ -697,7 +697,7 @@
   display: flex;
   align-items: flex-start;
   gap: 0.3rem;
-  font-size: 0.64rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: #53605f;
   margin-top: 0.75rem;
@@ -904,7 +904,7 @@
     margin-inline: auto;
   }
   .personal-portrait-image img {
-    height: 320px;
+    height: 200px;
   }
   .personal-eyebrow {
     font-size: 0.62rem;
