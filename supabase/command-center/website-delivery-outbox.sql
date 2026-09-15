@@ -1,7 +1,10 @@
--- NOT APPLIED. Reviewed SQL source for the website delivery outbox.
+-- Reviewed deployed definition for T65 Daily Command Center, project lyvhrxiukmlvrznkrtkv.
+-- Applied remotely: website_delivery_outbox; website_mark_delivery; website_capture_returns_outbox.
+-- Edge Function website-inquiry version 3 deployed with verify_jwt disabled (custom website key).
 -- Additive to supabase/command-center/website-ingress.sql in the T65 Daily
 -- Command Center project ONLY. Do not apply the unrelated wealth-engine
 -- supabase/schema.sql to that project.
+-- Do not rerun the CREATE TABLE against the existing deployment.
 --
 -- Why this exists: the website can tell Resend to send a prospect auto-reply,
 -- but until now nothing recorded whether it arrived. A 5xx, a 429 or a dropped
