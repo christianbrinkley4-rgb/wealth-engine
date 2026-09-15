@@ -1,8 +1,8 @@
-# Cal.com setup handoff — September 10, 2026
+# Cal.com setup handoff — updated September 15, 2026
 
-**Staged successfully on September 10, 2026.** The account permitted the documented API calls without a plan upgrade. Public username `christianbrinkleync` and organizer identity were verified. No appointments were created and public booking is still closed pending the final website and calendar checks.
+**Activated and tested September 15, 2026.** All four topic calendars are connected to the live website. A clearly marked owner test booking was created, rescheduled and cancelled through the public Cal.com form; each state reached the Command Center. See [live verification](LIVE-VERIFICATION-2026-09-15.md) for evidence and remaining launch limits. No plan upgrade was needed.
 
-Managed schedule: `2352081`. Inactive webhook: `ec347e01-408d-4eb5-9ae2-a6fcf4e02dc6`. A read-back confirmed all four managed events, and anonymous availability checks returned zero slots for each event for September 11–18.
+Managed schedule: `2352081`. Active webhook: `ec347e01-408d-4eb5-9ae2-a6fcf4e02dc6`. The schedule was initially staged closed on September 10 and opened after the production endpoint was tested on September 15. Medicare introductions still require confirmation.
 
 | Service                 | Event ID | Staged booking URL                                              |
 | ----------------------- | -------- | --------------------------------------------------------------- |

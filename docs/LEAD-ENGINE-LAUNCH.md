@@ -1,6 +1,8 @@
 # Christian Brinkley’s consultation website
 
-Updated September 10, 2026.
+Updated September 15, 2026.
+
+**Current live status:** The owned .com is on Netlify with valid HTTPS. Inquiry storage, owner alerts and visitor acknowledgments passed a live delivery test. All four Cal.com topic calendars are connected; a real owner test booking, reschedule and cancellation reached the Command Center. Google domain ownership is verified. See [the September 15 evidence and outstanding work](LIVE-VERIFICATION-2026-09-15.md). The September 10 setup notes below are historical and do not describe current deployment status. Search indexing remains closed pending the approved Medicare disclosure.
 
 Website wording follows [the visitor copy guide](CONTENT-VOICE.md): clear, natural language for people approaching retirement, people already retired, and their families. Local pages explain personal help and ways to meet, without website-building language or pressure to buy. The `/remind-me` page now offers the working calendar date tool; it does not promise reminder emails before that service is connected.
 

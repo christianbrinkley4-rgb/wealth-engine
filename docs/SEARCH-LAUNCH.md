@@ -1,6 +1,8 @@
 # Search and domain launch
 
-Updated September 10, 2026.
+Updated September 15, 2026.
+
+**Current status:** `https://christianbrinkleync.com` is live on Netlify with valid HTTPS. The Google Search Console domain property is verified under Christian's Google account using a Namecheap TXT record. Bing Webmaster Tools ownership is also verified through its CNAME record, and the live domain dashboard is accessible. No sitemap or indexing request has been submitted while the Medicare disclosure guard remains closed. An existing Google Maps practitioner profile was found; this Gmail account has no management access. Do not create a duplicate. The September 10 setup notes below are retained as history; see [live verification](LIVE-VERIFICATION-2026-09-15.md) for current delivery and booking evidence.
 
 ## Implemented in the website
 
