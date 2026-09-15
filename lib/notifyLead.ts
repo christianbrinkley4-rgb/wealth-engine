@@ -84,40 +84,126 @@ function escapeHtml(value: string) {
     .replace(/"/g, "&quot;");
 }
 
+/**
+ * Every outbound channel answers the same two questions: did it deliver, and
+ * is it worth trying again?
+ *
+ * `retryable` is deliberately narrow. A refused address, a malformed payload
+ * or a revoked key will fail identically forever, and re-sending those only
+ * burns provider reputation. Only a transport failure, a timeout, a 429 or a
+ * 5xx says "the message was fine, the moment wasn't".
+ *
+ * `skipped` means the channel is not configured, so nothing was attempted and
+ * nothing is owed - distinct from a real failure, and never recorded as one.
+ */
+export type DeliveryResult = {
+  ok: boolean;
+  retryable: boolean;
+  skipped?: boolean;
+  status?: number;
+  /** Provider-side message id, when the provider returns one. */
+  providerId?: string;
+  error?: string;
+};
+
+const DELIVERY_SKIPPED: DeliveryResult = { ok: false, retryable: false, skipped: true };
+
+/** Connection refused, DNS failure, dropped socket, or AbortSignal.timeout firing. */
+function transportFailure(error: unknown): DeliveryResult {
+  const message = error instanceof Error ? `${error.name}: ${error.message}` : String(error);
+  return { ok: false, retryable: true, error: message.slice(0, 300) };
+}
+
+function isRetryableStatus(status: number) {
+  return status === 429 || status >= 500;
+}
+
+/** A body is optional on some providers and in tests; never assume one exists. */
+async function readBody(res: Response): Promise<string> {
+  if (typeof res.text !== "function") return "";
+  return res.text().then(
+    (body) => body ?? "",
+    () => "",
+  );
+}
+
+async function readProviderId(res: Response): Promise<string | undefined> {
+  if (typeof res.json !== "function") return undefined;
+  try {
+    const data: unknown = await res.json();
+    const id = (data as { id?: unknown } | null)?.id;
+    return typeof id === "string" && id.length > 0 ? id.slice(0, 200) : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+/** Retry-After is the provider saying when. Keep it in the recorded error text. */
+function retryAfterOf(res: Response): string | null {
+  const value = res.headers?.get?.("retry-after");
+  return typeof value === "string" && value.length > 0 ? value : null;
+}
+
+function describeRejection(status: number, body: string, retryAfter: string | null) {
+  return [`HTTP ${status}`, retryAfter ? `retry-after ${retryAfter}` : "", body.slice(0, 300)]
+    .filter(Boolean)
+    .join(" · ");
+}
+
 async function sendEmail(options: {
   to: string;
   subject: string;
   text: string;
   html?: string;
   replyTo?: string;
-}) {
-  if (!resendConfigured()) return { ok: false, skipped: true as const };
+}): Promise<DeliveryResult> {
+  if (!resendConfigured()) return DELIVERY_SKIPPED;
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    signal: AbortSignal.timeout(8000),
-    headers: {
-      Authorization: `Bearer ${RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: RESEND_FROM,
-      to: [options.to],
-      subject: options.subject,
-      text: options.text,
-      html: options.html,
-      reply_to: options.replyTo,
-    }),
-  });
-
-  if (!res.ok) {
-    console.error("[notifyLead] Resend rejected:", res.status, await res.text().catch(() => ""));
+  let res: Response;
+  try {
+    res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      signal: AbortSignal.timeout(8000),
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: RESEND_FROM,
+        to: [options.to],
+        subject: options.subject,
+        text: options.text,
+        html: options.html,
+        reply_to: options.replyTo,
+      }),
+    });
+  } catch (error) {
+    console.error("[notifyLead] Resend unreachable:", error);
+    return transportFailure(error);
   }
-  return { ok: res.ok, skipped: false as const, status: res.status };
+
+  if (res.ok) {
+    return {
+      ok: true,
+      retryable: false,
+      status: res.status,
+      providerId: await readProviderId(res),
+    };
+  }
+
+  const body = await readBody(res);
+  const retryAfter = retryAfterOf(res);
+  console.error("[notifyLead] Resend rejected:", res.status, body);
+  return {
+    ok: false,
+    retryable: isRetryableStatus(res.status),
+    status: res.status,
+    error: describeRejection(res.status, body, retryAfter),
+  };
 }
 
-async function postMakeWebhook(payload: LeadNotifyPayload) {
-  if (!makeConfigured()) return { ok: false, skipped: true as const };
+async function postMakeWebhook(payload: LeadNotifyPayload): Promise<DeliveryResult> {
+  if (!makeConfigured()) return DELIVERY_SKIPPED;
 
   const body = JSON.stringify({
     event: "lead_captured",
@@ -138,29 +224,43 @@ async function postMakeWebhook(payload: LeadNotifyPayload) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 8000);
   try {
-    const res = await fetch(MAKE_WEBHOOK_URL, {
-      method: "POST",
-      headers,
-      body,
-      signal: controller.signal,
-    });
-    if (!res.ok && res.status >= 500) {
-      const retry = await fetch(MAKE_WEBHOOK_URL, {
+    let res: Response;
+    try {
+      res = await fetch(MAKE_WEBHOOK_URL, {
         method: "POST",
         headers,
         body,
-        signal: AbortSignal.timeout(8000),
+        signal: controller.signal,
       });
-      return { ok: retry.ok, skipped: false as const, status: retry.status };
+      // The one immediate in-request retry that already existed: a 5xx from
+      // Make is usually a scenario restarting, and a second try lands.
+      if (!res.ok && res.status >= 500) {
+        res = await fetch(MAKE_WEBHOOK_URL, {
+          method: "POST",
+          headers,
+          body,
+          signal: AbortSignal.timeout(8000),
+        });
+      }
+    } catch (error) {
+      console.error("[notifyLead] Make webhook unreachable:", error);
+      return transportFailure(error);
     }
-    return { ok: res.ok, skipped: false as const, status: res.status };
+
+    if (res.ok) return { ok: true, retryable: false, status: res.status };
+    return {
+      ok: false,
+      retryable: isRetryableStatus(res.status),
+      status: res.status,
+      error: describeRejection(res.status, await readBody(res), retryAfterOf(res)),
+    };
   } finally {
     clearTimeout(timeout);
   }
 }
 
-async function sendSmsAlert(payload: LeadNotifyPayload) {
-  if (!smsConfigured()) return { ok: false, skipped: true as const };
+async function sendSmsAlert(payload: LeadNotifyPayload): Promise<DeliveryResult> {
+  if (!smsConfigured()) return DELIVERY_SKIPPED;
 
   const lines = [
     `New ${topicLabel(payload.interest_topic)} lead`,
@@ -175,35 +275,49 @@ async function sendSmsAlert(payload: LeadNotifyPayload) {
     Body: lines.join(" · "),
   });
 
-  const res = await fetch(
-    `https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Basic ${Buffer.from(`${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}`).toString("base64")}`,
-        "Content-Type": "application/x-www-form-urlencoded",
+  let res: Response;
+  try {
+    res = await fetch(
+      `https://api.twilio.com/2010-04-01/Accounts/${TWILIO_ACCOUNT_SID}/Messages.json`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Basic ${Buffer.from(`${TWILIO_ACCOUNT_SID}:${TWILIO_AUTH_TOKEN}`).toString("base64")}`,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: form,
       },
-      body: form,
-    },
-  );
+    );
+  } catch (error) {
+    console.error("[notifyLead] Twilio unreachable:", error);
+    return transportFailure(error);
+  }
 
-  return { ok: res.ok, skipped: false as const, status: res.status };
+  if (res.ok) return { ok: true, retryable: false, status: res.status };
+  return {
+    ok: false,
+    retryable: isRetryableStatus(res.status),
+    status: res.status,
+    error: describeRejection(res.status, await readBody(res), retryAfterOf(res)),
+  };
 }
 
 /**
  * Alert Christian. Never throws.
  *
- * Returns whether at least one channel actually delivered — the caller uses
+ * `ok` is true when at least one channel actually delivered — the caller uses
  * that to decide whether a lead whose database write failed can still be
- * reported to the visitor as received.
+ * reported to the visitor as received. `retryable` is true when nothing landed
+ * but at least one channel failed in a way a later attempt could survive, so
+ * the outbox row stays claimable rather than being written off.
  */
-export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<boolean> {
+export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<DeliveryResult> {
   if (!makeConfigured() && !resendConfigured() && !smsConfigured()) {
     console.error(
       "[notifyLead] NO ALERT CHANNEL CONFIGURED — a lead was saved and nobody was told. " +
         "Set RESEND_API_KEY + RESEND_FROM (and optionally MAKE_WEBHOOK_URL / Twilio vars).",
     );
-    return false;
+    return DELIVERY_SKIPPED;
   }
 
   const topic = topicLabel(payload.interest_topic);
@@ -255,23 +369,35 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<bo
     sendSmsAlert(payload),
   ]);
 
-  let delivered = false;
+  let delivered: DeliveryResult | null = null;
+  let attempted = false;
+  let retryable = false;
+  const errors: string[] = [];
+
   for (const result of results) {
-    if (result.status === "rejected") {
-      console.error("[notifyLead] channel failed:", result.reason);
-    } else if (result.value.skipped) {
+    const value =
+      result.status === "rejected"
+        ? transportFailure(result.reason)
+        : (result.value ?? DELIVERY_SKIPPED);
+    if (result.status === "rejected") console.error("[notifyLead] channel failed:", result.reason);
+    if (value.skipped) continue;
+    attempted = true;
+    if (value.ok) {
+      delivered ??= value;
       continue;
-    } else if (result.value.ok) {
-      delivered = true;
-    } else {
-      console.error("[notifyLead] channel returned non-OK:", result.value);
     }
+    console.error("[notifyLead] channel returned non-OK:", value);
+    retryable ||= value.retryable;
+    if (value.error) errors.push(value.error);
   }
 
-  if (!delivered) {
-    console.error("[notifyLead] EVERY CHANNEL FAILED — nobody was told about this lead.");
-  }
-  return delivered;
+  // One channel landing is enough: Christian has been told.
+  if (delivered) return delivered;
+
+  if (!attempted) return DELIVERY_SKIPPED;
+
+  console.error("[notifyLead] EVERY CHANNEL FAILED — nobody was told about this lead.");
+  return { ok: false, retryable, error: errors.join(" | ").slice(0, 500) || undefined };
 }
 
 /**
@@ -287,10 +413,10 @@ export async function sendProspectAutoReply(input: {
   source?: string;
   calculated_premium?: number | null;
   irmaa_bracket?: string | null;
-}): Promise<boolean> {
+}): Promise<DeliveryResult> {
   if (!resendConfigured()) {
     console.error("[notifyLead] Auto-reply skipped — RESEND_API_KEY / RESEND_FROM not set.");
-    return false;
+    return DELIVERY_SKIPPED;
   }
 
   // Calculator captures have figures instead of quiz answers.
@@ -357,17 +483,16 @@ export async function sendProspectAutoReply(input: {
     </div>`;
 
   try {
-    const result = await sendEmail({
+    return await sendEmail({
       to: input.email,
       subject: `Your ${topic.toLowerCase()} questions — from ${AGENT.name}`,
       text,
       html,
       replyTo: AGENT.email,
     });
-    return result.ok;
   } catch (error) {
     console.error("[notifyLead] auto-reply failed:", error);
-    return false;
+    return transportFailure(error);
   }
 }
 
@@ -378,7 +503,7 @@ async function sendCalculatorAutoReply(input: {
   source?: string;
   calculated_premium?: number | null;
   irmaa_bracket?: string | null;
-}): Promise<boolean> {
+}): Promise<DeliveryResult> {
   const firstName = (input.full_name || "").trim().split(" ")[0] || "there";
   const isRoth = input.source === "roth_calculator";
   const label = isRoth ? "Roth conversion estimate" : "Medicare premium estimate";
@@ -413,16 +538,15 @@ async function sendCalculatorAutoReply(input: {
     .join("\n");
 
   try {
-    const result = await sendEmail({
+    return await sendEmail({
       to: input.email,
       subject: `Your ${label.toLowerCase()} — from ${AGENT.name}`,
       text,
       replyTo: AGENT.email,
     });
-    return result.ok;
   } catch (error) {
     console.error("[notifyLead] calculator auto-reply failed:", error);
-    return false;
+    return transportFailure(error);
   }
 }
 

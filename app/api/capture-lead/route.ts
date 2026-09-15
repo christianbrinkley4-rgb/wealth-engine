@@ -2,10 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
 import { normalizeUsPhone } from "@/lib/contact";
-import { captureInCommandCenter, commandCenterConfig } from "@/lib/commandCenter";
+import {
+  captureInCommandCenter,
+  commandCenterConfig,
+  markDelivery,
+  type DeliveryStatus,
+  type Outbox,
+} from "@/lib/commandCenter";
 import { scoreLead } from "@/lib/leadScoring";
 import { sendMetaLeadEvent } from "@/lib/metaCapi";
 import {
+  type DeliveryResult,
   isLeadNotifyConfigured,
   notifyLeadCaptured,
   sendProspectAutoReply,
@@ -127,6 +134,51 @@ function normalizeAttribution(value: Attribution | null | undefined): Attributio
     if (typeof raw === "string" && raw.trim()) out[key] = raw.trim().slice(0, 300);
   }
   return Object.keys(out).length > 0 ? out : null;
+}
+
+/**
+ * A delivery the site deliberately did not attempt: held for review, or already
+ * owned by another system. `skipped` keeps it out of the outbox marking entirely,
+ * so a suppressed reply can never be recorded as sent or as failed.
+ */
+const SUPPRESSED: DeliveryResult = { ok: false, retryable: false, skipped: true };
+
+/** A thrown delivery is an unknown failure, so treat it as worth another try. */
+function settled(result: PromiseSettledResult<DeliveryResult>): DeliveryResult {
+  if (result.status === "fulfilled") return result.value;
+  console.error("[capture-lead] delivery threw:", result.reason);
+  return { ok: false, retryable: true, error: String(result.reason).slice(0, 300) };
+}
+
+function deliveryStatus(result: DeliveryResult): DeliveryStatus {
+  if (result.ok) return "sent";
+  return result.retryable ? "failed_retryable" : "failed_permanent";
+}
+
+/**
+ * Tell the Command Center how each queued delivery went.
+ *
+ * Two silences are deliberate. A channel that is not configured is left
+ * pending rather than marked permanent, because the site being unable to send
+ * says nothing about whether a Command Center-side worker can. And a job with
+ * no id is simply not marked — an Edge Function that does not yet enqueue
+ * deliveries returns no ids, and the capture still has to work.
+ */
+async function recordDeliveries(
+  outbox: Outbox,
+  results: Partial<Record<keyof Outbox, DeliveryResult>>,
+) {
+  const marks = Object.entries(results).flatMap(([job, result]) => {
+    const outboxId = outbox[job as keyof Outbox];
+    if (!outboxId || !result || result.skipped) return [];
+    return [
+      markDelivery(outboxId, deliveryStatus(result), {
+        error: result.error ?? null,
+        providerId: result.providerId ?? null,
+      }),
+    ];
+  });
+  if (marks.length > 0) await Promise.allSettled(marks);
 }
 
 export async function POST(request: NextRequest) {
@@ -379,6 +431,7 @@ export async function POST(request: NextRequest) {
     let finalScore = score;
     let duplicate = false;
     let requiresReview = false;
+    let outbox: Outbox = {};
 
     if (commandCenter) {
       try {
@@ -386,6 +439,7 @@ export async function POST(request: NextRequest) {
         stored = receipt.stored;
         duplicate = receipt.duplicate;
         requiresReview = receipt.requires_review;
+        outbox = receipt.outbox;
       } catch (storageError) {
         console.error("[capture-lead] Command center capture failed:", storageError);
       }
@@ -431,7 +485,7 @@ export async function POST(request: NextRequest) {
     // When the database write failed, the alert IS the lead — so send it before
     // answering, and only claim success if it actually went out.
     if (!stored) {
-      const delivered = await notifyLeadCaptured({
+      const alert = await notifyLeadCaptured({
         storageFailed: true,
         source,
         email,
@@ -444,14 +498,16 @@ export async function POST(request: NextRequest) {
         attribution,
       });
 
-      if (!delivered) {
+      if (!alert.ok) {
         console.error("[capture-lead] LEAD LOST — storage failed and no alert was delivered.");
         return NextResponse.json(CONFIG_ERROR, { status: 503 });
       }
 
-      const emailDelivery = await Promise.allSettled([
+      // Nothing was stored, so there is no outbox row to mark and nothing for a
+      // worker to retry against. The alert email is the only record of this lead.
+      const emailDelivery = await Promise.allSettled<DeliveryResult>([
         commandCenter
-          ? Promise.resolve(false)
+          ? Promise.resolve(SUPPRESSED)
           : sendProspectAutoReply({
               email,
               full_name,
@@ -466,7 +522,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: true,
         stored: false,
-        emailConfigured: emailDelivery[0].status === "fulfilled" && emailDelivery[0].value === true,
+        emailConfigured: settled(emailDelivery[0]).ok,
       });
     }
 
@@ -483,7 +539,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    const delivery = await Promise.allSettled([
+    const delivery = await Promise.allSettled<DeliveryResult>([
       notifyLeadCaptured({
         source,
         email,
@@ -496,7 +552,7 @@ export async function POST(request: NextRequest) {
         attribution,
       }),
       requiresReview
-        ? Promise.resolve(false)
+        ? Promise.resolve(SUPPRESSED)
         : sendProspectAutoReply({
             email,
             full_name,
@@ -506,6 +562,8 @@ export async function POST(request: NextRequest) {
             calculated_premium: body.calculated_premium ?? null,
             irmaa_bracket: body.irmaa_bracket ?? null,
           }),
+      // Reports nothing about whether the pixel event actually posted, so its
+      // outbox row is deliberately left pending rather than marked on a guess.
       sendMetaLeadEvent({
         eventId:
           typeof body.event_id === "string" ? body.event_id.slice(0, 100) : `lead_${Date.now()}`,
@@ -517,8 +575,21 @@ export async function POST(request: NextRequest) {
         userAgent,
         fbclid: attribution?.fbclid ?? null,
         sourceUrl,
-      }),
+      }).then(() => SUPPRESSED),
     ]);
+
+    const alert = settled(delivery[0]);
+    /*
+     * Review suppression is enforced here, not only at the send. A held reply
+     * is never sent and never marked, so no later replay of this outbox row can
+     * turn it into a delivered email. If the Command Center returned an id for
+     * a reply it should not have queued, the site still refuses to touch it.
+     */
+    const reply = requiresReview ? SUPPRESSED : settled(delivery[1]);
+    await recordDeliveries(outbox, {
+      owner_alert: alert,
+      ...(requiresReview ? {} : { prospect_reply: reply }),
+    });
 
     /*
      * `emailConfigured` is not a detail the visitor needs, but the thank-you
@@ -532,7 +603,7 @@ export async function POST(request: NextRequest) {
       success: true,
       updated: Boolean(existing),
       stored,
-      emailConfigured: delivery[1].status === "fulfilled" && delivery[1].value === true,
+      emailConfigured: reply.ok,
     });
   } catch (err) {
     console.error("[capture-lead] Unhandled error:", err);
