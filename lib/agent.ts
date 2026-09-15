@@ -66,15 +66,16 @@ export const SATURDAY_HOURS: { opens: string; closes: string } | null = null;
  * plans on behalf of more than one MA organization or Part D sponsor. Do not
  * infer this from the number of insurers represented for non-Medicare products.
  */
-// Christian confirmed eight Medicare carrier brands on September 15, 2026.
-// Organization and locally available plan counts still require confirmation.
+// Guilford County MA, Medicare.gov Plan Compare ZIP 27401, 2026, SNPs off.
+// Bankers NC availability: Aetna, Alignment, BCBS NC, Devoted, HealthSpring,
+// Humana, UHC, WellCare. Excludes HealthTeam Advantage and other local orgs.
 export const MEDICARE_TPMO_SCOPE = "multiple-organizations" as
   | "unconfirmed"
   | "one-organization"
   | "multiple-organizations";
 
-export const TPMO_ORGANIZATION_COUNT: number | null = null;
-export const TPMO_PRODUCT_COUNT: number | null = null;
+export const TPMO_ORGANIZATION_COUNT: number | null = 8;
+export const TPMO_PRODUCT_COUNT: number | null = 56;
 
 const TPMO_BASE =
   "We do not offer every plan available in your area. Please contact " +

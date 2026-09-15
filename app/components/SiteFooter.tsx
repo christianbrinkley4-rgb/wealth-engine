@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { AGENT, GOVERNMENT_DISCLAIMER } from "@/lib/agent";
+import { AGENT, GOVERNMENT_DISCLAIMER, TPMO_DISCLAIMER } from "@/lib/agent";
 import { featuredPlaces, SERVICE_AREA_LEDE } from "@/lib/triad";
 
 /**
@@ -210,13 +210,16 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <p className="text-15 mt-10 max-w-[72ch] leading-relaxed text-[var(--color-ink-muted)]">
+        <p className="text-13 mt-10 max-w-[72ch] leading-relaxed text-[var(--color-ink-muted)]">
           {GOVERNMENT_DISCLAIMER} This site is operated by {AGENT.name}, a licensed insurance agent
           who represents a limited number of insurance companies. It is not affiliated with the
           University of North Carolina at Greensboro. Nothing here is tax, legal, or investment
           advice.
         </p>
-        <p className="text-15 mt-4 text-[var(--color-ink-muted)]">
+        <p className="text-13 mt-3 max-w-[72ch] leading-relaxed text-[var(--color-ink-muted)]">
+          {TPMO_DISCLAIMER}
+        </p>
+        <p className="text-13 mt-4 text-[var(--color-ink-muted)]">
           © {year} {AGENT.name}. All rights reserved.
         </p>
       </div>
