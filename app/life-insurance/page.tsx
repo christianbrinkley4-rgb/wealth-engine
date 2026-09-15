@@ -167,6 +167,23 @@ export default function LifeInsurancePage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">What our first conversation covers</h2>
+          <p className="text-18 mt-4 leading-relaxed">
+            I use the first conversation to understand what matters to you, the people you care
+            about, and any life insurance coverage you already have. You can ask me questions,
+            describe your priorities, and decide whether you want to continue. There is no cost for
+            the insurance consultation and no obligation to buy anything.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            If financial planning comes up, I coordinate with an advisor. Any services they provide
+            are separate and may carry their own fees, which they would explain to you before you
+            agree to anything.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Questions people ask me</h2>
           <dl className="mt-8 flex flex-col gap-7">
             {FAQ.map((item) => (

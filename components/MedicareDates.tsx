@@ -185,9 +185,10 @@ export function MedicareDates({
               Medigap: {formatLongDate(dates.medigapOpens)} to {formatLongDate(dates.medigapCloses)}
             </dt>
             <dd className="text-17 mt-1 leading-relaxed text-[var(--color-ink-muted)]">
-              Six months, and the only stretch when no insurer may turn you down or charge you more
-              for your health history. It never reopens. This is the date people find out about
-              afterwards, and it is the expensive one to miss.
+              Six months, and the one stretch when no insurer may turn you down or charge you more
+              for your health history. It does not come around again each year. Certain later
+              situations carry guaranteed-issue rights, but they are narrower. This is the date
+              people find out about afterwards, and it is the expensive one to miss.
             </dd>
           </div>
         </div>

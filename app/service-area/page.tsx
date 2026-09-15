@@ -67,10 +67,12 @@ export default function ServiceAreaPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Let’s meet where you’re comfortable</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            I’m based in Greensboro and offer home visits throughout the surrounding area. We can
-            also meet at a convenient public location or talk by phone. There’s no need to have
-            everything figured out before we talk. Bring your questions, and we’ll take them one at
-            a time.
+            I serve individuals and families throughout the Piedmont Triad, including Greensboro,
+            High Point, Winston-Salem, and the communities around them. I’m based in Greensboro and
+            offer home visits in the surrounding area. We can also meet at a convenient public
+            location, or talk by phone or video. Get in touch to ask about appointment options and
+            whether a home visit works for where you live. There’s no need to have everything
+            figured out before we talk. Bring your questions, and we’ll take them one at a time.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The communities below are grouped by county because your location can affect your

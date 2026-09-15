@@ -552,9 +552,10 @@ export function MedicareWizard() {
                     asChild
                     className="text-18 mt-4 h-14 w-full bg-[var(--color-navy)] text-[var(--color-paper)]"
                   >
-                    <a href={AGENT.schedulingUrl} target="_blank" rel="noopener noreferrer">
+                    {/* Same tab, carrying the Medicare topic through. */}
+                    <Link href={`${AGENT.schedulingUrl}?topic=medicare`}>
                       Book a time to talk →
-                    </a>
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>

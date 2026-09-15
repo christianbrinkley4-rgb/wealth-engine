@@ -1,6 +1,7 @@
 "use client";
 
 import { BellRing, CalendarClock, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 import { MedicareDates } from "@/components/MedicareDates";
@@ -128,14 +129,15 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
           alongside it is the one time your health history can’t count against you.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <a
-            href={AGENT.schedulingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Same tab, and carrying the topic: this page is about Medicare, so
+              the next screen should be too. A new tab dropped the subject and
+              left an older visitor with two windows to reconcile. */}
+          <Link
+            href={`${AGENT.schedulingUrl}?topic=medicare`}
             className="text-18 inline-flex min-h-14 flex-1 items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)]"
           >
             Book a time to talk →
-          </a>
+          </Link>
           <a
             href={AGENT.phoneHref}
             className="text-18 inline-flex min-h-14 flex-1 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)]"

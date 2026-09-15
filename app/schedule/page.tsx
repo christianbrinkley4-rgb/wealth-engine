@@ -30,7 +30,7 @@ const TOPIC_DESCRIPTIONS: Record<SchedulingTopic, string> = {
   medicare:
     "Let’s talk about when to enroll, the coverage you have, your doctors and prescriptions, and the Medicare options I represent. This conversation stays focused on Medicare and the health coverage topics we agree to discuss.",
   life_insurance:
-    "Let’s review who you want to protect, the coverage you already have, and what your family may need as life changes. We can talk through policy types, costs, and your questions before you decide anything.",
+    "Let’s go over the coverage you already have, the people who matter to you, and your questions, at a comfortable pace. We can meet by phone, by video, or at your home in the Triad — I’ll confirm the location with you — and you are welcome to invite a family member. When you book, please leave out medical details, policy numbers, and account numbers.",
   care_coverage:
     "Let’s talk about long-term care, short-term care, or critical illness insurance. We can review the help you might need, the support your family has, and the benefits and limits of coverage you’re considering.",
   financial_planning:
@@ -131,6 +131,16 @@ export default async function SchedulePage({
               {bookingUrl
                 ? "Opens the booking calendar in a new tab."
                 : "An appointment is confirmed once we agree on a time."}
+            </p>
+            {/* Cal.com shows duration and notice inside its own flow; nobody
+                should have to open a second tab to find out how long this
+                takes or how far ahead to ask. */}
+            <p className="text-16 mt-4 leading-relaxed text-[#53605f]">
+              We set aside 60 minutes. Times are available every day at 9am, 11am, 1pm, 3pm, and 5pm
+              Eastern, and I ask for at least 24 hours’ notice.
+              {topic === null || topic === "medicare"
+                ? " For a Medicare conversation, I’ll also confirm with you personally before we meet."
+                : ""}
             </p>
           </div>
         ) : null}

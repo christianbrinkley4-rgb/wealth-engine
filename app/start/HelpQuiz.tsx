@@ -68,6 +68,11 @@ const SITUATION_ICONS: Record<string, typeof Shield> = {
 
 const PHASES: HelpQuizPhase[] = ["topic", "branch", "value", "contact"];
 
+/** Contact-step controls that can fail validation, in the order they appear. */
+type ContactField = "name" | "email" | "phone" | "zip" | "consent";
+
+const CONTACT_ERROR_ID = "help-quiz-error";
+
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 type TurnstileApi = {
@@ -215,7 +220,18 @@ export function HelpQuiz() {
   const [honeypot, setHoneypot] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [invalidField, setInvalidField] = useState<ContactField | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  /*
+   * The error banner sits above the send button. On a phone the field it is
+   * describing can be a screen and a half away, so the message arrives without
+   * the thing it refers to. Focus goes to the control that failed instead.
+   */
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+  const zipRef = useRef<HTMLInputElement>(null);
+  const consentRef = useRef<HTMLInputElement>(null);
   const turnstileContainerRef = useRef<HTMLDivElement>(null);
   const turnstileWidgetRef = useRef<string | null>(null);
   const [turnstileReady, setTurnstileReady] = useState(false);
@@ -405,31 +421,46 @@ export function HelpQuiz() {
     const phoneDigits = normalizeUsPhone(phone);
     const hasPhone = Boolean(phoneDigits);
 
+    function rejectField(field: ContactField, message: string) {
+      setError(message);
+      setInvalidField(field);
+      const control = {
+        name: nameRef,
+        email: emailRef,
+        phone: phoneRef,
+        zip: zipRef,
+        consent: consentRef,
+      }[field];
+      control.current?.focus();
+    }
+
     if (cleanName.length < 2) {
-      setError("Add your name so I know who I’m asking for.");
+      rejectField("name", "Add your name so I know who I’m asking for.");
       return;
     }
     if (!EMAIL_REGEX.test(cleanEmail)) {
-      setError("Enter a valid email address so I can reply.");
+      rejectField("email", "Enter a valid email address so I can reply.");
       return;
     }
     if (phoneDigits === null) {
-      setError(
+      rejectField(
+        "phone",
         "Enter a 10-digit US phone number, with or without +1. Leave it blank if you’d rather I email.",
       );
       return;
     }
     if (zipDigits.length !== 5) {
-      setError("Enter your 5-digit ZIP code. Medicare plan availability is local.");
+      rejectField("zip", "Enter your 5-digit ZIP code. Medicare plan availability is local.");
       return;
     }
     if (!consent) {
-      setError("Check the box so I know it’s alright to contact you.");
+      rejectField("consent", "Check the box so I know it’s alright to contact you.");
       return;
     }
 
     setSubmitting(true);
     setError(null);
+    setInvalidField(null);
 
     const eventId = newEventId();
 
@@ -777,7 +808,14 @@ export function HelpQuiz() {
           </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
             Share your contact details and Christian will personally review your answers and get in
-            touch about the next step. If you’d like to talk sooner, call the number below.
+            touch about the next step. If you’d like to talk sooner, call{" "}
+            <a
+              href={AGENT.phoneHref}
+              className="font-semibold text-[var(--color-navy)] underline underline-offset-2"
+            >
+              {AGENT.phone}
+            </a>
+            .
           </p>
 
           {topic ? (
@@ -825,6 +863,9 @@ export function HelpQuiz() {
                 id="help-quiz-name"
                 name="full_name"
                 autoComplete="name"
+                ref={nameRef}
+                aria-invalid={invalidField === "name"}
+                aria-describedby={invalidField === "name" ? CONTACT_ERROR_ID : undefined}
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 className={fieldClass}
@@ -845,6 +886,9 @@ export function HelpQuiz() {
                 autoComplete="email"
                 inputMode="email"
                 placeholder="you@example.com"
+                ref={emailRef}
+                aria-invalid={invalidField === "email"}
+                aria-describedby={invalidField === "email" ? CONTACT_ERROR_ID : undefined}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className={fieldClass}
@@ -866,6 +910,9 @@ export function HelpQuiz() {
                   type="tel"
                   autoComplete="tel"
                   inputMode="tel"
+                  ref={phoneRef}
+                  aria-invalid={invalidField === "phone"}
+                  aria-describedby={invalidField === "phone" ? CONTACT_ERROR_ID : undefined}
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className={fieldClass}
@@ -886,11 +933,21 @@ export function HelpQuiz() {
                   autoComplete="postal-code"
                   maxLength={5}
                   placeholder="27401"
+                  ref={zipRef}
+                  aria-invalid={invalidField === "zip"}
+                  aria-describedby={
+                    invalidField === "zip"
+                      ? `${CONTACT_ERROR_ID} help-quiz-zip-hint`
+                      : "help-quiz-zip-hint"
+                  }
                   value={zip}
                   onChange={(e) => setZip(e.target.value.replace(/\D/g, "").slice(0, 5))}
                   className={fieldClass}
                 />
-                <p className="text-15 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                <p
+                  id="help-quiz-zip-hint"
+                  className="text-15 mt-2 leading-relaxed text-[var(--color-ink-muted)]"
+                >
                   Your ZIP helps me check your service area and local coverage options.
                 </p>
               </div>
@@ -1013,6 +1070,9 @@ export function HelpQuiz() {
               <input
                 type="checkbox"
                 checked={consent}
+                ref={consentRef}
+                aria-invalid={invalidField === "consent"}
+                aria-describedby={invalidField === "consent" ? CONTACT_ERROR_ID : undefined}
                 onChange={(e) => setConsent(e.target.checked)}
                 className="mt-1 size-5 shrink-0 rounded border-gray-400"
               />
@@ -1046,6 +1106,7 @@ export function HelpQuiz() {
 
             {error ? (
               <div
+                id={CONTACT_ERROR_ID}
                 role="alert"
                 className="rounded-xl border border-[rgba(185,79,92,0.35)] bg-[rgba(185,79,92,0.06)] px-4 py-3"
               >

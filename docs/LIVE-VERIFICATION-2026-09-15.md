@@ -14,9 +14,13 @@
 - Bing Webmaster Tools ownership verified with a Namecheap CNAME record. The live domain dashboard, including AI Performance, is accessible under the owner's account.
 - Final calendar deployment `6aa94b137c01441f9afc538f` is ready. The live schedule page includes the correct Cal.com life-insurance link.
 
+## Carrier clarification from Christian
+
+On September 15, Christian confirmed representation of Aetna, Alignment, Anthem, Devoted, HealthSpring (Cigna), Humana, UHC and Wellcare. This establishes multiple-organization scope. The eight supplied brand names are not treated as a verified legal-organization count or as proof of authorization for every plan. Exact represented organizations and plans by service area remain to be supplied. The configuration now reflects multiple-organization scope; both counts remain unset and indexing stays closed.
+
 ## Still incomplete
 
-- Exact approved Medicare disclosure and represented organization/product counts. The user's estimate of 95% is not used as a claim. MEDICARE_TPMO_SCOPE remains unconfirmed; public search indexing remains disabled.
+- Exact approved Medicare disclosure and represented organization/product counts. Neither the earlier 95% estimate nor the request to assume all plans is used as a public claim. Public search indexing remains disabled pending the counts.
 - Medicare event is introductory, requires confirmation, and is not a plan-specific sales appointment. Scope-of-Appointment workflow is not automated.
 - Google Business Profile management access, search sitemap submission, advertising, conversion analytics, and a durable email retry queue are not completed.
 - Google Maps already lists "Christian Brinkley, Bankers Life Agent" at 400 Bellemeade St Ste 501, Greensboro. The owner's Gmail Business Profile Manager lists zero businesses. A duplicate profile was not created, and the existing listing was not changed. Its current manager needs to provide access.

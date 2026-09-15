@@ -66,7 +66,9 @@ export const SATURDAY_HOURS: { opens: string; closes: string } | null = null;
  * plans on behalf of more than one MA organization or Part D sponsor. Do not
  * infer this from the number of insurers represented for non-Medicare products.
  */
-export const MEDICARE_TPMO_SCOPE = "unconfirmed" as
+// Christian confirmed eight Medicare carrier brands on September 15, 2026.
+// Organization and locally available plan counts still require confirmation.
+export const MEDICARE_TPMO_SCOPE = "multiple-organizations" as
   | "unconfirmed"
   | "one-organization"
   | "multiple-organizations";

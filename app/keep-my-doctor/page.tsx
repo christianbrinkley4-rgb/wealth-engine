@@ -65,7 +65,7 @@ const FAQ = [
   },
   {
     q: "My doctor said they “take Medicare”. Is that the same answer?",
-    a: "Not necessarily. Accepting Medicare and being in a particular Medicare Advantage plan’s network are two different things, and practice staff sometimes answer the first question when you meant the second. Ask about the specific plan by name.",
+    a: "Not necessarily. Accepting Medicare and being in a particular Medicare Advantage plan’s network are two different things, and practice staff sometimes answer the first question when you meant the second. Ask about the specific plan by name. It is also worth asking whether they accept assignment: a provider can take Medicare without accepting assignment, and you may pay more. A small number of providers opt out of Medicare altogether, and for those Medicare generally pays nothing except in an emergency.",
   },
   {
     q: "What if my spouse and I use different doctors?",

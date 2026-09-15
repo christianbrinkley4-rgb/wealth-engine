@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({
     title: "Turning 65: your Medicare window, explained for Greensboro",
     description:
-      "The seven-month Initial Enrollment Period, when coverage starts on time, and the Medigap window that does not reopen.",
+      "The seven-month Initial Enrollment Period, when coverage starts on time, and the six-month Medigap window you generally get once.",
     path: "/turning-65",
   }),
 };
@@ -47,7 +47,7 @@ const STEPS = [
   },
   {
     t: "Know the Part B late penalty before you delay",
-    b: "Miss the window without other creditable coverage and the penalty is 10% of the standard Part B premium for every full 12 months of delay, charged for as long as you hold Part B. It is permanent. The usual exception is still working, with coverage through a current employer that Medicare counts as creditable — not a retiree plan, and not COBRA.",
+    b: "Miss the window without coverage that lets you delay, and the penalty is 10% of the standard Part B premium for every full 12 months of delay, charged for as long as you hold Part B. It is permanent. The usual exception is still working, with a group health plan based on current employment — yours or your spouse’s. A retiree plan does not count, and neither does COBRA.",
   },
   {
     t: "Mark the six-month Medigap window separately",
@@ -62,7 +62,7 @@ const FAQ = [
   },
   {
     q: "I am still working. Do I have to sign up at 65?",
-    a: "Not always. If you have coverage through a current employer that Medicare treats as creditable, you can usually delay Part B without the late penalty and get a special enrollment period when that coverage ends. Retiree coverage and COBRA generally do not count the same way. This is worth checking against your actual plan, not a rule of thumb.",
+    a: "Not always. If you have a group health plan based on current employment — yours or your spouse’s — you can usually delay Part B without the late penalty, and you get a special enrollment period when that job-based coverage ends. Retiree coverage and COBRA do not count the same way: Medicare does not treat COBRA as coverage based on current employment. This is worth checking against your actual plan, not a rule of thumb.",
   },
   {
     q: "What is the difference between turning 65 and annual enrollment?",
@@ -103,7 +103,7 @@ export default function Turning65Page() {
             articleJsonLd({
               headline: "Turning 65: your Medicare Initial Enrollment Period in Greensboro",
               description:
-                "The seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window that does not reopen.",
+                "The seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window you generally get once.",
               path: "/turning-65",
               datePublished: "2026-08-31",
               dateModified: "2026-09-10",
@@ -182,6 +182,22 @@ export default function Turning65Page() {
               </li>
             ))}
           </ol>
+          {/* Someone who has already missed the window needs to hear that
+              there is another door, not only that this one closed. */}
+          <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
+            If your seven-month window has already passed, there is a General Enrollment Period
+            every year from January 1 through March 31, and Part B coverage starts the month after
+            you sign up. A late penalty can still apply.{" "}
+            <a
+              href="https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium underline underline-offset-2"
+            >
+              Medicare.gov explains when coverage starts
+            </a>
+            .
+          </p>
         </div>
       </section>
 

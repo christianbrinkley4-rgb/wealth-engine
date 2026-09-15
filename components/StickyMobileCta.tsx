@@ -13,6 +13,7 @@ const HIDE_PREFIXES = [
   "/medicare",
   "/roth-window",
   "/remind-me",
+  "/schedule",
   "/thank-you",
   "/privacy",
 ];
@@ -20,6 +21,12 @@ const HIDE_PREFIXES = [
 /**
  * Mobile-only sticky bar. Hidden on the quiz, tools with their own primary
  * actions, and screens where another call-to-action would compete.
+ *
+ * /schedule is one of those screens. On a 390px phone the bar sat over the
+ * topic list and over "View available times", so the one tap that books a
+ * conversation was the one tap the bar intercepted — and its second button
+ * sent someone already looking at the Medicare calendar back to the quiz.
+ * That page carries its own booking button and a visible phone number.
  *
  * It used to offer one route: "Ask your question", which opens a five-step
  * form. On the single most valuable strip of screen the site has, for an

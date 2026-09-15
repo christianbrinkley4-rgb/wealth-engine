@@ -849,8 +849,13 @@
   .personal-header-top {
     font-size: 0.58rem;
   }
+  /*
+   * Readers here are the reason this site exists, and several of them are
+   * being asked to read a phone number at 10px. Nothing in the header is
+   * allowed below 1rem on a phone; the row wraps if it has to.
+   */
   .personal-header-phone {
-    font-size: 0.66rem;
+    font-size: 1rem;
   }
   .personal-brand {
     font-size: 1.1rem;
@@ -860,7 +865,7 @@
     justify-content: start;
   }
   .personal-header-links a {
-    font-size: 0.74rem;
+    font-size: 1rem;
   }
   .personal-header-links li:nth-child(3),
   .personal-header-links li:nth-child(4) {

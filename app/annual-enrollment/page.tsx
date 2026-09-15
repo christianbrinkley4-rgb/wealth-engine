@@ -66,7 +66,7 @@ const STEPS = [
 const FAQ = [
   {
     q: "When is Medicare annual enrollment?",
-    a: "October 15 through December 7 every year, and anything you change starts January 1. If you’re on a Medicare Advantage plan there’s a second window from January 1 to March 31, but it’s narrower — it lets you switch Advantage plans or go back to Original Medicare, not shop freely.",
+    a: "October 15 through December 7 every year, and anything you change starts January 1. If you’re already on a Medicare Advantage plan there’s a second window from January 1 to March 31, but it allows one change: to a different Advantage plan, or back to Original Medicare with a drug plan. It is not a second fall shopping season. On Original Medicare, it does not let you join an Advantage plan, pick up a standalone drug plan, or switch the drug plan you have. Your change starts the first of the month after the plan receives it.",
   },
   {
     q: "Do I have to do anything?",

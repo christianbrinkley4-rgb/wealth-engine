@@ -76,6 +76,18 @@ const NEXT_READS: Record<InterestTopic, Array<{ href: string; label: string; blu
   ],
 };
 
+/**
+ * The booking button used to read "Conversation options", which told a visitor
+ * who had just answered four Medicare questions nothing about where it went.
+ * Naming the topic is the difference between a link and an invitation.
+ */
+const BOOKING_CTA: Record<InterestTopic, string> = {
+  medicare: "See Medicare times",
+  life_insurance: "See life insurance times",
+  financial_planning: "See times for retirement questions",
+  care_coverage: "See times for care coverage",
+};
+
 function ThankYouInner() {
   const searchParams = useSearchParams();
   const source = searchParams.get("source") ?? "";
@@ -186,9 +198,8 @@ function ThankYouInner() {
                 Let’s arrange a conversation.
               </h2>
               <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                Choose how to get in touch, or check available times when online booking is open.
-                Your inquiry is saved; you do not need to send it again. I’ll follow up to arrange a
-                time.
+                Your answers are saved, so there is nothing to send again. You can pick a time now,
+                or wait for me to follow up — whichever you prefer.
               </p>
             </div>
           </div>
@@ -197,8 +208,18 @@ function ThankYouInner() {
             href={schedulingHref}
             className="text-18 mt-6 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
           >
-            Conversation options →
+            {topicKey ? BOOKING_CTA[topicKey] : "See available times"} →
           </Link>
+
+          {/* Details below the button: what the meeting is, for someone who
+              has decided to tap, not a paragraph standing in their way. */}
+          <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            We set aside 60 minutes, every day at 9am, 11am, 1pm, 3pm, and 5pm Eastern, with at
+            least 24 hours’ notice.
+            {topicKey === null || topicKey === "medicare"
+              ? " For a Medicare conversation, I’ll confirm with you personally before we meet."
+              : ""}
+          </p>
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
