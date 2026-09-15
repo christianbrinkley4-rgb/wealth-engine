@@ -131,7 +131,7 @@ export default function AboutPage() {
           <ol className="mt-8 flex flex-col gap-6">
             {[
               {
-                t: "Your answers are stored",
+                t: "Tell me what you need help with",
                 b: "Your information comes directly to me. It is kept private and is never sold or sent to other agents.",
               },
               {

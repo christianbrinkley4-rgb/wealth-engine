@@ -145,10 +145,11 @@ export default function Turning65Page() {
         title="Build your Medicare timeline before 65"
         lede="You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered. I’ll help you understand your next steps."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon"
-        secondaryLabel="Review my Medicare timeline →"
+        secondaryLabel="Request a consultation →"
         note={
           <>
-            Or{" "}
+            Turning 65? We’ll spend at least one hour reviewing your enrollment timing, current
+            coverage, doctors, and questions. No cost. No obligation. Or{" "}
             <Link href="#enrollment-dates" className="font-medium underline underline-offset-2">
               see your estimated enrollment dates without sharing contact details
             </Link>
@@ -259,9 +260,9 @@ export default function Turning65Page() {
 
       <KitchenTableClose
         heading="Ready to review your Medicare timeline?"
-        body="Get a personal review of your dates, current coverage, and next steps. Meet in person or by phone."
+        body="Request a consultation and we’ll spend at least one hour on your enrollment timing, current coverage, doctors, and questions. Meet in person or by phone. No cost. No obligation. A request needs confirmation and is not a reserved appointment."
         href="/start?topic=medicare&stage=turning_65_soon"
-        label="Review my timeline →"
+        label="Request a consultation →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

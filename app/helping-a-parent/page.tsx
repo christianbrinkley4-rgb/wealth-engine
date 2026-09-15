@@ -122,8 +122,8 @@ export default function HelpingAParentPage() {
         title="Helping a parent with Medicare? You can work through it together."
         lede="If you’re helping a parent understand Medicare, there can be a lot to sort through. This guide covers enrollment dates, current coverage, and ways to support them while keeping their wishes at the center of the conversation."
         secondaryHref={START_HREF}
-        secondaryLabel="Tell me their situation →"
-        note="You’re welcome to join your parent for a no-cost consultation, in person or by phone."
+        secondaryLabel="Request a consultation for your family →"
+        note="You’re welcome to include your parent, a spouse, or another family member. No cost. No obligation."
       />
 
       <section className="bg-white py-14 md:py-18">
@@ -191,9 +191,9 @@ export default function HelpingAParentPage() {
 
       <KitchenTableClose
         heading="Let’s talk through your family’s questions."
-        body="We can arrange a conversation with your parent and anyone they would like to include. No cost and no obligation."
+        body="Request a consultation for your family. You’re welcome to include your parent, a spouse, or another adult child. No cost and no obligation."
         href={START_HREF}
-        label="Start here →"
+        label="Request a consultation for your family →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

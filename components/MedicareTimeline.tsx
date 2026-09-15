@@ -169,8 +169,12 @@ export function MedicareTimeline({ currentYear }: { currentYear: number }) {
               </button>
             </div>
             <Link className="timeline-next" href="/start?topic=medicare&stage=turning_65_soon">
-              Talk through my timeline with Christian <ArrowRight size={18} aria-hidden />
+              Review these dates with Christian <ArrowRight size={18} aria-hidden />
             </Link>
+            <p className="timeline-context">
+              We’ll spend at least one hour on your enrollment timing, coverage, doctors, and
+              questions. No cost. No obligation.
+            </p>
             <a
               className="timeline-source"
               href="https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start"

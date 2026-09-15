@@ -230,7 +230,7 @@ export default function KeepMyDoctorPage() {
         heading="Tell me who you see"
         body="Bring a list of your doctors, hospitals, and prescriptions. We can review them together during a no-cost, no-obligation consultation."
         href="/start?topic=medicare&ask=doctors"
-        label="Start here →"
+        label="Request a consultation →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

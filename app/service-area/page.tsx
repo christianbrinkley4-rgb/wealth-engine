@@ -149,9 +149,9 @@ export default function ServiceAreaPage() {
       <section className="bg-white py-12">
         <div className="measure-prose app-shell max-w-3xl">
           <p className="text-17 leading-relaxed text-[var(--color-ink-muted)]">
-            Don’t see your town? Please get in touch. We can check whether a home visit is available
-            or arrange a phone conversation. Phone consultations are available throughout North
-            Carolina.
+            Don’t see your town? Get in touch and we can confirm whether a home visit fits your
+            location and availability, or arrange a phone conversation. Phone consultations are
+            available throughout North Carolina.
           </p>
           <dl className="mt-10 flex flex-col gap-7">
             {FAQ.map((item) => (

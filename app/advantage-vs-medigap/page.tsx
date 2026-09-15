@@ -235,7 +235,7 @@ export default function AdvantageVsMedigapPage() {
         heading="Tell me who you see and what you take"
         body="We can review your doctors, prescriptions, and budget together. The consultation is no cost, with no obligation to enroll."
         href="/start?topic=medicare&stage=turning_65_soon"
-        label="Start here →"
+        label="Request a consultation →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

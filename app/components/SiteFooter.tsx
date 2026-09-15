@@ -83,7 +83,7 @@ export function SiteFooter() {
                   href="/start"
                   className="inline-flex min-h-11 items-center font-semibold underline-offset-2 hover:underline"
                 >
-                  Ask a question
+                  Request a consultation
                 </Link>
               </li>
               <li>

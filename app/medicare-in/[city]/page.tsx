@@ -43,7 +43,7 @@ export async function generateMetadata({
   const city = getTriadCity(slug);
   if (!city) return {};
 
-  const title = `Medicare Help in ${city.name}, NC — Licensed Local Agent`;
+  const title = `Medicare Agent in ${city.name}, NC | Christian Brinkley`;
   // Kept under the ~160 character cutoff Google truncates at.
   const description =
     `Medicare plans are sold by county, and ${city.name} is in ${city.county}. ` +
@@ -120,7 +120,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         title={`Medicare help in ${city.name}, North Carolina`}
         lede={city.intro}
         secondaryHref={startHref}
-        secondaryLabel="Ask a question instead →"
+        secondaryLabel="Request a consultation →"
       />
 
       <section className="bg-white py-14">
@@ -228,6 +228,17 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             </li>
           </ul>
 
+          {city.slug === "greensboro" ? (
+            <p className="text-18 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
+              If you are comparing Medicare Supplement (Medigap) with Medicare Advantage, we can
+              review both against your doctors and prescriptions. Start with the{" "}
+              <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+                Advantage vs Medigap guide
+              </Link>
+              .
+            </p>
+          ) : null}
+
           <h3 className="text-20 mt-8 font-semibold">Worth reading next</h3>
           <ul className="text-17 mt-3 flex list-disc flex-col gap-2 pl-6 leading-relaxed">
             <li>
@@ -236,33 +247,23 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               </Link>
             </li>
             <li>
-              <Link href="/annual-enrollment" className="underline underline-offset-2">
-                Already on Medicare this fall
-              </Link>
-            </li>
-            <li>
               <Link href="/keep-my-doctor" className="underline underline-offset-2">
                 Whether you can keep your doctor
               </Link>
             </li>
             <li>
-              <Link href="/remind-me" className="underline underline-offset-2">
-                Your enrollment dates, worked out from your birth month
+              <Link href="/helping-a-parent" className="underline underline-offset-2">
+                Helping a parent with Medicare
               </Link>
             </li>
             <li>
-              <Link href="/irmaa-appeal" className="underline underline-offset-2">
-                Appealing a premium set on income you no longer earn
+              <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+                Medicare Advantage vs Medigap
               </Link>
             </li>
             <li>
               <Link href="/service-area" className="underline underline-offset-2">
-                View all communities I serve{" "}
-              </Link>
-            </li>
-            <li>
-              <Link href="/medicare" className="underline underline-offset-2">
-                Estimate your 2026 Part B premium
+                View all communities I serve
               </Link>
             </li>
           </ul>
@@ -270,10 +271,10 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
       </section>
 
       <KitchenTableClose
-        heading={`Tell me who you see in ${city.name}`}
-        body={`Give me the names and I’ll check them against what I can offer in ${city.county}. If something I can’t offer suits you better, I’ll tell you that instead.`}
+        heading={`Request a consultation in ${city.name}`}
+        body={`We can meet at home in ${city.name} when travel works, or talk by phone. Bring your doctors, prescriptions, and questions. No cost. No obligation.`}
         href={startHref}
-        label="Start here →"
+        label="Request a consultation →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
