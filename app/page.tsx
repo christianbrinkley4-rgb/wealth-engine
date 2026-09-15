@@ -14,10 +14,11 @@ import {
 import { MedicareTimeline } from "@/components/MedicareTimeline";
 import { AGENT, COMPENSATION_DISCLOSURE } from "@/lib/agent";
 import { faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
+import { featuredPlaces } from "@/lib/triad";
 
-const title = "Christian Brinkley | Medicare Help in the Piedmont Triad";
+const title = "Christian Brinkley | Medicare, Life Insurance & Retirement in Greensboro";
 const description =
-  "A no-cost, no-obligation insurance consultation with Christian Brinkley in the Piedmont Triad. Medicare, life insurance, and retirement questions. Meet in person, by phone, or by video.";
+  "A no-cost insurance consultation with Christian Brinkley in Greensboro and the Piedmont Triad. Medicare, life insurance, and retirement questions. Meet in person, by phone, or by video.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -46,6 +47,14 @@ const QUESTIONS = [
   {
     q: "Can we meet in person or by video?",
     a: "Yes. We can arrange a visit at your home in the Piedmont Triad, meet at a convenient public location, or talk by phone or video. You’re welcome to include your spouse or another family member. Tell me what works for you when you request a consultation.",
+  },
+  {
+    q: "Do you help with Medicare in Greensboro, High Point, and Winston-Salem?",
+    a: "Yes. I meet families in Greensboro, High Point, Winston-Salem, and nearby communities. Medicare Advantage and Part D choices depend on your county and home address, so we confirm what is available where you live.",
+  },
+  {
+    q: "Can we talk about life insurance or retirement, not only Medicare?",
+    a: "Yes. Medicare is often the first conversation around age 65. I also review life insurance, care coverage, and annuities, and I work with an advisor when retirement financial planning is needed.",
   },
   {
     q: "What do I need for our first conversation?",
@@ -421,15 +430,15 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="personal-town-list">
-            {[
-              { name: "Greensboro", slug: "greensboro" },
-              { name: "High Point", slug: "high-point" },
-              { name: "Winston-Salem", slug: "winston-salem" },
-            ].map((town) => (
-              <Link key={town.slug} href={`/medicare-in/${town.slug}`}>
-                {town.name}
-                <ArrowRight size={20} aria-hidden />
-              </Link>
+            {featuredPlaces().map((town) => (
+              <div key={town.slug} className="personal-town">
+                <span className="personal-town-name">{town.name}</span>
+                <span className="personal-town-links">
+                  <Link href={`/medicare-in/${town.slug}`}>Medicare</Link>
+                  <Link href={`/life-insurance-in/${town.slug}`}>Life insurance</Link>
+                  <Link href={`/retirement-in/${town.slug}`}>Retirement</Link>
+                </span>
+              </div>
             ))}
           </div>
         </div>

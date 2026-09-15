@@ -34,7 +34,7 @@ const STATIC_ROUTES: Array<{
  * `new Date()` told crawlers every page on the site had been rewritten on
  * every deploy, which is the fastest way to have lastmod ignored entirely.
  */
-const CONTENT_LAST_REVIEWED = "2026-09-10";
+const CONTENT_LAST_REVIEWED = "2026-09-15";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = CONTENT_LAST_REVIEWED;

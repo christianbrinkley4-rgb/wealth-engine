@@ -37,11 +37,11 @@ const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_OWNER} | Medicare & Insurance Guidance`,
+    default: `${SITE_OWNER} | Medicare, Life Insurance & Retirement in Greensboro`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Licensed Greensboro agent Christian Brinkley personally reviews Medicare, life insurance, and retirement questions. Meet in person or by phone. No cost or obligation.",
+    "Licensed Greensboro agent Christian Brinkley helps Piedmont Triad families with Medicare, life insurance, and retirement questions. Meet in person or by phone. No cost or obligation.",
   applicationName: SITE_NAME,
   authors: [{ name: SITE_OWNER }],
   verification: {
@@ -50,14 +50,19 @@ export const metadata: Metadata = {
       ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
       : undefined,
   },
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: {
+      "text/plain": "/llms.txt",
+    },
+  },
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
     url: SITE_URL,
-    title: `${SITE_OWNER} | Medicare & Insurance Guidance`,
+    title: `${SITE_OWNER} | Medicare, Life Insurance & Retirement in Greensboro`,
     description:
-      "Medicare, life insurance, and retirement help from one licensed agent in the Triad. Meet in person or by phone.",
+      "Medicare, life insurance, and retirement help from one licensed agent in Greensboro and the Piedmont Triad. Meet in person or by phone.",
     locale: "en_US",
     images: [
       {
@@ -70,9 +75,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_OWNER} | Medicare & Insurance Guidance`,
+    title: `${SITE_OWNER} | Medicare, Life Insurance & Retirement in Greensboro`,
     description:
-      "Medicare, life insurance, and retirement help from a licensed Greensboro agent. Meet in person or by phone.",
+      "Medicare, life insurance, and retirement help from a licensed Greensboro agent serving the Piedmont Triad. Meet in person or by phone.",
     images: ["/twitter-image"],
   },
   robots: {

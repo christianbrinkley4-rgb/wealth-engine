@@ -1,4 +1,4 @@
-import { AGENT, COMPENSATION_DISCLOSURE, GOVERNMENT_DISCLAIMER } from "@/lib/agent";
+import { AGENT, COMPENSATION_DISCLOSURE, GOVERNMENT_DISCLAIMER, TPMO_DISCLAIMER } from "@/lib/agent";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { placeNames, TRIAD_CITIES } from "@/lib/triad";
 
@@ -31,6 +31,18 @@ ${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.stat
 - [Service area](${SITE_URL}/service-area)
 - [Request a consultation](${SITE_URL}/start)
 - [Ways to arrange a meeting](${SITE_URL}/schedule)
+
+## Local questions this site is meant to answer
+
+This site is for people in and near Greensboro, High Point, and Winston-Salem, North Carolina who want a licensed agent they can meet in person. Typical questions:
+
+- When to enroll in Medicare at 65, including if still working
+- How Medicare Advantage and Medigap differ
+- How to check whether a doctor in Guilford, Forsyth, or a neighboring county is in a plan
+- Life insurance when work coverage ends
+- How a 401(k) withdrawal or Roth conversion can affect a Medicare premium later
+
+${TPMO_DISCLAIMER}
 
 ## Guides
 

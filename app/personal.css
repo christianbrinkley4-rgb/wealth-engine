@@ -424,16 +424,31 @@
 .personal-local .personal-text-link {
   margin-top: 1rem;
 }
-.personal-town-list a {
+.personal-town-list {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+}
+.personal-town {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
   justify-content: space-between;
+  gap: 0.4rem 1rem;
   padding: 1.05rem 0.2rem;
   border-bottom: 1px solid #c6d0c2;
+}
+.personal-town-name {
   font-size: 1.05rem;
+  font-weight: 600;
+}
+.personal-town-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.1rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
-.personal-town-list a:hover {
+.personal-town-links a:hover {
   color: #2c654d;
 }
 .personal-faq {

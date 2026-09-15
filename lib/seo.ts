@@ -189,7 +189,10 @@ export function localBusinessJsonLd() {
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
         name: SITE_NAME,
+        description:
+          "Medicare, life insurance, and retirement help from a licensed insurance agent in Greensboro, North Carolina, serving the Piedmont Triad.",
         inLanguage: "en-US",
+        about: { "@id": `${SITE_URL}/#christian` },
         publisher: { "@id": `${SITE_URL}/#christian` },
       },
       {
@@ -232,7 +235,7 @@ export function localBusinessJsonLd() {
         address,
       },
       {
-        "@type": "ProfessionalService",
+        "@type": ["ProfessionalService", "InsuranceAgency"],
         "@id": `${SITE_URL}/#service`,
         name: SITE_NAME,
         description:
@@ -261,6 +264,11 @@ export function localBusinessJsonLd() {
           {
             "@type": "ServiceChannel",
             serviceType: "Telephone consultation",
+            availableLanguage: "English",
+          },
+          {
+            "@type": "ServiceChannel",
+            serviceType: "Video consultation",
             availableLanguage: "English",
           },
         ],

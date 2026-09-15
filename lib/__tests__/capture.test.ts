@@ -295,6 +295,11 @@ describe("service area honesty", () => {
       30,
     );
     expect(JSON.stringify(localBusinessJsonLd())).not.toContain("GeoCircle");
+    const service = localBusinessJsonLd()["@graph"].find((entity) => {
+      const type = entity["@type"];
+      return Array.isArray(type) ? type.includes("InsuranceAgency") : type === "InsuranceAgency";
+    });
+    expect(service).toBeTruthy();
   });
 
   it("does not publish guessed identity or domain facts", () => {

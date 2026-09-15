@@ -2,7 +2,7 @@
 
 Updated September 15, 2026.
 
-**Current status:** `https://christianbrinkleync.com` is live on Netlify with valid HTTPS. The Google Search Console domain property is verified under Christian's Google account using a Namecheap TXT record. Bing Webmaster Tools ownership is also verified through its CNAME record, and the live domain dashboard is accessible. No sitemap or indexing request has been submitted while the Medicare disclosure guard remains closed. An existing Google Maps practitioner profile was found; this Gmail account has no management access. Do not create a duplicate. The September 10 setup notes below are retained as history; see [live verification](LIVE-VERIFICATION-2026-09-15.md) for current delivery and booking evidence.
+**Current status:** `https://christianbrinkleync.com` is live on Netlify with valid HTTPS. Google Search Console and Bing ownership are verified. The Medicare count disclaimer is published (8 organizations / 56 products for Greensboro ZIP 27401, 2026). Indexing is open. Submit `/sitemap.xml` in Search Console if it is not already listed, then inspect the homepage, `/turning-65`, `/annual-enrollment`, `/life-insurance`, and `/keep-my-doctor`. IndexNow notifies Bing after deploy. An existing Google Maps practitioner profile was found; this Gmail account has no management access. Do not create a duplicate. Ask the listing manager to add the website URL.
 
 ## Implemented in the website
 
