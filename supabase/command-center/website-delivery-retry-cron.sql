@@ -1,15 +1,18 @@
--- Applied on T65 Daily Command Center (lyvhrxiukmlvrznkrtkv) only.
--- Companion to website-delivery-retry.sql. Do not apply to supabase/schema.sql.
---
--- Cron reads the retry ingress key from vault at run time. The job command
--- must never contain a raw key. The delivery-retry key cannot capture leads.
+-- Point the five-minute retry cron at the live website.
+-- The website already has RESEND_*; cron auth uses vault key
+-- website_delivery_retry_key, which must match COMMAND_CENTER_INGEST_KEY
+-- (same value Netlify uses). Do not put Resend secrets in this file.
+
+select cron.unschedule(jobid)
+  from cron.job
+ where jobname = 'website-delivery-retry';
 
 select cron.schedule(
   'website-delivery-retry',
   '*/5 * * * *',
   $cron$
   select net.http_post(
-    url := 'https://lyvhrxiukmlvrznkrtkv.supabase.co/functions/v1/website-inquiry',
+    url := 'https://christianbrinkleync.com/api/cron/delivery-retry',
     headers := jsonb_build_object(
       'Content-Type', 'application/json',
       'x-website-key', coalesce(
@@ -17,7 +20,7 @@ select cron.schedule(
         ''
       )
     ),
-    body := '{"action":"retry_deliveries"}'::jsonb
+    body := '{}'::jsonb
   );
   $cron$
 );

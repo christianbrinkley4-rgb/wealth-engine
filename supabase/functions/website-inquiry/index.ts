@@ -105,14 +105,21 @@ Deno.serve(async (request: Request) => {
     }
     if (!body || typeof body !== "object" || Array.isArray(body))
       return reply({ error: "Invalid request" }, 400);
-    if (body.action === "retry_deliveries") {
+    if (body.action === "claim_deliveries" || body.action === "retry_deliveries") {
       if (!isRetry) return reply({ error: "Unauthorized" }, 401);
-      if (!Deno.env.get("RESEND_API_KEY")?.trim() || !Deno.env.get("RESEND_FROM")?.trim()) {
-        return reply({ retried: 0, skipped: "sender_unconfigured" });
+      // claim_deliveries: website cron sends with its own Resend config.
+      // retry_deliveries: Command Center sends when RESEND_* are set here.
+      if (body.action === "retry_deliveries") {
+        if (!Deno.env.get("RESEND_API_KEY")?.trim() || !Deno.env.get("RESEND_FROM")?.trim()) {
+          return reply({ retried: 0, skipped: "sender_unconfigured" });
+        }
       }
       const { data, error } = await db.rpc("claim_website_deliveries", { p_limit: 10 });
       if (error) return reply({ error: "Could not claim deliveries" }, 503);
       const jobs = Array.isArray(data) ? data : [];
+      if (body.action === "claim_deliveries") {
+        return reply({ claimed: jobs.length, jobs });
+      }
       let retried = 0;
       for (const job of jobs) {
         if (!job || typeof job !== "object") continue;

@@ -119,6 +119,61 @@ export async function captureInCommandCenter(
  * The outbox id is the idempotency key: a row already marked "sent" ignores a
  * second report, so a replay cannot produce a second email.
  */
+export type ClaimedDelivery = {
+  id: string;
+  job?: string;
+  recipient: string;
+  subject: string;
+  body_text: string;
+  reply_to?: string | null;
+};
+
+/** Claim retryable outbox rows. Sending stays on the caller (website Resend). */
+export async function claimDeliveries(limit = 10): Promise<ClaimedDelivery[]> {
+  const config = commandCenterConfig();
+  if (!config) return [];
+  try {
+    const response = await fetch(config.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-website-key": config.key },
+      body: JSON.stringify({ action: "claim_deliveries", limit }),
+      signal: AbortSignal.timeout(8000),
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      console.error("[commandCenter] claim_deliveries rejected:", response.status);
+      return [];
+    }
+    const result: unknown = await response.json();
+    const jobs =
+      result && typeof result === "object" && Array.isArray((result as { jobs?: unknown }).jobs)
+        ? (result as { jobs: unknown[] }).jobs
+        : [];
+    return jobs.flatMap((job) => {
+      if (!job || typeof job !== "object") return [];
+      const row = job as Record<string, unknown>;
+      const id = typeof row.id === "string" ? row.id : "";
+      const recipient = typeof row.recipient === "string" ? row.recipient : "";
+      const subject = typeof row.subject === "string" ? row.subject : "";
+      const bodyText = typeof row.body_text === "string" ? row.body_text : "";
+      if (!OUTBOX_ID.test(id) || !recipient || !subject || !bodyText) return [];
+      return [
+        {
+          id,
+          job: typeof row.job === "string" ? row.job : undefined,
+          recipient,
+          subject,
+          body_text: bodyText,
+          reply_to: typeof row.reply_to === "string" ? row.reply_to : null,
+        },
+      ];
+    });
+  } catch (error) {
+    console.error("[commandCenter] claim_deliveries failed:", error);
+    return [];
+  }
+}
+
 export async function markDelivery(
   outboxId: string,
   status: DeliveryStatus,

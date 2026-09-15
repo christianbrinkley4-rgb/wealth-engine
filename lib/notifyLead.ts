@@ -154,6 +154,21 @@ function describeRejection(status: number, body: string, retryAfter: string | nu
     .join(" · ");
 }
 
+/** Resend an exact stored snapshot from the outbox (retry worker). */
+export async function sendStoredEmailSnapshot(options: {
+  to: string;
+  subject: string;
+  text: string;
+  replyTo?: string | null;
+}): Promise<DeliveryResult> {
+  return sendEmail({
+    to: options.to,
+    subject: options.subject,
+    text: options.text,
+    replyTo: options.replyTo || undefined,
+  });
+}
+
 async function sendEmail(options: {
   to: string;
   subject: string;
