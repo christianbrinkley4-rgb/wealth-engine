@@ -24,7 +24,7 @@ export function SiteFooter() {
       <div className="app-shell py-12">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <p className="text-20 font-semibold">{AGENT.name}</p>
+            <p className="text-22 font-serif font-semibold">{AGENT.name}</p>
             <p className="text-16 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
               Licensed insurance agent · {AGENT.city}, {AGENT.state}
             </p>

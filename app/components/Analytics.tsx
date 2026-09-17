@@ -66,11 +66,37 @@ export function trackLeadOnce(eventId: string, topic?: string) {
   trackLead(eventId, topic);
 }
 
+/**
+ * A site interaction worth measuring (a call tap, a finished date lookup).
+ * Carries the event name and the page only: never answers, dates, or contact
+ * details, which have no business in an analytics or ad platform.
+ */
+export function trackEvent(name: string) {
+  if (typeof window === "undefined") return;
+  try {
+    window.gtag?.("event", name, { page_path: window.location.pathname });
+    (window as Window & { sa_event?: (event: string) => void }).sa_event?.(name);
+  } catch {
+    // A blocked script must never break the page.
+  }
+}
+
 export function Analytics() {
   const pathname = usePathname();
 
   useEffect(() => {
     captureAttribution();
+  }, []);
+
+  // Most people this site serves call rather than fill in a form, so every
+  // tap on a phone link counts, wherever it sits on the page.
+  useEffect(() => {
+    function onClick(event: MouseEvent) {
+      const link = (event.target as Element | null)?.closest?.('a[href^="tel:"]');
+      if (link) trackEvent("phone_click");
+    }
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
   }, []);
 
   // Client-side route changes need an explicit pageview.

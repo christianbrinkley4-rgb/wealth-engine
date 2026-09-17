@@ -93,7 +93,7 @@ function RothWindowCalculatorInner() {
                 className={cn(
                   "relative rounded-xl border-2 bg-white p-5 text-left transition-[border-color,background-color] duration-150",
                   filingStatus === "individual"
-                    ? "border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+                    ? "border-[var(--color-navy)] bg-[rgba(21,46,52,0.05)]"
                     : "border-gray-300",
                 )}
               >
@@ -120,7 +120,7 @@ function RothWindowCalculatorInner() {
                 className={cn(
                   "relative rounded-xl border-2 bg-white p-5 text-left transition-[border-color,background-color] duration-150",
                   filingStatus === "married_jointly"
-                    ? "border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+                    ? "border-[var(--color-navy)] bg-[rgba(21,46,52,0.05)]"
                     : "border-gray-300",
                 )}
               >
@@ -252,7 +252,7 @@ function RothWindowCalculatorInner() {
               headroom={headroom}
             />
 
-            <p className="text-16 border-l-4 border-[var(--color-gold-ink)] bg-amber-50/80 px-4 py-3 leading-relaxed text-[var(--color-navy)]">
+            <p className="text-16 rounded-lg border border-[#ddd8c8] bg-[#f3f0e6] px-4 py-3 leading-relaxed text-[var(--color-navy)]">
               {headline}
             </p>
           </CardContent>

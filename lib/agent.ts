@@ -18,8 +18,8 @@ export const AGENT = {
   state: "NC",
   region: "Piedmont Triad",
 
-  phone: "(919) 408-6671",
-  phoneHref: "tel:+19194086671",
+  phone: "(336) 365-7422",
+  phoneHref: "tel:+13363657422",
   email: "christianbrinkley4@gmail.com",
 
   /** Booking link shown on the thank-you page and in the auto-response email. */
@@ -56,6 +56,19 @@ export const AGENT = {
   hours: "Appointments daily at 9am, 11am, 1pm, 3pm, and 5pm, Eastern time.",
   afterHoursPromise:
     "If I’m with a family or away from the phone, leave a message and I’ll follow up personally.",
+
+  /**
+   * Homepage trust details. Each renders only once it is filled in, so an
+   * empty value never shows up as a placeholder on the live site.
+   *
+   * introVideoUrl: a short vertical phone video of Christian introducing
+   *   himself, as a file under /public (for example "/hello.mp4").
+   * credentials: things that are true today, e.g. "AHIP certified for 2027".
+   * advisorPartner: the advisor's name and credential, only with their permission.
+   */
+  introVideoUrl: null as string | null,
+  credentials: [] as readonly string[],
+  advisorPartner: null as string | null,
 } as const;
 
 /** Add verified 24-hour times only when the exact Saturday window is known. */

@@ -1,5 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { enrollmentTimeline, timelineCalendar } from "@/lib/enrollmentTimeline";
+import {
+  enrollmentTimeline,
+  timelineAnswers,
+  timelineCalendar,
+  timelineCountdown,
+  timelineFromAnswers,
+  timelineSummary,
+} from "@/lib/enrollmentTimeline";
 import { normalizeUsPhone } from "@/lib/contact";
 import { campaignPath } from "@/lib/campaigns";
 import { schedulingUrl } from "@/lib/scheduling";
@@ -36,6 +43,43 @@ describe("Medicare timeline", () => {
     expect(file).toContain("DTSTART;VALUE=DATE:20261101\r\nDTEND;VALUE=DATE:20261102");
     expect(file).toContain("DTSTAMP:20260909T160000Z");
     expect(file).not.toContain("1962");
+  });
+  it("counts calendar days until the window opens and days left once it is open", () => {
+    const input = { month: 4, year: 2027, birthdayOnFirst: false };
+    const september = new Date(2026, 8, 17, 9, 0, 0);
+    expect(timelineCountdown(enrollmentTimeline(input, september), september)).toEqual({
+      kind: "upcoming",
+      days: 106,
+    });
+    const lastDay = new Date(2027, 6, 31, 22, 0, 0);
+    expect(timelineCountdown(enrollmentTimeline(input, lastDay), lastDay)).toEqual({
+      kind: "open",
+      days: 1,
+    });
+    const after = new Date(2027, 7, 1, 8, 0, 0);
+    expect(timelineCountdown(enrollmentTimeline(input, after), after)).toEqual({ kind: "closed" });
+  });
+  it("round-trips the email request and rejects tampered answers", () => {
+    const input = { month: 4, year: 2027, birthdayOnFirst: true };
+    expect(timelineFromAnswers(timelineAnswers(input), today)).toEqual(input);
+    expect(
+      timelineFromAnswers({ ...timelineAnswers(input), timeline_month: "13" }, today),
+    ).toBeNull();
+    expect(
+      timelineFromAnswers({ ...timelineAnswers(input), timeline_year: "1999" }, today),
+    ).toBeNull();
+    expect(timelineFromAnswers({ ...timelineAnswers(input), request: "other" }, today)).toBeNull();
+    expect(timelineFromAnswers(null, today)).toBeNull();
+  });
+  it("summarizes the dates for the email from the month and year alone", () => {
+    const summary = timelineSummary({ month: 4, year: 2027, birthdayOnFirst: false }, today);
+    expect(summary.turns65).toBe("April 2027");
+    expect(summary.rows.map((row) => row.value)).toEqual([
+      "January 1, 2027",
+      "March 31, 2027",
+      "July 31, 2027",
+      "April 1, 2027 to September 30, 2027",
+    ]);
   });
   it.each([0, 13, 1.5, NaN])("rejects invalid month %s", (month) => {
     expect(() =>

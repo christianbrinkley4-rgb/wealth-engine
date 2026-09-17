@@ -119,7 +119,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
 
   if (result?.kind === "already-open") {
     return (
-      <div className="card-surface border-l-4 border-l-[var(--color-gold-ink)] p-6 md:p-8">
+      <div className="card-surface p-6 md:p-8">
         <h2 className="text-24 font-bold text-[var(--color-navy)]">
           Your window is open right now.
         </h2>
@@ -214,7 +214,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
                 key={option.value}
                 className={`flex cursor-pointer gap-4 rounded-xl border-2 p-4 transition-colors ${
                   kind === option.value
-                    ? "border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+                    ? "border-[var(--color-navy)] bg-[rgba(21,46,52,0.05)]"
                     : "border-gray-300 bg-white hover:border-[var(--color-navy)]/40"
                 }`}
               >
@@ -293,7 +293,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
             </div>
 
             {preview ? (
-              <p className="text-17 mt-3 rounded-lg bg-[rgba(15,34,65,0.04)] px-4 py-3 leading-relaxed text-[var(--color-navy)]">
+              <p className="text-17 mt-3 rounded-lg bg-[rgba(21,46,52,0.04)] px-4 py-3 leading-relaxed text-[var(--color-navy)]">
                 {preview.status === "upcoming" ? (
                   <>
                     Your window opens <strong>{formatLongDate(preview.opensOn)}</strong> and closes{" "}
@@ -317,7 +317,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
         ) : null}
 
         {kind === "aep" ? (
-          <p className="text-17 mt-6 rounded-lg bg-[rgba(15,34,65,0.04)] px-4 py-3 leading-relaxed text-[var(--color-navy)]">
+          <p className="text-17 mt-6 rounded-lg bg-[rgba(21,46,52,0.04)] px-4 py-3 leading-relaxed text-[var(--color-navy)]">
             The next annual window opens{" "}
             <strong>{formatLongDate(getNextAepReminder().opensOn)}</strong> and closes December 7.
             I’ll email you a couple of weeks ahead of it.
@@ -361,7 +361,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
           </div>
         </div>
 
-        <label className="text-16 mt-5 flex cursor-pointer gap-3 rounded-xl bg-[rgba(15,34,65,0.04)] px-4 py-4 leading-relaxed text-[var(--color-navy)]">
+        <label className="text-16 mt-5 flex cursor-pointer gap-3 rounded-xl bg-[rgba(21,46,52,0.04)] px-4 py-4 leading-relaxed text-[var(--color-navy)]">
           <input
             type="checkbox"
             checked={consent}

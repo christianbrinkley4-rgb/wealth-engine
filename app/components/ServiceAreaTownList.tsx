@@ -29,7 +29,7 @@ export function FeaturedPlaceCards({
       {featuredPlaces().map((city) => (
         <li
           key={city.slug}
-          className="flex flex-col rounded-xl border border-[rgba(15,34,65,0.12)] bg-[var(--color-paper)] p-6"
+          className="flex flex-col rounded-xl border border-[rgba(21,46,52,0.12)] bg-[var(--color-paper)] p-6"
         >
           <p className="text-13 font-medium tracking-[0.1em] text-[var(--color-gold-ink)] uppercase">
             {city.county}

@@ -227,7 +227,7 @@ export function MedicareWizard() {
               significantly.
             </p>
             <div
-              className="text-18 max-w-[520px] rounded-md border-l-4 border-[var(--color-gold-ink)] bg-amber-50/90 px-4 py-3 text-left text-[var(--color-navy)]"
+              className="text-18 max-w-[520px] rounded-lg border border-[#ddd8c8] bg-[#f3f0e6] px-4 py-3 text-left text-[var(--color-navy)]"
               role="note"
             >
               Why does this matter? A married couple earning $150,000 jointly pays the standard
@@ -243,7 +243,7 @@ export function MedicareWizard() {
               className={cn(
                 "relative rounded-xl border-2 bg-white p-6 text-left transition-[border-color,background-color] duration-150",
                 selectedFilingStatus === "individual"
-                  ? "border-[3px] border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+                  ? "border-[3px] border-[var(--color-navy)] bg-[rgba(21,46,52,0.05)]"
                   : "border-gray-300",
               )}
             >
@@ -271,7 +271,7 @@ export function MedicareWizard() {
               className={cn(
                 "relative rounded-xl border-2 bg-white p-6 text-left transition-[border-color,background-color] duration-150",
                 selectedFilingStatus === "married_jointly"
-                  ? "border-[3px] border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+                  ? "border-[3px] border-[var(--color-navy)] bg-[rgba(21,46,52,0.05)]"
                   : "border-gray-300",
               )}
             >
@@ -490,7 +490,7 @@ export function MedicareWizard() {
                     className={cn(
                       "card-surface mt-4 text-[var(--color-navy)]",
                       hasSurcharge
-                        ? "border-l-4 border-[var(--color-gold-ink)] bg-amber-50/60"
+                        ? "rounded-lg border border-[#ddd8c8] bg-[#f3f0e6]"
                         : "border-gray-300 bg-white",
                     )}
                   >

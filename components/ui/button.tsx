@@ -9,9 +9,9 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-(--gold) text-(--ink) hover:bg-(--gold-light) active:translate-y-px",
-        primary: "bg-(--gold) text-(--ink) hover:bg-(--gold-light) active:translate-y-px",
-        gold: "bg-(--gold) text-(--ink) hover:bg-(--gold-light) active:translate-y-px",
+        default: "bg-(--gold) text-white hover:bg-(--gold-light) active:translate-y-px",
+        primary: "bg-(--gold) text-white hover:bg-(--gold-light) active:translate-y-px",
+        gold: "bg-(--gold) text-white hover:bg-(--gold-light) active:translate-y-px",
         outline:
           "border border-(--rule-accent) bg-transparent text-(--slate) hover:border-(--gold-border) hover:bg-(--ink-3) hover:text-(--ink)",
         ghost: "text-(--slate) hover:bg-(--ink-3) hover:text-(--ink)",

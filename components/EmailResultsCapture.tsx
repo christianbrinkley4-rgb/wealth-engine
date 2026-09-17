@@ -170,7 +170,7 @@ export function EmailResultsCapture({
           />
         </div>
 
-        <label className="text-16 flex cursor-pointer gap-3 rounded-lg bg-[rgba(15,34,65,0.04)] px-4 py-4 leading-relaxed text-[var(--color-navy)]">
+        <label className="text-16 flex cursor-pointer gap-3 rounded-lg bg-[rgba(21,46,52,0.04)] px-4 py-4 leading-relaxed text-[var(--color-navy)]">
           <input
             type="checkbox"
             checked={consent}

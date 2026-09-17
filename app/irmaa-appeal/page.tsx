@@ -203,7 +203,7 @@ export default function IrmaaAppealPage() {
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <div className="card-surface mt-8 border-l-4 border-l-[var(--color-gold-ink)] p-6">
+          <div className="card-surface mt-8 p-6">
             <p className="text-18 leading-relaxed">
               Before a large withdrawal or Roth conversion, ask your tax professional or financial
               advisor how the additional income could affect your taxes and future Medicare

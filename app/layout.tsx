@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Inter, Source_Serif_4 } from "next/font/google";
+import { Atkinson_Hyperlegible_Next, Source_Serif_4 } from "next/font/google";
 
 import { Analytics } from "@/app/components/Analytics";
 import { SiteFooter } from "@/app/components/SiteFooter";
@@ -17,18 +17,24 @@ import {
 } from "@/lib/seo";
 import "./globals.css";
 import "./personal.css";
+import "./home.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Designed for low-vision readers, which suits an audience turning 65.
+const bodyFont = Atkinson_Hyperlegible_Next({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "variable",
   display: "swap",
+  // Next has no metric overrides for this face yet; fall back to a close system sans.
+  adjustFontFallback: false,
+  fallback: ["system-ui", "Segoe UI", "Arial", "sans-serif"],
 });
 
 const sourceSerif = Source_Serif_4({
   variable: "--font-source-serif",
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: "variable",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -98,7 +104,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${sourceSerif.variable} h-full antialiased`}>
+    <html lang="en" className={`${bodyFont.variable} ${sourceSerif.variable} h-full antialiased`}>
       <body className="min-h-full bg-[var(--color-paper)] pb-28 text-[var(--color-navy)] md:pb-0">
         {/* Keep author and service information consistent across public pages. */}
         <script

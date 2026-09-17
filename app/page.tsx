@@ -1,24 +1,17 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  CalendarDays,
-  Check,
-  HeartHandshake,
-  MapPin,
-  MessageCircle,
-  Phone,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, Check, Phone, ShieldCheck } from "lucide-react";
+
 import { MedicareTimeline } from "@/components/MedicareTimeline";
+import { Testimonials } from "@/components/Testimonials";
 import { AGENT, COMPENSATION_DISCLOSURE } from "@/lib/agent";
 import { faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { featuredPlaces } from "@/lib/triad";
 
-const title = "Christian Brinkley | Medicare, Life Insurance & Retirement in Greensboro";
+const title = "Christian Brinkley | Medicare Help in Greensboro, High Point & Winston-Salem";
 const description =
-  "A no-cost insurance consultation with Christian Brinkley in Greensboro and the Piedmont Triad. Medicare, life insurance, and retirement questions. Meet in person, by phone, or by video.";
+  "Turning 65 in the Triad? Christian Brinkley is a licensed agent who lives here, not a call center. Find your Medicare enrollment dates and meet at home or by phone. No cost.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -29,8 +22,8 @@ export const metadata: Metadata = {
 
 const QUESTIONS = [
   {
-    q: "Will my information go to other agents?",
-    a: "Your inquiry goes directly to me, Christian Brinkley. I do not sell your contact information or distribute it to other agents. If you need help from a financial advisor, we discuss that together before an introduction.",
+    q: "Is this a call center?",
+    a: `No. It’s just me, Christian Brinkley. When you call ${AGENT.phone}, you reach me, not a queue. ${AGENT.afterHoursPromise} Your information is never sold or passed to other agents.`,
   },
   {
     q: "Does it cost anything to talk with you?",
@@ -45,455 +38,393 @@ const QUESTIONS = [
     a: "We can review the doctors and hospitals you want to keep, your prescriptions, and your pharmacy against the specific plans I represent. Participation and coverage need to be confirmed for the plan and year you are considering.",
   },
   {
-    q: "Can we meet in person or by video?",
-    a: "Yes. We can arrange a visit at your home in the Piedmont Triad, meet at a convenient public location, or talk by phone or video. You’re welcome to include your spouse or another family member. Tell me what works for you when you request a consultation.",
-  },
-  {
-    q: "Do you help with Medicare in Greensboro, High Point, and Winston-Salem?",
-    a: "Yes. I meet families in Greensboro, High Point, Winston-Salem, and nearby communities. Medicare Advantage and Part D choices depend on your county and home address, so we confirm what is available where you live.",
-  },
-  {
-    q: "Can we talk about life insurance or retirement, not only Medicare?",
-    a: "Yes. Medicare is often the first conversation around age 65. I also review life insurance, care coverage, and annuities, and I work with an advisor when retirement financial planning is needed.",
+    q: "Can we meet in person?",
+    a: "Yes. We can meet at your home in the Piedmont Triad, at a convenient public place, or talk by phone or video. You’re welcome to include your spouse or another family member.",
   },
   {
     q: "What do I need for our first conversation?",
-    a: "Start with the questions on your mind. If you’d like to review coverage, it can help to have your current policy or plan information nearby. For Medicare, a list of your doctors, prescriptions, and pharmacy can help us know what to check. You don’t need to have everything organized before we talk. The request form does not ask for your Social Security number, Medicare number, or payment details.",
+    a: "Start with the questions on your mind. For Medicare, a list of your doctors, prescriptions, and pharmacy helps. You don’t need to have everything organized before we talk. The request form never asks for your Social Security number, Medicare number, or payment details.",
   },
   { q: "How are you paid?", a: COMPENSATION_DISCLOSURE },
 ] as const;
-const STARTING_POINTS = [
+
+const PROMISES = [
   {
-    title: "I’m new to Medicare",
-    text: "I’m turning 65 or leaving coverage through work.",
-    href: "/start?topic=medicare",
-    icon: CalendarDays,
+    title: "The same person, every year.",
+    text: "When it’s time to review your coverage each fall, you call the same person. No new rep every time.",
   },
   {
-    title: "I’m already on Medicare",
-    text: "I’d like to review my coverage or understand a change.",
-    href: "/start?topic=medicare&stage=already_on_medicare",
-    icon: ShieldCheck,
+    title: "Wherever suits you.",
+    text: "At your home anywhere in the Triad, a public place nearby, or by phone. Bring your spouse or your kids.",
   },
   {
-    title: "I’m thinking about my family",
-    text: "I have questions about life insurance or future care.",
-    href: "/start",
-    icon: HeartHandshake,
-  },
-  {
-    title: "I have retirement questions",
-    text: "I’d like help knowing which steps and professionals I need.",
-    href: "/start?topic=financial_planning",
-    icon: MessageCircle,
-  },
-] as const;
-const GUIDES = [
-  {
-    number: "01",
-    title: "When do I sign up?",
-    text: "Understand your enrollment window, employer coverage, and what to do first.",
-    href: "/turning-65",
-    label: "YOUR TIMELINE",
-  },
-  {
-    number: "02",
-    title: "Which type of coverage fits?",
-    text: "Get a plain-English introduction to Original Medicare, Medigap, and Medicare Advantage.",
-    href: "/advantage-vs-medigap",
-    label: "YOUR OPTIONS",
-  },
-  {
-    number: "03",
-    title: "Can I keep my doctor?",
-    text: "Know what to check for your doctors, hospitals, prescriptions, and pharmacy.",
-    href: "/keep-my-doctor",
-    label: "YOUR EVERYDAY CARE",
+    title: "Your number stays with me.",
+    text: "Your information is never sold to other agents or lead companies. No surprise calls.",
   },
 ] as const;
 
+const COSTS = [
+  {
+    figure: "10%",
+    title: "Signing up for Part B late",
+    text: "Added to your Part B premium for each full year you could have had it and didn’t, for as long as you have Part B.",
+  },
+  {
+    figure: "1%",
+    title: "Going without drug coverage",
+    text: "Of the national base Part D premium, added for each month without creditable drug coverage, generally for as long as you have it.",
+  },
+  {
+    figure: "6 mo.",
+    title: "Missing your Medigap window",
+    text: "Your guaranteed chance to buy a supplement without health questions. After it closes, you can be turned down or charged more.",
+  },
+] as const;
+
+const STEPS = [
+  {
+    title: "You call, or send me a note.",
+    text: "It comes straight to me, not a queue. I’ll get in touch personally to find a time that works.",
+  },
+  {
+    title: "We sit down together.",
+    text: "At home, somewhere nearby, or by phone. We go through your doctors, prescriptions, and budget.",
+  },
+  {
+    title: "You decide, in your own time.",
+    text: "There’s no cost and no obligation to enroll. And I’m still here when the next question comes.",
+  },
+] as const;
+
+const GUIDES = [
+  {
+    label: "When to sign up",
+    title: "When should I sign up for Medicare?",
+    text: "Your enrollment window, coverage through work, and what to do first.",
+    href: "/turning-65",
+  },
+  {
+    label: "Your options",
+    title: "Medicare Advantage or a Medigap plan?",
+    text: "How the two paths differ on doctors, costs, and travel.",
+    href: "/advantage-vs-medigap",
+  },
+  {
+    label: "Your doctors",
+    title: "Can I keep my doctors?",
+    text: "What to check for Cone Health, Novant Health, and Atrium Health doctors before you choose.",
+    href: "/keep-my-doctor",
+  },
+] as const;
+
+const BEYOND = [
+  { label: "Life insurance", href: "/life-insurance" },
+  { label: "Care coverage", href: "/care-coverage" },
+  { label: "Retirement income", href: "/retirement-income" },
+  { label: "Annuities", href: "/annuities" },
+] as const;
+
 export default function HomePage() {
+  const credentials = [
+    `Licensed insurance agent in ${AGENT.licensedStates.join(" and ")}`,
+    ...AGENT.credentials,
+    AGENT.advisorPartner
+      ? `Works with ${AGENT.advisorPartner} on retirement planning`
+      : "Works with an advisor when retirement planning calls for one",
+  ];
+
   return (
-    <main className="personal-home">
+    <main className="home">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(QUESTIONS)) }}
       />
-      <section className="personal-hero">
-        <div className="personal-shell personal-hero-grid">
-          <div className="personal-hero-copy">
-            <p className="personal-eyebrow">
-              <span className="personal-dot" /> MEDICARE HELP, CLOSE TO HOME
+
+      {/* Hero: headline, a face, and both ways to act, inside the first phone screen. */}
+      <section className="home-hero">
+        <div className="personal-shell home-hero-grid">
+          <div className="home-hero-copy">
+            <p className="home-eyebrow">
+              <span className="home-dot" aria-hidden />
+              Greensboro · High Point · Winston-Salem
             </p>
             <h1>
-              Turning 65?
-              <br />
-              Let’s make a plan
-              <br />
-              <em>for what comes next.</em>
+              Turning 65? Get Medicare right <em>the first time.</em>
             </h1>
-            <p className="personal-lede">
-              I’m Christian Brinkley, a local insurance agent in Greensboro. I’ll help you
-              understand your Medicare choices and how they fit your life. We can meet at your home,
-              by phone, or by video. Your consultation is no cost, with no obligation to buy
-              anything.
+            <p className="home-lede">
+              I’m Christian Brinkley, a licensed agent who lives here. I’m not a call center. When
+              you call, I answer. When we meet, it’s at your kitchen table. And when a question
+              comes up next year, it’s still me.
             </p>
-            <div className="personal-actions">
-              <Link href="/start" className="personal-button">
-                Request my free consultation <ArrowRight size={19} aria-hidden />
-              </Link>
-              <a href="#your-timeline" className="personal-text-link">
-                Find my Medicare dates <ArrowRight size={18} aria-hidden />
+            <div className="home-hero-id">
+              <Image
+                src="/christian-brinkley-square.jpg"
+                alt=""
+                width={128}
+                height={128}
+                sizes="64px"
+                className="home-avatar"
+              />
+              <span>
+                <span className="home-signature">Christian Brinkley</span>
+                <span className="home-hero-id-note">No cost, no obligation. Never sold.</span>
+              </span>
+            </div>
+            <div className="home-hero-actions" id="home-hero-actions">
+              <a href="#your-timeline" className="home-button">
+                Find my enrollment dates <ArrowRight size={20} aria-hidden />
+              </a>
+              <a href={AGENT.phoneHref} className="home-button home-button-outline">
+                <Phone size={19} aria-hidden />
+                <span>
+                  Call <span className="home-hide-wide">{AGENT.phone}</span>
+                  <span className="home-show-wide">me</span>
+                </span>
               </a>
             </div>
-            <p className="personal-micro">
-              <ShieldCheck size={16} aria-hidden /> Your request comes directly to me. Your
-              information is never sold.
+            <p className="home-micro">
+              <ShieldCheck size={18} aria-hidden />
+              No cost, no obligation. Your information is never sold.
             </p>
           </div>
-          <figure className="personal-portrait">
-            <div className="personal-portrait-image">
-              <Image
-                src="/christian-brinkley.jpg"
-                alt="Christian Brinkley, your local licensed insurance agent in Greensboro"
-                width={1200}
-                height={1600}
-                priority
-                sizes="(max-width: 760px) 88vw, 390px"
-              />
-              <span className="personal-portrait-tag">
-                <MapPin size={15} aria-hidden /> Based in Greensboro, NC
-              </span>
-            </div>
+          <figure className="home-portrait">
+            <Image
+              src="/christian-brinkley.jpg"
+              alt="Christian Brinkley, licensed insurance agent in Greensboro"
+              width={1200}
+              height={1600}
+              loading="eager"
+              sizes="(max-width: 899px) 16px, 480px"
+            />
             <figcaption>
-              <div>
-                <span className="personal-signature">Christian Brinkley</span>
-                <span className="personal-portrait-role">
-                  Licensed insurance agent · Your local point of contact
-                </span>
-              </div>
-              <span className="personal-portrait-stamp" aria-hidden>
-                <HeartHandshake size={27} strokeWidth={1.4} />
-              </span>
+              <span className="home-signature">Christian Brinkley</span>
+              <span>Licensed in North Carolina</span>
             </figcaption>
           </figure>
         </div>
       </section>
-      <div className="personal-promise-strip">
-        <div className="personal-shell">
-          {[
-            "One local agent: Christian",
-            "Your information is never sold",
-            "In person, by phone, or by video",
-            "No-cost consultation",
-          ].map((text) => (
-            <span key={text}>
-              <Check size={17} aria-hidden />
-              {text}
-            </span>
-          ))}
-        </div>
-      </div>
 
-      <section className="personal-shell pt-12 pb-4" aria-labelledby="starting-point-heading">
-        <div className="personal-section-heading">
-          <div>
-            <p className="personal-eyebrow">START WITH WHAT MATTERS TO YOU</p>
-            <h2 id="starting-point-heading">What would you like help with?</h2>
-          </div>
-          <p>
-            A few short questions will help me prepare for our conversation. You can ask for help
-            for yourself, a spouse, or a parent.
-          </p>
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {STARTING_POINTS.map(({ title: heading, text, href, icon: Icon }) => (
-            <Link
-              key={heading}
-              href={href}
-              className="flex min-h-28 items-center gap-4 rounded-lg border border-[var(--personal-line)] bg-white p-5 transition-colors hover:border-[var(--personal-green)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--personal-green)]"
-            >
-              <Icon size={25} className="shrink-0 text-[var(--personal-green)]" aria-hidden />
-              <div className="flex-1">
-                <h3 className="text-18 font-semibold">{heading}</h3>
-                <p className="text-16 mt-1 leading-relaxed text-[var(--personal-muted)]">{text}</p>
-              </div>
-              <ArrowRight size={20} className="shrink-0" aria-hidden />
-            </Link>
+      <section className="home-band" aria-labelledby="home-band-heading">
+        <div className="personal-shell home-band-grid">
+          <h2 id="home-band-heading">What you get with one local agent</h2>
+          {PROMISES.map((item) => (
+            <div key={item.title} className="home-band-item">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      <section
-        className="personal-section personal-shell"
-        id="your-timeline"
-        aria-labelledby="timeline-intro"
-      >
-        <div className="personal-section-heading">
-          <div>
-            <p className="personal-eyebrow">A LITTLE CLARITY, RIGHT NOW</p>
-            <h2 id="timeline-intro">
-              Your next chapter.
-              <br />
-              Your own timeline.
-            </h2>
-          </div>
-          <p>
-            Medicare has a few important dates. Start with the month you turn 65, and I’ll help you
-            make sense of them.
-          </p>
-        </div>
-        <MedicareTimeline currentYear={new Date().getUTCFullYear()} />
-      </section>
-
-      <section className="personal-guides personal-section">
+      <section className="home-section" id="your-timeline" aria-labelledby="timeline-heading">
         <div className="personal-shell">
-          <div className="personal-section-heading">
+          <div className="home-heading-row">
             <div>
-              <p className="personal-eyebrow">GOOD QUESTIONS. CLEAR STARTING POINTS.</p>
-              <h2>
-                You don’t have to learn
-                <br />
-                everything at once.
+              <p className="home-eyebrow">Your Medicare timeline</p>
+              <h2 id="timeline-heading">
+                Seven months to enroll. A penalty that can last for life if you miss it.
               </h2>
             </div>
-            <Link className="personal-text-link" href="/start">
-              Help me find where to start <ArrowRight size={18} aria-hidden />
+            <p className="home-heading-note">
+              Pick the month you turn 65. You’ll see when your window opens, when coverage can
+              start, and the one date you can’t let slip by.
+            </p>
+          </div>
+          <MedicareTimeline currentYear={new Date().getUTCFullYear()} />
+        </div>
+      </section>
+
+      <section className="home-section home-rule-top" aria-labelledby="costs-heading">
+        <div className="personal-shell">
+          <p className="home-eyebrow home-eyebrow-rust">What it costs to get wrong</p>
+          <h2 id="costs-heading" className="home-h2-narrow">
+            Three Medicare mistakes that follow you for years.
+          </h2>
+          <div className="home-costs">
+            {COSTS.map((item) => (
+              <div key={item.figure} className="home-cost">
+                <span className="home-cost-figure">{item.figure}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="home-costs-foot">
+            <p>
+              Coverage through your job or your spouse’s job can change these rules. I’ll check your
+              dates, your work coverage, and your prescriptions before you decide anything.
+            </p>
+            <Link href="/start?topic=medicare&stage=turning_65_soon" className="home-link">
+              Talk it through with me <ArrowRight size={19} aria-hidden />
             </Link>
           </div>
-          <div className="personal-guide-grid">
-            {GUIDES.map((guide) => (
-              <Link key={guide.href} href={guide.href} className="personal-guide">
-                <div className="personal-guide-top">
-                  <span>{guide.label}</span>
-                  <span className="personal-guide-number">{guide.number}</span>
+        </div>
+      </section>
+
+      <Testimonials />
+
+      <section className="home-section" aria-labelledby="about-heading">
+        <div className="personal-shell home-about">
+          <div className="home-about-media">
+            {AGENT.introVideoUrl ? (
+              <video
+                controls
+                playsInline
+                preload="none"
+                poster="/christian-brinkley.jpg"
+                src={AGENT.introVideoUrl}
+                aria-label="A short hello from Christian Brinkley"
+              />
+            ) : (
+              <Image
+                src="/christian-brinkley.jpg"
+                alt="Christian Brinkley"
+                width={1200}
+                height={1600}
+                sizes="(max-width: 899px) calc(100vw - 2.5rem), 540px"
+              />
+            )}
+          </div>
+          <div className="home-about-copy">
+            <p className="home-eyebrow">Who you’ll be talking to</p>
+            <h2 id="about-heading">I live here, and I plan to be your agent for a long time.</h2>
+            <p>
+              I meet families at their kitchen tables across Greensboro, High Point, and
+              Winston-Salem. I listen first, explain your options in plain English, and give you
+              room to decide. If your current coverage still fits, I’ll tell you that too.
+            </p>
+            <ul className="home-checks">
+              {credentials.map((item) => (
+                <li key={item}>
+                  <Check size={20} aria-hidden />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <Link href="/about" className="home-link">
+              More about me <ArrowRight size={19} aria-hidden />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-steps-section" aria-labelledby="steps-heading">
+        <div className="personal-shell">
+          <p className="home-eyebrow">What happens next</p>
+          <h2 id="steps-heading">No script. No pressure. No hand-off.</h2>
+          <ol className="home-steps">
+            {STEPS.map((step, index) => (
+              <li key={step.title}>
+                <span className="home-step-number">{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>{step.title}</h3>
+                  <p>{step.text}</p>
                 </div>
-                <h3>{guide.title}</h3>
-                <p>{guide.text}</p>
-                <span className="personal-guide-link">
-                  Read the guide <ArrowRight size={20} aria-hidden />
-                </span>
+              </li>
+            ))}
+          </ol>
+          <div className="home-steps-actions">
+            <Link href="/start?topic=medicare" className="home-button">
+              Ask for a visit <ArrowRight size={20} aria-hidden />
+            </Link>
+            <p>
+              or call <a href={AGENT.phoneHref}>{AGENT.phone}</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section" aria-labelledby="guides-heading">
+        <div className="personal-shell">
+          <p className="home-eyebrow">Plain-English guides</p>
+          <h2 id="guides-heading">Rather read first? Start here.</h2>
+          <div className="home-guides">
+            {GUIDES.map((guide) => (
+              <Link key={guide.href} href={guide.href} className="home-guide">
+                <span className="home-guide-label">{guide.label}</span>
+                <span className="home-guide-title">{guide.title}</span>
+                <span className="home-guide-text">{guide.text}</span>
+                <ArrowRight size={22} aria-hidden className="home-guide-arrow" />
               </Link>
             ))}
           </div>
-          <p className="personal-already">
+          <p className="home-already">
             Already on Medicare?{" "}
-            <Link href="/annual-enrollment">
-              Start with a review of your current coverage <ArrowRight size={16} aria-hidden />
-            </Link>
+            <Link href="/annual-enrollment">Start with a review of your current coverage</Link>
           </p>
         </div>
       </section>
 
-      <section className="personal-section personal-shell personal-about">
-        <div className="personal-about-note">
-          <MessageCircle size={30} strokeWidth={1.4} aria-hidden />
-          <blockquote>
-            “I want you to have someone you can turn to throughout retirement.”
-          </blockquote>
-          <span className="personal-signature">Christian Brinkley</span>
-          <span>Greensboro, North Carolina</span>
-        </div>
-        <div>
-          <p className="personal-eyebrow">A PERSON YOU CAN COME BACK TO</p>
-          <h2>
-            Here for the questions
-            <br />
-            that come later, too.
-          </h2>
-          <p className="personal-body">
-            Turning 65 comes with a lot of mail and a lot of decisions. I want you to have a
-            familiar person to call—when a letter is confusing, your family’s needs change, or it’s
-            time to review your coverage. Our first conversation can be the start of that
-            relationship.
+      <section className="personal-shell" aria-label="Beyond Medicare">
+        <div className="home-beyond">
+          <p className="home-eyebrow home-eyebrow-muted">Beyond Medicare</p>
+          <p className="home-beyond-text">
+            I also help with life insurance, long-term care coverage, and retirement income
+            questions. That’s a separate conversation, whenever you’re ready.
           </p>
-          <p className="personal-body">
-            I’m working toward my master’s in accounting right here at UNC Greensboro. I meet people
-            at their kitchen tables across the Triad, and I take the time to understand their
-            families. For retirement financial planning, I work with an advisor so the right
-            professional is involved.
-          </p>
-          <Link className="personal-text-link" href="/about">
-            A little more about me <ArrowRight size={18} aria-hidden />
-          </Link>
+          <ul className="home-beyond-links">
+            {BEYOND.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      <section className="personal-process personal-section">
-        <div className="personal-shell">
-          <p className="personal-eyebrow">WHAT HAPPENS NEXT</p>
-          <h2>A simple start. At your pace.</h2>
-          <ol className="personal-process-grid">
-            <li>
-              <span>1</span>
-              <h3>Tell me what’s on your mind.</h3>
-              <p>
-                Answer a few short questions and tell me how to reach you. Your request comes
-                directly to me. We’ll confirm a time and how you’d like to meet.
-              </p>
-            </li>
-            <li>
-              <span>2</span>
-              <h3>We talk it through.</h3>
-              <p>
-                We can meet at home, at a convenient public location, by phone, or by video. Include
-                a family member if you’d like. We start with your questions and what you already
-                have.
-              </p>
-            </li>
-            <li>
-              <span>3</span>
-              <h3>You choose your next step.</h3>
-              <p>
-                We outline the coverage options and next steps that fit your needs and budget. You
-                decide what to do. The consultation is no cost, with no obligation to buy.
-              </p>
-            </li>
-          </ol>
-          <Link className="personal-button" href="/start">
-            Request my free consultation <ArrowRight size={19} aria-hidden />
-          </Link>
-        </div>
-      </section>
-
-      <section className="personal-section personal-shell">
-        <div className="personal-section-heading">
-          <div>
-            <p className="personal-eyebrow">BEYOND YOUR MEDICARE CARD</p>
-            <h2>Help for the bigger picture.</h2>
-          </div>
-          <p>
-            Your coverage is one part of retirement. Start with whichever question matters to you
-            today.
-          </p>
-        </div>
-        <div className="personal-service-grid">
-          <Link href="/life-insurance">
-            <HeartHandshake size={28} strokeWidth={1.5} aria-hidden />
-            <div>
-              <h3>Life insurance</h3>
-              <p>
-                Review your family’s protection, existing coverage, and what changes when work ends.
-              </p>
-            </div>
-            <ArrowRight size={22} aria-hidden />
-          </Link>
-          <Link href="/retirement-income">
-            <CalendarDays size={28} strokeWidth={1.5} aria-hidden />
-            <div>
-              <h3>Retirement planning questions</h3>
-              <p>
-                Connect your insurance questions with financial planning through an advisor I work
-                with.
-              </p>
-            </div>
-            <ArrowRight size={22} aria-hidden />
-          </Link>
-          <Link href="/care-coverage">
-            <ShieldCheck size={28} strokeWidth={1.5} aria-hidden />
-            <div>
-              <h3>Care and critical illness coverage</h3>
-              <p>
-                Talk through long-term care, short-term care, and critical illness insurance for
-                your family.
-              </p>
-            </div>
-            <ArrowRight size={22} aria-hidden />
-          </Link>
-          <Link href="/annuities">
-            <CalendarDays size={28} strokeWidth={1.5} aria-hidden />
-            <div>
-              <h3>Annuities and retirement income</h3>
-              <p>
-                Understand the income options, costs, and access to your money before considering a
-                contract.
-              </p>
-            </div>
-            <ArrowRight size={22} aria-hidden />
-          </Link>
-        </div>
-      </section>
-
-      <section className="personal-local">
-        <div className="personal-shell">
-          <div>
-            <p className="personal-eyebrow">
-              <MapPin size={16} aria-hidden /> ROOTED IN THE TRIAD
-            </p>
-            <h2>Local means close by.</h2>
-            <p>
-              Greensboro, High Point, Winston-Salem, and the communities around them. Meet in person
-              or talk from the comfort of home.
-            </p>
-            <Link href="/service-area" className="personal-text-link">
-              Explore the service area <ArrowRight size={18} aria-hidden />
+      <section className="home-section" aria-labelledby="faq-heading">
+        <div className="personal-shell home-faq">
+          <div className="home-faq-intro">
+            <p className="home-eyebrow">Before we meet</p>
+            <h2 id="faq-heading">Questions people ask me first.</h2>
+            <p>I meet people in these communities and the towns around them:</p>
+            <ul className="home-towns">
+              {featuredPlaces().map((town) => (
+                <li key={town.slug}>
+                  <Link href={`/medicare-in/${town.slug}`}>{town.name}</Link>
+                </li>
+              ))}
+            </ul>
+            <Link href="/service-area" className="home-link">
+              See the full service area <ArrowRight size={19} aria-hidden />
             </Link>
           </div>
-          <div className="personal-town-list">
-            {featuredPlaces().map((town) => (
-              <div key={town.slug} className="personal-town">
-                <span className="personal-town-name">{town.name}</span>
-                <span className="personal-town-links">
-                  <Link href={`/medicare-in/${town.slug}`}>Medicare</Link>
-                  <Link href={`/life-insurance-in/${town.slug}`}>Life insurance</Link>
-                  <Link href={`/retirement-in/${town.slug}`}>Retirement</Link>
-                </span>
-              </div>
+          <div className="home-faq-list">
+            {QUESTIONS.map((item) => (
+              <details key={item.q}>
+                <summary>
+                  {item.q}
+                  <span aria-hidden>+</span>
+                </summary>
+                <p>{item.a}</p>
+              </details>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="personal-section personal-shell personal-faq">
-        <div>
-          <p className="personal-eyebrow">BEFORE WE TALK</p>
-          <h2>
-            A few things
-            <br />
-            you might wonder.
-          </h2>
-          <p className="personal-body">Have a different question? I’d be glad to hear it.</p>
-          <a href={AGENT.phoneHref} className="personal-text-link">
-            <Phone size={18} aria-hidden />
-            {AGENT.phone}
-          </a>
-        </div>
-        <div>
-          {QUESTIONS.map((item) => (
-            <details key={item.q}>
-              <summary>
-                {item.q}
-                <span aria-hidden>+</span>
-              </summary>
-              <p>{item.a}</p>
-            </details>
-          ))}
-        </div>
-      </section>
-
-      <section className="personal-close">
-        <div className="personal-shell">
-          <p className="personal-eyebrow">LET’S START WITH YOUR QUESTION</p>
-          <h2>
-            A clearer next step
-            <br />
-            starts with a conversation.
-          </h2>
-          <p>
-            Let’s sit down, look at what matters to your family, and make your next step clearer.
-          </p>
-          <div className="personal-actions">
-            <Link href="/start" className="personal-button personal-button-light">
-              Request my free consultation <ArrowRight size={20} aria-hidden />
-            </Link>
-            <a href={AGENT.phoneHref} className="personal-text-link">
-              <Phone size={18} aria-hidden />
+      <section className="home-close" aria-labelledby="close-heading">
+        <div className="personal-shell home-close-grid">
+          <div>
+            <h2 id="close-heading">Call me. I’ll be the one who picks up.</h2>
+            <p>{AGENT.afterHoursPromise}</p>
+          </div>
+          <div className="home-close-actions">
+            <a href={AGENT.phoneHref} className="home-close-phone">
               {AGENT.phone}
             </a>
+            <div>
+              <a href="#your-timeline" className="home-button home-button-light">
+                Find my dates
+              </a>
+              <Link href="/start?topic=medicare" className="home-button home-button-ghost">
+                Ask for a visit
+              </Link>
+            </div>
+            <p>No cost · No obligation · One local agent</p>
           </div>
-          <span className="personal-close-note">
-            Free initial insurance consultation · No obligation · One local agent
-          </span>
         </div>
       </section>
     </main>

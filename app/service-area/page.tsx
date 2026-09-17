@@ -82,7 +82,7 @@ export default function ServiceAreaPage() {
         </div>
       </section>
 
-      <section className="border-t border-[rgba(15,34,65,0.08)] bg-white py-10">
+      <section className="border-t border-[rgba(21,46,52,0.08)] bg-white py-10">
         <div className="app-shell mx-auto max-w-4xl">
           <h2 className="text-22 font-semibold">Jump to a community</h2>
           <nav aria-label="Communities I serve" className="mt-4">
@@ -92,7 +92,7 @@ export default function ServiceAreaPage() {
                   <li key={place.slug}>
                     <a
                       href={`#town-${place.slug}`}
-                      className="text-16 inline-flex min-h-11 items-center rounded-lg border border-[rgba(15,34,65,0.14)] bg-[var(--color-paper)] px-3 py-2"
+                      className="text-16 inline-flex min-h-11 items-center rounded-lg border border-[rgba(21,46,52,0.14)] bg-[var(--color-paper)] px-3 py-2"
                     >
                       {place.name}
                     </a>
@@ -107,7 +107,7 @@ export default function ServiceAreaPage() {
       {groups.map((group) => (
         <section
           key={group.county}
-          className="border-t border-[rgba(15,34,65,0.08)] bg-[var(--color-paper)] py-12"
+          className="border-t border-[rgba(21,46,52,0.08)] bg-[var(--color-paper)] py-12"
         >
           <div className="app-shell mx-auto max-w-4xl">
             <h2 className="text-24 font-semibold">{group.county}</h2>
@@ -116,7 +116,7 @@ export default function ServiceAreaPage() {
                 <li
                   id={`town-${place.slug}`}
                   key={place.slug}
-                  className="scroll-mt-24 rounded-xl border border-[rgba(15,34,65,0.12)] bg-white px-5 py-4"
+                  className="scroll-mt-24 rounded-xl border border-[rgba(21,46,52,0.12)] bg-white px-5 py-4"
                 >
                   <p className="text-18 font-semibold">{place.name}</p>
                   <p className="text-16 mt-3 flex flex-wrap gap-2">

@@ -54,7 +54,7 @@ export function StepperField({
   }
 
   const buttonClass =
-    "inline-flex size-12 shrink-0 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.06)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] disabled:cursor-not-allowed disabled:opacity-40";
+    "inline-flex size-12 shrink-0 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] text-[var(--color-navy)] transition-colors hover:bg-[rgba(21,46,52,0.06)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] disabled:cursor-not-allowed disabled:opacity-40";
 
   return (
     <div className="flex w-full items-center justify-center gap-3">

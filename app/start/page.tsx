@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { AGENT } from "@/lib/agent";
 import { breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { SERVICE_AREA_LABEL } from "@/lib/triad";
 
@@ -49,7 +48,7 @@ export default function StartPage() {
             and no obligation.
           </p>
           <p className="text-16 mt-3 text-[var(--color-paper)]/80">
-            Licensed in North Carolina · {AGENT.education}
+            Licensed in North Carolina · One local agent, not a call center
           </p>
         </div>
       </section>

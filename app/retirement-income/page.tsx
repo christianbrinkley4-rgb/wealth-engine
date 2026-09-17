@@ -199,7 +199,7 @@ export default function RetirementIncomePage() {
             together can help you prepare for future costs. A qualified tax professional or advisor
             can assess your individual situation.{" "}
           </p>
-          <div className="card-surface mt-8 border-l-4 border-l-[var(--color-gold-ink)] p-6">
+          <div className="card-surface mt-8 p-6">
             <p className="text-18 leading-relaxed">
               Our calculator compares the estimated Medicare premium effect of two Roth conversion
               timing examples using 2026 rates. You can review the results with your tax

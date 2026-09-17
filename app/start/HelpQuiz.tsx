@@ -117,7 +117,7 @@ function optionButtonClass(selected: boolean) {
     "relative min-h-14 w-full rounded-xl border-2 bg-white px-5 py-5 text-left text-18 leading-snug font-semibold text-[var(--color-navy)] transition-[border-color,background-color] duration-150",
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]",
     selected
-      ? "border-[3px] border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+      ? "border-[3px] border-[var(--color-navy)] bg-[rgba(21,46,52,0.05)]"
       : "border-gray-300 hover:border-[var(--color-navy)]/40",
   );
 }
@@ -560,7 +560,7 @@ export function HelpQuiz() {
         />
       ) : null}
       {resumePrompt ? (
-        <div className="card-surface mb-8 border-l-4 border-l-[var(--color-gold-ink)] p-5">
+        <div className="card-surface mb-8 p-5">
           <p className="text-17 text-[var(--color-navy)]">
             You have answers in progress for{" "}
             <strong>{topic ? TOPIC_LABELS[topic] : "another topic"}</strong>. Pick up where you left
@@ -614,7 +614,7 @@ export function HelpQuiz() {
       </div>
 
       <div
-        className="mb-8 h-3 overflow-hidden rounded-full bg-[rgba(15,34,65,0.08)]"
+        className="mb-8 h-3 overflow-hidden rounded-full bg-[rgba(21,46,52,0.08)]"
         role="progressbar"
         aria-valuemin={1}
         aria-valuemax={totalSteps}
@@ -650,7 +650,7 @@ export function HelpQuiz() {
                   onClick={() => selectSituation(item)}
                   className={cn(
                     "card-surface flex min-h-16 flex-col items-start gap-2 p-4 text-left transition-[border-color,box-shadow] duration-150",
-                    "hover:border-[var(--color-navy)] hover:shadow-[0_8px_28px_rgba(15,34,65,0.08)]",
+                    "hover:border-[var(--color-navy)] hover:shadow-[0_8px_28px_rgba(21,46,52,0.08)]",
                     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]",
                   )}
                 >
@@ -732,7 +732,7 @@ export function HelpQuiz() {
 
       {stored.phase === "value" && valueBeat ? (
         <section aria-labelledby="quiz-heading">
-          <div className="card-surface border-l-4 border-l-[var(--color-gold-ink)] p-6 md:p-8">
+          <div className="card-surface p-6 md:p-8">
             <p className="text-14 font-medium tracking-[0.08em] text-[var(--color-gold-ink)] uppercase">
               Based on your answers
             </p>
@@ -818,7 +818,7 @@ export function HelpQuiz() {
           </p>
 
           {topic ? (
-            <ul className="mt-5 flex flex-col gap-2 rounded-xl border border-[rgba(15,34,65,0.12)] bg-white px-5 py-4">
+            <ul className="mt-5 flex flex-col gap-2 rounded-xl border border-[rgba(21,46,52,0.12)] bg-white px-5 py-4">
               {describeAnswers(topic, stored.answers).map((row) => (
                 <li key={row.question} className="text-16 leading-snug">
                   <span className="text-[var(--color-ink-muted)]">{row.question}</span>
@@ -830,7 +830,7 @@ export function HelpQuiz() {
             </ul>
           ) : null}
 
-          <div className="card-surface mt-6 border-l-4 border-l-[var(--color-gold-ink)] p-5">
+          <div className="card-surface mt-6 p-5">
             <p className="text-17 leading-relaxed text-[var(--color-navy)]">
               <strong>{AGENT.name}</strong> personally reviews every submission. Your inquiry is not
               sold or distributed to other agents. Free consultation. No obligation. {AGENT.hours}
@@ -968,7 +968,7 @@ export function HelpQuiz() {
                     className={cn(
                       "text-16 flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border-2 px-4 py-3",
                       meet === opt.value
-                        ? "border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+                        ? "border-[var(--color-navy)] bg-[rgba(21,46,52,0.05)]"
                         : "border-gray-300 bg-white",
                     )}
                   >
@@ -986,7 +986,7 @@ export function HelpQuiz() {
               </div>
             </fieldset>
             <details
-              className="rounded-xl border border-[rgba(15,34,65,0.12)] bg-white px-4 py-3"
+              className="rounded-xl border border-[rgba(21,46,52,0.12)] bg-white px-4 py-3"
               open={askContext !== "general"}
             >
               <summary className="text-17 cursor-pointer font-medium text-[var(--color-navy)]">
@@ -1065,7 +1065,7 @@ export function HelpQuiz() {
               </div>
             </details>
 
-            <label className="text-16 flex cursor-pointer gap-3 rounded-xl bg-[rgba(15,34,65,0.04)] px-4 py-4 text-left leading-relaxed text-[var(--color-navy)]">
+            <label className="text-16 flex cursor-pointer gap-3 rounded-xl bg-[rgba(21,46,52,0.04)] px-4 py-4 text-left leading-relaxed text-[var(--color-navy)]">
               <input
                 type="checkbox"
                 checked={consent}
@@ -1087,7 +1087,7 @@ export function HelpQuiz() {
             </label>
 
             {phone.replace(/\D/g, "").length >= 10 ? (
-              <label className="text-15 flex cursor-pointer gap-3 rounded-xl bg-[rgba(15,34,65,0.04)] px-4 py-4 text-left leading-relaxed text-[var(--color-navy)]">
+              <label className="text-15 flex cursor-pointer gap-3 rounded-xl bg-[rgba(21,46,52,0.04)] px-4 py-4 text-left leading-relaxed text-[var(--color-navy)]">
                 <input
                   type="checkbox"
                   checked={smsConsent}

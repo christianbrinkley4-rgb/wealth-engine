@@ -2,8 +2,16 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Check, Download, LockKeyhole, Printer } from "lucide-react";
-import { enrollmentTimeline, timelineCalendar, type TimelineInput } from "@/lib/enrollmentTimeline";
+import { ArrowRight, Download, LockKeyhole, Printer } from "lucide-react";
+
+import { trackEvent } from "@/app/components/Analytics";
+import { TimelineEmailCapture } from "@/components/TimelineEmailCapture";
+import {
+  enrollmentTimeline,
+  timelineCalendar,
+  timelineCountdown,
+  type TimelineInput,
+} from "@/lib/enrollmentTimeline";
 import { formatLongDate, MONTHS } from "@/lib/reminders";
 
 export function MedicareTimeline({ currentYear }: { currentYear: number }) {
@@ -18,6 +26,7 @@ export function MedicareTimeline({ currentYear }: { currentYear: number }) {
   } | null>(null);
   const resultHeading = useRef<HTMLHeadingElement>(null);
   const dates = result ? enrollmentTimeline(result.input, result.today) : null;
+  const countdown = dates && result ? timelineCountdown(dates, result.today) : null;
 
   function calculate(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -26,12 +35,13 @@ export function MedicareTimeline({ currentYear }: { currentYear: number }) {
       today: new Date(),
       coverage,
     });
+    trackEvent("timeline_complete");
     requestAnimationFrame(() => {
       resultHeading.current?.focus({ preventScroll: true });
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       resultHeading.current?.scrollIntoView({
         behavior: reduceMotion ? "auto" : "smooth",
-        block: "center",
+        block: "start",
       });
     });
   }
@@ -50,170 +60,183 @@ export function MedicareTimeline({ currentYear }: { currentYear: number }) {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
 
+  const turningLabel = result
+    ? `Turning 65 in ${MONTHS[result.input.month - 1]} ${result.input.year}`
+    : "";
+
   return (
-    <div className="timeline-tool">
-      <div className="timeline-form-panel">
-        <div className="timeline-tool-label">
-          <CalendarDays size={21} aria-hidden />
-          <span>YOUR MEDICARE TIMELINE</span>
-          <span className="timeline-free">FREE TOOL</span>
-        </div>
-        <form onSubmit={calculate}>
+    <div className="tl">
+      <div className="tl-panels">
+        <form className="tl-form" onSubmit={calculate}>
           <fieldset>
             <legend>When do you turn 65?</legend>
-            <div className="timeline-date-fields">
-              <label>
-                Month
-                <select required value={month} onChange={(event) => setMonth(event.target.value)}>
-                  <option value="">Select</option>
+            <div className="tl-date-fields">
+              <div className="tl-field">
+                <label htmlFor="tl-month">Month</label>
+                <select
+                  id="tl-month"
+                  required
+                  value={month}
+                  onChange={(event) => setMonth(event.target.value)}
+                >
+                  <option value="">Choose</option>
                   {MONTHS.map((label, index) => (
                     <option value={index + 1} key={label}>
                       {label}
                     </option>
                   ))}
                 </select>
-              </label>
-              <label>
-                Year
-                <select value={year} onChange={(event) => setYear(event.target.value)}>
+              </div>
+              <div className="tl-field">
+                <label htmlFor="tl-year">Year</label>
+                <select id="tl-year" value={year} onChange={(event) => setYear(event.target.value)}>
                   {Array.from({ length: 7 }, (_, i) => currentYear - 1 + i).map((value) => (
                     <option key={value} value={value}>
                       {value}
                     </option>
                   ))}
                 </select>
-              </label>
+              </div>
             </div>
           </fieldset>
-          <label className="timeline-checkbox">
+          <label className="tl-check">
             <input
               type="checkbox"
               checked={birthdayOnFirst}
               onChange={(event) => setBirthdayOnFirst(event.target.checked)}
             />
             <span>
-              My birthday is on the 1st of the month.
-              <small>Medicare dates shift one month earlier.</small>
+              My birthday is on the 1st of the month
+              <small>Medicare moves your dates one month earlier.</small>
             </span>
           </label>
-          <label className="timeline-coverage">
-            What coverage will you have at 65?<span className="timeline-optional">Optional</span>
-            <select value={coverage} onChange={(event) => setCoverage(event.target.value)}>
+          <div className="tl-field">
+            <label htmlFor="tl-coverage">
+              Coverage you’ll have at 65 <span className="tl-optional">Optional</span>
+            </label>
+            <select
+              id="tl-coverage"
+              value={coverage}
+              onChange={(event) => setCoverage(event.target.value)}
+            >
               <option value="">Choose if you know</option>
-              <option value="employer">Current job (mine or my spouse’s)</option>
-              <option value="other">Other coverage or no coverage</option>
-              <option value="unsure">Something else / I’m not sure</option>
+              <option value="employer">A current job (mine or my spouse’s)</option>
+              <option value="other">Other coverage, or none</option>
+              <option value="unsure">I’m not sure</option>
             </select>
-          </label>
-          <button className="personal-button" type="submit">
+          </div>
+          <button className="home-button" type="submit">
             {result ? "Update my dates" : "Show my dates"}
-            <ArrowRight size={19} aria-hidden />
+            <ArrowRight size={20} aria-hidden />
           </button>
-          <p className="timeline-privacy">
-            <LockKeyhole size={14} aria-hidden />
-            Calculated in your browser. No name, email, or phone required.
+          <p className="tl-privacy">
+            <LockKeyhole size={15} aria-hidden />
+            Worked out on your device. Nothing you enter here is saved.
           </p>
         </form>
-      </div>
-      <div className="timeline-result-panel" aria-live="polite" aria-atomic="true">
-        {dates && result ? (
-          <>
-            <p className="personal-eyebrow">YOUR STARTING POINT</p>
-            <h3 ref={resultHeading} tabIndex={-1}>
-              Your enrollment dates
-            </h3>
-            {result.input.birthdayOnFirst && (
-              <p className="timeline-adjusted">Adjusted for a birthday on the 1st.</p>
-            )}
-            <dl className="timeline-dates">
-              <div>
-                <dt>
-                  <span>01</span> Your window opens
-                </dt>
-                <dd>{formatLongDate(dates.opensOn)}</dd>
+
+        <div className="tl-result" aria-live="polite" aria-atomic="true">
+          {dates && result && countdown ? (
+            <>
+              <div className="tl-countdown">
+                {countdown.kind === "closed" ? (
+                  <h3 ref={resultHeading} tabIndex={-1} className="tl-countdown-closed">
+                    This first enrollment window has passed.
+                  </h3>
+                ) : (
+                  <>
+                    <span className="tl-countdown-number" aria-hidden>
+                      {countdown.days}
+                    </span>
+                    <h3 ref={resultHeading} tabIndex={-1}>
+                      <span className="sr-only">{countdown.days} </span>
+                      {countdown.kind === "upcoming"
+                        ? countdown.days === 1
+                          ? "day until your enrollment window opens"
+                          : "days until your enrollment window opens"
+                        : countdown.days === 1
+                          ? "day left in your enrollment window"
+                          : "days left in your enrollment window"}
+                    </h3>
+                  </>
+                )}
+                <p>
+                  {turningLabel}
+                  {result.input.birthdayOnFirst ? " · adjusted for a birthday on the 1st" : ""}
+                </p>
               </div>
-              <div>
-                <dt>
-                  <span>02</span> Enroll by this date for the start below
-                </dt>
-                <dd>{formatLongDate(dates.signUpBy)}</dd>
+
+              <dl className="tl-dates">
+                <div>
+                  <dt>{formatLongDate(dates.opensOn)}</dt>
+                  <dd>Your window opens. You can sign up for Parts A and B.</dd>
+                </div>
+                <div className="tl-date-key">
+                  <dt>{formatLongDate(dates.signUpBy)}</dt>
+                  <dd>
+                    Enroll by this date so Part B can start{" "}
+                    <strong>{formatLongDate(dates.coverageStarts)}</strong>.
+                  </dd>
+                </div>
+                <div>
+                  <dt>{formatLongDate(dates.closesOn)}</dt>
+                  <dd>Your window closes. Late penalties can apply after this.</dd>
+                </div>
+                <div>
+                  <dt>
+                    {formatLongDate(dates.medigapOpens)} to {formatLongDate(dates.medigapCloses)}
+                  </dt>
+                  <dd>Your Medigap window, if Part B starts then. No health questions.</dd>
+                </div>
+              </dl>
+
+              <p className="tl-context">
+                {result.coverage === "employer"
+                  ? "Still working? These are your first enrollment dates, not a reason to leave your job’s coverage. Your employer’s size and any HSA contributions change the right timing, so check with your benefits office first."
+                  : dates.status === "closed"
+                    ? "You may have another chance to enroll. Check with Medicare or Social Security before assuming you owe a penalty."
+                    : "If you have coverage through your job or your spouse’s job, your timing can be different. I can check it with you."}
+              </p>
+
+              <div className="tl-actions">
+                <button type="button" onClick={saveCalendar}>
+                  <Download size={18} aria-hidden />
+                  Save to my calendar
+                </button>
+                <button type="button" onClick={() => window.print()}>
+                  <Printer size={18} aria-hidden />
+                  Print
+                </button>
               </div>
-              <div>
-                <dt>
-                  <span>03</span> Earliest Part B start, if you enroll in time
-                </dt>
-                <dd>{formatLongDate(dates.coverageStarts)}</dd>
-              </div>
-              <div>
-                <dt>
-                  <span>04</span> Your initial window ends
-                </dt>
-                <dd>{formatLongDate(dates.closesOn)}</dd>
-              </div>
-            </dl>
-            <p className="timeline-context">
-              {result.coverage === "employer"
-                ? "Still working? These are your initial enrollment dates, not a recommendation to leave employer coverage. Confirm employer size, Part B timing, and any HSA contributions with your benefits administrator."
-                : dates.status === "closed"
-                  ? "This initial window has passed. You may have another enrollment opportunity. Check with Medicare or Social Security before assuming you owe a penalty or cannot enroll."
-                  : "This is an estimate for someone first eligible at 65. If you enroll in your eligibility month or the following three months, Part B generally starts the next month. Your existing coverage can affect what to do."}
-            </p>
-            <div className="timeline-result-actions">
-              <button type="button" onClick={saveCalendar}>
-                <Download size={16} aria-hidden />
-                Save dates to calendar
-              </button>
-              <button type="button" onClick={() => window.print()}>
-                <Printer size={16} aria-hidden />
-                Print
-              </button>
+              <Link className="tl-next" href="/start?topic=medicare&stage=turning_65_soon">
+                Go over these dates with Christian <ArrowRight size={19} aria-hidden />
+              </Link>
+              <a
+                className="tl-source"
+                href="https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Source: Medicare.gov enrollment rules
+              </a>
+            </>
+          ) : (
+            <div className="tl-empty">
+              <h3>Your dates will show here.</h3>
+              <p>Pick the month you turn 65. You’ll see:</p>
+              <ul>
+                <li>When your enrollment window opens</li>
+                <li>The date to enroll by so coverage starts on time</li>
+                <li>When the window closes, and penalties can begin</li>
+              </ul>
             </div>
-            <Link className="timeline-next" href="/start?topic=medicare&stage=turning_65_soon">
-              Review these dates with Christian <ArrowRight size={18} aria-hidden />
-            </Link>
-            <p className="timeline-context">
-              We’ll spend at least one hour on your enrollment timing, coverage, doctors, and
-              questions. No cost. No obligation.
-            </p>
-            <a
-              className="timeline-source"
-              href="https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Source: Medicare.gov enrollment and coverage rules
-            </a>
-          </>
-        ) : (
-          <div className="timeline-empty">
-            <span className="timeline-empty-icon">
-              <CalendarDays size={38} strokeWidth={1.3} aria-hidden />
-            </span>
-            <h3>
-              A few dates.
-              <br />A lot less guesswork.
-            </h3>
-            <p>
-              See when your enrollment window opens, when coverage could start, and when your
-              initial window ends.
-            </p>
-            <ul>
-              <li>
-                <Check size={17} aria-hidden />
-                Your dates, in plain English
-              </li>
-              <li>
-                <Check size={17} aria-hidden />
-                Save them to your calendar
-              </li>
-              <li>
-                <Check size={17} aria-hidden />
-                Ask for help whenever you’re ready
-              </li>
-            </ul>
-          </div>
-        )}
+          )}
+        </div>
       </div>
+
+      {result && dates ? (
+        <TimelineEmailCapture input={result.input} windowClosed={dates.status === "closed"} />
+      ) : null}
     </div>
   );
 }

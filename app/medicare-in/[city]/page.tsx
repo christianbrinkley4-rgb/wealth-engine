@@ -191,7 +191,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               <li key={other.slug}>
                 <Link
                   href={`/medicare-in/${other.slug}`}
-                  className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
+                  className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(21,46,52,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
                 >
                   <span className="text-18 font-semibold">Medicare in {other.name} →</span>
                   <span className="text-16 mt-1 leading-snug text-[var(--color-ink-muted)]">
@@ -207,7 +207,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             <li>
               <Link
                 href={`/life-insurance-in/${city.slug}`}
-                className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
+                className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(21,46,52,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
               >
                 <span className="text-18 font-semibold">Life insurance in {city.name} →</span>
                 <span className="text-16 mt-1 leading-snug text-[var(--color-ink-muted)]">
@@ -218,7 +218,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             <li>
               <Link
                 href={`/retirement-in/${city.slug}`}
-                className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
+                className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(21,46,52,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
               >
                 <span className="text-18 font-semibold">Retirement help in {city.name} →</span>
                 <span className="text-16 mt-1 leading-snug text-[var(--color-ink-muted)]">
