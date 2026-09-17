@@ -1,6 +1,8 @@
 # Measuring what your advertising actually produces
 
-Right now the site counts nothing. The code is ready; it stays switched off until you add the four settings below. Do this before you spend money on ads, because without it you cannot tell a campaign that produced three appointments from one that produced none.
+**Status, September 17, 2026: Google Analytics is live.** The property `ChristianBrinkleyNC.com` (measurement ID `G-6EL64CP7S8`) is created, the Netlify setting is in place, the site is deployed with it, and a test on the live site was received. Steps 1 and 3 below are done. What remains is Google Ads, in "Still to do" at the end.
+
+Without this you cannot tell a campaign that produced three appointments from one that produced none, which is why it goes in before any ad spend.
 
 ## What gets counted
 
@@ -17,7 +19,7 @@ The two marked "interest only" are deliberate. If you tell Google that reading a
 
 Only the name of the action and the page it happened on. Not your visitors' answers, dates of birth, income, ZIP codes, email addresses or phone numbers — not even scrambled. Personalized advertising signals are turned off, so a visit isn't used to build an advertising profile of someone researching their health coverage. A test locks this down, so a later change can't quietly start sending more.
 
-## Step 1: create the Google Analytics property (about 10 minutes)
+## Step 1: create the Google Analytics property — DONE
 
 1. Go to **analytics.google.com** and sign in with the Google account you want to own this.
 2. **Admin** (bottom left) → **Create** → **Property**.
@@ -26,9 +28,13 @@ Only the name of the action and the page it happened on. Not your visitors' answ
 5. Choose **Web** as the platform, enter `https://christianbrinkleync.com`, and name the stream `Website`.
 6. Copy the **Measurement ID**. It looks like `G-ABCD1234`.
 
-## Step 2: create the two Google Ads conversion actions (about 15 minutes)
+## Step 2: create the two Google Ads conversion actions — BLOCKED, needs you
 
-You need a Google Ads account even if you plan to advertise on Facebook first, because this is what records a call as a result.
+The Google Ads account (942-024-4184) is still part-way through signup: every page redirects into a campaign-creation flow that ends at billing. Finishing a signup and entering payment details is yours to do, not something to hand to an assistant.
+
+Once the account is open, you have a shortcut. Because Analytics is already running, you can import its key events into Ads as conversions instead of creating tag labels by hand: in Google Ads, **Goals → Conversions → New conversion action → Import → Google Analytics 4**, and pick `phone_click` and `generate_lead`. Then the two label settings below stay empty and nothing needs redeploying.
+
+If you would rather use the tag labels anyway, here is that route.
 
 1. Go to **ads.google.com** → **Goals** → **Conversions** → **Summary** → **New conversion action**.
 2. Choose **Website**, enter `christianbrinkleync.com`, and continue.
@@ -45,7 +51,7 @@ You need a Google Ads account even if you plan to advertise on Facebook first, b
 
 You'll end up with one conversion ID and two labels.
 
-## Step 3: put them into Netlify (about 5 minutes)
+## Step 3: put them into Netlify — DONE for Analytics, the Ads rows remain
 
 1. Go to **app.netlify.com** → your site → **Site configuration** → **Environment variables**.
 2. Add these four, exactly as named:
@@ -70,6 +76,12 @@ The privacy page updates itself. It says measurement is off while it is off, and
 5. In Google Ads, **Goals** → **Conversions**, the two actions move from "No recent conversions" to "Recording conversions" within a few hours. It is not instant.
 
 If nothing appears: check that the deploy finished after you added the settings, and turn off any ad blocker on your phone, which blocks these tags exactly as it would for a visitor.
+
+## Still to do
+
+1. **Finish the Google Ads account** (you), then import the two key events as conversions, per step 2.
+2. **Mark the key events** in Analytics. Google only lets an event be starred once it has listed the name, which takes up to 24 hours from the first time it happens. From about September 18: **Admin → Data display → Events**, find `phone_click` and `generate_lead`, and click the star beside each.
+3. **Watch the Netlify credits.** The free plan gives 300 a month; on September 17 there were 19 left, and the billing period resets September 21. Every deploy spends some. If they run out, Netlify pauses the site — which would be an expensive thing to discover while ads are running. Avoid unnecessary deploys until the reset, and consider what a paid plan costs before advertising.
 
 ## What this still doesn't tell you
 
