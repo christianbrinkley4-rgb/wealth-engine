@@ -15,6 +15,10 @@
 
 # next.js
 /.next/
+/.next-preview/
+/.next-verify/
+/.cache/
+/.netlify/
 /out/
 
 # production
@@ -39,3 +43,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.vercel
+.env*
+!.env.example
+
+# Design canvas working files (kept outside the app)
+/design/
+*.dc.html

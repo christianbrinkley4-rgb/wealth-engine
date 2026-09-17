@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Triad Retirement Guidance
 
-## Getting Started
+Next.js site with four lead funnels for Medicare, life insurance, and retirement guidance.
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy `.env.example` to `.env.local` when testing integrations. Missing launch
+configuration is reported but does not make the local health check fail.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Production readiness
 
-## Learn More
+Set environment variables in the deployment platform; never commit `.env.local`
+or service credentials.
 
-To learn more about Next.js, take a look at the following resources:
+- `NEXT_PUBLIC_SITE_URL`: final public HTTPS origin. Until valid, robots and
+  page metadata prevent indexing.
+- `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY`: durable lead and reminder storage.
+- At least one alert route:
+  - `RESEND_API_KEY` + `RESEND_FROM` (also sends prospect and reminder email);
+  - `MAKE_WEBHOOK_URL` (optionally signed with `MAKE_WEBHOOK_SECRET`); or
+  - all of `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`,
+    `TWILIO_FROM_NUMBER`, and `ALERT_SMS_TO`.
+- `LEAD_NOTIFY_EMAIL`: alert recipient when Resend is used.
+- `CRON_SECRET`: protects `/api/cron/reminders`; required with Supabase and
+  Resend for complete reminder delivery.
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY`: bot protection.
+- Optional measurement: `NEXT_PUBLIC_META_PIXEL_ID`,
+  `META_CAPI_ACCESS_TOKEN`, `NEXT_PUBLIC_GA4_ID`, and
+  `NEXT_PUBLIC_NEXTDOOR_PIXEL_ID`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Verified business inputs are deliberately not environment placeholders:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `AGENT.npn` in `lib/agent.ts` is optional public information. Leave it null
+  unless the agent chooses to publish a verified NPN.
+- Set `MEDICARE_TPMO_SCOPE` after confirming Medicare contracting with the FMO
+  or upline. If it is `multiple-organizations`, set the verified
+  `TPMO_ORGANIZATION_COUNT` and `TPMO_PRODUCT_COUNT`; CMS does not require those
+  counts for a TPMO selling for only one MA organization/Part D sponsor.
+- Add only permissioned, verified entries to `lib/testimonials.ts`.
+- Keep `SATURDAY_HOURS` in `lib/agent.ts` null until exact hours are confirmed.
 
-## Deploy on Vercel
+The public, non-secret readiness endpoint returns HTTP 200 only when a
+production deployment has no fatal blockers; otherwise it returns HTTP 503.
+It exposes booleans and issue codes, never credential values.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+curl --fail-with-body https://DEPLOYMENT_HOST/api/health
+npx tsc --noEmit --pretty false
+npx vitest run
+npm run build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Before connecting a real domain, omit `NEXT_PUBLIC_SITE_URL`; the generated
+preview origin is used for internally generated absolute URLs, while robots and
+page metadata disallow indexing and do not treat it as the final public origin.
+A preview deployment is not approval to promote Medicare content; confirm
+`MEDICARE_TPMO_SCOPE` and obtain any required carrier/FMO advertising approval
+first.

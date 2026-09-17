@@ -1,356 +1,499 @@
+import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
-  Calculator,
-  CheckCircle2,
-  ClipboardList,
-  FileText,
-  GraduationCap,
-  Lock,
+  ArrowRight,
+  CalendarDays,
+  Check,
+  HeartHandshake,
   MapPin,
-  Shield,
-  User,
+  MessageCircle,
+  Phone,
+  ShieldCheck,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { MedicareTimeline } from "@/components/MedicareTimeline";
+import { AGENT, COMPENSATION_DISCLOSURE } from "@/lib/agent";
+import { faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
+import { featuredPlaces } from "@/lib/triad";
 
-const primaryCtaClassName =
-  "inline-flex h-16 min-h-16 min-w-[280px] w-full shrink-0 items-center justify-center rounded-[12px] bg-[var(--color-navy)] px-6 text-[20px] font-bold text-balance text-[var(--color-paper)] transition-opacity hover:bg-[var(--color-navy)] hover:opacity-95 sm:px-8 md:w-auto";
+const title = "Christian Brinkley | Medicare, Life Insurance & Retirement in Greensboro";
+const description =
+  "A no-cost insurance consultation with Christian Brinkley in Greensboro and the Piedmont Triad. Medicare, life insurance, and retirement questions. Meet in person, by phone, or by video.";
+export const metadata: Metadata = {
+  title: { absolute: title },
+  description,
+  alternates: { canonical: "/" },
+  openGraph: pageOpenGraph({ title, description, path: "/" }),
+  twitter: pageTwitter({ title, description }),
+};
 
-function StarRow({ className }: { className?: string }) {
-  return (
-    <p className={`text-[18px] leading-none tracking-tight ${className ?? ""}`} aria-hidden>
-      <span className="text-[var(--color-gold)]">★★★★★</span>
-    </p>
-  );
-}
+const QUESTIONS = [
+  {
+    q: "Will my information go to other agents?",
+    a: "Your inquiry goes directly to me, Christian Brinkley. I do not sell your contact information or distribute it to other agents. If you need help from a financial advisor, we discuss that together before an introduction.",
+  },
+  {
+    q: "Does it cost anything to talk with you?",
+    a: "There is no charge for an initial insurance consultation or for help comparing the plans I represent. You do not have to enroll or buy a policy. Any separate financial planning services and fees would be explained by the advisor before you agree to them.",
+  },
+  {
+    q: "I’m still working. Should I enroll at 65?",
+    a: "It depends on your current employer coverage, the employer’s size, and other details such as HSA contributions. Coverage through your or your spouse’s current job may let you delay Part B. Check with the benefits administrator before changing anything. COBRA and retiree coverage work differently.",
+  },
+  {
+    q: "Can you help me keep my doctors?",
+    a: "We can review the doctors and hospitals you want to keep, your prescriptions, and your pharmacy against the specific plans I represent. Participation and coverage need to be confirmed for the plan and year you are considering.",
+  },
+  {
+    q: "Can we meet in person or by video?",
+    a: "Yes. We can arrange a visit at your home in the Piedmont Triad, meet at a convenient public location, or talk by phone or video. You’re welcome to include your spouse or another family member. Tell me what works for you when you request a consultation.",
+  },
+  {
+    q: "Do you help with Medicare in Greensboro, High Point, and Winston-Salem?",
+    a: "Yes. I meet families in Greensboro, High Point, Winston-Salem, and nearby communities. Medicare Advantage and Part D choices depend on your county and home address, so we confirm what is available where you live.",
+  },
+  {
+    q: "Can we talk about life insurance or retirement, not only Medicare?",
+    a: "Yes. Medicare is often the first conversation around age 65. I also review life insurance, care coverage, and annuities, and I work with an advisor when retirement financial planning is needed.",
+  },
+  {
+    q: "What do I need for our first conversation?",
+    a: "Start with the questions on your mind. If you’d like to review coverage, it can help to have your current policy or plan information nearby. For Medicare, a list of your doctors, prescriptions, and pharmacy can help us know what to check. You don’t need to have everything organized before we talk. The request form does not ask for your Social Security number, Medicare number, or payment details.",
+  },
+  { q: "How are you paid?", a: COMPENSATION_DISCLOSURE },
+] as const;
+const STARTING_POINTS = [
+  {
+    title: "I’m new to Medicare",
+    text: "I’m turning 65 or leaving coverage through work.",
+    href: "/start?topic=medicare",
+    icon: CalendarDays,
+  },
+  {
+    title: "I’m already on Medicare",
+    text: "I’d like to review my coverage or understand a change.",
+    href: "/start?topic=medicare&stage=already_on_medicare",
+    icon: ShieldCheck,
+  },
+  {
+    title: "I’m thinking about my family",
+    text: "I have questions about life insurance or future care.",
+    href: "/start",
+    icon: HeartHandshake,
+  },
+  {
+    title: "I have retirement questions",
+    text: "I’d like help knowing which steps and professionals I need.",
+    href: "/start?topic=financial_planning",
+    icon: MessageCircle,
+  },
+] as const;
+const GUIDES = [
+  {
+    number: "01",
+    title: "When do I sign up?",
+    text: "Understand your enrollment window, employer coverage, and what to do first.",
+    href: "/turning-65",
+    label: "YOUR TIMELINE",
+  },
+  {
+    number: "02",
+    title: "Which type of coverage fits?",
+    text: "Get a plain-English introduction to Original Medicare, Medigap, and Medicare Advantage.",
+    href: "/advantage-vs-medigap",
+    label: "YOUR OPTIONS",
+  },
+  {
+    number: "03",
+    title: "Can I keep my doctor?",
+    text: "Know what to check for your doctors, hospitals, prescriptions, and pharmacy.",
+    href: "/keep-my-doctor",
+    label: "YOUR EVERYDAY CARE",
+  },
+] as const;
 
 export default function HomePage() {
   return (
-    <main className="text-[var(--color-navy)]">
-      {/* SECTION 2: HERO */}
-      <section className="bg-[var(--color-paper)] pb-12 pt-8 md:pb-16 md:pt-12">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[3fr_2fr] md:gap-12">
-            <div>
-              <p
-                className="text-[14px] font-medium tracking-[0.1em] text-[var(--color-gold)] uppercase"
-                style={{ letterSpacing: "0.1em" }}
-              >
-                Free Personalized Report
-              </p>
-
-              <h1 className="mt-4 text-[32px] leading-[1.1] font-extrabold text-[var(--color-navy)] md:text-[48px] md:leading-[1.1]">
-                Greensboro Retirees: Your 2026 Medicare &amp; Tax Bill Just Changed.
-              </h1>
-
-              <p className="mt-4 max-w-xl text-[22px] leading-snug font-normal text-[var(--color-muted)]">
-                Get your free personalized 2-page report in 4 minutes. See exactly what changes,
-                what it costs you, and what to do about it.
-              </p>
-
-              <ul className="mt-6 max-w-xl space-y-3">
-                {[
-                  "Your exact projected 2026 Medicare Part B premium",
-                  "Your personal IRMAA bracket and surcharge amount",
-                  "Your estimated additional 2026 federal tax burden",
-                  "Three action steps specific to your situation",
-                  "Optional free 20-minute review with Christian",
-                ].map((label) => (
-                  <li key={label} className="flex gap-3 text-[18px] leading-[1.6] text-[var(--color-navy)]">
-                    <CheckCircle2
-                      className="mt-0.5 size-5 shrink-0 text-[var(--color-gold)]"
-                      strokeWidth={2}
-                      aria-hidden
-                    />
-                    <span>{label}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-8">
-                <Button asChild className={primaryCtaClassName}>
-                  <Link href="/medicare">Start My Free Report →</Link>
-                </Button>
-                <p className="mt-2 text-center text-[12px] text-[var(--color-muted)] md:text-left">
-                  Takes 4 minutes. No account needed. No sales calls unless you want one.
-                </p>
-              </div>
-
-              <div
-                className="mt-6 max-w-xl rounded-[12px] border border-[rgba(15,34,65,0.15)] bg-white/40 p-5"
-                style={{ borderColor: "rgba(15, 34, 65, 0.15)" }}
-              >
-                <StarRow className="mb-3" />
-                <p className="text-[16px] leading-relaxed text-[var(--color-navy)]">
-                  &ldquo;Christian explained my Medicare situation better than my doctor&apos;s
-                  office did. Got my report in minutes and actually understood it.&rdquo;
-                </p>
-                <p className="mt-3 text-[14px] text-[var(--color-muted)]">
-                  — Margaret T., Irving Park, Greensboro
-                </p>
-              </div>
+    <main className="personal-home">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(QUESTIONS)) }}
+      />
+      <section className="personal-hero">
+        <div className="personal-shell personal-hero-grid">
+          <div className="personal-hero-copy">
+            <p className="personal-eyebrow">
+              <span className="personal-dot" /> MEDICARE HELP, CLOSE TO HOME
+            </p>
+            <h1>
+              Turning 65?
+              <br />
+              Let’s make a plan
+              <br />
+              <em>for what comes next.</em>
+            </h1>
+            <p className="personal-lede">
+              I’m Christian Brinkley, a local insurance agent in Greensboro. I’ll help you
+              understand your Medicare choices and how they fit your life. We can meet at your home,
+              by phone, or by video. Your consultation is no cost, with no obligation to buy
+              anything.
+            </p>
+            <div className="personal-actions">
+              <Link href="/start" className="personal-button">
+                Request my free consultation <ArrowRight size={19} aria-hidden />
+              </Link>
+              <a href="#your-timeline" className="personal-text-link">
+                Find my Medicare dates <ArrowRight size={18} aria-hidden />
+              </a>
             </div>
-
-            <div
-              className="flex aspect-[3/4] w-full flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed p-6 text-center"
-              style={{
-                backgroundColor: "rgba(15, 34, 65, 0.08)",
-                borderColor: "rgba(15, 34, 65, 0.2)",
-              }}
-            >
-              <User className="size-16 text-[var(--color-muted)]" strokeWidth={1.25} aria-hidden />
-              <p className="text-[18px] font-semibold text-[var(--color-navy)]">Photo of Christian</p>
-              <p className="text-[16px] text-[var(--color-muted)]">Coming before launch</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3: HOW IT WORKS */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-center text-[32px] font-bold text-[var(--color-navy)]">How It Works</h2>
-          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
-            <div className="text-center md:text-left">
-              <ClipboardList
-                className="mx-auto mb-4 size-10 text-[var(--color-gold)] md:mx-0"
-                strokeWidth={1.5}
-                aria-hidden
-              />
-              <h3 className="text-[20px] font-bold text-[var(--color-navy)]">Answer 4 Questions</h3>
-              <p className="mt-2 text-[16px] leading-relaxed text-[var(--color-muted)]">
-                ZIP code, filing status, age, and income. No account. No Social Security number.
-                Nothing sensitive.
-              </p>
-            </div>
-            <div className="text-center md:text-left">
-              <Calculator
-                className="mx-auto mb-4 size-10 text-[var(--color-gold)] md:mx-0"
-                strokeWidth={1.5}
-                aria-hidden
-              />
-              <h3 className="text-[20px] font-bold text-[var(--color-navy)]">Get Your Numbers</h3>
-              <p className="mt-2 text-[16px] leading-relaxed text-[var(--color-muted)]">
-                We calculate your exact 2026 Medicare premium and tax exposure using the same IRMAA
-                brackets the government uses.
-              </p>
-            </div>
-            <div className="text-center md:text-left">
-              <FileText
-                className="mx-auto mb-4 size-10 text-[var(--color-gold)] md:mx-0"
-                strokeWidth={1.5}
-                aria-hidden
-              />
-              <h3 className="text-[20px] font-bold text-[var(--color-navy)]">Receive Your Report</h3>
-              <p className="mt-2 text-[16px] leading-relaxed text-[var(--color-muted)]">
-                A plain-English PDF report lands in your inbox. Bring it to your doctor. Show it to
-                your financial advisor. Keep it.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4: TRUST */}
-      <section className="bg-[var(--color-navy)] py-16 text-[var(--color-paper)]">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
-            <div>
-              <p
-                className="text-[14px] font-medium tracking-[0.1em] text-[var(--color-gold)] uppercase"
-                style={{ letterSpacing: "0.1em" }}
-              >
-                About This Project
-              </p>
-              <h2 className="mt-3 text-[28px] leading-snug font-semibold text-[var(--color-paper)]">
-                Built by a UNCG student. Designed for Greensboro neighbors.
-              </h2>
-              <div className="mt-6 space-y-4 text-[18px] leading-[1.8]" style={{ color: "rgba(245, 240, 232, 0.85)" }}>
-                <p>
-                  I&apos;m Christian Brinkley, a senior accounting student at UNCG. I built this tool
-                  because I kept seeing people in the Triad get blindsided by Medicare costs they
-                  never saw coming.
-                </p>
-                <p>
-                  This is my research project. I&apos;m also a licensed insurance professional —
-                  and I&apos;ll tell you that upfront, because you deserve to know who you&apos;re
-                  talking to.
-                </p>
-                <p>
-                  The tool is free. The report is free. The 20-minute review is free. I get paid only
-                  if you decide to work with me, and only if what I offer actually makes sense for
-                  your situation.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {[
-                {
-                  Icon: GraduationCap,
-                  title: "UNCG Student Research",
-                  body: "Senior, Department of Accounting",
-                },
-                {
-                  Icon: Shield,
-                  title: "Licensed Professional",
-                  body: "NC Licensed Insurance Agent",
-                },
-                {
-                  Icon: Lock,
-                  title: "Your Data Stays Yours",
-                  body: "Never sold. Never shared. You can delete it anytime.",
-                },
-                {
-                  Icon: MapPin,
-                  title: "Locally Built",
-                  body: "Greensboro, NC. Not a national lead farm.",
-                },
-              ].map(({ Icon, title, body }) => (
-                <div key={title} className="rounded-[12px] border border-white/10 bg-white/5 p-5">
-                  <Icon className="mb-3 size-10 text-[var(--color-gold)]" strokeWidth={1.5} aria-hidden />
-                  <h3 className="text-[18px] font-bold text-[var(--color-paper)]">{title}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-[var(--color-paper)]/85">{body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5: THREE ROUTING CARDS */}
-      <section className="bg-[var(--color-paper)] py-16">
-        <div className="mx-auto max-w-6xl px-4 text-center">
-          <p
-            className="text-[14px] font-medium tracking-[0.1em] text-[var(--color-gold)] uppercase"
-            style={{ letterSpacing: "0.1em" }}
-          >
-            Choose Your Report
-          </p>
-          <h2 className="mt-3 text-[32px] font-bold text-[var(--color-navy)]">What do you want to know?</h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch w-full max-w-5xl mx-auto px-4 mt-10">
-          {/* Medicare */}
-          <Card className="card-surface flex h-full flex-col border-gray-300 bg-white text-left text-[var(--color-navy)] transition-transform duration-200 hover:scale-[1.02] hover:border-[var(--color-gold)]">
-            <CardHeader className="space-y-3 p-6">
-              <div className="flex items-start justify-between gap-3">
-                <Shield className="size-10 shrink-0 text-[var(--color-navy)]" aria-hidden strokeWidth={1.5} />
-                <span className="rounded-full bg-[var(--color-gold)] px-2.5 py-1 text-center text-[12px] leading-tight font-semibold whitespace-nowrap text-[var(--color-navy)]">
-                  Most Popular
-                </span>
-              </div>
-              <CardTitle className="text-[22px] leading-tight font-bold text-[var(--color-navy)]">
-                Personalized Medicare Review
-              </CardTitle>
-              <CardDescription className="text-[16px] leading-[1.7] text-[var(--color-muted)]">
-                Find out your exact projected 2026 Part B premium and whether you owe an IRMAA
-                surcharge based on your Triad-area income.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-1 flex-col p-6 pt-0">
-              <Button asChild className="mt-auto h-14 w-full bg-[var(--color-navy)] text-[18px] text-[var(--color-paper)] hover:bg-[var(--color-navy)]">
-                <Link href="/medicare">See My Medicare Estimate →</Link>
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Tax */}
-          <Card className="card-surface flex h-full flex-col border-gray-300 bg-white text-left text-[var(--color-navy)] transition-transform duration-200 hover:scale-[1.02] hover:border-[var(--color-gold)]">
-            <CardHeader className="space-y-3 p-6">
-              <div className="flex items-start justify-between gap-3">
-                <Calculator className="size-10 shrink-0 text-[var(--color-navy)]" aria-hidden strokeWidth={1.5} />
-                <span className="rounded-full bg-[var(--color-gold)] px-2.5 py-1 text-center text-[12px] leading-tight font-semibold whitespace-nowrap text-[var(--color-navy)]">
-                  New for 2026
-                </span>
-              </div>
-              <CardTitle className="text-[22px] leading-tight font-bold text-[var(--color-navy)]">
-                2026 Tax Impact Calculator
-              </CardTitle>
-              <CardDescription className="text-[16px] leading-[1.7] text-[var(--color-muted)]">
-                The 2025 tax cuts expire January 1st. See exactly how much more you could owe in
-                federal taxes and what you can do before the deadline.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-1 flex-col p-6 pt-0">
-              <Button asChild className="mt-auto h-14 w-full bg-[var(--color-navy)] text-[18px] text-[var(--color-paper)] hover:bg-[var(--color-navy)]">
-                <Link href="/taxes">Calculate My Tax Impact →</Link>
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* About */}
-          <Card className="card-surface flex h-full flex-col border-gray-300 bg-white text-left text-[var(--color-navy)] transition-transform duration-200 hover:scale-[1.02] hover:border-[var(--color-gold)]">
-            <CardHeader className="space-y-3 p-6">
-              <GraduationCap className="size-10 text-[var(--color-navy)]" aria-hidden strokeWidth={1.5} />
-              <CardTitle className="text-[22px] leading-tight font-bold text-[var(--color-navy)]">
-                About This Project
-              </CardTitle>
-              <CardDescription className="text-[16px] leading-[1.7] text-[var(--color-muted)]">
-                Why a UNCG accounting student built a free financial tool for Greensboro retirees —
-                and why you can trust the numbers.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-1 flex-col p-6 pt-0">
-              <Button asChild className="mt-auto h-14 w-full bg-[var(--color-navy)] text-[18px] text-[var(--color-paper)] hover:bg-[var(--color-navy)]">
-                <Link href="/about">Meet Christian →</Link>
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      {/* SECTION 6: TESTIMONIALS */}
-      <section className="bg-white py-12">
-        <div className="mx-auto max-w-6xl px-4">
-          {/* TODO: Replace with verified testimonials before launch */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-            <div className="rounded-[12px] bg-[var(--color-paper)] p-6">
-              <StarRow className="mb-3" />
-              <p className="text-[16px] italic leading-relaxed text-[var(--color-navy)]">
-                &ldquo;I had no idea my 2024 income bump would affect my 2026 Medicare premium. This
-                caught it before it was too late.&rdquo;
-              </p>
-              <p className="mt-3 text-[14px] text-[var(--color-muted)]">— Robert K., Hamilton Lakes</p>
-            </div>
-            <div className="rounded-[12px] bg-[var(--color-paper)] p-6">
-              <StarRow className="mb-3" />
-              <p className="text-[16px] italic leading-relaxed text-[var(--color-navy)]">
-                &ldquo;Simple, clear, and actually useful. Not like those other Medicare websites that
-                just want to sell you something.&rdquo;
-              </p>
-              <p className="mt-3 text-[14px] text-[var(--color-muted)]">— Patricia M., Summerfield</p>
-            </div>
-            <div className="rounded-[12px] bg-[var(--color-paper)] p-6">
-              <StarRow className="mb-3" />
-              <p className="text-[16px] italic leading-relaxed text-[var(--color-navy)]">
-                &ldquo;Christian walked me through my numbers in plain English. First time I actually
-                understood my Medicare statement.&rdquo;
-              </p>
-              <p className="mt-3 text-[14px] text-[var(--color-muted)]">— James H., Oak Ridge</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 7: FINAL CTA */}
-      <section className="bg-[var(--color-navy)] py-16 text-center text-[var(--color-paper)]">
-        <div className="mx-auto max-w-3xl px-4">
-          <h2 className="text-[36px] font-extrabold text-[var(--color-paper)]">
-            Your 2026 numbers are ready to calculate.
-          </h2>
-          <p className="mt-4 text-[20px]" style={{ color: "rgba(245, 240, 232, 0.8)" }}>
-            Free. Takes 4 minutes. Built for Greensboro.
-          </p>
-          <div className="mt-8 flex flex-col items-center">
-            <Button asChild className={primaryCtaClassName}>
-              <Link href="/medicare">Start My Free Report →</Link>
-            </Button>
-            <p className="mt-3 max-w-lg text-[14px] leading-relaxed md:whitespace-normal" style={{ color: "rgba(245, 240, 232, 0.6)" }}>
-              UNCG Student Research Project &nbsp;|&nbsp; Spring 2026 &nbsp;|&nbsp; No obligation{" "}
-              &nbsp;|&nbsp; Data never sold
+            <p className="personal-micro">
+              <ShieldCheck size={16} aria-hidden /> Your request comes directly to me. Your
+              information is never sold.
             </p>
           </div>
+          <figure className="personal-portrait">
+            <div className="personal-portrait-image">
+              <Image
+                src="/christian-brinkley.jpg"
+                alt="Christian Brinkley, your local licensed insurance agent in Greensboro"
+                width={1200}
+                height={1600}
+                priority
+                sizes="(max-width: 760px) 88vw, 390px"
+              />
+              <span className="personal-portrait-tag">
+                <MapPin size={15} aria-hidden /> Based in Greensboro, NC
+              </span>
+            </div>
+            <figcaption>
+              <div>
+                <span className="personal-signature">Christian Brinkley</span>
+                <span className="personal-portrait-role">
+                  Licensed insurance agent · Your local point of contact
+                </span>
+              </div>
+              <span className="personal-portrait-stamp" aria-hidden>
+                <HeartHandshake size={27} strokeWidth={1.4} />
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <div className="personal-promise-strip">
+        <div className="personal-shell">
+          {[
+            "One local agent: Christian",
+            "Your information is never sold",
+            "In person, by phone, or by video",
+            "No-cost consultation",
+          ].map((text) => (
+            <span key={text}>
+              <Check size={17} aria-hidden />
+              {text}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <section className="personal-shell pt-12 pb-4" aria-labelledby="starting-point-heading">
+        <div className="personal-section-heading">
+          <div>
+            <p className="personal-eyebrow">START WITH WHAT MATTERS TO YOU</p>
+            <h2 id="starting-point-heading">What would you like help with?</h2>
+          </div>
+          <p>
+            A few short questions will help me prepare for our conversation. You can ask for help
+            for yourself, a spouse, or a parent.
+          </p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {STARTING_POINTS.map(({ title: heading, text, href, icon: Icon }) => (
+            <Link
+              key={heading}
+              href={href}
+              className="flex min-h-28 items-center gap-4 rounded-lg border border-[var(--personal-line)] bg-white p-5 transition-colors hover:border-[var(--personal-green)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--personal-green)]"
+            >
+              <Icon size={25} className="shrink-0 text-[var(--personal-green)]" aria-hidden />
+              <div className="flex-1">
+                <h3 className="text-18 font-semibold">{heading}</h3>
+                <p className="text-16 mt-1 leading-relaxed text-[var(--personal-muted)]">{text}</p>
+              </div>
+              <ArrowRight size={20} className="shrink-0" aria-hidden />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section
+        className="personal-section personal-shell"
+        id="your-timeline"
+        aria-labelledby="timeline-intro"
+      >
+        <div className="personal-section-heading">
+          <div>
+            <p className="personal-eyebrow">A LITTLE CLARITY, RIGHT NOW</p>
+            <h2 id="timeline-intro">
+              Your next chapter.
+              <br />
+              Your own timeline.
+            </h2>
+          </div>
+          <p>
+            Medicare has a few important dates. Start with the month you turn 65, and I’ll help you
+            make sense of them.
+          </p>
+        </div>
+        <MedicareTimeline currentYear={new Date().getUTCFullYear()} />
+      </section>
+
+      <section className="personal-guides personal-section">
+        <div className="personal-shell">
+          <div className="personal-section-heading">
+            <div>
+              <p className="personal-eyebrow">GOOD QUESTIONS. CLEAR STARTING POINTS.</p>
+              <h2>
+                You don’t have to learn
+                <br />
+                everything at once.
+              </h2>
+            </div>
+            <Link className="personal-text-link" href="/start">
+              Help me find where to start <ArrowRight size={18} aria-hidden />
+            </Link>
+          </div>
+          <div className="personal-guide-grid">
+            {GUIDES.map((guide) => (
+              <Link key={guide.href} href={guide.href} className="personal-guide">
+                <div className="personal-guide-top">
+                  <span>{guide.label}</span>
+                  <span className="personal-guide-number">{guide.number}</span>
+                </div>
+                <h3>{guide.title}</h3>
+                <p>{guide.text}</p>
+                <span className="personal-guide-link">
+                  Read the guide <ArrowRight size={20} aria-hidden />
+                </span>
+              </Link>
+            ))}
+          </div>
+          <p className="personal-already">
+            Already on Medicare?{" "}
+            <Link href="/annual-enrollment">
+              Start with a review of your current coverage <ArrowRight size={16} aria-hidden />
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <section className="personal-section personal-shell personal-about">
+        <div className="personal-about-note">
+          <MessageCircle size={30} strokeWidth={1.4} aria-hidden />
+          <blockquote>
+            “I want you to have someone you can turn to throughout retirement.”
+          </blockquote>
+          <span className="personal-signature">Christian Brinkley</span>
+          <span>Greensboro, North Carolina</span>
+        </div>
+        <div>
+          <p className="personal-eyebrow">A PERSON YOU CAN COME BACK TO</p>
+          <h2>
+            Here for the questions
+            <br />
+            that come later, too.
+          </h2>
+          <p className="personal-body">
+            Turning 65 comes with a lot of mail and a lot of decisions. I want you to have a
+            familiar person to call—when a letter is confusing, your family’s needs change, or it’s
+            time to review your coverage. Our first conversation can be the start of that
+            relationship.
+          </p>
+          <p className="personal-body">
+            I’m working toward my master’s in accounting right here at UNC Greensboro. I meet people
+            at their kitchen tables across the Triad, and I take the time to understand their
+            families. For retirement financial planning, I work with an advisor so the right
+            professional is involved.
+          </p>
+          <Link className="personal-text-link" href="/about">
+            A little more about me <ArrowRight size={18} aria-hidden />
+          </Link>
+        </div>
+      </section>
+
+      <section className="personal-process personal-section">
+        <div className="personal-shell">
+          <p className="personal-eyebrow">WHAT HAPPENS NEXT</p>
+          <h2>A simple start. At your pace.</h2>
+          <ol className="personal-process-grid">
+            <li>
+              <span>1</span>
+              <h3>Tell me what’s on your mind.</h3>
+              <p>
+                Answer a few short questions and tell me how to reach you. Your request comes
+                directly to me. We’ll confirm a time and how you’d like to meet.
+              </p>
+            </li>
+            <li>
+              <span>2</span>
+              <h3>We talk it through.</h3>
+              <p>
+                We can meet at home, at a convenient public location, by phone, or by video. Include
+                a family member if you’d like. We start with your questions and what you already
+                have.
+              </p>
+            </li>
+            <li>
+              <span>3</span>
+              <h3>You choose your next step.</h3>
+              <p>
+                We outline the coverage options and next steps that fit your needs and budget. You
+                decide what to do. The consultation is no cost, with no obligation to buy.
+              </p>
+            </li>
+          </ol>
+          <Link className="personal-button" href="/start">
+            Request my free consultation <ArrowRight size={19} aria-hidden />
+          </Link>
+        </div>
+      </section>
+
+      <section className="personal-section personal-shell">
+        <div className="personal-section-heading">
+          <div>
+            <p className="personal-eyebrow">BEYOND YOUR MEDICARE CARD</p>
+            <h2>Help for the bigger picture.</h2>
+          </div>
+          <p>
+            Your coverage is one part of retirement. Start with whichever question matters to you
+            today.
+          </p>
+        </div>
+        <div className="personal-service-grid">
+          <Link href="/life-insurance">
+            <HeartHandshake size={28} strokeWidth={1.5} aria-hidden />
+            <div>
+              <h3>Life insurance</h3>
+              <p>
+                Review your family’s protection, existing coverage, and what changes when work ends.
+              </p>
+            </div>
+            <ArrowRight size={22} aria-hidden />
+          </Link>
+          <Link href="/retirement-income">
+            <CalendarDays size={28} strokeWidth={1.5} aria-hidden />
+            <div>
+              <h3>Retirement planning questions</h3>
+              <p>
+                Connect your insurance questions with financial planning through an advisor I work
+                with.
+              </p>
+            </div>
+            <ArrowRight size={22} aria-hidden />
+          </Link>
+          <Link href="/care-coverage">
+            <ShieldCheck size={28} strokeWidth={1.5} aria-hidden />
+            <div>
+              <h3>Care and critical illness coverage</h3>
+              <p>
+                Talk through long-term care, short-term care, and critical illness insurance for
+                your family.
+              </p>
+            </div>
+            <ArrowRight size={22} aria-hidden />
+          </Link>
+          <Link href="/annuities">
+            <CalendarDays size={28} strokeWidth={1.5} aria-hidden />
+            <div>
+              <h3>Annuities and retirement income</h3>
+              <p>
+                Understand the income options, costs, and access to your money before considering a
+                contract.
+              </p>
+            </div>
+            <ArrowRight size={22} aria-hidden />
+          </Link>
+        </div>
+      </section>
+
+      <section className="personal-local">
+        <div className="personal-shell">
+          <div>
+            <p className="personal-eyebrow">
+              <MapPin size={16} aria-hidden /> ROOTED IN THE TRIAD
+            </p>
+            <h2>Local means close by.</h2>
+            <p>
+              Greensboro, High Point, Winston-Salem, and the communities around them. Meet in person
+              or talk from the comfort of home.
+            </p>
+            <Link href="/service-area" className="personal-text-link">
+              Explore the service area <ArrowRight size={18} aria-hidden />
+            </Link>
+          </div>
+          <div className="personal-town-list">
+            {featuredPlaces().map((town) => (
+              <div key={town.slug} className="personal-town">
+                <span className="personal-town-name">{town.name}</span>
+                <span className="personal-town-links">
+                  <Link href={`/medicare-in/${town.slug}`}>Medicare</Link>
+                  <Link href={`/life-insurance-in/${town.slug}`}>Life insurance</Link>
+                  <Link href={`/retirement-in/${town.slug}`}>Retirement</Link>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="personal-section personal-shell personal-faq">
+        <div>
+          <p className="personal-eyebrow">BEFORE WE TALK</p>
+          <h2>
+            A few things
+            <br />
+            you might wonder.
+          </h2>
+          <p className="personal-body">Have a different question? I’d be glad to hear it.</p>
+          <a href={AGENT.phoneHref} className="personal-text-link">
+            <Phone size={18} aria-hidden />
+            {AGENT.phone}
+          </a>
+        </div>
+        <div>
+          {QUESTIONS.map((item) => (
+            <details key={item.q}>
+              <summary>
+                {item.q}
+                <span aria-hidden>+</span>
+              </summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section className="personal-close">
+        <div className="personal-shell">
+          <p className="personal-eyebrow">LET’S START WITH YOUR QUESTION</p>
+          <h2>
+            A clearer next step
+            <br />
+            starts with a conversation.
+          </h2>
+          <p>
+            Let’s sit down, look at what matters to your family, and make your next step clearer.
+          </p>
+          <div className="personal-actions">
+            <Link href="/start" className="personal-button personal-button-light">
+              Request my free consultation <ArrowRight size={20} aria-hidden />
+            </Link>
+            <a href={AGENT.phoneHref} className="personal-text-link">
+              <Phone size={18} aria-hidden />
+              {AGENT.phone}
+            </a>
+          </div>
+          <span className="personal-close-note">
+            Free initial insurance consultation · No obligation · One local agent
+          </span>
         </div>
       </section>
     </main>

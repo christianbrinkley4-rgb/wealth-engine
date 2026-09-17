@@ -14,7 +14,10 @@ const AccordionItem = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Item
     ref={ref}
-    className={cn("overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 transition-colors hover:border-sky-500/30", className)}
+    className={cn(
+      "overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/60 transition-colors hover:border-sky-500/30",
+      className,
+    )}
     {...props}
   />
 ));
@@ -46,10 +49,10 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="overflow-hidden text-sm font-light text-slate-400 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm font-light text-slate-400"
     {...props}
   >
-    <div className={cn("space-y-3 px-6 pb-6 pt-0", className)}>{children}</div>
+    <div className={cn("space-y-3 px-6 pt-0 pb-6", className)}>{children}</div>
   </AccordionPrimitive.Content>
 ));
 AccordionContent.displayName = "AccordionContent";

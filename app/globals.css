@@ -4,11 +4,20 @@
 :root {
   --color-navy: #0f2241;
   --color-paper: #f5f0e8;
+  /* Gold reads well on navy (6.8:1) but only 2.05:1 on paper, so light
+     backgrounds get their own darker token. Never use --color-gold on paper. */
   --color-gold: #c9a84c;
-  --color-muted: #6b7280;
+  --color-gold-ink: #7a5c12;
+  /* Named --color-ink-muted, not --color-muted: the shadcn @theme block lower
+     in this file also defines --color-muted (as a near-white *background*).
+     The site value currently wins because this :root is unlayered, but that is
+     a coincidence of the cascade, not a decision — so the text token gets its
+     own name.
+     Was #6b7280: 4.26:1 on paper, under WCAG AA for normal text, on a site
+     read mostly by people over 60. #4a5563 is 6.4:1. */
+  --color-ink-muted: #4a5563;
   --color-error: #dc2626;
   --color-success: #16a34a;
-  --font-size-base: 18px;
   --border-radius-card: 12px;
   --shadow-card: 0 2px 12px rgba(15, 34, 65, 0.08);
 }
@@ -29,7 +38,6 @@
     padding: 0;
     background: var(--color-paper);
     color: var(--color-navy);
-    font-size: var(--font-size-base);
     line-height: 1.6;
     font-family:
       var(--font-inter),
@@ -47,16 +55,42 @@
     color: inherit;
   }
 
+  /* Tap targets, scoped so it doesn't distort links inside sentences —
+     a blanket rule on `a` breaks line boxes in body copy. */
   button,
-  a,
   input,
-  [role="button"] {
+  select,
+  textarea,
+  [role="button"],
+  a.btn,
+  a[class*="inline-flex"],
+  a[class*="flex"] {
     min-height: 44px;
+  }
+
+  button,
+  [role="button"],
+  a.btn {
     min-width: 44px;
   }
 }
 
 @layer utilities {
+  /*
+   * Long-form sections were setting 77–91 characters per line (the footer
+   * disclaimer was the worst). 60–75 is the comfortable range, and the
+   * difference is most noticeable for the readers this site is written for.
+   * Capping p/li/dd rather than the container leaves the cards and grids that
+   * share those containers at their designed width.
+   */
+  .measure-prose :is(p, li, dd) {
+    max-width: 72ch;
+  }
+  .measure-prose.text-center :is(p, li, dd),
+  .measure-prose .text-center :is(p, li, dd) {
+    margin-inline: auto;
+  }
+
   .app-shell {
     max-width: 1100px;
     margin-inline: auto;
@@ -76,11 +110,50 @@
   }
 }
 
+/* ---------------------------------------------------------------------------
+ * Type scale
+ *
+ * Every size on the site used to be a hard pixel value (text-[18px] and so
+ * on), which meant a reader who had raised their browser's default font size —
+ * common in this audience, and the first thing an optometrist suggests — saw
+ * no change at all. These tokens hold the same sizes in rem, so the whole page
+ * scales with that setting. The name is the size in pixels at the default
+ * 18px root, so text-18 still means "18px" to anyone reading the markup.
+ * ------------------------------------------------------------------------- */
+@theme {
+  --text-13: 0.7222rem;
+  --text-14: 0.7778rem;
+  --text-15: 0.8333rem;
+  --text-16: 0.8889rem;
+  --text-17: 0.9444rem;
+  --text-18: 1rem;
+  --text-19: 1.0556rem;
+  --text-20: 1.1111rem;
+  --text-22: 1.2222rem;
+  --text-24: 1.3333rem;
+  --text-26: 1.4444rem;
+  --text-27: 1.5rem;
+  --text-28: 1.5556rem;
+  --text-30: 1.6667rem;
+  --text-32: 1.7778rem;
+  --text-34: 1.8889rem;
+  --text-36: 2rem;
+  --text-38: 2.1111rem;
+  --text-40: 2.2222rem;
+  --text-42: 2.3333rem;
+  --text-46: 2.5556rem;
+  --text-48: 2.6667rem;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
   --radius: 14px;
-  --paper: #f8fafc;
+  /* Was #f8fafc — a cool near-white that did not match --color-paper, so the
+     <html> canvas showed a different colour to <body> wherever the page was
+     shorter than the viewport or the user overscrolled. The UI primitives in
+     components/ui read this token, so it is aliased rather than deleted. */
+  --paper: var(--color-paper);
   --ink: #10233f;
   --ink-2: #ffffff;
   --ink-3: #f4f7fb;
@@ -172,7 +245,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --font-sans: var(--font-inter), Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-merriweather), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-source-serif), Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
@@ -184,7 +258,9 @@
   html {
     background-color: var(--paper);
     color-scheme: light;
-    font-size: 18px;
+    /* 112.5% of the reader's own default (18px when that default is 16px)
+       rather than a flat 18px, which silently discarded their preference. */
+    font-size: 112.5%;
   }
 
   html,
@@ -194,6 +270,12 @@
     font-variant-numeric: tabular-nums;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-source-serif), Georgia, "Times New Roman", serif;
+    letter-spacing: -0.022em;
   }
 
   table,
@@ -216,173 +298,97 @@
     outline: 2px solid rgba(17, 40, 75, 0.55);
     outline-offset: 2px;
   }
-}
 
-.font-serif {
-  font-family: var(--font-merriweather), Georgia, "Times New Roman", serif;
-}
-.font-mono {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-}
-
-.eyebrow-gold {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  color: var(--gold);
-}
-.eyebrow-slate {
-  font-size: 0.76rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--slate);
-}
-.eyebrow-dim {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--slate-dim);
-}
-
-.serif-display {
-  font-family: var(--font-merriweather), Georgia, "Times New Roman", serif;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
-}
-.serif-display em {
-  font-style: normal;
-  color: var(--gold);
-}
-
-.body-readable {
-  font-size: 1.12rem;
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--slate);
-}
-.body-readable strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-
-.engine-grain {
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.012;
-  pointer-events: none;
-  z-index: -1;
-  mix-blend-mode: multiply;
-}
-
-.ticker-track {
-  display: flex;
-  gap: 48px;
-  animation: tickerScroll 38s linear infinite;
-  white-space: nowrap;
-  width: max-content;
-}
-
-@keyframes tickerScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
+  /*
+   * Readers who have asked their operating system to reduce motion get no
+   * sliding wizard steps, no hover lift on the topic cards, and no smooth
+   * scrolling. Honouring the setting is table stakes for a site people reach
+   * from a search for medical coverage.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-.live-pulse {
-  width: 6px;
-  height: 6px;
-  background: var(--emerald);
-  border-radius: 50%;
-  animation: livePulse 2s infinite;
-}
-
-@keyframes livePulse {
-  0%,
-  100% {
-    opacity: 1;
+/* ---------------------------------------------------------------------------
+ * Print
+ *
+ * This audience prints. A premium estimate gets taken to a spouse, a SHIP
+ * counsellor or an accountant, and a set of enrollment dates goes on the
+ * fridge. Printed as-is the page wasted its first sheet on a sticky header and
+ * a navigation bar, dropped the link targets entirely, and put a fixed mobile
+ * call-to-action across the middle of the page.
+ * ------------------------------------------------------------------------- */
+@media print {
+  /* Chrome that only makes sense on screen. */
+  header,
+  footer,
+  nav,
+  .trust-pill,
+  [role="region"][aria-label="Start with what you need help with"],
+  form,
+  button {
+    display: none !important;
   }
-  50% {
-    opacity: 0.3;
+
+  /* Give the paper the whole width and drop the shadows and tints, which cost
+     ink and add nothing. */
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt;
   }
-}
 
-.range-gold {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  background: transparent;
-}
-
-.range-gold::-webkit-slider-runnable-track {
-  height: 7px;
-  border-radius: 999px;
-  background: #dce5ef;
-  cursor: pointer;
-}
-
-.range-gold::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 22px;
-  width: 22px;
-  background: var(--cyan);
-  border-radius: 999px;
-  border: 2px solid #ffffff;
-  cursor: pointer;
-  margin-top: -8px;
-  box-shadow: 0 8px 16px rgba(16, 35, 63, 0.2);
-}
-
-.range-gold::-moz-range-track {
-  height: 7px;
-  border-radius: 999px;
-  background: #dce5ef;
-}
-
-.range-gold::-moz-range-thumb {
-  height: 22px;
-  width: 22px;
-  background: var(--cyan);
-  border-radius: 999px;
-  border: 2px solid #ffffff;
-  cursor: pointer;
-  box-shadow: 0 8px 16px rgba(16, 35, 63, 0.2);
-}
-
-.grid-rule {
-  border: 1px solid var(--rule);
-}
-.grid-rule-x {
-  border-left: 1px solid var(--rule);
-  border-right: 1px solid var(--rule);
-}
-.grid-rule-b {
-  border-bottom: 1px solid var(--rule);
-}
-.grid-rule-t {
-  border-top: 1px solid var(--rule);
-}
-
-@keyframes engineFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
+  .app-shell {
+    max-width: none;
+    padding-inline: 0;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-.engine-fade-up {
-  animation: engineFadeUp 0.6s ease-out;
+  .card-surface,
+  [class*="rounded"] {
+    box-shadow: none !important;
+  }
+
+  /* Keep a figure, a table row or a dates block from breaking across a page. */
+  figure,
+  tr,
+  dl > div,
+  section {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  /* A printed page has no hover and no address bar, so links need their
+     destination spelled out — but only the ones that go somewhere useful. */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    word-break: break-all;
+  }
+
+  /* Whoever prepared this, and how to reach him, on every sheet. */
+  main::after {
+    content: "Christian Brinkley · Licensed insurance agent · Greensboro, NC · (919) 408-6671 — estimates for education only, not a quote or a benefit determination.";
+    display: block;
+    margin-top: 24pt;
+    padding-top: 8pt;
+    border-top: 1pt solid #999999;
+    font-size: 9pt;
+    line-height: 1.5;
+  }
 }
 
 .safe-bottom {

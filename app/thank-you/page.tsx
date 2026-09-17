@@ -1,222 +1,280 @@
 "use client";
 
 import Link from "next/link";
-import { CheckCircle2 } from "lucide-react";
-import { Suspense, useState } from "react";
+import { CalendarClock, CheckCircle2, Mail, Phone, ShieldCheck } from "lucide-react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { Button } from "@/components/ui/button";
 
-function isWizardSource(source: string) {
-  const s = source.toLowerCase();
-  return s.includes("wizard") || s === "pdf_request";
+import { trackLeadOnce } from "@/app/components/Analytics";
+import { AGENT } from "@/lib/agent";
+import { TOPIC_LABELS, type InterestTopic } from "@/lib/helpQuiz";
+
+function topicLabel(raw: string | null): string | null {
+  if (!raw) return null;
+  if (Object.hasOwn(TOPIC_LABELS, raw)) return TOPIC_LABELS[raw as InterestTopic];
+  return null;
 }
+
+const NEXT_READS: Record<InterestTopic, Array<{ href: string; label: string; blurb: string }>> = {
+  care_coverage: [
+    {
+      href: "/care-coverage",
+      label: "Care and critical illness coverage",
+      blurb: "Questions to bring to a conversation about your family’s protection",
+    },
+  ],
+  medicare: [
+    {
+      href: "/turning-65",
+      label: "Turning 65",
+      blurb: "Medicare enrollment dates and when to review Medigap options",
+    },
+    {
+      href: "/annual-enrollment",
+      label: "Annual enrollment",
+      blurb: "What the fall letter means, and when nothing should change",
+    },
+    {
+      href: "/keep-my-doctor",
+      label: "Keeping your doctor",
+      blurb: "How to check a specific practice against a specific plan",
+    },
+  ],
+  financial_planning: [
+    {
+      href: "/retirement-income",
+      label: "Retirement income",
+      blurb: "Four options for an old 401(k) and the Medicare timing trap",
+    },
+    {
+      href: "/social-security-timing",
+      label: "Social Security timing",
+      blurb: "What claiming at 62, FRA, and 70 each cost a household",
+    },
+    {
+      href: "/plan",
+      label: "Conversion timing",
+      blurb: "What a Roth conversion does to a Medicare premium two years later",
+    },
+  ],
+  life_insurance: [
+    {
+      href: "/life-insurance",
+      label: "Life insurance",
+      blurb: "Term vs permanent decided by how long the money is needed",
+    },
+    {
+      href: "/retirement-income",
+      label: "Retirement income",
+      blurb: "Group coverage that ends when the job does, and what replaces it",
+    },
+    {
+      href: "/annuities",
+      label: "Annuities",
+      blurb: "How to read a proposal without buying the pitch",
+    },
+  ],
+};
+
+/**
+ * The booking button used to read "Conversation options", which told a visitor
+ * who had just answered four Medicare questions nothing about where it went.
+ * Naming the topic is the difference between a link and an invitation.
+ */
+const BOOKING_CTA: Record<InterestTopic, string> = {
+  medicare: "See Medicare times",
+  life_insurance: "See life insurance times",
+  financial_planning: "See times for retirement questions",
+  care_coverage: "See times for care coverage",
+};
 
 function ThankYouInner() {
   const searchParams = useSearchParams();
   const source = searchParams.get("source") ?? "";
-  const emailRaw = searchParams.get("email") ?? "";
-  let emailDisplay = "";
-  try {
-    emailDisplay = emailRaw ? decodeURIComponent(emailRaw) : "";
-  } catch {
-    emailDisplay = emailRaw;
-  }
+  const topicRaw = searchParams.get("topic");
+  const topic = topicLabel(topicRaw);
+  const topicKey =
+    topicRaw && Object.hasOwn(TOPIC_LABELS, topicRaw) ? (topicRaw as InterestTopic) : null;
+  const eventId = searchParams.get("eid");
+  /* Set by the API when no email provider is configured — see thankYouUrl. */
+  const emailUnavailable = searchParams.get("noemail") === "1";
 
-  const [phone, setPhone] = useState("");
-  const [smsConsent, setSmsConsent] = useState(false);
-  const [smsLoading, setSmsLoading] = useState(false);
-  const [smsSuccess, setSmsSuccess] = useState(false);
-  const [smsError, setSmsError] = useState<string | null>(null);
+  // The conversion event. Shares its id with the server-side event so the ad
+  // platform counts one lead rather than two.
+  useEffect(() => {
+    if (!eventId) return;
+    trackLeadOnce(eventId, topicRaw ?? undefined);
+  }, [eventId, topicRaw]);
 
-  const showWizardLayout = isWizardSource(source);
+  const isHelpQuiz = source === "help_quiz";
+  const isWizard = source === "wizard_completion" || source === "roth_calculator";
+  const isReminder = source === "reminder";
 
-  if (!showWizardLayout) {
-    return (
-      <div className="flex min-h-[calc(100vh-2.5rem)] items-center justify-center bg-[var(--color-paper)] px-4 py-16">
+  const headline = emailUnavailable
+    ? "Got it — I have your answers."
+    : isHelpQuiz
+      ? "Got it — check your email."
+      : isWizard
+        ? "Got it — your estimate is saved."
+        : isReminder
+          ? "You’re on the list."
+          : "You’re all set.";
+
+  const lede = emailUnavailable ? (
+    <>
+      They came straight to me{topic ? <> about {topic.toLowerCase()}</> : null}, and I’ll follow up
+      personally. If you would rather not wait, the number below is mine.
+    </>
+  ) : isHelpQuiz ? (
+    <>
+      Your answers are on their way to your inbox right now
+      {topic ? <> about {topic.toLowerCase()}</> : null}. I’ll follow up personally to talk through
+      your next step.
+    </>
+  ) : isWizard ? (
+    <>
+      I’ll look at what you entered
+      {topic ? <> for {topic.toLowerCase()}</> : null} and follow up personally. If you’d rather
+      talk through the numbers now, call me.
+    </>
+  ) : isReminder ? (
+    <>
+      I’ll email you when your Medicare enrollment window opens. That is a reminder only — not a
+      sales sequence — and you can unsubscribe any time.
+    </>
+  ) : (
+    <>
+      Thanks. I’ll follow up if you asked me to get in touch
+      {topic ? <> about {topic.toLowerCase()}</> : null}.
+    </>
+  );
+
+  const reads = topicKey ? NEXT_READS[topicKey] : null;
+  const schedulingHref = topicKey
+    ? `${AGENT.schedulingUrl}?topic=${encodeURIComponent(topicKey)}`
+    : AGENT.schedulingUrl;
+
+  return (
+    <div className="bg-[var(--color-paper)] px-4 py-14 md:py-20">
+      <div className="mx-auto max-w-2xl">
         <div className="text-center">
-          <CheckCircle2 className="mx-auto size-14 text-[#16A34A]" aria-hidden />
-          <h1 className="mt-4 text-[32px] font-bold text-[var(--color-navy)]">
-            ✓ You&apos;re on the list.
+          <CheckCircle2 className="mx-auto size-12 text-[var(--color-success)]" aria-hidden />
+          <h1 className="text-30 md:text-34 mt-5 font-semibold tracking-tight text-balance text-[var(--color-navy)]">
+            {headline}
           </h1>
-          <p className="mt-2 max-w-md text-[18px] text-[var(--color-muted)]">
-            Watch for the free 2026 Triad Retirement Brief in your inbox.
-          </p>
+          <p className="text-18 mt-4 leading-relaxed text-[var(--color-navy)]">{lede}</p>
+        </div>
+
+        <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          {[
+            "One person reads this — me",
+            "Your information is never sold",
+            "Free consultation. No obligation",
+          ].map((point) => (
+            <li
+              key={point}
+              className="text-15 flex items-start gap-2 rounded-xl border border-[rgba(15,34,65,0.12)] bg-white px-4 py-3 text-left text-[var(--color-navy)]"
+            >
+              <ShieldCheck
+                className="mt-0.5 size-4 shrink-0 text-[var(--color-gold-ink)]"
+                strokeWidth={1.75}
+                aria-hidden
+              />
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Booking is the action worth taking, so it gets the whole card. */}
+        <div className="card-surface mt-10 p-6 md:p-8">
+          <div className="flex items-start gap-4">
+            <CalendarClock
+              className="mt-1 size-8 shrink-0 text-[var(--color-gold-ink)]"
+              strokeWidth={1.5}
+              aria-hidden
+            />
+            <div>
+              <h2 className="text-22 font-semibold text-[var(--color-navy)]">
+                Let’s arrange a conversation.
+              </h2>
+              <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                Your answers are saved, so there is nothing to send again. You can pick a time now,
+                or wait for me to follow up — whichever you prefer.
+              </p>
+            </div>
+          </div>
+
           <Link
-            href="/"
-            className="mt-8 inline-block text-[16px] text-[var(--color-navy)] underline underline-offset-4"
+            href={schedulingHref}
+            className="text-18 mt-6 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
           >
-            ← Back to Home
+            {topicKey ? BOOKING_CTA[topicKey] : "See available times"} →
+          </Link>
+
+          {/* Details below the button: what the meeting is, for someone who
+              has decided to tap, not a paragraph standing in their way. */}
+          <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            We set aside 60 minutes, every day at 9am, 11am, 1pm, 3pm, and 5pm Eastern, with at
+            least 24 hours’ notice.
+            {topicKey === null || topicKey === "medicare"
+              ? " For a Medicare conversation, I’ll confirm with you personally before we meet."
+              : ""}
+          </p>
+        </div>
+
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <a
+            href={AGENT.phoneHref}
+            className="text-18 flex min-h-16 items-center justify-center gap-3 rounded-xl border-2 border-[var(--color-navy)] bg-white px-4 font-semibold text-[var(--color-navy)]"
+          >
+            <Phone className="size-5" aria-hidden />
+            {AGENT.phone}
+          </a>
+          <a
+            href={`mailto:${AGENT.email}`}
+            className="text-17 flex min-h-16 items-center justify-center gap-3 rounded-xl border-2 border-[var(--color-navy)] bg-white px-4 font-semibold break-all text-[var(--color-navy)]"
+          >
+            <Mail className="size-5 shrink-0" aria-hidden />
+            Email me
+          </a>
+        </div>
+
+        {reads ? (
+          <div className="mt-12">
+            <h2 className="text-20 font-semibold text-[var(--color-navy)]">
+              While you wait, these are worth reading
+            </h2>
+            <ul className="mt-4 flex flex-col gap-3">
+              {reads.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
+                  >
+                    <span className="text-17 font-semibold text-[var(--color-navy)]">
+                      {item.label} →
+                    </span>
+                    <span className="text-16 mt-1 text-[var(--color-ink-muted)]">{item.blurb}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        {emailUnavailable ? null : (
+          <p className="text-16 mt-8 text-center leading-relaxed text-[var(--color-ink-muted)]">
+            Nothing arrived in a few minutes? Check your spam folder for a message from{" "}
+            {AGENT.name.split(" ")[0]}, or just call me.
+          </p>
+        )}
+
+        <div className="mt-10 text-center">
+          <Link href="/" className="text-16 text-[var(--color-navy)] underline underline-offset-4">
+            ← Back to home
           </Link>
         </div>
       </div>
-    );
-  }
-
-  async function handleSmsSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSmsError(null);
-    const digits = phone.replace(/\D/g, "");
-    if (digits.length < 10) {
-      setSmsError("Please enter a valid phone number.");
-      return;
-    }
-    if (!emailDisplay.trim()) {
-      setSmsError("We need your email from the link you used to finish SMS signup.");
-      return;
-    }
-    setSmsLoading(true);
-    try {
-      const res = await fetch("/api/capture-lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: emailDisplay.trim(),
-          source: "sms_optin",
-          phone_number: phone,
-        }),
-      });
-      if (!res.ok) {
-        const data = (await res.json()) as { error?: string };
-        setSmsError(data.error ?? "Something went wrong. Try again?");
-        setSmsLoading(false);
-        return;
-      }
-      setSmsSuccess(true);
-    } catch {
-      setSmsError("Something went wrong. Try again?");
-    } finally {
-      setSmsLoading(false);
-    }
-  }
-
-  const inboxCopy = emailDisplay
-    ? `Check ${emailDisplay} in the next few minutes. Check spam if it doesn't arrive.`
-    : "Check your inbox in the next few minutes. Check spam if it doesn't arrive.";
-
-  return (
-    <div className="min-h-screen bg-[var(--color-paper)]">
-      <section className="bg-[var(--color-paper)] px-6 py-12 md:py-16">
-        <div className="mx-auto max-w-3xl text-center">
-          <CheckCircle2 className="mx-auto size-16 text-[#16A34A]" aria-hidden />
-          <h1 className="mt-6 text-[32px] font-bold text-[var(--color-navy)]">
-            ✓ Your report is on its way.
-          </h1>
-          <p className="mx-auto mt-3 max-w-xl text-[18px] text-[var(--color-muted)]">{inboxCopy}</p>
-        </div>
-      </section>
-
-      <section className="border-t border-[rgba(15,34,65,0.08)] bg-white px-6 py-14">
-        <div className="mx-auto max-w-[640px]">
-          <p className="text-center text-[14px] font-medium tracking-[0.12em] text-[var(--color-gold)] uppercase">
-            ONE MORE THING
-          </p>
-          <h2 className="mt-3 text-center text-[28px] font-bold text-[var(--color-navy)]">
-            Want to go through your numbers together?
-          </h2>
-          <p className="mx-auto mt-4 max-w-[560px] text-center text-[18px] leading-[1.8] text-[var(--color-muted)]">
-            I personally review every report before it goes out. If you want to talk through your
-            specific situation, I have a few free 20-minute Zoom slots open this week. Triad
-            residents only. No sales pitch.
-          </p>
-
-          <div className="mt-6 flex flex-col items-center gap-4">
-            <Button
-              asChild
-              className="h-14 w-full max-w-md bg-[var(--color-navy)] text-[18px] text-[var(--color-paper)]"
-            >
-              <a
-                href="https://calendly.com/christianbrinkley4/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book My Free Call →
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-[rgba(15,34,65,0.08)] bg-white px-6 py-14">
-        <div className="mx-auto max-w-[480px]">
-          <p className="mb-8 text-center text-[14px] tracking-wide text-[var(--color-muted)]">
-            — or —
-          </p>
-          <h3 className="text-center text-[22px] font-semibold text-[var(--color-navy)]">
-            Want a text when your report is ready?
-          </h3>
-          <p className="mt-2 text-center text-[16px] text-[var(--color-muted)]">
-            I&apos;ll send one text message when your report is reviewed and sent. That&apos;s it.
-          </p>
-
-          <div className="mt-8">
-            {smsSuccess ? (
-              <p role="status" aria-live="polite" className="text-center text-lg font-semibold text-[var(--color-success)]">
-                ✓ Got it. Watch for a text from Christian.
-              </p>
-            ) : (
-              <form onSubmit={handleSmsSubmit} className="space-y-4" noValidate>
-                <label htmlFor="sms-phone" className="sr-only">
-                  Mobile phone number
-                </label>
-                <input
-                  id="sms-phone"
-                  type="tel"
-                  inputMode="numeric"
-                  autoComplete="tel"
-                  placeholder="(336) 555-0100"
-                  value={phone}
-                  onChange={(event) => {
-                    setPhone(event.target.value);
-                    if (smsError) setSmsError(null);
-                  }}
-                  className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-[var(--color-navy)] outline-none focus-visible:border-[var(--color-navy)] focus-visible:ring-2 focus-visible:ring-[var(--color-navy)]/20"
-                  style={{ fontSize: "18px", minHeight: "56px" }}
-                />
-
-                <label className="flex cursor-pointer gap-3 text-left text-[16px] leading-snug text-[var(--color-muted)]">
-                  <input
-                    type="checkbox"
-                    checked={smsConsent}
-                    onChange={(event) => setSmsConsent(event.target.checked)}
-                    className="mt-1 size-5 shrink-0 rounded border-gray-400"
-                  />
-                  <span>
-                    I agree to receive one SMS from Christian Brinkley regarding my Medicare report.
-                  </span>
-                </label>
-
-                <button
-                  type="submit"
-                  disabled={!smsConsent || smsLoading}
-                  className="min-h-14 w-full rounded-lg bg-[var(--color-navy)] px-6 py-4 text-[18px] font-semibold text-[var(--color-paper)] transition-colors hover:bg-[#1a3460] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:text-gray-600"
-                >
-                  Text Me When It&apos;s Ready →
-                </button>
-                {smsError ? (
-                  <p role="alert" className="text-center text-[16px] text-[var(--color-error)]">
-                    {smsError}
-                  </p>
-                ) : null}
-              </form>
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-gray-200 bg-[var(--color-paper)] px-6 py-10">
-        <div className="mx-auto max-w-xl text-center">
-          <p className="text-[14px] leading-relaxed text-[var(--color-muted)]">
-            Not ready to book? No problem. Your numbers are saved and I&apos;ll follow up by email.
-            You can also reach me anytime at:
-          </p>
-          <div className="mt-4 flex flex-col gap-2 text-[16px] font-medium text-[var(--color-navy)]">
-            <a href="mailto:christianbrinkley4@gmail.com" className="underline underline-offset-2">
-              christianbrinkley4@gmail.com
-            </a>
-            <span className="font-mono">(919) 408-6671</span>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

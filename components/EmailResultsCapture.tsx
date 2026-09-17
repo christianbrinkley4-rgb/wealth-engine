@@ -3,13 +3,16 @@
 import { Mail } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+
+import { AGENT, CONSENT_TEXT, CONSENT_VERSION } from "@/lib/agent";
+import { newEventId, readAttribution } from "@/lib/attribution";
 import { thankYouUrl } from "@/lib/thankYouUrl";
 
 interface EmailResultsCaptureProps {
   initialEmail?: string;
-  /** Capture source; thank-you redirect uses source ?? "pdf_request". */
-  source?: string;
-  variant?: "medicare" | "tax";
+  /** Capture source. Must be one the API accepts. */
+  source?: "wizard_completion" | "roth_calculator";
+  variant?: "medicare" | "roth";
   wizardData: {
     zip_code: string;
     filing_status: "individual" | "married_jointly";
@@ -20,164 +23,187 @@ interface EmailResultsCaptureProps {
   };
 }
 
-type SubmitState = "idle" | "loading" | "success" | "error";
+type SubmitState = "idle" | "loading" | "error";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function EmailResultsCapture({
   initialEmail = "",
-  source = "pdf_request",
+  source = "wizard_completion",
   variant = "medicare",
   wizardData,
 }: EmailResultsCaptureProps) {
   const router = useRouter();
   const [email, setEmail] = useState(initialEmail);
-  const [emailError, setEmailError] = useState<string | null>(null);
+  const [fullName, setFullName] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
-  const isTax = variant === "tax";
+  const isRoth = variant === "roth";
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const cleanEmail = email.trim();
+    const cleanEmail = email.trim().toLowerCase();
 
-    if (!cleanEmail || !EMAIL_REGEX.test(cleanEmail)) {
-      setEmailError("Double-check that email - we want to make sure it reaches you.");
+    if (!EMAIL_REGEX.test(cleanEmail)) {
+      setError("That email doesn’t look right — check it so my reply reaches you.");
+      return;
+    }
+    if (!consent) {
+      setError("Check the box so I know it’s alright to contact you.");
       return;
     }
 
-    setEmailError(null);
+    setError(null);
     setSubmitState("loading");
+    const eventId = newEventId();
 
     try {
       const res = await fetch("/api/capture-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          stage: "complete",
           email: cleanEmail,
+          full_name: fullName.trim() || null,
           source,
+          event_id: eventId,
+          attribution: readAttribution(),
+          consent_given: true,
+          consent_text: CONSENT_TEXT,
+          consent_version: CONSENT_VERSION,
           ...wizardData,
         }),
       });
 
+      const data = (await res.json().catch(() => ({}))) as {
+        error?: string;
+        code?: string;
+        emailConfigured?: boolean;
+      };
+
       if (!res.ok) {
-        const data = (await res.json()) as { error?: string };
-        setEmailError(data.error ?? "Something went wrong on our end. Try again?");
+        const configFail = data.code === "storage_unavailable" || res.status === 503;
+        setError(
+          data.error ??
+            (configFail
+              ? `I can’t save that right now — please call me at ${AGENT.phone} or email ${AGENT.email}.`
+              : "Something went wrong on my end. Try again?"),
+        );
         setSubmitState("error");
         return;
       }
 
-      setSubmitState("success");
-      setTimeout(() => {
-        router.push(thankYouUrl(source ?? "pdf_request", cleanEmail));
-      }, 600);
+      router.push(
+        thankYouUrl({
+          source,
+          topic: isRoth ? "financial_planning" : "medicare",
+          eventId,
+          emailConfigured: data.emailConfigured,
+        }),
+      );
     } catch {
-      setEmailError("Something went wrong on our end. Try again?");
+      setError(`Something went wrong on my end. Try again, or call me at ${AGENT.phone}.`);
       setSubmitState("error");
     }
-  }
-
-  if (submitState === "success") {
-    return (
-      <div
-        role="status"
-        aria-live="polite"
-        className="mt-4 rounded-[12px] border-2 border-[var(--color-success)] bg-white p-6 text-center"
-      >
-        <p className="text-[20px] font-semibold text-[var(--color-success)]">
-          On its way to your inbox.
-        </p>
-        <p className="mt-2 text-[18px] leading-relaxed text-[var(--color-navy)]">
-          {isTax ? (
-            <>
-              Check your email for your personalized 2026 tax-impact notes. If it does not show up
-              in a few minutes, check your spam folder.
-            </>
-          ) : (
-            <>
-              Check your email for your personalized 2026 Medicare summary. If it does not show up
-              in a few minutes, check your spam folder.
-            </>
-          )}
-        </p>
-      </div>
-    );
   }
 
   return (
     <form
       onSubmit={handleSubmit}
-      className="card-surface mt-4 rounded-[12px] border-gray-300 bg-white p-6"
       noValidate
+      className="card-surface mt-8 p-6 md:p-7"
+      aria-labelledby="results-capture-heading"
     >
-      <p className="text-[20px] font-semibold text-[var(--color-navy)]">
-        {isTax ? "Want a copy of your tax analysis?" : "Want a copy of these results?"}
-      </p>
-      <p className="mt-2 text-[18px] leading-relaxed text-[var(--color-muted)]">
-        {isTax ? (
-          <>
-            I can email you a plain-English summary of how 2026 rules may affect your situation. No
-            spam - just your numbers.
-          </>
-        ) : (
-          <>
-            I can email you a plain-English summary you can save, print, or bring to your next
-            doctor visit. No spam - just your numbers.
-          </>
-        )}
+      <h2
+        id="results-capture-heading"
+        className="text-22 flex items-center gap-3 font-semibold text-[var(--color-navy)]"
+      >
+        <Mail className="size-6 shrink-0 text-[var(--color-gold-ink)]" aria-hidden />
+        {isRoth ? "Send me this conversion estimate" : "Send me these numbers"}
+      </h2>
+      <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+        Request a copy and a personal review of what these numbers could mean for your situation.
+        Your request goes directly to Christian.
       </p>
 
-      <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-        <div className="flex-1">
-          <label htmlFor="results-email" className="sr-only">
-            Your email address
+      <div className="mt-5 space-y-4">
+        <div>
+          <label
+            htmlFor="results-name"
+            className="text-17 mb-2 block font-medium text-[var(--color-navy)]"
+          >
+            Your name <span className="font-normal text-[var(--color-ink-muted)]">(optional)</span>
+          </label>
+          <input
+            id="results-name"
+            name="full_name"
+            autoComplete="name"
+            value={fullName}
+            onChange={(event) => setFullName(event.target.value)}
+            className="text-18 min-h-14 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor="results-email"
+            className="text-17 mb-2 block font-medium text-[var(--color-navy)]"
+          >
+            Email
           </label>
           <input
             id="results-email"
+            name="email"
             type="email"
             inputMode="email"
             autoComplete="email"
+            placeholder="you@example.com"
             value={email}
             onChange={(event) => {
               setEmail(event.target.value);
-              if (emailError) setEmailError(null);
+              if (error) setError(null);
             }}
-            placeholder="christianbrinkley4@gmail.com"
-            aria-describedby={emailError ? "results-email-error" : undefined}
-            aria-invalid={!!emailError}
-            className={`min-h-14 w-full rounded-lg border px-4 py-3 text-[18px] transition-colors duration-150 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] ${
-              emailError ? "border-[var(--color-error)] bg-white" : "border-gray-300 bg-white"
-            }`}
-            style={{ fontSize: "18px" }}
+            aria-invalid={!!error}
+            aria-describedby={error ? "results-capture-error" : undefined}
+            className="text-18 min-h-14 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
           />
-          {emailError ? (
-            <p
-              id="results-email-error"
-              role="alert"
-              className="mt-2 text-[18px] text-[var(--color-error)]"
-            >
-              {emailError}
-            </p>
-          ) : null}
         </div>
+
+        <label className="text-16 flex cursor-pointer gap-3 rounded-lg bg-[rgba(15,34,65,0.04)] px-4 py-4 leading-relaxed text-[var(--color-navy)]">
+          <input
+            type="checkbox"
+            checked={consent}
+            onChange={(event) => setConsent(event.target.checked)}
+            className="mt-1 size-5 shrink-0 rounded border-gray-400"
+          />
+          <span>{CONSENT_TEXT}</span>
+        </label>
+
+        {error ? (
+          <div
+            id="results-capture-error"
+            role="alert"
+            className="rounded-xl border border-[rgba(185,79,92,0.35)] bg-[rgba(185,79,92,0.06)] px-4 py-3"
+          >
+            <p className="text-17 text-[var(--color-error)]">{error}</p>
+            <a
+              href={AGENT.phoneHref}
+              className="text-17 mt-2 inline-flex font-semibold text-[var(--color-navy)] underline underline-offset-2"
+            >
+              Or call {AGENT.phone}
+            </a>
+          </div>
+        ) : null}
 
         <button
           type="submit"
           disabled={submitState === "loading"}
-          className={`inline-flex min-h-14 items-center justify-center gap-2 rounded-lg px-6 text-[18px] font-semibold transition-colors duration-150 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] ${
-            submitState === "loading"
-              ? "cursor-not-allowed bg-gray-300 text-gray-700"
-              : "bg-[var(--color-navy)] text-[var(--color-paper)] hover:bg-[#1a3460]"
-          }`}
-          aria-busy={submitState === "loading"}
+          className="text-18 inline-flex min-h-14 w-full items-center justify-center rounded-lg bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-70"
         >
-          <Mail className="size-5" aria-hidden />
-          {submitState === "loading" ? "One moment…" : "Send My Results →"}
+          {submitState === "loading" ? "Sending…" : "Email it to me →"}
         </button>
       </div>
-
-      <p className="mt-3 text-[18px] leading-relaxed text-[var(--color-muted)]">
-        No account needed. Unsubscribe from any email with one click.
-      </p>
     </form>
   );
 }

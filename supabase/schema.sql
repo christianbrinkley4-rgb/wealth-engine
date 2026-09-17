@@ -40,8 +40,21 @@ create table if not exists public.leads (
     'pdf_request',
     'tax_waitlist',
     'sms_optin',
-    'about_page_cta'
+    'about_page_cta',
+    'roth_calculator',
+    'help_quiz'
   ) or source is null),
+
+  -- Help quiz (/start) fields
+  interest_topic text check (
+    interest_topic in (
+      'medicare',
+      'annuities',
+      'financial_planning',
+      'life_insurance'
+    ) or interest_topic is null
+  ),
+  quiz_answers jsonb,
 
   -- Engagement lifecycle
   consultation_requested boolean default false,
@@ -84,6 +97,13 @@ alter table public.leads add column if not exists consultation_scheduled boolean
 alter table public.leads add column if not exists consent_given boolean default true;
 alter table public.leads add column if not exists phone_number text;
 alter table public.leads add column if not exists net_triggered text;
+alter table public.leads add column if not exists lead_score integer;
+alter table public.leads add column if not exists interest_topic text;
+alter table public.leads add column if not exists quiz_answers jsonb;
+
+create index if not exists leads_score_idx on public.leads(lead_score desc);
+create index if not exists leads_risk_idx  on public.leads(irmaa_risk_status);
+create index if not exists leads_interest_topic_idx on public.leads(interest_topic);
 
 alter table public.leads drop constraint if exists leads_source_check;
 
@@ -98,8 +118,23 @@ alter table public.leads
       'pdf_request',
       'tax_waitlist',
       'sms_optin',
-      'about_page_cta'
+      'about_page_cta',
+      'roth_calculator',
+      'help_quiz'
     ) or source is null
+  );
+
+alter table public.leads drop constraint if exists leads_interest_topic_check;
+
+alter table public.leads
+  add constraint leads_interest_topic_check
+  check (
+    interest_topic in (
+      'medicare',
+      'annuities',
+      'financial_planning',
+      'life_insurance'
+    ) or interest_topic is null
   );
 
 -- Relax older required fields so passive captures such as footer_subscribe can coexist.
