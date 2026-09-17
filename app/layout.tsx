@@ -6,6 +6,7 @@ import { Analytics } from "@/app/components/Analytics";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { TopRouteChrome } from "@/app/components/TopRouteChrome";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
+import { AGENT } from "@/lib/agent";
 import {
   localBusinessJsonLd,
   SITE_LOCALITY,
@@ -113,7 +114,12 @@ export default function RootLayout({
         />
         <TopRouteChrome />
         {/* Target for the skip link; the pages render their own <main> inside. */}
-        <div id="main-content" tabIndex={-1} className="outline-none">
+        <div
+          id="main-content"
+          tabIndex={-1}
+          className="outline-none"
+          data-print-contact={`${AGENT.name} · Licensed insurance agent · ${AGENT.city}, ${AGENT.state} · ${AGENT.phone} — estimates for education only, not a quote or a benefit determination.`}
+        >
           {children}
         </div>
 

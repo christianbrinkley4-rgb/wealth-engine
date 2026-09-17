@@ -335,7 +335,7 @@
   footer,
   nav,
   .trust-pill,
-  [role="region"][aria-label="Start with what you need help with"],
+  .sticky-cta,
   form,
   button {
     display: none !important;
@@ -383,8 +383,8 @@
   }
 
   /* Whoever prepared this, and how to reach him, on every sheet. */
-  main::after {
-    content: "Christian Brinkley · Licensed insurance agent · Greensboro, NC · (919) 408-6671 — estimates for education only, not a quote or a benefit determination.";
+  #main-content::after {
+    content: attr(data-print-contact);
     display: block;
     margin-top: 24pt;
     padding-top: 8pt;

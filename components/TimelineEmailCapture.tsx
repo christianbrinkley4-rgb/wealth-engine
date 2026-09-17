@@ -128,10 +128,24 @@ export function TimelineEmailCapture({
       return reject("zip", "Enter your 5-digit ZIP code. Medicare plans depend on where you live.");
     }
     if (!consent) return reject("consent", "Check the box so I know it’s alright to email you.");
+    setInvalid(null);
 
-    const turnstileToken = turnstileWidget.current
-      ? (turnstileApi()?.getResponse(turnstileWidget.current) ?? "")
-      : "";
+    if (TURNSTILE_SITE_KEY && !turnstileReady) {
+      setError(
+        `The form check couldn’t load. Please refresh the page, or call me at ${AGENT.phone}.`,
+      );
+      return;
+    }
+    let turnstileToken = "";
+    try {
+      if (turnstileWidget.current) {
+        turnstileToken = turnstileApi()?.getResponse(turnstileWidget.current) ?? "";
+      }
+    } catch {
+      resetFormCheck();
+      setError(`The form check couldn’t finish. Please try again, or call me at ${AGENT.phone}.`);
+      return;
+    }
     if (TURNSTILE_SITE_KEY && !turnstileToken) {
       setError("Please finish the quick form check, then send again.");
       resetFormCheck();
@@ -211,6 +225,11 @@ export function TimelineEmailCapture({
           strategy="afterInteractive"
           onLoad={() => setTurnstileReady(true)}
           onReady={() => setTurnstileReady(true)}
+          onError={() =>
+            setError(
+              `The form check couldn’t load. Please refresh the page, or call me at ${AGENT.phone}.`,
+            )
+          }
         />
       ) : null}
       <div className="tl-capture-intro">

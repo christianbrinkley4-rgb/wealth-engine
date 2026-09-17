@@ -67,17 +67,17 @@ const COSTS = [
   {
     figure: "10%",
     title: "Signing up for Part B late",
-    text: "Added to your Part B premium for each full year you could have had it and didn’t, for as long as you have Part B.",
+    text: "If a late-enrollment penalty applies, your Part B premium generally increases by 10% for each full year you delayed, for as long as you have Part B.",
   },
   {
     figure: "1%",
     title: "Going without drug coverage",
-    text: "Of the national base Part D premium, added for each month without creditable drug coverage, generally for as long as you have it.",
+    text: "A penalty may apply after 63 days or more without qualifying drug coverage after your enrollment window. It is based on 1% of the national base premium per full uncovered month. People with Extra Help do not pay this penalty.",
   },
   {
     figure: "6 mo.",
-    title: "Missing your Medigap window",
-    text: "Your guaranteed chance to buy a supplement without health questions. After it closes, you can be turned down or charged more.",
+    title: "Your Medigap enrollment window",
+    text: "Your six-month window starts when you are 65 or older and enrolled in Part B. During it, you can’t be turned down or charged more because of your health. You may also have protected rights at other times.",
   },
 ] as const;
 
@@ -152,9 +152,9 @@ export default function HomePage() {
               Turning 65? Get Medicare right <em>the first time.</em>
             </h1>
             <p className="home-lede">
-              I’m Christian Brinkley, a licensed agent who lives here. I’m not a call center. When
-              you call, I answer. When we meet, it’s at your kitchen table. And when a question
-              comes up next year, it’s still me.
+              I’m Christian Brinkley, a licensed insurance agent in Greensboro. We can meet at your
+              home, at a convenient public location, or by phone. I’ll help you understand your
+              options, and I’ll be here when questions come up next year.
             </p>
             <div className="home-hero-id">
               <Image
@@ -222,12 +222,12 @@ export default function HomePage() {
             <div>
               <p className="home-eyebrow">Your Medicare timeline</p>
               <h2 id="timeline-heading">
-                Seven months to enroll. A penalty that can last for life if you miss it.
+                Find your Medicare enrollment window and the dates to plan around.
               </h2>
             </div>
             <p className="home-heading-note">
               Pick the month you turn 65. You’ll see when your window opens, when coverage can
-              start, and the one date you can’t let slip by.
+              start, and when your initial enrollment window ends.
             </p>
           </div>
           <MedicareTimeline currentYear={new Date().getUTCFullYear()} />
@@ -236,9 +236,9 @@ export default function HomePage() {
 
       <section className="home-section home-rule-top" aria-labelledby="costs-heading">
         <div className="personal-shell">
-          <p className="home-eyebrow home-eyebrow-rust">What it costs to get wrong</p>
+          <p className="home-eyebrow home-eyebrow-rust">Costs and enrollment protections</p>
           <h2 id="costs-heading" className="home-h2-narrow">
-            Three Medicare mistakes that follow you for years.
+            Know which enrollment rules apply to you.
           </h2>
           <div className="home-costs">
             {COSTS.map((item) => (
@@ -253,8 +253,15 @@ export default function HomePage() {
           </div>
           <div className="home-costs-foot">
             <p>
-              Coverage through your job or your spouse’s job can change these rules. I’ll check your
-              dates, your work coverage, and your prescriptions before you decide anything.
+              Special Enrollment Periods and programs that help pay Medicare costs can change which
+              penalties apply. Coverage through your or your spouse’s current job may also affect
+              your dates. We can review your situation together.{" "}
+              <a
+                href="https://www.medicare.gov/basics/costs/medicare-costs/avoid-penalties"
+                className="underline underline-offset-4"
+              >
+                Read Medicare’s penalty rules.
+              </a>
             </p>
             <Link href="/start?topic=medicare&stage=turning_65_soon" className="home-link">
               Talk it through with me <ArrowRight size={19} aria-hidden />
@@ -291,9 +298,9 @@ export default function HomePage() {
             <p className="home-eyebrow">Who you’ll be talking to</p>
             <h2 id="about-heading">I live here, and I plan to be your agent for a long time.</h2>
             <p>
-              I meet families at their kitchen tables across Greensboro, High Point, and
-              Winston-Salem. I listen first, explain your options in plain English, and give you
-              room to decide. If your current coverage still fits, I’ll tell you that too.
+              I meet people across Greensboro, High Point, and Winston-Salem. I listen first,
+              explain your options in plain English, and give you room to decide. If your current
+              coverage still fits, I’ll tell you that too.
             </p>
             <ul className="home-checks">
               {credentials.map((item) => (
@@ -313,7 +320,7 @@ export default function HomePage() {
       <section className="home-section home-steps-section" aria-labelledby="steps-heading">
         <div className="personal-shell">
           <p className="home-eyebrow">What happens next</p>
-          <h2 id="steps-heading">No script. No pressure. No hand-off.</h2>
+          <h2 id="steps-heading">We’ll take your questions one at a time.</h2>
           <ol className="home-steps">
             {STEPS.map((step, index) => (
               <li key={step.title}>
@@ -408,7 +415,7 @@ export default function HomePage() {
       <section className="home-close" aria-labelledby="close-heading">
         <div className="personal-shell home-close-grid">
           <div>
-            <h2 id="close-heading">Call me. I’ll be the one who picks up.</h2>
+            <h2 id="close-heading">Call me with your Medicare questions.</h2>
             <p>{AGENT.afterHoursPromise}</p>
           </div>
           <div className="home-close-actions">

@@ -488,7 +488,8 @@ export async function sendProspectAutoReply(input: {
   const bookingUrl = bookingPageUrl(input.interest_topic);
   // "Email me my dates" from the timeline tool. Dates are recomputed here from
   // the month and year, never copied from submitted text.
-  const timelineInput = timelineFromAnswers(input.quiz_answers);
+  const timelineInput =
+    input.interest_topic === "medicare" ? timelineFromAnswers(input.quiz_answers) : null;
   const dates = timelineInput ? timelineSummary(timelineInput) : null;
   const intro = dates
     ? `Here are the Medicare dates you looked up on my site, for turning 65 in ${dates.turns65}:`
@@ -509,12 +510,7 @@ export async function sendProspectAutoReply(input: {
       : []),
     // Not upper-cased: a full sentence in caps reads as a marketing blast, and
     // this email’s whole job is to look like it came from a person.
-    beat.headline,
-    "",
-    beat.lede,
-    "",
-    ...beat.points.map((p) => `• ${p}`),
-    "",
+    ...(dates ? [] : [beat.headline, "", beat.lede, "", ...beat.points.map((p) => `• ${p}`), ""]),
     "That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.",
     "",
     `You can arrange a conversation here: ${bookingUrl}`,
@@ -546,11 +542,15 @@ export async function sendProspectAutoReply(input: {
               )}</table><p style="color:#4a5563;font-size:15px">These are estimates. Coverage through your job or your spouse’s job can change the right timing, so check before you delay anything.</p>`
           : ""
       }
-      <p style="font-size:19px;font-weight:600;margin:24px 0 8px">${escapeHtml(beat.headline)}</p>
+      ${
+        dates
+          ? ""
+          : `<p style="font-size:19px;font-weight:600;margin:24px 0 8px">${escapeHtml(beat.headline)}</p>
       <p>${escapeHtml(beat.lede)}</p>
       <ul style="padding-left:20px">
         ${beat.points.map((p) => `<li style="margin-bottom:10px">${escapeHtml(p)}</li>`).join("")}
-      </ul>
+      </ul>`
+      }
       <p style="color:#4a5563;font-size:15px">That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.</p>
       <p style="margin:28px 0">
         <a href="${escapeHtml(bookingUrl)}" style="background:#0f2241;color:#f5f0e8;padding:14px 22px;border-radius:8px;text-decoration:none;display:inline-block;font-family:Helvetica,Arial,sans-serif;font-weight:600">Arrange a conversation</a>

@@ -81,6 +81,20 @@ describe("Medicare timeline", () => {
       "April 1, 2027 to September 30, 2027",
     ]);
   });
+  it.each([undefined, null, "", "true", "YES", false])(
+    "does not guess the birthday timing from an invalid first-day answer (%s)",
+    (timeline_first) => {
+      const answers = timelineAnswers({ month: 1, year: 2027, birthdayOnFirst: true });
+      expect(timelineFromAnswers({ ...answers, timeline_first }, today)).toBeNull();
+    },
+  );
+  it.each([{ timeline_month: ["1"] }, { timeline_year: { toString: "2027" } }])(
+    "rejects non-string date answers without coercion",
+    (invalid) => {
+      const answers = timelineAnswers({ month: 1, year: 2027, birthdayOnFirst: true });
+      expect(timelineFromAnswers({ ...answers, ...invalid }, today)).toBeNull();
+    },
+  );
   it.each([0, 13, 1.5, NaN])("rejects invalid month %s", (month) => {
     expect(() =>
       enrollmentTimeline({ month, year: 2027, birthdayOnFirst: false }, today),

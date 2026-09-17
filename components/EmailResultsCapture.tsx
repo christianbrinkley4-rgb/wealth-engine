@@ -56,6 +56,9 @@ export function EmailResultsCapture({
   const [consent, setConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const [invalid, setInvalid] = useState<"email" | "consent" | null>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const consentRef = useRef<HTMLInputElement>(null);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
   const [turnstileReady, setTurnstileReady] = useState(false);
   const [turnstileRender, setTurnstileRender] = useState(0);
@@ -116,17 +119,35 @@ export function EmailResultsCapture({
     const cleanEmail = email.trim().toLowerCase();
 
     if (!EMAIL_REGEX.test(cleanEmail)) {
+      setInvalid("email");
       setError("That email doesn’t look right — check it so my reply reaches you.");
+      emailRef.current?.focus();
       return;
     }
     if (!consent) {
+      setInvalid("consent");
       setError("Check the box so I know it’s alright to contact you.");
+      consentRef.current?.focus();
       return;
     }
+    setInvalid(null);
 
-    const turnstileToken = turnstileWidget.current
-      ? (turnstileApi()?.getResponse(turnstileWidget.current) ?? "")
-      : "";
+    if (TURNSTILE_SITE_KEY && !turnstileReady) {
+      setError(
+        `The form check couldn’t load. Please refresh the page, or call me at ${AGENT.phone}.`,
+      );
+      return;
+    }
+    let turnstileToken = "";
+    try {
+      if (turnstileWidget.current) {
+        turnstileToken = turnstileApi()?.getResponse(turnstileWidget.current) ?? "";
+      }
+    } catch {
+      resetFormCheck();
+      setError(`The form check couldn’t finish. Please try again, or call me at ${AGENT.phone}.`);
+      return;
+    }
     if (TURNSTILE_SITE_KEY && !turnstileToken) {
       setError("Please finish the quick form check, then send again.");
       resetFormCheck();
@@ -204,6 +225,11 @@ export function EmailResultsCapture({
           strategy="afterInteractive"
           onLoad={() => setTurnstileReady(true)}
           onReady={() => setTurnstileReady(true)}
+          onError={() =>
+            setError(
+              `The form check couldn’t load. Please refresh the page, or call me at ${AGENT.phone}.`,
+            )
+          }
         />
       ) : null}
       <h2
@@ -257,6 +283,7 @@ export function EmailResultsCapture({
             Email
           </label>
           <input
+            ref={emailRef}
             id="results-email"
             name="email"
             type="email"
@@ -266,19 +293,25 @@ export function EmailResultsCapture({
             value={email}
             onChange={(event) => {
               setEmail(event.target.value);
-              if (error) setError(null);
+              if (invalid === "email") {
+                setError(null);
+                setInvalid(null);
+              }
             }}
-            aria-invalid={!!error}
-            aria-describedby={error ? "results-capture-error" : undefined}
+            aria-invalid={invalid === "email"}
+            aria-describedby={invalid === "email" ? "results-capture-error" : undefined}
             className="text-18 min-h-14 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
           />
         </div>
 
         <label className="text-16 flex cursor-pointer gap-3 rounded-lg bg-[rgba(21,46,52,0.04)] px-4 py-4 leading-relaxed text-[var(--color-navy)]">
           <input
+            ref={consentRef}
             type="checkbox"
             checked={consent}
             onChange={(event) => setConsent(event.target.checked)}
+            aria-invalid={invalid === "consent"}
+            aria-describedby={invalid === "consent" ? "results-capture-error" : undefined}
             className="mt-1 size-5 shrink-0 rounded border-gray-400"
           />
           <span>{CONSENT_TEXT}</span>

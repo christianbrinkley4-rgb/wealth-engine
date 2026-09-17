@@ -79,15 +79,18 @@ export function timelineFromAnswers(
   today: Date = new Date(),
 ): TimelineInput | null {
   if (!answers || answers.request !== TIMELINE_EMAIL_REQUEST) return null;
+  if (
+    typeof answers.timeline_month !== "string" ||
+    typeof answers.timeline_year !== "string" ||
+    (answers.timeline_first !== "yes" && answers.timeline_first !== "no")
+  ) {
+    return null;
+  }
   const month = Number(answers.timeline_month);
   const year = Number(answers.timeline_year);
   const thisYear = today.getUTCFullYear();
-  if (!/^\d{1,2}$/.test(String(answers.timeline_month)) || month < 1 || month > 12) return null;
-  if (
-    !/^\d{4}$/.test(String(answers.timeline_year)) ||
-    year < thisYear - 2 ||
-    year > thisYear + 10
-  ) {
+  if (!/^\d{1,2}$/.test(answers.timeline_month) || month < 1 || month > 12) return null;
+  if (!/^\d{4}$/.test(answers.timeline_year) || year < thisYear - 2 || year > thisYear + 10) {
     return null;
   }
   return { month, year, birthdayOnFirst: answers.timeline_first === "yes" };

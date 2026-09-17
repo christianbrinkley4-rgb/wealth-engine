@@ -186,7 +186,10 @@ export function MedicareTimeline({ currentYear }: { currentYear: number }) {
                   <dt>
                     {formatLongDate(dates.medigapOpens)} to {formatLongDate(dates.medigapCloses)}
                   </dt>
-                  <dd>Your Medigap window, if Part B starts then. No health questions.</dd>
+                  <dd>
+                    Your Medigap window, if Part B starts then. You can buy a policy without being
+                    denied or charged more because of your health.
+                  </dd>
                 </div>
               </dl>
 
