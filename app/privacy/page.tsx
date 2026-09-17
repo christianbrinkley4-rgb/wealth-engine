@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { AGENT } from "@/lib/agent";
+import { measurementProviders } from "@/lib/analytics";
 import { SITE_OWNER, SITE_OWNER_EMAIL } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -13,7 +14,13 @@ export const metadata: Metadata = {
 
 const EFFECTIVE_DATE = "September 10, 2026";
 
+function listProviders(providers: string[]): string {
+  if (providers.length === 1) return providers[0];
+  return `${providers.slice(0, -1).join(", ")} and ${providers[providers.length - 1]}`;
+}
+
 export default function PrivacyPage() {
+  const providers = measurementProviders(process.env as Record<string, string | undefined>);
   return (
     <main className="bg-[var(--color-paper)] text-[var(--color-navy)]">
       <section className="measure-prose app-shell max-w-3xl py-12 md:py-16">
@@ -59,13 +66,31 @@ export default function PrivacyPage() {
               can clear saved site data in your browser settings. Website and booking providers may
               use cookies or similar technology to operate their services and protect against abuse.
             </p>
-            <p className="mt-2 text-[var(--color-ink-muted)]">
-              Meta Pixel and Conversions API, Google Analytics, and Nextdoor advertising pixels are
-              not enabled for this launch. Campaign labels may still be saved with a request to help
-              me understand how visitors found the site. If advertising measurement is introduced,
-              this notice will be updated to explain the providers, information shared, and
-              available choices before those tools are enabled.
-            </p>
+            {providers.length > 0 ? (
+              <>
+                <p className="mt-2 text-[var(--color-ink-muted)]">
+                  This site uses {listProviders(providers)} to count how many people reach the site,
+                  call me, or send a request, so I know which advertising is worth paying for. These
+                  services set cookies in your browser.
+                </p>
+                <p className="mt-2 text-[var(--color-ink-muted)]">
+                  What they receive is limited on purpose: the name of the action (a call, a
+                  finished date lookup, a submitted request) and the page it happened on. Your
+                  answers, your dates, your income, your ZIP code, your email, and your phone number
+                  are never sent to them, in any form. Personalized advertising signals are turned
+                  off, so your visit is not used to build an advertising profile of you. You can
+                  block these with your browser settings or an ad blocker, and the site works the
+                  same either way.
+                </p>
+              </>
+            ) : (
+              <p className="mt-2 text-[var(--color-ink-muted)]">
+                Advertising and analytics measurement is not enabled. Campaign labels may still be
+                saved with a request to help me understand how visitors found the site. If
+                measurement is introduced, this notice explains the providers, the information
+                shared, and your choices before those tools are enabled.
+              </p>
+            )}
           </div>
 
           <div>

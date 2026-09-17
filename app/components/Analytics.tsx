@@ -5,9 +5,12 @@
  * a third-party script on a site with no campaign IDs configured, so local dev
  * and preview deploys stay clean.
  *
- * Set in Vercel to switch one on:
+ * Set in Netlify to switch one on (docs/MEASUREMENT-SETUP.md walks through it):
+ *   NEXT_PUBLIC_GA4_ID                     analytics property, G-XXXXXXX
+ *   NEXT_PUBLIC_GOOGLE_ADS_ID              ads account, AW-XXXXXXXXX
+ *   NEXT_PUBLIC_GOOGLE_ADS_CALL_LABEL      conversion label for a phone tap
+ *   NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL      conversion label for an inquiry
  *   NEXT_PUBLIC_META_PIXEL_ID
- *   NEXT_PUBLIC_GA4_ID
  *   NEXT_PUBLIC_NEXTDOOR_PIXEL_ID
  *   NEXT_PUBLIC_SIMPLE_ANALYTICS  ("true" — no id needed)
  *
@@ -23,6 +26,12 @@
 import Script from "next/script";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import {
+  conversionTarget,
+  eventParams,
+  isMeasuredEvent,
+  type MeasuredEvent,
+} from "@/lib/analytics";
 import { captureAttribution } from "@/lib/attribution";
 
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
@@ -30,6 +39,26 @@ const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const NEXTDOOR_PIXEL_ID = process.env.NEXT_PUBLIC_NEXTDOOR_PIXEL_ID;
 const SIMPLE_ANALYTICS = process.env.NEXT_PUBLIC_SIMPLE_ANALYTICS === "true";
 const META_ADS_ALLOWED = process.env.NEXT_PUBLIC_META_ADS_ALLOWED === "true";
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+const GOOGLE_TAG_ID = GA4_ID || GOOGLE_ADS_ID;
+
+/**
+ * A Google Ads conversion action per event. Christian's two are a call and a
+ * completed inquiry; the date tool stays a GA4 event, because measuring
+ * interest as a conversion would teach the ad platform to buy browsers
+ * instead of households.
+ */
+const ADS_CONVERSIONS: Partial<Record<MeasuredEvent, string | undefined>> = {
+  phone_click: process.env.NEXT_PUBLIC_GOOGLE_ADS_CALL_LABEL,
+  generate_lead: process.env.NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL,
+};
+
+/** Report one Google Ads conversion, when that action has been configured. */
+function trackAdsConversion(event: MeasuredEvent) {
+  const target = conversionTarget(GOOGLE_ADS_ID, ADS_CONVERSIONS[event]);
+  if (!target) return;
+  window.gtag?.("event", "conversion", { send_to: target });
+}
 
 declare global {
   interface Window {
@@ -43,10 +72,13 @@ declare global {
 /** Fire the Lead conversion. Called from the thank-you page. */
 export function trackLead(eventId: string, topic?: string) {
   if (typeof window === "undefined") return;
-  if (!META_ADS_ALLOWED && !GA4_ID && !NEXTDOOR_PIXEL_ID) return;
+  if (!META_ADS_ALLOWED && !GA4_ID && !GOOGLE_ADS_ID && !NEXTDOOR_PIXEL_ID) return;
   try {
     window.fbq?.("track", "Lead", { content_category: topic }, { eventID: eventId });
+    // The event id deduplicates against the server-side copy; the topic says
+    // which service was asked about, never what was answered.
     window.gtag?.("event", "generate_lead", { event_id: eventId, topic });
+    trackAdsConversion("generate_lead");
     window.ndp?.("track", "SIGN_UP");
   } catch {
     // A blocked pixel must never break the confirmation page.
@@ -73,8 +105,11 @@ export function trackLeadOnce(eventId: string, topic?: string) {
  */
 export function trackEvent(name: string) {
   if (typeof window === "undefined") return;
+  // An event this file has not declared is a mistake, not a measurement.
+  if (!isMeasuredEvent(name)) return;
   try {
-    window.gtag?.("event", name, { page_path: window.location.pathname });
+    window.gtag?.("event", name, eventParams(window.location.pathname));
+    trackAdsConversion(name);
     (window as Window & { sa_event?: (event: string) => void }).sa_event?.(name);
   } catch {
     // A blocked script must never break the page.
@@ -104,7 +139,7 @@ export function Analytics() {
     if (!pathname) return;
     try {
       window.fbq?.("track", "PageView");
-      if (GA4_ID) window.gtag?.("config", GA4_ID, { page_path: pathname });
+      if (GA4_ID) window.gtag?.("config", GA4_ID, eventParams(pathname));
     } catch {
       // ignore
     }
@@ -126,17 +161,24 @@ fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`}
         </Script>
       ) : null}
 
-      {GA4_ID ? (
+      {GOOGLE_TAG_ID ? (
         <>
           <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
             strategy="afterInteractive"
           />
-          <Script id="ga4" strategy="afterInteractive">
+          {/* One tag, up to two destinations: the analytics property and the
+              ads account. Ad personalisation stays off — this site measures
+              whether the phone rang, it does not build audiences out of people
+              researching their health coverage. */}
+          <Script id="google-tag" strategy="afterInteractive">
             {`window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
 window.gtag=gtag;gtag('js',new Date());
-gtag('config','${GA4_ID}');`}
+gtag('set','allow_ad_personalization_signals',false);
+gtag('set','allow_google_signals',false);
+${GA4_ID ? `gtag('config','${GA4_ID}');` : ""}
+${GOOGLE_ADS_ID ? `gtag('config','${GOOGLE_ADS_ID}');` : ""}`}
           </Script>
         </>
       ) : null}
