@@ -3,11 +3,15 @@ import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 
 const sql = readFileSync(
-  fileURLToPath(new URL("../../supabase/command-center/website-delivery-retry.sql", import.meta.url)),
+  fileURLToPath(
+    new URL("../../supabase/command-center/website-delivery-retry.sql", import.meta.url),
+  ),
   "utf8",
 );
 const cronSql = readFileSync(
-  fileURLToPath(new URL("../../supabase/command-center/website-delivery-retry-cron.sql", import.meta.url)),
+  fileURLToPath(
+    new URL("../../supabase/command-center/website-delivery-retry-cron.sql", import.meta.url),
+  ),
   "utf8",
 );
 
@@ -44,9 +48,15 @@ describe("website delivery retry SQL", () => {
 });
 
 describe("website delivery retry cron SQL", () => {
-  it("calls retry_deliveries through vault instead of a raw key", () => {
+  it("asks the website to retry, authenticating from vault rather than a pasted key", () => {
+    // Sending is the website's job — it holds the Resend credentials — so the
+    // cron only posts to its retry route, and the key it sends comes from vault
+    // so this file can be committed without carrying a secret.
+    expect(cronSql).toContain("cron.schedule(");
+    expect(cronSql).toContain("'website-delivery-retry'");
+    expect(cronSql).toContain("/api/cron/delivery-retry");
+    expect(cronSql).toContain("vault.decrypted_secrets");
     expect(cronSql).toContain("website_delivery_retry_key");
-    expect(cronSql).toContain("retry_deliveries");
     expect(cronSql).not.toMatch(/[a-f0-9]{64}/);
   });
 });
