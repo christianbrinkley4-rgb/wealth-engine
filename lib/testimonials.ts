@@ -58,6 +58,13 @@ export const TESTIMONIALS: Testimonial[] = [
   // },
 ];
 
+/**
+ * The Google Business Profile summary shown beside the reviews. Leave null
+ * until the profile exists; copy the rating and count exactly as Google shows
+ * them and update them when they change.
+ */
+export const GOOGLE_REVIEWS: { rating: number; count: number; url: string } | null = null;
+
 export function hasTestimonials(): boolean {
   return TESTIMONIALS.length > 0;
 }

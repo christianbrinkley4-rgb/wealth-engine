@@ -20,7 +20,7 @@ export function CitySnapshot({
   const isLife = topic === "life";
 
   return (
-    <aside className="rounded-xl border border-[rgba(15,34,65,0.12)] bg-[var(--color-paper)] p-6">
+    <aside className="rounded-xl border border-[rgba(21,46,52,0.12)] bg-[var(--color-paper)] p-6">
       <p className="text-13 font-medium tracking-[0.1em] text-[var(--color-gold-ink)] uppercase">
         {city.name} at a glance
       </p>
@@ -54,7 +54,7 @@ export function CitySnapshot({
         )}
       </dl>
       {city.countyNote ? (
-        <p className="text-16 mt-4 border-l-4 border-[var(--color-gold-ink)] py-1 pl-4 leading-relaxed">
+        <p className="text-16 mt-4 rounded-lg bg-[#f3f0e6] px-4 py-3 leading-relaxed">
           {city.countyNote}
         </p>
       ) : null}

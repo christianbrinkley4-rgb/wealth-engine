@@ -107,7 +107,9 @@ export function ServiceHero({
               <span className="block text-[var(--color-paper)]/75">
                 Licensed insurance agent · {AGENT.city}, {AGENT.state}
               </span>
-              <span className="block text-[var(--color-paper)]/75">{AGENT.education}</span>
+              <span className="block text-[var(--color-paper)]/75">
+                One local agent, not a call center
+              </span>
             </figcaption>
             <ul className="mt-5 flex flex-col gap-3 border-t border-white/15 pt-5">
               {proof.map((point) => (

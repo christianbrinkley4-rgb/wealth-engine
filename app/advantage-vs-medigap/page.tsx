@@ -173,7 +173,7 @@ export default function AdvantageVsMedigapPage() {
           </ol>
 
           <p
-            className="text-18 mt-8 border-l-4 py-3 pl-5 leading-relaxed"
+            className="text-18 mt-8 rounded-lg bg-[#f3f0e6] px-5 py-4 leading-relaxed"
             style={{ borderColor: "#7a5c12" }}
           >
             <strong> Before you change coverage. </strong> Changing from Medicare Advantage to

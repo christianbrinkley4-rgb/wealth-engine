@@ -12,7 +12,14 @@
 import crypto from "node:crypto";
 
 import { AGENT } from "@/lib/agent";
-import { describeAnswers, getValueBeat, isHelpQuizTopic, TOPIC_LABELS } from "@/lib/helpQuiz";
+import {
+  describeAnswers,
+  getValueBeat,
+  inSentence,
+  isHelpQuizTopic,
+  TOPIC_LABELS,
+} from "@/lib/helpQuiz";
+import { timelineFromAnswers, timelineSummary } from "@/lib/enrollmentTimeline";
 import { formatLongDate } from "@/lib/reminders";
 import { SITE_URL as PUBLIC_SITE_URL } from "@/lib/seo";
 
@@ -479,12 +486,27 @@ export async function sendProspectAutoReply(input: {
   );
   const topic = TOPIC_LABELS[input.interest_topic];
   const bookingUrl = bookingPageUrl(input.interest_topic);
+  // "Email me my dates" from the timeline tool. Dates are recomputed here from
+  // the month and year, never copied from submitted text.
+  const timelineInput = timelineFromAnswers(input.quiz_answers);
+  const dates = timelineInput ? timelineSummary(timelineInput) : null;
+  const intro = dates
+    ? `Here are the Medicare dates you looked up on my site, for turning 65 in ${dates.turns65}:`
+    : `Thanks for the questions about ${inSentence(topic)}. Here’s what you saw on the site, so you have it in writing:`;
 
   const text = [
     `Hi ${firstName},`,
     "",
-    `Thanks for the questions about ${topic.toLowerCase()}. Here’s what you saw on the site, so you have it in writing:`,
+    intro,
     "",
+    ...(dates
+      ? [
+          ...dates.rows.map((row) => `• ${row.label}: ${row.value}`),
+          "",
+          "These are estimates. Coverage through your job or your spouse’s job can change the right timing, so check before you delay anything.",
+          "",
+        ]
+      : []),
     // Not upper-cased: a full sentence in caps reads as a marketing blast, and
     // this email’s whole job is to look like it came from a person.
     beat.headline,
@@ -511,7 +533,19 @@ export async function sendProspectAutoReply(input: {
   const html = `
     <div style="font-family:Georgia,serif;font-size:17px;line-height:1.6;color:#0f2241;max-width:560px">
       <p>Hi ${escapeHtml(firstName)},</p>
-      <p>Thanks for the questions about ${escapeHtml(topic.toLowerCase())}. Here’s what you saw on the site, so you have it in writing:</p>
+      <p>${escapeHtml(intro)}</p>
+      ${
+        dates
+          ? `<table style="border-collapse:collapse;width:100%;margin:8px 0 20px">${dates.rows
+              .map(
+                (row) =>
+                  `<tr><td style="padding:10px 12px 10px 0;border-bottom:1px solid #d9ded8;vertical-align:top">${escapeHtml(row.label)}</td><td style="padding:10px 0;border-bottom:1px solid #d9ded8;font-weight:600;vertical-align:top;white-space:nowrap">${escapeHtml(row.value)}</td></tr>`,
+              )
+              .join(
+                "",
+              )}</table><p style="color:#4a5563;font-size:15px">These are estimates. Coverage through your job or your spouse’s job can change the right timing, so check before you delay anything.</p>`
+          : ""
+      }
       <p style="font-size:19px;font-weight:600;margin:24px 0 8px">${escapeHtml(beat.headline)}</p>
       <p>${escapeHtml(beat.lede)}</p>
       <ul style="padding-left:20px">
@@ -533,7 +567,9 @@ export async function sendProspectAutoReply(input: {
   try {
     return await sendEmail({
       to: input.email,
-      subject: `Your ${topic.toLowerCase()} questions — from ${AGENT.name}`,
+      subject: dates
+        ? `Your Medicare dates — from ${AGENT.name}`
+        : `Your ${inSentence(topic)} questions — from ${AGENT.name}`,
       text,
       html,
       replyTo: AGENT.email,
@@ -567,7 +603,7 @@ async function sendCalculatorAutoReply(input: {
   const text = [
     `Hi ${firstName},`,
     "",
-    `Here’s the ${label.toLowerCase()} you ran on my site.`,
+    `Here’s the ${inSentence(label)} you ran on my site.`,
     "",
     figure,
     "",
@@ -588,7 +624,7 @@ async function sendCalculatorAutoReply(input: {
   try {
     return await sendEmail({
       to: input.email,
-      subject: `Your ${label.toLowerCase()} — from ${AGENT.name}`,
+      subject: `Your ${inSentence(label)} — from ${AGENT.name}`,
       text,
       replyTo: AGENT.email,
     });

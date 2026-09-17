@@ -128,7 +128,7 @@ export function IrmaaLadder({
                   <div
                     aria-hidden
                     className="h-5 w-full rounded-[2px]"
-                    style={{ background: "rgba(15,34,65,0.05)" }}
+                    style={{ background: "rgba(21,46,52,0.05)" }}
                   >
                     <div
                       className="h-5 rounded-r-[4px]"
@@ -162,7 +162,7 @@ export function IrmaaLadder({
 
       {next && headroom !== null ? (
         <p
-          className="text-17 mt-4 border-l-4 py-2 pl-4 leading-relaxed text-[var(--color-navy)]"
+          className="text-17 mt-4 rounded-lg bg-[#f3f0e6] px-4 py-3 leading-relaxed text-[var(--color-navy)]"
           style={{ borderColor: ACCENT }}
         >
           Another <strong>{money(headroom)}</strong> of income in 2024 would have moved this

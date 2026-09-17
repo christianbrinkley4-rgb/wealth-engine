@@ -7,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 
 import { trackLeadOnce } from "@/app/components/Analytics";
 import { AGENT } from "@/lib/agent";
-import { TOPIC_LABELS, type InterestTopic } from "@/lib/helpQuiz";
+import { inSentence, TOPIC_LABELS, type InterestTopic } from "@/lib/helpQuiz";
 
 function topicLabel(raw: string | null): string | null {
   if (!raw) return null;
@@ -122,20 +122,20 @@ function ThankYouInner() {
 
   const lede = emailUnavailable ? (
     <>
-      They came straight to me{topic ? <> about {topic.toLowerCase()}</> : null}, and I’ll follow up
+      They came straight to me{topic ? <> about {inSentence(topic)}</> : null}, and I’ll follow up
       personally. If you would rather not wait, the number below is mine.
     </>
   ) : isHelpQuiz ? (
     <>
       Your answers are on their way to your inbox right now
-      {topic ? <> about {topic.toLowerCase()}</> : null}. I’ll follow up personally to talk through
+      {topic ? <> about {inSentence(topic)}</> : null}. I’ll follow up personally to talk through
       your next step.
     </>
   ) : isWizard ? (
     <>
       I’ll look at what you entered
-      {topic ? <> for {topic.toLowerCase()}</> : null} and follow up personally. If you’d rather
-      talk through the numbers now, call me.
+      {topic ? <> for {inSentence(topic)}</> : null} and follow up personally. If you’d rather talk
+      through the numbers now, call me.
     </>
   ) : isReminder ? (
     <>
@@ -145,7 +145,7 @@ function ThankYouInner() {
   ) : (
     <>
       Thanks. I’ll follow up if you asked me to get in touch
-      {topic ? <> about {topic.toLowerCase()}</> : null}.
+      {topic ? <> about {inSentence(topic)}</> : null}.
     </>
   );
 
@@ -173,7 +173,7 @@ function ThankYouInner() {
           ].map((point) => (
             <li
               key={point}
-              className="text-15 flex items-start gap-2 rounded-xl border border-[rgba(15,34,65,0.12)] bg-white px-4 py-3 text-left text-[var(--color-navy)]"
+              className="text-15 flex items-start gap-2 rounded-xl border border-[rgba(21,46,52,0.12)] bg-white px-4 py-3 text-left text-[var(--color-navy)]"
             >
               <ShieldCheck
                 className="mt-0.5 size-4 shrink-0 text-[var(--color-gold-ink)]"
@@ -249,7 +249,7 @@ function ThankYouInner() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
+                    className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(21,46,52,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
                   >
                     <span className="text-17 font-semibold text-[var(--color-navy)]">
                       {item.label} →

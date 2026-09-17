@@ -13,6 +13,15 @@
  *    income bracket to ask a question.
  */
 
+import { timelineFromAnswers, timelineSummary } from "@/lib/enrollmentTimeline";
+
+/** A label lowercased to sit mid-sentence, keeping proper nouns like Medicare. */
+export function inSentence(label: string): string {
+  return label.replace(/\S+/g, (word) =>
+    /^(Medicare|Roth|Part|Social|Security)\b/.test(word) ? word : word.toLowerCase(),
+  );
+}
+
 export const HELP_QUIZ_TOPICS = [
   "medicare",
   "financial_planning",
@@ -550,6 +559,12 @@ export function describeAnswers(
   answers: HelpQuizAnswerMap,
 ): Array<{ question: string; answer: string }> {
   const out: Array<{ question: string; answer: string }> = [];
+  const timeline = timelineFromAnswers(answers);
+  if (timeline) {
+    const summary = timelineSummary(timeline);
+    out.push({ question: "Request", answer: "Email me my Medicare dates (from the date tool)" });
+    out.push({ question: "Turns 65", answer: summary.turns65 });
+  }
   for (const question of TOPIC_META[topic].questions) {
     const value = answers[question.id];
     if (!value) continue;

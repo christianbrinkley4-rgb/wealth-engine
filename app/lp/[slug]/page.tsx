@@ -120,7 +120,9 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
               <p className="text-16 text-[var(--color-paper)]/75">
                 Licensed insurance agent · {AGENT.city}, {AGENT.state}
               </p>
-              <p className="text-16 mt-1 text-[var(--color-paper)]/75">{AGENT.education}</p>
+              <p className="text-16 mt-1 text-[var(--color-paper)]/75">
+                One local agent, not a call center
+              </p>
 
               <ul className="mt-6 flex flex-col gap-3 border-t border-white/15 pt-5">
                 {page.promises.map((promise) => (
@@ -146,7 +148,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
               <li key={option.label}>
                 <Link
                   href={option.href}
-                  className="text-18 flex min-h-16 items-center justify-between gap-4 rounded-xl border-2 border-[rgba(15,34,65,0.18)] bg-white px-5 py-4 font-semibold transition-colors hover:border-[var(--color-navy)]"
+                  className="text-18 flex min-h-16 items-center justify-between gap-4 rounded-xl border-2 border-[rgba(21,46,52,0.18)] bg-white px-5 py-4 font-semibold transition-colors hover:border-[var(--color-navy)]"
                 >
                   {option.label}
                   <span aria-hidden className="text-[var(--color-gold-ink)]">
@@ -157,7 +159,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
             ))}
           </ul>
         </div>
-        <aside className="rounded-2xl border border-[rgba(15,34,65,0.12)] bg-white p-6 md:p-7">
+        <aside className="rounded-2xl border border-[rgba(21,46,52,0.12)] bg-white p-6 md:p-7">
           <h2 className="text-22 font-semibold">What we can cover together</h2>
           <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
             We’ll start with what matters to you. Here are a few things we can talk through:
@@ -177,7 +179,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
         </aside>
       </section>
 
-      <section className="border-y border-[rgba(15,34,65,0.1)] bg-white py-12">
+      <section className="border-y border-[rgba(21,46,52,0.1)] bg-white py-12">
         <div className="app-shell max-w-4xl">
           <h2 className="text-26 font-semibold">Personal help, at your pace</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -193,7 +195,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="border-y border-[rgba(15,34,65,0.1)] bg-[var(--color-paper)] py-12">
+      <section className="border-y border-[rgba(21,46,52,0.1)] bg-[var(--color-paper)] py-12">
         <div className="app-shell max-w-4xl">
           <h2 className="text-26 font-semibold">What happens after you get in touch</h2>
           <ol className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -246,7 +248,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
         </p>
       </section>
 
-      <section className="border-t border-[rgba(15,34,65,0.1)] bg-white py-12">
+      <section className="border-t border-[rgba(21,46,52,0.1)] bg-white py-12">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-24 font-semibold">Would you like to read a little more first?</h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">

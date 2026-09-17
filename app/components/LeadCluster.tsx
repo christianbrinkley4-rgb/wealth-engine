@@ -38,7 +38,7 @@ export function LeadCluster({
           <li key={item.href}>
             <Link
               href={item.href}
-              className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
+              className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(21,46,52,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
             >
               <span className="text-17 font-semibold">{item.label} →</span>
               <span className="text-16 mt-1 text-[var(--color-ink-muted)]">{item.blurb}</span>

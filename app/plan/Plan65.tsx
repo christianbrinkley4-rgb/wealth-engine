@@ -102,7 +102,7 @@ export function Plan65() {
       className={cn(
         "relative flex-1 rounded-xl border-2 bg-white p-4 text-left transition-[border-color,background-color] duration-150",
         filingStatus === status
-          ? "border-[var(--color-navy)] bg-[rgba(15,34,65,0.05)]"
+          ? "border-[var(--color-navy)] bg-[rgba(21,46,52,0.05)]"
           : "border-gray-300 hover:border-[var(--color-navy)]/40",
       )}
     >
@@ -238,7 +238,7 @@ export function Plan65() {
         <div aria-live="polite" className="flex flex-col gap-3">
           {nearCeiling && !result.atTopBracket ? (
             <p
-              className="text-17 flex gap-3 rounded-xl border-l-4 bg-amber-50/80 p-4 leading-relaxed text-[var(--color-navy)]"
+              className="text-17 flex gap-3 rounded-lg border border-[#ddd8c8] bg-[#f3f0e6] p-4 leading-relaxed text-[var(--color-navy)]"
               style={{ borderLeftColor: ACCENT }}
             >
               <AlertTriangle className="mt-0.5 size-5 shrink-0" aria-hidden color={ACCENT} />
@@ -252,7 +252,7 @@ export function Plan65() {
 
           {result.lookbackHasStarted && age < 65 ? (
             <p
-              className="text-17 flex gap-3 rounded-xl border-l-4 bg-amber-50/80 p-4 leading-relaxed text-[var(--color-navy)]"
+              className="text-17 flex gap-3 rounded-lg border border-[#ddd8c8] bg-[#f3f0e6] p-4 leading-relaxed text-[var(--color-navy)]"
               style={{ borderLeftColor: WARN }}
             >
               <AlertTriangle className="mt-0.5 size-5 shrink-0" aria-hidden color={WARN} />
@@ -266,7 +266,7 @@ export function Plan65() {
 
           {result.medigap === "open" ? (
             <p
-              className="text-17 flex gap-3 rounded-xl border-l-4 bg-emerald-50/80 p-4 leading-relaxed text-[var(--color-navy)]"
+              className="text-17 flex gap-3 rounded-lg border border-[#cfdcd2] bg-[#e9eee8] p-4 leading-relaxed text-[var(--color-navy)]"
               style={{ borderLeftColor: GOOD }}
             >
               <ShieldCheck className="mt-0.5 size-5 shrink-0" aria-hidden color={GOOD} />
@@ -383,7 +383,7 @@ export function Plan65() {
             </div>
 
             <p
-              className="text-19 mt-5 border-l-4 py-3 pl-5 leading-relaxed font-semibold text-[var(--color-navy)]"
+              className="text-19 mt-5 rounded-lg bg-[#f3f0e6] px-5 py-4 leading-relaxed font-semibold text-[var(--color-navy)]"
               style={{ borderLeftColor: ACCENT }}
             >
               {result.avoidableSurcharge > 0
@@ -407,7 +407,7 @@ export function Plan65() {
                   className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-lg px-3 py-2"
                   style={{
                     background: isCurrent
-                      ? "rgba(15,34,65,0.08)"
+                      ? "rgba(21,46,52,0.08)"
                       : isAfter && balance > 0
                         ? "rgba(185,79,92,0.10)"
                         : "transparent",
@@ -471,7 +471,7 @@ export function Plan65() {
             </a>
             <Link
               href="/start?topic=financial_planning"
-              className="text-18 inline-flex min-h-14 flex-1 items-center justify-center gap-2 rounded-xl border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.05)]"
+              className="text-18 inline-flex min-h-14 flex-1 items-center justify-center gap-2 rounded-xl border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(21,46,52,0.05)]"
             >
               Send me your numbers
               <ArrowRight className="size-5 shrink-0" aria-hidden />

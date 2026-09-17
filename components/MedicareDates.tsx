@@ -83,7 +83,7 @@ export function MedicareDates({
   return (
     <section
       aria-labelledby="medicare-dates-heading"
-      className="card-surface border-l-4 p-6 md:p-8"
+      className="card-surface p-6 md:p-8"
       style={{ borderLeftColor: ACCENT }}
     >
       <h2
@@ -136,8 +136,8 @@ export function MedicareDates({
                 background: month.isBirthdayMonth
                   ? EMPHASIS
                   : month.isBeforeBirthdayMonth
-                    ? "rgba(15,34,65,0.12)"
-                    : "rgba(15,34,65,0.05)",
+                    ? "rgba(21,46,52,0.12)"
+                    : "rgba(21,46,52,0.05)",
                 color: month.isBirthdayMonth ? "#f5f0e8" : "var(--color-navy)",
               }}
             >
@@ -260,13 +260,13 @@ export function MedicareDates({
         </a>
         <Link
           href="/start?topic=medicare&stage=turning_65_soon"
-          className="text-18 inline-flex min-h-14 flex-1 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(15,34,65,0.05)]"
+          className="text-18 inline-flex min-h-14 flex-1 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(21,46,52,0.05)]"
         >
           Ask me a question instead
         </Link>
       </div>
 
-      <div className="mt-6 rounded-lg bg-[rgba(15,34,65,0.04)] p-4">
+      <div className="mt-6 rounded-lg bg-[rgba(21,46,52,0.04)] p-4">
         <p className="text-16 leading-relaxed text-[var(--color-navy)]">
           <strong className="font-semibold">Two things these dates assume.</strong> That your
           birthday is not the 1st of the month — if it is, Medicare counts you as turning 65 the

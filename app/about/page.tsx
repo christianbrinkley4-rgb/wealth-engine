@@ -11,7 +11,7 @@ import { SERVICE_AREA_LABEL } from "@/lib/triad";
 export const metadata: Metadata = {
   title: "About Christian Brinkley",
   description:
-    "Meet Christian Brinkley, a local licensed insurance agent and UNCG master’s student. Personal Medicare and insurance help at home or by phone. No-cost consultation.",
+    "Meet Christian Brinkley, a licensed insurance agent who lives and works in the Triad. Personal Medicare and insurance help at home or by phone. No-cost consultation.",
   alternates: { canonical: "/about" },
   openGraph: pageOpenGraph({
     title: "About Christian Brinkley — licensed Greensboro agent",
@@ -60,10 +60,10 @@ export default function AboutPage() {
                 Licensed insurance agent · {AGENT.city}, {AGENT.state}
               </p>
               <p className="text-19 mt-4 max-w-xl leading-relaxed text-[var(--color-paper)]/85">
-                I’m a licensed insurance agent in {AGENT.licensedStates.join(", ")}, working toward
-                my master’s in accounting at UNC Greensboro. I sit down with families at their
-                kitchen tables to understand their questions and what they want to protect. Your
-                insurance consultation is no cost, with no obligation to buy anything.
+                I’m a licensed insurance agent in {AGENT.licensedStates.join(", ")}, and I live here
+                in the Triad. I’m not a call center: I sit down with families myself, listen to
+                their questions, and help them understand what they want to protect. Your insurance
+                consultation is no cost, with no obligation to buy anything.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -85,7 +85,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-[rgba(15,34,65,0.08)] bg-white py-14">
+      <section className="border-t border-[rgba(21,46,52,0.08)] bg-white py-14">
         <div className="measure-prose app-shell text-18 max-w-3xl space-y-7 leading-[1.85] text-[var(--color-navy)]">
           <p>
             My life and my education are here in the Triad. I want to be someone you know and can
@@ -112,9 +112,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-[rgba(15,34,65,0.08)] bg-[var(--color-paper)] py-14">
+      <section className="border-t border-[rgba(21,46,52,0.08)] bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <div className="rounded-xl border border-[rgba(15,34,65,0.12)] bg-white p-6 md:p-8">
+          <div className="rounded-xl border border-[rgba(21,46,52,0.12)] bg-white p-6 md:p-8">
             <h2 className="text-22 font-semibold text-[var(--color-navy)]">How I get paid</h2>
             <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]">
               {COMPENSATION_DISCLOSURE}
@@ -123,7 +123,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-[rgba(15,34,65,0.08)] bg-white py-14">
+      <section className="border-t border-[rgba(21,46,52,0.08)] bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold text-[var(--color-navy)]">
             What happens when you get in touch{" "}
@@ -159,9 +159,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-[rgba(15,34,65,0.08)] bg-[var(--color-paper)] py-14">
+      <section className="border-t border-[rgba(21,46,52,0.08)] bg-[var(--color-paper)] py-14">
         <div className="app-shell max-w-xl">
-          <div className="rounded-xl border border-[rgba(15,34,65,0.1)] bg-white p-6 md:p-8">
+          <div className="rounded-xl border border-[rgba(21,46,52,0.1)] bg-white p-6 md:p-8">
             <h2 className="text-20 font-semibold text-[var(--color-navy)]">
               Licensing and education
             </h2>
@@ -175,7 +175,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-[rgba(15,34,65,0.08)] bg-[var(--color-paper)] py-14">
+      <section className="border-t border-[rgba(21,46,52,0.08)] bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <LeadCluster heading="Questions I can help with" />
         </div>

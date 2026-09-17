@@ -214,7 +214,7 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
               <li key={other.slug}>
                 <Link
                   href={`${copy.pathPrefix}/${other.slug}`}
-                  className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(15,34,65,0.14)] bg-[var(--color-paper)] px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
+                  className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(21,46,52,0.14)] bg-[var(--color-paper)] px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
                 >
                   <span className="text-18 font-semibold">
                     {copy.crumb} in {other.name} →
