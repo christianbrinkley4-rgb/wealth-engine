@@ -152,9 +152,9 @@ export default function HomePage() {
               Turning 65? Get Medicare right <em>the first time.</em>
             </h1>
             <p className="home-lede">
-              I’m Christian Brinkley, a licensed insurance agent in Greensboro. We can meet at your
-              home, at a convenient public location, or by phone. I’ll help you understand your
-              options, and I’ll be here when questions come up next year.
+              I’m Christian Brinkley, a licensed insurance agent in Greensboro. I’m not a call
+              center: when you call, I answer, and we can meet at your home, somewhere nearby, or by
+              phone. When a question comes up next year, it’s still me.
             </p>
             <div className="home-hero-id">
               <Image
@@ -221,9 +221,7 @@ export default function HomePage() {
           <div className="home-heading-row">
             <div>
               <p className="home-eyebrow">Your Medicare timeline</p>
-              <h2 id="timeline-heading">
-                Find your Medicare enrollment window and the dates to plan around.
-              </h2>
+              <h2 id="timeline-heading">Seven months to enroll. Here are your dates.</h2>
             </div>
             <p className="home-heading-note">
               Pick the month you turn 65. You’ll see when your window opens, when coverage can
@@ -236,9 +234,9 @@ export default function HomePage() {
 
       <section className="home-section home-rule-top" aria-labelledby="costs-heading">
         <div className="personal-shell">
-          <p className="home-eyebrow home-eyebrow-rust">Costs and enrollment protections</p>
+          <p className="home-eyebrow home-eyebrow-rust">What it costs to get wrong</p>
           <h2 id="costs-heading" className="home-h2-narrow">
-            Know which enrollment rules apply to you.
+            Three Medicare rules that can cost you for years.
           </h2>
           <div className="home-costs">
             {COSTS.map((item) => (
@@ -298,9 +296,9 @@ export default function HomePage() {
             <p className="home-eyebrow">Who you’ll be talking to</p>
             <h2 id="about-heading">I live here, and I plan to be your agent for a long time.</h2>
             <p>
-              I meet people across Greensboro, High Point, and Winston-Salem. I listen first,
-              explain your options in plain English, and give you room to decide. If your current
-              coverage still fits, I’ll tell you that too.
+              I meet families at their kitchen tables across Greensboro, High Point, and
+              Winston-Salem. I listen first, explain your options in plain English, and give you
+              room to decide. If your current coverage still fits, I’ll tell you that too.
             </p>
             <ul className="home-checks">
               {credentials.map((item) => (
@@ -320,7 +318,7 @@ export default function HomePage() {
       <section className="home-section home-steps-section" aria-labelledby="steps-heading">
         <div className="personal-shell">
           <p className="home-eyebrow">What happens next</p>
-          <h2 id="steps-heading">We’ll take your questions one at a time.</h2>
+          <h2 id="steps-heading">No script. No pressure. No hand-off.</h2>
           <ol className="home-steps">
             {STEPS.map((step, index) => (
               <li key={step.title}>
@@ -415,7 +413,7 @@ export default function HomePage() {
       <section className="home-close" aria-labelledby="close-heading">
         <div className="personal-shell home-close-grid">
           <div>
-            <h2 id="close-heading">Call me with your Medicare questions.</h2>
+            <h2 id="close-heading">Call me. I’ll be the one who picks up.</h2>
             <p>{AGENT.afterHoursPromise}</p>
           </div>
           <div className="home-close-actions">
