@@ -5,17 +5,17 @@ import { describe, expect, it } from "vitest";
 /**
  * Source checks on supabase/command-center/website-delivery-outbox.sql.
  *
- * This SQL is unapplied and there is no database in this suite, so nothing here
- * executes plpgsql. What these tests protect is the part that can still be got
- * wrong while the file sits in review: that it stays additive to the already
- * deployed website-ingress.sql, that its copy of capture_website_inquiry has
- * not drifted from the deployed one, that the suppression and idempotency rules
- * are still written the way the contract states, and that recording a delivery
- * cannot send one.
+ * This SQL has been applied to the command center, and there is no database in
+ * this suite, so nothing here executes plpgsql. What these tests protect is the
+ * part that can still be got wrong by editing the file: that it stays additive
+ * to the already deployed website-ingress.sql, that its copy of
+ * capture_website_inquiry has not drifted from the deployed one, that the
+ * suppression and idempotency rules are still written the way the contract
+ * states, and that recording a delivery cannot send one.
  *
  * The behavioural half — that the rules actually behave this way in Postgres —
- * can only be run after the file is applied, and is listed in the report as
- * work for whoever applies it.
+ * can only be checked against the live project, and is recorded in
+ * docs/LIVE-VERIFICATION-2026-09-15.md rather than here.
  */
 
 const read = (name: string) =>
@@ -33,11 +33,21 @@ function body(sql: string, name: string): string[] {
   expect(start, `${name} is missing`).toBeGreaterThan(-1);
   const end = sql.indexOf("\n$$;", start);
   expect(end, `${name} is unterminated`).toBeGreaterThan(start);
-  return sql
-    .slice(start, end)
-    .split("\n")
-    .map((line) => line.replace(/\s+--\s.*$/, "").trim())
-    .filter((line) => line.length > 0 && !line.startsWith("--"));
+  return (
+    sql
+      .slice(start, end)
+      .split("\n")
+      // Drop the carriage return first: without it a trailing comment on a CRLF
+      // checkout survives the strip below, and every line carrying one reads as
+      // drift that is not there.
+      .map((line) =>
+        line
+          .replace(/\r$/, "")
+          .replace(/\s+--\s.*$/, "")
+          .trim(),
+      )
+      .filter((line) => line.length > 0 && !line.startsWith("--"))
+  );
 }
 
 /** Lines in `from` that `to` does not have, counting repeats. */
@@ -53,10 +63,14 @@ function missingFrom(from: string[], to: string[]): string[] {
 }
 
 describe("the file stays additive to what is already deployed", () => {
-  it("says it is unapplied and names the one project it belongs to", () => {
-    expect(outboxSql).toMatch(/NOT APPLIED/);
-    expect(outboxSql).toMatch(/T65 Daily\n-- Command Center project ONLY/);
+  it("records where it was applied and names the one project it belongs to", () => {
+    // The header is the only record of which objects are live, so an edit that
+    // drops it leaves whoever reruns this file guessing.
+    expect(outboxSql).toMatch(/Applied remotely: website_delivery_outbox/);
+    expect(outboxSql).toMatch(/T65 Daily Command Center, project \w+/);
+    expect(outboxSql).toMatch(/Command Center project ONLY/);
     expect(outboxSql).toMatch(/Do not apply the unrelated wealth-engine/);
+    expect(outboxSql).toMatch(/Do not rerun the CREATE TABLE/);
   });
 
   it("creates only its own table and drops nothing", () => {
