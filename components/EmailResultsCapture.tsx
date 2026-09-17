@@ -1,8 +1,9 @@
 "use client";
 
 import { Mail } from "lucide-react";
+import Script from "next/script";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION } from "@/lib/agent";
 import { newEventId, readAttribution } from "@/lib/attribution";
@@ -25,7 +26,23 @@ interface EmailResultsCaptureProps {
 
 type SubmitState = "idle" | "loading" | "error";
 
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+type TurnstileApi = {
+  ready: (callback: () => void) => void;
+  render: (
+    container: HTMLElement,
+    options: { sitekey: string; theme: "light"; "error-callback": () => void },
+  ) => string | undefined;
+  getResponse: (widgetId: string) => string | undefined;
+  reset: (widgetId: string) => void;
+  remove: (widgetId: string) => void;
+};
+
+function turnstileApi(): TurnstileApi | undefined {
+  return (window as Window & { turnstile?: TurnstileApi }).turnstile;
+}
 
 export function EmailResultsCapture({
   initialEmail = "",
@@ -37,9 +54,62 @@ export function EmailResultsCapture({
   const [email, setEmail] = useState(initialEmail);
   const [fullName, setFullName] = useState("");
   const [consent, setConsent] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [turnstileReady, setTurnstileReady] = useState(false);
+  const [turnstileRender, setTurnstileRender] = useState(0);
+  const turnstileContainer = useRef<HTMLDivElement>(null);
+  const turnstileWidget = useRef<string | null>(null);
   const isRoth = variant === "roth";
+
+  useEffect(() => {
+    const container = turnstileContainer.current;
+    const api = turnstileApi();
+    if (!TURNSTILE_SITE_KEY || !turnstileReady || !container || !api) return;
+    let disposed = false;
+    let widgetId: string | undefined;
+    api.ready(() => {
+      if (disposed) return;
+      try {
+        widgetId = api.render(container, {
+          sitekey: TURNSTILE_SITE_KEY,
+          theme: "light",
+          "error-callback": () => {
+            if (!disposed)
+              setError("The form check couldn’t finish. Please try again, or call me.");
+          },
+        });
+        turnstileWidget.current = widgetId ?? null;
+      } catch {
+        setError("The form check couldn’t load. Please try again, or call me.");
+      }
+    });
+    return () => {
+      disposed = true;
+      turnstileWidget.current = null;
+      if (widgetId) {
+        try {
+          api.remove(widgetId);
+        } catch {
+          // Already removed by a navigation or a blocked script.
+        }
+      }
+    };
+  }, [turnstileReady, turnstileRender]);
+
+  function resetFormCheck() {
+    if (!TURNSTILE_SITE_KEY) return;
+    try {
+      const widgetId = turnstileWidget.current;
+      const api = turnstileApi();
+      if (!widgetId || !api) throw new Error("Form check unavailable");
+      api.reset(widgetId);
+    } catch {
+      turnstileWidget.current = null;
+      setTurnstileRender((value) => value + 1);
+    }
+  }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -51,6 +121,15 @@ export function EmailResultsCapture({
     }
     if (!consent) {
       setError("Check the box so I know it’s alright to contact you.");
+      return;
+    }
+
+    const turnstileToken = turnstileWidget.current
+      ? (turnstileApi()?.getResponse(turnstileWidget.current) ?? "")
+      : "";
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      setError("Please finish the quick form check, then send again.");
+      resetFormCheck();
       return;
     }
 
@@ -73,6 +152,8 @@ export function EmailResultsCapture({
           consent_text: CONSENT_TEXT,
           consent_version: CONSENT_VERSION,
           ...wizardData,
+          website: honeypot,
+          turnstile_token: turnstileToken,
         }),
       });
 
@@ -83,6 +164,7 @@ export function EmailResultsCapture({
       };
 
       if (!res.ok) {
+        resetFormCheck();
         const configFail = data.code === "storage_unavailable" || res.status === 503;
         setError(
           data.error ??
@@ -103,6 +185,7 @@ export function EmailResultsCapture({
         }),
       );
     } catch {
+      resetFormCheck();
       setError(`Something went wrong on my end. Try again, or call me at ${AGENT.phone}.`);
       setSubmitState("error");
     }
@@ -115,6 +198,14 @@ export function EmailResultsCapture({
       className="card-surface mt-8 p-6 md:p-7"
       aria-labelledby="results-capture-heading"
     >
+      {TURNSTILE_SITE_KEY ? (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+          onLoad={() => setTurnstileReady(true)}
+          onReady={() => setTurnstileReady(true)}
+        />
+      ) : null}
       <h2
         id="results-capture-heading"
         className="text-22 flex items-center gap-3 font-semibold text-[var(--color-navy)]"
@@ -126,6 +217,19 @@ export function EmailResultsCapture({
         Request a copy and a personal review of what these numbers could mean for your situation.
         Your request goes directly to Christian.
       </p>
+
+      <div className="tl-honeypot" aria-hidden>
+        <label htmlFor="results-website">Website</label>
+        <input
+          id="results-website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(event) => setHoneypot(event.target.value)}
+        />
+      </div>
 
       <div className="mt-5 space-y-4">
         <div>
@@ -179,6 +283,8 @@ export function EmailResultsCapture({
           />
           <span>{CONSENT_TEXT}</span>
         </label>
+
+        {TURNSTILE_SITE_KEY ? <div ref={turnstileContainer} /> : null}
 
         {error ? (
           <div
