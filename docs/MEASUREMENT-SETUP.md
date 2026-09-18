@@ -81,7 +81,7 @@ If nothing appears: check that the deploy finished after you added the settings,
 
 1. **Finish the Google Ads account** (you), then import the two key events as conversions, per step 2.
 2. **Mark the key events** in Analytics. Google only lets an event be starred once it has listed the name, which takes up to 24 hours from the first time it happens. From about September 18: **Admin → Data display → Events**, find `phone_click` and `generate_lead`, and click the star beside each.
-3. **Watch the Netlify credits.** The free plan gives 300 a month; on September 17 there were 19 left, and the billing period resets September 21. Every deploy spends some. If they run out, Netlify pauses the site — which would be an expensive thing to discover while ads are running. Avoid unnecessary deploys until the reset, and consider what a paid plan costs before advertising.
+3. **Netlify is on the Personal plan** as of September 17: $9 a month for 1,000 credits, up from 300. A production deploy costs 15 credits, bandwidth 20 per GB, web requests 2 per 10,000; deploy previews are free. That is roughly 60 deploys a month plus real traffic, so the site pausing mid-campaign is no longer a live risk. Keep an eye on it during a heavy build week.
 
 ## What this still doesn't tell you
 
