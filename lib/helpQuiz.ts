@@ -40,6 +40,15 @@ export type QuizAnswers = HelpQuizAnswerMap;
 export interface HelpQuizOption {
   value: string;
   label: string;
+  /**
+   * Show this option only when an earlier answer matches.
+   *
+   * Someone already on Medicare was being offered "When I have to sign up,
+   * and by when" — a question they answered years ago. Every option still
+   * lives in this list so a stored answer can always be given a label; the
+   * quiz simply stops offering the ones that do not apply.
+   */
+  when?: { questionId: string; values: readonly string[] };
 }
 
 export interface HelpQuizQuestion {
@@ -90,11 +99,47 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
       },
       {
         id: "medicare_question",
-        prompt: "What would you most like help understanding?",
+        prompt: "What would you most like help with?",
         options: [
-          { value: "when_to_enroll", label: "When I have to sign up, and by when" },
-          { value: "which_coverage", label: "How the coverage choices differ" },
-          { value: "cost_surprises", label: "Why my premium is what it is" },
+          {
+            value: "when_to_enroll",
+            label: "When I have to sign up, and by when",
+            when: {
+              questionId: "medicare_stage",
+              values: ["turning_65_soon", "past_65_still_working", "helping_spouse_or_parent"],
+            },
+          },
+          {
+            value: "which_coverage",
+            label: "How the coverage choices differ",
+            when: {
+              questionId: "medicare_stage",
+              values: ["turning_65_soon", "past_65_still_working", "helping_spouse_or_parent"],
+            },
+          },
+          {
+            value: "plan_still_fits",
+            label: "Whether my plan still fits for next year",
+            when: { questionId: "medicare_stage", values: ["already_on_medicare"] },
+          },
+          {
+            value: "keep_doctors_drugs",
+            label: "Keeping my doctors and prescriptions covered",
+            when: { questionId: "medicare_stage", values: ["already_on_medicare"] },
+          },
+          {
+            value: "costs_changed",
+            label: "Why my costs changed, or a letter I received",
+            when: { questionId: "medicare_stage", values: ["already_on_medicare"] },
+          },
+          {
+            value: "cost_surprises",
+            label: "Why my premium is what it is",
+            when: {
+              questionId: "medicare_stage",
+              values: ["turning_65_soon", "past_65_still_working", "helping_spouse_or_parent"],
+            },
+          },
           { value: "all_of_it", label: "I need help with the full picture" },
         ],
       },
@@ -554,6 +599,16 @@ export function isInterestTopic(value: string | null | undefined): value is Inte
 }
 
 /** Human-readable answers for the notification email. */
+/** The options that still make sense given what has been answered so far. */
+export function visibleOptions(
+  question: HelpQuizQuestion,
+  answers: HelpQuizAnswerMap,
+): HelpQuizOption[] {
+  return question.options.filter(
+    (option) => !option.when || option.when.values.includes(answers[option.when.questionId] ?? ""),
+  );
+}
+
 export function describeAnswers(
   topic: HelpQuizTopic,
   answers: HelpQuizAnswerMap,

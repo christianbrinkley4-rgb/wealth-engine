@@ -30,6 +30,7 @@ import {
   type InterestTopic,
   type QuizAnswers,
   type QuizSituation,
+  visibleOptions,
 } from "@/lib/helpQuiz";
 import { thankYouUrl } from "@/lib/thankYouUrl";
 import { cn } from "@/lib/utils";
@@ -713,7 +714,7 @@ export function HelpQuiz() {
             </p>
           ) : null}
           <div className="mt-8 flex flex-col gap-3">
-            {currentBranch.options.map((opt) => {
+            {visibleOptions(currentBranch, stored.answers).map((opt) => {
               const selected = stored.answers[currentBranch.id] === opt.value;
               return (
                 <button
