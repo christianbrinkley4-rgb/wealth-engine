@@ -13,7 +13,7 @@ import {
 } from "@/lib/seo";
 import { FeaturedPlaceCards, ServiceAreaTownList } from "@/app/components/ServiceAreaTownList";
 import { LeadCluster } from "@/app/components/LeadCluster";
-import { SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
+import { SERVICE_AREA_LEDE } from "@/lib/triad";
 
 /**
  * Life insurance, organised around the only question that decides it.
@@ -26,14 +26,16 @@ import { SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Life Insurance in Greensboro, NC — personal review" },
+  title: {
+    absolute: "Life Insurance in Greensboro, Winston-Salem & High Point — personal review",
+  },
   description:
-    "Review life insurance with Christian Brinkley in Greensboro. Understand your current coverage, your family’s needs, and what may change when you retire. No cost or obligation.",
+    "Review life insurance with Christian Brinkley in Greensboro, High Point, or Winston-Salem. Understand your current coverage, your family’s needs, and what may change when you retire. No cost or obligation.",
   alternates: { canonical: "/life-insurance" },
   openGraph: pageOpenGraph({
-    title: "Life insurance, reviewed in person in Greensboro",
+    title: "Life insurance help in Greensboro, Winston-Salem & High Point",
     description:
-      "Personal help reviewing your life insurance, beneficiaries, and coverage needs as you approach retirement.",
+      "Personal help reviewing your life insurance, beneficiaries, and coverage needs as you approach retirement — with a local licensed agent across the Triad.",
     path: "/life-insurance",
   }),
 };
@@ -88,12 +90,12 @@ export default function LifeInsurancePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Personal life insurance help in Greensboro",
+              headline: "Personal life insurance help in Greensboro, Winston-Salem & High Point",
               description:
                 "Understand your life insurance options and what to review in an existing policy.",
               path: "/life-insurance",
               datePublished: "2026-08-25",
-              dateModified: "2026-09-10",
+              dateModified: "2026-09-18",
             }),
           ),
         }}
@@ -105,7 +107,7 @@ export default function LifeInsurancePage() {
             serviceJsonLd({
               name: "Life insurance review",
               description:
-                "Personal reviews of existing life insurance in Greensboro and nearby communities. No-cost consultation, with no obligation to buy.",
+                "Personal reviews of existing life insurance in Greensboro, High Point, Winston-Salem, and nearby communities. No-cost consultation, with no obligation to buy.",
               path: "/life-insurance",
             }),
           ),
@@ -114,9 +116,9 @@ export default function LifeInsurancePage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Life insurance" }]}
-        eyebrow={SERVICE_AREA_LABEL}
+        eyebrow="Greensboro, High Point & Winston-Salem"
         title="Protect the people who depend on you"
-        lede="Review employer and personal coverage, beneficiaries, policy end dates, and how long your family may need protection. Work directly with a local licensed agent."
+        lede="Review employer and personal coverage, beneficiaries, policy end dates, and how long your family may need protection. Work directly with a licensed agent who meets in Greensboro, High Point, Winston-Salem, and nearby Triad communities."
         secondaryHref="/start?topic=life_insurance"
         secondaryLabel="Get a personal coverage review →"
       />

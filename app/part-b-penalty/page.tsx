@@ -8,22 +8,23 @@ import { STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
 import { formatMoney } from "@/lib/partBPenalty";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
-const title = "Medicare Part B Late Enrollment Penalty Calculator — Greensboro, NC";
+const title =
+  "Medicare Part B Late Enrollment Penalty Calculator — Greensboro, Winston-Salem & High Point";
 const description =
-  "Work out whether a Part B late enrollment penalty applies to you, what it adds each month, and what it costs over a retirement. Uses the 2026 standard premium.";
+  "Work out whether a Part B late enrollment penalty applies to you, what it adds each month, and what it costs over a retirement. Uses the 2026 standard premium. Local help in Greensboro, High Point, and Winston-Salem.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
   alternates: { canonical: "/part-b-penalty" },
   openGraph: pageOpenGraph({
-    title: "What a late Part B enrollment actually costs",
+    title: "Part B late penalty help in Greensboro, Winston-Salem & High Point",
     description:
-      "Ten percent for every full year you could have had Part B and didn't — for as long as you have it. See your number.",
+      "Ten percent for every full year you could have had Part B and didn't — for as long as you have it. See your number, then talk it through with a Triad agent.",
     path: "/part-b-penalty",
   }),
   twitter: pageTwitter({
-    title: "Medicare Part B late penalty calculator",
+    title: "Medicare Part B late penalty calculator — Piedmont Triad",
     description: "What it adds each month, each year, and across a retirement.",
   }),
 };
@@ -90,7 +91,8 @@ export default function PartBPenaltyPage() {
             <p className="home-heading-note">
               Ten percent is added to your premium for every full year you could have had Part B and
               didn’t — and it stays for as long as you have it. Two dates will tell you where you
-              stand.
+              stand. If you live in Greensboro, High Point, Winston-Salem, or nearby, we can walk
+              through the result together.
             </p>
           </div>
 

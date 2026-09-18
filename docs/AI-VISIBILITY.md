@@ -177,6 +177,62 @@ Paste any new Nextdoor / Yelp / Bing Places URLs back into the site repo when th
 
 ---
 
+## Addendum — 18 September 2026 (high-intent Triad naming pass)
+
+**Ranking goal is still not complete.** christianbrinkleync.com is still not #1
+for Piedmont Triad Medicare/service searches, and still not the answer assistants
+quote. Off-site Bing Places / Facebook admin / Nextdoor / Apple / Yelp still
+require Christian’s login — nothing was faked or wired from scrapes.
+
+### Working tree vs live (profiles)
+
+| Check | Result |
+| ----- | ------ |
+| Working tree `SOCIAL_PROFILES` | Facebook + LinkedIn + Maps CID `12304450181097673337`; Nextdoor/Yelp `null` |
+| Live `/` JSON-LD `sameAs` | Same three URLs; no `bankerslife` / carrier Maps CID |
+| Live `/llms.txt` Public profiles | Same three URLs |
+| Carrier URLs on visitor pages | None |
+
+### SERP status this pass (honest)
+
+| Query | What ranked / was named | christianbrinkleync.com |
+| ----- | ----------------------- | ----------------------- |
+| Medicare agent Greensboro NC | Tiffany Gladwell, Hometown / Priscilla Vann, Medicare Agents Hub, Health Insurance Shoppe, Farley Insurance Solutions | **Not in the cited / top set** |
+| Medicare agent Winston-Salem NC | Kevin Staff (Humana MarketPoint), Community Senior Benefits, Sandra Collins / Blue Moon, Kevin Ebbink / Compass, Moser | **Not in the cited set** |
+| who can help me sign up for Medicare at 65 in the Triad | NC DOI / SHIIP, Shepherd’s Center (Forsyth), Senior Resources of Guilford, Randolph Senior Adults | **Not the cited answer** |
+| Christian Brinkley Greensboro Medicare | **agents.bankerslife.com** first; scraped office directories; LinkedIn | Personal site **not first** |
+| life insurance Greensboro NC Christian Brinkley | Bankers Life agent profile + branch/scraped listings | Personal site **not first** |
+
+### On-site this pass
+
+Titles, Open Graph, eyebrows, and first-screen ledes on eight high-intent guides
+now name Greensboro, Winston-Salem, and High Point the way `/turning-65` and
+`/helping-a-parent` already do — no keyword stuffing, no Bankers Life on visitor
+pages:
+
+- `/annual-enrollment`
+- `/keep-my-doctor`
+- `/advantage-vs-medigap`
+- `/life-insurance`
+- `/retirement-income`
+- `/irmaa-appeal`
+- `/part-b-penalty`
+- `/medicare-costs-2026` (federal figures stay federal; local frame names the
+  three cities and county plan variation)
+
+### Remaining blockers (unchanged order)
+
+1. **Bing Places** — still missing; ChatGPT/Bing local answers need a business listing.
+2. **Facebook NAP** — Page exists; phone/category/About/email still wrong per PROFILE-COPY.md.
+3. **Nextdoor Business Page** — create independent Insurance Agent page (not carrier-branded).
+4. **Google reviews** on CID `12304450181097673337` — still none.
+5. **Apple Business Connect** and **Yelp** claim with the same NAP.
+6. **Real local links** — chamber, talks, member pages; Search Console still weak on referring pages.
+
+Next lever for Christian (cannot be done from the repo): **Bing Places import from the independent Google profile**, then paste the public URL back for `sameAs`.
+
+---
+
 ## Addendum — 18 September 2026 (evening verification pass)
 
 **Ranking goal is not complete.** christianbrinkleync.com is still not #1
@@ -298,3 +354,59 @@ Same Turning 65 talk email as in [LOCAL-SEO-CITATIONS.md](LOCAL-SEO-CITATIONS.md
 `/helping-a-parent` title and description now name Greensboro, Winston-Salem,
 and High Point the way other Triad guides do — not a doorway page. Place ID
 and write-review URL live in docs for Christian’s client asks.
+
+---
+
+## Addendum — 18 September 2026 (high-intent Triad naming pass)
+
+**Ranking goal is still not complete.** christianbrinkleync.com is still not #1
+for Piedmont Triad Medicare/service searches, and still not the answer assistants
+quote. Off-site Bing Places / Facebook admin / Nextdoor / Apple / Yelp still
+require Christian’s login — nothing was faked or wired from scrapes.
+
+### Working tree vs live (profiles)
+
+| Check | Result |
+| ----- | ------ |
+| Working tree `SOCIAL_PROFILES` | Facebook + LinkedIn + Maps CID `12304450181097673337`; Nextdoor/Yelp `null` |
+| Live `/` JSON-LD `sameAs` | Same three URLs; no `bankerslife` / carrier Maps CID |
+| Live `/llms.txt` Public profiles | Same three URLs |
+| Carrier URLs on visitor pages | None |
+
+### SERP status this pass (honest)
+
+| Query | What ranked / was named | christianbrinkleync.com |
+| ----- | ----------------------- | ----------------------- |
+| Medicare agent Greensboro NC | Tiffany Gladwell, Hometown / Priscilla Vann, Medicare Agents Hub, Health Insurance Shoppe, Farley Insurance Solutions | **Not in the cited / top set** |
+| Medicare agent Winston-Salem NC | Kevin Staff (Humana MarketPoint), Community Senior Benefits, Sandra Collins / Blue Moon, Kevin Ebbink / Compass, Moser | **Not in the cited set** |
+| who can help me sign up for Medicare at 65 in the Triad | NC DOI / SHIIP, Shepherd’s Center (Forsyth), Senior Resources of Guilford, Randolph Senior Adults | **Not the cited answer** |
+| Christian Brinkley Greensboro Medicare | **agents.bankerslife.com** first; scraped office directories; LinkedIn | Personal site **not first** |
+| life insurance Greensboro NC Christian Brinkley | Bankers Life agent profile + branch/scraped listings | Personal site **not first** |
+
+### On-site this pass
+
+Titles, Open Graph, eyebrows, and first-screen ledes on eight high-intent guides
+now name Greensboro, Winston-Salem, and High Point the way `/turning-65` and
+`/helping-a-parent` already do — no keyword stuffing, no Bankers Life on visitor
+pages:
+
+- `/annual-enrollment`
+- `/keep-my-doctor`
+- `/advantage-vs-medigap`
+- `/life-insurance`
+- `/retirement-income`
+- `/irmaa-appeal`
+- `/part-b-penalty`
+- `/medicare-costs-2026` (federal figures stay federal; local frame names the
+  three cities and county plan variation)
+
+### Remaining blockers (unchanged order)
+
+1. **Bing Places** — still missing; ChatGPT/Bing local answers need a business listing.
+2. **Facebook NAP** — Page exists; phone/category/About/email still wrong per PROFILE-COPY.md.
+3. **Nextdoor Business Page** — create independent Insurance Agent page (not carrier-branded).
+4. **Google reviews** on CID `12304450181097673337` — still none.
+5. **Apple Business Connect** and **Yelp** claim with the same NAP.
+6. **Real local links** — chamber, talks, member pages; Search Console still weak on referring pages.
+
+Next lever for Christian (cannot be done from the repo): **Bing Places import from the independent Google profile**, then paste the public URL back for `sameAs`.

@@ -14,7 +14,7 @@ import {
 } from "@/lib/seo";
 import { FeaturedPlaceCards, ServiceAreaTownList } from "@/app/components/ServiceAreaTownList";
 import { LeadCluster } from "@/app/components/LeadCluster";
-import { SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
+import { SERVICE_AREA_LEDE } from "@/lib/triad";
 
 /**
  * The 401(k) and retirement-income territory, as education rather than advice.
@@ -36,14 +36,17 @@ import { SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Retirement Planning Help in Greensboro, NC — 401(k) & Medicare Timing" },
+  title: {
+    absolute:
+      "Retirement Planning Help in Greensboro, Winston-Salem & High Point — 401(k) & Medicare Timing",
+  },
   description:
-    "Learn how 401(k) options, required distributions, and retirement income can affect Medicare premiums. Local education from a Greensboro insurance agent.",
+    "Learn how 401(k) options, required distributions, and retirement income can affect Medicare premiums. Local education from a licensed agent serving Greensboro, High Point, and Winston-Salem.",
   alternates: { canonical: "/retirement-income" },
   openGraph: pageOpenGraph({
-    title: "Retirement questions, answered in person in Greensboro",
+    title: "Retirement questions in Greensboro, Winston-Salem & High Point",
     description:
-      "Educational guidance on 401(k) options, retirement-income timing, and potential Medicare premium effects.",
+      "Educational guidance on 401(k) options, retirement-income timing, and potential Medicare premium effects — for Triad households.",
     path: "/retirement-income",
   }),
 };
@@ -122,7 +125,7 @@ export default function RetirementIncomePage() {
                 "The four options, the deadlines attached to each, and how a withdrawal lands on a Medicare premium two years later.",
               path: "/retirement-income",
               datePublished: "2026-08-25",
-              dateModified: "2026-09-10",
+              dateModified: "2026-09-18",
             }),
           ),
         }}
@@ -158,9 +161,9 @@ export default function RetirementIncomePage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Retirement income" }]}
-        eyebrow={SERVICE_AREA_LABEL}
+        eyebrow="Greensboro, High Point & Winston-Salem"
         title="Coordinate retirement income with Medicare"
-        lede="Retiring can change where your monthly income comes from and what you pay for Medicare. I can help you understand the Medicare questions and work with an advisor for financial planning."
+        lede="Retiring can change where your monthly income comes from and what you pay for Medicare. I can help Triad households in Greensboro, High Point, and Winston-Salem understand the Medicare questions and work with an advisor for financial planning."
         secondaryHref="/start?topic=financial_planning"
         secondaryLabel="Check Medicare income effects →"
       />

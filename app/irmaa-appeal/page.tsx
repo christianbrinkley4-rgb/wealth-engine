@@ -5,7 +5,6 @@ import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
@@ -21,14 +20,16 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Appealing a High Medicare Premium — Form SSA-44" },
+  title: {
+    absolute: "Appealing a High Medicare Premium in Greensboro, Winston-Salem & High Point",
+  },
   description:
-    "If your income has fallen after retirement or another qualifying life change, Social Security may be able to review your income-related Medicare premium charges.",
+    "If your income has fallen after retirement or another qualifying life change, Social Security may review income-related Medicare premium charges. Local help in Greensboro, High Point, and Winston-Salem.",
   alternates: { canonical: "/irmaa-appeal" },
   openGraph: pageOpenGraph({
-    title: "Appealing a high Medicare premium (Form SSA-44)",
+    title: "Appealing a high Medicare premium in Greensboro, Winston-Salem & High Point",
     description:
-      "Retired since the tax year Medicare is using? You may not have to pay the higher premium. Here is what qualifies.",
+      "Retired since the tax year Medicare is using? You may not have to pay the higher premium. Here’s what qualifies — and how a Triad agent can help you prepare the request.",
     path: "/irmaa-appeal",
   }),
 };
@@ -127,12 +128,13 @@ export default function IrmaaAppealPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Appealing a high Medicare premium (Form SSA-44)",
+              headline:
+                "Appealing a high Medicare premium in Greensboro, Winston-Salem & High Point (Form SSA-44)",
               description:
                 "Learn which life changes may qualify for a review of income-related Medicare premium charges and how to prepare a request to Social Security.",
               path: "/irmaa-appeal",
               datePublished: "2026-08-31",
-              dateModified: "2026-09-10",
+              dateModified: "2026-09-18",
             }),
           ),
         }}
@@ -154,9 +156,9 @@ export default function IrmaaAppealPage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "IRMAA appeal" }]}
-        eyebrow={`${AGENT.city} · Form SSA-44`}
+        eyebrow="Greensboro, High Point & Winston-Salem · Form SSA-44"
         title="Has your income gone down since you retired?"
-        lede="Medicare generally uses income from two years earlier to calculate income-related premium charges. If you’ve retired, reduced your work hours, or had another qualifying life change, you may be able to request a review through Social Security."
+        lede="Medicare generally uses income from two years earlier to calculate income-related premium charges. If you’ve retired, reduced your work hours, or had another qualifying life change, you may be able to request a review through Social Security. I can help Triad households in Greensboro, High Point, and Winston-Salem understand the notice and prepare questions."
         secondaryHref="/start?topic=medicare&stage=already_on_medicare&ask=premium"
         secondaryLabel="Ask about your Medicare premiums →"
       />

@@ -32,12 +32,14 @@ import {
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Medicare Annual Enrollment, Oct 15–Dec 7 — Greensboro, NC" },
+  title: {
+    absolute: "Medicare Annual Enrollment in Greensboro, Winston-Salem & High Point",
+  },
   description:
-    "Review next year’s Medicare costs, prescriptions, and doctors with a licensed agent in Greensboro, High Point, or Winston-Salem before you decide.",
+    "Review next year’s Medicare costs, prescriptions, and doctors with a licensed agent who meets in Greensboro, High Point, or Winston-Salem before you decide.",
   alternates: { canonical: "/annual-enrollment" },
   openGraph: pageOpenGraph({
-    title: "Reviewing your Medicare coverage for next year in Greensboro",
+    title: "Medicare annual enrollment help in Greensboro, Winston-Salem & High Point",
     description:
       "A personal review in Greensboro, High Point, or Winston-Salem of next year’s costs, doctors, and prescriptions — including when keeping your plan is the right move.",
     path: "/annual-enrollment",
@@ -117,7 +119,8 @@ export default function AnnualEnrollmentPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Reviewing your Medicare coverage for next year in Greensboro",
+              headline:
+                "Reviewing your Medicare coverage for next year in Greensboro, Winston-Salem & High Point",
               description:
                 "How to review your plan’s changes, prescription coverage, doctors, and costs before the annual enrollment deadline.",
               path: "/annual-enrollment",
@@ -157,9 +160,9 @@ export default function AnnualEnrollmentPage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment" }]}
-        eyebrow="October 15 – December 7 · Greensboro, NC"
+        eyebrow="October 15 – December 7 · Piedmont Triad"
         title="Review your Medicare coverage for next year"
-        lede="A yearly review can help you make sure your Medicare coverage still fits. We’ll look at next year’s costs, prescriptions, and doctors together before you decide whether to keep your plan or make a change."
+        lede="A yearly review can help you make sure your Medicare coverage still fits. We’ll sit down in Greensboro, High Point, or Winston-Salem — or talk by phone — and look at next year’s costs, prescriptions, and doctors before you decide whether to keep your plan or make a change."
         secondaryHref="/start?topic=medicare&stage=already_on_medicare"
         secondaryLabel="Review my coverage →"
       />

@@ -17,22 +17,23 @@ import {
 import { formatMoney } from "@/lib/partBPenalty";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
-const title = "2026 Medicare Costs: Premiums, Deductibles and IRMAA Brackets";
+const title =
+  "2026 Medicare Costs in NC: Premiums, Deductibles & IRMAA — Greensboro & the Triad";
 const description =
-  "Every 2026 Medicare figure in one place, taken from the CMS fact sheets: the $202.90 Part B premium, the $283 deductible, Part A hospital costs, the $2,100 Part D cap, and both IRMAA tables.";
+  "Every 2026 Medicare figure in one place, taken from the CMS fact sheets: the $202.90 Part B premium, the $283 deductible, Part A hospital costs, the $2,100 Part D cap, and both IRMAA tables. What they mean if you live in Greensboro, High Point, or Winston-Salem is the conversation.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
   alternates: { canonical: "/medicare-costs-2026" },
   openGraph: pageOpenGraph({
-    title: "Every 2026 Medicare cost, in one place",
+    title: "Every 2026 Medicare cost, for Triad readers",
     description:
-      "Part A, Part B, Part D and both IRMAA tables — the published figures, with the CMS source next to each one.",
+      "Part A, Part B, Part D and both IRMAA tables — the published figures, with the CMS source next to each one. Local plan costs still vary by county.",
     path: "/medicare-costs-2026",
   }),
   twitter: pageTwitter({
-    title: "2026 Medicare costs",
+    title: "2026 Medicare costs — Greensboro & the Triad",
     description: "Premiums, deductibles and IRMAA brackets, straight from the CMS fact sheets.",
   }),
 };
@@ -62,7 +63,7 @@ const FAQ = [
   },
   {
     q: "Do these figures apply in North Carolina?",
-    a: "Part A, Part B and the IRMAA amounts are federal and identical in every state. What varies locally is which Medicare Advantage and Part D plans are sold, what they charge, and which doctors and hospitals are in them — so in Guilford or Forsyth County the plan costs are a local question even though the figures on this page are not.",
+    a: "Part A, Part B and the IRMAA amounts are federal and identical in every state. What varies locally is which Medicare Advantage and Part D plans are sold, what they charge, and which doctors and hospitals are in them — so in Greensboro and High Point (Guilford County) or Winston-Salem (Forsyth County) the plan costs are a local question even though the figures on this page are not.",
   },
   {
     q: "What happens if I sign up for Part B late?",
@@ -115,8 +116,9 @@ export default function MedicareCosts2026Page() {
             </div>
             <p className="home-heading-note">
               These are the national figures from the CMS fact sheets, not estimates. They are the
-              same in North Carolina as anywhere else. What each one means for you is the part worth
-              a conversation.
+              same in North Carolina as anywhere else. What each one means if you live in Greensboro,
+              High Point, or Winston-Salem — and which Advantage or Part D plans are sold in your
+              county — is the part worth a conversation.
             </p>
           </div>
 

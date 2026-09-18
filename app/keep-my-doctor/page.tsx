@@ -19,12 +19,14 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Can I Keep My Doctor on Medicare? — Greensboro, NC" },
+  title: {
+    absolute: "Can I Keep My Doctor on Medicare in Greensboro, Winston-Salem & High Point?",
+  },
   description:
     "Whether you keep your doctor depends on the coverage you choose. How to check networks in Greensboro, High Point, and Winston-Salem before you enroll.",
   alternates: { canonical: "/keep-my-doctor" },
   openGraph: pageOpenGraph({
-    title: "Can I keep my doctor on Medicare?",
+    title: "Can I keep my doctor on Medicare in Greensboro, Winston-Salem & High Point?",
     description:
       "The first question everyone asks, answered for Greensboro, High Point, and Winston-Salem — including how to check properly before you sign up.",
     path: "/keep-my-doctor",
@@ -127,9 +129,9 @@ export default function KeepMyDoctorPage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Keep my doctor" }]}
-        eyebrow="Greensboro & the Triad"
+        eyebrow="Greensboro, High Point & Winston-Salem"
         title="“Can I keep my doctor?”"
-        lede="Your doctors know you and your health history. If you’d like to keep seeing them, let’s check how they fit with your Medicare options before you choose a plan."
+        lede="Your doctors know you and your health history. If you’d like to keep seeing them in Greensboro, High Point, Winston-Salem, or elsewhere in the Triad, let’s check how they fit with your Medicare options before you choose a plan."
         secondaryHref="/start?topic=medicare&ask=doctors"
         secondaryLabel="Tell me who you see →"
       />

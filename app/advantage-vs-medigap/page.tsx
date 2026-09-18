@@ -5,7 +5,6 @@ import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
@@ -26,14 +25,16 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Medicare Advantage vs Medigap — Greensboro, NC" },
+  title: {
+    absolute: "Medicare Advantage vs Medigap in Greensboro, Winston-Salem & High Point",
+  },
   description:
-    "Compare Medicare Advantage with Original Medicare and Medigap. Learn how doctors, costs, prescriptions, and enrollment rules can affect your choice.",
+    "Compare Medicare Advantage with Original Medicare and Medigap for Greensboro, High Point, and Winston-Salem. Doctors, costs, prescriptions, and enrollment rules — explained plainly.",
   alternates: { canonical: "/advantage-vs-medigap" },
   openGraph: pageOpenGraph({
-    title: "Understanding Medicare Advantage and Medigap",
+    title: "Medicare Advantage vs Medigap in Greensboro, Winston-Salem & High Point",
     description:
-      "Understand the differences in coverage, costs, and enrollment rules before you decide.",
+      "Understand the differences in coverage, costs, and enrollment rules before you decide — with a local agent who meets across the Triad.",
     path: "/advantage-vs-medigap",
   }),
 };
@@ -99,11 +100,12 @@ export default function AdvantageVsMedigapPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Understanding Medicare Advantage and Medigap",
+              headline:
+                "Understanding Medicare Advantage and Medigap in Greensboro, Winston-Salem & High Point",
               description: "Questions to consider before you choose",
               path: "/advantage-vs-medigap",
               datePublished: "2026-08-31",
-              dateModified: "2026-09-10",
+              dateModified: "2026-09-18",
             }),
           ),
         }}
@@ -126,9 +128,9 @@ export default function AdvantageVsMedigapPage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Advantage vs Medigap" }]}
-        eyebrow={`${AGENT.city} · ${AGENT.region}`}
+        eyebrow="Greensboro, High Point & Winston-Salem"
         title="Which Medicare option fits your needs?"
-        lede="Medicare Advantage and Medigap work differently. Here’s a starting point for understanding your choices, including what you may pay, which doctors you can see, and what to know about enrolling."
+        lede="Medicare Advantage and Medigap work differently. Here’s a starting point for understanding your choices in Greensboro, High Point, and Winston-Salem — including what you may pay, which doctors you can see, and what to know about enrolling."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon"
         secondaryLabel="Tell me your situation →"
       />
