@@ -20,14 +20,16 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Helping a Parent with Medicare — Greensboro, NC" },
+  title: {
+    absolute: "Helping a Parent with Medicare in Greensboro, Winston-Salem & High Point",
+  },
   description:
-    "If you are the one researching for Mom or Dad: the deadlines that matter, what you are allowed to do on their behalf, and what to ask. Greensboro, NC.",
+    "If you are the one researching for Mom or Dad in the Piedmont Triad: the deadlines that matter, what you are allowed to do on their behalf, and what to ask. Meet in Greensboro, High Point, or Winston-Salem.",
   alternates: { canonical: "/helping-a-parent" },
   openGraph: pageOpenGraph({
-    title: "Helping a parent with Medicare",
+    title: "Helping a parent with Medicare in Greensboro, Winston-Salem & High Point",
     description:
-      "The deadlines, the paperwork you need before Social Security will talk to you, and what to ask. No cost.",
+      "The deadlines, the paperwork you need before Social Security will talk to you, and what to ask — for Triad families. No cost.",
     path: "/helping-a-parent",
   }),
 };
@@ -96,7 +98,7 @@ export default function HelpingAParentPage() {
                 "Authorization, the seven-month sign-up window, and the Medigap deadline an adult child needs to pin down first.",
               path: "/helping-a-parent",
               datePublished: "2026-08-31",
-              dateModified: "2026-09-10",
+              dateModified: "2026-09-18",
             }),
           ),
         }}
@@ -118,9 +120,9 @@ export default function HelpingAParentPage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Helping a parent" }]}
-        eyebrow={`For the son or daughter · ${AGENT.city}`}
+        eyebrow={`For the son or daughter · Piedmont Triad`}
         title="Helping a parent with Medicare? You can work through it together."
-        lede="If you’re helping a parent understand Medicare, there can be a lot to sort through. This guide covers enrollment dates, current coverage, and ways to support them while keeping their wishes at the center of the conversation."
+        lede="If you’re helping a parent in Greensboro, High Point, or Winston-Salem understand Medicare, there can be a lot to sort through. This guide covers enrollment dates, current coverage, and ways to support them while keeping their wishes at the center of the conversation."
         secondaryHref={START_HREF}
         secondaryLabel="Request a consultation for your family →"
         note="You’re welcome to include your parent, a spouse, or another family member. No cost. No obligation."

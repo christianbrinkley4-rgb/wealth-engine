@@ -32,6 +32,9 @@ export type SocialProfile = {
  */
 export const GOOGLE_MAPS_CID = "12304450181097673337";
 export const GOOGLE_MAPS_PROFILE_URL = `https://www.google.com/maps?cid=${GOOGLE_MAPS_CID}`;
+/** Independent GBP Place ID — use for review asks; never invent a second listing. */
+export const GOOGLE_PLACE_ID = "ChIJCYLxNHVn4U0ReVLReD8wwqo";
+export const GOOGLE_WRITE_REVIEW_URL = `https://search.google.com/local/writereview?placeid=${GOOGLE_PLACE_ID}`;
 
 export const SOCIAL_PROFILES: readonly SocialProfile[] = [
   {

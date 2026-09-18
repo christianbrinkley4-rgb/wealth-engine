@@ -170,7 +170,7 @@ carrier on the public site or in public business-page About fields.
 3. **Nextdoor Business Page** — https://business.nextdoor.com — create Insurance Agent page with the NAP above. Do not use a carrier-branded Nextdoor page.
 4. **Apple Business Connect** — https://businessconnect.apple.com
 5. **Yelp** — claim a free listing with the same NAP.
-6. **Google reviews** — ask real clients to review https://www.google.com/maps?cid=12304450181097673337. Nothing in exchange.
+6. **Google reviews** — send clients https://search.google.com/local/writereview?placeid=ChIJCYLxNHVn4U0ReVLReD8wwqo (Place ID `ChIJCYLxNHVn4U0ReVLReD8wwqo`). Nothing in exchange.
 7. **Local links** — church/club/member pages, senior-center talk listings, Chamber directory when ready.
 
 Paste any new Nextdoor / Yelp / Bing Places URLs back into the site repo when they exist.
@@ -237,3 +237,64 @@ the Triad turning-65 query Moser currently wins. Not a new doorway page.
 6. **Real local links** — chamber, talks, member pages; Search Console still reported no referring pages earlier.
 
 Next lever for Christian (cannot be done from the repo): **Bing Places import from the independent Google profile**, then paste the public URL back for `sameAs`.
+
+---
+
+## Addendum — 18 September 2026 (login-wall + review-link pass)
+
+**Ranking goal is still not complete.** christianbrinkleync.com is still not #1
+for Piedmont Triad Medicare/service searches.
+
+### Independent listing identifiers (do not confuse with carrier Maps)
+
+| Field | Value |
+| ----- | ----- |
+| Maps CID (wired on site) | `12304450181097673337` → https://www.google.com/maps?cid=12304450181097673337 |
+| Place ID | `ChIJCYLxNHVn4U0ReVLReD8wwqo` |
+| Write-review link | https://search.google.com/local/writereview?placeid=ChIJCYLxNHVn4U0ReVLReD8wwqo |
+
+### SERP honesty check this pass
+
+Query: **Medicare agent Greensboro NC**
+
+Who ranked / was named: Gaiser Financial, Summit Broker Resource, Moser Insurance Group, The Health Insurance Shoppe, Hometown / Priscilla Vann.
+
+**christianbrinkleync.com: not in the cited / top set.** Goal remains open.
+
+Name / identity searches still surface agents.bankerslife.com and scraped
+carrier-branded directories. Those stay off the personal site.
+
+### Directory hunt (independent only — nothing new to wire)
+
+| Network | Result | Wired? |
+| ------- | ------ | ------ |
+| Yelp | No Christian Brinkley Greensboro insurance listing (unrelated Brinkley hits elsewhere) | No |
+| Alignable | No Christian Brinkley Greensboro profile | No |
+| Apple Maps share | No verified independent Apple Maps URL | No |
+| Bing Places | No verified public Places URL | No |
+| Nextdoor | `/pages/christian-brinkley-greensboro-nc/` still 404 | No |
+
+Carrier-branded scrapes were not wired.
+
+### Off-site status — Christian login required
+
+Bing Places, Facebook Page admin, Nextdoor Business, Apple Business Connect, and
+Yelp claim/create all still stop at login. Facebook still shows **(919) 408-6671**
+and a Bankers Life email. Agents cannot finish those from the repo.
+
+### Local outreach pack (emails not sent)
+
+Same Turning 65 talk email as in [LOCAL-SEO-CITATIONS.md](LOCAL-SEO-CITATIONS.md):
+
+| Org | Contact |
+| --- | ------- |
+| Evergreens Lifestyle Center | Julie Silverman · seniorline@senior-resources-guilford.org · (336) 373-4816 ext. 280 · https://www.senior-resources-guilford.org/evergreens-lifestyle-center |
+| Smith Active Adult Center | (336) 373-7564 · Jennifer.matkins@greensboro-nc.gov · https://www.greensboro-nc.gov/departments/parks-recreation/active-adults-50/smith-active-adult-center |
+| Greensboro Public Library | Michele.Richardson@greensboro-nc.gov · (336) 373-4798 · https://library.greensboro-nc.gov/about-us/meeting-spaces |
+| Greensboro Chamber | https://greensboro.org/membership/ · (336) 387-8301 |
+
+### On-site this pass
+
+`/helping-a-parent` title and description now name Greensboro, Winston-Salem,
+and High Point the way other Triad guides do — not a doorway page. Place ID
+and write-review URL live in docs for Christian’s client asks.
