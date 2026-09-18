@@ -271,23 +271,29 @@ export function HelpQuiz() {
 
     let disposed = false;
     let widgetId: string | undefined;
-    api.ready(() => {
-      if (disposed) return;
-      try {
-        widgetId = api.render(container, {
-          sitekey,
-          theme: "light",
-          "error-callback": () => {
-            if (!disposed) {
-              setError("The form check couldn’t finish. Please try it again, or call me directly.");
-            }
-          },
-        });
-        turnstileWidgetRef.current = widgetId ?? null;
-      } catch {
-        setError("The form check couldn’t load. Please try again, or call me directly.");
-      }
-    });
+    /*
+     * Rendered directly rather than through turnstile.ready(). The shared
+     * api.js tag is loaded async, and Cloudflare's script throws outright if
+     * ready() is called on an async tag — which took whole pages down. When
+     * window.turnstile exists at all, it is already safe to render.
+     */
+    try {
+      widgetId = api.render(container, {
+        sitekey,
+        theme: "light",
+        "error-callback": () => {
+          if (!disposed) {
+            setError("The form check couldn’t finish. Please try it again, or call me directly.");
+          }
+        },
+      });
+      turnstileWidgetRef.current = widgetId ?? null;
+    } catch {
+      // Deferred: a setState in the effect body itself cascades renders.
+      queueMicrotask(() =>
+        setError("The form check couldn’t load. Please try again, or call me directly."),
+      );
+    }
 
     return () => {
       disposed = true;

@@ -1,6 +1,5 @@
 "use client";
 
-import Script from "next/script";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 
@@ -61,28 +60,57 @@ export function TimelineEmailCapture({
   const zipRef = useRef<HTMLInputElement>(null);
   const consentRef = useRef<HTMLInputElement>(null);
 
+  /*
+   * The Turnstile script itself is loaded once by app/layout.tsx whenever a
+   * site key is configured. This component must not render its own <Script>:
+   * doing so put a second copy of the same tag inside server-rendered markup,
+   * and on a page where this form renders immediately (the planners), that
+   * mismatched the DOM during hydration and dropped the whole page onto the
+   * error screen in production. So we simply wait for the shared script.
+   */
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY || turnstileReady) return;
+    // Polled rather than checked inline: the script may already be there, and
+    // the first tick catches that case without a synchronous setState.
+    const poll = setInterval(() => {
+      if (turnstileApi()) {
+        setTurnstileReady(true);
+        clearInterval(poll);
+      }
+    }, 100);
+    // A blocked or failed script should stop the polling rather than run forever.
+    const giveUp = setTimeout(() => clearInterval(poll), 20000);
+    return () => {
+      clearInterval(poll);
+      clearTimeout(giveUp);
+    };
+  }, [turnstileReady]);
+
   useEffect(() => {
     const container = turnstileContainer.current;
     const api = turnstileApi();
     if (!TURNSTILE_SITE_KEY || !turnstileReady || !container || !api) return;
     let disposed = false;
     let widgetId: string | undefined;
-    api.ready(() => {
-      if (disposed) return;
-      try {
-        widgetId = api.render(container, {
-          sitekey: TURNSTILE_SITE_KEY,
-          theme: "light",
-          "error-callback": () => {
-            if (!disposed)
-              setError("The form check couldn’t finish. Please try again, or call me.");
-          },
-        });
-        turnstileWidget.current = widgetId ?? null;
-      } catch {
-        setError("The form check couldn’t load. Please try again, or call me.");
-      }
-    });
+    /*
+     * Rendered directly rather than through turnstile.ready(). The shared
+     * api.js tag is loaded async, and Cloudflare's script throws outright if
+     * ready() is called on an async tag — which took whole pages down. When
+     * window.turnstile exists at all, it is already safe to render.
+     */
+    try {
+      widgetId = api.render(container, {
+        sitekey: TURNSTILE_SITE_KEY,
+        theme: "light",
+        "error-callback": () => {
+          if (!disposed) setError("The form check couldn’t finish. Please try again, or call me.");
+        },
+      });
+      turnstileWidget.current = widgetId ?? null;
+    } catch {
+      // Deferred: a setState in the effect body itself cascades renders.
+      queueMicrotask(() => setError("The form check couldn’t load. Please try again, or call me."));
+    }
     return () => {
       disposed = true;
       turnstileWidget.current = null;
@@ -219,19 +247,6 @@ export function TimelineEmailCapture({
 
   return (
     <form className="tl-capture" onSubmit={submit} noValidate aria-labelledby={`${id}-heading`}>
-      {TURNSTILE_SITE_KEY ? (
-        <Script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-          strategy="afterInteractive"
-          onLoad={() => setTurnstileReady(true)}
-          onReady={() => setTurnstileReady(true)}
-          onError={() =>
-            setError(
-              `The form check couldn’t load. Please refresh the page, or call me at ${AGENT.phone}.`,
-            )
-          }
-        />
-      ) : null}
       <div className="tl-capture-intro">
         <h3 id={`${id}-heading`}>Want these dates in your inbox?</h3>
         <p>
