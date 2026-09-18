@@ -116,10 +116,12 @@ describe("results email capture form check", () => {
   });
 
   it("forwards a filled honeypot so the route can drop the bot quietly", async () => {
-    stubTurnstile("valid-token");
+    const api = stubTurnstile("valid-token");
     const fetch = vi.fn().mockResolvedValue(Response.json({ success: true }));
     vi.stubGlobal("fetch", fetch);
     const { container } = await renderForm();
+    // The widget is polled for rather than announced, so wait for it to exist.
+    await waitFor(() => expect(api.render).toHaveBeenCalledOnce());
 
     fireEvent.change(container.querySelector('input[name="website"]')!, {
       target: { value: "https://spam.example" },

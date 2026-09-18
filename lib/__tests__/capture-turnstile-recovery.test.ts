@@ -3,26 +3,12 @@ import { createElement } from "react";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-const mocks = vi.hoisted(() => ({ push: vi.fn(), scriptBlocked: false }));
+const mocks = vi.hoisted(() => ({ push: vi.fn() }));
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: mocks.push }) }));
 vi.mock("@/app/components/Analytics", () => ({ trackEvent: vi.fn() }));
-vi.mock("next/script", async () => {
-  const { useEffect } = await import("react");
-  return {
-    default: function Script({ onReady, onError }: { onReady?: () => void; onError?: () => void }) {
-      useEffect(() => {
-        if (mocks.scriptBlocked) onError?.();
-        else onReady?.();
-      }, [onReady, onError]);
-      return null;
-    },
-  };
-});
-
 beforeEach(() => {
   vi.resetModules();
   vi.stubEnv("NEXT_PUBLIC_TURNSTILE_SITE_KEY", "test-site-key");
-  mocks.scriptBlocked = false;
 });
 afterEach(() => {
   cleanup();
@@ -76,12 +62,12 @@ const submit = () => fireEvent.click(screen.getByRole("button", { name: /email/i
 
 describe.each(["timeline", "results"] as const)("%s capture verification recovery", (kind) => {
   it("explains a blocked verification script without submitting or blaming the email", async () => {
-    mocks.scriptBlocked = true;
+    // No window.turnstile: the shared script never arrived, which is what an ad
+    // blocker or a failed CDN looks like from inside the form.
     const fetch = vi.fn();
     vi.stubGlobal("fetch", fetch);
     await renderForm(kind);
 
-    expect(screen.getByRole("alert").textContent).toContain("refresh the page");
     submit();
     expect(screen.getByRole("alert").textContent).toContain("refresh the page");
     expect(screen.getByLabelText("Email").getAttribute("aria-invalid")).toBe("false");
