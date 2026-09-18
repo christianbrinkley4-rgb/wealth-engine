@@ -192,6 +192,10 @@ export default function Turning65Page() {
             <Link href="/part-b-penalty" className="font-medium underline underline-offset-2">
               work out what it would cost in your case
             </Link>
+            , and see{" "}
+            <Link href="/medicare-costs-2026" className="font-medium underline underline-offset-2">
+              what the premiums and deductibles are this year
+            </Link>
             .{" "}
             <a
               href="https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start"

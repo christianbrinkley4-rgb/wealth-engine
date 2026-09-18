@@ -365,6 +365,12 @@ export default function HomePage() {
             Already on Medicare?{" "}
             <Link href="/annual-enrollment">Start with a review of your current coverage</Link>
           </p>
+          <p className="home-already">
+            Want the numbers first?{" "}
+            <Link href="/medicare-costs-2026">
+              Every 2026 premium, deductible and bracket, with its source
+            </Link>
+          </p>
         </div>
       </section>
 

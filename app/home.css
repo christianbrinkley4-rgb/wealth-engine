@@ -1627,3 +1627,149 @@
     border: 0;
   }
 }
+
+/* ======================================================================
+ * Reference pages: the published-figures tables (/medicare-costs-2026).
+ *
+ * Two-column tables are readable at 390px if the row header wraps and the
+ * figure stays on one line, so they are laid out as label/value rows
+ * rather than being reflowed into cards. The wide IRMAA table is the one
+ * exception and scrolls sideways inside its wrapper.
+ * ==================================================================== */
+.ref-title {
+  font-family: var(--home-serif);
+  font-size: 2.4rem;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.ref-summary {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+.ref-summary > div {
+  background: var(--home-sand);
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+}
+.ref-summary dt {
+  font-family: var(--home-serif);
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--home-green);
+  letter-spacing: -0.02em;
+}
+.ref-summary dd {
+  margin: 0.4rem 0 0;
+  color: var(--home-muted);
+  font-size: 0.9rem;
+}
+
+.ref-block h2 {
+  font-family: var(--home-serif);
+  font-size: 1.75rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--home-ink);
+  margin: 0 0 0.75rem;
+}
+.ref-block > p {
+  color: var(--home-text);
+  margin: 0 0 1.15rem;
+}
+
+.ref-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1.15rem;
+}
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+.ref-table caption {
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--home-muted);
+  padding-bottom: 0.6rem;
+}
+.ref-table th,
+.ref-table td {
+  padding: 0.7rem 0.5rem;
+  border-bottom: 1px solid var(--home-line);
+  vertical-align: top;
+}
+.ref-table th[scope="row"] {
+  font-weight: 500;
+  color: var(--home-text);
+  padding-left: 0;
+}
+.ref-table thead th {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--home-muted);
+  border-bottom: 1px solid var(--home-field);
+}
+.ref-table tbody td {
+  color: var(--home-ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.ref-table tbody tr:last-child th,
+.ref-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.ref-table-wide {
+  min-width: 34rem;
+}
+.ref-table-wide th[scope="row"] {
+  white-space: nowrap;
+}
+
+.ref-note {
+  color: var(--home-muted);
+  font-size: 0.92rem;
+  margin: 0 0 0.9rem;
+}
+.ref-note a {
+  color: var(--home-green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ref-sources {
+  margin: 0 0 1.15rem;
+  padding-left: 1.1rem;
+  color: var(--home-text);
+  font-size: 0.92rem;
+}
+.ref-sources li + li {
+  margin-top: 0.5rem;
+}
+.ref-sources a {
+  color: var(--home-green);
+}
+
+@media (min-width: 640px) {
+  .ref-summary {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .ref-title {
+    font-size: 3rem;
+  }
+  .ref-summary {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .ref-table {
+    font-size: 1rem;
+  }
+}

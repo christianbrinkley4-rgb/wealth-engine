@@ -61,6 +61,10 @@ ${TPMO_DISCLAIMER}
 - [Social Security timing](${SITE_URL}/social-security-timing): consider income needs, family circumstances, and personal benefit estimates.
 - [Medicare premium review](${SITE_URL}/irmaa-appeal): learn about requesting a review through Social Security after a qualifying life change.
 
+## Published 2026 figures
+
+- [2026 Medicare costs](${SITE_URL}/medicare-costs-2026): the Part A, Part B, Part D and IRMAA figures for 2026, each taken from a named CMS fact sheet. Part B standard premium $202.90 a month; Part B annual deductible $283; Part A hospital deductible $1,736 per benefit period; Part D out-of-pocket cap $2,100 a year; Part D maximum deductible $615. Income-related surcharges begin above $109,000 for a single filer and $218,000 filing jointly, based on the 2024 tax return. These figures are federal and identical in every state; only plan availability and pricing vary locally.
+
 ## Free tools
 
 - [Medicare enrollment dates](${SITE_URL}/turning-65#enrollment-dates): find estimated enrollment dates, print them, or save them to a personal calendar without providing contact information. Includes the first-of-month birthday adjustment.

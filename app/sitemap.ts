@@ -23,6 +23,7 @@ const STATIC_ROUTES: Array<{
   { path: "/about", changeFrequency: "monthly", priority: 0.85 },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
   { path: "/part-b-penalty", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/medicare-costs-2026", changeFrequency: "monthly", priority: 0.95 },
   { path: "/plan", changeFrequency: "weekly", priority: 0.8 },
   { path: "/annuities", changeFrequency: "monthly", priority: 0.85 },
   { path: "/life-insurance", changeFrequency: "monthly", priority: 0.85 },
@@ -35,7 +36,7 @@ const STATIC_ROUTES: Array<{
  * `new Date()` told crawlers every page on the site had been rewritten on
  * every deploy, which is the fastest way to have lastmod ignored entirely.
  */
-const CONTENT_LAST_REVIEWED = "2026-09-17";
+const CONTENT_LAST_REVIEWED = "2026-09-18";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = CONTENT_LAST_REVIEWED;

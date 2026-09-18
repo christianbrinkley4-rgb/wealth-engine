@@ -215,6 +215,10 @@ export default function AnnualEnrollmentPage() {
             <Link href="/service-area" className="underline underline-offset-2">
               What that means where you live
             </Link>
+            . The premiums, deductibles and caps that apply everywhere are set out in{" "}
+            <Link href="/medicare-costs-2026" className="underline underline-offset-2">
+              what Medicare costs in 2026
+            </Link>
             .
           </p>
           <GuideTownLinks />

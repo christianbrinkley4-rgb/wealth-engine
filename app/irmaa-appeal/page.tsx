@@ -277,7 +277,12 @@ export default function IrmaaAppealPage() {
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">
-          For help reviewing changes to your Medicare plan, read{" "}
+          To see the brackets your notice is based on, along with every other published figure for
+          the year, see{" "}
+          <Link href="/medicare-costs-2026" className="underline underline-offset-2">
+            what Medicare costs in 2026
+          </Link>
+          . For help reviewing changes to your plan, read{" "}
           <Link href="/annual-enrollment" className="underline underline-offset-2">
             our annual enrollment guide
           </Link>
