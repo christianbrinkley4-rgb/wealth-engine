@@ -173,17 +173,21 @@ export default function AnnuitiesPage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">What I am and am not licensed for</h2>
+          <h2 className="text-28 font-semibold">What I can walk you through</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            I hold a North Carolina insurance license. It covers fixed and indexed annuities, life
-            insurance, and Medicare. Variable annuities are securities and need a license I don’t
-            have. I’m not a registered investment adviser either, so I don’t manage portfolios or
-            tell you what to hold in a 401(k) or a brokerage account.
+            My North Carolina insurance license covers fixed and indexed annuities, life insurance,
+            and Medicare. Those are the contracts I can explain line by line, compare against each
+            other, and put in place for you — including the parts people gloss over, like the
+            surrender period and what it costs to reach your own money early.
+          </p>
+          <p className="text-18 mt-4 leading-relaxed">
+            We start by reviewing your situation together, because an annuity only makes sense next
+            to everything else you have. If what you actually need is an investment adviser or a tax
+            professional, I introduce you to one — a name and a conversation, not a brush-off.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            For financial planning, I work with an advisor. We can involve the right professional to
-            discuss how an insurance product would fit with the rest of your retirement
-            finances.{" "}
+            Variable annuities are securities and sit outside my license, so those conversations go
+            to the right professional, who explains their own services and fees first.
           </p>
         </div>
       </section>

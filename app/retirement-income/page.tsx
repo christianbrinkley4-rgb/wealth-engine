@@ -219,15 +219,26 @@ export default function RetirementIncomePage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">How I can help</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            I’m a licensed insurance agent finishing a master’s in accounting. I’m not a registered
-            investment adviser or a CPA. I don’t manage money, recommend investments, or tell you
-            what to hold inside a 401(k) or an IRA.
+            I handle the part of retirement that runs on insurance: your Medicare coverage, the
+            protection that keeps a spouse steady, long-term care, and guaranteed income options.
+            Those decisions carry real deadlines, and the order you make them in affects what you
+            pay.
+          </p>
+          <p className="text-18 mt-4 leading-relaxed">
+            We look at how the pieces line up — when your coverage starts, what a withdrawal does to
+            your Medicare premium two years later, and where a guarantee is worth its cost. My
+            accounting training at UNC Greensboro is why those connections interest me.
+          </p>
+          <p className="text-18 mt-4 leading-relaxed">
+            We sit down and go through your whole situation first — what you have, what you are
+            worried about, and what is coming up. Some of it I handle myself. The rest I hand to
+            someone who can: an investment adviser, a tax professional, an elder law attorney. You
+            get an introduction to a specific person, not a suggestion to go find one.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            I help you understand how insurance and Medicare fit into your retirement decisions. For
-            financial planning, I work with an advisor and can coordinate a conversation with your
-            permission. The advisor explains their services, qualifications, and any fees before you
-            decide to work together. Tax advice belongs with a qualified tax professional.
+            My license covers insurance rather than investment management, so anyone I bring in
+            explains their own services, qualifications, and fees before you decide to work with
+            them.
           </p>
         </div>
       </section>

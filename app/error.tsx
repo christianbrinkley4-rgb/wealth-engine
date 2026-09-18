@@ -16,6 +16,33 @@ export default function Error({
 }) {
   useEffect(() => {
     console.error("[app/error]", error);
+
+    /*
+     * The commonest cause of this screen is not a bug in the page: it is a
+     * visitor whose browser still holds the previous build. Every deploy gives
+     * the scripts new filenames, so the moment they click a link, the browser
+     * asks for a file that no longer exists and React lands here.
+     *
+     * A reload fixes it, and a 65-year-old should not have to know that. So we
+     * reload once, guarded by a key in session storage — if the same failure
+     * survives a fresh copy of the site, it is a real error and the page stays
+     * put with the phone number on it rather than looping.
+     */
+    const message = `${error.name}: ${error.message}`;
+    const staleBuild =
+      /chunk|Failed to fetch dynamically imported module|Importing a module script failed|Loading CSS chunk/i.test(
+        message,
+      );
+    if (!staleBuild) return;
+
+    try {
+      const key = "we-stale-build-reload";
+      if (sessionStorage.getItem(key)) return;
+      sessionStorage.setItem(key, "1");
+      window.location.reload();
+    } catch {
+      // Private browsing can block storage; showing this page is the safe end.
+    }
   }, [error]);
 
   return (
