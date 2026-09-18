@@ -34,12 +34,12 @@ import {
 export const metadata: Metadata = {
   title: { absolute: "Medicare Annual Enrollment, Oct 15–Dec 7 — Greensboro, NC" },
   description:
-    "Review next year’s Medicare costs, prescriptions, and doctors with a local licensed agent before deciding whether to keep or change coverage.",
+    "Review next year’s Medicare costs, prescriptions, and doctors with a licensed agent in Greensboro, High Point, or Winston-Salem before you decide.",
   alternates: { canonical: "/annual-enrollment" },
   openGraph: pageOpenGraph({
-    title: "Reviewing your Medicare coverage for next year",
+    title: "Reviewing your Medicare coverage for next year in Greensboro",
     description:
-      "A personal review of your coverage, costs, doctors, and prescriptions can help you decide whether to make a change.",
+      "A personal review in Greensboro, High Point, or Winston-Salem of next year’s costs, doctors, and prescriptions — including when keeping your plan is the right move.",
     path: "/annual-enrollment",
   }),
 };
@@ -86,7 +86,11 @@ const FAQ = [
   },
   {
     q: "Will you sit down with me and look at the letter?",
-    a: "Yes. Meet in person or by phone. Bring the Annual Notice of Change and a list of your prescriptions. The review is free, and keeping your current coverage may be the right outcome.",
+    a: "Yes. We can meet in Greensboro, High Point, Winston-Salem, or nearby, or talk by phone. Bring the Annual Notice of Change and a list of your prescriptions. The review is free, and keeping your current coverage may be the right outcome.",
+  },
+  {
+    q: "Do Medicare Advantage plans differ across Greensboro, High Point, and Winston-Salem?",
+    a: "They can. Medicare Advantage and Part D plans are sold by county. Greensboro and most of High Point are in Guilford County. Winston-Salem is in Forsyth County, which may have a different list. We’ll check the plans available at your home address, then look at next year’s costs, doctors, and prescriptions together.",
   },
   {
     q: "My premium went up and I didn’t change anything. Why?",
@@ -113,12 +117,12 @@ export default function AnnualEnrollmentPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Reviewing your Medicare coverage for next year",
+              headline: "Reviewing your Medicare coverage for next year in Greensboro",
               description:
                 "How to review your plan’s changes, prescription coverage, doctors, and costs before the annual enrollment deadline.",
               path: "/annual-enrollment",
               datePublished: "2026-08-31",
-              dateModified: "2026-09-10",
+              dateModified: "2026-09-18",
             }),
           ),
         }}
@@ -210,8 +214,9 @@ export default function AnnualEnrollmentPage() {
             </div>
           </dl>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            Medicare Advantage options can vary by county. We’ll check the plans available at your
-            home address and review the doctors, hospitals, and pharmacies you use.{" "}
+            Medicare Advantage options can vary by county. Greensboro and most of High Point are in
+            Guilford County; Winston-Salem is in Forsyth County. We’ll check the plans available at
+            your home address and review the doctors, hospitals, and pharmacies you use.{" "}
             <Link href="/service-area" className="underline underline-offset-2">
               What that means where you live
             </Link>

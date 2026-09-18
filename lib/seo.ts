@@ -10,6 +10,7 @@ import {
   MEDICARE_TPMO_SCOPE,
   TPMO_ORGANIZATION_COUNT,
   TPMO_PRODUCT_COUNT,
+  publishedProfiles,
 } from "@/lib/agent";
 import { placeNames, SERVICE_AREA_LEDE } from "@/lib/triad";
 
@@ -152,6 +153,11 @@ export function absoluteUrl(path: string): string {
   return `${SITE_URL}${path}`;
 }
 
+/** Confirmed public profile URLs for schema.org `sameAs`. */
+export function publishedSameAs(): string[] | undefined {
+  return AGENT.profiles.length > 0 ? [...AGENT.profiles] : undefined;
+}
+
 /**
  * The entity graph.
  *
@@ -181,6 +187,9 @@ export function localBusinessJsonLd() {
     addressCountry: "US",
   };
 
+  const sameAs = publishedSameAs();
+  const googleMap = publishedProfiles().find((profile) => profile.network === "google")?.url;
+
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -200,6 +209,20 @@ export function localBusinessJsonLd() {
         "@id": `${SITE_URL}/#christian`,
         name: SITE_OWNER,
         jobTitle: "Licensed Insurance Agent",
+        hasOccupation: {
+          "@type": "Occupation",
+          name: "Insurance Agent",
+          occupationLocation: {
+            "@type": "City",
+            name: SITE_LOCALITY,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: SITE_LOCALITY,
+              addressRegion: SITE_REGION,
+              addressCountry: "US",
+            },
+          },
+        },
         description:
           `${SITE_OWNER} is a licensed insurance agent in ${SITE_LOCALITY}, ` +
           `${SITE_REGION}, and an accounting master’s student at UNC Greensboro ` +
@@ -209,7 +232,7 @@ export function localBusinessJsonLd() {
         image: `${SITE_URL}/christian-brinkley.jpg`,
         telephone: SITE_OWNER_PHONE,
         email: SITE_OWNER_EMAIL,
-        ...(AGENT.profiles.length > 0 ? { sameAs: [...AGENT.profiles] } : {}),
+        ...(sameAs ? { sameAs } : {}),
         url: `${SITE_URL}/about`,
         // Topics covered on the site; these do not assert additional credentials.
         knowsAbout: [
@@ -286,6 +309,8 @@ export function localBusinessJsonLd() {
         knowsLanguage: "en-US",
         telephone: SITE_OWNER_PHONE,
         email: SITE_OWNER_EMAIL,
+        ...(sameAs ? { sameAs } : {}),
+        ...(googleMap ? { hasMap: googleMap } : {}),
         url: SITE_URL,
         image: `${SITE_URL}/opengraph-image`,
         // By appointment; the connected calendar supplies actual available slots.
@@ -402,6 +427,7 @@ export function articleJsonLd(input: {
   datePublished: string;
   dateModified: string;
 }) {
+  const sameAs = publishedSameAs();
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -413,6 +439,7 @@ export function articleJsonLd(input: {
       "@id": `${SITE_URL}/#christian`,
       name: SITE_OWNER,
       url: `${SITE_URL}/about`,
+      ...(sameAs ? { sameAs } : {}),
     },
     publisher: { "@id": `${SITE_URL}/#service` },
     image: `${SITE_URL}/opengraph-image`,

@@ -4,21 +4,31 @@ import { Phone } from "lucide-react";
 
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { LeadCluster } from "@/app/components/LeadCluster";
+import { SocialLinks } from "@/app/components/SocialLinks";
 import { AGENT, COMPENSATION_DISCLOSURE, hasPublishableNpn } from "@/lib/agent";
 import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import { SERVICE_AREA_LABEL } from "@/lib/triad";
 
+const title = "Christian Brinkley | Licensed Insurance Agent in Greensboro";
+const description =
+  "Christian Brinkley is a licensed insurance agent in Greensboro serving the Piedmont Triad. He helps families with Medicare, life insurance, and retirement questions. Meet at home or by phone.";
+
+const [firstName, ...lastNameParts] = AGENT.name.split(" ");
+
 export const metadata: Metadata = {
-  title: "About Christian Brinkley",
-  description:
-    "Meet Christian Brinkley, a licensed insurance agent who lives and works in the Triad. Personal Medicare and insurance help at home or by phone. No-cost consultation.",
+  title: { absolute: title },
+  description,
   alternates: { canonical: "/about" },
-  openGraph: pageOpenGraph({
-    title: "About Christian Brinkley — licensed Greensboro agent",
-    description:
-      "Get to know Christian, his connection to the Triad, and his approach to helping families throughout retirement.",
-    path: "/about",
-  }),
+  openGraph: {
+    ...pageOpenGraph({
+      title,
+      description,
+      path: "/about",
+    }),
+    type: "profile",
+    firstName,
+    lastName: lastNameParts.join(" ") || undefined,
+  },
 };
 
 export default function AboutPage() {
@@ -61,8 +71,9 @@ export default function AboutPage() {
               </p>
               <p className="text-19 mt-4 max-w-xl leading-relaxed text-[var(--color-paper)]/85">
                 I’m a licensed insurance agent in {AGENT.licensedStates.join(", ")}, and I live here
-                in the Triad. I’m not a call center: I sit down with families myself, listen to
-                their questions, and help them understand what they want to protect. Your insurance
+                in the Triad. I help Triad families with Medicare, life insurance, and retirement
+                questions. I’m not a call center: I sit down with families myself, listen to their
+                questions, and help them understand what they want to protect. Your insurance
                 consultation is no cost, with no obligation to buy anything.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -80,6 +91,7 @@ export default function AboutPage() {
                   Email me
                 </a>
               </div>
+              <SocialLinks className="mt-5" />
             </div>
           </div>
         </div>

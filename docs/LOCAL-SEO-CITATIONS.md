@@ -1,8 +1,10 @@
 # Getting found: listings, links, and reviews
 
-Google Search Console reports **"Referring page: None detected"** for christianbrinkleync.com. Nothing on the internet links to it. That, not the website itself, is what's holding back rankings — the pages are well built, they just have no votes behind them.
+Google Search Console reports **"Referring page: None detected"** for christianbrinkleync.com. Nothing on the internet links to it. That, not the website itself, is what's holding back rankings — the pages are well built, they just have no votes behind them. A name search still surfaces the Bankers Life agent profile first.
 
-This is the work that fixes it. None of it needs a developer. Most of it is free.
+Re-checked 18 September 2026: service searches for Greensboro / Winston-Salem Medicare agents, turning 65 in the Triad, and life insurance + Christian Brinkley still do not return christianbrinkleync.com first. Competitors and SHIIP/directory pages occupy those results. Identity searches still lead with LinkedIn and agents.bankerslife.com.
+
+The site is live and indexable (robots.txt allows indexing, sitemap published, llms.txt live). Off-site citations and NAP consistency are the remaining work. None of it needs a developer. Most of it is free.
 
 ## First, the details that must match everywhere
 
@@ -21,16 +23,17 @@ Short description to paste when a site asks for one:
 
 > Licensed insurance agent in Greensboro serving the Piedmont Triad. Medicare help for people approaching 65, plus life insurance, long-term care coverage, and retirement income questions. Meet at your home, nearby, or by phone. No cost, no obligation.
 
-## Tier 1: the free profiles that matter most (about two hours total)
+## Tier 1: the free profiles that matter most
 
-Do these in order. Each one is both a link and a place people search.
+Do these in order. Each one is both a link and a place people search. Paste-ready Facebook / LinkedIn / Nextdoor copy is in [PROFILE-COPY.md](PROFILE-COPY.md).
 
-1. **Google Business Profile** — done and verified. Description, website, phone, category and service areas are set.
-2. **Bing Places** — bingplaces.com. It can import directly from your Google profile, which takes about five minutes. Bing also feeds ChatGPT's search results, so this is worth more than its traffic suggests.
-3. **Apple Business Connect** — businessconnect.apple.com. Free, and it decides what iPhone Maps and Siri say about you. A large share of 65-year-olds use iPhones.
-4. **Facebook Page** — a business page, not a personal profile, with the same details and a link to the site. Also where community groups will find you.
-5. **Nextdoor Business Page** — the single most relevant social network for this audience and this geography. Neighbors ask for insurance recommendations there constantly.
-6. **Yelp** — free listing. Low traffic for insurance, but it's a citation Google reads.
+1. **Google Business Profile — independent listing, wired to the site.** Public Maps URL: https://www.google.com/maps?cid=12304450181097673337. Title is **Christian Brinkley**. Category **Insurance agent**. Website christianbrinkleync.com. Phone **(336) 365-7422**. Hours 8am–7pm. This is the listing the site uses for `sameAs`, footer, About, and `/llms.txt`. A separate Bankers-titled Maps listing (CID `10422520109754041632`) exists and must stay off the website.
+2. **Facebook Page — created, NAP broken.** https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/ already exists and already lists the website. The phone is still the old **(919) 408-6671**. Categories are Education / Financial Consultant / Accounting Service, not Insurance Agent. About still reads as a UNCG student assistant. Email is a Bankers Life address. Fix the fields this week so they match the NAP block above. Never publish the 919 number again.
+3. **LinkedIn — exists.** https://www.linkedin.com/in/christianbrinkley is the accounting-career profile; keep it that way. About is empty and there is no website. Add `https://christianbrinkleync.com` to the website field this week.
+4. **Nextdoor Business Page — not created.** https://nextdoor.com/pages/christian-brinkley-greensboro-nc/ returns 404. Still the #1 new off-site action for this audience. Create it this week at https://business.nextdoor.com — category Insurance Agent, same NAP as above.
+5. **Bing Places** — https://www.bingplaces.com. Not done. It can import directly from your Google profile, which takes about five minutes. Bing also feeds ChatGPT's search results, so this is worth more than its traffic suggests.
+6. **Apple Business Connect** — https://businessconnect.apple.com. Not done. Free, and it decides what iPhone Maps and Siri say about you. A large share of 65-year-olds use iPhones.
+7. **Yelp** — free listing. Not done. Low traffic for insurance, but it's a citation Google reads.
 
 ## Tier 2: local links, which is what's actually missing
 

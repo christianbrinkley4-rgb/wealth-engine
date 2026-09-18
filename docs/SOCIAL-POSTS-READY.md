@@ -5,11 +5,20 @@ about why the Medicare ones need one answer from your upline first.
 
 ---
 
-## 1. Facebook — personal profile
+## 1. Facebook — publish on the Page
+
+The Page already exists. Put this post there, not only on your personal
+profile:
+
+https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/
+
+You can share it to your personal profile afterward so friends see it. The
+listing, the search result, and the pin all belong on the Page.
 
 The best-performing version of this post is not an advertisement. It is you
 telling people you know what you have been doing. Your friends' parents are the
-audience, not your friends.
+audience, not your friends. Wait for the upline review at the bottom before
+any of this goes out.
 
 > Something I've been working on for a while is finally up.
 >
@@ -39,7 +48,7 @@ someone who already trusts you.
 
 ## 2. Facebook — the follow-up, about two weeks later
 
-Post one thing, wait, post again. A single post disappears.
+Same Page as above. Post one thing, wait, post again. A single post disappears.
 
 > A number that surprises people: the Medicare Part B late enrollment penalty
 > is 10% for every full year you could have signed up and didn't — and it
@@ -62,8 +71,10 @@ Post one thing, wait, post again. A single post disappears.
 **Read this first: don't post it to the neighborhood feed from your personal
 account.** Nextdoor's guidelines send business self-promotion to a free
 Business Page, and promotional posts in the main feed get flagged and removed
-by neighbors. Claim the page first (free, at business.nextdoor.com) — that also
-gives you the listing and the link, which is the part that helps you.
+by neighbors. The Business Page does not exist yet
+(nextdoor.com/pages/christian-brinkley-greensboro-nc/ 404s). Claim it first
+(free, at https://business.nextdoor.com) — that also gives you the listing and
+the link, which is the part that helps you.
 
 Then post this from the Business Page:
 
@@ -109,21 +120,23 @@ press.
 
 ## The one gate before any of this goes out
 
-You asked me this morning why your own name pulls up a Bankers Life profile
-instead of your site. This is the same question, arriving in a form that is
-public and permanent.
+Upline cleared the profile copy in [PROFILE-COPY.md](PROFILE-COPY.md) on
+2026-09-18, as long as Bankers Life is not mentioned. That covers About / Intro
+on the Facebook Page and the Nextdoor Business Page. It does **not** cover
+these posts.
 
-A Medicare post on social media from an appointed agent is marketing. Most
-uplines require it to be reviewed before it's used, and the disclaimer
-requirements are not optional. Posting independent-agent marketing publicly,
-before you know where your upline stands on you presenting independently, is
-exactly the exposure I flagged in [AI-VISIBILITY.md](AI-VISIBILITY.md).
+A Medicare post on social media from an appointed agent is still marketing.
+Most uplines require it to be reviewed before it's used, and the disclaimer
+requirements are not optional. Do not publish any of the three posts above
+until that review comes back.
 
-One message to your upline covers all of it:
+One message covers the posts:
 
-> I've built a personal website for my Medicare business —
-> christianbrinkleync.com. I'd like to post about it on Facebook and Nextdoor.
-> Two questions: does anything I publish need to go through review first, and
-> is there anything about how I present myself on it that you need changed?
+> Profile copy on the personal site and the Facebook Page is already cleared
+> as long as Bankers Life is not named. I'd like to post about
+> christianbrinkleync.com on the Facebook Page
+> (facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/)
+> and on Nextdoor. Do these three posts need review before I publish them?
 
-Their answer takes a day and settles all three posts above.
+Their answer takes a day. Until then: fix NAP on the Facebook Page, add the
+LinkedIn website, and create the Nextdoor page — none of those are the posts.

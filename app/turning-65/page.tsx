@@ -26,12 +26,12 @@ import {
 export const metadata: Metadata = {
   title: { absolute: "Turning 65? Medicare Initial Enrollment in Greensboro, NC" },
   description:
-    "Build your Medicare timeline around employer coverage, HSA contributions, Part B, Medigap, and a younger spouse with a local Greensboro agent.",
+    "Turning 65 in Greensboro, High Point, or Winston-Salem? Map employer coverage, Part B, Medigap, and a younger spouse with a local licensed agent.",
   alternates: { canonical: "/turning-65" },
   openGraph: pageOpenGraph({
     title: "Turning 65: your Medicare window, explained for Greensboro",
     description:
-      "The seven-month Initial Enrollment Period, when coverage starts on time, and the six-month Medigap window you generally get once.",
+      "The seven-month Initial Enrollment Period around your 65th birthday, with a licensed agent serving Greensboro, High Point, and Winston-Salem.",
     path: "/turning-65",
   }),
 };
@@ -77,6 +77,14 @@ const FAQ = [
     a: "We can meet at your home, at a convenient public location, or by phone. Your consultation is no cost, with no obligation to enroll. You’ll work directly with me.",
   },
   {
+    q: "I live in High Point or Winston-Salem. Can we still meet before I turn 65?",
+    a: "Yes. I serve Greensboro, High Point, Winston-Salem, and nearby communities. We can meet at your home, at a convenient public location, or by phone. Starting a few months before your birthday gives us time for your dates, doctors, and questions.",
+  },
+  {
+    q: "Does it matter whether I live in Guilford County or Forsyth County?",
+    a: "For Medicare Advantage and Part D, yes — those plans are sold by county. Greensboro and most of High Point are in Guilford County. Winston-Salem is in Forsyth County, which can have a different list. Original Medicare and Medigap work differently. We’ll check your home address rather than assuming the city name is enough.",
+  },
+  {
     q: "What does this cost?",
     a: "Nothing to sit down and walk through your dates, your doctors, and your options. If you enroll in a plan through me, the insurance company pays a commission. Your premium is not higher for using an agent.",
   },
@@ -106,7 +114,7 @@ export default function Turning65Page() {
                 "The seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window you generally get once.",
               path: "/turning-65",
               datePublished: "2026-08-31",
-              dateModified: "2026-09-10",
+              dateModified: "2026-09-18",
             }),
           ),
         }}
@@ -217,9 +225,10 @@ export default function Turning65Page() {
             Your doctors and the plans available where you live{" "}
           </h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Medicare Advantage options can vary by county. A personal review starts with where you
-            live, the doctors you see, and the care you need. We’ll check prescription coverage
-            too.{" "}
+            Medicare Advantage options can vary by county. Greensboro and most of High Point are in
+            Guilford County. Winston-Salem is in Forsyth County, which can have a different list. A
+            personal review starts with where you live, the doctors you see, and the care you need.
+            We’ll check prescription coverage too.{" "}
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Provider networks and prescription coverage can change. Check the doctors and

@@ -6,13 +6,16 @@ import { ServiceHero } from "@/app/components/ServiceHero";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 import { placesByCounty, SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
 
+const title = "Medicare and Insurance Help in Greensboro, High Point & Winston-Salem";
+const description =
+  "Christian Brinkley offers personal Medicare and insurance help in Greensboro, High Point, Winston-Salem, and nearby communities. Meet at home or by phone.";
+
 export const metadata: Metadata = {
-  title: { absolute: "Local, Personalized Help Near Greensboro, NC" },
-  description:
-    "Meet Christian Brinkley for a no-cost consultation about Medicare, insurance, and retirement questions. Serving Greensboro, High Point, Winston-Salem, and nearby communities.",
+  title: { absolute: title },
+  description,
   alternates: { canonical: "/service-area" },
   openGraph: pageOpenGraph({
-    title: "Personal help close to home in the Triad",
+    title,
     description: SERVICE_AREA_LEDE,
     path: "/service-area",
   }),

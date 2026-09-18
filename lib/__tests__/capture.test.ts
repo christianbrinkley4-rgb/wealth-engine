@@ -321,8 +321,12 @@ describe("service area honesty", () => {
       "utf8",
     );
     expect(localPage).toContain("topic={kind}");
+    expect(localPage).toContain("lifeCityFaqs(city)");
+    expect(localPage).toContain("retirementCityFaqs(city)");
     expect(snapshot).toContain('isLife ? "County"');
     expect(snapshot).toContain("Your current policy");
+    expect(snapshot).toContain("Typical drive from Greensboro");
+    expect(snapshot).toContain("Nearby communities");
   });
 });
 
@@ -368,6 +372,7 @@ describe("four lead funnels", () => {
       expect(placeCheckBeat(city)).toContain(city.name);
       // County details live in CitySnapshot; the invitation checks the visitor's address.
       expect(placeCheckBeat(city)).toContain("home address");
+      expect(placeCheckBeat(city)).toContain(city.hospitals[0]);
     }
   });
 
@@ -376,6 +381,12 @@ describe("four lead funnels", () => {
     expect(new Set(TRIAD_CITIES.map((city) => retirementPlaceBeat(city))).size).toBe(
       TRIAD_CITIES.length,
     );
+    for (const city of TRIAD_CITIES) {
+      expect(lifePlaceBeat(city)).toContain(city.name);
+      expect(lifePlaceBeat(city)).toContain(city.nearby[0]);
+      expect(retirementPlaceBeat(city)).toContain(city.name);
+      expect(retirementPlaceBeat(city)).toContain(city.hospitals[0]);
+    }
   });
 
   it("keeps FAQ answers substantive enough to quote", () => {

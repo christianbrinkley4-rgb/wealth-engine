@@ -49,7 +49,13 @@ than a change to the code:
 - **Ask your upline how they want this handled before you advertise.** Whether
   you may present yourself independently, and how the two profiles should
   relate, is a compliance question with a real answer, and it is theirs to
-  give. Everything else here waits on it.
+  give.
+
+Update 2026-09-18: upline cleared independent presentation on the personal
+site as long as Bankers Life is not named in visitor copy. Name search still
+returns the Bankers Life profile; that does not mean you should name them on
+the site or create a second Google listing. See the addendum below. Medicare
+social posts still need review — [SOCIAL-POSTS-READY.md](SOCIAL-POSTS-READY.md).
 
 ## What actually moves this, in order
 
@@ -90,3 +96,81 @@ plus:
 
 Record whether the site is named at all, in what position, and whether the
 description is accurate. Movement shows up in weeks, not days.
+
+---
+
+## Addendum — 18 September 2026
+
+Re-checked the same searches and the live site. This is still a citation
+problem, not a crawl problem.
+
+- **Name search** still returns the Bankers Life agent profile first. Present
+  independently on the personal site; do not name Bankers Life in visitor copy.
+- **"Medicare agent Greensboro NC"** still names competitors. The site is not
+  the answer assistants quote.
+- **The site is live and indexable:** https://christianbrinkleync.com —
+  robots.txt allows indexing, sitemap is published, llms.txt is live. Search
+  Console had referring page none. Off-site citations and NAP consistency are
+  the ranking work.
+
+Next levers, in order. None of these guarantee a #1 ranking; they are the
+inputs the current results are missing:
+
+1. **Bing Places** — ChatGPT and Bing search still have no business listing to
+   read. https://www.bingplaces.com
+2. **NAP fix on Facebook** — the Page exists, the phone is still (919) 408-6671,
+   and the category is not Insurance Agent.
+   https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/
+3. **Nextdoor Business Page** — does not exist yet (the /pages/ URL 404s).
+   https://business.nextdoor.com
+4. **Reviews** — still none. Map-pack order will not move without them.
+5. **Reciprocal sameAs** — Facebook, LinkedIn, and the independent Google
+   listing titled **Christian Brinkley**
+   (https://www.google.com/maps?cid=12304450181097673337) are wired in the
+   working tree. Keep the carrier-titled Maps CID off the site. Nextdoor
+   stays off until a personal business page exists that is not
+   carrier-branded.
+
+Field-by-field copy: [PROFILE-COPY.md](PROFILE-COPY.md). Listing status:
+[LOCAL-SEO-CITATIONS.md](LOCAL-SEO-CITATIONS.md).
+
+---
+
+## Addendum — 18 September 2026 (afternoon search pass)
+
+Re-ran the ranking queries. **christianbrinkleync.com is still not #1, and still not the quoted answer**, for service searches.
+
+- **Medicare agent Greensboro NC** — independent agencies (Tiffany Gladwell, Hometown Insurance / Priscilla Vann, The Health Insurance Shoppe, Farley Insurance Solutions, Sutherland Benefit Group). The personal site was not in the cited set.
+- **Medicare agent Winston-Salem** — Sandra Collins Insurance, Humana MarketPoint (Kevin Staff), Mark Allred, Kevin Ebbink / Compass, Community Senior Benefits. The personal site was not in the cited set.
+- **who can help me sign up for Medicare at 65 in the Triad** — SHIIP, NC DOI, Shepherd’s Center, Forsyth County / library workshops. Licensed-agent results were not the personal site.
+- **Christian Brinkley Greensboro** — LinkedIn and the Bankers Life agent profile. Directories still syndicate the office listing. The personal site was not the first result.
+- **life insurance Greensboro NC Christian Brinkley** — Bankers Life agent profile and scraped office listings. The personal site was not the first result.
+
+Live vs local: before the next production deploy, live still lacked `sameAs` /
+Find me online / `/llms.txt` profiles. After deploy, verify those surfaces
+include Facebook, LinkedIn, and
+https://www.google.com/maps?cid=12304450181097673337 only.
+
+## Christian — click-through checklist (cannot be done from the repo)
+
+Same NAP on every listing:
+
+```
+Christian Brinkley
+Greensboro, NC (service area — no street address shown)
+(336) 365-7422
+https://christianbrinkleync.com
+```
+
+Category: **Insurance agent**. Never publish (919) 408-6671. Do not name any
+carrier on the public site or in public business-page About fields.
+
+1. **Bing Places** — https://www.bingplaces.com — import from the independent Google profile.
+2. **Facebook Page NAP** — https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/ — phone (336) 365-7422, category Insurance Agent, paste Intro from PROFILE-COPY.md, remove carrier email and the 919 number.
+3. **Nextdoor Business Page** — https://business.nextdoor.com — create Insurance Agent page with the NAP above. Do not use a carrier-branded Nextdoor page.
+4. **Apple Business Connect** — https://businessconnect.apple.com
+5. **Yelp** — claim a free listing with the same NAP.
+6. **Google reviews** — ask real clients to review https://www.google.com/maps?cid=12304450181097673337. Nothing in exchange.
+7. **Local links** — church/club/member pages, senior-center talk listings, Chamber directory when ready.
+
+Paste any new Nextdoor / Yelp / Bing Places URLs back into the site repo when they exist.

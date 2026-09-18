@@ -6,7 +6,7 @@ import { Analytics } from "@/app/components/Analytics";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { TopRouteChrome } from "@/app/components/TopRouteChrome";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
-import { AGENT } from "@/lib/agent";
+import { AGENT, publishedProfiles } from "@/lib/agent";
 import {
   localBusinessJsonLd,
   SITE_LOCALITY,
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   description:
     "Licensed Greensboro agent Christian Brinkley helps Piedmont Triad families with Medicare, life insurance, and retirement questions. Meet in person or by phone. No cost or obligation.",
   applicationName: SITE_NAME,
-  authors: [{ name: SITE_OWNER }],
+  authors: [{ name: SITE_OWNER, url: `${SITE_URL}/about` }],
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
     other: process.env.BING_SITE_VERIFICATION
@@ -107,6 +107,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bodyFont.variable} ${sourceSerif.variable} h-full antialiased`}>
       <body className="min-h-full bg-[var(--color-paper)] pb-28 text-[var(--color-navy)] md:pb-0">
+        {publishedProfiles().map((profile) => (
+          <link key={profile.network} rel="me" href={profile.url} />
+        ))}
         {/* Keep author and service information consistent across public pages. */}
         <script
           type="application/ld+json"

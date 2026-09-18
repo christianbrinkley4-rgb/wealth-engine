@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { SocialLinks } from "@/app/components/SocialLinks";
 import { AGENT, GOVERNMENT_DISCLAIMER, TPMO_DISCLAIMER } from "@/lib/agent";
 import { featuredPlaces, SERVICE_AREA_LEDE } from "@/lib/triad";
 
@@ -33,6 +34,7 @@ export function SiteFooter() {
                 {AGENT.phone}
               </a>
             </p>
+            <SocialLinks className="mt-4" />
             <p className="text-15 mt-3 max-w-[36ch] leading-relaxed text-[var(--color-ink-muted)]">
               {AGENT.hours} {AGENT.afterHoursPromise}
             </p>

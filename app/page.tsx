@@ -22,6 +22,10 @@ export const metadata: Metadata = {
 
 const QUESTIONS = [
   {
+    q: "Are you a Medicare agent in Greensboro?",
+    a: "Yes. I’m a licensed insurance agent based in Greensboro. I help with Medicare and related coverage across Greensboro, High Point, Winston-Salem, and nearby Triad communities.",
+  },
+  {
     q: "Is this a call center?",
     a: `No. It’s just me, Christian Brinkley. When you call ${AGENT.phone}, you reach me, not a queue. ${AGENT.afterHoursPromise} Your information is never sold or passed to other agents.`,
   },

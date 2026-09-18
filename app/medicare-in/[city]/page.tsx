@@ -13,7 +13,13 @@ import {
   pageOpenGraph,
   serviceJsonLd,
 } from "@/lib/seo";
-import { getTriadCity, placeCheckBeat, relatedPlaces, TRIAD_CITIES } from "@/lib/triad";
+import {
+  getTriadCity,
+  medicareCityFaqs,
+  placeCheckBeat,
+  relatedPlaces,
+  TRIAD_CITIES,
+} from "@/lib/triad";
 
 /**
  * One page per Triad city, and each one earns its place.
@@ -68,6 +74,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
   const others = relatedPlaces(city);
   const startHref = "/start?topic=medicare";
+  const cityFaqs = medicareCityFaqs(city);
 
   return (
     <main className="text-[var(--color-navy)]">
@@ -92,7 +99,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               description: `How ${city.county} determines which Medicare plans are available in ${city.name}.`,
               path: `/medicare-in/${city.slug}`,
               datePublished: "2026-08-25",
-              dateModified: "2026-09-10",
+              dateModified: "2026-09-18",
             }),
           ),
         }}
@@ -103,7 +110,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           __html: JSON.stringify(
             serviceJsonLd({
               name: `Medicare help in ${city.name}`,
-              description: `Personal Medicare help in ${city.name} (${city.county}). No-cost consultations at home or by phone.`,
+              description: `Licensed Medicare agent serving ${city.name} (${city.county}). No-cost consultations at home or by phone.`,
               path: `/medicare-in/${city.slug}`,
             }),
           ),
@@ -126,6 +133,10 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <CitySnapshot city={city} />
+          <p className="text-18 mt-6 leading-relaxed">
+            I’m a licensed Medicare agent serving {city.name}. We can meet at your home, at a
+            convenient public location, or by phone. There is no cost and no obligation to enroll.
+          </p>
           <h2 className="text-28 mt-10 font-semibold">
             Your doctors, your coverage, your priorities
           </h2>
@@ -160,7 +171,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Questions I get from {city.name}</h2>
           <dl className="mt-8 flex flex-col gap-7">
-            {city.faq.map((item) => (
+            {cityFaqs.map((item) => (
               <div key={item.q} className="border-t border-gray-300 pt-6">
                 <dt className="text-19 font-semibold">{item.q}</dt>
                 <dd className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
@@ -171,7 +182,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           </dl>
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(city.faq)) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(cityFaqs)) }}
           />
         </div>
       </section>

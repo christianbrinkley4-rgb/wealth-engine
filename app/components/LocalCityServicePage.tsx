@@ -14,8 +14,10 @@ import {
 } from "@/lib/seo";
 import {
   getTriadCity,
+  lifeCityFaqs,
   lifePlaceBeat,
   relatedPlaces,
+  retirementCityFaqs,
   retirementPlaceBeat,
   TRIAD_CITIES,
   type TriadCity,
@@ -110,6 +112,7 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
 
   const copy = COPY[kind];
   const content = copy.pick(city);
+  const faq = kind === "life" ? lifeCityFaqs(city) : retirementCityFaqs(city);
   const others = relatedPlaces(city);
   const path = `${copy.pathPrefix}/${city.slug}`;
 
@@ -136,7 +139,7 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
               description: copy.description(city.name, city.county),
               path,
               datePublished: "2026-09-01",
-              dateModified: "2026-09-03",
+              dateModified: "2026-09-18",
             }),
           ),
         }}
@@ -186,7 +189,7 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Questions you may have</h2>
           <dl className="mt-8 flex flex-col gap-7">
-            {content.faq.map((item) => (
+            {faq.map((item) => (
               <div key={item.q} className="border-t border-gray-300 pt-6">
                 <dt className="text-19 font-semibold">{item.q}</dt>
                 <dd className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
@@ -197,7 +200,7 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
           </dl>
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(content.faq)) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faq)) }}
           />
         </div>
       </section>

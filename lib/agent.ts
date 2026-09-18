@@ -12,6 +12,52 @@
  * or upline compliance desk before public Medicare marketing.
  */
 
+export type SocialNetwork = "facebook" | "linkedin" | "nextdoor" | "google" | "yelp";
+
+export type SocialProfile = {
+  readonly network: SocialNetwork;
+  readonly label: string;
+  readonly url: string | null;
+};
+
+/**
+ * Verified public profiles used as on-page links and schema.org `sameAs`.
+ * Publish only listings that do not present Bankers Life as related to this
+ * site. The Google listing below is titled "Christian Brinkley", category
+ * Insurance agent, website christianbrinkleync.com, phone (336) 365-7422.
+ *
+ * Never publish the Bankers-titled Maps CID 10422520109754041632,
+ * agents.bankerslife.com, branches.bankerslife.com, or a bankers-life-agent
+ * Nextdoor page.
+ */
+export const GOOGLE_MAPS_CID = "12304450181097673337";
+export const GOOGLE_MAPS_PROFILE_URL = `https://www.google.com/maps?cid=${GOOGLE_MAPS_CID}`;
+
+export const SOCIAL_PROFILES: readonly SocialProfile[] = [
+  {
+    network: "facebook",
+    label: "Facebook",
+    url: "https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/",
+  },
+  {
+    network: "linkedin",
+    label: "LinkedIn",
+    url: "https://www.linkedin.com/in/christianbrinkley",
+  },
+  { network: "nextdoor", label: "Nextdoor", url: null },
+  { network: "google", label: "Google", url: GOOGLE_MAPS_PROFILE_URL },
+  { network: "yelp", label: "Yelp", url: null },
+];
+
+export type PublishedSocialProfile = SocialProfile & { readonly url: string };
+
+/** Profiles that have a confirmed URL, for on-page links and schema. */
+export function publishedProfiles(): PublishedSocialProfile[] {
+  return SOCIAL_PROFILES.filter((profile): profile is PublishedSocialProfile =>
+    Boolean(profile.url),
+  );
+}
+
 export const AGENT = {
   name: "Christian Brinkley",
   city: "Greensboro",
@@ -70,6 +116,12 @@ export const AGENT = {
     "If I’m with a family or away from the phone, leave a message and I’ll follow up personally.",
 
   /**
+   * Published profile URLs for schema.org `sameAs`. Derived from
+   * SOCIAL_PROFILES so the markup never lists an unpublished network.
+   */
+  profiles: publishedProfiles().map((profile) => profile.url),
+
+  /**
    * Homepage trust details. Each renders only once it is filled in, so an
    * empty value never shows up as a placeholder on the live site.
    *
@@ -78,15 +130,6 @@ export const AGENT = {
    * credentials: things that are true today, e.g. "AHIP certified for 2027".
    * advisorPartner: the advisor's name and credential, only with their permission.
    */
-  /**
-   * Public profiles that are verifiably Christian's, used as `sameAs` links in
-   * the structured data. Search engines treat these as evidence that the site,
-   * the business listing and the social account are one person, which is what
-   * decides whether a knowledge panel forms at all. Only add a profile he
-   * actually controls — a wrong link is worse than none.
-   */
-  profiles: [] as readonly string[],
-
   introVideoUrl: null as string | null,
   credentials: [] as readonly string[],
   advisorPartner: null as string | null,

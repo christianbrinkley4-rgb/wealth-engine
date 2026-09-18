@@ -10,8 +10,24 @@
 const KEY = "c9f2e18a4b7d0635e1c84a90d2b7f6e4";
 const ORIGIN = (process.argv[2] ?? "https://christianbrinkleync.com").replace(/\/$/, "");
 const HOST = new URL(ORIGIN).host;
+const FETCH_MS = 15_000;
+const SKIP_PATHS = new Set(["/start", "/schedule", "/remind-me", "/thank-you"]);
 
-const sitemap = await fetch(`${ORIGIN}/sitemap.xml`);
+function isIndexablePage(url) {
+  if (/bankerslife/i.test(url)) return false;
+  try {
+    const parsed = new URL(url);
+    if (parsed.origin !== ORIGIN) return false;
+    if (parsed.username || parsed.password) return false;
+    const path = parsed.pathname.replace(/\/$/, "") || "/";
+    if (/^\/(api|lp|go)(\/|$)/i.test(path)) return false;
+    return !SKIP_PATHS.has(path);
+  } catch {
+    return false;
+  }
+}
+
+const sitemap = await fetch(`${ORIGIN}/sitemap.xml`, { signal: AbortSignal.timeout(FETCH_MS) });
 if (!sitemap.ok) {
   console.error(`Could not read ${ORIGIN}/sitemap.xml — ${sitemap.status}`);
   process.exit(1);
@@ -19,7 +35,7 @@ if (!sitemap.ok) {
 
 const urlList = [...(await sitemap.text()).matchAll(/<loc>([^<]+)<\/loc>/g)]
   .map((match) => match[1].trim())
-  .filter((url) => url.startsWith(ORIGIN));
+  .filter(isIndexablePage);
 
 if (urlList.length === 0) {
   console.error("The sitemap listed no pages on this origin; nothing submitted.");
@@ -35,6 +51,7 @@ const response = await fetch("https://api.indexnow.org/indexnow", {
     keyLocation: `${ORIGIN}/${KEY}.txt`,
     urlList,
   }),
+  signal: AbortSignal.timeout(FETCH_MS),
 });
 
 console.log(`IndexNow ${response.status} for ${urlList.length} pages`, await response.text());

@@ -1,4 +1,10 @@
-import { AGENT, COMPENSATION_DISCLOSURE, GOVERNMENT_DISCLAIMER, TPMO_DISCLAIMER } from "@/lib/agent";
+import {
+  AGENT,
+  COMPENSATION_DISCLOSURE,
+  GOVERNMENT_DISCLAIMER,
+  publishedProfiles,
+  TPMO_DISCLAIMER,
+} from "@/lib/agent";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { placeNames, TRIAD_CITIES } from "@/lib/triad";
 
@@ -13,6 +19,15 @@ export function GET() {
       `- [Retirement help in ${city.name}](${SITE_URL}/retirement-in/${city.slug}): Medicare and insurance education, with financial planning coordinated through an advisor.`,
     ].join("\n"),
   ).join("\n");
+
+  const profiles = publishedProfiles();
+  const profileSection =
+    profiles.length > 0
+      ? `## Public profiles
+
+${profiles.map((profile) => `- ${profile.label}: ${profile.url}`).join("\n")}
+`
+      : "";
 
   const body = `# ${SITE_NAME}
 
@@ -32,6 +47,7 @@ ${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.stat
 - [Request a consultation](${SITE_URL}/start)
 - [Ways to arrange a meeting](${SITE_URL}/schedule)
 
+${profileSection}
 ## Local questions this site is meant to answer
 
 This site is for people in and near Greensboro, High Point, and Winston-Salem, North Carolina who want a licensed agent they can meet in person. Typical questions:

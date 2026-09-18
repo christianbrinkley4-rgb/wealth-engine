@@ -75,6 +75,12 @@ export const TRIAD_CITIES: TriadCity[] = [
     nearby: ["Summerfield", "Oak Ridge", "Jamestown", "Pleasant Garden", "McLeansville", "Colfax"],
     faq: [
       {
+        // City-scoped identity question. medicareCityFaqs() must not add a
+        // second "Medicare agent in Greensboro" FAQ on top of this one.
+        q: "Are you a Medicare insurance agent in Greensboro?",
+        a: "Yes. I’m Christian Brinkley, a licensed insurance agent in Greensboro. I help people in Guilford County with Medicare questions — whether you’re turning 65 or already enrolled — and we can check the options available at your home address. We can meet at your home, at a convenient public place, or by phone. There is no cost, and no obligation to enroll.",
+      },
+      {
         q: "Can you help me check whether I can keep my doctors?",
         a: "Yes. We can review your doctors, hospitals, prescriptions, and pharmacy against the Medicare options you’re considering. We’ll confirm the details for the year your coverage will begin.",
       },
@@ -1381,6 +1387,40 @@ export function getTriadCity(slug: string): TriadCity | undefined {
   return TRIAD_CITIES.find((city) => city.slug === slug);
 }
 
+const MEDICARE_AGENT_IN_CITY = /are you a .*medicare.*agent in/i;
+
+function keepOneMedicareAgentFaq(
+  faqs: Array<{ q: string; a: string }>,
+): Array<{ q: string; a: string }> {
+  let keptAgentFaq = false;
+  return faqs.filter((item) => {
+    if (!MEDICARE_AGENT_IN_CITY.test(item.q)) return true;
+    if (keptAgentFaq) return false;
+    keptAgentFaq = true;
+    return true;
+  });
+}
+
+/**
+ * FAQs shown on /medicare-in/[city]. Featured hubs get a city-named agent
+ * question unless the city record already answers it (Greensboro does).
+ * Never emit two "are you a Medicare agent in {city}" questions.
+ */
+export function medicareCityFaqs(city: TriadCity): Array<{ q: string; a: string }> {
+  const hasOwnAgentFaq = city.faq.some((item) => MEDICARE_AGENT_IN_CITY.test(item.q));
+  const faqs =
+    !city.featured || hasOwnAgentFaq
+      ? [...city.faq]
+      : [
+          {
+            q: `Are you a licensed Medicare agent in ${city.name}?`,
+            a: `Yes. I’m a licensed insurance agent, and I help people in ${city.name} with Medicare. We can meet at your home, at a convenient public location, or by phone. The consultation is no cost, with no obligation to enroll.`,
+          },
+          ...city.faq,
+        ];
+  return keepOneMedicareAgentFaq(faqs);
+}
+
 export function featuredPlaces(): TriadCity[] {
   return TRIAD_CITIES.filter((city) => city.featured);
 }
@@ -1409,21 +1449,90 @@ export function highIntentPlaces(): TriadCity[] {
   );
 }
 
+function joinList(items: readonly string[]): string {
+  if (items.length === 0) return "";
+  if (items.length === 1) return items[0]!;
+  if (items.length === 2) return `${items[0]} and ${items[1]}`;
+  return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
+}
+
 /**
  * One sentence per town, built from facts already on the record — drive time,
  * county, hospitals, named neighbors — so thinner city pages do not all share
  * the same county lecture with the name swapped.
  */
 export function placeCheckBeat(city: TriadCity): string {
-  return `We’ll start with the Medicare options available at your home address in ${city.name}. Then we’ll look at your doctors, prescriptions, and expected costs so you can compare your choices.`;
+  const hospitals = joinList(city.hospitals);
+  const drive =
+    city.minutesFromDowntown > 0
+      ? `, in ${city.county} about ${city.minutesFromDowntown} minutes from downtown Greensboro`
+      : "";
+  return (
+    `We’ll start with the Medicare options available at your home address in ${city.name}${drive}. ` +
+    `Then we’ll look at your doctors, including care through ${hospitals}, plus your prescriptions ` +
+    `and expected costs so you can compare your choices.`
+  );
 }
 
 export function lifePlaceBeat(city: TriadCity): string {
-  return `You can arrange a home visit in ${city.name} or speak with me by phone. You’re welcome to bring a spouse or family member, and there’s no obligation to change your coverage.`;
+  const nearby = joinList(city.nearby.slice(0, 3));
+  const nearbySentence = nearby ? ` Nearby communities include ${nearby}.` : "";
+  if (city.minutesFromDowntown > 0) {
+    return (
+      `A visit in ${city.name} is about ${city.minutesFromDowntown} minutes from downtown Greensboro. ` +
+      `We can meet at your home or by phone.${nearbySentence} ` +
+      `You’re welcome to bring a spouse or family member, and there’s no obligation to change your coverage.`
+    );
+  }
+  return (
+    `A visit in ${city.name} can be at your home or by phone.${nearbySentence} ` +
+    `You’re welcome to bring a spouse or family member, and there’s no obligation to change your coverage.`
+  );
 }
 
 export function retirementPlaceBeat(city: TriadCity): string {
-  return `Our conversation in ${city.name} can also cover the insurance questions that come with retirement, from Medicare costs to life insurance and care coverage. You can come back with questions as your needs change.`;
+  const hospitals = joinList(city.hospitals);
+  return (
+    `Our conversation in ${city.name} can cover the insurance questions that come with retirement, ` +
+    `including Medicare if you receive care through ${hospitals}. ` +
+    `You can come back with questions as your needs change.`
+  );
+}
+
+const LIFE_IN_CITY = /life insurance.*\bin\b/i;
+const RETIREMENT_IN_CITY = /retirement.*\bin\b/i;
+
+/**
+ * Featured hubs get a city-named life-insurance question. Town pages keep the
+ * city-specific answers already on the record without cloning a keyword FAQ.
+ */
+export function lifeCityFaqs(city: TriadCity): Array<{ q: string; a: string }> {
+  const hasOwn = city.lifeFaq.some((item) => LIFE_IN_CITY.test(item.q));
+  if (!city.featured || hasOwn) return [...city.lifeFaq];
+  return [
+    {
+      q: `Can you review life insurance in ${city.name}?`,
+      a:
+        `Yes. I’m a licensed insurance agent, and I offer no-cost life insurance reviews in ${city.name}. ` +
+        `We can meet at your home, at a convenient public location, or by phone. You don’t have to buy a new policy.`,
+    },
+    ...city.lifeFaq,
+  ];
+}
+
+/** Featured hubs get a city-named retirement question; other towns do not. */
+export function retirementCityFaqs(city: TriadCity): Array<{ q: string; a: string }> {
+  const hasOwn = city.retirementFaq.some((item) => RETIREMENT_IN_CITY.test(item.q));
+  if (!city.featured || hasOwn) return [...city.retirementFaq];
+  return [
+    {
+      q: `Do you help with retirement questions in ${city.name}?`,
+      a:
+        `Yes. I help people in ${city.name} with Medicare and insurance questions that come with retirement, ` +
+        `and I work with an advisor for financial planning. We can meet at your home, at a convenient public location, or by phone.`,
+    },
+    ...city.retirementFaq,
+  ];
 }
 
 export function nearbyCountyContrasts(

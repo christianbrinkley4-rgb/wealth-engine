@@ -35,6 +35,16 @@ export function CitySnapshot({
           </dt>
           <dd className="text-17 mt-0.5">{city.county}</dd>
         </div>
+        {city.minutesFromDowntown > 0 ? (
+          <div>
+            <dt className="text-15 font-medium text-[var(--color-ink-muted)]">
+              Typical drive from Greensboro
+            </dt>
+            <dd className="text-17 mt-0.5">
+              About {city.minutesFromDowntown} minutes in ordinary traffic
+            </dd>
+          </div>
+        ) : null}
         {isLife ? (
           <div>
             <dt className="text-15 font-medium text-[var(--color-ink-muted)]">
@@ -52,6 +62,14 @@ export function CitySnapshot({
             <dd className="text-17 mt-0.5">{city.hospitals.join("; ")}</dd>
           </div>
         )}
+        {isLife && city.nearby.length > 0 ? (
+          <div>
+            <dt className="text-15 font-medium text-[var(--color-ink-muted)]">
+              Nearby communities
+            </dt>
+            <dd className="text-17 mt-0.5">{city.nearby.join(", ")}</dd>
+          </div>
+        ) : null}
       </dl>
       {city.countyNote ? (
         <p className="text-16 mt-4 rounded-lg bg-[#f3f0e6] px-4 py-3 leading-relaxed">

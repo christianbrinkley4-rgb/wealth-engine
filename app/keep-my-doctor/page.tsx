@@ -21,12 +21,12 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 export const metadata: Metadata = {
   title: { absolute: "Can I Keep My Doctor on Medicare? — Greensboro, NC" },
   description:
-    "Whether you keep your doctor depends on which kind of Medicare coverage you choose. How networks work in the Greensboro area, and how to check properly.",
+    "Whether you keep your doctor depends on the coverage you choose. How to check networks in Greensboro, High Point, and Winston-Salem before you enroll.",
   alternates: { canonical: "/keep-my-doctor" },
   openGraph: pageOpenGraph({
     title: "Can I keep my doctor on Medicare?",
     description:
-      "The first question everyone asks, answered for the Triad — including how to check properly before you sign up.",
+      "The first question everyone asks, answered for Greensboro, High Point, and Winston-Salem — including how to check properly before you sign up.",
     path: "/keep-my-doctor",
   }),
 };
@@ -75,6 +75,10 @@ const FAQ = [
     q: "Can you just check for me?",
     a: "Yes. Bring a list of your doctors and preferred hospitals. I can help check them against the plans I offer and explain where to find information about other Medicare options.",
   },
+  {
+    q: "I live in Greensboro and see a specialist in Winston-Salem. Can I keep both?",
+    a: "We can check each doctor and hospital against the specific plan you’re considering. Original Medicare generally lets you see providers who accept Medicare, including across the Triad. Medicare Advantage plans use networks that can differ by county, so a Greensboro address and a Winston-Salem specialist both need a look.",
+  },
 ] as const;
 
 export default function KeepMyDoctorPage() {
@@ -98,10 +102,10 @@ export default function KeepMyDoctorPage() {
             articleJsonLd({
               headline: "Can I keep my doctor on Medicare?",
               description:
-                "How Medicare Advantage networks work in the Greensboro area, and how to verify a specific doctor against a specific plan.",
+                "How Medicare Advantage networks work in Greensboro, High Point, and Winston-Salem, and how to verify a specific doctor against a specific plan.",
               path: "/keep-my-doctor",
               datePublished: "2026-08-31",
-              dateModified: "2026-09-10",
+              dateModified: "2026-09-18",
             }),
           ),
         }}
