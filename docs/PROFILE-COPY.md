@@ -10,92 +10,84 @@ mentioned. Nothing here names them.
 
 ## LinkedIn
 
-Your profile URL is `linkedin.com/in/christianbrinkley`, which is clean and
-worth protecting. LinkedIn profiles rank near the top of Google for a person's
-name, so this page is the best lever you have for what someone finds when they
-look you up.
+This profile is for the accounting career, not the Medicare business. Christian
+was clear about that: it leads with the degree and the CPA exam, names Bankers
+Life as his current employer, and shows the AI work. The website appears as
+something he built, not as a sales pitch.
 
-### What's there now, and why it costs you
+Profile URL is `linkedin.com/in/christianbrinkley` — clean, and worth keeping.
 
-| Field    | Now                                                                                                                                | Problem                                                                                                     |
-| -------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| Headline | "Accounting (CPA Track) \| UNC Greensboro Accelerated Master's Program \| Audit & Tax Interest \| Raleigh-Durham / Greensboro, NC" | Says nothing about insurance. Names Raleigh-Durham, which dilutes the Triad claim your whole site rests on. |
-| About    | Empty                                                                                                                              | The section LinkedIn search reads most heavily.                                                             |
-| Website  | None                                                                                                                               | The entire reason we're here.                                                                               |
-| Posts    | None                                                                                                                               | 23 followers, no activity.                                                                                  |
+### What's there now
 
-Note: "Open to work — recruiters only" is **not** visible to the public, so it
-is not hurting you with prospects. Leave it on while you're interviewing.
+| Field    | Now                                                                                                                              | Gap                                                                                   |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| Headline | Accounting (CPA Track) \| UNC Greensboro Accelerated Master's Program \| Audit & Tax Interest \| Raleigh-Durham / Greensboro, NC | No graduation date, no CPA timing, no current employer                                |
+| About    | Empty                                                                                                                            | The section LinkedIn search reads most heavily, and the first thing a recruiter reads |
+| Website  | None                                                                                                                             | —                                                                                     |
+| Posts    | None                                                                                                                             | 22 connections, 23 followers                                                          |
+
+"Open to work — recruiters only" is **not** publicly visible. Leave it on.
 
 ### Headline — paste this
 
 ```
-Licensed Insurance Agent in Greensboro, NC | Medicare help for people turning 65 in the Piedmont Triad | Accounting Master's Candidate, UNC Greensboro
+Accounting Master's Candidate at UNC Greensboro | Graduating Summer 2027, Sitting for the CPA Exam Shortly After | Licensed Agent at Bankers Life | Audit, Tax & AI Automation
 ```
 
-Why it works: "Medicare" and "Greensboro" both appear early, which is what
-LinkedIn search matches on. The degree stays, so recruiters still see the CPA
-track. "Raleigh-Durham" comes out — you cannot claim to be the local Triad
-guy and list another metro in the same line.
+A recruiter screening candidates filters on exactly two things you were not
+saying: when you graduate and when you sit. Both are now in the first half of
+the line, before the truncation point on mobile.
 
 ### About — paste this
 
 ```
-I help people in Greensboro, High Point, Winston-Salem and the rest of the
-Piedmont Triad figure out Medicare when they turn 65.
+I am completing my master's in accounting at UNC Greensboro through the
+accelerated program, graduating in summer 2027, and I plan to sit for the CPA
+exam shortly after. My interests are in audit and tax.
 
-Most people meet me at the point where the mail has gotten out of hand. Eight
-inches of envelopes, every one of them looking official, and not one explaining
-what the deadlines actually are or what it costs to miss them. That is the
-part I am good at: sitting down at the kitchen table, going through your
-situation, and telling you plainly where you stand.
+Alongside my degree I work as a licensed insurance agent with Bankers Life in
+Greensboro, where I meet with families across the Piedmont Triad about Medicare
+and retirement coverage. It is not a typical student job, and it has taught me
+things a classroom does not: how to take dense regulatory material — CMS rules,
+income brackets, enrollment deadlines — and explain it to someone at their
+kitchen table until they can make a decision with confidence. I sit across from
+people making choices that affect the rest of their retirement, and the work
+only goes well if I have the details exactly right.
 
-I am one licensed agent, not a call center. When you call, you reach me. I do
-not sell or pass along anyone's information.
+I also build. I designed and shipped christianbrinkleync.com, a resource site
+with calculators that work out Medicare enrollment dates, late enrollment
+penalties, and income-related premium brackets against the published CMS
+figures. I built it using AI-assisted development, and the part I found most
+interesting was the engineering discipline it demanded rather than the writing:
+every published figure is pinned by an automated test to its government source,
+so a number cannot quietly go stale or wrong.
 
-What I actually do:
+That combination is what I want to bring into an accounting career. Technical
+accuracy where it is not negotiable, automation where the work is repetitive,
+and the ability to explain the result to someone who does not share the
+vocabulary.
 
-- Medicare enrollment for people approaching 65, including anyone still working
-  past 65 and trying to work out how job coverage fits
-- Annual enrollment reviews — whether next year's plan still covers your
-  doctors and your prescriptions
-- Life insurance, long-term care and critical illness coverage
-- Retirement income questions, where I review your situation and point you to
-  the right professional for the parts outside what I handle
-
-I also built a set of free tools for people who would rather work it out
-themselves first. Enrollment dates, what a late Part B enrollment costs, and
-every 2026 Medicare figure with the government source next to it. No email
-required for any of it:
+Graduating summer 2027 | CPA exam to follow | Open to audit and tax
+opportunities in Greensboro and the Raleigh-Durham area
 
 christianbrinkleync.com
-
-Licensed insurance agent in North Carolina. Accounting master's candidate at
-UNC Greensboro, expected 2027.
-
-Consultations are free and there is no obligation. (336) 365-7422
-
-Not connected with or endorsed by the U.S. government or the federal Medicare
-program.
 ```
 
-### The other three fields
+Why this works for a recruiter: it turns the insurance job from a distraction
+into evidence. Client-facing work under regulatory pressure, plus a shipped
+technical project with real testing discipline, is a stronger story than most
+accounting master's candidates have. The AI paragraph is specific about what you
+did rather than claiming a skill, which is what makes it credible.
 
-1. **Contact info → Website.** URL `https://christianbrinkleync.com`, type
-   "Company" (LinkedIn also allows a custom label — use "Medicare help in the
-   Triad" if offered).
-2. **Contact info → Phone.** (336) 365-7422.
-3. **Featured section.** Add the site as a featured link. It renders as a card
-   high on the profile, which is the most-clicked thing on a LinkedIn page
-   after the headline.
+### Then three small fields
 
-### Then post, about once a week
-
-Your 22 connections are the constraint, not the copy. Connect with everyone you
-know locally — UNCG people, anyone in Greensboro business, former colleagues.
-200 connections makes a post worth writing; 22 does not.
-
----
+1. **Contact info → Website:** `https://christianbrinkleync.com`
+2. **Featured section:** add the site as a featured link. It renders as a card
+   near the top and is the most-clicked element after the headline.
+3. **Connections.** 22 is the real constraint. Connect with everyone from UNCG,
+   every accounting professor, every local professional you have met. Recruiters
+   filter by shared connections, and nothing you post reaches anyone at 23
+   followers.
 
 ## Facebook
 
