@@ -12,6 +12,7 @@ import { articleJsonLd, localBusinessJsonLd, SITE_URL } from "@/lib/seo";
 const FACEBOOK_PROFILE =
   "https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/";
 const LINKEDIN_PROFILE = "https://www.linkedin.com/in/christianbrinkley";
+const NEXTDOOR_PROFILE = "https://nextdoor.com/page/christian-brinkley/";
 const GOOGLE_MAPS_PROFILE = "https://www.google.com/maps?cid=12304450181097673337";
 const BANKERS_MAPS_CID = "10422520109754041632";
 
@@ -53,8 +54,18 @@ describe("search discovery", () => {
   it("connects Person and ProfessionalService sameAs to published profiles", () => {
     const profiles = publishedProfiles();
     const urls = profiles.map((profile) => profile.url);
-    expect(profiles.map((profile) => profile.network)).toEqual(["facebook", "linkedin", "google"]);
-    expect(urls).toEqual([FACEBOOK_PROFILE, LINKEDIN_PROFILE, GOOGLE_MAPS_PROFILE]);
+    expect(profiles.map((profile) => profile.network)).toEqual([
+      "facebook",
+      "linkedin",
+      "nextdoor",
+      "google",
+    ]);
+    expect(urls).toEqual([
+      FACEBOOK_PROFILE,
+      LINKEDIN_PROFILE,
+      NEXTDOOR_PROFILE,
+      GOOGLE_MAPS_PROFILE,
+    ]);
 
     const graph = localBusinessJsonLd()["@graph"];
     const person = graph.find((entity) => entity["@type"] === "Person");
@@ -64,6 +75,7 @@ describe("search discovery", () => {
     expect(service?.sameAs).toEqual(urls);
     expect(service?.hasMap).toBe(GOOGLE_MAPS_PROFILE);
     expect(json).toContain(GOOGLE_MAPS_PROFILE.toLowerCase());
+    expect(json).toContain(NEXTDOOR_PROFILE.toLowerCase());
     expect(json).not.toContain("bankerslife");
     expect(json).not.toContain(BANKERS_MAPS_CID);
     expect(json).not.toContain("agents.bankerslife.com");
@@ -73,7 +85,12 @@ describe("search discovery", () => {
   it("lists published profile URLs in llms.txt", async () => {
     const body = await llmsTxt().text();
     const profiles = publishedProfiles();
-    expect(profiles.map((profile) => profile.network)).toEqual(["facebook", "linkedin", "google"]);
+    expect(profiles.map((profile) => profile.network)).toEqual([
+      "facebook",
+      "linkedin",
+      "nextdoor",
+      "google",
+    ]);
     expect(body).toContain("## Public profiles");
     for (const profile of profiles) {
       expect(body).toContain(profile.label);
@@ -81,6 +98,7 @@ describe("search discovery", () => {
     }
     expect(body).toContain(FACEBOOK_PROFILE);
     expect(body).toContain(LINKEDIN_PROFILE);
+    expect(body).toContain(NEXTDOOR_PROFILE);
     expect(body).toContain(GOOGLE_MAPS_PROFILE);
     expect(body.toLowerCase()).not.toContain("bankerslife");
     expect(body).not.toContain(BANKERS_MAPS_CID);
