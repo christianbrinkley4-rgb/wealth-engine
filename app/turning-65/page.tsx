@@ -188,7 +188,11 @@ export default function Turning65Page() {
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             If your seven-month window has already passed, there is a General Enrollment Period
             every year from January 1 through March 31, and Part B coverage starts the month after
-            you sign up. A late penalty can still apply.{" "}
+            you sign up. A late penalty can still apply —{" "}
+            <Link href="/part-b-penalty" className="font-medium underline underline-offset-2">
+              work out what it would cost in your case
+            </Link>
+            .{" "}
             <a
               href="https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start"
               target="_blank"
