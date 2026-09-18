@@ -273,6 +273,16 @@ export function localBusinessJsonLd() {
           },
         ],
         areaServed,
+        // Kept identical to the Google Business Profile hours. Structured
+        // markup that contradicts the profile is worse than none at all.
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: [...AGENT.businessHours.days],
+            opens: AGENT.businessHours.opens,
+            closes: AGENT.businessHours.closes,
+          },
+        ],
         knowsLanguage: "en-US",
         telephone: SITE_OWNER_PHONE,
         email: SITE_OWNER_EMAIL,

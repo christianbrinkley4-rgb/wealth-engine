@@ -53,7 +53,19 @@ export const AGENT = {
    * centers answer at 8pm on a Sunday; you can’t, so say what you actually do
    * instead of leaving people guessing.
    */
-  hours: "Appointments daily at 9am, 11am, 1pm, 3pm, and 5pm, Eastern time.",
+  hours: "Calls and appointments 8am to 7pm, Monday through Saturday, Eastern time.",
+
+  /**
+   * The same hours in the form schema.org wants. These must keep matching the
+   * Google Business Profile: a search engine that sees one set of hours on the
+   * profile and another in the markup trusts neither, and it is the profile,
+   * not the site, that decides most "medicare agent near me" results.
+   */
+  businessHours: {
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] as readonly string[],
+    opens: "08:00",
+    closes: "19:00",
+  },
   afterHoursPromise:
     "If I’m with a family or away from the phone, leave a message and I’ll follow up personally.",
 
@@ -80,8 +92,14 @@ export const AGENT = {
   advisorPartner: null as string | null,
 } as const;
 
-/** Add verified 24-hour times only when the exact Saturday window is known. */
-export const SATURDAY_HOURS: { opens: string; closes: string } | null = null;
+/**
+ * Confirmed by Christian on 2026-09-18 and set to match the Google Business
+ * Profile. Derived from businessHours so the two can never disagree.
+ */
+export const SATURDAY_HOURS: { opens: string; closes: string } | null =
+  AGENT.businessHours.days.includes("Saturday")
+    ? { opens: AGENT.businessHours.opens, closes: AGENT.businessHours.closes }
+    : null;
 
 /**
  * CMS requires the standardized count disclaimer only for a TPMO that sells
