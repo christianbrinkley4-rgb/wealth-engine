@@ -22,6 +22,7 @@ const STATIC_ROUTES: Array<{
   { path: "/service-area", changeFrequency: "monthly", priority: 0.9 },
   { path: "/about", changeFrequency: "monthly", priority: 0.85 },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/part-b-penalty", changeFrequency: "monthly", priority: 0.9 },
   { path: "/plan", changeFrequency: "weekly", priority: 0.8 },
   { path: "/annuities", changeFrequency: "monthly", priority: 0.85 },
   { path: "/life-insurance", changeFrequency: "monthly", priority: 0.85 },

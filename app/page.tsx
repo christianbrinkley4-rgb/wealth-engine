@@ -66,6 +66,7 @@ const PROMISES = [
 const COSTS = [
   {
     figure: "10%",
+    href: "/part-b-penalty",
     title: "Signing up for Part B late",
     text: "If a late-enrollment penalty applies, your Part B premium generally increases by 10% for each full year you delayed, for as long as you have Part B.",
   },
@@ -245,6 +246,11 @@ export default function HomePage() {
                 <div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
+                  {"href" in item && item.href ? (
+                    <Link className="home-link" href={item.href}>
+                      Work out my own number <ArrowRight size={18} aria-hidden />
+                    </Link>
+                  ) : null}
                 </div>
               </div>
             ))}
