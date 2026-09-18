@@ -1720,6 +1720,11 @@
 .ref-table tbody td {
   color: var(--home-ink);
   font-variant-numeric: tabular-nums;
+}
+/* Values are a mix of figures and short sentences. Holding them all on one
+   line pushed the sentences off the side of a phone, so only the wide
+   table — which scrolls on purpose — keeps them unwrapped. */
+.ref-table-wide tbody td {
   white-space: nowrap;
 }
 .ref-table tbody tr:last-child th,
