@@ -24,14 +24,16 @@ import {
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Turning 65? Medicare Initial Enrollment in Greensboro, NC" },
+  title: {
+    absolute: "Turning 65 Medicare Help in Greensboro, Winston-Salem & High Point",
+  },
   description:
-    "Turning 65 in Greensboro, High Point, or Winston-Salem? Map employer coverage, Part B, Medigap, and a younger spouse with a local licensed agent.",
+    "Turning 65 in the Piedmont Triad? Map employer coverage, Part B, Medigap, and a younger spouse with a local licensed agent who meets in Greensboro, High Point, and Winston-Salem.",
   alternates: { canonical: "/turning-65" },
   openGraph: pageOpenGraph({
-    title: "Turning 65: your Medicare window, explained for Greensboro",
+    title: "Turning 65 Medicare help in Greensboro, Winston-Salem & High Point",
     description:
-      "The seven-month Initial Enrollment Period around your 65th birthday, with a licensed agent serving Greensboro, High Point, and Winston-Salem.",
+      "The seven-month Initial Enrollment Period around your 65th birthday, with a licensed agent serving the Piedmont Triad.",
     path: "/turning-65",
   }),
 };
@@ -149,9 +151,9 @@ export default function Turning65Page() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Turning 65" }]}
-        eyebrow="Initial Enrollment Period · Greensboro, NC"
+        eyebrow="Initial Enrollment Period · Piedmont Triad"
         title="Build your Medicare timeline before 65"
-        lede="You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered. I’ll help you understand your next steps."
+        lede="You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered — in Greensboro, High Point, Winston-Salem, or by phone. I’ll help you understand your next steps."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon"
         secondaryLabel="Request a consultation →"
         note={

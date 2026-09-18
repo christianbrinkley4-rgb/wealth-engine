@@ -174,3 +174,66 @@ carrier on the public site or in public business-page About fields.
 7. **Local links** — church/club/member pages, senior-center talk listings, Chamber directory when ready.
 
 Paste any new Nextdoor / Yelp / Bing Places URLs back into the site repo when they exist.
+
+---
+
+## Addendum — 18 September 2026 (evening verification pass)
+
+**Ranking goal is not complete.** christianbrinkleync.com is still not #1
+for Piedmont Triad service searches, and still not the answer assistants quote.
+
+### Live evidence (public surfaces)
+
+Checked live HTML and `/llms.txt` after the profiles deploy:
+
+| Surface | Facebook | LinkedIn | Maps CID `12304450181097673337` | `bankerslife` / carrier Maps CID |
+| ------- | -------- | -------- | ------------------------------- | -------------------------------- |
+| `/` footer + JSON-LD `sameAs` | yes | yes | yes | none |
+| `/about` Find me online + JSON-LD | yes | yes | yes | none |
+| `/llms.txt` Public profiles | yes | yes | yes | none |
+| `robots.txt` | indexable; sitemap published | | | |
+| IndexNow key | live at `/c9f2e18a4b7d0635e1c84a90d2b7f6e4.txt` | | | |
+
+Schema hours remain Mon–Sat 08:00–19:00, matching the documented independent
+Google listing (not the Bankers-scraped 8am–9pm hours).
+
+### SERP status this pass (honest)
+
+| Query | What ranked / was named | christianbrinkleync.com |
+| ----- | ----------------------- | ----------------------- |
+| Medicare agent Greensboro NC | Hometown / Priscilla Vann, Gaiser, Sutherland, Summit, Moser (Google synthesis); Bing top results: Medicare Agents Hub, Humana MarketPoint, Health Insurance Shoppe, Lisa Austin, Farley, Gaiser, Sutherland | **Not in the cited/top set** |
+| Medicare agent Winston-Salem NC | Community Senior Benefits, Blue Moon / Sandra Collins, Kevin Ebbink / Compass, Savas | **Not in the cited set** |
+| turning 65 Medicare help Piedmont Triad | NC DOI / SHIIP, Shepherd’s Center, Moser’s Triad turning-65 FAQ, WS Chronicle | **Not the cited answer** |
+| Christian Brinkley Greensboro | LinkedIn, UNCG staff page, **agents.bankerslife.com** first for insurance identity; scraped office directories | Personal site **not first** |
+| site:christianbrinkleync.com | Web search returned no usable organic hit set this pass | Treat as **weak / not visible** in the tools used; do not assume #1 indexing |
+| life insurance + Christian Brinkley Greensboro | Bankers Life agent profile and syndicated office listings | Personal site **not first** |
+
+Manual IndexNow POST this pass: **200 accepted for 82 sitemap URLs**.
+
+### Directory hunt (independent only)
+
+| Network | Result | Wired? |
+| ------- | ------ | ------ |
+| Nextdoor | `https://nextdoor.com/pages/christian-brinkley-greensboro-nc/` still **404** | No |
+| Yelp | No Christian Brinkley Greensboro insurance listing found (unrelated Brinkley hits elsewhere) | No |
+| Bing Places | No verified public Places URL found | No |
+| Alignable | No Christian Brinkley Greensboro profile found | No |
+
+Carrier-branded listings were not wired.
+
+### On-site change this pass
+
+`/turning-65` title, Open Graph, eyebrow, and lede now name Greensboro,
+Winston-Salem, and High Point the way the page’s FAQs already do — aimed at
+the Triad turning-65 query Moser currently wins. Not a new doorway page.
+
+### Remaining blockers (same order)
+
+1. **Bing Places** — still missing; ChatGPT/Bing local answers need a business listing.
+2. **Facebook NAP** — Page exists; phone/category/About/email still wrong per PROFILE-COPY.md.
+3. **Nextdoor Business Page** — create independent Insurance Agent page (not carrier-branded).
+4. **Google reviews** on CID `12304450181097673337` — still none.
+5. **Apple Business Connect** and **Yelp** claim with the same NAP.
+6. **Real local links** — chamber, talks, member pages; Search Console still reported no referring pages earlier.
+
+Next lever for Christian (cannot be done from the repo): **Bing Places import from the independent Google profile**, then paste the public URL back for `sameAs`.
