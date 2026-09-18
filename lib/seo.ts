@@ -209,6 +209,7 @@ export function localBusinessJsonLd() {
         image: `${SITE_URL}/christian-brinkley.jpg`,
         telephone: SITE_OWNER_PHONE,
         email: SITE_OWNER_EMAIL,
+        ...(AGENT.profiles.length > 0 ? { sameAs: [...AGENT.profiles] } : {}),
         url: `${SITE_URL}/about`,
         // Topics covered on the site; these do not assert additional credentials.
         knowsAbout: [

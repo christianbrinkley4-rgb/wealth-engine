@@ -66,6 +66,15 @@ export const AGENT = {
    * credentials: things that are true today, e.g. "AHIP certified for 2027".
    * advisorPartner: the advisor's name and credential, only with their permission.
    */
+  /**
+   * Public profiles that are verifiably Christian's, used as `sameAs` links in
+   * the structured data. Search engines treat these as evidence that the site,
+   * the business listing and the social account are one person, which is what
+   * decides whether a knowledge panel forms at all. Only add a profile he
+   * actually controls — a wrong link is worse than none.
+   */
+  profiles: [] as readonly string[],
+
   introVideoUrl: null as string | null,
   credentials: [] as readonly string[],
   advisorPartner: null as string | null,
