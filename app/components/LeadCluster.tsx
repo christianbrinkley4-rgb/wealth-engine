@@ -12,6 +12,16 @@ const LEADS = [
     blurb: "Review your coverage for the coming year",
   },
   {
+    href: "/medicare-costs",
+    label: "What Medicare costs",
+    blurb: "2026 premiums, deductibles, and penalties",
+  },
+  {
+    href: "/special-enrollment",
+    label: "Special enrollment",
+    blurb: "When a life change opens a new window",
+  },
+  {
     href: "/life-insurance",
     label: "Life insurance",
     blurb: "Review the protection your family needs",

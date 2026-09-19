@@ -13,6 +13,8 @@ const STATIC_ROUTES: Array<{
   { path: "/short-term-care-insurance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/critical-illness-insurance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/turning-65", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/medicare-costs", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/special-enrollment", changeFrequency: "monthly", priority: 0.85 },
   { path: "/annual-enrollment", changeFrequency: "weekly", priority: 0.95 },
   { path: "/advantage-vs-medigap", changeFrequency: "monthly", priority: 0.9 },
   { path: "/social-security-timing", changeFrequency: "monthly", priority: 0.9 },

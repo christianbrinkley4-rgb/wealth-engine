@@ -11,6 +11,8 @@ import {
 } from "@/lib/commandCenter";
 import { scoreLead } from "@/lib/leadScoring";
 import { sendMetaLeadEvent } from "@/lib/metaCapi";
+import { sequenceKeyForTopic, shouldEnrollNurture } from "@/lib/nurture";
+import { enrollLead, newUnsubscribeToken } from "@/lib/nurtureStore";
 import {
   type DeliveryResult,
   isLeadNotifyConfigured,
@@ -594,6 +596,35 @@ export async function POST(request: NextRequest) {
       owner_alert: alert,
       ...(requiresReview ? {} : { prospect_reply: reply }),
     });
+
+    /*
+     * Nurture enrollment: the automated follow-up sequence for this topic.
+     * Best-effort and consent-gated — a queue hiccup here must never fail
+     * the request. Duplicates (network retries) are skipped by the
+     * enrollment itself, which keeps one active enrollment per sequence.
+     */
+    if (supabase && !duplicate) {
+      const decision = shouldEnrollNurture({
+        consentGiven: verifiedConsent,
+        email,
+        status: "new",
+        topic: interest_topic,
+      });
+      const sequenceKey = decision.enroll ? sequenceKeyForTopic(interest_topic) : null;
+      if (sequenceKey) {
+        await enrollLead(
+          supabase,
+          {
+            email,
+            fullName: full_name,
+            topic: interest_topic,
+            unsubscribeToken: newUnsubscribeToken(),
+            leadId: existing?.id ?? null,
+          },
+          sequenceKey,
+        );
+      }
+    }
 
     /*
      * `emailConfigured` is not a detail the visitor needs, but the thank-you
