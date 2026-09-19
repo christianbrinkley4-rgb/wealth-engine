@@ -98,11 +98,11 @@ Once three or four are in, they appear on the website automatically — the sect
 
 | Network | Public URL status | Who must act |
 | ------- | ----------------- | ------------ |
-| Google Maps (independent) | Live CID `12304450181097673337`, Place ID `ChIJCYLxNHVn4U0ReVLReD8wwqo`, wired on site | Ask clients for reviews (link above) |
-| Facebook | Page exists; still wrong **919** phone + Bankers email + categories | Christian Page admin login |
+| Google Maps (independent) | Live CID `12304450181097673337`, Place ID `ChIJCYLxNHVn4U0ReVLReD8wwqo`, wired on site. First Update post published 18 Sep (Part B calculator). 0 reviews | Ask clients for reviews (link above); post an Update weekly |
+| Facebook | Fixed 18 Sep (Claude): phone 336, bio, category **Insurance Agent · Financial Consultant**; first own-voice post published (Part B dates/penalty) | Invite friends to follow (3 followers) |
 | LinkedIn | Profile exists; website field still empty | Christian login |
-| Bing Places | No verified public Places URL | Christian Microsoft login |
-| Nextdoor | `/pages/…` still 404 | Christian login; create independent page |
+| Bing Places | Sign-in with Google started 18 Sep; popup needs Christian's click, then import from Google | Christian: finish Google sign-in popup |
+| Nextdoor | Live: https://nextdoor.com/pages/christian-brinkley/ (wired on site). **Duplicate** created by mistake 18 Sep at /page/christian-brinkley-greensboro-nc/ — Christian must delete it | Christian: delete duplicate; ask clients to recommend |
 | Apple Business Connect | No independent Apple Maps share found | Christian Apple ID |
 | Yelp | No independent Greensboro insurance listing found | Christian login |
 | Alignable | No profile found | Optional later; do not wire until verified |
