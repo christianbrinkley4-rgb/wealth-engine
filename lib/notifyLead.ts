@@ -802,3 +802,22 @@ export async function sendReminderDue(input: {
     return false;
   }
 }
+
+/**
+ * Nurture emails: same verified-from pipeline, but with an HTML body. The
+ * reply-to is always Christian so replies land in his inbox.
+ */
+export async function sendNurtureEmail(options: {
+  to: string;
+  subject: string;
+  text: string;
+  html: string;
+}): Promise<DeliveryResult> {
+  return sendEmail({
+    to: options.to,
+    subject: options.subject,
+    text: options.text,
+    html: options.html,
+    replyTo: AGENT.email,
+  });
+}

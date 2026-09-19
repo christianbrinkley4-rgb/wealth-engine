@@ -5,7 +5,7 @@
  * a third-party script on a site with no campaign IDs configured, so local dev
  * and preview deploys stay clean.
  *
- * Set in Vercel to switch one on:
+ * Set in Netlify (Site settings → Environment variables) to switch one on:
  *   NEXT_PUBLIC_META_PIXEL_ID
  *   NEXT_PUBLIC_GA4_ID
  *   NEXT_PUBLIC_NEXTDOOR_PIXEL_ID
