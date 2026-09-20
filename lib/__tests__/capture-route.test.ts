@@ -5,6 +5,7 @@ import { CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
 const mocks = vi.hoisted(() => ({
   insert: vi.fn(),
   select: vi.fn(),
+  from: vi.fn(),
   email: vi.fn(),
   notify: vi.fn(),
   storage: vi.fn(),
@@ -28,7 +29,7 @@ vi.mock("@/lib/notifyLead", () => ({
 }));
 vi.mock("@/lib/supabase", () => ({
   hasSupabaseAdminConfig: () => true,
-  getSupabaseAdmin: () => ({ from: () => ({ select: mocks.select, insert: mocks.insert }) }),
+  getSupabaseAdmin: () => ({ from: mocks.from }),
 }));
 import { POST } from "@/app/api/capture-lead/route";
 
@@ -74,6 +75,7 @@ beforeEach(() => {
   vi.clearAllMocks();
   mocks.commandCenterConfig.mockReturnValue(null);
   mocks.verifyTurnstile.mockResolvedValue({ ok: true });
+  mocks.from.mockReturnValue({ select: mocks.select, insert: mocks.insert });
   const chain = { eq: vi.fn(), gte: vi.fn(), order: vi.fn(), limit: vi.fn() };
   chain.eq.mockReturnValue(chain);
   chain.gte.mockReturnValue(chain);
@@ -162,7 +164,17 @@ describe("lead capture delivery contract", () => {
     expect(mocks.commandCenterCapture).toHaveBeenCalledWith(
       expect.objectContaining({ full_name: "Test Visitor", phone_number: "9195550100" }),
     );
-    expect(mocks.insert).not.toHaveBeenCalled();
+    // The legacy `leads` table is never written in this mode; the nurture
+    // tables still are (see the enrollment test below).
+    const tables = mocks.from.mock.calls.map((call) => call[0] as string);
+    expect(tables).not.toContain("leads");
+  });
+  it("enrolls command-center leads in the nurture sequence", async () => {
+    mocks.commandCenterConfig.mockReturnValue({ configured: true });
+    mocks.commandCenterCapture.mockResolvedValue(receipt());
+    expect(await (await POST(request(valid()))).json()).toMatchObject({ success: true });
+    const tables = mocks.from.mock.calls.map((call) => call[0] as string);
+    expect(tables).toContain("nurture_enrollments");
   });
   it("does not resend email or alerts for a duplicate inquiry", async () => {
     mocks.commandCenterConfig.mockReturnValue({ configured: true });

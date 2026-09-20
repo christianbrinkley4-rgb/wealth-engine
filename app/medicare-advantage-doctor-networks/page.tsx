@@ -265,7 +265,7 @@ export default function DoctorNetworksPage() {
               for everything else the fall window covers.
             </p>
             <p>
-              Call or text me at {AGENT.phone}, Monday–Saturday 8:00–7:00 — you&apos;ll reach me,
+              Call me at {AGENT.phone}, Monday–Saturday 8:00–7:00 — you&apos;ll reach me,
               not a call center.
             </p>
           </div>

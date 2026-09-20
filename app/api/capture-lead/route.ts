@@ -602,8 +602,22 @@ export async function POST(request: NextRequest) {
      * Best-effort and consent-gated — a queue hiccup here must never fail
      * the request. Duplicates (network retries) are skipped by the
      * enrollment itself, which keeps one active enrollment per sequence.
+     *
+     * The enrollment carries its own contact snapshot, so it runs against the
+     * website database in BOTH storage modes. When the Command Center owns
+     * lead storage, `supabase` above is deliberately null — but the nurture
+     * tables and the cron that reads them still live here, so gating on
+     * `supabase` would silently drop every Command Center lead from nurture.
      */
-    if (supabase && !duplicate) {
+    let nurtureDb = supabase;
+    if (!nurtureDb && hasSupabaseAdminConfig()) {
+      try {
+        nurtureDb = getSupabaseAdmin();
+      } catch (nurtureDbError) {
+        console.error("[capture-lead] Nurture DB client init failed:", nurtureDbError);
+      }
+    }
+    if (nurtureDb && !duplicate) {
       const decision = shouldEnrollNurture({
         consentGiven: verifiedConsent,
         email,
@@ -612,8 +626,8 @@ export async function POST(request: NextRequest) {
       });
       const sequenceKey = decision.enroll ? sequenceKeyForTopic(interest_topic) : null;
       if (sequenceKey) {
-        await enrollLead(
-          supabase,
+        const enrollmentId = await enrollLead(
+          nurtureDb,
           {
             email,
             fullName: full_name,
@@ -623,6 +637,13 @@ export async function POST(request: NextRequest) {
           },
           sequenceKey,
         );
+        if (!enrollmentId) {
+          console.error(
+            `[capture-lead] nurture enrollment returned no id for sequence "${sequenceKey}" — the lead is stored but the follow-up sequence did not start.`,
+          );
+        }
+      } else {
+        console.info(`[capture-lead] nurture not enrolled: ${decision.reason}.`);
       }
     }
 
