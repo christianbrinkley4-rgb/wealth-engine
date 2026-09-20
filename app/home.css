@@ -456,7 +456,9 @@
 /* On a phone the figure and title share a line and the explanation gets the
    full width, instead of a narrow column beside the number. Subgrid keeps the
    figure column one shared width across all three cards so the titles line up
-   instead of each card sizing its own column. */
+   instead of each card sizing its own column. Figures are right-aligned within
+   that shared column so each number hugs its title instead of sitting alone
+   at the far left. */
 .home-cost > div {
   display: contents;
 }
@@ -468,6 +470,8 @@
   line-height: 1;
   letter-spacing: -0.04em;
   color: var(--home-rust);
+  justify-self: end;
+  text-align: right;
 }
 .home .home-cost h3 {
   font-size: 1.2rem;
