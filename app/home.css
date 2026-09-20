@@ -439,19 +439,23 @@
 }
 .home-costs {
   display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   margin-top: 1.4rem;
   border-top: 2px solid var(--home-ink);
 }
 .home-cost {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
   column-gap: 0.9rem;
   align-items: baseline;
   padding-block: 1.1rem;
   border-bottom: 1px solid var(--home-line);
 }
 /* On a phone the figure and title share a line and the explanation gets the
-   full width, instead of a narrow column beside the number. */
+   full width, instead of a narrow column beside the number. Subgrid keeps the
+   figure column one shared width across all three cards so the titles line up
+   instead of each card sizing its own column. */
 .home-cost > div {
   display: contents;
 }
@@ -1401,6 +1405,7 @@
   }
   .home-cost {
     grid-template-columns: 1fr;
+    grid-column: auto;
     align-items: start;
     gap: 0.7rem;
     padding-top: 1.4rem;
