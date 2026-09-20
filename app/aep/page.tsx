@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
@@ -71,7 +72,7 @@ const CHECKS = [
 const STEPS = [
   {
     t: "You book a time",
-    b: `Book below, or call or text me at ${AGENT.phone}. My hours are Monday–Saturday, 8:00–7:00.`,
+    b: `Book below, or call me at ${AGENT.phone}. My hours are Monday–Saturday, 8:00–7:00.`,
   },
   {
     t: "We talk",
@@ -187,6 +188,59 @@ export default function AepPage() {
         secondaryHref="/schedule?topic=medicare"
         secondaryLabel="Book my free review →"
       />
+
+      {/* ANOC campaign — the September letter, translated into plain English. */}
+      <section className="bg-[var(--color-paper)] py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-navy)] uppercase">
+            Your plan&apos;s September letter
+          </p>
+          <h2 className="text-28 mt-3 font-semibold">
+            Got your ANOC letter? Don&apos;t just file it away.
+          </h2>
+          <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
+            <p>
+              Every fall, Medicare Advantage plans mail you an Annual Notice of Change — a letter
+              explaining what&apos;s different about your plan next year. Your premium, your drug
+              costs, your doctor network: any of it can change on January 1, and the letter is how
+              you find out.
+            </p>
+            <p>
+              Most people never read it. Honestly, who can blame them? It&apos;s long, it&apos;s
+              dense, and it doesn&apos;t tell you what to <em>do</em>.
+            </p>
+            <p>
+              Here&apos;s what to do: bring it to me. I&apos;ll sit down with you — in person or by
+              phone — and translate it into plain English. What&apos;s changing, what it costs you,
+              and whether it still fits your doctors and prescriptions. Free. No pressure to switch
+              plans, no obligation to enroll in anything.
+            </p>
+            <p>
+              If your plan still looks good, I&apos;ll tell you so. If something changed that
+              matters to you, we&apos;ll talk through your options before the December 7 deadline.
+            </p>
+          </div>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+            <a
+              href={AGENT.phoneHref}
+              aria-label={`Call ${AGENT.name} at ${AGENT.phone} — let's go through your letter together`}
+              className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)]"
+            >
+              <Phone className="size-5 shrink-0" aria-hidden />
+              {AGENT.phone}
+            </a>
+            <Link
+              href="/start"
+              className="text-18 inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-8 font-semibold text-[var(--color-navy)]"
+            >
+              Book my free review →
+            </Link>
+          </div>
+          <p className="text-16 mt-4 text-[var(--color-ink-muted)]">
+            Free consultation. No obligation to enroll. No call centers, just me.
+          </p>
+        </div>
+      </section>
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -305,6 +359,83 @@ export default function AepPage() {
         </div>
       </section>
 
+      {/* Second-opinion campaign — a fresh set of eyes on the plan they already have. */}
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <div className="rounded-2xl border border-gray-300 bg-[var(--color-paper)] p-6 md:p-10">
+            <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-navy)] uppercase">
+              A second set of eyes
+            </p>
+            <h2 className="text-28 mt-3 font-semibold">
+              Already have a plan? Get a free second opinion before December 7.
+            </h2>
+            <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
+              <p>
+                You wouldn&apos;t skip a second opinion on a surgery. Your Medicare plan deserves
+                the same.
+              </p>
+              <p>
+                Every year, plans change — premiums, drug tiers, doctor networks. Your agent may be
+                great. But a free second look from an independent local agent costs you nothing and
+                could save you real money next year.
+              </p>
+              <p>Here&apos;s how it works:</p>
+            </div>
+            <ol className="mt-6 flex flex-col gap-6">
+              {[
+                {
+                  t: "You bring your current plan",
+                  b: "Your ANOC letter, your drug list, your doctors. That's it.",
+                },
+                {
+                  t: "I review it independently",
+                  b: "I'm not with a call center and I'm not tied to one company. I compare what's out there for 2027 in our area.",
+                },
+                {
+                  t: "You get a straight answer",
+                  b: "If your current plan is still the best fit, I'll tell you to stay put. If something fits you better, I'll show you exactly why.",
+                },
+              ].map((item, index) => (
+                <li key={item.t} className="flex gap-5 border-t border-gray-300 pt-5">
+                  <span className="text-18 flex size-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy)] font-bold text-[var(--color-paper)]">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-20 font-semibold">{item.t}</h3>
+                    <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                      {item.b}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
+              No pressure to switch. No obligation. And if you like your current agent, keep them —
+              you&apos;ll just head into January knowing you checked.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+              <a
+                href={AGENT.phoneHref}
+                aria-label={`Call ${AGENT.name} at ${AGENT.phone} — get my free second opinion`}
+                className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)]"
+              >
+                <Phone className="size-5 shrink-0" aria-hidden />
+                {AGENT.phone}
+              </a>
+              <Link
+                href="/start"
+                className="text-18 inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-8 font-semibold text-[var(--color-navy)]"
+              >
+                Book my free checkup →
+              </Link>
+            </div>
+            <p className="text-16 mt-4 text-[var(--color-ink-muted)]">
+              Free consultation. No obligation to enroll. No call centers, just me.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">A quick word on cost</h2>
@@ -336,7 +467,7 @@ export default function AepPage() {
 
       <KitchenTableClose
         heading="Book your free fall review"
-        body="Annual Enrollment closes December 7 — and my calendar fills up fast in November. Pick a time that works for you, or call or text me and you'll reach me, not a call center."
+        body="Annual Enrollment closes December 7 — and my calendar fills up fast in November. Pick a time that works for you, or call me and you'll reach me, not a call center."
         href="/schedule?topic=medicare"
         label="Book my free review →"
       />

@@ -344,6 +344,32 @@ async function sendSmsAlert(payload: LeadNotifyPayload): Promise<DeliveryResult>
 }
 
 /**
+ * The owner alert as HTML, so Christian gets a one-tap call link for the
+ * lead's phone. The text version stays the record of everything; this is the
+ * "call them right now" surface. The phone number is already normalized to 10
+ * digits by the capture route, so `tel:+1…` dials it directly.
+ */
+function ownerAlertHtml(topic: string, payload: LeadNotifyPayload): string {
+  const digits = (payload.phone_number || "").replace(/\D/g, "");
+  const phoneLine = digits
+    ? `<p style="font-size:19px">📞 <a href="tel:+1${digits}" style="color:#0f2241;font-weight:700">Call ${escapeHtml(formatPhone(payload.phone_number))} now</a></p>`
+    : `<p>Phone: —</p>`;
+  return `
+    <div style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#0f2241;max-width:560px">
+      ${
+        payload.storageFailed
+          ? `<p style="color:#b42318;font-weight:700">*** SAVE FAILED — this email is the ONLY copy of this lead. Write it down. ***</p>`
+          : ""
+      }
+      <p><strong>New ${escapeHtml(topic)} inquiry from the site.</strong></p>
+      <p>Name: ${escapeHtml(payload.full_name || "—")}<br>
+      Email: <a href="mailto:${escapeHtml(payload.email)}">${escapeHtml(payload.email)}</a><br>
+      ZIP: ${escapeHtml(payload.zip_code || "—")}</p>
+      ${phoneLine}
+    </div>`;
+}
+
+/**
  * Alert Christian. Never throws.
  *
  * `ok` is true when at least one channel actually delivered — the caller uses
@@ -404,6 +430,7 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<De
         ? `[NOT SAVED] New ${topic} inquiry — ${payload.full_name || payload.email}`
         : `New ${topic} inquiry — ${payload.full_name || payload.email}`,
       text,
+      html: ownerAlertHtml(topic, payload),
       replyTo: payload.email,
     }),
     postMakeWebhook(payload),
@@ -454,6 +481,14 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<De
     ...snapshot,
   };
 }
+
+/**
+ * Speed-to-lead promise in the prospect auto-reply. The business line is
+ * voice-only, so it says "call", never "call/text".
+ */
+const CALLBACK_PROMISE_TEXT =
+  "I'll call you within the hour during business hours (Mon–Sat, 8–7). " +
+  "Outside business hours, I'll call by 9am the next business day.";
 
 /**
  * The email the site has been promising and never sending: their answers, the
@@ -513,8 +548,10 @@ export async function sendProspectAutoReply(input: {
     ...(dates ? [] : [beat.headline, "", beat.lede, "", ...beat.points.map((p) => `• ${p}`), ""]),
     "That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.",
     "",
+    CALLBACK_PROMISE_TEXT,
+    "",
     `You can arrange a conversation here: ${bookingUrl}`,
-    `Or just call or text me: ${AGENT.phone}`,
+    `Or just call me: ${AGENT.phone}`,
     "",
     "Your request came directly to me. You can reply to this email with a question.",
     "",
@@ -552,10 +589,11 @@ export async function sendProspectAutoReply(input: {
       </ul>`
       }
       <p style="color:#4a5563;font-size:15px">That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.</p>
+      <p style="font-weight:600">${escapeHtml(CALLBACK_PROMISE_TEXT)}</p>
       <p style="margin:28px 0">
         <a href="${escapeHtml(bookingUrl)}" style="background:#0f2241;color:#f5f0e8;padding:14px 22px;border-radius:8px;text-decoration:none;display:inline-block;font-family:Helvetica,Arial,sans-serif;font-weight:600">Arrange a conversation</a>
       </p>
-      <p>Or just call or text me: <strong>${AGENT.phone}</strong>. Your request came directly to me, and you can reply to this email with a question.</p>
+      <p>Or just call me: <strong>${AGENT.phone}</strong>. Your request came directly to me, and you can reply to this email with a question.</p>
       <p style="margin-top:28px">${escapeHtml(AGENT.name)}<br>
       <span style="color:#4a5563">Licensed insurance agent · ${AGENT.city}, ${AGENT.state}</span><br>
       <a href="mailto:${AGENT.email}" style="color:#0f2241">${AGENT.email}</a></p>
@@ -609,8 +647,10 @@ async function sendCalculatorAutoReply(input: {
     "",
     "Two things worth knowing about that number: it’s an estimate for education rather than a quote, and Medicare sets premiums from a tax return two years old — so if your income has changed since then, the real figure can differ, and in some cases it can be appealed.",
     "",
+    CALLBACK_PROMISE_TEXT,
+    "",
     `Happy to walk through what applies to you. Arrange a conversation: ${bookingUrl}`,
-    `Or call or text me: ${AGENT.phone}`,
+    `Or call me: ${AGENT.phone}`,
     "",
     AGENT.name,
     `Licensed insurance agent · ${AGENT.city}, ${AGENT.state}`,

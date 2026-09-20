@@ -116,7 +116,7 @@ export async function POST(request: Request) {
   if (keyword === "help") {
     await sendSms(
       `+1${from}`,
-      `${AGENT.name}, licensed insurance agent in ${AGENT.city} NC. Call or text ${AGENT.phone}. Reply STOP to opt out.`,
+      `${AGENT.name}, licensed insurance agent in ${AGENT.city} NC. Call ${AGENT.phone}. Reply STOP to opt out.`,
     );
     return NextResponse.json({ ok: true, replied: "help" });
   }

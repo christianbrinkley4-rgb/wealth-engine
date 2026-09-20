@@ -236,7 +236,7 @@ export default function AepChecklistPage() {
             pressure.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Book a time or call or text me at {AGENT.phone}, Monday–Saturday 8:00–7:00. You&apos;ll
+            Book a time or call me at {AGENT.phone}, Monday–Saturday 8:00–7:00. You&apos;ll
             reach me, not a call center.
           </p>
 

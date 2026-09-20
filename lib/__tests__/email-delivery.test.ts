@@ -170,3 +170,66 @@ describe("owner alert result", () => {
     expect(payload.subject).not.toContain("[NOT SAVED]");
   });
 });
+
+describe("speed-to-lead", () => {
+  const lead = {
+    source: "help_quiz",
+    email: "visitor@example.com",
+    full_name: "Test Visitor",
+    phone_number: "9195550100",
+    zip_code: "27401",
+    interest_topic: "medicare" as const,
+    lead_score: 80,
+  };
+  const resendPayload = (fetch: ReturnType<typeof vi.fn>) =>
+    JSON.parse((fetch.mock.calls[0] as [string, { body: string }])[1].body);
+
+  it("sends the owner alert to Christian with a one-tap call link", async () => {
+    const { fetch, notifyLead } = await withResend(accepted);
+    const result = await notifyLead.notifyLeadCaptured(lead);
+    expect(result).toMatchObject({ ok: true });
+    const payload = resendPayload(fetch);
+    expect(payload.to).toEqual(["christianbrinkley4@gmail.com"]);
+    expect(payload.text).toContain("Test Visitor");
+    expect(payload.text).toContain("(919) 555-0100");
+    expect(payload.html).toContain('href="tel:+19195550100"');
+    expect(payload.html).toContain("Test Visitor");
+  });
+
+  it("omits the call link when the lead left no phone number", async () => {
+    const { fetch, notifyLead } = await withResend(accepted);
+    await notifyLead.notifyLeadCaptured({ ...lead, phone_number: null });
+    const payload = resendPayload(fetch);
+    expect(payload.html).not.toContain("tel:");
+  });
+
+  it("promises the callback window in the quiz auto-reply, text and html", async () => {
+    const { fetch, notifyLead } = await withResend(accepted);
+    await notifyLead.sendProspectAutoReply({
+      email: "visitor@example.com",
+      full_name: "Test Visitor",
+      interest_topic: "medicare" as const,
+    });
+    const payload = resendPayload(fetch);
+    for (const part of [payload.text, payload.html]) {
+      expect(part).toContain("within the hour during business hours");
+      expect(part).toContain("9am the next business day");
+    }
+    expect(payload.text).not.toContain("call or text");
+    expect(payload.html).not.toContain("call or text");
+  });
+
+  it("promises the callback window in the calculator auto-reply", async () => {
+    const { fetch, notifyLead } = await withResend(accepted);
+    await notifyLead.sendProspectAutoReply({
+      email: "visitor@example.com",
+      full_name: "Test Visitor",
+      source: "roth_calculator",
+      calculated_premium: 284.1,
+    });
+    const payload = resendPayload(fetch);
+    expect(payload.text).toContain("within the hour during business hours");
+    expect(payload.text).toContain("9am the next business day");
+    expect(payload.text).not.toContain("call or text");
+  });
+});
