@@ -12,7 +12,15 @@
  * or upline compliance desk before public Medicare marketing.
  */
 
-export type SocialNetwork = "facebook" | "linkedin" | "nextdoor" | "google" | "yelp";
+export type SocialNetwork =
+  | "facebook"
+  | "instagram"
+  | "tiktok"
+  | "youtube"
+  | "linkedin"
+  | "nextdoor"
+  | "google"
+  | "yelp";
 
 export type SocialProfile = {
   readonly network: SocialNetwork;
@@ -41,6 +49,21 @@ export const SOCIAL_PROFILES: readonly SocialProfile[] = [
     network: "facebook",
     label: "Facebook",
     url: "https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/",
+  },
+  {
+    network: "instagram",
+    label: "Instagram",
+    url: "https://www.instagram.com/christianbrinkleync",
+  },
+  {
+    network: "tiktok",
+    label: "TikTok",
+    url: "https://www.tiktok.com/@4ssxsssia9w",
+  },
+  {
+    network: "youtube",
+    label: "YouTube",
+    url: null,
   },
   {
     network: "linkedin",
