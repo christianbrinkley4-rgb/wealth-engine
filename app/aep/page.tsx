@@ -6,6 +6,7 @@ import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { LeadCluster } from "@/app/components/LeadCluster";
 import { ServiceHero } from "@/app/components/ServiceHero";
+import { AEP_HERO_TITLES, aepPhase } from "@/lib/aep";
 import { AGENT } from "@/lib/agent";
 import {
   articleJsonLd,
@@ -22,6 +23,12 @@ import {
  * front door — what a fall review covers, how it works, and how to book one.
  * Copy drafted from the AEP 2026 content pack, in Christian's voice.
  */
+
+/**
+ * Revalidate hourly so the AEP phase headline flips near the Oct 15 / Dec 7
+ * boundaries without a redeploy.
+ */
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: {
@@ -175,7 +182,7 @@ export default function AepPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment 2026" }]}
         eyebrow="October 15 – December 7, 2026 · Piedmont Triad"
-        title="Medicare Annual Enrollment is open — let's review your plan for 2027"
+        title={AEP_HERO_TITLES[aepPhase()]}
         lede="From October 15 through December 7, you can change your Medicare coverage for next year. I'll sit down with you — in person or by phone — and walk through what's changing with your plan, your drugs, and your doctors. Free, no pressure, no call center."
         secondaryHref="/schedule?topic=medicare"
         secondaryLabel="Book my free review →"
