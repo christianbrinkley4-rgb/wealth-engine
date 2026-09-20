@@ -16,6 +16,7 @@ export type SocialNetwork =
   | "facebook"
   | "instagram"
   | "tiktok"
+  | "threads"
   | "youtube"
   | "linkedin"
   | "nextdoor"
@@ -61,9 +62,14 @@ export const SOCIAL_PROFILES: readonly SocialProfile[] = [
     url: "https://www.tiktok.com/@4ssxsssia9w",
   },
   {
+    network: "threads",
+    label: "Threads",
+    url: "https://www.threads.com/@christianbrinkleync",
+  },
+  {
     network: "youtube",
     label: "YouTube",
-    url: null,
+    url: "https://www.youtube.com/@christianbrinkleync",
   },
   {
     network: "linkedin",

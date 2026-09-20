@@ -15,6 +15,8 @@ const LINKEDIN_PROFILE = "https://www.linkedin.com/in/christianbrinkley";
 const NEXTDOOR_PROFILE = "https://nextdoor.com/page/christian-brinkley/";
 const INSTAGRAM_PROFILE = "https://www.instagram.com/christianbrinkleync";
 const TIKTOK_PROFILE = "https://www.tiktok.com/@4ssxsssia9w";
+const THREADS_PROFILE = "https://www.threads.com/@christianbrinkleync";
+const YOUTUBE_PROFILE = "https://www.youtube.com/@christianbrinkleync";
 const GOOGLE_MAPS_PROFILE = "https://www.google.com/maps?cid=12304450181097673337";
 const BANKERS_MAPS_CID = "10422520109754041632";
 
@@ -60,6 +62,8 @@ describe("search discovery", () => {
       "facebook",
       "instagram",
       "tiktok",
+      "threads",
+      "youtube",
       "linkedin",
       "nextdoor",
       "google",
@@ -68,6 +72,8 @@ describe("search discovery", () => {
       FACEBOOK_PROFILE,
       INSTAGRAM_PROFILE,
       TIKTOK_PROFILE,
+      THREADS_PROFILE,
+      YOUTUBE_PROFILE,
       LINKEDIN_PROFILE,
       NEXTDOOR_PROFILE,
       GOOGLE_MAPS_PROFILE,
@@ -95,6 +101,8 @@ describe("search discovery", () => {
       "facebook",
       "instagram",
       "tiktok",
+      "threads",
+      "youtube",
       "linkedin",
       "nextdoor",
       "google",
@@ -137,7 +145,7 @@ describe("search discovery", () => {
     const plugin = page("../../plugins/netlify-plugin-indexnow/index.js");
     expect(publicKey).toBe(key);
     expect(script).toContain(`const KEY = "${key}"`);
-    expect(script).toContain('https://christianbrinkleync.com');
+    expect(script).toContain("https://christianbrinkleync.com");
     expect(script).toContain("parsed.origin !== ORIGIN");
     expect(script).toContain("bankerslife");
     expect(script).toContain("/(api|lp|go)");
