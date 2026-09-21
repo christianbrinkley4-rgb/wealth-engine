@@ -52,6 +52,17 @@ export async function POST(request: Request) {
 }
 
 /**
+ * Anchor the review sequence to when the consultation actually ends, not when
+ * it was booked. Falls back to "now" when the appointment has no usable end
+ * time. The review ask then goes out on the first daily cron run on or after
+ * the appointment ends; the nudge follows 7 days later (see lib/nurture.ts).
+ */
+function appointmentEnd(appointment: { ends_at?: string | null }): Date {
+  const t = appointment.ends_at ? Date.parse(appointment.ends_at) : NaN;
+  return Number.isFinite(t) ? new Date(t) : new Date();
+}
+
+/**
  * Keep automated follow-up in step with the booking. A confirmed booking
  * stops nurture and starts the review sequence; a cancellation stops the
  * review ask and resumes topic nurture. Best-effort: never fails the webhook.
@@ -61,6 +72,7 @@ async function syncNurtureWithBooking(appointment: {
   email: string;
   full_name: string;
   topic: string | null;
+  ends_at?: string | null;
 }): Promise<void> {
   if (!hasSupabaseAdminConfig()) return;
   const supabase = getSupabaseAdmin();
@@ -76,6 +88,7 @@ async function syncNurtureWithBooking(appointment: {
         unsubscribeToken: snapshot?.unsubscribe_token ?? newUnsubscribeToken(),
       },
       REVIEW_SEQUENCE_KEY,
+      appointmentEnd(appointment),
     );
   } else if (appointment.status === "cancelled" || appointment.status === "rejected") {
     await cancelActiveEnrollments(supabase, email, `booking-${appointment.status}`);
