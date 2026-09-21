@@ -22,7 +22,8 @@ export type SocialNetwork =
   | "nextdoor"
   | "google"
   | "yelp"
-  | "brownbook";
+  | "brownbook"
+  | "manta";
 
 export type SocialProfile = {
   readonly network: SocialNetwork;
@@ -88,6 +89,11 @@ export const SOCIAL_PROFILES: readonly SocialProfile[] = [
     network: "brownbook",
     label: "Brownbook",
     url: "https://www.brownbook.net/business/55524532/christian-brinkley",
+  },
+  {
+    network: "manta",
+    label: "Manta",
+    url: "https://www.manta.com/c/m1hjvy9/christian-brinkley",
   },
 ];
 
