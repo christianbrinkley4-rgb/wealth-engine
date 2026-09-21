@@ -71,7 +71,7 @@ const CHECKS = [
 const STEPS = [
   {
     t: "You book a time",
-    b: `Book below, or call or text me at ${AGENT.phone}. My hours are Monday–Saturday, 8:00–7:00.`,
+    b: `Book below, or call me at ${AGENT.phone}. My hours are Monday–Saturday, 8:00–7:00.`,
   },
   {
     t: "We talk",
@@ -336,7 +336,7 @@ export default function AepPage() {
 
       <KitchenTableClose
         heading="Book your free fall review"
-        body="Annual Enrollment closes December 7 — and my calendar fills up fast in November. Pick a time that works for you, or call or text me and you'll reach me, not a call center."
+        body="Annual Enrollment closes December 7 — and my calendar fills up fast in November. Pick a time that works for you, or call me and you'll reach me, not a call center."
         href="/schedule?topic=medicare"
         label="Book my free review →"
       />
