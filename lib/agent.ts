@@ -21,7 +21,8 @@ export type SocialNetwork =
   | "linkedin"
   | "nextdoor"
   | "google"
-  | "yelp";
+  | "yelp"
+  | "brownbook";
 
 export type SocialProfile = {
   readonly network: SocialNetwork;
@@ -83,6 +84,11 @@ export const SOCIAL_PROFILES: readonly SocialProfile[] = [
   },
   { network: "google", label: "Google", url: GOOGLE_MAPS_PROFILE_URL },
   { network: "yelp", label: "Yelp", url: null },
+  {
+    network: "brownbook",
+    label: "Brownbook",
+    url: "https://www.brownbook.net/business/55524532/christian-brinkley",
+  },
 ];
 
 export type PublishedSocialProfile = SocialProfile & { readonly url: string };

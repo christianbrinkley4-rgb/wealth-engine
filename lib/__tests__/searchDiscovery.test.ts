@@ -67,6 +67,7 @@ describe("search discovery", () => {
       "linkedin",
       "nextdoor",
       "google",
+      "brownbook",
     ]);
     expect(urls).toEqual([
       FACEBOOK_PROFILE,
@@ -77,6 +78,7 @@ describe("search discovery", () => {
       LINKEDIN_PROFILE,
       NEXTDOOR_PROFILE,
       GOOGLE_MAPS_PROFILE,
+      "https://www.brownbook.net/business/55524532/christian-brinkley",
     ]);
 
     const graph = localBusinessJsonLd()["@graph"];
@@ -106,6 +108,7 @@ describe("search discovery", () => {
       "linkedin",
       "nextdoor",
       "google",
+      "brownbook",
     ]);
     expect(body).toContain("## Public profiles");
     for (const profile of profiles) {
