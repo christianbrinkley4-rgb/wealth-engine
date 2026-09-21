@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
@@ -300,6 +301,83 @@ export default function AepPage() {
                 See how special enrollment works
               </Link>
               .
+            </p>
+          </div>
+        </div>
+      </section>
+
+{/* Second-opinion campaign — a fresh set of eyes on the plan they already have. */}
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <div className="rounded-2xl border border-gray-300 bg-[var(--color-paper)] p-6 md:p-10">
+            <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-navy)] uppercase">
+              A second set of eyes
+            </p>
+            <h2 className="text-28 mt-3 font-semibold">
+              Already have a plan? Get a free second opinion before December 7.
+            </h2>
+            <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
+              <p>
+                You wouldn&apos;t skip a second opinion on a surgery. Your Medicare plan deserves
+                the same.
+              </p>
+              <p>
+                Every year, plans change — premiums, drug tiers, doctor networks. Your agent may be
+                great. But a free second look from an independent local agent costs you nothing and
+                could save you real money next year.
+              </p>
+              <p>Here&apos;s how it works:</p>
+            </div>
+            <ol className="mt-6 flex flex-col gap-6">
+              {[
+                {
+                  t: "You bring your current plan",
+                  b: "Your ANOC letter, your drug list, your doctors. That's it.",
+                },
+                {
+                  t: "I review it independently",
+                  b: "I'm not with a call center and I'm not tied to one company. I compare what's out there for 2027 in our area.",
+                },
+                {
+                  t: "You get a straight answer",
+                  b: "If your current plan is still the best fit, I'll tell you to stay put. If something fits you better, I'll show you exactly why.",
+                },
+              ].map((item, index) => (
+                <li key={item.t} className="flex gap-5 border-t border-gray-300 pt-5">
+                  <span className="text-18 flex size-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy)] font-bold text-[var(--color-paper)]">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-20 font-semibold">{item.t}</h3>
+                    <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                      {item.b}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
+              No pressure to switch. No obligation. And if you like your current agent, keep them —
+              you&apos;ll just head into January knowing you checked.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+              <a
+                href={AGENT.phoneHref}
+                aria-label={`Call ${AGENT.name} at ${AGENT.phone} — get my free second opinion`}
+                className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)]"
+              >
+                <Phone className="size-5 shrink-0" aria-hidden />
+                {AGENT.phone}
+              </a>
+              <Link
+                href="/start"
+                className="text-18 inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-8 font-semibold text-[var(--color-navy)]"
+              >
+                Book my free checkup →
+              </Link>
+            </div>
+            <p className="text-16 mt-4 text-[var(--color-ink-muted)]">
+              Free consultation. No obligation to enroll. No call centers, just me.
             </p>
           </div>
         </div>
