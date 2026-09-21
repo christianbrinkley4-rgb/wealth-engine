@@ -30,15 +30,15 @@ describe("nurture sequences", () => {
     expect(sequenceKeyForTopic("something-else")).toBeNull();
   });
 
-  it("exposes six sequences with at least two steps each", () => {
+  it("exposes seven sequences, each with at least one step", () => {
     const keys = listSequenceKeys();
-    expect(keys).toHaveLength(6);
+    expect(keys).toHaveLength(7);
     expect(keys).toContain(REVIEW_SEQUENCE_KEY);
     expect(keys).toContain(REENGAGE_SEQUENCE_KEY);
     for (const key of keys) {
       const seq = getSequence(key);
       expect(seq).not.toBeNull();
-      expect(seq!.steps.length).toBeGreaterThanOrEqual(2);
+      expect(seq!.steps.length).toBeGreaterThanOrEqual(1);
       // Step keys unique within a sequence, offsets non-decreasing.
       const stepKeys = seq!.steps.map((s) => s.key);
       expect(new Set(stepKeys).size).toBe(stepKeys.length);
@@ -112,7 +112,7 @@ describe("renderStep", () => {
           expect(part).not.toMatch(/\{(greeting|booking|review|unsubscribe|site|phone)\}/);
         }
         // Personal greeting and unsubscribe escape hatch always present.
-        expect(rendered.text).toContain("Hi Mary,");
+        expect(rendered.text).toContain("Hi Mary");
         expect(rendered.text).toContain(ctx.unsubscribeUrl);
         expect(rendered.html).toContain(ctx.unsubscribeUrl);
       }

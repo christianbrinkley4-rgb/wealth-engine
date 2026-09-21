@@ -861,3 +861,59 @@ export async function sendNurtureEmail(options: {
     replyTo: AGENT.email,
   });
 }
+
+/**
+ * Referral engine (staged): an enrollment was just logged. Tell Christian
+ * while the client is happiest — the post-enrollment checklist's referral
+ * ask. The 30-day check-in email is queued separately by the
+ * enrollment-logged route. Never throws.
+ */
+export async function notifyEnrollmentLogged(input: {
+  fullName: string;
+  email: string;
+  phone?: string | null;
+  effectiveDate: string;
+}): Promise<DeliveryResult> {
+  const digits = (input.phone || "").replace(/\D/g, "");
+  const text = [
+    `Enrollment confirmed for ${input.fullName} (${input.email}).`,
+    `Coverage effective: ${input.effectiveDate}`,
+    digits ? `Phone: ${formatPhone(digits)}` : "",
+    "",
+    "Post-enrollment checklist — ask the referral ask while they're happiest:",
+    "\"Most of the people I help come from someone like you telling a friend",
+    "or family member about me. If anyone comes to mind, pass along my card —",
+    "they can call me direct at (336) 365-7422.\"",
+    "",
+    "No pressure, and never ask if they had enrollment problems — fix the",
+    "problem first and skip the ask entirely.",
+    "",
+    "The 30-day service check-in email is queued automatically.",
+  ]
+    .filter((line) => line !== "")
+    .join("\n");
+
+  const html =
+    `<div style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#0f2241;max-width:560px">` +
+    `<p><strong>Enrollment confirmed for ${escapeHtml(input.fullName)}</strong><br>` +
+    `Email: <a href="mailto:${escapeHtml(input.email)}">${escapeHtml(input.email)}</a><br>` +
+    `Coverage effective: ${escapeHtml(input.effectiveDate)}</p>` +
+    (digits
+      ? `<p style="font-size:19px">📞 <a href="tel:+1${digits}" style="color:#0f2241;font-weight:700">Call ${escapeHtml(formatPhone(digits))} — ask the referral ask</a></p>`
+      : "") +
+    `<p>Post-enrollment checklist: ask the referral ask while they&apos;re happiest. ` +
+    `No pressure — and if they had enrollment problems, fix those first and skip the ask entirely.</p>` +
+    `<p>The 30-day service check-in email is queued automatically.</p></div>`;
+
+  try {
+    return await sendNurtureEmail({
+      to: LEAD_NOTIFY_EMAIL,
+      subject: `Enrollment confirmed — ask the referral ask (${input.fullName})`,
+      text,
+      html,
+    });
+  } catch (error) {
+    console.error("[notifyLead] enrollment alert failed:", error instanceof Error ? error.message : error);
+    return { ok: false, retryable: true, error: "send-exception" };
+  }
+}

@@ -28,6 +28,8 @@ export const STOPPED_STATUSES = ["booked", "client", "closed"] as const;
 
 export const REVIEW_SEQUENCE_KEY = "review";
 export const REENGAGE_SEQUENCE_KEY = "reengage";
+/** Post-enrollment referral engine: the 30-day service check-in. Staged only. */
+export const REFERRAL_CHECKIN_SEQUENCE_KEY = "referral-checkin";
 
 /** Days after a completed nurture with no booking before re-engagement starts. */
 export const REENGAGE_AFTER_DAYS = 45;
@@ -100,6 +102,7 @@ function fillPlaceholders(text: string, ctx: NurtureEmailContext): string {
   const firstName = ctx.firstName || "there";
   return text
     .replace("{greeting}", `Hi ${firstName},`)
+    .replace("{firstName}", firstName)
     .replace("{booking}", ctx.bookingUrl)
     .replace("{review}", ctx.googleReviewUrl)
     .replace("{unsubscribe}", ctx.unsubscribeUrl)
@@ -532,6 +535,37 @@ const reviewSequence: NurtureSequence = {
 };
 
 /* ---------------------------------------------------------------------------
+ * REFERRAL CHECK-IN sequence — staged only (referral engine, not yet live).
+ *
+ * Enrolled when a client's enrollment is logged, anchored to the coverage
+ * effective date. One step: the 30-day service check-in. Service first —
+ * the referral ask appears only in the "everything's running smoothly" fork,
+ * never to an unhappy client (fix the problem, skip the ask). No incentives
+ * anywhere: thank-yous only, per CMS rules. Never Yelp.
+ * ------------------------------------------------------------------------- */
+const referralCheckinSequence: NurtureSequence = {
+  key: REFERRAL_CHECKIN_SEQUENCE_KEY,
+  steps: [
+    {
+      key: "referral-30day",
+      dayOffset: 30,
+      subject: "How's the new plan treating you?",
+      paragraphs: [
+        "Hi {firstName} — it's been about a month since your new coverage started, so I wanted to check in. How's everything working out — any billing surprises, pharmacy hiccups, or doctor-visit confusion?",
+        "",
+        "If anything's off, just reply and we'll sort it out together. That's what I'm here for.",
+        "",
+        "And if everything's running smoothly — one quick question. Now that you've been through the process with me, is there anyone in your life who's turning 65 soon, or who's grumbled about their Medicare costs? I'd love to help them the same way.",
+        "",
+        "They can just call me at {phone} — or I can send you my card to forward. Whatever's easiest.",
+        "",
+        "— Christian",
+      ],
+    },
+  ],
+};
+
+/* ---------------------------------------------------------------------------
  * RE-ENGAGE sequence — long-term nurture for leads that went quiet.
  * ------------------------------------------------------------------------- */
 const reengageSequence: NurtureSequence = {
@@ -593,6 +627,7 @@ const SEQUENCES: Record<string, NurtureSequence> = {
   [financialNurture.key]: financialNurture,
   [careNurture.key]: careNurture,
   [reviewSequence.key]: reviewSequence,
+  [referralCheckinSequence.key]: referralCheckinSequence,
   [reengageSequence.key]: reengageSequence,
 };
 
