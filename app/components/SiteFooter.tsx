@@ -105,6 +105,11 @@ export function SiteFooter() {
             </p>
             <ul className="text-16 mt-3 flex flex-col gap-2">
               <li>
+                <Link href="/anoc" className="underline-offset-2 hover:underline">
+                  Your ANOC letter, translated
+                </Link>
+              </li>
+              <li>
                 <Link href="/keep-my-doctor" className="underline-offset-2 hover:underline">
                   Keep my doctor?
                 </Link>

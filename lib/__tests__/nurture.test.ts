@@ -68,6 +68,31 @@ describe("nurture sequences", () => {
   it("re-engage waits 45 days after a finished nurture", () => {
     expect(REENGAGE_AFTER_DAYS).toBe(45);
   });
+
+  it("sends the review ask after the appointment ends and the nudge 7 days later", () => {
+    const seq = getSequence(REVIEW_SEQUENCE_KEY)!;
+    expect(seq.steps.map((s) => s.key)).toEqual(["review-ask", "review-reminder"]);
+    expect(seq.steps[0].dayOffset).toBe(0); // first cron run on/after appointment end
+    expect(seq.steps[1].dayOffset).toBe(7);
+    expect(seq.steps[0].subject).toBe("Thanks for today — quick favor?");
+    expect(seq.steps[1].subject).toBe("One quick nudge");
+    // Anchored to the appointment end date: ask due that day, nudge 7 days on.
+    const plan = buildSendPlan(REVIEW_SEQUENCE_KEY, new Date("2026-10-01T15:00:00Z"));
+    expect(plan[0].sendAfter).toBe("2026-10-01");
+    expect(plan[1].sendAfter).toBe("2026-10-08");
+  });
+
+  it("review emails ask for Google reviews only, never Yelp", () => {
+    const seq = getSequence(REVIEW_SEQUENCE_KEY)!;
+    for (const step of seq.steps) {
+      const rendered = renderStep(step, {
+        ...ctx,
+        googleReviewUrl: "https://google.example/review",
+      });
+      expect(rendered.text).toMatch(/Google review/);
+      expect(rendered.text).not.toMatch(/Yelp/i);
+    }
+  });
 });
 
 describe("shouldEnrollNurture", () => {
@@ -109,10 +134,10 @@ describe("renderStep", () => {
         });
         expect(rendered.subject.length).toBeGreaterThan(0);
         for (const part of [rendered.subject, rendered.text, rendered.html]) {
-          expect(part).not.toMatch(/\{(greeting|booking|review|unsubscribe|site|phone)\}/);
+          expect(part).not.toMatch(/\{(greeting|firstName|booking|review|unsubscribe|site|phone)\}/);
         }
         // Personal greeting and unsubscribe escape hatch always present.
-        expect(rendered.text).toContain("Hi Mary,");
+        expect(rendered.text).toContain("Hi Mary");
         expect(rendered.text).toContain(ctx.unsubscribeUrl);
         expect(rendered.html).toContain(ctx.unsubscribeUrl);
       }

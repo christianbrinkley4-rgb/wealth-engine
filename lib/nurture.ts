@@ -100,6 +100,7 @@ function fillPlaceholders(text: string, ctx: NurtureEmailContext): string {
   const firstName = ctx.firstName || "there";
   return text
     .replace("{greeting}", `Hi ${firstName},`)
+    .replace("{firstName}", firstName)
     .replace("{booking}", ctx.bookingUrl)
     .replace("{review}", ctx.googleReviewUrl)
     .replace("{unsubscribe}", ctx.unsubscribeUrl)
@@ -489,41 +490,44 @@ const careNurture: NurtureSequence = {
 };
 
 /* ---------------------------------------------------------------------------
- * REVIEW sequence — enrolled when a consultation is booked.
+ * REVIEW sequence — enrolled when a consultation is booked, anchored to the
+ * appointment's end time (see the Cal.com webhook). The nurture cron runs
+ * once daily, so Send 1's dayOffset 0 means "the first 9 AM run on or after
+ * the appointment ends" — the closest the day-granularity machinery gets to
+ * the strategy's 2–4-hours-after target. Send 2 follows 7 days later.
+ *
+ * Copy is the approved review-generation strategy wording, verbatim. Google
+ * reviews only — never Yelp.
  * ------------------------------------------------------------------------- */
 const reviewSequence: NurtureSequence = {
   key: REVIEW_SEQUENCE_KEY,
   steps: [
     {
       key: "review-ask",
-      dayOffset: 2,
-      subject: "How did our conversation go?",
+      dayOffset: 0,
+      subject: "Thanks for today — quick favor?",
       paragraphs: [
-        "{greeting}",
+        "Hi {firstName} — Christian here. Thanks for sitting down with me today. I hope the plan review was useful.",
         "",
-        "Thanks for sitting down with me. I hope it was useful.",
-        "",
-        "If it was, an honest Google review would mean a lot — it helps other folks in the Triad find real help from a local person instead of a call center. Only write what reflects your actual experience, and no pressure either way:",
+        "I'm building my practice here in the Triad, and honest Google reviews are how neighbors find me. If you have two minutes, I'd be grateful:",
         "",
         "{review}",
         "",
-        "And if anything from our conversation was unclear, just reply — I'm still here.",
+        "Either way, you know where to find me if anything comes up with your coverage.",
         "",
         "— Christian",
       ],
     },
     {
       key: "review-reminder",
-      dayOffset: 9,
-      subject: "A small favor, if you have a minute",
+      dayOffset: 7,
+      subject: "One quick nudge",
       paragraphs: [
-        "{greeting}",
-        "",
-        "One more note on my last email: if you have a minute and our conversation was helpful, an honest Google review goes a long way for a local practice like mine.",
+        "Hi {firstName} — just floating this back up in case it got buried. If you were happy with our review, a short Google review helps more than you know.",
         "",
         "{review}",
         "",
-        "If not, no worries at all — I'm glad we talked.",
+        "No worries if not. I'm here whenever you need me.",
         "",
         "— Christian",
       ],
