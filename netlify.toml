@@ -4,6 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "24"
+  NEXT_PUBLIC_SIMPLE_ANALYTICS = "true"
 
 [[plugins]]
   package = "./plugins/netlify-plugin-indexnow"
