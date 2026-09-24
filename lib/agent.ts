@@ -205,12 +205,10 @@ export const MEDICARE_TPMO_SCOPE = "multiple-organizations" as
   | "one-organization"
   | "multiple-organizations";
 
-// UNCONFIRMED — do not hardcode counts until Christian verifies his actual
-// carrier appointments. Null renders the generic TPMO_BASE fallback and flags
-// the gap in /api/health. (Research note, not verified: Guilford County MA,
-// Medicare.gov Plan Compare ZIP 27401, 2026 showed 8 orgs / 56 products.)
-export const TPMO_ORGANIZATION_COUNT: number | null = null;
-export const TPMO_PRODUCT_COUNT: number | null = null;
+// Verified by Christian 2026-09-24: appointed with 8 MA/Part D organizations,
+// representing approximately 65 products.
+export const TPMO_ORGANIZATION_COUNT: number | null = 8;
+export const TPMO_PRODUCT_COUNT: number | null = 65;
 
 const TPMO_BASE =
   "We do not offer every plan available in your area. Please contact " +
