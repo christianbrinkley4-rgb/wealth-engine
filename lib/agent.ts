@@ -35,7 +35,7 @@ export type SocialProfile = {
  * Verified public profiles used as on-page links and schema.org `sameAs`.
  * Publish only listings that do not present Bankers Life as related to this
  * site. The Google listing below is titled "Christian Brinkley", category
- * Insurance agent, website christianbrinkleync.com, phone (336) 365-7422.
+ * Insurance agent, website christianbrinkleync.com, phone (919) 408-6671.
  *
  * Never publish the Bankers-titled Maps CID 10422520109754041632,
  * agents.bankerslife.com, branches.bankerslife.com, or a bankers-life-agent
@@ -112,8 +112,8 @@ export const AGENT = {
   state: "NC",
   region: "Piedmont Triad",
 
-  phone: "(336) 365-7422",
-  phoneHref: "tel:+13363657422",
+  phone: "(919) 408-6671",
+  phoneHref: "tel:+19194086671",
   email: "christianbrinkley4@gmail.com",
 
   /** Booking link shown on the thank-you page and in the auto-response email. */

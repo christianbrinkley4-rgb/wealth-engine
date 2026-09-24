@@ -99,7 +99,7 @@ export const SITE_INDEXABLE =
  */
 export const SITE_NAME = AGENT.name;
 export const SITE_OWNER = AGENT.name;
-export const SITE_OWNER_PHONE = "+1-336-365-7422";
+export const SITE_OWNER_PHONE = "+1-919-408-6671";
 export const SITE_OWNER_EMAIL = AGENT.email;
 export const SITE_LOCALITY = AGENT.city;
 export const SITE_REGION = AGENT.state;
