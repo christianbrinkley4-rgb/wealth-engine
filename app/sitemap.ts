@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { ARTICLES } from "@/lib/articles";
 import { SITE_URL } from "@/lib/seo";
 import { TRIAD_CITIES } from "@/lib/triad";
 
@@ -35,6 +36,12 @@ const STATIC_ROUTES: Array<{
   { path: "/life-insurance", changeFrequency: "monthly", priority: 0.85 },
   { path: "/retirement-income", changeFrequency: "monthly", priority: 0.85 },
   { path: "/roth-window", changeFrequency: "weekly", priority: 0.55 },
+  { path: "/answers", changeFrequency: "weekly", priority: 0.8 },
+  ...ARTICLES.map((article) => ({
+    path: `/answers/${article.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  })),
 ];
 
 /**
