@@ -420,6 +420,23 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+          <p className="home-already">
+            Already on Medicare?{" "}
+            <Link href="/annual-enrollment">Start with a review of your current coverage</Link>
+          </p>
+          <p className="home-already">
+            Want the numbers first?{" "}
+            <Link href="/medicare-costs-2026">
+              Every 2026 premium, deductible and bracket, with its source
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <section className="home-section home-rule-top" aria-labelledby="answers-heading">
+        <div className="personal-shell">
+          <p className="home-eyebrow">Medicare questions, answered</p>
+          <h2 id="answers-heading">The questions neighbors ask me most.</h2>
           <div className="home-guides home-guides-answers">
             {ANSWERS.map((guide) => (
               <Link key={guide.href} href={guide.href} className="home-guide">
@@ -431,17 +448,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="home-already">
-            More questions, answered: <Link href="/answers">See all answers</Link>
-          </p>
-          <p className="home-already">
-            Already on Medicare?{" "}
-            <Link href="/annual-enrollment">Start with a review of your current coverage</Link>
-          </p>
-          <p className="home-already">
-            Want the numbers first?{" "}
-            <Link href="/medicare-costs-2026">
-              Every 2026 premium, deductible and bracket, with its source
-            </Link>
+            <Link href="/answers">See all Medicare answers</Link>
           </p>
         </div>
       </section>
