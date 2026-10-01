@@ -154,7 +154,7 @@ export default function Turning65Page() {
         eyebrow="Initial Enrollment Period · Piedmont Triad"
         title="Build your Medicare timeline before 65"
         lede="You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered — in Greensboro, High Point, Winston-Salem, or by phone. I’ll help you understand your next steps."
-        secondaryHref="/start?topic=medicare&stage=turning_65_soon"
+        secondaryHref="/start?topic=medicare&stage=turning_65_soon&quick=1"
         secondaryLabel="Request a consultation →"
         note={
           <>
@@ -280,7 +280,7 @@ export default function Turning65Page() {
       <KitchenTableClose
         heading="Ready to review your Medicare timeline?"
         body="Request a consultation and we’ll spend at least one hour on your enrollment timing, current coverage, doctors, and questions. Meet in person or by phone. No cost. No obligation. A request needs confirmation and is not a reserved appointment."
-        href="/start?topic=medicare&stage=turning_65_soon"
+        href="/start?topic=medicare&stage=turning_65_soon&quick=1"
         label="Request a consultation →"
       />
 

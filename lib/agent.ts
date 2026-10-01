@@ -210,10 +210,10 @@ export const MEDICARE_TPMO_SCOPE = "multiple-organizations" as
 export const TPMO_ORGANIZATION_COUNT: number | null = 8;
 export const TPMO_PRODUCT_COUNT: number | null = 65;
 
+// CY2027 standardized wording applies to marketing materials from Oct 1, 2026.
 const TPMO_BASE =
   "We do not offer every plan available in your area. Please contact " +
-  "Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program " +
-  "(SHIP) to get information on all of your options.";
+  "Medicare.gov or 1-800-MEDICARE to get information on all of your options.";
 
 export const TPMO_DISCLAIMER =
   MEDICARE_TPMO_SCOPE === "multiple-organizations" &&
@@ -221,8 +221,8 @@ export const TPMO_DISCLAIMER =
   TPMO_PRODUCT_COUNT != null
     ? "We do not offer every plan available in your area. Currently we represent " +
       `${TPMO_ORGANIZATION_COUNT} organizations which offer ${TPMO_PRODUCT_COUNT} products ` +
-      "in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local " +
-      "State Health Insurance Program (SHIP) to get information on all of your options."
+      "in your area. Please contact Medicare.gov or 1-800-MEDICARE to get " +
+      "information on all of your options."
     : TPMO_BASE;
 
 /** True once the licensing details in AGENT have been filled in. */
