@@ -122,6 +122,33 @@ const GUIDES = [
   },
 ] as const;
 
+const ANSWERS = [
+  {
+    label: "Your options",
+    title: "Stay on Original Medicare or switch to Advantage?",
+    text: "What each path covers, what it leaves to you, and what to check before you change.",
+    href: "/answers/original-medicare-or-medicare-advantage",
+  },
+  {
+    label: "Medigap",
+    title: "Are Medicare Supplement plans the same?",
+    text: "The letter plans are standardized. The price and the company are not.",
+    href: "/answers/are-medicare-supplement-plans-the-same",
+  },
+  {
+    label: "Care costs",
+    title: "Does Medicare cover nursing homes?",
+    text: "What Medicare pays for, for how long, and what it leaves to you.",
+    href: "/answers/does-medicare-cover-nursing-homes",
+  },
+  {
+    label: "Turning 65",
+    title: "Your Medicare checklist for North Carolina",
+    text: "Your 7-month window, how to sign up, and what to do at 3 months out.",
+    href: "/answers/turning-65-medicare-checklist-north-carolina",
+  },
+] as const;
+
 const BEYOND = [
   { label: "Life insurance", href: "/life-insurance" },
   { label: "Care coverage", href: "/care-coverage" },
@@ -393,6 +420,19 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+          <div className="home-guides home-guides-answers">
+            {ANSWERS.map((guide) => (
+              <Link key={guide.href} href={guide.href} className="home-guide">
+                <span className="home-guide-label">{guide.label}</span>
+                <span className="home-guide-title">{guide.title}</span>
+                <span className="home-guide-text">{guide.text}</span>
+                <ArrowRight size={22} aria-hidden className="home-guide-arrow" />
+              </Link>
+            ))}
+          </div>
+          <p className="home-already">
+            More questions, answered: <Link href="/answers">See all answers</Link>
+          </p>
           <p className="home-already">
             Already on Medicare?{" "}
             <Link href="/annual-enrollment">Start with a review of your current coverage</Link>

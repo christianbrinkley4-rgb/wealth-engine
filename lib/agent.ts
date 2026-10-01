@@ -147,7 +147,7 @@ export const AGENT = {
    * centers answer at 8pm on a Sunday; you can’t, so say what you actually do
    * instead of leaving people guessing.
    */
-  hours: "Calls and appointments 8am to 7pm, Monday through Saturday, Eastern time.",
+  hours: "Calls and appointments 9am to 5pm, Monday through Saturday, Eastern time.",
 
   /**
    * The same hours in the form schema.org wants. These must keep matching the
@@ -157,8 +157,8 @@ export const AGENT = {
    */
   businessHours: {
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] as readonly string[],
-    opens: "08:00",
-    closes: "19:00",
+    opens: "09:00",
+    closes: "17:00",
   },
   afterHoursPromise:
     "If I’m with a family or away from the phone, leave a message and I’ll follow up personally.",

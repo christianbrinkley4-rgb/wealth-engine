@@ -72,7 +72,7 @@ const CHECKS = [
 const STEPS = [
   {
     t: "You book a time",
-    b: `Book below, or call me at ${AGENT.phone}. My hours are Monday–Saturday, 8:00–7:00.`,
+    b: `Book below, or call me at ${AGENT.phone}. My hours are Monday–Saturday, 9:00–5:00.`,
   },
   {
     t: "We talk",

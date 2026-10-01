@@ -491,7 +491,7 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<De
  * voice-only, so it says "call", never "call/text".
  */
 const CALLBACK_PROMISE_TEXT =
-  "I'll call you within the hour during business hours (Mon–Sat, 8–7). " +
+  "I'll call you within the hour during business hours (Mon–Sat, 9–5). " +
   "Outside business hours, I'll call by 9am the next business day.";
 
 /**
@@ -523,7 +523,7 @@ export async function sendProspectAutoReply(input: {
   const quickContact = input.quiz_answers?.entry_mode === "quick_contact";
   const replyByEmail = !input.phone_number || input.quiz_answers?.meet_preference === "email";
   const followUpText = replyByEmail
-    ? "I'll reply to your email personally during business hours (Mon–Sat, 8–7 Eastern)."
+    ? "I'll reply to your email personally during business hours (Mon–Sat, 9–5 Eastern)."
     : CALLBACK_PROMISE_TEXT;
   const beat = quickContact
     ? null
@@ -645,7 +645,7 @@ async function sendCalculatorAutoReply(input: {
   const bookingUrl = bookingPageUrl(isRoth ? "financial_planning" : "medicare");
   const followUpText = input.phone_number
     ? CALLBACK_PROMISE_TEXT
-    : "I'll reply to your email personally during business hours (Mon–Sat, 8–7 Eastern).";
+    : "I'll reply to your email personally during business hours (Mon–Sat, 9–5 Eastern).";
 
   const figure =
     input.calculated_premium != null && input.calculated_premium > 0

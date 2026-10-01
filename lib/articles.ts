@@ -158,6 +158,8 @@ export const ARTICLES: Article[] = [
       },
     ],
     related: [
+      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
+      { label: "Your Medicare checklist for turning 65 in North Carolina", href: "/answers/turning-65-medicare-checklist-north-carolina" },
       { label: "Medicare Advantage vs Medigap in the Triad", href: "/advantage-vs-medigap" },
       { label: "Check your doctors before you choose a plan", href: "/keep-my-doctor" },
       { label: "Annual Enrollment, step by step", href: "/annual-enrollment" },
@@ -266,6 +268,8 @@ export const ARTICLES: Article[] = [
       },
     ],
     related: [
+      { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+      { label: "Does Medicare cover nursing homes or in-home care?", href: "/answers/does-medicare-cover-nursing-homes" },
       { label: "Medicare Advantage vs Medigap in the Triad", href: "/advantage-vs-medigap" },
       { label: "Your Annual Notice of Change, explained", href: "/anoc" },
       { label: "What Medicare costs in 2026", href: "/medicare-costs-2026" },
@@ -391,6 +395,8 @@ export const ARTICLES: Article[] = [
       },
     ],
     related: [
+      { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+      { label: "Turning 65 in North Carolina: your Medicare checklist", href: "/answers/turning-65-medicare-checklist-north-carolina" },
       { label: "Helping a parent with Medicare", href: "/helping-a-parent" },
       { label: "Care and critical illness coverage", href: "/care-coverage" },
       { label: "Long-term care insurance", href: "/long-term-care-insurance" },
@@ -444,7 +450,7 @@ export const ARTICLES: Article[] = [
         h2: "The three decisions everyone faces",
         blocks: [
           ul(
-            "Original Medicare with a Medigap policy, or Medicare Advantage. [Here is how they compare.](/advantage-vs-medigap)",
+            "Original Medicare with a Medigap policy, or Medicare Advantage. [Here is how they compare.](/answers/original-medicare-or-medicare-advantage)",
             "Prescription drug coverage. You need it either through a Part D plan or an Advantage plan that includes it.",
             "Timing. When you sign up, and whether you have other coverage that lets you wait.",
           ),
@@ -516,6 +522,8 @@ export const ARTICLES: Article[] = [
       },
     ],
     related: [
+      { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
       { label: "Build your turning-65 timeline", href: "/turning-65" },
       { label: "Part B late-enrollment penalty calculator", href: "/part-b-penalty" },
       { label: "Medicare help near you", href: "/service-area" },

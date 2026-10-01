@@ -110,6 +110,38 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
+                <Link
+                  href="/answers/original-medicare-or-medicare-advantage"
+                  className="underline-offset-2 hover:underline"
+                >
+                  Original Medicare or Advantage?
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/answers/are-medicare-supplement-plans-the-same"
+                  className="underline-offset-2 hover:underline"
+                >
+                  Are Medigap plans the same?
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/answers/does-medicare-cover-nursing-homes"
+                  className="underline-offset-2 hover:underline"
+                >
+                  Does Medicare cover nursing homes?
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/answers/turning-65-medicare-checklist-north-carolina"
+                  className="underline-offset-2 hover:underline"
+                >
+                  Turning 65 checklist for NC
+                </Link>
+              </li>
+              <li>
                 <Link href="/keep-my-doctor" className="underline-offset-2 hover:underline">
                   Keep my doctor?
                 </Link>

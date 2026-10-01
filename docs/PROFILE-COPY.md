@@ -23,7 +23,7 @@ Write-review link (send to clients):
 https://search.google.com/local/writereview?placeid=ChIJCYLxNHVn4U0ReVLReD8wwqo
 
 Title **Christian Brinkley**. Category **Insurance agent**. Website
-christianbrinkleync.com. Phone **(336) 365-7422**. Hours 8am–7pm.
+christianbrinkleync.com. Phone **(336) 365-7422**. Hours 9am–5pm Mon–Sat.
 
 A separate Maps listing still exists under a Bankers Life title
 (CID `10422520109754041632`). Keep that URL off the website.

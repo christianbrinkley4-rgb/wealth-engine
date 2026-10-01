@@ -1506,6 +1506,23 @@
     padding-right: 0;
     border-right: 0;
   }
+  .home-guides-answers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 0;
+    border-top: 1px solid var(--home-line);
+  }
+  .home-guides-answers .home-guide {
+    padding: 1.6rem 2rem 1.8rem;
+    border-right: 1px solid var(--home-line);
+    border-bottom: 1px solid var(--home-line);
+  }
+  .home-guides-answers .home-guide:nth-child(odd) {
+    padding-left: 0;
+  }
+  .home-guides-answers .home-guide:nth-child(even) {
+    padding-right: 0;
+    border-right: 0;
+  }
   .home-guide-title {
     margin-top: 0.5rem;
     font-size: 1.5rem;

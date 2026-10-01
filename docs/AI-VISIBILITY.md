@@ -194,7 +194,7 @@ Checked live HTML and `/llms.txt` after the profiles deploy:
 | `robots.txt` | indexable; sitemap published | | | |
 | IndexNow key | live at `/c9f2e18a4b7d0635e1c84a90d2b7f6e4.txt` | | | |
 
-Schema hours remain Mon–Sat 08:00–19:00, matching the documented independent
+Schema hours are Mon–Sat 09:00–17:00 (changed from 08:00–19:00 on 2026-10-01), matching the documented independent
 Google listing (not the Bankers-scraped 8am–9pm hours).
 
 ### SERP status this pass (honest)

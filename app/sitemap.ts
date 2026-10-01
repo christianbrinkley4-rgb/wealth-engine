@@ -5,6 +5,7 @@ import { TRIAD_CITIES } from "@/lib/triad";
 
 const STATIC_ROUTES: Array<{
   path: string;
+  lastModified?: string;
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
 }> = [
@@ -36,11 +37,12 @@ const STATIC_ROUTES: Array<{
   { path: "/life-insurance", changeFrequency: "monthly", priority: 0.85 },
   { path: "/retirement-income", changeFrequency: "monthly", priority: 0.85 },
   { path: "/roth-window", changeFrequency: "weekly", priority: 0.55 },
-  { path: "/answers", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/answers", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-10-01" },
   ...ARTICLES.map((article) => ({
     path: `/answers/${article.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.85,
+    lastModified: article.updated,
   })),
 ];
 
@@ -77,9 +79,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]);
 
   return [
-    ...STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
+    ...STATIC_ROUTES.map(({ path, changeFrequency, priority, lastModified: own }) => ({
       url: `${SITE_URL}${path}`,
-      lastModified,
+      lastModified: own ?? lastModified,
       changeFrequency,
       priority,
     })),
