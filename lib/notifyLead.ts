@@ -351,6 +351,8 @@ async function sendSmsAlert(payload: LeadNotifyPayload): Promise<DeliveryResult>
  */
 function ownerAlertHtml(topic: string, payload: LeadNotifyPayload): string {
   const digits = (payload.phone_number || "").replace(/\D/g, "");
+  const note = payload.quiz_answers?.note;
+  const preference = payload.quiz_answers?.meet_preference;
   const phoneLine = digits
     ? `<p style="font-size:19px">📞 <a href="tel:+1${digits}" style="color:#0f2241;font-weight:700">Call ${escapeHtml(formatPhone(payload.phone_number))} now</a></p>`
     : `<p>Phone: —</p>`;
@@ -366,6 +368,8 @@ function ownerAlertHtml(topic: string, payload: LeadNotifyPayload): string {
       Email: <a href="mailto:${escapeHtml(payload.email)}">${escapeHtml(payload.email)}</a><br>
       ZIP: ${escapeHtml(payload.zip_code || "—")}</p>
       ${phoneLine}
+      ${typeof preference === "string" && preference === "email" ? "<p>Preferred contact: email</p>" : ""}
+      ${typeof note === "string" && note.trim() ? `<p><strong>Their question:</strong><br>${escapeHtml(note.slice(0, 1000))}</p>` : ""}
     </div>`;
 }
 
@@ -498,6 +502,7 @@ const CALLBACK_PROMISE_TEXT =
 export async function sendProspectAutoReply(input: {
   email: string;
   full_name?: string | null;
+  phone_number?: string | null;
   interest_topic?: string | null;
   quiz_answers?: Record<string, unknown> | null;
   source?: string;
@@ -515,20 +520,26 @@ export async function sendProspectAutoReply(input: {
   }
 
   const firstName = (input.full_name || "").trim().split(" ")[0] || "there";
-  const beat = getValueBeat(
-    input.interest_topic,
-    (input.quiz_answers ?? {}) as Record<string, string>,
-  );
+  const quickContact = input.quiz_answers?.entry_mode === "quick_contact";
+  const replyByEmail = !input.phone_number || input.quiz_answers?.meet_preference === "email";
+  const followUpText = replyByEmail
+    ? "I'll reply to your email personally during business hours (Mon–Sat, 8–7 Eastern)."
+    : CALLBACK_PROMISE_TEXT;
+  const beat = quickContact
+    ? null
+    : getValueBeat(input.interest_topic, (input.quiz_answers ?? {}) as Record<string, string>);
   const topic = TOPIC_LABELS[input.interest_topic];
   const bookingUrl = bookingPageUrl(input.interest_topic);
   // "Email me my dates" from the timeline tool. Dates are recomputed here from
   // the month and year, never copied from submitted text.
   const timelineInput =
     input.interest_topic === "medicare" ? timelineFromAnswers(input.quiz_answers) : null;
-  const dates = timelineInput ? timelineSummary(timelineInput) : null;
-  const intro = dates
-    ? `Here are the Medicare dates you looked up on my site, for turning 65 in ${dates.turns65}:`
-    : `Thanks for the questions about ${inSentence(topic)}. Here’s what you saw on the site, so you have it in writing:`;
+  const dates = !quickContact && timelineInput ? timelineSummary(timelineInput) : null;
+  const intro = quickContact
+    ? `Thanks for reaching out about ${inSentence(topic)}. I received your request and will follow up personally.`
+    : dates
+      ? `Here are the Medicare dates you looked up on my site, for turning 65 in ${dates.turns65}:`
+      : `Thanks for the questions about ${inSentence(topic)}. Here’s what you saw on the site, so you have it in writing:`;
 
   const text = [
     `Hi ${firstName},`,
@@ -545,10 +556,9 @@ export async function sendProspectAutoReply(input: {
       : []),
     // Not upper-cased: a full sentence in caps reads as a marketing blast, and
     // this email’s whole job is to look like it came from a person.
-    ...(dates ? [] : [beat.headline, "", beat.lede, "", ...beat.points.map((p) => `• ${p}`), ""]),
-    "That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.",
-    "",
-    CALLBACK_PROMISE_TEXT,
+    ...(beat && !dates ? [beat.headline, "", beat.lede, "", ...beat.points.map((p) => `• ${p}`), ""] : []),
+    ...(quickContact ? [] : ["That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.", ""]),
+    followUpText,
     "",
     `You can arrange a conversation here: ${bookingUrl}`,
     `Or just call me: ${AGENT.phone}`,
@@ -580,16 +590,16 @@ export async function sendProspectAutoReply(input: {
           : ""
       }
       ${
-        dates
-          ? ""
-          : `<p style="font-size:19px;font-weight:600;margin:24px 0 8px">${escapeHtml(beat.headline)}</p>
+        beat && !dates
+          ? `<p style="font-size:19px;font-weight:600;margin:24px 0 8px">${escapeHtml(beat.headline)}</p>
       <p>${escapeHtml(beat.lede)}</p>
       <ul style="padding-left:20px">
         ${beat.points.map((p) => `<li style="margin-bottom:10px">${escapeHtml(p)}</li>`).join("")}
       </ul>`
+          : ""
       }
-      <p style="color:#4a5563;font-size:15px">That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.</p>
-      <p style="font-weight:600">${escapeHtml(CALLBACK_PROMISE_TEXT)}</p>
+      ${quickContact ? "" : `<p style="color:#4a5563;font-size:15px">That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.</p>`}
+      <p style="font-weight:600">${escapeHtml(followUpText)}</p>
       <p style="margin:28px 0">
         <a href="${escapeHtml(bookingUrl)}" style="background:#0f2241;color:#f5f0e8;padding:14px 22px;border-radius:8px;text-decoration:none;display:inline-block;font-family:Helvetica,Arial,sans-serif;font-weight:600">Arrange a conversation</a>
       </p>
@@ -605,9 +615,11 @@ export async function sendProspectAutoReply(input: {
   try {
     return await sendEmail({
       to: input.email,
-      subject: dates
-        ? `Your Medicare dates — from ${AGENT.name}`
-        : `Your ${inSentence(topic)} questions — from ${AGENT.name}`,
+      subject: quickContact
+        ? `Your ${inSentence(topic)} inquiry — from ${AGENT.name}`
+        : dates
+          ? `Your Medicare dates — from ${AGENT.name}`
+          : `Your ${inSentence(topic)} questions — from ${AGENT.name}`,
       text,
       html,
       replyTo: AGENT.email,
@@ -622,6 +634,7 @@ export async function sendProspectAutoReply(input: {
 async function sendCalculatorAutoReply(input: {
   email: string;
   full_name?: string | null;
+  phone_number?: string | null;
   source?: string;
   calculated_premium?: number | null;
   irmaa_bracket?: string | null;
@@ -630,6 +643,9 @@ async function sendCalculatorAutoReply(input: {
   const isRoth = input.source === "roth_calculator";
   const label = isRoth ? "Roth conversion estimate" : "Medicare premium estimate";
   const bookingUrl = bookingPageUrl(isRoth ? "financial_planning" : "medicare");
+  const followUpText = input.phone_number
+    ? CALLBACK_PROMISE_TEXT
+    : "I'll reply to your email personally during business hours (Mon–Sat, 8–7 Eastern).";
 
   const figure =
     input.calculated_premium != null && input.calculated_premium > 0
@@ -647,7 +663,7 @@ async function sendCalculatorAutoReply(input: {
     "",
     "Two things worth knowing about that number: it’s an estimate for education rather than a quote, and Medicare sets premiums from a tax return two years old — so if your income has changed since then, the real figure can differ, and in some cases it can be appealed.",
     "",
-    CALLBACK_PROMISE_TEXT,
+    followUpText,
     "",
     `Happy to walk through what applies to you. Arrange a conversation: ${bookingUrl}`,
     `Or call me: ${AGENT.phone}`,

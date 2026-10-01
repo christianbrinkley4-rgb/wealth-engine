@@ -208,6 +208,7 @@ describe("speed-to-lead", () => {
     await notifyLead.sendProspectAutoReply({
       email: "visitor@example.com",
       full_name: "Test Visitor",
+      phone_number: "9195550100",
       interest_topic: "medicare" as const,
     });
     const payload = resendPayload(fetch);
@@ -219,11 +220,42 @@ describe("speed-to-lead", () => {
     expect(payload.html).not.toContain("call or text");
   });
 
+  it("acknowledges a quick email inquiry without invented quiz advice or a phone promise", async () => {
+    const { fetch, notifyLead } = await withResend(accepted);
+    await notifyLead.sendProspectAutoReply({
+      email: "visitor@example.com",
+      full_name: "Test Visitor",
+      interest_topic: "medicare",
+      quiz_answers: { entry_mode: "quick_contact", meet_preference: "email" },
+    });
+    const payload = resendPayload(fetch);
+    expect(payload.subject).toContain("Your Medicare inquiry");
+    for (const part of [payload.text, payload.html]) {
+      expect(part).toContain("I received your request");
+      expect(part).toContain("reply to your email personally");
+      expect(part).not.toContain("family member would like you to help");
+      expect(part).not.toContain("I'll call you within the hour");
+    }
+  });
+
+  it("shows a quick inquiry's question in the owner alert", async () => {
+    const { fetch, notifyLead } = await withResend(accepted);
+    await notifyLead.notifyLeadCaptured({
+      ...lead,
+      phone_number: null,
+      quiz_answers: { entry_mode: "quick_contact", meet_preference: "email", note: "Can you review my coverage?" },
+    });
+    const payload = resendPayload(fetch);
+    expect(payload.html).toContain("Preferred contact: email");
+    expect(payload.html).toContain("Can you review my coverage?");
+  });
+
   it("promises the callback window in the calculator auto-reply", async () => {
     const { fetch, notifyLead } = await withResend(accepted);
     await notifyLead.sendProspectAutoReply({
       email: "visitor@example.com",
       full_name: "Test Visitor",
+      phone_number: "9195550100",
       source: "roth_calculator",
       calculated_premium: 284.1,
     });
