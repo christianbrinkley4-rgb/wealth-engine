@@ -71,7 +71,7 @@ export default function MedicarePage() {
       <KitchenTableClose
         heading="Would you like help understanding your estimate?"
         body="We can review what the estimate means for your Medicare costs and identify any questions for Social Security, your tax professional, or your financial advisor. Your consultation is no cost."
-        href="/start?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Ask a question →"
       />
 

@@ -41,7 +41,7 @@ export const LANDING_PAGES: LandingPage[] = [
     headline: "Get a personal Medicare coverage review",
     subhead:
       "Let’s review when to enroll, the doctors and prescriptions you want covered, and what matters to you. You’ll work directly with Christian, a licensed agent in Greensboro.",
-    primaryHref: "/start?topic=medicare",
+    primaryHref: "/start?topic=medicare&quick=1",
     guideHref: "/turning-65",
     consultationTopics: [
       "Your current coverage and when you may be able to enroll.",
@@ -72,7 +72,7 @@ export const LANDING_PAGES: LandingPage[] = [
     headline: "Turning 65? Let’s talk about Medicare.",
     subhead:
       "Find out when to enroll, how Medicare works with your current coverage, and which options may fit your needs.",
-    primaryHref: "/start?topic=medicare&stage=turning_65_soon",
+    primaryHref: "/start?topic=medicare&stage=turning_65_soon&quick=1",
     guideHref: "/turning-65",
     consultationTopics: [
       "Your enrollment dates and how Medicare works with coverage through work.",
@@ -106,7 +106,7 @@ export const LANDING_PAGES: LandingPage[] = [
     headline: "Review your Medicare coverage for next year",
     subhead:
       "Review next year’s costs, prescriptions, and doctors before deciding whether your current plan still fits.",
-    primaryHref: "/start?topic=medicare&stage=already_on_medicare",
+    primaryHref: "/start?topic=medicare&stage=already_on_medicare&quick=1",
     guideHref: "/annual-enrollment",
     consultationTopics: [
       "Changes in your plan’s premiums, copays, and other costs for next year.",

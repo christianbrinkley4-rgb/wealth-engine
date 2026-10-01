@@ -176,9 +176,9 @@ export default function HomePage() {
               </span>
             </div>
             <div className="home-hero-actions" id="home-hero-actions">
-              <a href="#your-timeline" className="home-button">
-                Find my enrollment dates <ArrowRight size={20} aria-hidden />
-              </a>
+              <Link href="/start?topic=medicare&quick=1" className="home-button">
+                Ask me about Medicare <ArrowRight size={20} aria-hidden />
+              </Link>
               <a href={AGENT.phoneHref} className="home-button home-button-outline">
                 <Phone size={19} aria-hidden />
                 <span>
@@ -187,6 +187,9 @@ export default function HomePage() {
                 </span>
               </a>
             </div>
+            <a href="#your-timeline" className="home-link mt-4 inline-flex">
+              Or find my enrollment dates <ArrowRight size={18} aria-hidden />
+            </a>
             <p className="home-micro">
               <ShieldCheck size={18} aria-hidden />
               No cost, no obligation. Your information is never sold.
@@ -206,6 +209,31 @@ export default function HomePage() {
               <span>Licensed in North Carolina</span>
             </figcaption>
           </figure>
+        </div>
+      </section>
+
+      <section
+        className="border-y border-[#d9ded8] bg-[#f3f0e6] py-7"
+        aria-labelledby="aep-home-heading"
+      >
+        <div className="personal-shell flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-2xl">
+            <p className="home-eyebrow">Already on Medicare?</p>
+            <h2 id="aep-home-heading" className="mt-1 text-2xl font-semibold">
+              Review your coverage before open enrollment.
+            </h2>
+            <p className="mt-2 leading-relaxed">
+              Open enrollment runs October 15 through December 7. We can look at changes to your
+              costs, prescriptions, and doctors before you decide whether to keep your plan or make
+              a change.
+            </p>
+          </div>
+          <Link
+            href="/start?topic=medicare&stage=already_on_medicare&quick=1"
+            className="home-button shrink-0"
+          >
+            Ask for a coverage review <ArrowRight size={20} aria-hidden />
+          </Link>
         </div>
       </section>
 
@@ -271,7 +299,7 @@ export default function HomePage() {
                 Read Medicare’s penalty rules.
               </a>
             </p>
-            <Link href="/start?topic=medicare&stage=turning_65_soon" className="home-link">
+            <Link href="/start?topic=medicare&stage=turning_65_soon&quick=1" className="home-link">
               Talk it through with me <ArrowRight size={19} aria-hidden />
             </Link>
           </div>
@@ -341,7 +369,7 @@ export default function HomePage() {
             ))}
           </ol>
           <div className="home-steps-actions">
-            <Link href="/start?topic=medicare" className="home-button">
+            <Link href="/start?topic=medicare&quick=1" className="home-button">
               Ask for a visit <ArrowRight size={20} aria-hidden />
             </Link>
             <p>
@@ -440,7 +468,7 @@ export default function HomePage() {
               <a href="#your-timeline" className="home-button home-button-light">
                 Find my dates
               </a>
-              <Link href="/start?topic=medicare" className="home-button home-button-ghost">
+              <Link href="/start?topic=medicare&quick=1" className="home-button home-button-ghost">
                 Ask for a visit
               </Link>
             </div>

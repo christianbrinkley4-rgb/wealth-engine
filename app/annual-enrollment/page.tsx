@@ -163,7 +163,7 @@ export default function AnnualEnrollmentPage() {
         eyebrow="October 15 – December 7 · Piedmont Triad"
         title="Review your Medicare coverage for next year"
         lede="A yearly review can help you make sure your Medicare coverage still fits. We’ll sit down in Greensboro, High Point, or Winston-Salem — or talk by phone — and look at next year’s costs, prescriptions, and doctors before you decide whether to keep your plan or make a change."
-        secondaryHref="/start?topic=medicare&stage=already_on_medicare"
+        secondaryHref="/start?topic=medicare&stage=already_on_medicare&quick=1"
         secondaryLabel="Review my coverage →"
       />
 
@@ -260,7 +260,7 @@ export default function AnnualEnrollmentPage() {
       <KitchenTableClose
         heading="Get a personal coverage review"
         body="Bring your Annual Notice of Change and prescription list. We will review the details that may affect your care and costs."
-        href="/start?topic=medicare&stage=already_on_medicare"
+        href="/start?topic=medicare&stage=already_on_medicare&quick=1"
         label="Review my coverage →"
       />
 

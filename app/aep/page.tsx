@@ -230,10 +230,10 @@ export default function AepPage() {
               {AGENT.phone}
             </a>
             <Link
-              href="/start"
+              href="/start?topic=medicare&stage=already_on_medicare&quick=1"
               className="text-18 inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-8 font-semibold text-[var(--color-navy)]"
             >
-              Book my free review →
+              Ask for a free review →
             </Link>
           </div>
           <p className="text-16 mt-4 text-[var(--color-ink-muted)]">

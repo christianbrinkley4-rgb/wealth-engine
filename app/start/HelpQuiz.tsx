@@ -128,6 +128,7 @@ const fieldClass =
 
 interface UrlEntry {
   topic: InterestTopic;
+  quick: boolean;
   /** Optional first answer, so a landing page can drop someone into their own branch. */
   answers: QuizAnswers;
   skipFirst: boolean;
@@ -156,6 +157,7 @@ function readUrlEntry(params: Pick<URLSearchParams, "get">): UrlEntry | null {
 
     return {
       topic,
+      quick: params.get("quick") === "1",
       answers: isKnownAnswer ? { [firstQuestion.id]: stage as string } : {},
       skipFirst: isKnownAnswer,
       ask: isAskContext(ask) ? ask : "general",
@@ -186,11 +188,11 @@ export function HelpQuiz() {
   // A deep link from the home page is honored without writing to storage —
   // derived rather than applied in an effect, so there is no cascading render.
   const stored: StoredQuiz =
-    !persisted.topic && linked
+    linked?.quick || (!persisted.topic && linked)
       ? {
           ...INITIAL,
           topic: linked.topic,
-          phase: "branch",
+          phase: linked.quick ? "contact" : "branch",
           answers: linked.answers,
           branchIndex: linked.skipFirst ? 1 : 0,
           skippedFirst: linked.skipFirst,
@@ -200,6 +202,7 @@ export function HelpQuiz() {
   // Clicking "Life insurance" with a half-finished Medicare quiz saved is a
   // real fork in the road: ask, rather than silently ignoring one or the other.
   const resumePrompt =
+    !linked?.quick &&
     !resumeDismissed &&
     linkedTopic &&
     persisted.topic &&
@@ -237,6 +240,7 @@ export function HelpQuiz() {
   const turnstileWidgetRef = useRef<string | null>(null);
   const [turnstileReady, setTurnstileReady] = useState(false);
   const [turnstileRender, setTurnstileRender] = useState(0);
+  const quickMode = Boolean(linked?.quick && stored.phase === "contact");
 
   const askContext = linked?.ask ?? "general";
   const topic = stored.topic;
@@ -494,6 +498,7 @@ export function HelpQuiz() {
           interest_topic: topic,
           quiz_answers: {
             ...stored.answers,
+            ...(quickMode ? { entry_mode: "quick_contact" } : {}),
             ...(meet ? { meet_preference: meet } : {}),
             ...(bestTime.trim() ? { best_time: bestTime.trim().slice(0, 150) } : {}),
             ...(income ? { income_range: income } : {}),
@@ -551,7 +556,7 @@ export function HelpQuiz() {
     }
   }
 
-  const showBack = stored.phase !== "topic";
+  const showBack = stored.phase !== "topic" && !quickMode;
 
   return (
     <div className="mx-auto w-full max-w-[640px]">
@@ -602,37 +607,41 @@ export function HelpQuiz() {
         </div>
       ) : null}
 
-      <div className="mb-6 flex items-center justify-between gap-3">
-        {showBack ? (
-          <button
-            type="button"
-            onClick={goBack}
-            className="text-18 inline-flex min-h-12 items-center gap-2 rounded-lg px-2 font-medium text-[var(--color-navy)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
-          >
-            <ArrowLeft className="size-5 shrink-0" aria-hidden />
-            Back
-          </button>
-        ) : (
-          <span className="min-h-12" />
-        )}
-        <p className="text-16 font-medium text-[var(--color-ink-muted)]" aria-live="polite">
-          Step {stepNumber} of {totalSteps} · {STEP_LABELS[stored.phase]}
-        </p>
-      </div>
+      {!quickMode ? (
+        <div className="mb-6 flex items-center justify-between gap-3">
+          {showBack ? (
+            <button
+              type="button"
+              onClick={goBack}
+              className="text-18 inline-flex min-h-12 items-center gap-2 rounded-lg px-2 font-medium text-[var(--color-navy)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+            >
+              <ArrowLeft className="size-5 shrink-0" aria-hidden />
+              Back
+            </button>
+          ) : (
+            <span className="min-h-12" />
+          )}
+          <p className="text-16 font-medium text-[var(--color-ink-muted)]" aria-live="polite">
+            Step {stepNumber} of {totalSteps} · {STEP_LABELS[stored.phase]}
+          </p>
+        </div>
+      ) : null}
 
-      <div
-        className="mb-8 h-3 overflow-hidden rounded-full bg-[rgba(21,46,52,0.08)]"
-        role="progressbar"
-        aria-valuemin={1}
-        aria-valuemax={totalSteps}
-        aria-valuenow={stepNumber}
-        aria-label={`Step ${stepNumber} of ${totalSteps}`}
-      >
+      {!quickMode ? (
         <div
-          className="h-full rounded-full bg-[var(--color-navy)] transition-all duration-200 ease-in-out"
-          style={{ width: `${(stepNumber / totalSteps) * 100}%` }}
-        />
-      </div>
+          className="mb-8 h-3 overflow-hidden rounded-full bg-[rgba(21,46,52,0.08)]"
+          role="progressbar"
+          aria-valuemin={1}
+          aria-valuemax={totalSteps}
+          aria-valuenow={stepNumber}
+          aria-label={`Step ${stepNumber} of ${totalSteps}`}
+        >
+          <div
+            className="h-full rounded-full bg-[var(--color-navy)] transition-all duration-200 ease-in-out"
+            style={{ width: `${(stepNumber / totalSteps) * 100}%` }}
+          />
+        </div>
+      ) : null}
 
       {stored.phase === "topic" ? (
         <section aria-labelledby="quiz-heading">
@@ -813,8 +822,9 @@ export function HelpQuiz() {
             How should I reach you?
           </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
-            Share your contact details and Christian will personally review your answers and get in
-            touch about the next step. If you’d like to talk sooner, call{" "}
+            {quickMode
+              ? "You can add your question below, or we can talk it through when I get in touch. If you’d like to talk now, call "
+              : "Share your contact details and Christian will personally review your answers and get in touch about the next step. If you’d like to talk sooner, call "}
             <a
               href={AGENT.phoneHref}
               className="font-semibold text-[var(--color-navy)] underline underline-offset-2"
@@ -824,7 +834,7 @@ export function HelpQuiz() {
             .
           </p>
 
-          {topic ? (
+          {topic && Object.keys(stored.answers).length > 0 ? (
             <ul className="mt-5 flex flex-col gap-2 rounded-xl border border-[rgba(21,46,52,0.12)] bg-white px-5 py-4">
               {describeAnswers(topic, stored.answers).map((row) => (
                 <li key={row.question} className="text-16 leading-snug">
@@ -837,14 +847,17 @@ export function HelpQuiz() {
             </ul>
           ) : null}
 
-          <div className="card-surface mt-6 p-5">
-            <p className="text-17 leading-relaxed text-[var(--color-navy)]">
-              <strong>{AGENT.name}</strong> personally reviews every submission. Your inquiry is not
-              sold or distributed to other agents. Free consultation. No obligation. {AGENT.hours}
-            </p>
-          </div>
+          {!quickMode ? (
+            <div className="card-surface mt-6 p-5">
+              <p className="text-17 leading-relaxed text-[var(--color-navy)]">
+                <strong>{AGENT.name}</strong> personally reviews every submission. Your inquiry is
+                not sold or distributed to other agents. Free consultation. No obligation.{" "}
+                {AGENT.hours}
+              </p>
+            </div>
+          ) : null}
 
-          <form onSubmit={submitContact} className="relative mt-8 space-y-5" noValidate>
+          <form onSubmit={submitContact} className="relative mt-5 space-y-5" noValidate>
             <div className="absolute top-auto -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
               <label htmlFor="help-quiz-website">Website</label>
               <input
@@ -964,42 +977,42 @@ export function HelpQuiz() {
               feel longer than the quiz. Keep them one tap away; open by default
               only when a landing page already asked for a note.
             */}
-            <fieldset>
-              <legend className="text-17 mb-2 font-medium text-[var(--color-navy)]">
-                How would you like to talk?
-              </legend>
-              <div className="flex flex-col gap-2">
-                {MEET_OPTIONS.map((opt) => (
-                  <label
-                    key={opt.value}
-                    className={cn(
-                      "text-16 flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border-2 px-4 py-3",
-                      meet === opt.value
-                        ? "border-[var(--color-navy)] bg-[rgba(21,46,52,0.05)]"
-                        : "border-gray-300 bg-white",
-                    )}
-                  >
-                    <input
-                      type="radio"
-                      name="meet_preference"
-                      value={opt.value}
-                      checked={meet === opt.value}
-                      onChange={() => setMeet(opt.value)}
-                      className="size-4 shrink-0"
-                    />
-                    {opt.label}
-                  </label>
-                ))}
-              </div>
-            </fieldset>
             <details
               className="rounded-xl border border-[rgba(21,46,52,0.12)] bg-white px-4 py-3"
               open={askContext !== "general"}
             >
               <summary className="text-17 cursor-pointer font-medium text-[var(--color-navy)]">
-                Add a preferred time or more details (optional)
+                Add your question or meeting preference (optional)
               </summary>
               <div className="mt-4 space-y-5 border-t border-gray-200 pt-4">
+                <fieldset>
+                  <legend className="text-17 mb-2 font-medium text-[var(--color-navy)]">
+                    How would you like to talk?
+                  </legend>
+                  <div className="flex flex-col gap-2">
+                    {MEET_OPTIONS.map((opt) => (
+                      <label
+                        key={opt.value}
+                        className={cn(
+                          "text-16 flex min-h-12 cursor-pointer items-center gap-3 rounded-xl border-2 px-4 py-3",
+                          meet === opt.value
+                            ? "border-[var(--color-navy)] bg-[rgba(21,46,52,0.05)]"
+                            : "border-gray-300 bg-white",
+                        )}
+                      >
+                        <input
+                          type="radio"
+                          name="meet_preference"
+                          value={opt.value}
+                          checked={meet === opt.value}
+                          onChange={() => setMeet(opt.value)}
+                          className="size-4 shrink-0"
+                        />
+                        {opt.label}
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
                 <div>
                   <label htmlFor="help-quiz-best-time" className="text-17 mb-2 block font-medium">
                     When is a good time to reach you?
@@ -1131,7 +1144,11 @@ export function HelpQuiz() {
               disabled={submitting}
               className="text-18 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {submitting ? "Sending…" : "Send my answers"}
+              {submitting
+                ? "Sending…"
+                : quickMode
+                  ? "Ask Christian to contact me"
+                  : "Send my answers"}
             </button>
             <p className="text-15 text-center text-[var(--color-ink-muted)]">
               Or call{" "}
