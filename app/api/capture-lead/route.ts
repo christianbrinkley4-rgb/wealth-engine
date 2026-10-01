@@ -517,6 +517,7 @@ export async function POST(request: NextRequest) {
           : sendProspectAutoReply({
               email,
               full_name,
+              phone_number,
               interest_topic,
               quiz_answers,
               source,
@@ -562,6 +563,7 @@ export async function POST(request: NextRequest) {
         : sendProspectAutoReply({
             email,
             full_name,
+            phone_number,
             interest_topic,
             quiz_answers,
             source,
