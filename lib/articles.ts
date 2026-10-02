@@ -534,6 +534,116 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=medicare&stage=turning_65_soon",
   },
+  {
+    slug: "medicare-advantage-dental-coverage",
+    title: "Does Medicare Advantage cover dental?",
+    metaTitle: "Does Medicare Advantage Cover Dental? What to Check",
+    description:
+      "Original Medicare skips routine dental. Many Medicare Advantage plans add some dental, but the details vary. What to check before you count on it.",
+    keyword: "does Medicare Advantage cover dental",
+    eyebrow: "Medicare questions, answered",
+    lede: "Original Medicare does not cover routine dental. Many Advantage plans add some. Here is what the benefit usually includes, and where people get surprised.",
+    published: "2026-10-02",
+    updated: "2026-10-02",
+    intro:
+      "This one comes up in almost every kitchen-table conversation I have: does Medicare cover dental, and if not, does a Medicare Advantage plan? The short answer is that Original Medicare skips routine dental entirely, and many Advantage plans add some dental back in. The long answer is where the money is, because no two plans define dental the same way.",
+    sections: [
+      {
+        h2: "What Original Medicare covers (almost nothing dental)",
+        blocks: [
+          p(
+            "Original Medicare does not cover routine dental care. That means no cleanings, no fillings, no tooth extractions, no dentures, and no root canals. If you need a crown, you pay for the crown.",
+          ),
+          p(
+            "There is one narrow exception. Medicare can pay for dental services that are part of a covered medical procedure, such as dental work before a heart valve replacement, an organ transplant, or some cancer treatments. These are exceptions tied to medical care, not a dental benefit.",
+          ),
+          p(
+            "If you stay on Original Medicare and want routine dental, you pay out of pocket or you buy a separate dental plan. A Medicare Supplement plan does not fix this. It helps with Medicare cost sharing, but it does not add dental coverage.",
+          ),
+        ],
+      },
+      {
+        h2: "What Medicare Advantage dental benefits usually look like",
+        blocks: [
+          p(
+            "Medicare Advantage plans must cover everything Original Medicare covers, and they may add extra benefits on top. Dental is one of the most common extras. Medicare notes that most Advantage plans offer some dental, vision, or hearing benefits.",
+          ),
+          p("In practice, dental benefits tend to fall into two layers:"),
+          ul(
+            "Preventive dental: exams, cleanings, and X-rays. This is the layer most plans with a dental benefit include.",
+            "Comprehensive dental: fillings, extractions, crowns, root canals, dentures, and sometimes implants. This layer varies the most from plan to plan.",
+          ),
+          p(
+            "Many plans set an annual maximum on what they will pay for dental, and some require you to use dentists in their network. A benefit that covers two cleanings a year is a very different thing from one that helps with a $2,000 crown, so the details matter more than the brochure headline.",
+          ),
+        ],
+      },
+      {
+        h2: "The three things to check before you count on it",
+        blocks: [
+          p(
+            "First, check the network. Ask your dentist which plans they accept, and confirm with the plan itself. A dental benefit does you no good if your dentist is not in the network and you do not want to switch.",
+          ),
+          p(
+            "Second, read the Evidence of Coverage, not just the summary. Look for the annual maximum, any waiting periods, and which procedures count as preventive versus comprehensive. Ask the plan for a written cost estimate before major work starts.",
+          ),
+          p(
+            "Third, recheck every fall. Dental benefits can shrink from one year to the next, and the change shows up in the Annual Notice of Change your plan mails each fall. I have seen neighbors learn at the dentist's front desk that their plan now covers preventive care only. Ten minutes with the ANOC avoids that.",
+          ),
+        ],
+      },
+      {
+        h2: "If your plan's dental is thin, your options",
+        blocks: [
+          p(
+            "A separate dental plan is one option. Compare its monthly cost and annual maximum against the dental work you actually expect, not the work you hope to avoid. For some people, paying cash for two cleanings a year costs less than a premium.",
+          ),
+          p(
+            "If you are comparing Medicare Advantage plans during open enrollment, dental is a fair tiebreaker between two plans that are otherwise even on doctors and prescriptions. It should not be the reason you pick a plan. Doctors, hospitals, and drug coverage come first.",
+          ),
+          p(
+            "Bring your dentist into the decision. Their office deals with these plans every day and can tell you which ones pay smoothly and which ones fight every claim.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does Original Medicare cover dental cleanings?",
+        a: "No. Original Medicare does not cover routine cleanings, fillings, extractions, or dentures. It only covers dental work that is part of a covered medical procedure.",
+      },
+      {
+        q: "Do all Medicare Advantage plans include dental?",
+        a: "No. Many include some dental, but it is an extra benefit each plan chooses to offer. Some plans offer none, some offer preventive only, and some offer preventive plus comprehensive care.",
+      },
+      {
+        q: "Does a Medicare Supplement plan add dental coverage?",
+        a: "No. Medicare Supplement plans help pay Medicare cost sharing. They do not add routine dental, vision, or hearing benefits.",
+      },
+      {
+        q: "Can my plan's dental benefit change next year?",
+        a: "Yes. Plans can change their extra benefits each year. The changes are listed in the Annual Notice of Change, which plans mail each fall before open enrollment.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: Dental services",
+        href: "https://www.medicare.gov/coverage/dental-services",
+      },
+      {
+        label: "Medicare.gov: Plan Annual Notice of Change (ANOC)",
+        href: "https://www.medicare.gov/basics/forms-publications-mailings/mailings/costs-and-coverage/upcoming-plan-changes",
+      },
+    ],
+    related: [
+      { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
+      { label: "Does Medicare cover nursing homes or in-home care?", href: "/answers/does-medicare-cover-nursing-homes" },
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Medicare help near you", href: "/service-area" },
+    ],
+    startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

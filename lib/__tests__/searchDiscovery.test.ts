@@ -12,7 +12,7 @@ import { articleJsonLd, localBusinessJsonLd, SITE_URL } from "@/lib/seo";
 const FACEBOOK_PROFILE =
   "https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/";
 const LINKEDIN_PROFILE = "https://www.linkedin.com/in/christianbrinkley";
-const NEXTDOOR_PROFILE = "https://nextdoor.com/page/christian-brinkley/";
+const NEXTDOOR_PROFILE = "https://nextdoor.com/page/christian-brinkley-greensboro-nc-jd6c10/";
 const INSTAGRAM_PROFILE = "https://www.instagram.com/christianbrinkleync";
 const TIKTOK_PROFILE = "https://www.tiktok.com/@4ssxsssia9w";
 const THREADS_PROFILE = "https://www.threads.com/@christianbrinkleync";

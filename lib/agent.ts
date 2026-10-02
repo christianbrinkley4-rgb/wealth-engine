@@ -81,7 +81,7 @@ export const SOCIAL_PROFILES: readonly SocialProfile[] = [
   {
     network: "nextdoor",
     label: "Nextdoor",
-    url: "https://nextdoor.com/page/christian-brinkley/",
+    url: "https://nextdoor.com/page/christian-brinkley-greensboro-nc-jd6c10/",
   },
   { network: "google", label: "Google", url: GOOGLE_MAPS_PROFILE_URL },
   { network: "yelp", label: "Yelp", url: null },
