@@ -644,6 +644,118 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=medicare&stage=comparing_plans",
   },
+  {
+    slug: "medicare-advantage-hmo-vs-ppo",
+    title: "What is the difference between HMO and PPO Medicare Advantage plans?",
+    metaTitle: "HMO vs PPO Medicare Advantage: Which Fits Your Doctors?",
+    description:
+      "HMO or PPO? The real differences are your doctors, referrals, and what out-of-network care costs. A plain-English comparison for Triad neighbors.",
+    keyword: "what is the difference between HMO and PPO Medicare Advantage plans",
+    eyebrow: "Medicare questions, answered",
+    lede: "HMOs keep costs tight with a network and referrals. PPOs give you more freedom, and you pay for it. Here is how to think about the tradeoff.",
+    published: "2026-10-02",
+    updated: "2026-10-02",
+    intro:
+      "This question comes up every fall, usually from someone holding two plan brochures. HMO and PPO are the two most common kinds of Medicare Advantage plans. Both have to cover everything Original Medicare covers. The difference is how they handle your doctors: who you can see, whether you need a referral, and what happens when you go outside the plan’s network. Here is the plain version, so you can match a plan to how you actually get care.",
+    sections: [
+      {
+        h2: "How an HMO works: one network, one quarterback",
+        blocks: [
+          p(
+            "An HMO, short for Health Maintenance Organization, works like a team with a home field. You get your care from the doctors and hospitals in the plan’s network. You usually pick a primary care doctor, and that doctor is your first call for most things.",
+          ),
+          p(
+            "When you need a specialist, your primary care doctor usually sends a referral first. That is the plan’s way of keeping care coordinated. It also helps keep HMO premiums and copays lower.",
+          ),
+          p(
+            "The tradeoff is the network boundary. Outside of emergencies, urgent care, and dialysis when you travel, the plan generally does not pay for out-of-network care. If your doctor leaves the network, you switch doctors or pay the bill yourself.",
+          ),
+          p(
+            "One variation to know: some HMOs offer a point-of-service option, called HMO-POS. It works like an HMO for most care but lets you use certain out-of-network services at a higher cost.",
+          ),
+        ],
+      },
+      {
+        h2: "How a PPO works: more doors open, higher price of admission",
+        blocks: [
+          p(
+            "A PPO, a Preferred Provider Organization, keeps a network too, but the door is not locked. You can see doctors outside the network. You just pay more when you do.",
+          ),
+          p(
+            "You do not need to choose a primary care doctor, and you do not need a referral to see a specialist. For a lot of people, that is the whole point. You book the specialist directly and skip the extra appointment.",
+          ),
+          p(
+            "The freedom has a price. Out-of-network care comes with higher cost sharing, and PPO premiums can run higher than HMO premiums, since the plan is paying for care outside its network too. Most PPOs include drug coverage, and if yours does, you cannot buy a separate Part D plan on top of it.",
+          ),
+          p(
+            "Every Medicare Advantage plan has a yearly limit on what you pay for covered services. With a PPO, ask how out-of-network care counts toward that limit before you need it.",
+          ),
+        ],
+      },
+      {
+        h2: "Three questions that decide it for most people",
+        blocks: [
+          p("Three questions settle this for almost everybody."),
+          ul(
+            "Are your doctors in the network? Look up every doctor and specialist by name, in each plan you are considering. This one question decides more HMO-versus-PPO choices than anything else.",
+            "Do you travel or split time between places? An HMO covers emergencies anywhere, but routine care out of network is on you. If you spend months with family in another state, a PPO’s out-of-network coverage matters.",
+            "How often do you see specialists? If you are managing a condition with regular specialist visits, skipping referrals and choosing your own doctors is real convenience. If you rarely go beyond your primary care doctor, the HMO’s structure costs you nothing.",
+          ),
+          p("Answer those three honestly and the plan type usually picks itself."),
+        ],
+      },
+      {
+        h2: "What to check before open enrollment",
+        blocks: [
+          p(
+            "Open enrollment runs October 15 to December 7, and plans can change their networks and costs every year. Check the provider directory for the coming year, not this year’s. Doctors join and leave networks.",
+          ),
+          p(
+            "Read the Evidence of Coverage for the plan, not just the summary of benefits. That is where the referral rules, the out-of-network cost sharing, and the drug formulary actually live. If the brochure says one thing and the Evidence of Coverage says another, the Evidence of Coverage wins.",
+          ),
+          p(
+            "Recheck every fall. Your plan mails an Annual Notice of Change listing what is different next year. A network that fit you this year may not fit next year. Ten minutes with that letter beats a surprise bill in February.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Do I need a referral to see a specialist with a PPO?",
+        a: "No. PPOs do not require referrals. You can book a specialist directly, in or out of the network. HMOs usually do require a referral from your primary care doctor.",
+      },
+      {
+        q: "Can I see an out-of-network doctor with an HMO?",
+        a: "Generally no. HMOs pay for in-network care, with exceptions for emergencies, urgent care, and dialysis when you travel. An HMO with a point-of-service option allows some out-of-network services at a higher cost.",
+      },
+      {
+        q: "Is a PPO always more expensive than an HMO?",
+        a: "Not always. A PPO gives you out-of-network coverage, and that flexibility usually shows up in the monthly premium. But plans vary by county, so compare a full year of costs, premium plus the care you actually get, not just the monthly number.",
+      },
+      {
+        q: "Can I switch from an HMO to a PPO later?",
+        a: "Yes, during open enrollment, October 15 to December 7, for a January 1 start. If you are already in a Medicare Advantage plan, you can also switch between January 1 and March 31.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: Compare types of Medicare Advantage Plans",
+        href: "https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/compare",
+      },
+      {
+        label: "Medicare.gov: When you can join, switch, or drop a Medicare Advantage plan",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan",
+      },
+    ],
+    related: [
+      { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+      { label: "Does Medicare Advantage cover dental?", href: "/answers/medicare-advantage-dental-coverage" },
+      { label: "Does Medicare cover nursing homes or in-home care?", href: "/answers/does-medicare-cover-nursing-homes" },
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Medicare help near you", href: "/service-area" },
+    ],
+    startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {
