@@ -20,6 +20,7 @@ const STATIC_ROUTES: Array<{
   { path: "/annual-enrollment", changeFrequency: "weekly", priority: 0.95 },
   { path: "/aep", changeFrequency: "weekly", priority: 0.95 },
   { path: "/anoc", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/medicare-creedmoor-nc", changeFrequency: "weekly", priority: 0.9 },
   { path: "/medicare-annual-enrollment-2026-checklist", changeFrequency: "monthly", priority: 0.9 },
   { path: "/medicare-advantage-doctor-networks", changeFrequency: "monthly", priority: 0.9 },
   { path: "/advantage-vs-medigap", changeFrequency: "monthly", priority: 0.9 },
