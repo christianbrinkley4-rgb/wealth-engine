@@ -21,7 +21,8 @@
 import { AGENT } from "@/lib/agent";
 import { SITE_URL } from "@/lib/seo";
 
-export const GOOGLE_REVIEW_URL = process.env.GOOGLE_REVIEW_URL?.trim() || "";
+export const GOOGLE_REVIEW_URL =
+  process.env.GOOGLE_REVIEW_URL?.trim() || "https://g.page/r/CXlS0Xg_MMKqEBM/review";
 
 /** Lead statuses that end every automated sequence immediately. */
 export const STOPPED_STATUSES = ["booked", "client", "closed"] as const;
