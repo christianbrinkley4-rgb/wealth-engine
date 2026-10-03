@@ -18,7 +18,7 @@ import {
  *
  * Every Medicare Advantage member gets an Annual Notice of Change letter in
  * late September / early October. Most never read it. This page offers a
- * free, plain-English translation — the no-pressure door opener for the two
+ * free, plain-English translation, the no-pressure door opener for the two
  * weeks before Annual Enrollment opens. Copy from the ANOC campaign brief,
  * in Christian's voice.
  */
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({
     title: "Got your ANOC letter? Don't just file it away.",
     description:
-      "Your plan's September letter, translated into plain English — free. What's changing, what it costs you, whether your doctors are still in.",
+      "Your plan's September letter, translated into plain English, free. What's changing, what it costs you, whether your doctors are still in.",
     path: "/anoc",
   }),
 };
@@ -88,9 +88,9 @@ export default function AnocPage() {
           { name: "Annual enrollment 2026", href: "/aep" },
           { name: "Your ANOC letter" },
         ]}
-        eyebrow="Medicare Advantage · The September letter"
+        eyebrow="Medicare Advantage and Part D · The September letter"
         title="Got your ANOC letter? Don't just file it away."
-        lede="Every fall, your Medicare Advantage plan mails you a letter explaining what's different next year. Bring it to me — in person or by phone — and I'll translate it into plain English. Free. No pressure to switch plans, no obligation to enroll in anything."
+        lede="Every fall, Medicare Advantage and Part D plans send an Annual Notice of Change, a letter explaining what's different next year. Bring it to me, in person or by phone, and I'll walk you through it in plain English. Free. No pressure to switch plans, no obligation to enroll in anything."
         secondaryHref="/start"
         secondaryLabel="Book my free review →"
       />
@@ -100,24 +100,33 @@ export default function AnocPage() {
           <h2 className="text-28 font-semibold">What the letter is telling you</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
-              Every fall, Medicare Advantage plans mail you an Annual Notice of Change — a letter
-              explaining what&apos;s different about your plan next year. Your premium, your drug
-              costs, your doctor network: any of it can change on January 1, and the letter is how
-              you find out.
+              Every fall, Medicare Advantage and Part D plans send you an Annual Notice of Change,
+              usually called an ANOC. It&apos;s a letter explaining important changes to your plan
+              for next year. Your premium, your drug costs, your coverage rules: any of it can
+              change on January 1, and the letter is how you find out. (If you have Original
+              Medicare with a Medigap supplement, you won&apos;t get one of these. This is for
+              Advantage and Part D members.)
             </p>
             <p>
               Most people never read it. Honestly, who can blame them? It&apos;s long, it&apos;s
               dense, and it doesn&apos;t tell you what to <em>do</em>.
             </p>
             <p>
-              Here&apos;s what to do: bring it to me. I&apos;ll sit down with you — in person or by
-              phone — and translate it into plain English. What&apos;s changing, what it costs you,
-              and whether it still fits your doctors and prescriptions. Free. No pressure to switch
-              plans, no obligation to enroll in anything.
+              Here&apos;s what to do: bring it to me. I&apos;ll sit down with you, in person or by
+              phone, and go through it in plain English. What&apos;s changing, what it could cost
+              you, and what you may want to double-check. Free. No pressure to switch plans, no
+              obligation to enroll in anything.
+            </p>
+            <p>
+              One honest note: the letter points you in the right direction, but it doesn&apos;t
+              answer everything by itself. Whether your specific doctor is still in network,
+              whether your exact prescription is covered the same way, those answers live in your
+              plan&apos;s provider directory and drug list. I&apos;ll show you where to look.
             </p>
             <p>
               If your plan still looks good, I&apos;ll tell you so. If something changed that
-              matters to you, we&apos;ll talk through your options before the December 7 deadline.
+              matters to you, we&apos;ll talk through your options before Medicare Open Enrollment
+              ends December 7.
             </p>
           </div>
         </div>
@@ -125,9 +134,9 @@ export default function AnocPage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">The 3 pages that actually matter</h2>
+          <h2 className="text-28 font-semibold">The 3 things worth checking</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            You don&apos;t have to read all of it. Just check three things:
+            You don&apos;t have to read all of it. Start with these three:
           </p>
           <ol className="mt-8 flex flex-col gap-6">
             {[
@@ -137,11 +146,11 @@ export default function AnocPage() {
               },
               {
                 t: "Your drugs",
-                b: "Did any of your prescriptions move to a higher cost tier?",
+                b: "Did any of your prescriptions change cost tiers? Your plan's drug list has the final word, not just the letter.",
               },
               {
                 t: "Your doctors",
-                b: "Is your doctor network changing — are your doctors still in?",
+                b: "Is your doctor network changing? Confirm against your plan's current provider directory.",
               },
             ].map((item, index) => (
               <li key={item.t} className="flex gap-5 border-t border-gray-300 pt-5">
@@ -158,7 +167,7 @@ export default function AnocPage() {
             ))}
           </ol>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-            If all three look fine, you&apos;re probably in good shape — and I&apos;ll happily
+            If all three look fine, you&apos;re probably in good shape, and I&apos;ll happily
             confirm that for free. If one of them changed and you don&apos;t like the answer, you
             have until December 7 to do something about it.{" "}
             <Link href="/aep" className="underline underline-offset-2">
@@ -173,15 +182,15 @@ export default function AnocPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Bring me the letter</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            A photo of it works fine. We&apos;ll go through it together — in person around
-            Greensboro or by phone — and you&apos;ll know exactly where you stand before the
-            December 7 deadline. The changes in the letter take effect January 1 whether you read
-            it or not, so sooner beats later.
+            A photo of it works fine. We&apos;ll go through it together, in person around
+            Greensboro or by phone, and you&apos;ll understand what changed and what to check
+            before the December 7 deadline. The changes in the letter take effect January 1
+            whether you read it or not, so sooner beats later.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
             <a
               href={AGENT.phoneHref}
-              aria-label={`Call ${AGENT.name} at ${AGENT.phone} — let's go through your letter together`}
+              aria-label={`Call ${AGENT.name} at ${AGENT.phone}, let's go through your letter together`}
               className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px hover:shadow-[0_2px_4px_rgba(21,46,52,0.1),0_4px_16px_rgba(21,46,52,0.1)] active:translate-y-0 active:shadow-[0_1px_2px_rgba(21,46,52,0.08)]"
             >
               <Phone className="size-5 shrink-0" aria-hidden />
@@ -202,16 +211,16 @@ export default function AnocPage() {
 
       <KitchenTableClose
         heading="That letter won't read itself"
-        body="The changes take effect January 1 either way. Ten minutes with me now beats a surprise in January — free, no pressure."
+        body="The changes take effect January 1 either way. About fifteen minutes with me now beats a surprise in January. Free, no pressure."
         href="/schedule?topic=medicare"
         label="Book my free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <p className="text-15 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-          We do not offer every plan available in your area. Please contact Medicare.gov,
-          1-800-MEDICARE, or your local State Health Insurance Program (SHIP) for information on
-          all your options.
+          We do not offer every plan available in your area. Currently we represent 8 organizations
+          which offer 65 products in your area. Please contact Medicare.gov or 1-800-MEDICARE to
+          get information on all of your options.
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
