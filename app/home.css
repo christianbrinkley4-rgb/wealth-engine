@@ -75,17 +75,34 @@
   min-height: 48px;
   padding: 0 0.85rem;
   border: 1.5px solid var(--home-green);
-  border-radius: 6px;
+  border-radius: 8px;
   background: var(--home-green);
   color: #fff;
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
+  box-shadow:
+    0 1px 2px rgba(21, 46, 52, 0.08),
+    0 2px 8px rgba(21, 46, 52, 0.06);
+  transition:
+    background 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-call:hover {
   background: var(--home-green-dark);
   color: #fff;
+  transform: translateY(-1px);
+  box-shadow:
+    0 2px 4px rgba(21, 46, 52, 0.1),
+    0 4px 12px rgba(21, 46, 52, 0.1);
+}
+.site-call:active {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 2px rgba(21, 46, 52, 0.08),
+    0 2px 8px rgba(21, 46, 52, 0.06);
 }
 .site-call-long {
   display: none;
@@ -264,7 +281,7 @@
   min-height: 3.3rem;
   padding: 0 1.4rem;
   border: 1.5px solid transparent;
-  border-radius: 6px;
+  border-radius: 8px;
   background: var(--home-green);
   color: #fff;
   font-family: inherit;
@@ -274,11 +291,28 @@
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.15s;
+  box-shadow:
+    0 1px 2px rgba(21, 46, 52, 0.08),
+    0 2px 8px rgba(21, 46, 52, 0.06);
+  transition:
+    background 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .home-button:hover {
   background: var(--home-green-dark);
   color: #fff;
+  transform: translateY(-1px);
+  box-shadow:
+    0 2px 4px rgba(21, 46, 52, 0.1),
+    0 4px 16px rgba(21, 46, 52, 0.1);
+}
+.home-button:active {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 2px rgba(21, 46, 52, 0.08),
+    0 2px 8px rgba(21, 46, 52, 0.06);
 }
 .home-button:disabled {
   opacity: 0.7;
@@ -288,17 +322,34 @@
   background: #fff;
   border-color: #b3bdb6;
   color: var(--home-ink);
+  box-shadow:
+    0 1px 2px rgba(21, 46, 52, 0.05),
+    0 1px 4px rgba(21, 46, 52, 0.04);
 }
 .home-button-outline:hover {
   background: #fff;
   border-color: var(--home-green);
   color: var(--home-green);
+  transform: translateY(-1px);
+  box-shadow:
+    0 2px 4px rgba(21, 46, 52, 0.07),
+    0 3px 12px rgba(21, 46, 52, 0.06);
+}
+.home-button-outline:active {
+  transform: translateY(0);
 }
 .home-button-ink {
   background: var(--home-deep);
 }
 .home-button-ink:hover {
   background: #0c1d21;
+  transform: translateY(-1px);
+  box-shadow:
+    0 2px 4px rgba(21, 46, 52, 0.12),
+    0 4px 16px rgba(21, 46, 52, 0.12);
+}
+.home-button-ink:active {
+  transform: translateY(0);
 }
 .home-button-light {
   background: var(--home-cream);
@@ -307,14 +358,28 @@
 .home-button-light:hover {
   background: #fff;
   color: var(--home-ink);
+  transform: translateY(-1px);
+  box-shadow:
+    0 2px 4px rgba(21, 46, 52, 0.07),
+    0 3px 12px rgba(21, 46, 52, 0.06);
+}
+.home-button-light:active {
+  transform: translateY(0);
 }
 .home-button-ghost {
   background: transparent;
   border-color: rgba(244, 241, 232, 0.6);
   color: #fff;
+  box-shadow: none;
 }
 .home-button-ghost:hover {
   background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.home-button-ghost:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 .home-link {
   display: inline-flex;
@@ -937,12 +1002,28 @@
   min-height: 3.1rem;
   padding: 0 0.75rem;
   border: 1.5px solid var(--home-field);
-  border-radius: 6px;
+  border-radius: 8px;
   background: #fff;
   color: var(--home-ink);
   font-family: inherit;
   /* 16px or larger keeps iOS Safari from zooming into the field. */
   font-size: max(16px, 1rem);
+  box-shadow: inset 0 1px 2px rgba(21, 46, 52, 0.04);
+  transition:
+    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tl select:hover,
+.tl input:not([type="checkbox"]):hover {
+  border-color: #7a8783;
+}
+.tl select:focus,
+.tl input:not([type="checkbox"]):focus {
+  outline: none;
+  border-color: var(--home-green);
+  box-shadow:
+    inset 0 1px 2px rgba(21, 46, 52, 0.04),
+    0 0 0 3px rgba(37, 79, 70, 0.12);
 }
 .tl input[aria-invalid="true"],
 .tl select[aria-invalid="true"] {

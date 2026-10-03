@@ -86,7 +86,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
 
               <Link
                 href={page.primaryHref}
-                className="text-20 mt-8 inline-flex min-h-16 w-full items-center justify-center rounded-[12px] bg-[var(--color-paper)] px-6 py-4 text-center font-semibold text-[var(--color-navy)] transition-opacity hover:opacity-95 sm:w-auto"
+                className="text-20 mt-8 inline-flex min-h-16 w-full items-center justify-center rounded-[12px] bg-[var(--color-paper)] px-6 py-4 text-center font-semibold text-[var(--color-navy)] shadow-[0_2px_4px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-px hover:shadow-[0_4px_8px_rgba(0,0,0,0.14),0_8px_24px_rgba(0,0,0,0.12)] active:translate-y-0 active:shadow-[0_2px_4px_rgba(0,0,0,0.12)] sm:w-auto"
               >
                 Request a free consultation →
               </Link>

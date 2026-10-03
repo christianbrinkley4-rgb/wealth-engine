@@ -71,14 +71,14 @@ export function ServiceHero({
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
               <a
                 href={AGENT.phoneHref}
-                className="text-19 inline-flex min-h-16 shrink-0 items-center justify-center gap-2 rounded-[12px] bg-[var(--color-paper)] px-8 py-3 font-semibold whitespace-nowrap text-[var(--color-navy)] transition-opacity hover:opacity-95"
+                className="text-19 inline-flex min-h-16 shrink-0 items-center justify-center gap-2 rounded-[12px] bg-[var(--color-paper)] px-8 py-3 font-semibold whitespace-nowrap text-[var(--color-navy)] shadow-[0_2px_4px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-px hover:shadow-[0_4px_8px_rgba(0,0,0,0.14),0_8px_24px_rgba(0,0,0,0.12)] active:translate-y-0 active:shadow-[0_2px_4px_rgba(0,0,0,0.12)]"
               >
                 <Phone className="size-5 shrink-0" aria-hidden />
                 {AGENT.phone}
               </a>
               <Link
                 href={secondaryHref}
-                className="text-19 inline-flex min-h-16 items-center justify-center rounded-[12px] border-2 border-[var(--color-paper)]/70 px-6 py-3 text-center font-semibold transition-colors hover:bg-white/10"
+                className="text-19 inline-flex min-h-16 items-center justify-center rounded-[12px] border-2 border-[var(--color-paper)]/70 px-6 py-3 text-center font-semibold transition-all duration-200 ease-out hover:-translate-y-px hover:border-[var(--color-paper)] hover:bg-white/10 hover:shadow-[0_2px_8px_rgba(0,0,0,0.12)] active:translate-y-0"
               >
                 {secondaryLabel}
               </Link>
