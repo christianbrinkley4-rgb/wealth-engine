@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 
 import {
   GOOGLE_REVIEW_URL,
+  QUIZ_ABANDONER_KEY,
+  QUIZ_COMPLETER_KEY,
   REENGAGE_AFTER_DAYS,
   REENGAGE_SEQUENCE_KEY,
   REVIEW_SEQUENCE_KEY,
@@ -30,11 +32,13 @@ describe("nurture sequences", () => {
     expect(sequenceKeyForTopic("something-else")).toBeNull();
   });
 
-  it("exposes six sequences with at least two steps each", () => {
+  it("exposes eight sequences with at least two steps each", () => {
     const keys = listSequenceKeys();
-    expect(keys).toHaveLength(6);
+    expect(keys).toHaveLength(8);
     expect(keys).toContain(REVIEW_SEQUENCE_KEY);
     expect(keys).toContain(REENGAGE_SEQUENCE_KEY);
+    expect(keys).toContain(QUIZ_COMPLETER_KEY);
+    expect(keys).toContain(QUIZ_ABANDONER_KEY);
     for (const key of keys) {
       const seq = getSequence(key);
       expect(seq).not.toBeNull();
@@ -184,5 +188,49 @@ describe("defaultEmailContext", () => {
   it("handles a missing name", () => {
     const noName = defaultEmailContext({ fullName: null, unsubscribeToken: "b".repeat(48) });
     expect(noName.firstName).toBe("there");
+  });
+});
+
+describe("quiz sequences", () => {
+  // The /plan-check quiz enrolls completers and abandoners in separate
+  // branches. Every email must stay educational: no plan recommendations,
+  // no savings promises, no pressure language.
+  const BANNED = ["switch plans", "save money", "you should switch", "guarantee"];
+  for (const key of [QUIZ_COMPLETER_KEY, QUIZ_ABANDONER_KEY]) {
+    it(`${key} has three CMS-safe steps`, () => {
+      const seq = getSequence(key)!;
+      expect(seq.steps).toHaveLength(3);
+      for (const step of seq.steps) {
+        // Check the step's own copy. The "— Christian" signature follows the
+        // pre-existing convention of every nurture email on the site.
+        const own = (
+          step.subject +
+          "\n" +
+          step.paragraphs.filter((p) => p !== "— Christian").join("\n")
+        ).toLowerCase();
+        for (const phrase of BANNED) {
+          expect(own).not.toContain(phrase);
+        }
+        expect(own).not.toMatch(/—/); // no em dashes, house rule
+        const rendered = renderStep(step, ctx);
+        expect(rendered.text).toContain("unsubscribe");
+      }
+    });
+  }
+
+  it("quiz-completer nudges the December 7 deadline without pressure", () => {
+    const seq = getSequence(QUIZ_COMPLETER_KEY)!;
+    const subjects = seq.steps.map((s) => s.subject);
+    expect(subjects).toEqual([
+      "Your plan check results",
+      "The part of your plan that changes every January",
+      "December 7 is the deadline",
+    ]);
+  });
+
+  it("quiz-abandoner offers the resume path first", () => {
+    const seq = getSequence(QUIZ_ABANDONER_KEY)!;
+    expect(seq.steps[0].subject).toBe("You were halfway through your plan check");
+    expect(seq.steps[0].paragraphs.join("\n")).toContain("/plan-check");
   });
 });

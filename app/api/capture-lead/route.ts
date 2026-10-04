@@ -11,7 +11,7 @@ import {
 } from "@/lib/commandCenter";
 import { scoreLead } from "@/lib/leadScoring";
 import { sendMetaLeadEvent } from "@/lib/metaCapi";
-import { sequenceKeyForTopic, shouldEnrollNurture } from "@/lib/nurture";
+import { sequenceKeyForTopic, shouldEnrollNurture, QUIZ_ABANDONER_KEY, QUIZ_COMPLETER_KEY } from "@/lib/nurture";
 import { enrollLead, newUnsubscribeToken } from "@/lib/nurtureStore";
 import {
   type DeliveryResult,
@@ -29,6 +29,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const VALID_SOURCES = [
   "help_quiz",
+  "quiz-2026",
   "wizard_completion",
   "roth_calculator",
   "about_page_cta",
@@ -626,7 +627,45 @@ export async function POST(request: NextRequest) {
         status: "new",
         topic: interest_topic,
       });
-      const sequenceKey = decision.enroll ? sequenceKeyForTopic(interest_topic) : null;
+      /*
+       * The plan-check quiz (/plan-check) runs two branches: completers
+       * finished all 7 questions, abandoners gave an email at the Q3
+       * interstitial but never finished. The quiz client includes the result
+       * tier in quiz_answers only on completion. When a completer arrives for
+       * an email already in the abandoner branch, cancel that enrollment
+       * first so they never get both sequences.
+       */
+      let sequenceKey = decision.enroll ? sequenceKeyForTopic(interest_topic) : null;
+      if (decision.enroll && source === "quiz-2026") {
+        /*
+         * quiz_answers only carries strings through normalization, so the
+         * client marks completion by including the tier (solid/flags/changed).
+         * No tier means the email came from the Q3 interstitial: abandoner.
+         */
+        const quizCompleted = typeof quiz_answers?.tier === "string" && quiz_answers.tier.length > 0;
+        sequenceKey = quizCompleted ? QUIZ_COMPLETER_KEY : QUIZ_ABANDONER_KEY;
+        if (quizCompleted) {
+          const now = new Date().toISOString();
+          const { data: abandoner } = await nurtureDb
+            .from("nurture_enrollments")
+            .select("id")
+            .eq("email", email.toLowerCase())
+            .eq("sequence_key", QUIZ_ABANDONER_KEY)
+            .eq("status", "active");
+          const abandonerIds = (abandoner ?? []).map((e) => (e as { id: string }).id);
+          if (abandonerIds.length > 0) {
+            await nurtureDb
+              .from("nurture_enrollments")
+              .update({ status: "cancelled", cancelled_at: now, cancel_reason: "quiz-completed" })
+              .in("id", abandonerIds);
+            await nurtureDb
+              .from("nurture_sends")
+              .update({ cancelled_at: now })
+              .in("enrollment_id", abandonerIds)
+              .is("sent_at", null);
+          }
+        }
+      }
       if (sequenceKey) {
         const enrollmentId = await enrollLead(
           nurtureDb,

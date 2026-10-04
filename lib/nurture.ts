@@ -592,6 +592,137 @@ const reengageSequence: NurtureSequence = {
   ],
 };
 
+/* ---------------------------------------------------------------------------
+ * QUIZ sequences — for the /plan-check "Does your Medicare plan still fit?"
+ * quiz. Two branches: completers finished all 7 questions; abandoners gave
+ * an email at the Q3 interstitial but never finished. Completing the quiz
+ * moves a lead from the abandoner branch to the completer branch (the
+ * capture-lead route cancels the abandoner enrollment first).
+ *
+ * Voice follows docs/CONTENT-VOICE.md. Nothing here recommends a plan,
+ * promises savings, or pressures. Every email ends at a free review.
+ * ------------------------------------------------------------------------- */
+export const QUIZ_COMPLETER_KEY = "quiz-completer";
+export const QUIZ_ABANDONER_KEY = "quiz-abandoner";
+
+const quizCompleterSequence: NurtureSequence = {
+  key: QUIZ_COMPLETER_KEY,
+  steps: [
+    {
+      key: "quiz-results",
+      dayOffset: 0,
+      subject: "Your plan check results",
+      paragraphs: [
+        "{greeting}",
+        "",
+        "Thanks for running through the plan check. Whatever your results said, the next step is the same: a free 20-minute review before Annual Enrollment ends December 7.",
+        "",
+        "Bring your questions, and your Annual Notice of Change letter if you got one. If your plan still fits, I will tell you that straight.",
+        "",
+        "{booking}",
+        "",
+        "Or just reply to this email. It comes to me, not a call center.",
+        "",
+        "— Christian",
+      ],
+    },
+    {
+      key: "quiz-january-reset",
+      dayOffset: 2,
+      subject: "The part of your plan that changes every January",
+      generalInfo: true,
+      paragraphs: [
+        "{greeting}",
+        "",
+        "One thing worth knowing whether or not we ever talk: the details inside your plan reset every January. The drug list, what each drug costs you, which doctors are in network. Your plan mails you the changes each fall in the Annual Notice of Change.",
+        "",
+        "Most people never read that letter. The free review exists so you do not have to decode it alone. Twenty minutes, plain English:",
+        "",
+        "{booking}",
+        "",
+        "— Christian",
+      ],
+    },
+    {
+      key: "quiz-deadline",
+      dayOffset: 5,
+      subject: "December 7 is the deadline",
+      paragraphs: [
+        "{greeting}",
+        "",
+        "Annual Enrollment ends December 7. After that, your plan is locked in for next year, with very few exceptions.",
+        "",
+        "If you have been meaning to get a second set of eyes on your coverage, this is the week to do it:",
+        "",
+        "{booking}",
+        "",
+        "Free, no pressure. If everything looks fine, I will say so.",
+        "",
+        "— Christian",
+      ],
+    },
+  ],
+};
+
+const quizAbandonerSequence: NurtureSequence = {
+  key: QUIZ_ABANDONER_KEY,
+  steps: [
+    {
+      key: "quiz-resume",
+      dayOffset: 0,
+      subject: "You were halfway through your plan check",
+      paragraphs: [
+        "{greeting}",
+        "",
+        "You started the plan check but did not finish it. No worries. It takes about 90 seconds:",
+        "",
+        "{site}/plan-check",
+        "",
+        "Or skip the quiz and book the free review directly. Same 20 minutes, same straight answers:",
+        "",
+        "{booking}",
+        "",
+        "— Christian",
+      ],
+    },
+    {
+      key: "quiz-anoc-letter",
+      dayOffset: 3,
+      subject: "The letter most people throw away",
+      generalInfo: true,
+      paragraphs: [
+        "{greeting}",
+        "",
+        "A useful fact: your plan was supposed to mail you an Annual Notice of Change by September 30. It lists everything changing about your costs and coverage next year.",
+        "",
+        "Most people file it with the junk mail. If you still have yours, bring it to a free review and I will walk you through it in plain English:",
+        "",
+        "{booking}",
+        "",
+        "I also explain the whole letter here: {site}/anoc",
+        "",
+        "— Christian",
+      ],
+    },
+    {
+      key: "quiz-last-call",
+      dayOffset: 7,
+      subject: "Before December 7",
+      paragraphs: [
+        "{greeting}",
+        "",
+        "Annual Enrollment closes December 7. If your plan could use a second look, now is the time.",
+        "",
+        "{booking}",
+        "",
+        "Free review, no pressure, no obligation.",
+        "",
+        "— Christian",
+      ],
+    },
+  ],
+};
+
 const SEQUENCES: Record<string, NurtureSequence> = {
   [medicareNurture.key]: medicareNurture,
   [lifeNurture.key]: lifeNurture,
@@ -599,6 +730,8 @@ const SEQUENCES: Record<string, NurtureSequence> = {
   [careNurture.key]: careNurture,
   [reviewSequence.key]: reviewSequence,
   [reengageSequence.key]: reengageSequence,
+  [quizCompleterSequence.key]: quizCompleterSequence,
+  [quizAbandonerSequence.key]: quizAbandonerSequence,
 };
 
 const TOPIC_SEQUENCES: Record<string, string> = {
