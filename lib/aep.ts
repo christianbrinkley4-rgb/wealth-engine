@@ -29,8 +29,8 @@ export function aepPhase(today: Date = new Date()): AepPhase {
 /** Hero H1 per phase — the "open" claim only renders inside the window. */
 export const AEP_HERO_TITLES: Record<AepPhase, string> = {
   before:
-    "Medicare Annual Enrollment opens October 15 — book your free 2027 plan review",
-  open: "Medicare Annual Enrollment is open — let's review your plan for 2027",
+    "Medicare Annual Enrollment opens October 15. Book your free 2027 plan review",
+  open: "Medicare Annual Enrollment is open. Let's review your plan for 2027",
   after:
-    "Annual Enrollment has ended — here's how I can still help with Medicare",
+    "Annual Enrollment has ended. Here's how I can still help with Medicare",
 };

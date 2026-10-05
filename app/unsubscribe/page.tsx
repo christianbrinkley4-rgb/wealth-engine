@@ -24,7 +24,7 @@ export default async function UnsubscribePage({
             <h1>Unsubscribe</h1>
             <p className="personal-body">
               No hard feelings. One click below and I&apos;ll stop the follow-up emails. You can
-              still reach me directly anytime — my number and email are at the bottom of every page.
+              still reach me directly anytime, my number and email are at the bottom of every page.
             </p>
           </div>
         </div>

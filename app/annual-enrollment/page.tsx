@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({
     title: "Medicare annual enrollment help in Greensboro, Winston-Salem & High Point",
     description:
-      "A personal review in Greensboro, High Point, or Winston-Salem of next year’s costs, doctors, and prescriptions — including when keeping your plan is the right move.",
+      "A personal review in Greensboro, High Point, or Winston-Salem of next year’s costs, doctors, and prescriptions, including when keeping your plan is the right move.",
     path: "/annual-enrollment",
   }),
 };
@@ -57,7 +57,7 @@ const STEPS = [
   },
   {
     t: "Check your doctors are still in network",
-    b: "Networks change in both directions — a practice can leave a plan, and a plan can drop a health system. Around here that usually means Cone Health, Novant or Atrium Health Wake Forest Baptist, and it’s worth confirming rather than assuming.",
+    b: "Networks change in both directions, a practice can leave a plan, and a plan can drop a health system. Around here that usually means Cone Health, Novant or Atrium Health Wake Forest Baptist, and it’s worth confirming rather than assuming.",
   },
   {
     t: "Compare your options with your current coverage",
@@ -151,7 +151,7 @@ export default function AnnualEnrollmentPage() {
             serviceJsonLd({
               name: "Medicare Annual Enrollment review",
               description:
-                "A fall review of the Annual Notice of Change, prescriptions, and doctors — including when the appropriate answer is to keep the plan you have.",
+                "A fall review of the Annual Notice of Change, prescriptions, and doctors, including when the appropriate answer is to keep the plan you have.",
               path: "/annual-enrollment",
             }),
           ),
@@ -160,9 +160,9 @@ export default function AnnualEnrollmentPage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment" }]}
-        eyebrow="October 15 – December 7 · Piedmont Triad"
+        eyebrow="October 15 to December 7 · Piedmont Triad"
         title="Review your Medicare coverage for next year"
-        lede="A yearly review can help you make sure your Medicare coverage still fits. We’ll sit down in Greensboro, High Point, or Winston-Salem — or talk by phone — and look at next year’s costs, prescriptions, and doctors before you decide whether to keep your plan or make a change."
+        lede="A yearly review can help you make sure your Medicare coverage still fits. We’ll sit down in Greensboro, High Point, or Winston-Salem, or talk by phone, and look at next year’s costs, prescriptions, and doctors before you decide whether to keep your plan or make a change."
         secondaryHref="/start?topic=medicare&stage=already_on_medicare&quick=1"
         secondaryLabel="Review my coverage →"
       />
@@ -193,14 +193,14 @@ export default function AnnualEnrollmentPage() {
           <h2 className="text-28 font-semibold">The dates, all of them</h2>
           <dl className="mt-6 flex flex-col gap-5">
             <div className="border-t border-gray-300 pt-5">
-              <dt className="text-19 font-semibold">October 15 – December 7</dt>
+              <dt className="text-19 font-semibold">October 15 to December 7</dt>
               <dd className="text-17 mt-1 leading-relaxed text-[var(--color-ink-muted)]">
                 Annual enrollment. Join, switch or drop a Medicare Advantage or Part D drug plan.
                 Whatever you pick starts January 1.
               </dd>
             </div>
             <div className="border-t border-gray-300 pt-5">
-              <dt className="text-19 font-semibold">January 1 – March 31</dt>
+              <dt className="text-19 font-semibold">January 1 to March 31</dt>
               <dd className="text-17 mt-1 leading-relaxed text-[var(--color-ink-muted)]">
                 Medicare Advantage open enrollment, if you’re already on an Advantage plan. One
                 change: to a different Advantage plan, or back to Original Medicare with a drug

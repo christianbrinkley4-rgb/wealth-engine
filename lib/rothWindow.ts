@@ -137,7 +137,7 @@ export function rothWindowHeadline(result: RothWindowResult): string {
 
   if (!nextBracket || headroomToNextBracket === null) {
     return (
-      `You are already in the ${currentBracket.bracketName} bracket — the top of the IRMAA ` +
+      `You are already in the ${currentBracket.bracketName} bracket, the top of the IRMAA ` +
       `schedule. Additional conversions do not raise your Medicare premium further, but they ` +
       `do raise your overall taxable income. Talk to a CPA about tax-bracket optimization.`
     );
@@ -146,7 +146,7 @@ export function rothWindowHeadline(result: RothWindowResult): string {
   if (headroomToNextBracket === 0) {
     return (
       `You are at the top of the ${currentBracket.bracketName} bracket. Any conversion this ` +
-      `year would push you into the ${nextBracket.bracketName} bracket — an extra ` +
+      `year would push you into the ${nextBracket.bracketName} bracket, an extra ` +
       `${formatCurrency((nextBracket.partBPremium - currentBracket.partBPremium) * 12)} per ` +
       `enrollee in 2028 Medicare premiums.`
     );

@@ -130,7 +130,7 @@ export function pageOpenGraph(input: {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${SITE_OWNER} — licensed insurance agent in ${SITE_LOCALITY}, ${SITE_REGION}`,
+        alt: `${SITE_OWNER}, licensed insurance agent in ${SITE_LOCALITY}, ${SITE_REGION}`,
       },
     ],
   };
@@ -344,7 +344,7 @@ export function localBusinessJsonLd() {
                 url: `${SITE_URL}/annual-enrollment`,
                 description:
                   "A fall review of the Annual Notice of Change, prescriptions, and " +
-                  "doctors — including when the appropriate answer is to keep the plan you have.",
+                  "doctors, including when the appropriate answer is to keep the plan you have.",
                 provider: { "@id": `${SITE_URL}/#christian` },
               },
             },

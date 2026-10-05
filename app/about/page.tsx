@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Phone } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, CalendarDays, Mail, Phone } from "lucide-react";
 
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { LeadCluster } from "@/app/components/LeadCluster";
-import { SocialLinks } from "@/app/components/SocialLinks";
-import { AGENT, COMPENSATION_DISCLOSURE, hasPublishableNpn } from "@/lib/agent";
+import { AGENT, COMPENSATION_DISCLOSURE, hasPublishableNpn, publishedProfiles } from "@/lib/agent";
 import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
-import { SERVICE_AREA_LABEL } from "@/lib/triad";
 
 const title = "Christian Brinkley | Licensed Insurance Agent in Greensboro";
 const description =
@@ -31,9 +30,48 @@ export const metadata: Metadata = {
   },
 };
 
+const START_HERE = [
+  {
+    href: "/turning-65",
+    label: "Turning 65",
+    text: "When to sign up and what to sign up for.",
+  },
+  {
+    href: "/plan-check",
+    label: "Already on Medicare",
+    text: "A 90-second check on whether your plan still fits.",
+  },
+  {
+    href: "/taxes-and-retirement",
+    label: "Planning retirement",
+    text: "Social Security, taxes, RMDs, and Medicare costs.",
+  },
+] as const;
+
+const STEPS = [
+  {
+    t: "Tell me what you need help with",
+    b: "Your information comes directly to me. It is kept private and is never sold or sent to other agents.",
+  },
+  {
+    t: "I get an alert",
+    b: "Your request comes straight to me for a personal review. If you’d like to talk sooner, call or email me directly.",
+  },
+  {
+    t: "You hear from me",
+    b: "I’ll get in touch so we can arrange a time and place that work for you, including a visit at home or a phone conversation.",
+  },
+] as const;
+
 export default function AboutPage() {
+  const profiles = publishedProfiles().filter((profile) =>
+    ["youtube", "facebook", "instagram", "nextdoor", "linkedin", "google"].includes(
+      profile.network,
+    ),
+  );
+
   return (
-    <main className="text-[var(--color-navy)]">
+    <main className="ab">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -46,158 +84,206 @@ export default function AboutPage() {
         }}
       />
 
-      <section className="bg-[var(--color-navy)] py-12 text-[var(--color-paper)] md:py-16">
-        <div className="app-shell">
-          <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[2fr_3fr] md:gap-14">
+      <section className="ab-hero">
+        <div className="shell ab-hero-grid">
+          <div className="ab-hero-copy">
+            <p className="eyebrow">About</p>
+            <h1>
+              Hey, I’m <em>Christian.</em>
+            </h1>
+            <p className="ab-lede">
+              I’m a licensed insurance agent in Greensboro, and I’m from Granville County. I help
+              families across the Triad with Medicare, life insurance, and retirement questions.
+              I’m not a call center. I sit down with people myself, listen first, and help them
+              figure out what they want to protect.
+            </p>
+            <p className="ab-license">
+              Licensed agent · {AGENT.licenseLine}
+              {hasPublishableNpn() ? ` · NPN ${AGENT.npn}` : ""}
+            </p>
+            <div className="ab-actions">
+              <a href={AGENT.phoneHref} className="btn">
+                <Phone size={18} aria-hidden /> {AGENT.phone}
+              </a>
+              <Link href="/schedule" className="btn btn-outline">
+                <CalendarDays size={18} aria-hidden /> Book a time
+              </Link>
+              <a href={`mailto:${AGENT.email}`} className="link-draw">
+                <Mail size={17} aria-hidden /> <span>Email me</span>
+              </a>
+            </div>
+          </div>
+          <figure className="ab-photo">
             <Image
               src="/christian-brinkley.jpg"
               alt={`${AGENT.name}, licensed insurance agent in Greensboro, North Carolina`}
               width={1200}
               height={1600}
-              priority
-              sizes="(max-width: 768px) 100vw, 320px"
-              className="order-2 h-52 w-full max-w-[320px] rounded-2xl border border-white/15 object-cover object-top shadow-[0_18px_50px_rgba(0,0,0,0.28)] md:order-1 md:h-auto"
+              preload
+              fetchPriority="high"
+              sizes="(max-width: 899px) 90vw, 460px"
             />
+          </figure>
+        </div>
+      </section>
 
-            <div className="order-1 md:order-2">
-              <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-gold)] uppercase">
-                {SERVICE_AREA_LABEL}
-              </p>
-              <h1 className="text-34 mt-3 leading-tight font-semibold tracking-tight">
-                {AGENT.name}
-              </h1>
-              <p className="text-19 mt-2 font-medium text-[var(--color-paper)]/90">
-                Licensed insurance agent · {AGENT.city}, {AGENT.state}
-              </p>
-              <p className="text-19 mt-4 max-w-xl leading-relaxed text-[var(--color-paper)]/85">
-                I’m a licensed insurance agent in {AGENT.licensedStates.join(", ")}, and I live here
-                in the Triad. I help Triad families with Medicare, life insurance, and retirement
-                questions. I’m not a call center: I sit down with families myself, listen to their
-                questions, and help them understand what they want to protect. Your insurance
-                consultation is no cost, with no obligation to buy anything.
-              </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href={AGENT.phoneHref}
-                  className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-paper)] px-6 font-semibold text-[var(--color-navy)]"
-                >
-                  <Phone className="size-5" aria-hidden />
-                  {AGENT.phone}
-                </a>
-                <a
-                  href={`mailto:${AGENT.email}`}
-                  className="text-18 inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[var(--color-paper)]/70 px-6 font-semibold text-[var(--color-paper)]"
-                >
-                  Email me
-                </a>
-              </div>
-              <SocialLinks className="mt-5" />
-            </div>
+      <section className="section-tight ab-start" aria-labelledby="ab-start-heading">
+        <div className="shell">
+          <h2 id="ab-start-heading" className="ab-h2" data-reveal>
+            New here? Start with the one that fits.
+          </h2>
+          <ul className="ab-start-grid">
+            {START_HERE.map((item, index) => (
+              <li key={item.href} data-reveal style={{ "--i": index } as React.CSSProperties}>
+                <Link href={item.href} className="card ab-start-card">
+                  <span className="ab-start-num">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="ab-start-label">{item.label}</span>
+                  <span className="ab-start-text">{item.text}</span>
+                  <ArrowRight size={20} aria-hidden />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="section ab-story" aria-labelledby="ab-story-heading">
+        <div className="shell ab-story-grid">
+          <div>
+            <p className="eyebrow" data-reveal>
+              Why I do this
+            </p>
+            <h2 id="ab-story-heading" className="ab-h2" data-reveal>
+              One person you can come back to.
+            </h2>
           </div>
-        </div>
-      </section>
-
-      <section className="border-t border-[rgba(21,46,52,0.08)] bg-white py-14">
-        <div className="measure-prose app-shell text-18 max-w-3xl space-y-7 leading-[1.85] text-[var(--color-navy)]">
-          <p>
-            My life and my education are here in the Triad. I want to be someone you know and can
-            come back to throughout retirement. A policy is one decision; the questions continue
-            when your health, family, work, and priorities change.
-          </p>
-          <p>
-            We can start with Medicare, life insurance, long-term or short-term care, critical
-            illness coverage, or annuities. We’ll look at what you already have, discuss your needs
-            and budget, and work toward a clear next step. You’re welcome to include your spouse or
-            another family member.
-          </p>
-          <p>
-            My approach is to listen first, explain the options I offer in plain language, and give
-            you room to decide. We can meet at your home, at a convenient public location, or by
-            phone. If your current coverage still fits, that is a useful conclusion too.
-          </p>
-          <p>
-            My accounting studies help me understand how retirement decisions connect. I’m currently
-            a licensed insurance agent, and I work with an advisor for retirement financial
-            planning. Tax, legal, and investment advice belongs with the appropriately qualified
-            professional. I’ll help you identify when that conversation would be useful.
-          </p>
-        </div>
-      </section>
-
-      <section className="border-t border-[rgba(21,46,52,0.08)] bg-[var(--color-paper)] py-14">
-        <div className="measure-prose app-shell max-w-3xl">
-          <div className="rounded-xl border border-[rgba(21,46,52,0.12)] bg-white p-6 md:p-8">
-            <h2 className="text-22 font-semibold text-[var(--color-navy)]">How I get paid</h2>
-            <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]">
-              {COMPENSATION_DISCLOSURE}
+          <div className="ab-prose">
+            <p data-reveal>
+              My life and my education are here in the Triad. I want to be someone you know and can
+              come back to throughout retirement. A policy is one decision; the questions continue
+              when your health, family, work, and priorities change.
+            </p>
+            <p data-reveal>
+              We can start with Medicare, life insurance, long-term or short-term care, critical
+              illness coverage, or annuities. We’ll look at what you already have, talk through your
+              needs and budget, and work toward a clear next step. You’re welcome to include your
+              spouse or another family member.
+            </p>
+            <p data-reveal>
+              My approach is to listen first, explain the options I offer in plain language, and
+              give you room to decide. We can meet at your home, at a convenient public place, or by
+              phone. If your current coverage still fits, that is a useful answer too.
+            </p>
+            <p data-reveal>
+              My accounting studies help me see how retirement decisions connect. Today I’m a
+              licensed insurance agent, and I work with an advisor for retirement financial
+              planning. Tax, legal, and investment advice belongs with the right qualified
+              professional, and I’ll tell you when that conversation would help.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-[rgba(21,46,52,0.08)] bg-white py-14">
-        <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold text-[var(--color-navy)]">
-            What happens when you get in touch{" "}
+      <section className="section-tight ab-road" aria-labelledby="ab-road-heading">
+        <div className="shell">
+          <p className="eyebrow" data-reveal>
+            Where I’m headed
+          </p>
+          <h2 id="ab-road-heading" className="ab-h2" data-reveal>
+            Today, and the long game.
           </h2>
-          <ol className="mt-8 flex flex-col gap-6">
-            {[
-              {
-                t: "Tell me what you need help with",
-                b: "Your information comes directly to me. It is kept private and is never sold or sent to other agents.",
-              },
-              {
-                t: "I get an alert",
-                b: "Your request comes straight to me for a personal review. If you’d like to talk sooner, call or email me directly.",
-              },
-              {
-                t: "You hear from me",
-                b: "I’ll get in touch so we can arrange a time and place that work for you, including a visit at home or a phone conversation.",
-              },
-            ].map((step, index) => (
-              <li key={step.t} className="flex gap-5 border-t border-gray-300 pt-5">
-                <span className="text-18 flex size-11 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy)] font-bold text-[var(--color-paper)]">
-                  {index + 1}
-                </span>
-                <div>
-                  <h3 className="text-20 font-semibold text-[var(--color-navy)]">{step.t}</h3>
-                  <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                    {step.b}
-                  </p>
-                </div>
-              </li>
-            ))}
+          <ol className="ab-road-list">
+            <li data-reveal>
+              <span className="ab-road-when">Today</span>
+              <span className="ab-road-what">Licensed insurance agent, {AGENT.licenseLine}</span>
+            </li>
+            <li data-reveal style={{ "--i": 1 } as React.CSSProperties}>
+              <span className="ab-road-when">In school</span>
+              <span className="ab-road-what">
+                {AGENT.education}. Coursework in individual tax and financial planning.
+              </span>
+            </li>
+            <li data-reveal style={{ "--i": 2 } as React.CSSProperties}>
+              <span className="ab-road-when">Working toward</span>
+              <span className="ab-road-what">Becoming a CPA</span>
+            </li>
+            <li data-reveal style={{ "--i": 3 } as React.CSSProperties}>
+              <span className="ab-road-when">The goal</span>
+              <span className="ab-road-what">
+                A planning practice here at home: Medicare, taxes, retirement, and insurance, with
+                one person who knows your whole picture
+              </span>
+            </li>
           </ol>
+          <p className="ab-road-note" data-reveal>
+            The last two are goals, not credentials I hold today. I’ll update this page as each one
+            becomes real.
+          </p>
         </div>
       </section>
 
-      <section className="border-t border-[rgba(21,46,52,0.08)] bg-[var(--color-paper)] py-14">
-        <div className="app-shell max-w-xl">
-          <div className="rounded-xl border border-[rgba(21,46,52,0.1)] bg-white p-6 md:p-8">
-            <h2 className="text-20 font-semibold text-[var(--color-navy)]">
-              Licensing and education
-            </h2>
-            <ul className="text-17 mt-4 list-disc space-y-3 pl-5 leading-relaxed text-[var(--color-navy)]">
-              <li>Licensed insurance agent in {AGENT.licensedStates.join(", ")}</li>
-              {hasPublishableNpn() ? <li>National Producer Number {AGENT.npn}</li> : null}
-              <li>{AGENT.education}</li>
-              <li>Coursework in individual tax and financial planning</li>
-            </ul>
+      <section className="section-tight ab-paid" aria-labelledby="ab-paid-heading">
+        <div className="shell ab-paid-grid">
+          <div className="ab-paid-card" data-reveal>
+            <h2 id="ab-paid-heading">How I get paid</h2>
+            <p>{COMPENSATION_DISCLOSURE}</p>
+          </div>
+          <div className="ab-steps" data-reveal style={{ "--i": 1 } as React.CSSProperties}>
+            <h2>What happens when you get in touch</h2>
+            <ol>
+              {STEPS.map((step, index) => (
+                <li key={step.t}>
+                  <span>{index + 1}</span>
+                  <div>
+                    <h3>{step.t}</h3>
+                    <p>{step.b}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
 
-      <section className="border-t border-[rgba(21,46,52,0.08)] bg-[var(--color-paper)] py-14">
-        <div className="measure-prose app-shell max-w-3xl">
+      {profiles.length > 0 ? (
+        <section className="section-tight ab-online" aria-labelledby="ab-online-heading">
+          <div className="shell">
+            <h2 id="ab-online-heading" className="ab-h2" data-reveal>
+              Find me online.
+            </h2>
+            <p className="ab-online-lede" data-reveal>
+              Same person, same plain answers, wherever you find me.
+            </p>
+            <ul className="ab-online-grid">
+              {profiles.map((profile, index) => (
+                <li key={profile.network} data-reveal style={{ "--i": index } as React.CSSProperties}>
+                  <a
+                    href={profile.url}
+                    rel="me noopener noreferrer"
+                    target="_blank"
+                    className="card ab-online-card"
+                  >
+                    {profile.label}
+                    <ArrowRight size={18} aria-hidden />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="section-tight">
+        <div className="shell ab-lead">
           <LeadCluster heading="Questions I can help with" />
         </div>
       </section>
 
       <KitchenTableClose
         heading="What are you trying to figure out?"
-        body="Tell me what’s on your mind. We can arrange a no-cost conversation about your coverage and next steps."
+        body="Tell me what’s on your mind. We can set up a no-cost conversation about your coverage and next steps."
         href="/start"
-        label="Ask your question →"
+        label="Ask your question"
       />
     </main>
   );

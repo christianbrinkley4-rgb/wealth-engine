@@ -27,7 +27,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "When to Take Social Security — Greensboro, NC" },
+  title: { absolute: "When to Take Social Security | Greensboro, NC" },
   description:
     "Understand how your Social Security start date can affect monthly income, benefits for a spouse, and retirement planning. Personal education in Greensboro.",
   alternates: { canonical: "/social-security-timing" },

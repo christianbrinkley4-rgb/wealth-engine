@@ -111,11 +111,11 @@ function ThankYouInner() {
   const isReminder = source === "reminder";
 
   const headline = emailUnavailable
-    ? "Got it — I have your answers."
+    ? "Got it, I have your answers."
     : isHelpQuiz
-      ? "Got it — check your email."
+      ? "Got it, check your email."
       : isWizard
-        ? "Got it — your estimate is saved."
+        ? "Got it, your estimate is saved."
         : isReminder
           ? "You’re on the list."
           : "You’re all set.";
@@ -139,8 +139,8 @@ function ThankYouInner() {
     </>
   ) : isReminder ? (
     <>
-      I’ll email you when your Medicare enrollment window opens. That is a reminder only — not a
-      sales sequence — and you can unsubscribe any time.
+      I’ll email you when your Medicare enrollment window opens. That is a reminder only, not a
+      sales sequence, and you can unsubscribe any time.
     </>
   ) : (
     <>
@@ -167,7 +167,7 @@ function ThankYouInner() {
 
         <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
           {[
-            "One person reads this — me",
+            "One person reads this, me",
             "Your information is never sold",
             "Free consultation. No obligation",
           ].map((point) => (
@@ -199,7 +199,7 @@ function ThankYouInner() {
               </h2>
               <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
                 Your answers are saved, so there is nothing to send again. You can pick a time now,
-                or wait for me to follow up — whichever you prefer.
+                or wait for me to follow up, whichever you prefer.
               </p>
             </div>
           </div>

@@ -18,7 +18,7 @@ import { formatMoney } from "@/lib/partBPenalty";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 const title =
-  "2026 Medicare Costs in NC: Premiums, Deductibles & IRMAA — Greensboro & the Triad";
+  "2026 Medicare Costs in NC: Premiums, Deductibles & IRMAA, Greensboro & the Triad";
 const description =
   "Every 2026 Medicare figure in one place, taken from the CMS fact sheets: the $202.90 Part B premium, the $283 deductible, Part A hospital costs, the $2,100 Part D cap, and both IRMAA tables. What they mean if you live in Greensboro, High Point, or Winston-Salem is the conversation.";
 
@@ -29,11 +29,11 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({
     title: "Every 2026 Medicare cost, for Triad readers",
     description:
-      "Part A, Part B, Part D and both IRMAA tables — the published figures, with the CMS source next to each one. Local plan costs still vary by county.",
+      "Part A, Part B, Part D and both IRMAA tables, the published figures, with the CMS source next to each one. Local plan costs still vary by county.",
     path: "/medicare-costs-2026",
   }),
   twitter: pageTwitter({
-    title: "2026 Medicare costs — Greensboro & the Triad",
+    title: "2026 Medicare costs | Greensboro & the Triad",
     description: "Premiums, deductibles and IRMAA brackets, straight from the CMS fact sheets.",
   }),
 };
@@ -51,7 +51,7 @@ const FAQ = [
   },
   {
     q: `What is the ${COSTS_YEAR} Medicare Part A deductible?`,
-    a: `${whole(PART_A_2026.inpatientDeductible)} per benefit period — not per year. A benefit period starts the day you go into a hospital and ends once you have been out for 60 days in a row, so it is possible to pay it more than once in a calendar year. Days 61 to 90 cost ${whole(PART_A_2026.coinsuranceDays61To90)} a day, and lifetime reserve days cost ${whole(PART_A_2026.lifetimeReserveCoinsurance)} a day.`,
+    a: `${whole(PART_A_2026.inpatientDeductible)} per benefit period, not per year. A benefit period starts the day you go into a hospital and ends once you have been out for 60 days in a row, so it is possible to pay it more than once in a calendar year. Days 61 to 90 cost ${whole(PART_A_2026.coinsuranceDays61To90)} a day, and lifetime reserve days cost ${whole(PART_A_2026.lifetimeReserveCoinsurance)} a day.`,
   },
   {
     q: `Is there a cap on what I pay for prescriptions in ${COSTS_YEAR}?`,
@@ -59,11 +59,11 @@ const FAQ = [
   },
   {
     q: `Which year's income decides my ${COSTS_YEAR} Medicare premium?`,
-    a: `Your ${IRMAA_LOOKBACK_YEAR} tax return. Social Security looks back two years, which is why a one-time event in ${IRMAA_LOOKBACK_YEAR} — selling a house, a Roth conversion, a large distribution — can raise a premium two years later. If your income has since dropped because of a life change such as retirement or the death of a spouse, you can ask for it to be reconsidered using form SSA-44.`,
+    a: `Your ${IRMAA_LOOKBACK_YEAR} tax return. Social Security looks back two years, which is why a one-time event in ${IRMAA_LOOKBACK_YEAR}, selling a house, a Roth conversion, a large distribution, can raise a premium two years later. If your income has since dropped because of a life change such as retirement or the death of a spouse, you can ask for it to be reconsidered using form SSA-44.`,
   },
   {
     q: "Do these figures apply in North Carolina?",
-    a: "Part A, Part B and the IRMAA amounts are federal and identical in every state. What varies locally is which Medicare Advantage and Part D plans are sold, what they charge, and which doctors and hospitals are in them — so in Greensboro and High Point (Guilford County) or Winston-Salem (Forsyth County) the plan costs are a local question even though the figures on this page are not.",
+    a: "Part A, Part B and the IRMAA amounts are federal and identical in every state. What varies locally is which Medicare Advantage and Part D plans are sold, what they charge, and which doctors and hospitals are in them, so in Greensboro and High Point (Guilford County) or Winston-Salem (Forsyth County) the plan costs are a local question even though the figures on this page are not.",
   },
   {
     q: "What happens if I sign up for Part B late?",
@@ -117,8 +117,8 @@ export default function MedicareCosts2026Page() {
             <p className="home-heading-note">
               These are the national figures from the CMS fact sheets, not estimates. They are the
               same in North Carolina as anywhere else. What each one means if you live in Greensboro,
-              High Point, or Winston-Salem — and which Advantage or Part D plans are sold in your
-              county — is the part worth a conversation.
+              High Point, or Winston-Salem, and which Advantage or Part D plans are sold in your
+              county, is the part worth a conversation.
             </p>
           </div>
 
@@ -208,11 +208,11 @@ export default function MedicareCosts2026Page() {
                   <td>{whole(PART_A_2026.inpatientDeductible)}</td>
                 </tr>
                 <tr>
-                  <th scope="row">Days 1–60 in hospital</th>
+                  <th scope="row">Days 1 to 60 in hospital</th>
                   <td>No further cost</td>
                 </tr>
                 <tr>
-                  <th scope="row">Days 61–90</th>
+                  <th scope="row">Days 61 to 90</th>
                   <td>{whole(PART_A_2026.coinsuranceDays61To90)} a day</td>
                 </tr>
                 <tr>
@@ -220,11 +220,11 @@ export default function MedicareCosts2026Page() {
                   <td>{whole(PART_A_2026.lifetimeReserveCoinsurance)} a day</td>
                 </tr>
                 <tr>
-                  <th scope="row">Skilled nursing, days 21–100</th>
+                  <th scope="row">Skilled nursing, days 21 to 100</th>
                   <td>{whole(PART_A_2026.skilledNursingCoinsuranceDays21To100)} a day</td>
                 </tr>
                 <tr>
-                  <th scope="row">Premium, 30–39 quarters worked</th>
+                  <th scope="row">Premium, 30 to 39 quarters worked</th>
                   <td>{whole(PART_A_2026.premiumReduced)} a month</td>
                 </tr>
                 <tr>
@@ -237,7 +237,7 @@ export default function MedicareCosts2026Page() {
           <p className="ref-note">
             <strong>Per benefit period, not per year.</strong> A benefit period ends after you have
             been out of the hospital or a skilled nursing facility for 60 days in a row. Go back in
-            after that and the deductible starts again — twice in one year is possible.
+            after that and the deductible starts again, twice in one year is possible.
           </p>
         </div>
       </section>
@@ -281,7 +281,7 @@ export default function MedicareCosts2026Page() {
           </div>
           <p className="ref-note">
             Reaching the cap means you pay nothing further for covered drugs that year. It does not
-            mean every drug you take is covered — each plan has its own list, and checking yours
+            mean every drug you take is covered, each plan has its own list, and checking yours
             against it is the single most useful hour of the whole process.
           </p>
         </div>
@@ -319,13 +319,13 @@ export default function MedicareCosts2026Page() {
                       ? `${whole(min)} and up`
                       : min === 0
                         ? `Up to ${whole(max)}`
-                        : `${whole(Math.ceil(min))} – ${whole(Math.floor(max))}`;
+                        : `${whole(Math.ceil(min))} to ${whole(Math.floor(max))}`;
                   return (
                     <tr key={bracket.bracketName}>
                       <th scope="row">{range(bracket.minIncome, bracket.maxIncome)}</th>
                       <td>{range(jointBracket.minIncome, jointBracket.maxIncome)}</td>
                       <td>{formatMoney(bracket.partBPremium)}</td>
-                      <td>{band.surcharge === 0 ? "—" : `+${formatMoney(band.surcharge)}`}</td>
+                      <td>{band.surcharge === 0  ? "None" : `+${formatMoney(band.surcharge)}`}</td>
                     </tr>
                   );
                 })}
@@ -389,14 +389,14 @@ export default function MedicareCosts2026Page() {
             <li>
               <a href={CMS_PARTS_AB_SOURCE.url} target="_blank" rel="noopener noreferrer">
                 {CMS_PARTS_AB_SOURCE.title}
-              </a>{" "}
-              — Part A, Part B, and both IRMAA tables.
+              </a>{" "},
+             Part A, Part B, and both IRMAA tables.
             </li>
             <li>
               <a href={CMS_PART_D_SOURCE.url} target="_blank" rel="noopener noreferrer">
                 {CMS_PART_D_SOURCE.title}
-              </a>{" "}
-              — the Part D deductible ceiling, out-of-pocket cap and base premium.
+              </a>{" "},
+             the Part D deductible ceiling, out-of-pocket cap and base premium.
             </li>
           </ul>
           <p className="ref-note">

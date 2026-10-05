@@ -78,7 +78,7 @@ export const TRIAD_CITIES: TriadCity[] = [
         // City-scoped identity question. medicareCityFaqs() must not add a
         // second "Medicare agent in Greensboro" FAQ on top of this one.
         q: "Are you a Medicare insurance agent in Greensboro?",
-        a: "Yes. I’m Christian Brinkley, a licensed insurance agent in Greensboro. I help people in Guilford County with Medicare questions — whether you’re turning 65 or already enrolled — and we can check the options available at your home address. We can meet at your home, at a convenient public place, or by phone. There is no cost, and no obligation to enroll.",
+        a: "Yes. I’m Christian Brinkley, a licensed insurance agent in Greensboro. I help people in Guilford County with Medicare questions, whether you’re turning 65 or already enrolled, and we can check the options available at your home address. We can meet at your home, at a convenient public place, or by phone. There is no cost, and no obligation to enroll.",
       },
       {
         q: "Can you help me check whether I can keep my doctors?",

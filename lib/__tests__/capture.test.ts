@@ -106,7 +106,7 @@ describe("describeAnswers", () => {
     expect(described[0].answer).toBe("Turning 65 in the next year");
     expect(described[2]).toEqual({
       question: "Household income",
-      answer: "$120,000 – $200,000",
+      answer: "$120,000 to $200,000",
     });
   });
 

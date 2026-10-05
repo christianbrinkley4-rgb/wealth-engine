@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({
     title: "Helping a parent with Medicare in Greensboro, Winston-Salem & High Point",
     description:
-      "The deadlines, the paperwork you need before Social Security will talk to you, and what to ask — for Triad families. No cost.",
+      "The deadlines, the paperwork you need before Social Security will talk to you, and what to ask, for Triad families. No cost.",
     path: "/helping-a-parent",
   }),
 };
@@ -47,11 +47,11 @@ const FIRST_STEPS = [
   },
   {
     title: "Ask whether they’re still working",
-    body: "If your parent — or their spouse — still has coverage through a job, whether they can safely delay Part B depends on how many people that employer employs. Twenty or more usually means they can wait. Fewer than twenty usually means Medicare pays first whether or not they’ve enrolled, and claims can fall through the gap.",
+    body: "If your parent, or their spouse, still has coverage through a job, whether they can safely delay Part B depends on how many people that employer employs. Twenty or more usually means they can wait. Fewer than twenty usually means Medicare pays first whether or not they’ve enrolled, and claims can fall through the gap.",
   },
   {
     title: "Know which window closes quietly",
-    body: "There’s a separate six-month window for supplemental coverage that opens once they’re 65 and on Part B. Inside it, their health history can’t be used to deny them or charge more. Outside it, in most states, it can — and that matters most for exactly the parents whose health is already the reason you’re researching this.",
+    body: "There’s a separate six-month window for supplemental coverage that opens once they’re 65 and on Part B. Inside it, their health history can’t be used to deny them or charge more. Outside it, in most states, it can, and that matters most for exactly the parents whose health is already the reason you’re researching this.",
   },
 ] as const;
 
@@ -66,7 +66,7 @@ const FAQ = [
   },
   {
     q: "They live in the Triad but I don’t. Can you still help?",
-    a: "Yes — coverage depends on where they live, not where you do. I’m happy to have you both on the call, which is usually the easiest way to do this anyway.",
+    a: "Yes, coverage depends on where they live, not where you do. I’m happy to have you both on the call, which is usually the easiest way to do this anyway.",
   },
   {
     q: "What does this cost?",

@@ -177,13 +177,13 @@ export default function AnnuitiesPage() {
           <p className="text-18 mt-4 leading-relaxed">
             My North Carolina insurance license covers fixed and indexed annuities, life insurance,
             and Medicare. Those are the contracts I can explain line by line, compare against each
-            other, and put in place for you — including the parts people gloss over, like the
+            other, and put in place for you, including the parts people gloss over, like the
             surrender period and what it costs to reach your own money early.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
             We start by reviewing your situation together, because an annuity only makes sense next
             to everything else you have. If what you actually need is an investment adviser or a tax
-            professional, I introduce you to one — a name and a conversation, not a brush-off.
+            professional, I introduce you to one: a name and a conversation, not a brush-off.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Variable annuities are securities and sit outside my license, so those conversations go

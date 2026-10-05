@@ -48,7 +48,7 @@ export default function NotFound() {
           That page isn’t here anymore.
         </h1>
         <p className="text-19 mt-5 leading-relaxed text-[var(--color-ink-muted)]">
-          Either the link was mistyped or I’ve moved something. Nothing you did wrong — and if you
+          Either the link was mistyped or I’ve moved something. Nothing you did wrong, and if you
           were looking for something specific, calling me is faster than hunting for it.
         </p>
 

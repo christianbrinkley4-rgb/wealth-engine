@@ -194,16 +194,16 @@ export default function MedicareButnerPage() {
             <p>
               <strong className="text-[var(--color-navy)]">
                 South Granville Public Library
-              </strong>
-              , 1550 S Campus Dr. The Granville County library branch between Butner and
+              </strong>,
+              1550 S Campus Dr. The Granville County library branch between Butner and
               Creedmoor. Quiet tables, easy parking, and a solid spot to sit down and go
               through your plan paperwork together in person.
             </p>
             <p>
               <strong className="text-[var(--color-navy)]">
                 Granville County Senior Services
-              </strong>
-              , 107 Lanier St, Oxford. The county&apos;s senior center, and the place to ask
+              </strong>,
+              107 Lanier St, Oxford. The county&apos;s senior center, and the place to ask
               about SHIIP, the state&apos;s free, unbiased Medicare counseling program. A
               great starting point. I&apos;m happy to be your second set of eyes after. Two
               free opinions beat one.
@@ -211,8 +211,8 @@ export default function MedicareButnerPage() {
             <p>
               <strong className="text-[var(--color-navy)]">
                 South Granville Senior Center
-              </strong>
-              , Creedmoor, (919) 528-0848. The senior center serving our end of the county,
+              </strong>,
+              Creedmoor, (919) 528-0848. The senior center serving our end of the county,
               with classes, meals, and programs for folks 60 and up. If you haven&apos;t been
               in, it&apos;s worth a visit on its own merits.
             </p>
@@ -263,8 +263,8 @@ export default function MedicareButnerPage() {
               Phone, video, or in person. And if you&apos;re in{" "}
               <Link href="/medicare-oxford-nc" className="underline underline-offset-2">
                 Oxford
-              </Link>
-              , same deal.
+              </Link>,
+              same deal.
             </p>
           </div>
         </div>

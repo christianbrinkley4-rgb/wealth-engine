@@ -30,7 +30,7 @@ export function UnsubscribeForm({ token }: { token: string }) {
         <h2>You&apos;re unsubscribed.</h2>
         <p className="personal-body">
           You won&apos;t get follow-up emails from me anymore. If you ever want to talk Medicare or
-          insurance, just reach out — I&apos;m still here in Greensboro.
+          insurance, just reach out. I&apos;m still here in Greensboro.
         </p>
       </div>
     );
@@ -52,7 +52,7 @@ export function UnsubscribeForm({ token }: { token: string }) {
     <div className="card-surface">
       <h2>Stop the follow-up emails?</h2>
       <p className="personal-body">
-        I&apos;ll stop emailing you right away. This won&apos;t affect anything else — if we&apos;ve
+        I&apos;ll stop emailing you right away. This won&apos;t affect anything else, if we&apos;ve
         talked or have a consultation scheduled, that&apos;s all still on.
       </p>
       <button

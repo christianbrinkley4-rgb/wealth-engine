@@ -244,7 +244,7 @@ export function Plan65() {
               <AlertTriangle className="mt-0.5 size-5 shrink-0" aria-hidden color={ACCENT} />
               <span>
                 You are <strong>{money(result.headroom)}</strong> from the next Medicare tier. Any
-                extra income this year — a conversion, a capital gain, selling something — crosses
+                extra income this year, a conversion, a capital gain, selling something, crosses
                 it.
               </span>
             </p>
@@ -319,7 +319,7 @@ export function Plan65() {
               What the timing is worth
             </h2>
             <p className="text-16 mt-1 leading-relaxed text-[var(--color-ink-muted)]">
-              Converting {money(balance)} — the same money either way, and the same income tax on
+              Converting {money(balance)}, the same money either way, and the same income tax on
               it. The only thing that changes is what Medicare charges you.
             </p>
 
@@ -374,7 +374,7 @@ export function Plan65() {
                     {result.spread.yearsNeeded === 1 ? "year" : "years"}
                     {result.yearsOfClearRunway > 0 &&
                     result.spread.yearsNeeded > result.yearsOfClearRunway
-                      ? ` — more years than you have before the lookback starts, which is worth talking about`
+                      ? `, more years than you have before the lookback starts, which is worth talking about`
                       : ""}
                     .
                   </p>
@@ -418,7 +418,7 @@ export function Plan65() {
                       ? `Up to ${money(bracket.maxIncome ?? 0)}`
                       : bracket.maxIncome === null
                         ? `${money(Math.ceil(bracket.minIncome))} and above`
-                        : `${money(Math.ceil(bracket.minIncome))} – ${money(bracket.maxIncome)}`}
+                        : `${money(Math.ceil(bracket.minIncome))} to ${money(bracket.maxIncome)}`}
                     {isCurrent ? (
                       <span className="text-13 ml-2 font-semibold" style={{ color: EMPHASIS }}>
                         YOU ARE HERE
@@ -488,7 +488,7 @@ export function Plan65() {
             age,
             annual_income: magi,
             calculated_premium: result.currentBracket.partBPremium,
-            irmaa_bracket: `Plan 65 — ${result.currentBracket.bracketName}, headroom ${money(
+            irmaa_bracket: `Plan 65, ${result.currentBracket.bracketName}, headroom ${money(
               result.headroom,
             )}, lump conversion of ${money(balance)} would cost ${money(
               result.allAtOnce.annualSurchargeHousehold,

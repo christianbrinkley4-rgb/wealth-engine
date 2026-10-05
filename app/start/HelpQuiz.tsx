@@ -705,7 +705,7 @@ export function HelpQuiz() {
 
           {/*
             Arriving from a landing page skips question one. Show what was
-            assumed, and let them change it — a step that vanishes without
+            assumed, and let them change it, a step that vanishes without
             explanation reads as a glitch.
           */}
           {preAnswered ? (

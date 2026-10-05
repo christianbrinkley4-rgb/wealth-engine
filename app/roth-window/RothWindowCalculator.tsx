@@ -82,7 +82,7 @@ function RothWindowCalculatorInner() {
         <Card className="card-surface border-gray-300 bg-white text-[var(--color-navy)]">
           <CardHeader className="p-6 pb-2">
             <CardTitle className="text-18 font-semibold text-[var(--color-navy)]">
-              Step 1 — Your tax filing status
+              Step 1, Your tax filing status
             </CardTitle>
           </CardHeader>
           <CardContent className="p-6 pt-2">
@@ -147,7 +147,7 @@ function RothWindowCalculatorInner() {
         <Card className="card-surface border-gray-300 bg-white text-[var(--color-navy)]">
           <CardHeader className="p-6 pb-2">
             <CardTitle className="text-18 font-semibold text-[var(--color-navy)]">
-              Step 2 — Your expected 2026 MAGI (before any conversion)
+              Step 2, Your expected 2026 MAGI (before any conversion)
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 p-6 pt-2">
@@ -182,7 +182,7 @@ function RothWindowCalculatorInner() {
             <p className="text-14 flex gap-2 leading-relaxed text-[var(--color-ink-muted)]">
               <Info className="mt-0.5 size-4 shrink-0 text-[var(--color-gold-ink)]" aria-hidden />
               <span>
-                Modified Adjusted Gross Income — your AGI plus tax-exempt interest. Use your most
+                Modified Adjusted Gross Income, your AGI plus tax-exempt interest. Use your most
                 recent 1040 if unsure.
               </span>
             </p>
@@ -231,7 +231,7 @@ function RothWindowCalculatorInner() {
                 </p>
                 <p className="text-28 mt-2 font-bold text-[var(--color-navy)]">
                   {isAtTop
-                    ? "—"
+                     ? "None"
                     : formatMoney(
                         filingStatus === "married_jointly"
                           ? result.oneBracketCrossingAnnualCostMarried
@@ -355,7 +355,7 @@ function RothWindowCalculatorInner() {
                 ))}
               </div>
               <p className="text-14 mt-4 leading-relaxed text-[var(--color-ink-muted)] italic">
-                Up to {formatMoney(ladderTotal)} converted over {DEFAULT_LADDER_YEARS} years —
+                Up to {formatMoney(ladderTotal)} converted over {DEFAULT_LADDER_YEARS} years,
                 without changing your IRMAA bracket. Real-world ladders should be re-run yearly
                 against actual income; this is a planning starting point, not tax advice.
               </p>
@@ -403,7 +403,7 @@ function RothWindowCalculatorInner() {
           age: 65,
           annual_income: magi,
           calculated_premium: result.currentBracket.partBPremium,
-          irmaa_bracket: `Roth window — current ${result.currentBracket.bracketName}, headroom ${
+          irmaa_bracket: `Roth window, current ${result.currentBracket.bracketName}, headroom ${
             isAtTop ? "n/a" : formatMoney(headroom)
           }`,
         }}

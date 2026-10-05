@@ -20,7 +20,7 @@ import { getBrackets, type FilingStatus, type IrmaaBracket } from "@/lib/irmaa";
  */
 
 const EMPHASIS = "#0f2241"; // 15.8:1 on white
-const CONTEXT = "#7e8c9f"; // 3.4:1 on white — passes the non-text mark floor
+const CONTEXT = "#7e8c9f"; // 3.4:1 on white, passes the non-text mark floor
 const ACCENT = "#7a5c12"; // 6.2:1 on white
 
 function money(value: number, cents = false): string {
@@ -37,7 +37,7 @@ function rangeLabel(bracket: IrmaaBracket): string {
   const from = Math.ceil(bracket.minIncome);
   if (bracket.minIncome === 0) return `Up to ${money(bracket.maxIncome ?? 0)}`;
   if (bracket.maxIncome === null) return `${money(from)} and above`;
-  return `${money(from)} – ${money(bracket.maxIncome)}`;
+  return `${money(from)} to ${money(bracket.maxIncome)}`;
 }
 
 /** $109k. Rounded to the nearest thousand, so 499,999.99 reads as $500k. */
@@ -53,7 +53,7 @@ function compactMoney(value: number): string {
 function compactRangeLabel(bracket: IrmaaBracket): string {
   if (bracket.minIncome === 0) return `Up to ${compactMoney(bracket.maxIncome ?? 0)}`;
   if (bracket.maxIncome === null) return `${compactMoney(bracket.minIncome)}+`;
-  return `${compactMoney(bracket.minIncome)} – ${compactMoney(bracket.maxIncome)}`;
+  return `${compactMoney(bracket.minIncome)} to ${compactMoney(bracket.maxIncome)}`;
 }
 
 export function IrmaaLadder({
@@ -166,7 +166,7 @@ export function IrmaaLadder({
           style={{ borderColor: ACCENT }}
         >
           Another <strong>{money(headroom)}</strong> of income in 2024 would have moved this
-          household to the next tier — {money(next.partBPremium, true)}/month, or{" "}
+          household to the next tier, {money(next.partBPremium, true)}/month, or{" "}
           {money((next.partBPremium - brackets[currentIndex].partBPremium) * 12)} more a year, each.
         </p>
       ) : null}

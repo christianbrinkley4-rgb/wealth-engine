@@ -9,7 +9,7 @@ import { formatMoney } from "@/lib/partBPenalty";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 const title =
-  "Medicare Part B Late Enrollment Penalty Calculator — Greensboro, Winston-Salem & High Point";
+  "Medicare Part B Late Enrollment Penalty Calculator, Greensboro, Winston-Salem & High Point";
 const description =
   "Work out whether a Part B late enrollment penalty applies to you, what it adds each month, and what it costs over a retirement. Uses the 2026 standard premium. Local help in Greensboro, High Point, and Winston-Salem.";
 
@@ -20,11 +20,11 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({
     title: "Part B late penalty help in Greensboro, Winston-Salem & High Point",
     description:
-      "Ten percent for every full year you could have had Part B and didn't — for as long as you have it. See your number, then talk it through with a Triad agent.",
+      "Ten percent for every full year you could have had Part B and didn't, for as long as you have it. See your number, then talk it through with a Triad agent.",
     path: "/part-b-penalty",
   }),
   twitter: pageTwitter({
-    title: "Medicare Part B late penalty calculator — Piedmont Triad",
+    title: "Medicare Part B late penalty calculator | Piedmont Triad",
     description: "What it adds each month, each year, and across a retirement.",
   }),
 };
@@ -48,7 +48,7 @@ const FAQ = [
   },
   {
     q: "Can a penalty be appealed?",
-    a: "Yes, in some situations — for example if you were given the wrong information by a federal employee, or if your employer coverage was miscounted. There is a formal process, and it is worth reviewing the specifics with someone before you accept the charge.",
+    a: "Yes, in some situations, for example if you were given the wrong information by a federal employee, or if your employer coverage was miscounted. There is a formal process, and it is worth reviewing the specifics with someone before you accept the charge.",
   },
 ] as const;
 
@@ -90,7 +90,7 @@ export default function PartBPenaltyPage() {
             </div>
             <p className="home-heading-note">
               Ten percent is added to your premium for every full year you could have had Part B and
-              didn’t — and it stays for as long as you have it. Two dates will tell you where you
+              didn’t, and it stays for as long as you have it. Two dates will tell you where you
               stand. If you live in Greensboro, High Point, Winston-Salem, or nearby, we can walk
               through the result together.
             </p>

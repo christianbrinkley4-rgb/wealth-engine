@@ -10,7 +10,7 @@ import { AGENT } from "@/lib/agent";
  * is that it isn’t a lead marketplace.
  */
 
-export const alt = `${AGENT.name} — licensed insurance agent in ${AGENT.city}, ${AGENT.state}`;
+export const alt = `${AGENT.name}, licensed insurance agent in ${AGENT.city}, ${AGENT.state}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -93,7 +93,7 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 32, fontWeight: 600, color: "#f5f0e8" }}>{AGENT.name}</div>
           <div style={{ fontSize: 26, color: "rgba(245, 240, 232, 0.75)" }}>
-            {`Licensed insurance agent · ${AGENT.phone}`}
+            {`Licensed agent · ${AGENT.licenseLine} · ${AGENT.phone}`}
           </div>
         </div>
       </div>

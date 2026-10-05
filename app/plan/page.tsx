@@ -6,6 +6,7 @@ import { ServiceHero } from "@/app/components/ServiceHero";
 import { Plan65 } from "@/app/plan/Plan65";
 import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import { SERVICE_AREA_LABEL } from "@/lib/triad";
+import { AGENT } from "@/lib/agent";
 
 /**
  * Server shell, deliberately.
@@ -17,7 +18,7 @@ import { SERVICE_AREA_LABEL } from "@/lib/triad";
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Roth Conversion & Medicare Timing Planner — Greensboro" },
+  title: { absolute: "Roth Conversion & Medicare Timing Planner | Greensboro" },
   description:
     "See what converting a retirement account all at once costs you in Medicare surcharges, against spreading it under your bracket ceiling. Official 2026 CMS tiers.",
   alternates: { canonical: "/plan" },
@@ -53,7 +54,7 @@ export default function PlanPage() {
         secondaryLabel="Ask a retirement question →"
         note="This tool provides general information. A qualified tax professional or financial advisor can help you evaluate a conversion for your situation."
         proof={[
-          "Licensed in North Carolina",
+          `Licensed agent · ${AGENT.licenseLine}`,
           "Personal help in Greensboro and nearby communities",
           "Official 2026 CMS IRMAA schedule",
           "No-cost consultation with a local licensed agent",

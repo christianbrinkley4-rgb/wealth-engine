@@ -150,7 +150,7 @@ export function EmailResultsCapture({
 
     if (!EMAIL_REGEX.test(cleanEmail)) {
       setInvalid("email");
-      setError("That email doesn’t look right — check it so my reply reaches you.");
+      setError("That email doesn’t look right, check it so my reply reaches you.");
       emailRef.current?.focus();
       return;
     }
@@ -220,7 +220,7 @@ export function EmailResultsCapture({
         setError(
           data.error ??
             (configFail
-              ? `I can’t save that right now — please call me at ${AGENT.phone} or email ${AGENT.email}.`
+              ? `I can’t save that right now, please call me at ${AGENT.phone} or email ${AGENT.email}.`
               : "Something went wrong on my end. Try again?"),
         );
         setSubmitState("error");

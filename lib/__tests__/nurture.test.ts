@@ -78,7 +78,7 @@ describe("nurture sequences", () => {
     expect(seq.steps.map((s) => s.key)).toEqual(["review-ask", "review-reminder"]);
     expect(seq.steps[0].dayOffset).toBe(0); // first cron run on/after appointment end
     expect(seq.steps[1].dayOffset).toBe(7);
-    expect(seq.steps[0].subject).toBe("Thanks for today — quick favor?");
+    expect(seq.steps[0].subject).toBe("Thanks for today. Quick favor?");
     expect(seq.steps[1].subject).toBe("One quick nudge");
     // Anchored to the appointment end date: ask due that day, nudge 7 days on.
     const plan = buildSendPlan(REVIEW_SEQUENCE_KEY, new Date("2026-10-01T15:00:00Z"));

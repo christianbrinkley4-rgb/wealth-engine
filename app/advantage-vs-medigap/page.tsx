@@ -29,12 +29,12 @@ export const metadata: Metadata = {
     absolute: "Medicare Advantage vs Medigap in Greensboro, Winston-Salem & High Point",
   },
   description:
-    "Compare Medicare Advantage with Original Medicare and Medigap for Greensboro, High Point, and Winston-Salem. Doctors, costs, prescriptions, and enrollment rules — explained plainly.",
+    "Compare Medicare Advantage with Original Medicare and Medigap for Greensboro, High Point, and Winston-Salem. Doctors, costs, prescriptions, and enrollment rules, explained plainly.",
   alternates: { canonical: "/advantage-vs-medigap" },
   openGraph: pageOpenGraph({
     title: "Medicare Advantage vs Medigap in Greensboro, Winston-Salem & High Point",
     description:
-      "Understand the differences in coverage, costs, and enrollment rules before you decide — with a local agent who meets across the Triad.",
+      "Understand the differences in coverage, costs, and enrollment rules before you decide, with a local agent who meets across the Triad.",
     path: "/advantage-vs-medigap",
   }),
 };
@@ -130,7 +130,7 @@ export default function AdvantageVsMedigapPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Advantage vs Medigap" }]}
         eyebrow="Greensboro, High Point & Winston-Salem"
         title="Which Medicare option fits your needs?"
-        lede="Medicare Advantage and Medigap work differently. Here’s a starting point for understanding your choices in Greensboro, High Point, and Winston-Salem — including what you may pay, which doctors you can see, and what to know about enrolling."
+        lede="Medicare Advantage and Medigap work differently. Here’s a starting point for understanding your choices in Greensboro, High Point, and Winston-Salem, including what you may pay, which doctors you can see, and what to know about enrolling."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon"
         secondaryLabel="Tell me your situation →"
       />
@@ -186,8 +186,8 @@ export default function AdvantageVsMedigapPage() {
               className="underline underline-offset-2"
             >
               Medicare.gov explains when you can buy Medigap
-            </Link>
-            , including situations with additional protections.
+            </Link>,
+            including situations with additional protections.
           </p>
         </div>
       </section>

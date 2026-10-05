@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({
     title: "Appealing a high Medicare premium in Greensboro, Winston-Salem & High Point",
     description:
-      "Retired since the tax year Medicare is using? You may not have to pay the higher premium. Here’s what qualifies — and how a Triad agent can help you prepare the request.",
+      "Retired since the tax year Medicare is using? You may not have to pay the higher premium. Here’s what qualifies, and how a Triad agent can help you prepare the request.",
     path: "/irmaa-appeal",
   }),
 };
@@ -93,7 +93,7 @@ const FILING_STEPS = [
 const FAQ = [
   {
     q: "How do I know whether this applies to me?",
-    a: "Social Security sends a letter — an initial determination notice — telling you your Part B and Part D premiums for the coming year. If it shows an income-related amount on top of the standard premium and your income has dropped since the tax year they used, that’s the signal.",
+    a: "Social Security sends a letter, an initial determination notice, telling you your Part B and Part D premiums for the coming year. If it shows an income-related amount on top of the standard premium and your income has dropped since the tax year they used, that’s the signal.",
   },
   {
     q: "Which tax year is Medicare using?",

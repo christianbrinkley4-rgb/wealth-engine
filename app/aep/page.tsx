@@ -36,12 +36,12 @@ export const metadata: Metadata = {
     absolute: "Medicare Annual Enrollment 2026 | Free Fall Review in Greensboro NC",
   },
   description:
-    "Medicare Annual Enrollment runs Oct 15 – Dec 7. Sit down with Christian Brinkley, a licensed local agent in Greensboro, for a free no-pressure review of your 2027 coverage.",
+    "Medicare Annual Enrollment runs Oct 15 to Dec 7. Sit down with Christian Brinkley, a licensed local agent in Greensboro, for a free no-pressure review of your 2027 coverage.",
   alternates: { canonical: "/aep" },
   openGraph: pageOpenGraph({
     title: "Medicare Annual Enrollment 2026 | Free fall review in Greensboro NC",
     description:
-      "Oct 15 – Dec 7: review your 2027 Medicare coverage with a licensed local agent. Free, no pressure, no call center.",
+      "Oct 15 to Dec 7: review your 2027 Medicare coverage with a licensed local agent. Free, no pressure, no call center.",
     path: "/aep",
   }),
 };
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 const CHECKS = [
   {
     t: "Your plan's 2027 changes",
-    b: "What your Annual Notice of Change actually says, in plain English — premiums, deductibles, copays, and anything else that's different next year.",
+    b: "What your Annual Notice of Change actually says, in plain English: premiums, deductibles, copays, and anything else that's different next year.",
   },
   {
     t: "Your prescriptions",
@@ -61,7 +61,7 @@ const CHECKS = [
   },
   {
     t: "Your total costs",
-    b: "Premium plus deductible plus copays, added up honestly — not just the monthly number. Sometimes the slightly higher premium costs less overall.",
+    b: "Premium plus deductible plus copays, added up honestly, not just the monthly number. Sometimes the slightly higher premium costs less overall.",
   },
   {
     t: "Your drug plan",
@@ -72,7 +72,7 @@ const CHECKS = [
 const STEPS = [
   {
     t: "You book a time",
-    b: `Book below, or call me at ${AGENT.phone}. My hours are Monday–Saturday, 9:00–5:00.`,
+    b: `Book below, or call me at ${AGENT.phone}. My hours are Monday to Saturday, 9:00 to 5:00.`,
   },
   {
     t: "We talk",
@@ -84,14 +84,14 @@ const STEPS = [
   },
   {
     t: "That's it",
-    b: "There's no fee, no obligation, and no pressure to change anything. Plenty of people I meet with keep the plan they have — and that's a good outcome.",
+    b: "There's no fee, no obligation, and no pressure to change anything. Plenty of people I meet with keep the plan they have, and that's a good outcome.",
   },
 ] as const;
 
 const FAQ = [
   {
     q: "What is Medicare Annual Enrollment?",
-    a: "It's the fall window — October 15 through December 7 every year — when anyone with Medicare can change their coverage for the coming year. Changes take effect January 1.",
+    a: "It's the fall window, October 15 through December 7 every year, when anyone with Medicare can change their coverage for the coming year. Changes take effect January 1.",
   },
   {
     q: "Do I have to change my plan?",
@@ -99,7 +99,7 @@ const FAQ = [
   },
   {
     q: "What can I change during Annual Enrollment?",
-    a: "You can switch from one Medicare Advantage plan to another, switch from Original Medicare to a Medicare Advantage plan (or back), join a Part D drug plan, switch Part D plans, or drop Part D. Note: if you leave a Medicare Advantage plan to go back to Original Medicare and want a Medigap supplement, you may need to pass medical underwriting outside your initial enrollment period — we'll talk through that honestly if it applies to you.",
+    a: "You can switch from one Medicare Advantage plan to another, switch from Original Medicare to a Medicare Advantage plan (or back), join a Part D drug plan, switch Part D plans, or drop Part D. Note: if you leave a Medicare Advantage plan to go back to Original Medicare and want a Medigap supplement, you may need to pass medical underwriting outside your initial enrollment period. We'll talk through that honestly if it applies to you.",
   },
   {
     q: "Does it cost anything to meet with you?",
@@ -107,11 +107,11 @@ const FAQ = [
   },
   {
     q: "What should I bring to our review?",
-    a: "Your plan's Annual Notice of Change letter (mailed in September), a list of your current prescriptions, and the names of your doctors. If you don't have all of it, come anyway — we'll work with what you've got.",
+    a: "Your plan's Annual Notice of Change letter (mailed in September), a list of your current prescriptions, and the names of your doctors. If you don't have all of it, come anyway. We'll work with what you've got.",
   },
   {
-    q: "I'm turning 65 soon — is Annual Enrollment for me?",
-    a: "If you're already enrolled in Medicare, yes. If you're turning 65 and new to Medicare, you have your own 7-month Initial Enrollment Period instead — start with the turning-65 guide to find your exact dates. Either way, I'm happy to help you sort out which window applies.",
+    q: "I'm turning 65 soon. Is Annual Enrollment for me?",
+    a: "If you're already enrolled in Medicare, yes. If you're turning 65 and new to Medicare, you have your own 7-month Initial Enrollment Period instead. Start with the turning-65 guide to find your exact dates. Either way, I'm happy to help you sort out which window applies.",
   },
 ] as const;
 
@@ -125,7 +125,7 @@ function FaqAnswer({ item }: { item: (typeof FAQ)[number] }) {
     return (
       <>
         If you&apos;re already enrolled in Medicare, yes. If you&apos;re turning 65 and new to
-        Medicare, you have your own 7-month Initial Enrollment Period instead —{" "}
+        Medicare, you have your own 7-month Initial Enrollment Period instead,{" "}
         <Link href="/turning-65" className="underline underline-offset-2">
           start with the turning-65 guide
         </Link>{" "}
@@ -158,7 +158,7 @@ export default function AepPage() {
             articleJsonLd({
               headline: "Medicare Annual Enrollment 2026: free fall review in Greensboro NC",
               description:
-                "What a free fall review covers: your plan's 2027 changes, prescriptions, doctors, and total costs — with a licensed local agent.",
+                "What a free fall review covers: your plan's 2027 changes, prescriptions, doctors, and total costs, with a licensed local agent.",
               path: "/aep",
               datePublished: "2026-09-19",
               dateModified: "2026-09-19",
@@ -182,9 +182,9 @@ export default function AepPage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment 2026" }]}
-        eyebrow="October 15 – December 7, 2026 · Piedmont Triad"
+        eyebrow="October 15 to December 7, 2026 · Piedmont Triad"
         title={AEP_HERO_TITLES[aepPhase()]}
-        lede="From October 15 through December 7, you can change your Medicare coverage for next year. I'll sit down with you — in person or by phone — and walk through what's changing with your plan, your drugs, and your doctors. Free, no pressure, no call center."
+        lede="From October 15 through December 7, you can change your Medicare coverage for next year. I'll sit down with you, in person or by phone, and walk through what's changing with your plan, your drugs, and your doctors. Free, no pressure, no call center."
         secondaryHref="/schedule?topic=medicare"
         secondaryLabel="Book my free review →"
       />
@@ -200,7 +200,7 @@ export default function AepPage() {
           </h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
-              Every fall, Medicare Advantage plans mail you an Annual Notice of Change — a letter
+              Every fall, Medicare Advantage plans mail you an Annual Notice of Change, a letter
               explaining what&apos;s different about your plan next year. Your premium, your drug
               costs, your doctor network: any of it can change on January 1, and the letter is how
               you find out.
@@ -210,8 +210,8 @@ export default function AepPage() {
               dense, and it doesn&apos;t tell you what to <em>do</em>.
             </p>
             <p>
-              Here&apos;s what to do: bring it to me. I&apos;ll sit down with you — in person or by
-              phone — and translate it into plain English. What&apos;s changing, what it costs you,
+              Here&apos;s what to do: bring it to me. I&apos;ll sit down with you, in person or by
+              phone, and translate it into plain English. What&apos;s changing, what it costs you,
               and whether it still fits your doctors and prescriptions. Free. No pressure to switch
               plans, no obligation to enroll in anything.
             </p>
@@ -223,7 +223,7 @@ export default function AepPage() {
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
             <a
               href={AGENT.phoneHref}
-              aria-label={`Call ${AGENT.name} at ${AGENT.phone} — let's go through your letter together`}
+              aria-label={`Call ${AGENT.name} at ${AGENT.phone}, let's go through your letter together`}
               className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px hover:shadow-[0_2px_4px_rgba(21,46,52,0.1),0_4px_16px_rgba(21,46,52,0.1)] active:translate-y-0 active:shadow-[0_1px_2px_rgba(21,46,52,0.08)]"
             >
               <Phone className="size-5 shrink-0" aria-hidden />
@@ -247,7 +247,7 @@ export default function AepPage() {
           <h2 className="text-28 font-semibold">Why review your plan this fall</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
-              Your Medicare plan doesn&apos;t stay the same from year to year — even if you loved it
+              Your Medicare plan doesn&apos;t stay the same from year to year, even if you loved it
               this year. Every fall, plans update their premiums, deductibles, copays, drug lists,
               and doctor networks for the coming year. Your plan sent you a letter in September
               (called an &ldquo;Annual Notice of Change&rdquo;) spelling out exactly what&apos;s
@@ -255,7 +255,7 @@ export default function AepPage() {
             </p>
             <p>
               That&apos;s what a fall review is for. We go through that letter together, line by
-              line, and you decide whether your plan still fits — or whether something else fits
+              line, and you decide whether your plan still fits, or whether something else fits
               better. No obligation either way.
             </p>
             <p>
@@ -273,7 +273,7 @@ export default function AepPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">What we check together</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Bring your current plan information and a list of your prescriptions. In about 30–45
+            Bring your current plan information and a list of your prescriptions. In about 30 to 45
             minutes, we&apos;ll check:
           </p>
           <ol className="mt-8 flex flex-col gap-6">
@@ -295,8 +295,8 @@ export default function AepPage() {
             Wondering what the numbers look like next year?{" "}
             <Link href="/medicare-costs" className="underline underline-offset-2">
               See what Medicare costs
-            </Link>
-            , and if keeping your doctors is the top priority,{" "}
+            </Link>,
+            and if keeping your doctors is the top priority,{" "}
             <Link href="/keep-my-doctor" className="underline underline-offset-2">
               here&apos;s how to check your plan&apos;s network properly
             </Link>
@@ -309,7 +309,7 @@ export default function AepPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">How a review works with me</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Here&apos;s exactly what happens — no surprises:
+            Here&apos;s exactly what happens, no surprises:
           </p>
           <ol className="mt-8 flex flex-col gap-6">
             {STEPS.map((item, index) => (
@@ -344,11 +344,11 @@ export default function AepPage() {
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
               Annual Enrollment closes on December 7, and any changes you make take effect January
-              1. After the 7th, your options to change coverage are limited for the rest of the year
-              — so if you want to review your plan, the fall window is the time to do it.
+              1. After the 7th, your options to change coverage are limited for the rest of the year,
+             so if you want to review your plan, the fall window is the time to do it.
             </p>
             <p>
-              If a life change — a move, losing employer coverage — already opened a window for you,
+              If a life change, a move, losing employer coverage, already opened a window for you,
               you may not need to wait for fall.{" "}
               <Link href="/special-enrollment" className="underline underline-offset-2">
                 See how special enrollment works
@@ -364,7 +364,7 @@ export default function AepPage() {
           <h2 className="text-28 font-semibold">A quick word on cost</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The consultation is free. If you enroll in a plan through me, the insurance company pays
-            me a commission — your premium is exactly the same as if you&apos;d enrolled on your
+            me a commission, your premium is exactly the same as if you&apos;d enrolled on your
             own. You just get a local human instead of a 1-800 number.
           </p>
 
@@ -390,7 +390,7 @@ export default function AepPage() {
 
       <KitchenTableClose
         heading="Book your free fall review"
-        body="Annual Enrollment closes December 7 — and my calendar fills up fast in November. Pick a time that works for you, or call me and you'll reach me, not a call center."
+        body="Annual Enrollment closes December 7, and my calendar fills up fast in November. Pick a time that works for you, or call me and you'll reach me, not a call center."
         href="/schedule?topic=medicare"
         label="Book my free review →"
       />

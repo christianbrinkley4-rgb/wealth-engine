@@ -31,7 +31,7 @@ export async function generateMetadata({
   if (!page) return {};
 
   return {
-    title: { absolute: `${page.headline} — ${AGENT.city}, ${AGENT.state}` },
+    title: { absolute: `${page.headline}, ${AGENT.city}, ${AGENT.state}` },
     description: page.description,
     robots: { index: false, follow: false },
     alternates: { canonical: `/lp/${page.slug}` },
@@ -118,7 +118,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
               />
               <p className="text-18 mt-4 font-semibold">{AGENT.name}</p>
               <p className="text-16 text-[var(--color-paper)]/75">
-                Licensed insurance agent · {AGENT.city}, {AGENT.state}
+                Licensed agent · {AGENT.licenseLine} · {AGENT.city}, {AGENT.state}
               </p>
               <p className="text-16 mt-1 text-[var(--color-paper)]/75">
                 One local agent, not a call center
@@ -174,7 +174,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
           </ul>
           <p className="text-16 mt-6 border-t border-gray-200 pt-5 leading-relaxed text-[var(--color-ink-muted)]">
             If you have current coverage, keep the details handy for our conversation. It’s fine to
-            start with questions—you don’t need to have everything organized.
+            start with questions. You don’t need to have everything organized.
           </p>
         </aside>
       </section>

@@ -6,6 +6,7 @@ import { breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { SERVICE_AREA_LABEL } from "@/lib/triad";
 
 import { HelpQuiz } from "./HelpQuiz";
+import { AGENT } from "@/lib/agent";
 
 export const metadata: Metadata = {
   title: "Get a Personal Medicare and Coverage Review",
@@ -60,7 +61,7 @@ export default async function StartPage({
           </p>
           {!quickMedicare ? (
             <p className="text-16 mt-3 text-[var(--color-paper)]/80">
-              Licensed in North Carolina · One local agent, not a call center
+              Licensed agent · {AGENT.licenseLine} · One local agent, not a call center
             </p>
           ) : null}
         </div>

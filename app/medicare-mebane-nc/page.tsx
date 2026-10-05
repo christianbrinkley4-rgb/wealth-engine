@@ -242,8 +242,8 @@ export default function MedicareMebanePage() {
             ,{" "}
             <Link href="/medicare-in/burlington" className="underline underline-offset-2">
               Burlington
-            </Link>
-            , and{" "}
+            </Link>,
+            and{" "}
             <Link href="/medicare-in/elon" className="underline underline-offset-2">
               Elon
             </Link>{" "}

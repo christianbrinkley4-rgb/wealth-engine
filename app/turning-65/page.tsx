@@ -49,7 +49,7 @@ const STEPS = [
   },
   {
     t: "Know the Part B late penalty before you delay",
-    b: "Miss the window without coverage that lets you delay, and the penalty is 10% of the standard Part B premium for every full 12 months of delay, charged for as long as you hold Part B. It is permanent. The usual exception is still working, with a group health plan based on current employment — yours or your spouse’s. A retiree plan does not count, and neither does COBRA.",
+    b: "Miss the window without coverage that lets you delay, and the penalty is 10% of the standard Part B premium for every full 12 months of delay, charged for as long as you hold Part B. It is permanent. The usual exception is still working, with a group health plan based on current employment, yours or your spouse’s. A retiree plan does not count, and neither does COBRA.",
   },
   {
     t: "Mark the six-month Medigap window separately",
@@ -64,7 +64,7 @@ const FAQ = [
   },
   {
     q: "I am still working. Do I have to sign up at 65?",
-    a: "Not always. If you have a group health plan based on current employment — yours or your spouse’s — you can usually delay Part B without the late penalty, and you get a special enrollment period when that job-based coverage ends. Retiree coverage and COBRA do not count the same way: Medicare does not treat COBRA as coverage based on current employment. This is worth checking against your actual plan, not a rule of thumb.",
+    a: "Not always. If you have a group health plan based on current employment, yours or your spouse’s, you can usually delay Part B without the late penalty, and you get a special enrollment period when that job-based coverage ends. Retiree coverage and COBRA do not count the same way: Medicare does not treat COBRA as coverage based on current employment. This is worth checking against your actual plan, not a rule of thumb.",
   },
   {
     q: "What is the difference between turning 65 and annual enrollment?",
@@ -84,7 +84,7 @@ const FAQ = [
   },
   {
     q: "Does it matter whether I live in Guilford County or Forsyth County?",
-    a: "For Medicare Advantage and Part D, yes — those plans are sold by county. Greensboro and most of High Point are in Guilford County. Winston-Salem is in Forsyth County, which can have a different list. Original Medicare and Medigap work differently. We’ll check your home address rather than assuming the city name is enough.",
+    a: "For Medicare Advantage and Part D, yes, those plans are sold by county. Greensboro and most of High Point are in Guilford County. Winston-Salem is in Forsyth County, which can have a different list. Original Medicare and Medigap work differently. We’ll check your home address rather than assuming the city name is enough.",
   },
   {
     q: "What does this cost?",
@@ -153,7 +153,7 @@ export default function Turning65Page() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Turning 65" }]}
         eyebrow="Initial Enrollment Period · Piedmont Triad"
         title="Build your Medicare timeline before 65"
-        lede="You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered — in Greensboro, High Point, Winston-Salem, or by phone. I’ll help you understand your next steps."
+        lede="You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered, in Greensboro, High Point, Winston-Salem, or by phone. I’ll help you understand your next steps."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon&quick=1"
         secondaryLabel="Request a consultation →"
         note={
@@ -198,11 +198,11 @@ export default function Turning65Page() {
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             If your seven-month window has already passed, there is a General Enrollment Period
             every year from January 1 through March 31, and Part B coverage starts the month after
-            you sign up. A late penalty can still apply —{" "}
+            you sign up. A late penalty can still apply,{" "}
             <Link href="/part-b-penalty" className="font-medium underline underline-offset-2">
               work out what it would cost in your case
-            </Link>
-            , and see{" "}
+            </Link>,
+            and see{" "}
             <Link href="/medicare-costs-2026" className="font-medium underline underline-offset-2">
               what the premiums and deductibles are this year
             </Link>

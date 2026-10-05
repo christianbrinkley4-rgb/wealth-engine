@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({
     title: "Can I keep my doctor on Medicare in Greensboro, Winston-Salem & High Point?",
     description:
-      "The first question everyone asks, answered for Greensboro, High Point, and Winston-Salem — including how to check properly before you sign up.",
+      "The first question everyone asks, answered for Greensboro, High Point, and Winston-Salem, including how to check properly before you sign up.",
     path: "/keep-my-doctor",
   }),
 };

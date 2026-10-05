@@ -173,7 +173,7 @@ export function calculatePartBPremium(income: number, filingStatus: FilingStatus
   // If it is reached, log it so we can diagnose — never fail silently.
   if (!match) {
     console.error(
-      `[irmaa.ts] No bracket found for income=${validIncome}, status=${filingStatus}. Returning standard base. This is a bug — please report.`,
+      `[irmaa.ts] No bracket found for income=${validIncome}, status=${filingStatus}. Returning standard base. This is a bug, please report.`,
     );
     return brackets[0];
   }
@@ -221,14 +221,14 @@ export function getPlainEnglishSummary(
     return (
       `At your income level (${formattedIncome}, ${filingLabel}), you fall ` +
       `into the standard Medicare bracket. Your estimated 2026 Part B ` +
-      `premium is ${monthlyPremium}/month — no IRMAA surcharge applies.`
+      `premium is ${monthlyPremium}/month, no IRMAA surcharge applies.`
     );
   }
 
   return (
     `At your income level (${formattedIncome}, ${filingLabel}), you fall ` +
     `into the ${bracket.bracketName} bracket. Your estimated 2026 Part B ` +
-    `premium is ${monthlyPremium}/month — approximately ${annualSurcharge} ` +
+    `premium is ${monthlyPremium}/month, approximately ${annualSurcharge} ` +
     `more per year than the standard premium. This additional cost is called ` +
     `an IRMAA surcharge.`
   );

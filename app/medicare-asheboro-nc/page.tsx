@@ -233,8 +233,8 @@ export default function MedicareAsheboroPage() {
             ,{" "}
             <Link href="/medicare-liberty-nc" className="underline underline-offset-2">
               Liberty
-            </Link>
-            , and{" "}
+            </Link>,
+            and{" "}
             <Link href="/medicare-in/randleman" className="underline underline-offset-2">
               Randleman
             </Link>{" "}

@@ -49,7 +49,7 @@ export default function Error({
     <main className="app-shell py-16">
       <h1 className="text-28 font-bold text-[var(--color-navy)]">Something went wrong</h1>
       <p className="text-18 mt-4 max-w-xl text-[var(--color-ink-muted)]">
-        This page hit an unexpected error. You can try again, go home, or call me directly — that
+        This page hit an unexpected error. You can try again, go home, or call me directly. That
         route does not depend on this form working.
       </p>
       <div className="mt-8 flex flex-wrap gap-3">

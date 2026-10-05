@@ -187,7 +187,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
           { value: "long_term", label: "Long-term care insurance" },
           { value: "short_term", label: "Short-term care insurance" },
           { value: "critical_illness", label: "Critical illness insurance" },
-          { value: "explore", label: "I’m not sure—help me understand the options" },
+          { value: "explore", label: "I’m not sure, help me understand the options" },
         ],
       },
       {
@@ -345,8 +345,8 @@ export const ASK_PROMPTS: Record<AskContext, { label: string; placeholder: strin
 /** Asked last, on the contact step, and always skippable. */
 export const INCOME_OPTIONS: HelpQuizOption[] = [
   { value: "under_80k", label: "Under $80,000" },
-  { value: "80k_120k", label: "$80,000 – $120,000" },
-  { value: "120k_200k", label: "$120,000 – $200,000" },
+  { value: "80k_120k", label: "$80,000 to $120,000" },
+  { value: "120k_200k", label: "$120,000 to $200,000" },
   { value: "over_200k", label: "Over $200,000" },
   { value: "prefer_not", label: "I can not say" },
 ];
@@ -518,7 +518,7 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
         lede: "Before required withdrawals begin, it can be useful to review how you’ll draw from savings. Your account types, birth year, taxes, and Medicare costs all matter. A qualified tax professional or advisor can help with those decisions.",
         points: [
           "Required minimum distributions currently begin at 73, and move to 75 for people born in 1960 or later.",
-          "Moving money to Roth during that gap can lower later RMDs — but a conversion at 63 raises the income Medicare looks at when you’re 65, because of the two-year lookback.",
+          "Moving money to Roth during that gap can lower later RMDs, but a conversion at 63 raises the income Medicare looks at when you’re 65, because of the two-year lookback.",
           "A change in marital status can affect taxes and Medicare income thresholds. Review the implications with a qualified tax professional.",
         ],
         note,

@@ -135,7 +135,7 @@ export function MedicareWizard() {
     formState.filingStatus !== null ? (
       <>
         This helps estimate your 2026 IRMAA bracket for Medicare Part B (CMS official tiers). I’ll
-        use your {filingThresholdPhrase(formState.filingStatus)} filing thresholds —{" "}
+        use your {filingThresholdPhrase(formState.filingStatus)} filing thresholds,{" "}
         {filingThresholdCopy(formState.filingStatus)} is the IRMAA threshold. Medicare usually looks
         at MAGI from two years earlier.
       </>
@@ -157,7 +157,7 @@ export function MedicareWizard() {
         </h2>
         <p className="measure-prose text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
           Four questions. The answer depends on your income and how you file, because Medicare adds
-          an income-related amount — IRMAA — on top of the standard premium.
+          an income-related amount, IRMAA, on top of the standard premium.
         </p>
       </header>
 
@@ -223,7 +223,7 @@ export function MedicareWizard() {
             </h2>
             <p className="text-18 max-w-[520px] text-[var(--color-ink-muted)]">
               This determines which Medicare income thresholds apply to you. Married couples filing
-              jointly have higher thresholds than individual filers — it changes the result
+              jointly have higher thresholds than individual filers, and it changes the result
               significantly.
             </p>
             <div
@@ -318,7 +318,7 @@ export function MedicareWizard() {
         <div {...stepProps(3)}>
           <h2 className="text-24 leading-tight font-semibold">What is your age?</h2>
           <p className="text-18 text-[var(--color-ink-muted)]">
-            Your premium isn’t set by your age — but your enrollment deadlines are, so this tells me
+            Your premium isn’t set by your age, but your enrollment deadlines are, so this tells me
             which windows are in front of you.
           </p>
 
@@ -400,7 +400,7 @@ export function MedicareWizard() {
             />
           </div>
           <p className="text-16 text-center text-[var(--color-ink-muted)]">
-            Type it, use the buttons, or drag the bar — whichever is easiest.
+            Type it, use the buttons, or drag the bar, whichever is easiest.
           </p>
           {incomeError ? (
             <p role="alert" className="text-18 text-[var(--color-error)]">
@@ -475,8 +475,8 @@ export function MedicareWizard() {
                   <p className="text-lg leading-relaxed">{summary}</p>
                   <p className="text-18 text-[var(--color-ink-muted)] italic">
                     Note: IRMAA is calculated from your 2024 tax return MAGI, not your current
-                    income. If your income has changed significantly since 2024 — you retired, or
-                    lost a pension — your actual premium may differ, and in some cases it can be
+                    income. If your income has changed significantly since 2024, you retired, or
+                    lost a pension, your actual premium may differ, and in some cases it can be
                     appealed. Tell me what changed and I’ll tell you whether it qualifies.
                   </p>
                 </CardContent>
@@ -544,7 +544,7 @@ export function MedicareWizard() {
                 </CardHeader>
                 <CardContent className="p-6 pt-2">
                   <p className="text-18">
-                    Pick a time and we’ll go through what this means for you — by phone or video,
+                    Pick a time and we’ll go through what this means for you, by phone or video,
                     whichever you prefer. There’s no charge, and no obligation to buy anything
                     afterwards.
                   </p>

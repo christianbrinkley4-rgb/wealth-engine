@@ -50,7 +50,7 @@ export async function verifyTurnstile(
   } catch {
     // Configured verification must not become a bypass during an outage.
     // The form keeps the visitor's answers and offers a retry/contact path.
-    console.error("[turnstile] verification unavailable — submission was not accepted");
+    console.error("[turnstile] verification unavailable, submission was not accepted");
     return { ok: false, reason: "verification-unavailable" };
   } finally {
     clearTimeout(timeout);

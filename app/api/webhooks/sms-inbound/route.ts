@@ -132,7 +132,7 @@ export async function POST(request: Request) {
 
   await sendSms(
     `+1${from}`,
-    `Hi, this is ${AGENT.name}. Thanks for texting — I got your message and I'll get back to you shortly. If it's urgent, call me at ${AGENT.phone}.`,
+    `Hi, this is ${AGENT.name}. Thanks for texting. I got your message and I'll get back to you shortly. If it's urgent, call me at ${AGENT.phone}.`,
   );
   return NextResponse.json({ ok: true, replied: true });
 }

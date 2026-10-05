@@ -22,6 +22,7 @@ import "./home.css";
 import "./system.css";
 import "./landing.css";
 import "./learn.css";
+import "./pages.css";
 
 // Designed for low-vision readers, which suits an audience turning 65.
 const bodyFont = Atkinson_Hyperlegible_Next({
@@ -79,7 +80,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${SITE_OWNER} — licensed insurance agent in ${SITE_LOCALITY}, ${SITE_REGION}`,
+        alt: `${SITE_OWNER}, licensed insurance agent in ${SITE_LOCALITY}, ${SITE_REGION}`,
       },
     ],
   },
@@ -133,7 +134,7 @@ export default function RootLayout({
           id="main-content"
           tabIndex={-1}
           className="outline-none"
-          data-print-contact={`${AGENT.name} · Licensed insurance agent · ${AGENT.city}, ${AGENT.state} · ${AGENT.phone} — estimates for education only, not a quote or a benefit determination.`}
+          data-print-contact={`${AGENT.name} · Licensed agent, ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state} · ${AGENT.phone}. Estimates for education only, not a quote or a benefit determination.`}
         >
           {children}
         </div>

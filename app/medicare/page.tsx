@@ -6,11 +6,12 @@ import { ServiceHero } from "@/app/components/ServiceHero";
 import { MedicareWizard } from "@/app/medicare/MedicareWizard";
 import { breadcrumbJsonLd, pageOpenGraph, serviceJsonLd } from "@/lib/seo";
 import { SERVICE_AREA_LABEL } from "@/lib/triad";
+import { AGENT } from "@/lib/agent";
 
 /** Medicare flow: 4 questionnaire steps (?step=1–4) plus results (?step=5); see useWizardStep(5) in MedicareWizard. */
 
 export const metadata: Metadata = {
-  title: { absolute: "2026 Medicare Part B & IRMAA Calculator — Greensboro" },
+  title: { absolute: "2026 Medicare Part B & IRMAA Calculator | Greensboro" },
   description:
     "Estimate your 2026 Medicare Part B premium and IRMAA bracket in four questions. Official CMS tiers, no account, no Social Security number, no cost.",
   alternates: { canonical: "/medicare" },
@@ -43,7 +44,7 @@ export default function MedicarePage() {
             serviceJsonLd({
               name: "2026 Medicare Part B and IRMAA estimate",
               description:
-                "Four questions using the published CMS schedule. Education only — not a quote or a benefit determination.",
+                "Four questions using the published CMS schedule. Education only, not a quote or a benefit determination.",
               path: "/medicare",
             }),
           ),
@@ -59,9 +60,9 @@ export default function MedicarePage() {
         secondaryLabel="See enrollment dates →"
         note="Nothing you type here is sent anywhere until you choose to email the result to yourself."
         proof={[
-          "Licensed in North Carolina",
+          `Licensed agent · ${AGENT.licenseLine}`,
           "in person or by phone",
-          "Official 2026 CMS tiers — education only",
+          "Official 2026 CMS tiers, education only",
           "Your information is never sold",
         ]}
       />

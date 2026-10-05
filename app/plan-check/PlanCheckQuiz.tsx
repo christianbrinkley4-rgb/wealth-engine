@@ -51,7 +51,11 @@ const QUESTIONS: QuizQuestion[] = [
     options: [
       { label: "Yes, all of them", flags: 0, flagLabel: null },
       { label: "Some of them", flags: 1, flagLabel: "some of your doctors may be out of network" },
-      { label: "Not sure", flags: 1, flagLabel: "you are not sure your doctors are still in network" },
+      {
+        label: "Not sure",
+        flags: 1,
+        flagLabel: "you are not sure your doctors are still in network",
+      },
       { label: "I don't have a regular doctor", flags: 0, flagLabel: null },
     ],
   },
@@ -60,9 +64,21 @@ const QUESTIONS: QuizQuestion[] = [
     text: "Did your prescriptions change this year, or did any of your drug costs go up?",
     options: [
       { label: "No changes, costs are fine", flags: 0, flagLabel: null },
-      { label: "New prescriptions this year", flags: 1, flagLabel: "you have new prescriptions this year" },
-      { label: "Same drugs, but they cost more now", flags: 1, flagLabel: "your drug costs went up" },
-      { label: "Not sure what I'm paying", flags: 1, flagLabel: "you are not sure what you pay for prescriptions" },
+      {
+        label: "New prescriptions this year",
+        flags: 1,
+        flagLabel: "you have new prescriptions this year",
+      },
+      {
+        label: "Same drugs, but they cost more now",
+        flags: 1,
+        flagLabel: "your drug costs went up",
+      },
+      {
+        label: "Not sure what I'm paying",
+        flags: 1,
+        flagLabel: "you are not sure what you pay for prescriptions",
+      },
     ],
   },
   {
@@ -70,8 +86,16 @@ const QUESTIONS: QuizQuestion[] = [
     text: "How do you feel about what you pay each month for your plan?",
     options: [
       { label: "Comfortable with it", flags: 0, flagLabel: null },
-      { label: "It's gone up and I'm noticing", flags: 1, flagLabel: "your monthly costs have gone up" },
-      { label: "I honestly don't know what I pay", flags: 1, flagLabel: "you do not know what you pay each month" },
+      {
+        label: "It's gone up and I'm noticing",
+        flags: 1,
+        flagLabel: "your monthly costs have gone up",
+      },
+      {
+        label: "I honestly don't know what I pay",
+        flags: 1,
+        flagLabel: "you do not know what you pay each month",
+      },
     ],
   },
   {
@@ -79,8 +103,16 @@ const QUESTIONS: QuizQuestion[] = [
     text: "Has your health changed since you first picked this plan?",
     options: [
       { label: "About the same", flags: 0, flagLabel: null },
-      { label: "Some new conditions or diagnoses", flags: 1, flagLabel: "your health has changed since you enrolled" },
-      { label: "Had a surgery or hospital stay this year", flags: 1, flagLabel: "you had a surgery or hospital stay this year" },
+      {
+        label: "Some new conditions or diagnoses",
+        flags: 1,
+        flagLabel: "your health has changed since you enrolled",
+      },
+      {
+        label: "Had a surgery or hospital stay this year",
+        flags: 1,
+        flagLabel: "you had a surgery or hospital stay this year",
+      },
     ],
   },
   {
@@ -88,8 +120,16 @@ const QUESTIONS: QuizQuestion[] = [
     text: "Do you spend time outside North Carolina during the year?",
     options: [
       { label: "No, I'm home year-round", flags: 0, flagLabel: null },
-      { label: "Yes, I travel or visit family out of state", flags: 1, flagLabel: "you spend time outside North Carolina" },
-      { label: "I split time between two places", flags: 1, flagLabel: "you split time between two places" },
+      {
+        label: "Yes, I travel or visit family out of state",
+        flags: 1,
+        flagLabel: "you spend time outside North Carolina",
+      },
+      {
+        label: "I split time between two places",
+        flags: 1,
+        flagLabel: "you split time between two places",
+      },
     ],
   },
   {
@@ -108,8 +148,16 @@ const QUESTIONS: QuizQuestion[] = [
     text: "When did you last have someone review your plan with you, one on one?",
     options: [
       { label: "Within the last year", flags: 0, flagLabel: null },
-      { label: "One to two years ago", flags: 1, flagLabel: "it has been a while since your last one-on-one review" },
-      { label: "More than two years ago", flags: 1, flagLabel: "it has been years since your last one-on-one review" },
+      {
+        label: "One to two years ago",
+        flags: 1,
+        flagLabel: "it has been a while since your last one-on-one review",
+      },
+      {
+        label: "More than two years ago",
+        flags: 1,
+        flagLabel: "it has been years since your last one-on-one review",
+      },
       { label: "Never", flags: 1, flagLabel: "you have never had a one-on-one plan review" },
     ],
   },
@@ -201,12 +249,15 @@ function useTurnstile() {
         sitekey: TURNSTILE_SITE_KEY,
         theme: "light",
         "error-callback": () => {
-          if (!disposed) setWidgetError("The form check couldn't finish. Please try again, or call me.");
+          if (!disposed)
+            setWidgetError("The form check couldn't finish. Please try again, or call me.");
         },
       });
       widgetRef.current = widgetId ?? null;
     } catch {
-      queueMicrotask(() => setWidgetError("The form check couldn't load. Please try again, or call me."));
+      queueMicrotask(() =>
+        setWidgetError("The form check couldn't load. Please try again, or call me."),
+      );
     }
     return () => {
       disposed = true;
@@ -336,9 +387,11 @@ function CaptureForm({
 
   const isInterstitial = mode === "interstitial";
   return (
-    <form onSubmit={handleSubmit} className="mt-6 rounded-2xl border border-gray-200 bg-white p-6">
-      <h3 className="text-20 font-semibold">
-        {isInterstitial ? "Want your results emailed when you finish?" : "Want me to send this summary?"}
+    <form onSubmit={handleSubmit} className="pcq-form">
+      <h3 className="pcq-form-title">
+        {isInterstitial
+          ? "Want your results emailed when you finish?"
+          : "Want me to send this summary?"}
       </h3>
       <p className="text-16 mt-2 text-[var(--color-ink-muted)]">
         {isInterstitial
@@ -356,7 +409,7 @@ function CaptureForm({
             autoComplete="given-name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 text-17"
+            className="pcq-input"
             placeholder="Jane"
           />
         </div>
@@ -370,7 +423,7 @@ function CaptureForm({
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 text-17"
+            className="pcq-input"
             placeholder="jane@example.com"
           />
         </div>
@@ -385,10 +438,10 @@ function CaptureForm({
               autoComplete="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 text-17"
+              className="pcq-input"
               placeholder="(919) 555-0123"
             />
-            <label className="mt-2 flex items-start gap-2 text-15 text-[var(--color-ink-muted)]">
+            <label className="text-15 mt-2 flex items-start gap-2 text-[var(--color-ink-muted)]">
               <input
                 type="checkbox"
                 checked={smsConsent}
@@ -399,7 +452,7 @@ function CaptureForm({
             </label>
           </div>
         )}
-        <label className="flex items-start gap-2 text-15 text-[var(--color-ink-muted)]">
+        <label className="text-15 flex items-start gap-2 text-[var(--color-ink-muted)]">
           <input
             type="checkbox"
             checked={consent}
@@ -407,8 +460,8 @@ function CaptureForm({
             className="mt-1"
           />
           <span>
-            It is okay to email me my results and follow up about Medicare plan reviews. No spam,
-            no sharing my info, unsubscribe anytime.
+            It is okay to email me my results and follow up about Medicare plan reviews. No spam, no
+            sharing my info, unsubscribe anytime.
           </span>
         </label>
         <input
@@ -422,11 +475,7 @@ function CaptureForm({
         />
         {TURNSTILE_SITE_KEY && <div ref={containerRef} />}
         {error && <p className="text-15 font-medium text-red-700">{error}</p>}
-        <button
-          type="submit"
-          disabled={sending}
-          className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 text-18 font-semibold text-[var(--color-paper)] transition-all duration-200 ease-out hover:-translate-y-px disabled:opacity-60"
-        >
+        <button type="submit" disabled={sending} className="btn">
           {sending ? "Sending..." : "Send my results"}
         </button>
       </div>
@@ -517,10 +566,7 @@ function PhoneFollowUp({
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="mt-6 rounded-2xl border border-gray-200 bg-[var(--color-paper)] p-6"
-    >
+    <form onSubmit={handleSubmit} className="pcq-form pcq-form-soft">
       <h3 className="text-18 font-semibold">Want a text reminder before December 7?</h3>
       <p className="text-15 mt-1 text-[var(--color-ink-muted)]">
         Optional. One reminder text, no spam.
@@ -532,25 +578,24 @@ function PhoneFollowUp({
           aria-label="Phone number for text reminder"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          className="w-full rounded-xl border border-gray-300 px-4 py-3 text-17 sm:max-w-xs"
+          className="pcq-input sm:max-w-xs"
           placeholder="(919) 555-0123"
         />
-        <button
-          type="submit"
-          disabled={sending}
-          className="inline-flex min-h-14 items-center justify-center rounded-xl bg-[var(--color-navy)] px-8 text-17 font-semibold text-[var(--color-paper)] disabled:opacity-60"
-        >
+        <button type="submit" disabled={sending} className="btn">
           {sending ? "Saving..." : "Remind me by text"}
         </button>
       </div>
-      <label className="mt-3 flex items-start gap-2 text-15 text-[var(--color-ink-muted)]">
+      <label className="text-15 mt-3 flex items-start gap-2 text-[var(--color-ink-muted)]">
         <input
           type="checkbox"
           checked={smsConsent}
           onChange={(e) => setSmsConsent(e.target.checked)}
           className="mt-1"
         />
-        <span>It is okay to text me one reminder before December 7. Message and data rates may apply. Reply STOP to opt out.</span>
+        <span>
+          It is okay to text me one reminder before December 7. Message and data rates may apply.
+          Reply STOP to opt out.
+        </span>
       </label>
       {TURNSTILE_SITE_KEY && <div ref={containerRef} className="mt-3" />}
       {error && <p className="text-15 mt-2 font-medium text-red-700">{error}</p>}
@@ -706,7 +751,12 @@ export function PlanCheckQuiz() {
     return payload;
   }
 
-  function scoreQuiz(): { score: number; tier: Tier; flagLabels: string[]; benefitsMatter: boolean } {
+  function scoreQuiz(): {
+    score: number;
+    tier: Tier;
+    flagLabels: string[];
+    benefitsMatter: boolean;
+  } {
     let score = 0;
     const flagLabels: string[] = [];
     for (const q of QUESTIONS) {
@@ -728,12 +778,15 @@ export function PlanCheckQuiz() {
 
   if (phase === "intro") {
     return (
-      <div className="rounded-2xl border border-gray-200 bg-white p-8 text-center sm:p-10">
-        <h2 className="text-28 font-semibold">Does your Medicare plan still fit?</h2>
+      <div className="pcq-card pcq-intro">
+        <span className="pcq-intro-badge" aria-hidden>
+          7 questions · about 90 seconds
+        </span>
+        <h2 className="pcq-intro-title">Does your Medicare plan still fit?</h2>
         <p className="text-17 mx-auto mt-4 max-w-xl leading-relaxed text-[var(--color-ink-muted)]">
-          Medicare plans change every year. So do you. Answer 7 quick questions, about 90
-          seconds, and I will tell you whether your plan is worth a second look before Annual
-          Enrollment ends December 7.
+          Medicare plans change every year. So do you. Answer 7 quick questions, about 90 seconds,
+          and I will tell you whether your plan is worth a second look before Annual Enrollment ends
+          December 7.
         </p>
         <p className="text-15 mx-auto mt-3 max-w-xl text-[var(--color-ink-muted)]">
           This is educational, not advice. I won&apos;t recommend a specific plan here. Just a
@@ -744,9 +797,9 @@ export function PlanCheckQuiz() {
             tracking.start();
             setPhase("quiz");
           }}
-          className="mt-8 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-10 text-18 font-semibold text-[var(--color-paper)] transition-all duration-200 ease-out hover:-translate-y-px"
+          className="btn btn-accent pcq-start"
         >
-          Start the plan check <ArrowRight className="size-5" aria-hidden />
+          Start the plan check <ArrowRight className="arrow size-5" aria-hidden />
         </button>
       </div>
     );
@@ -759,8 +812,8 @@ export function PlanCheckQuiz() {
           <p className="text-15 font-medium text-[var(--color-ink-muted)]">
             Question 4 of 7 coming up
           </p>
-          <div className="h-2 w-40 overflow-hidden rounded-full bg-gray-200">
-            <div className="h-full rounded-full bg-[var(--color-navy)]" style={{ width: `${progress}%` }} />
+          <div className="pcq-progress">
+            <div style={{ width: `${progress}%` }} />
           </div>
         </div>
         <CaptureForm
@@ -790,16 +843,27 @@ export function PlanCheckQuiz() {
     const copy = TIER_COPY[tier];
     return (
       <div>
-        <div className="rounded-2xl border border-gray-200 bg-white p-8 sm:p-10">
-          <p className="text-15 font-semibold uppercase tracking-wide text-[var(--color-gold-ink)]">
+        <div className="pcq-card pcq-result" data-tier={tier}>
+          <span className="pcq-result-meter" aria-hidden>
+            <span />
+            <span />
+            <span />
+          </span>
+          <p className="text-15 font-semibold tracking-wide text-[var(--honey-700)] uppercase">
             Your plan check result
           </p>
           <h2 className="text-28 mt-2 font-semibold">{copy.headline}</h2>
           {tier !== "solid" && flagLabels.length > 0 && (
             <ul className="mt-4 space-y-2">
               {flagLabels.slice(0, 4).map((label) => (
-                <li key={label} className="text-17 flex items-start gap-3 text-[var(--color-ink-muted)]">
-                  <span aria-hidden className="mt-1 inline-block size-2 shrink-0 rounded-full bg-[var(--color-navy)]" />
+                <li
+                  key={label}
+                  className="text-17 flex items-start gap-3 text-[var(--color-ink-muted)]"
+                >
+                  <span
+                    aria-hidden
+                    className="mt-1 inline-block size-2 shrink-0 rounded-full bg-[var(--color-navy)]"
+                  />
                   <span>{label.charAt(0).toUpperCase() + label.slice(1)}.</span>
                 </li>
               ))}
@@ -808,22 +872,16 @@ export function PlanCheckQuiz() {
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">{copy.body}</p>
           {benefitsMatter && (
             <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-              You said dental, vision, and hearing coverage matter to you. We will make that part
-              of the review too.
+              You said dental, vision, and hearing coverage matter to you. We will make that part of
+              the review too.
             </p>
           )}
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-            <a
-              href={BOOKING_HREF}
-              className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] transition-all duration-200 ease-out hover:-translate-y-px"
-            >
+            <a href={BOOKING_HREF} className="btn btn-accent">
               <CalendarCheck className="size-5" aria-hidden />
               {copy.cta}
             </a>
-            <a
-              href={AGENT.phoneHref}
-              className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl border-2 border-[var(--color-navy)] bg-white px-8 font-semibold text-[var(--color-navy)] transition-all duration-200 ease-out hover:-translate-y-px"
-            >
+            <a href={AGENT.phoneHref} className="btn btn-outline">
               <Phone className="size-5" aria-hidden />
               {AGENT.phone}
             </a>
@@ -835,7 +893,7 @@ export function PlanCheckQuiz() {
         </div>
         {capturedEmail ? (
           <>
-            <p className="text-16 mt-6 rounded-2xl border border-gray-200 bg-[var(--color-paper)] p-5 text-[var(--color-ink-muted)]">
+            <p className="pcq-sent">
               Your summary is on its way to <strong>{capturedEmail}</strong>. If it does not show
               up, check spam, or just call me at {AGENT.phone}.
             </p>
@@ -849,11 +907,7 @@ export function PlanCheckQuiz() {
             )}
           </>
         ) : (
-          <CaptureForm
-            mode="results"
-            quizPayload={quizPayload(true)}
-            onCaptured={handleCaptured}
-          />
+          <CaptureForm mode="results" quizPayload={quizPayload(true)} onCaptured={handleCaptured} />
         )}
         <button
           onClick={() => {
@@ -878,40 +932,42 @@ export function PlanCheckQuiz() {
 
   const question = QUESTIONS[questionIndex];
   return (
-    <div>
+    <div className="pcq-card pcq-step">
       <div className="mb-6 flex items-center justify-between">
         <p className="text-15 font-medium text-[var(--color-ink-muted)]">
           Question {questionIndex + 1} of {QUESTIONS.length}
         </p>
         <div
-          className="h-2 w-40 overflow-hidden rounded-full bg-gray-200"
+          className="pcq-progress"
           role="progressbar"
           aria-valuenow={progress}
           aria-valuemin={0}
           aria-valuemax={100}
         >
-          <div className="h-full rounded-full bg-[var(--color-navy)]" style={{ width: `${progress}%` }} />
+          <div style={{ width: `${progress}%` }} />
         </div>
       </div>
-      <h2 className="text-24 font-semibold sm:text-28">{question.text}</h2>
-      <div className="mt-6 grid gap-3">
-        {question.options.map((option, idx) => {
-          const selected = answers[question.id] === idx;
-          return (
-            <button
-              key={option.label}
-              onClick={() => answerQuestion(idx)}
-              aria-pressed={selected}
-              className={`text-17 rounded-xl border-2 px-6 py-4 text-left font-medium transition-all duration-150 ${
-                selected
-                  ? "border-[var(--color-navy)] bg-[var(--color-paper)]"
-                  : "border-gray-200 bg-white hover:border-[var(--color-navy)]"
-              }`}
-            >
-              {option.label}
-            </button>
-          );
-        })}
+      <div key={question.id} className="pcq-question">
+        <h2 className="pcq-q">{question.text}</h2>
+        <div className="mt-6 grid gap-3">
+          {question.options.map((option, idx) => {
+            const selected = answers[question.id] === idx;
+            return (
+              <button
+                key={option.label}
+                onClick={() => answerQuestion(idx)}
+                aria-pressed={selected}
+                className="pcq-option"
+                style={{ "--i": idx } as React.CSSProperties}
+              >
+                <span className="pcq-key" aria-hidden>
+                  {String.fromCharCode(65 + idx)}
+                </span>
+                <span>{option.label}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
       <div className="mt-6">
         {questionIndex > 0 && (

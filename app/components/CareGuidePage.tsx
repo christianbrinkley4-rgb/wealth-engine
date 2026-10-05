@@ -74,8 +74,8 @@ export function CareGuidePage({ slug }: { slug: string }) {
           By{" "}
           <Link href="/about" className="underline underline-offset-4">
             {AGENT.name}
-          </Link>
-          , licensed insurance agent in North Carolina. Updated September 10, 2026.
+          </Link>,
+          licensed insurance agent in North Carolina. Updated September 10, 2026.
         </p>
       </div>
       {guide.sections.map((section, index) => (

@@ -78,7 +78,7 @@ function topicLabel(topic: string | null | undefined) {
 }
 
 function formatPhone(digits: string | null | undefined) {
-  if (!digits || digits.length < 10) return digits || "—";
+  if (!digits || digits.length < 10) return digits || "Not given";
   const d = digits.slice(0, 10);
   return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
 }
@@ -355,18 +355,18 @@ function ownerAlertHtml(topic: string, payload: LeadNotifyPayload): string {
   const preference = payload.quiz_answers?.meet_preference;
   const phoneLine = digits
     ? `<p style="font-size:19px">📞 <a href="tel:+1${digits}" style="color:#0f2241;font-weight:700">Call ${escapeHtml(formatPhone(payload.phone_number))} now</a></p>`
-    : `<p>Phone: —</p>`;
+    : `<p>Phone: not given</p>`;
   return `
     <div style="font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#0f2241;max-width:560px">
       ${
         payload.storageFailed
-          ? `<p style="color:#b42318;font-weight:700">*** SAVE FAILED — this email is the ONLY copy of this lead. Write it down. ***</p>`
+          ? `<p style="color:#b42318;font-weight:700">*** SAVE FAILED: this email is the ONLY copy of this lead. Write it down. ***</p>`
           : ""
       }
       <p><strong>New ${escapeHtml(topic)} inquiry from the site.</strong></p>
-      <p>Name: ${escapeHtml(payload.full_name || "—")}<br>
+      <p>Name: ${escapeHtml(payload.full_name || "Not given")}<br>
       Email: <a href="mailto:${escapeHtml(payload.email)}">${escapeHtml(payload.email)}</a><br>
-      ZIP: ${escapeHtml(payload.zip_code || "—")}</p>
+      ZIP: ${escapeHtml(payload.zip_code || "Not given")}</p>
       ${phoneLine}
       ${typeof preference === "string" && preference === "email" ? "<p>Preferred contact: email</p>" : ""}
       ${typeof note === "string" && note.trim() ? `<p><strong>Their question:</strong><br>${escapeHtml(note.slice(0, 1000))}</p>` : ""}
@@ -385,7 +385,7 @@ function ownerAlertHtml(topic: string, payload: LeadNotifyPayload): string {
 export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<DeliveryResult> {
   if (!makeConfigured() && !resendConfigured() && !smsConfigured()) {
     console.error(
-      "[notifyLead] NO ALERT CHANNEL CONFIGURED — a lead was saved and nobody was told. " +
+      "[notifyLead] NO ALERT CHANNEL CONFIGURED, a lead was saved and nobody was told. " +
         "Set RESEND_API_KEY + RESEND_FROM (and optionally MAKE_WEBHOOK_URL / Twilio vars).",
     );
     return DELIVERY_SKIPPED;
@@ -406,14 +406,14 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<De
 
   const text = [
     payload.storageFailed
-      ? "*** SAVE FAILED — this email is the ONLY copy of this lead. Write it down. ***\n"
+      ? "*** SAVE FAILED: this email is the ONLY copy of this lead. Write it down. ***\n"
       : "",
     `New ${topic} inquiry from the site.`,
     "",
-    `Name:  ${payload.full_name || "—"}`,
+    `Name:  ${payload.full_name || "Not given"}`,
     `Email: ${payload.email}`,
     `Phone: ${formatPhone(payload.phone_number)}`,
-    `ZIP:   ${payload.zip_code || "—"}`,
+    `ZIP:   ${payload.zip_code || "Not given"}`,
     payload.lead_score != null ? `Score: ${payload.lead_score}` : "",
     "",
     "They answered:",
@@ -431,8 +431,8 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<De
     sendEmail({
       to: LEAD_NOTIFY_EMAIL,
       subject: payload.storageFailed
-        ? `[NOT SAVED] New ${topic} inquiry — ${payload.full_name || payload.email}`
-        : `New ${topic} inquiry — ${payload.full_name || payload.email}`,
+        ? `[NOT SAVED] New ${topic} inquiry, ${payload.full_name || payload.email}`
+        : `New ${topic} inquiry, ${payload.full_name || payload.email}`,
       text,
       html: ownerAlertHtml(topic, payload),
       replyTo: payload.email,
@@ -477,7 +477,7 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<De
 
   if (!attempted) return DELIVERY_SKIPPED;
 
-  console.error("[notifyLead] EVERY CHANNEL FAILED — nobody was told about this lead.");
+  console.error("[notifyLead] EVERY CHANNEL FAILED, nobody was told about this lead.");
   return {
     ok: false,
     retryable,
@@ -491,7 +491,7 @@ export async function notifyLeadCaptured(payload: LeadNotifyPayload): Promise<De
  * voice-only, so it says "call", never "call/text".
  */
 const CALLBACK_PROMISE_TEXT =
-  "I'll call you within the hour during business hours (Mon–Sat, 9–5). " +
+  "I'll call you within the hour during business hours (Mon to Sat, 9 to 5). " +
   "Outside business hours, I'll call by 9am the next business day.";
 
 /**
@@ -510,7 +510,7 @@ export async function sendProspectAutoReply(input: {
   irmaa_bracket?: string | null;
 }): Promise<DeliveryResult> {
   if (!resendConfigured()) {
-    console.error("[notifyLead] Auto-reply skipped — RESEND_API_KEY / RESEND_FROM not set.");
+    console.error("[notifyLead] Auto-reply skipped, RESEND_API_KEY / RESEND_FROM not set.");
     return DELIVERY_SKIPPED;
   }
 
@@ -523,7 +523,7 @@ export async function sendProspectAutoReply(input: {
   const quickContact = input.quiz_answers?.entry_mode === "quick_contact";
   const replyByEmail = !input.phone_number || input.quiz_answers?.meet_preference === "email";
   const followUpText = replyByEmail
-    ? "I'll reply to your email personally during business hours (Mon–Sat, 9–5 Eastern)."
+    ? "I'll reply to your email personally during business hours (Mon to Sat, 9 to 5 Eastern)."
     : CALLBACK_PROMISE_TEXT;
   const beat = quickContact
     ? null
@@ -557,7 +557,7 @@ export async function sendProspectAutoReply(input: {
     // Not upper-cased: a full sentence in caps reads as a marketing blast, and
     // this email’s whole job is to look like it came from a person.
     ...(beat && !dates ? [beat.headline, "", beat.lede, "", ...beat.points.map((p) => `• ${p}`), ""] : []),
-    ...(quickContact ? [] : ["That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.", ""]),
+    ...(quickContact ? [] : ["That’s general information rather than advice about your particular situation, which is what I’d like to talk through with you.", ""]),
     followUpText,
     "",
     `You can arrange a conversation here: ${bookingUrl}`,
@@ -566,7 +566,7 @@ export async function sendProspectAutoReply(input: {
     "Your request came directly to me. You can reply to this email with a question.",
     "",
     AGENT.name,
-    "Licensed insurance agent · " + AGENT.city + ", " + AGENT.state,
+    "Licensed agent · " + AGENT.licenseLine + " · " + AGENT.city + ", " + AGENT.state,
     AGENT.email,
     SITE_URL,
     "",
@@ -598,14 +598,14 @@ export async function sendProspectAutoReply(input: {
       </ul>`
           : ""
       }
-      ${quickContact ? "" : `<p style="color:#4a5563;font-size:15px">That’s general information rather than advice about your particular situation — which is what I’d like to talk through with you.</p>`}
+      ${quickContact ? "" : `<p style="color:#4a5563;font-size:15px">That’s general information rather than advice about your particular situation, which is what I’d like to talk through with you.</p>`}
       <p style="font-weight:600">${escapeHtml(followUpText)}</p>
       <p style="margin:28px 0">
         <a href="${escapeHtml(bookingUrl)}" style="background:#0f2241;color:#f5f0e8;padding:14px 22px;border-radius:8px;text-decoration:none;display:inline-block;font-family:Helvetica,Arial,sans-serif;font-weight:600">Arrange a conversation</a>
       </p>
       <p>Or just call me: <strong>${AGENT.phone}</strong>. Your request came directly to me, and you can reply to this email with a question.</p>
       <p style="margin-top:28px">${escapeHtml(AGENT.name)}<br>
-      <span style="color:#4a5563">Licensed insurance agent · ${AGENT.city}, ${AGENT.state}</span><br>
+      <span style="color:#4a5563">Licensed agent · ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state}</span><br>
       <a href="mailto:${AGENT.email}" style="color:#0f2241">${AGENT.email}</a></p>
       <p style="color:#6b7280;font-size:13px;border-top:1px solid #d1d5db;padding-top:12px;margin-top:28px">
         You’re receiving this because you asked me to get in touch through my website. Reply STOP and I won’t contact you again.
@@ -616,10 +616,10 @@ export async function sendProspectAutoReply(input: {
     return await sendEmail({
       to: input.email,
       subject: quickContact
-        ? `Your ${inSentence(topic)} inquiry — from ${AGENT.name}`
+        ? `Your ${inSentence(topic)} inquiry, from ${AGENT.name}`
         : dates
-          ? `Your Medicare dates — from ${AGENT.name}`
-          : `Your ${inSentence(topic)} questions — from ${AGENT.name}`,
+          ? `Your Medicare dates, from ${AGENT.name}`
+          : `Your ${inSentence(topic)} questions, from ${AGENT.name}`,
       text,
       html,
       replyTo: AGENT.email,
@@ -645,7 +645,7 @@ async function sendCalculatorAutoReply(input: {
   const bookingUrl = bookingPageUrl(isRoth ? "financial_planning" : "medicare");
   const followUpText = input.phone_number
     ? CALLBACK_PROMISE_TEXT
-    : "I'll reply to your email personally during business hours (Mon–Sat, 9–5 Eastern).";
+    : "I'll reply to your email personally during business hours (Mon to Sat, 9 to 5 Eastern).";
 
   const figure =
     input.calculated_premium != null && input.calculated_premium > 0
@@ -661,7 +661,7 @@ async function sendCalculatorAutoReply(input: {
     "",
     figure,
     "",
-    "Two things worth knowing about that number: it’s an estimate for education rather than a quote, and Medicare sets premiums from a tax return two years old — so if your income has changed since then, the real figure can differ, and in some cases it can be appealed.",
+    "Two things worth knowing about that number: it’s an estimate for education rather than a quote, and Medicare sets premiums from a tax return two years old, so if your income has changed since then, the real figure can differ, and in some cases it can be appealed.",
     "",
     followUpText,
     "",
@@ -669,7 +669,7 @@ async function sendCalculatorAutoReply(input: {
     `Or call me: ${AGENT.phone}`,
     "",
     AGENT.name,
-    `Licensed insurance agent · ${AGENT.city}, ${AGENT.state}`,
+    `Licensed agent · ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state}`,
     AGENT.email,
     "",
     "You’re receiving this because you asked me to email your results. Reply STOP and I won’t contact you again.",
@@ -680,7 +680,7 @@ async function sendCalculatorAutoReply(input: {
   try {
     return await sendEmail({
       to: input.email,
-      subject: `Your ${inSentence(label)} — from ${AGENT.name}`,
+      subject: `Your ${inSentence(label)}, from ${AGENT.name}`,
       text,
       replyTo: AGENT.email,
     });
@@ -720,7 +720,7 @@ function reminderSignature() {
   return [
     "",
     AGENT.name,
-    `Licensed insurance agent · ${AGENT.city}, ${AGENT.state}`,
+    `Licensed agent · ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state}`,
     AGENT.phone,
     AGENT.email,
     SITE_URL,
@@ -736,7 +736,7 @@ export async function sendReminderSignupConfirmation(input: {
   sendOn: Date;
 }): Promise<void> {
   if (!resendConfigured()) {
-    console.error("[notifyLead] Reminder confirmation skipped — Resend not configured.");
+    console.error("[notifyLead] Reminder confirmation skipped, Resend not configured.");
     return;
   }
 
@@ -747,7 +747,7 @@ export async function sendReminderSignupConfirmation(input: {
   const body =
     input.kind === "t65"
       ? [
-          `Your Medicare sign-up window opens on ${opens}. It stays open for seven months in total — the three months before the month you turn 65, that month, and the three months after.`,
+          `Your Medicare sign-up window opens on ${opens}. It stays open for seven months in total: the three months before the month you turn 65, that month, and the three months after.`,
           "",
           `I’ll email you on ${remindOn}, a couple of weeks ahead of it, so you have time to look at options rather than deciding in a hurry.`,
           "",
@@ -813,8 +813,8 @@ export async function sendReminderDue(input: {
           "",
           "Three things worth knowing before you decide anything:",
           "",
-          "• The window runs seven months — three months before the month you turn 65, that month, and three months after. Signing up early in it means coverage starts the month you turn 65; leaving it late pushes your start date back.",
-          "• If you miss it without other qualifying coverage, the Part B late penalty is 10% for every full 12 months you could have had it — and you pay it for as long as you have Part B.",
+          "• The window runs seven months, three months before the month you turn 65, that month, and three months after. Signing up early in it means coverage starts the month you turn 65; leaving it late pushes your start date back.",
+          "• If you miss it without other qualifying coverage, the Part B late penalty is 10% for every full 12 months you could have had it, and you pay it for as long as you have Part B.",
           "• There’s a separate six-month window for supplemental coverage that starts the month you’re 65 and enrolled in Part B. Inside it your health history can’t be used against you. Outside it, in most states, it can.",
           "",
           "No charge to talk any of this through, and no obligation. Book a time here:",
@@ -825,7 +825,7 @@ export async function sendReminderDue(input: {
       : [
           `You asked me to let you know when Medicare’s annual window opened. It opens on ${opens} and closes December 7.`,
           "",
-          "It’s worth a look even if nothing about your health has changed — plans change their pricing, their networks, and their covered medications every year, so the plan that fit last year may not be the one that fits now.",
+          "It’s worth a look even if nothing about your health has changed, plans change their pricing, their networks, and their covered medications every year, so the plan that fit last year may not be the one that fits now.",
           "",
           "Happy to check whether your current coverage is still the right one. No charge, no obligation:",
           bookingPageUrl("medicare"),

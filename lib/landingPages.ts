@@ -102,7 +102,7 @@ export const LANDING_PAGES: LandingPage[] = [
   },
   {
     slug: "annual-enrollment",
-    eyebrow: "October 15 – December 7 · Piedmont Triad",
+    eyebrow: "October 15 to December 7 · Piedmont Triad",
     headline: "Review your Medicare coverage for next year",
     subhead:
       "Review next year’s costs, prescriptions, and doctors before deciding whether your current plan still fits.",

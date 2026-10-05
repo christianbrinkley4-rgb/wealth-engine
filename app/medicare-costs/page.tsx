@@ -15,14 +15,14 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "What Does Medicare Cost in 2026? — Greensboro, NC" },
+  title: { absolute: "What Does Medicare Cost in 2026? | Greensboro, NC" },
   description:
     "2026 Medicare costs: the $202.90 Part B premium, the $283 deductible, hospital costs, and how income and late enrollment change what you pay.",
   alternates: { canonical: "/medicare-costs" },
   openGraph: pageOpenGraph({
     title: "What does Medicare cost in 2026?",
     description:
-      "The 2026 premiums, deductibles, and penalties that decide what Medicare actually costs you — in plain English.",
+      "The 2026 premiums, deductibles, and penalties that decide what Medicare actually costs you, in plain English.",
     path: "/medicare-costs",
   }),
 };
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "How much is the Medicare Part B premium in 2026?",
-    a: "The standard premium is $202.90 a month in 2026. Most people have it deducted from their Social Security check. Higher-income households pay more — see the income section below.",
+    a: "The standard premium is $202.90 a month in 2026. Most people have it deducted from their Social Security check. Higher-income households pay more, see the income section below.",
   },
   {
     q: "What is the Part B deductible in 2026?",
@@ -38,19 +38,19 @@ const FAQ = [
   },
   {
     q: "Do I pay a premium for Part A?",
-    a: "Most people don't. If you or your spouse paid Medicare taxes for at least 40 quarters (about 10 years), Part A has no premium. If you have to buy it, the full 2026 premium is $565 a month, or $311 with 30–39 quarters. The hospital deductible is $1,736 per benefit period in 2026.",
+    a: "Most people don't. If you or your spouse paid Medicare taxes for at least 40 quarters (about 10 years), Part A has no premium. If you have to buy it, the full 2026 premium is $565 a month, or $311 with 30 to 39 quarters. The hospital deductible is $1,736 per benefit period in 2026.",
   },
   {
-    q: "What about drug coverage and Medigap — what do those cost?",
-    a: "Those have their own monthly premiums, and they vary by plan and by county — Greensboro and Winston-Salem can have different options. That's exactly the kind of comparison a personal review is for: we look at your prescriptions and budget against the actual plans available where you live.",
+    q: "What about drug coverage and Medigap, what do those cost?",
+    a: "Those have their own monthly premiums, and they vary by plan and by county, Greensboro and Winston-Salem can have different options. That's exactly the kind of comparison a personal review is for: we look at your prescriptions and budget against the actual plans available where you live.",
   },
   {
     q: "Can my Part B premium be higher because of my income?",
-    a: "Yes. If your income from two years ago was above certain thresholds, Social Security adds an income-related monthly adjustment (IRMAA) to your Part B — and Part D — premium. But if your income has dropped since then, for example because you retired, you can ask Social Security to review it. There's more on that on the premium review page.",
+    a: "Yes. If your income from two years ago was above certain thresholds, Social Security adds an income-related monthly adjustment (IRMAA) to your Part B, and Part D, premium. But if your income has dropped since then, for example because you retired, you can ask Social Security to review it. There's more on that on the premium review page.",
   },
   {
     q: "What happens if I sign up for Part B late?",
-    a: "If you delay Part B without coverage that lets you wait — generally a group health plan based on current employment — the premium usually goes up 10% for each full year you waited, and that increase is permanent. Going without drug coverage for 63 days or more after your window can add a separate monthly penalty too.",
+    a: "If you delay Part B without coverage that lets you wait, generally a group health plan based on current employment, the premium usually goes up 10% for each full year you waited, and that increase is permanent. Going without drug coverage for 63 days or more after your window can add a separate monthly penalty too.",
   },
 ] as const;
 
@@ -88,7 +88,7 @@ export default function MedicareCostsPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "What Medicare costs" }]}
         eyebrow="Greensboro & the Triad"
         title="What does Medicare actually cost?"
-        lede="Premiums, deductibles, and the penalties that raise them — the 2026 numbers, explained in plain English."
+        lede="Premiums, deductibles, and the penalties that raise them, the 2026 numbers, explained in plain English."
         secondaryHref="/start?topic=medicare&ask=costs"
         secondaryLabel="Talk through my costs →"
       />
@@ -98,7 +98,7 @@ export default function MedicareCostsPage() {
           <h2 className="text-28 font-semibold">The short answer</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             These are the 2026 figures CMS announced in November 2025. They change a little most
-            years, so treat this as the current picture — not a permanent one.
+            years, so treat this as the current picture, not a permanent one.
           </p>
           <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-3">
             <div className="card-surface p-6">
@@ -112,7 +112,7 @@ export default function MedicareCostsPage() {
             <div className="card-surface p-6">
               <h3 className="text-20 font-semibold">Part A</h3>
               <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-                <strong className="text-[var(--color-navy)]">No premium</strong> for most people —
+                <strong className="text-[var(--color-navy)]">No premium</strong> for most people,
                 you earned it through payroll taxes. A hospital stay carries a{" "}
                 <strong className="text-[var(--color-navy)]">$1,736</strong> deductible per benefit
                 period in 2026.
@@ -135,12 +135,12 @@ export default function MedicareCostsPage() {
           <h2 className="text-28 font-semibold">When your income changes the Part B premium</h2>
           <p className="text-18 mt-4 leading-relaxed">
             Social Security looks at your tax return from two years ago. If that income was above
-            certain thresholds, a monthly adjustment (called IRMAA) is added to your Part B — and
-            Part D — premium. The 2026 figures use your 2024 return.
+            certain thresholds, a monthly adjustment (called IRMAA) is added to your Part B, and
+            Part D, premium. The 2026 figures use your 2024 return.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Here&apos;s the part people miss: if your income has <em>dropped</em> since that tax
-            year — because you retired, your spouse stopped working, or another big life change —
+            year, because you retired, your spouse stopped working, or another big life change,
             you can ask Social Security to recalculate using your current situation. It&apos;s a
             standard request, and it often lowers the premium back down.{" "}
             <Link href="/irmaa-appeal" className="underline underline-offset-2">
@@ -159,7 +159,7 @@ export default function MedicareCostsPage() {
               <h3 className="text-20 font-semibold">Delaying Part B without qualifying coverage</h3>
               <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
                 Miss your window without coverage that lets you wait, and the premium usually rises
-                10% for each full year you delayed — permanently. Still working with a group plan
+                10% for each full year you delayed, permanently. Still working with a group plan
                 based on current employment is the usual exception.{" "}
                 <Link href="/turning-65" className="underline underline-offset-2">
                   Your enrollment dates
@@ -201,7 +201,7 @@ export default function MedicareCostsPage() {
 
       <KitchenTableClose
         heading="Let's put real numbers on your situation"
-        body="Premiums, prescriptions, and doctors — we'll look at what Medicare would actually cost you, during a no-cost, no-obligation consultation."
+        body="Premiums, prescriptions, and doctors: we'll look at what Medicare would actually cost you, during a no-cost, no-obligation consultation."
         href="/start?topic=medicare&ask=costs"
         label="Request a consultation →"
       />

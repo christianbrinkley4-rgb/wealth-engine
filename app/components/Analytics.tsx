@@ -172,7 +172,7 @@ fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`}
             strategy="afterInteractive"
           />
           {/* One tag, up to two destinations: the analytics property and the
-              ads account. Ad personalisation stays off — this site measures
+              ads account. Ad personalisation stays off, this site measures
               whether the phone rang, it does not build audiences out of people
               researching their health coverage. */}
           <Script id="google-tag" strategy="afterInteractive">

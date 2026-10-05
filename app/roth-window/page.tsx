@@ -6,9 +6,10 @@ import { ServiceHero } from "@/app/components/ServiceHero";
 import { RothWindowCalculator } from "@/app/roth-window/RothWindowCalculator";
 import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import { SERVICE_AREA_LABEL } from "@/lib/triad";
+import { AGENT } from "@/lib/agent";
 
 export const metadata: Metadata = {
-  title: { absolute: "Roth Conversion Calculator for 2026 IRMAA — Greensboro" },
+  title: { absolute: "Roth Conversion Calculator for 2026 IRMAA | Greensboro" },
   description:
     "Estimate how much you can convert to a Roth this year without pushing into a higher Medicare IRMAA surcharge later. Uses official 2026 CMS IRMAA brackets.",
   alternates: { canonical: "/roth-window" },
@@ -49,7 +50,7 @@ export default function RothWindowPage() {
         secondaryLabel="Compare lump vs spread →"
         note="I can help explain the Medicare side of the estimate and identify questions for your tax professional or advisor."
         proof={[
-          "Licensed in North Carolina",
+          `Licensed agent · ${AGENT.licenseLine}`,
           "At-home or phone consultations in the Triad",
           "Official 2026 CMS IRMAA brackets",
           "No cost to talk through the number",

@@ -38,7 +38,7 @@ import { SERVICE_AREA_LEDE } from "@/lib/triad";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Retirement Planning Help in Greensboro, Winston-Salem & High Point — 401(k) & Medicare Timing",
+      "Retirement Planning Help in Greensboro, Winston-Salem & High Point, 401(k) & Medicare Timing",
   },
   description:
     "Learn how 401(k) options, required distributions, and retirement income can affect Medicare premiums. Local education from a licensed agent serving Greensboro, High Point, and Winston-Salem.",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({
     title: "Retirement questions in Greensboro, Winston-Salem & High Point",
     description:
-      "Educational guidance on 401(k) options, retirement-income timing, and potential Medicare premium effects — for Triad households.",
+      "Educational guidance on 401(k) options, retirement-income timing, and potential Medicare premium effects, for Triad households.",
     path: "/retirement-income",
   }),
 };
@@ -228,12 +228,12 @@ export default function RetirementIncomePage() {
             pay.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
-            We look at how the pieces line up — when your coverage starts, what a withdrawal does to
+            We look at how the pieces line up, when your coverage starts, what a withdrawal does to
             your Medicare premium two years later, and where a guarantee is worth its cost. My
             accounting training at UNC Greensboro is why those connections interest me.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
-            We sit down and go through your whole situation first — what you have, what you are
+            We sit down and go through your whole situation first, what you have, what you are
             worried about, and what is coming up. Some of it I handle myself. The rest I hand to
             someone who can: an investment adviser, a tax professional, an elder law attorney. You
             get an introduction to a specific person, not a suggestion to go find one.

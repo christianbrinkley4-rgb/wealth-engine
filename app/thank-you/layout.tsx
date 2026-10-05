@@ -10,7 +10,7 @@ import type { Metadata } from "next";
  * robots.ts and the instruction is given here instead.
  */
 export const metadata: Metadata = {
-  title: "Thanks — check your email",
+  title: "Thanks, check your email",
   alternates: { canonical: "/thank-you" },
   robots: { index: false, follow: true },
 };

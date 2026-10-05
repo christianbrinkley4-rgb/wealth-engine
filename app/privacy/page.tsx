@@ -117,22 +117,22 @@ export default function PrivacyPage() {
               <li>
                 <a href="https://www.netlify.com/privacy/" className="underline underline-offset-2">
                   Netlify
-                </a>{" "}
-                — hosts the new site and processes web requests and security information. The
+                </a>{" "},
+               hosts the new site and processes web requests and security information. The
                 earlier vercel.app version is hosted by Vercel.
               </li>
               <li>
                 <a href="https://supabase.com/privacy" className="underline underline-offset-2">
                   Supabase
-                </a>{" "}
-                — stores inquiries, contact permissions, and follow-up records in my contact
+                </a>{" "},
+               stores inquiries, contact permissions, and follow-up records in my contact
                 management system.
               </li>
               <li>
                 <a href="https://cal.com/privacy" className="underline underline-offset-2">
                   Cal.com
-                </a>{" "}
-                — when you use the booking calendar, processes appointment details and contact
+                </a>{" "},
+               when you use the booking calendar, processes appointment details and contact
                 information. Connected calendar services, including Microsoft Outlook, may receive
                 appointment details and invitations to check availability and keep the meeting on
                 our calendars. A video meeting provider may also process information when you choose
@@ -144,16 +144,16 @@ export default function PrivacyPage() {
                   className="underline underline-offset-2"
                 >
                   Resend
-                </a>{" "}
-                — when email delivery is connected, processes recipients, message content, and
+                </a>{" "},
+               when email delivery is connected, processes recipients, message content, and
                 delivery information for request confirmations and notices that help me respond.
               </li>
               <li>
-                Cloudflare Turnstile — when bot protection is turned on, checks that form
+                Cloudflare Turnstile, when bot protection is turned on, checks that form
                 submissions come from people, not bots
               </li>
               <li>
-                Insurance companies and related service providers — if you ask me to help obtain
+                Insurance companies and related service providers, if you ask me to help obtain
                 quotes, apply for coverage, or service a policy, the information needed for that
                 work may be shared as part of the process explained to you.
               </li>

@@ -254,7 +254,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           <ul className="text-17 mt-3 flex list-disc flex-col gap-2 pl-6 leading-relaxed">
             <li>
               <Link href="/turning-65" className="underline underline-offset-2">
-                Turning 65 — Initial Enrollment
+                Turning 65, Initial Enrollment
               </Link>
             </li>
             <li>

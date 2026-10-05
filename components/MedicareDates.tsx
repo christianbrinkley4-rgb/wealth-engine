@@ -94,7 +94,7 @@ export function MedicareDates({
       </h2>
       <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
         Worked out from turning 65 in {MONTHS[birthdayMonthIndex]} {birthYear + 65}. Nothing here
-        needs an email address — write them down and close the tab if you like.
+        needs an email address, write them down and close the tab if you like.
       </p>
 
       {daysToDeadline === null || daysToClose === null ? null : daysToDeadline > 0 ? (
@@ -103,7 +103,7 @@ export function MedicareDates({
         </p>
       ) : daysToClose > 0 ? (
         <p className="text-19 mt-4 leading-relaxed font-semibold text-[var(--color-navy)]">
-          Your window is open now and closes in {daysToClose.toLocaleString("en-US")} days — and
+          Your window is open now and closes in {daysToClose.toLocaleString("en-US")} days, and
           coverage no longer starts on time, so this is worth sorting this week.
         </p>
       ) : (
@@ -150,7 +150,7 @@ export function MedicareDates({
         </ol>
       </div>
       <p className="text-15 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-        Seven months in total. The dark month is the month you turn 65 — the three before it are the
+        Seven months in total. The dark month is the month you turn 65, the three before it are the
         ones that matter.
       </p>
 
@@ -165,9 +165,9 @@ export function MedicareDates({
               Do it by then and your coverage starts{" "}
               <strong className="font-semibold text-[var(--color-navy)]">
                 {formatLongDate(dates.coverageStarts)}
-              </strong>
-              , the month you turn 65. Leave it later and you are still inside the window, but
-              coverage does not begin until the first of the month after you enroll — so there is a
+              </strong>,
+              the month you turn 65. Leave it later and you are still inside the window, but
+              coverage does not begin until the first of the month after you enroll, so there is a
               gap with nothing behind it.
             </dd>
           </div>
@@ -206,7 +206,7 @@ export function MedicareDates({
             </dt>
             <dd className="text-17 mt-1 leading-relaxed text-[var(--color-ink-muted)]">
               Miss it without other qualifying coverage and the Part B late penalty is 10% for every
-              full 12 months you could have had it — for as long as you have Part B, not once.
+              full 12 months you could have had it, for as long as you have Part B, not once.
             </dd>
           </div>
         </div>
@@ -233,7 +233,7 @@ export function MedicareDates({
               Already drawing Social Security?
             </strong>{" "}
             Parts A and B start automatically on {formatLongDate(dates.coverageStarts)} and your
-            card arrives in the post. You do not have to do anything — though you can turn Part B
+            card arrives in the post. You do not have to do anything, though you can turn Part B
             down if you are staying on an employer plan.
           </li>
           <li className="text-17 leading-relaxed text-[var(--color-ink-muted)]">
@@ -269,7 +269,7 @@ export function MedicareDates({
       <div className="mt-6 rounded-lg bg-[rgba(21,46,52,0.04)] p-4">
         <p className="text-16 leading-relaxed text-[var(--color-navy)]">
           <strong className="font-semibold">Two things these dates assume.</strong> That your
-          birthday is not the 1st of the month — if it is, Medicare counts you as turning 65 the
+          birthday is not the 1st of the month, if it is, Medicare counts you as turning 65 the
           month before and every date here moves back one. And that you are taking Part B at 65; if
           you are staying on an employer plan, your Medigap window opens whenever Part B eventually
           starts instead. Either way, worth checking rather than assuming.

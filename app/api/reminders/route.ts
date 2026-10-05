@@ -123,7 +123,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (!hasSupabaseAdminConfig()) {
-      console.error("[reminders] Supabase not configured — reminder NOT saved.");
+      console.error("[reminders] Supabase not configured, reminder NOT saved.");
       return NextResponse.json(
         {
           error: `I couldn’t save that reminder. Call me at ${AGENT.phone} or email ${AGENT.email} and I’ll add you by hand.`,

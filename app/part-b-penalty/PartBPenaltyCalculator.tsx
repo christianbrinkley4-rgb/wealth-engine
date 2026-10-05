@@ -210,7 +210,7 @@ export function PartBPenaltyCalculator() {
               <p className="tl-context">
                 {answer.hadJobCoverage
                   ? "Coverage through a job you or your spouse currently work at generally gives you a Special Enrollment Period, and no penalty. Retiree coverage, COBRA, and marketplace plans do not count the same way, so it is worth confirming which one you had before assuming either result."
-                  : "This is an estimate for education, not a determination. Medicare decides the penalty, it is based on the standard premium rather than an income-adjusted one, and exceptions apply — coverage from current work, Special Enrollment Periods, and help paying Medicare costs can all change it."}
+                  : "This is an estimate for education, not a determination. Medicare decides the penalty. It is based on the standard premium rather than an income-adjusted one, and exceptions apply: coverage from current work, Special Enrollment Periods, and help paying Medicare costs can all change it."}
               </p>
 
               <Link className="tl-next" href="/start?topic=medicare">
@@ -218,7 +218,7 @@ export function PartBPenaltyCalculator() {
               </Link>
               <p className="tl-context">
                 If a penalty has been added and you think it is wrong, it can be appealed. That is
-                worth a conversation — call {AGENT.phone}.
+                worth a conversation, call {AGENT.phone}.
               </p>
               <a
                 className="tl-source"

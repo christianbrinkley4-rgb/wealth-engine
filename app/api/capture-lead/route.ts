@@ -89,7 +89,7 @@ interface LeadPayload {
 }
 
 const CONFIG_ERROR = {
-  error: `I can’t save that right now — please call me at ${AGENT.phone} or email ${AGENT.email} and I’ll pick it up directly.`,
+  error: `I can’t save that right now, please call me at ${AGENT.phone} or email ${AGENT.email} and I’ll pick it up directly.`,
   code: "storage_unavailable" as const,
   phone: AGENT.phone,
   phoneHref: AGENT.phoneHref,
@@ -478,14 +478,14 @@ export async function POST(request: NextRequest) {
         }
         stored = true;
       } catch (storageError) {
-        console.error("[capture-lead] STORAGE FAILED — falling back to alert only:", storageError);
+        console.error("[capture-lead] STORAGE FAILED, falling back to alert only:", storageError);
       }
     }
 
     if (!stored && !isLeadNotifyConfigured()) {
       // Nowhere to put it and nobody to tell. This is the only case where the
       // visitor must be asked to reach out another way.
-      console.error("[capture-lead] LEAD LOST — no storage and no alert channel configured.");
+      console.error("[capture-lead] LEAD LOST, no storage and no alert channel configured.");
       return NextResponse.json(CONFIG_ERROR, { status: 503 });
     }
 
@@ -506,7 +506,7 @@ export async function POST(request: NextRequest) {
       });
 
       if (!alert.ok) {
-        console.error("[capture-lead] LEAD LOST — storage failed and no alert was delivered.");
+        console.error("[capture-lead] LEAD LOST, storage failed and no alert was delivered.");
         return NextResponse.json(CONFIG_ERROR, { status: 503 });
       }
 
@@ -680,7 +680,7 @@ export async function POST(request: NextRequest) {
         );
         if (!enrollmentId) {
           console.error(
-            `[capture-lead] nurture enrollment returned no id for sequence "${sequenceKey}" — the lead is stored but the follow-up sequence did not start.`,
+            `[capture-lead] nurture enrollment returned no id for sequence "${sequenceKey}", the lead is stored but the follow-up sequence did not start.`,
           );
         }
       } else {

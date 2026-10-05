@@ -16,14 +16,14 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Special Enrollment Periods for Medicare — Greensboro, NC" },
+  title: { absolute: "Special Enrollment Periods for Medicare | Greensboro, NC" },
   description:
     "Lost job coverage, moving, or another big change? A Special Enrollment Period may let you enroll in or change Medicare outside the usual dates.",
   alternates: { canonical: "/special-enrollment" },
   openGraph: pageOpenGraph({
     title: "Special Enrollment Periods for Medicare",
     description:
-      "Life changes that open a Medicare enrollment window outside the usual dates — and how to use one before it closes.",
+      "Life changes that open a Medicare enrollment window outside the usual dates, and how to use one before it closes.",
     path: "/special-enrollment",
   }),
 };
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "I lost my job-based coverage. How long do I have to enroll in Part B?",
-    a: "Usually eight months from when the employment — or the coverage — ends, whichever comes first, without a late penalty. But the details matter: the coverage generally has to have been based on current employment, not retiree coverage or COBRA. Tell me what changed and when, and we'll work out your exact dates.",
+    a: "Usually eight months from when the employment, or the coverage, ends, whichever comes first, without a late penalty. But the details matter: the coverage generally has to have been based on current employment, not retiree coverage or COBRA. Tell me what changed and when, and we'll work out your exact dates.",
   },
   {
     q: "I'm moving. Can I change my Medicare plan?",
@@ -39,30 +39,30 @@ const FAQ = [
   },
   {
     q: "What's the difference between a Special Enrollment Period and Annual Enrollment?",
-    a: "Annual Enrollment (October 15 to December 7) is open to everyone with Medicare, every fall. A Special Enrollment Period is personal — it's triggered by something that happened to you, like losing coverage or moving, and it opens its own window outside those fall dates.",
+    a: "Annual Enrollment (October 15 to December 7) is open to everyone with Medicare, every fall. A Special Enrollment Period is personal. It's triggered by something that happened to you, like losing coverage or moving, and it opens its own window outside those fall dates.",
   },
   {
     q: "Does COBRA let me delay Part B without a penalty?",
-    a: "No — and this is the mistake that costs people the most. COBRA and retiree coverage generally don't count as coverage that lets you delay Part B. If you're 65 or older and on COBRA instead of Part B, talk to someone before the 8-month window around the end of your employment closes.",
+    a: "No, and this is the mistake that costs people the most. COBRA and retiree coverage generally don't count as coverage that lets you delay Part B. If you're 65 or older and on COBRA instead of Part B, talk to someone before the 8-month window around the end of your employment closes.",
   },
   {
     q: "What if I already missed my Initial Enrollment Period?",
-    a: "There's a General Enrollment Period each year from January 1 to March 31, though late penalties may apply. And depending on what happened — a move, lost coverage, a plan leaving your area — a Special Enrollment Period may still be open to you. The sooner we look at your dates, the more options you tend to have.",
+    a: "There's a General Enrollment Period each year from January 1 to March 31, though late penalties may apply. And depending on what happened, a move, lost coverage, a plan leaving your area, a Special Enrollment Period may still be open to you. The sooner we look at your dates, the more options you tend to have.",
   },
   {
     q: "Can you check whether I qualify for one?",
-    a: "Yes. Bring (or just tell me) what changed, when it changed, and what coverage you had. I'll work out whether a Special Enrollment Period applies and what your deadlines are — no cost, no obligation.",
+    a: "Yes. Bring (or just tell me) what changed, when it changed, and what coverage you had. I'll work out whether a Special Enrollment Period applies and what your deadlines are, no cost, no obligation.",
   },
 ] as const;
 
 const TRIGGERS = [
   {
     title: "Job-based coverage ending",
-    body: "Yours or your spouse's — retirement, a layoff, or hours dropping below full-time. This is the most common one I help with, and the 8-month Part B window usually starts when the employment or coverage ends.",
+    body: "Yours or your spouse's, retirement, a layoff, or hours dropping below full-time. This is the most common one I help with, and the 8-month Part B window usually starts when the employment or coverage ends.",
   },
   {
     title: "Moving",
-    body: "A move out of your plan's service area — even across town, if it crosses county or plan boundaries — can open a window to choose coverage at your new address.",
+    body: "A move out of your plan's service area, even across town, if it crosses county or plan boundaries, can open a window to choose coverage at your new address.",
   },
   {
     title: "Losing other coverage",
@@ -95,7 +95,7 @@ export default function SpecialEnrollmentPage() {
             articleJsonLd({
               headline: "Special Enrollment Periods for Medicare",
               description:
-                "The life changes — lost job coverage, a move, a plan leaving — that open a Medicare enrollment window outside the usual dates.",
+                "The life changes (lost job coverage, a move, a plan leaving) that open a Medicare enrollment window outside the usual dates.",
               path: "/special-enrollment",
               datePublished: "2026-09-19",
               dateModified: "2026-09-19",
@@ -108,7 +108,7 @@ export default function SpecialEnrollmentPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Special Enrollment Periods" }]}
         eyebrow="Greensboro & the Triad"
         title="Life changed? Medicare may give you another window."
-        lede="Losing job coverage, moving, or another big change can open a Special Enrollment Period — a chance to enroll or switch outside the usual dates."
+        lede="Losing job coverage, moving, or another big change can open a Special Enrollment Period, a chance to enroll or switch outside the usual dates."
         secondaryHref="/start?topic=medicare&ask=sep"
         secondaryLabel="Check my situation →"
       />
@@ -117,7 +117,7 @@ export default function SpecialEnrollmentPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The situations that usually qualify</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            A Special Enrollment Period isn&apos;t a date on the calendar — it starts because
+            A Special Enrollment Period isn&apos;t a date on the calendar. It starts because
             something happened to you. These are the triggers I see most often in the Triad:
           </p>
           <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -131,7 +131,7 @@ export default function SpecialEnrollmentPage() {
             ))}
           </div>
           <p className="text-18 mt-6 leading-relaxed">
-            The exact window depends on the situation — which is why the most useful thing you can
+            The exact window depends on the situation, which is why the most useful thing you can
             do is tell me <em>what changed and when</em>. We&apos;ll work out your dates together.
           </p>
         </div>
@@ -148,7 +148,7 @@ export default function SpecialEnrollmentPage() {
               },
               {
                 title: "Don't assume your old coverage protects you",
-                body: "COBRA and retiree coverage feel like coverage — and they are, for health care — but they generally don't let you delay Part B without a penalty. This misunderstanding is the single most expensive one I see.",
+                body: "COBRA and retiree coverage feel like coverage, and they are for health care, but they generally don't let you delay Part B without a penalty. This misunderstanding is the single most expensive one I see.",
               },
               {
                 title: "Talk to someone before the window closes",
@@ -194,7 +194,7 @@ export default function SpecialEnrollmentPage() {
 
       <KitchenTableClose
         heading="Tell me what changed"
-        body="A date, a move, a coverage letter — bring what you have. We'll figure out whether a Special Enrollment Period applies to you, during a no-cost, no-obligation consultation."
+        body="A date, a move, a coverage letter, bring what you have. We'll figure out whether a Special Enrollment Period applies to you, during a no-cost, no-obligation consultation."
         href="/start?topic=medicare&ask=sep"
         label="Request a consultation →"
       />

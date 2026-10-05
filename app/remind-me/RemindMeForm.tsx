@@ -58,7 +58,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
 
     const cleanEmail = email.trim().toLowerCase();
     if (!EMAIL_REGEX.test(cleanEmail)) {
-      setError("That email doesn’t look right — check it so the reminder reaches you.");
+      setError("That email doesn’t look right, check it so the reminder reaches you.");
       return;
     }
     if (kind === "t65" && (!birthMonth || !birthYear)) {
@@ -127,7 +127,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
           Your window is open right now.
         </h2>
         <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]">
-          {result.message} Rather than a reminder, this is worth a conversation — enrolling early in
+          {result.message} Rather than a reminder, this is worth a conversation. Enrolling early in
           the window means coverage starts sooner, and the supplemental-coverage window that runs
           alongside it is the one time your health history can’t count against you.
         </p>
@@ -169,7 +169,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
           )}
         </p>
         <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-          Nothing to do until then — check your inbox for a confirmation with my details in case
+          Nothing to do until then, check your inbox for a confirmation with my details in case
           anything comes up sooner.
         </p>
       </div>
@@ -305,13 +305,13 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
                 ) : preview.status === "open" ? (
                   <>
                     Your window is <strong>open now</strong> and closes{" "}
-                    {formatLongDate(preview.closesOn)} — worth a conversation rather than a
+                    {formatLongDate(preview.closesOn)}, worth a conversation rather than a
                     reminder.
                   </>
                 ) : (
                   <>
                     That window closed on {formatLongDate(preview.closesOn)}. There may still be
-                    options — worth a quick call.
+                    options, worth a quick call.
                   </>
                 )}
               </p>
