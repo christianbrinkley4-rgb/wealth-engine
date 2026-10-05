@@ -18,7 +18,7 @@
 .personal-home h2,
 .personal-schedule h1,
 .personal-schedule h2 {
-  font-family: var(--font-source-serif), Georgia, serif;
+  font-family: var(--font-fraunces), Georgia, serif;
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 1.16;
@@ -172,7 +172,7 @@
   letter-spacing: -0.05em;
 }
 .personal-guide h3 {
-  font-family: var(--font-source-serif), Georgia, serif;
+  font-family: var(--font-fraunces), Georgia, serif;
   font-size: 1.42rem;
   line-height: 1.3;
   font-weight: 600;

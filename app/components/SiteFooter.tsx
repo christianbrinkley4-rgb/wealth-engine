@@ -3,9 +3,42 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { SocialLinks } from "@/app/components/SocialLinks";
-import { AGENT, GOVERNMENT_DISCLAIMER, TPMO_DISCLAIMER } from "@/lib/agent";
-import { featuredPlaces, SERVICE_AREA_LEDE } from "@/lib/triad";
+import { TpmoDisclaimer } from "@/components/TpmoDisclaimer";
+import { AGENT, GOVERNMENT_DISCLAIMER, publishedProfiles } from "@/lib/agent";
+import { featuredPlaces } from "@/lib/triad";
+
+const START = [
+  { href: "/plan-check", label: "Plan check quiz" },
+  { href: "/turning-65", label: "Turning 65" },
+  { href: "/annual-enrollment", label: "Already on Medicare" },
+  { href: "/anoc", label: "Your Annual Notice of Change" },
+  { href: "/turning-65#enrollment-dates", label: "Find my Medicare dates" },
+  { href: "/start", label: "Ask a question" },
+  { href: "/schedule", label: "Book a time" },
+] as const;
+
+const LEARN = [
+  { href: "/learn", label: "Learning Hub" },
+  { href: "/answers", label: "Medicare questions, answered" },
+  { href: "/taxes-and-retirement", label: "Taxes & retirement" },
+  { href: "/advantage-vs-medigap", label: "Advantage or Medigap" },
+  { href: "/keep-my-doctor", label: "Keeping your doctors" },
+  { href: "/social-security-timing", label: "Social Security timing" },
+  { href: "/irmaa-appeal", label: "IRMAA appeals" },
+  { href: "/helping-a-parent", label: "Helping a parent" },
+] as const;
+
+const MORE = [
+  { href: "/life-insurance", label: "Life insurance" },
+  { href: "/care-coverage", label: "Care and critical illness coverage" },
+  { href: "/retirement-income", label: "Retirement income" },
+  { href: "/annuities", label: "Annuities" },
+  { href: "/medicare", label: "Premium estimate" },
+  { href: "/plan", label: "Conversion timing" },
+  { href: "/roth-window", label: "Roth conversion window" },
+  { href: "/about", label: "About Christian" },
+  { href: "/privacy", label: "Privacy" },
+] as const;
 
 /**
  * The site footer, absent on paid-traffic landing pages.
@@ -19,249 +52,120 @@ export function SiteFooter() {
   if (pathname.startsWith("/lp/")) return null;
 
   const year = new Date().getFullYear();
+  const profiles = publishedProfiles();
 
   return (
-    <footer className="border-t border-gray-300 bg-white text-[var(--color-navy)]">
-      <div className="app-shell py-12">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
-            <p className="text-22 font-serif font-semibold">{AGENT.name}</p>
-            <p className="text-16 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-              Licensed insurance agent · {AGENT.city}, {AGENT.state}
-            </p>
-            <p className="text-16 mt-1">
-              <a href={AGENT.phoneHref} className="font-semibold underline underline-offset-2">
-                {AGENT.phone}
-              </a>
-            </p>
-            <SocialLinks className="mt-4" />
-            <p className="text-15 mt-3 max-w-[36ch] leading-relaxed text-[var(--color-ink-muted)]">
+    <footer className="ft">
+      <div className="shell">
+        <div className="ft-hero">
+          <h2>
+            Questions are easier <em>out loud.</em>
+          </h2>
+          <div className="ft-hero-side">
+            <a href={AGENT.phoneHref} className="ft-phone">
+              {AGENT.phone}
+            </a>
+            <p>
               {AGENT.hours} {AGENT.afterHoursPromise}
             </p>
-            <p className="text-15 mt-4 max-w-[40ch] leading-relaxed text-[var(--color-ink-muted)]">
-              {SERVICE_AREA_LEDE} Free consultation. No obligation.
-            </p>
+          </div>
+        </div>
+
+        <div className="ft-grid">
+          <div className="ft-col">
+            <h3>{AGENT.name}</h3>
+            <ul>
+              <li>
+                <span className="ft-col-text">
+                  Licensed agent · {AGENT.licenseLine}
+                  <br />
+                  {AGENT.city}, {AGENT.state}
+                </span>
+              </li>
+            </ul>
+            {profiles.length > 0 ? (
+              <nav aria-label="Public profiles" className="ft-social">
+                <h3>Find me online</h3>
+                <ul>
+                  {profiles.map((profile) => (
+                    <li key={profile.network}>
+                      <a href={profile.url} rel="me noopener noreferrer" target="_blank">
+                        {profile.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : null}
           </div>
 
-          <div>
-            <p className="text-13 font-medium tracking-[0.1em] text-[var(--color-gold-ink)] uppercase">
-              Get help
-            </p>
-            <ul className="text-16 mt-3 flex flex-col gap-1">
-              <li>
-                <Link
-                  href="/turning-65"
-                  className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
-                >
-                  Turning 65
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/annual-enrollment"
-                  className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
-                >
-                  Annual enrollment
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/life-insurance"
-                  className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
-                >
-                  Life insurance
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/retirement-income"
-                  className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
-                >
-                  Retirement income
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/start"
-                  className="inline-flex min-h-11 items-center font-semibold underline-offset-2 hover:underline"
-                >
-                  Request a consultation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="inline-flex min-h-11 items-center underline-offset-2 hover:underline"
-                >
-                  About
-                </Link>
-              </li>
+          <div className="ft-col">
+            <h3>Start here</h3>
+            <ul>
+              {START.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <p className="text-13 font-medium tracking-[0.1em] text-[var(--color-gold-ink)] uppercase">
-              Guides
-            </p>
-            <ul className="text-16 mt-3 flex flex-col gap-2">
-              <li>
-                <Link href="/anoc" className="underline-offset-2 hover:underline">
-                  Your ANOC letter, translated
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/answers/original-medicare-or-medicare-advantage"
-                  className="underline-offset-2 hover:underline"
-                >
-                  Original Medicare or Advantage?
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/answers/are-medicare-supplement-plans-the-same"
-                  className="underline-offset-2 hover:underline"
-                >
-                  Are Medigap plans the same?
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/answers/does-medicare-cover-nursing-homes"
-                  className="underline-offset-2 hover:underline"
-                >
-                  Does Medicare cover nursing homes?
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/answers/turning-65-medicare-checklist-north-carolina"
-                  className="underline-offset-2 hover:underline"
-                >
-                  Turning 65 checklist for NC
-                </Link>
-              </li>
-              <li>
-                <Link href="/keep-my-doctor" className="underline-offset-2 hover:underline">
-                  Keep my doctor?
-                </Link>
-              </li>
-              <li>
-                <Link href="/advantage-vs-medigap" className="underline-offset-2 hover:underline">
-                  Advantage vs Medigap
-                </Link>
-              </li>
-              <li>
-                <Link href="/irmaa-appeal" className="underline-offset-2 hover:underline">
-                  Appeal a high premium
-                </Link>
-              </li>
-              <li>
-                <Link href="/helping-a-parent" className="underline-offset-2 hover:underline">
-                  Helping a parent
-                </Link>
-              </li>
-              <li>
-                <Link href="/social-security-timing" className="underline-offset-2 hover:underline">
-                  Social Security timing
-                </Link>
-              </li>
-              <li>
-                <Link href="/annuities" className="underline-offset-2 hover:underline">
-                  Annuities
-                </Link>
-              </li>
-              <li>
-                <Link href="/care-coverage" className="underline-offset-2 hover:underline">
-                  Care and critical illness coverage
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/turning-65#enrollment-dates"
-                  className="underline-offset-2 hover:underline"
-                >
-                  Find my Medicare dates
-                </Link>
-              </li>
+          <div className="ft-col">
+            <h3>Learn</h3>
+            <ul>
+              {LEARN.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div>
-            <p className="text-13 font-medium tracking-[0.1em] text-[var(--color-gold-ink)] uppercase">
-              Near you
-            </p>
-            <ul className="text-16 mt-3 flex flex-col gap-3">
+          <div className="ft-col">
+            <h3>Near you</h3>
+            <ul>
               {featuredPlaces().map((city) => (
                 <li key={city.slug}>
-                  <span className="block font-medium">{city.name}</span>
-                  <span className="mt-1 flex flex-wrap gap-x-3 gap-y-1">
-                    <Link
-                      href={`/medicare-in/${city.slug}`}
-                      className="underline-offset-2 hover:underline"
-                    >
-                      Medicare
-                    </Link>
-                    <Link
-                      href={`/life-insurance-in/${city.slug}`}
-                      className="underline-offset-2 hover:underline"
-                    >
-                      Life
-                    </Link>
-                    <Link
-                      href={`/retirement-in/${city.slug}`}
-                      className="underline-offset-2 hover:underline"
-                    >
-                      Retirement
-                    </Link>
-                  </span>
+                  <Link href={`/medicare-in/${city.slug}`}>Medicare in {city.name}</Link>
                 </li>
               ))}
               <li>
-                <Link
-                  href="/service-area"
-                  className="font-medium underline-offset-2 hover:underline"
-                >
-                  View all communities →
-                </Link>
+                <Link href="/medicare-creedmoor-nc">Medicare in Creedmoor</Link>
               </li>
               <li>
-                <Link href="/medicare" className="underline-offset-2 hover:underline">
-                  Premium estimate
-                </Link>
+                <Link href="/medicare-oxford-nc">Medicare in Oxford</Link>
               </li>
               <li>
-                <Link href="/plan" className="underline-offset-2 hover:underline">
-                  Conversion timing
-                </Link>
+                <Link href="/service-area">All the towns I serve</Link>
               </li>
-              <li>
-                <Link href="/roth-window" className="underline-offset-2 hover:underline">
-                  Roth conversion window
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="underline-offset-2 hover:underline">
-                  Privacy
-                </Link>
-              </li>
+            </ul>
+            <h3 className="ft-subhead">More help</h3>
+            <ul>
+              {MORE.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <p className="text-13 mt-10 max-w-[72ch] leading-relaxed text-[var(--color-ink-muted)]">
-          {GOVERNMENT_DISCLAIMER} This site is operated by {AGENT.name}, a licensed insurance agent
-          who represents a limited number of insurance companies. It is not affiliated with the
-          University of North Carolina at Greensboro. Nothing here is tax, legal, or investment
-          advice.
-        </p>
-        <p className="text-13 mt-3 max-w-[72ch] leading-relaxed text-[var(--color-ink-muted)]">
-          {TPMO_DISCLAIMER}
-        </p>
-        <p className="text-13 mt-4 text-[var(--color-ink-muted)]">
-          © {year} {AGENT.name}. All rights reserved.
-        </p>
+        <div className="ft-legal">
+          <TpmoDisclaimer className="ft-tpmo" />
+          <p>
+            {GOVERNMENT_DISCLAIMER} This site is operated by {AGENT.name}, a licensed insurance
+            agent ({AGENT.licenseLine}) who represents a limited number of insurance companies. It
+            is not affiliated with the University of North Carolina at Greensboro. Nothing here is
+            tax, legal, or investment advice.
+          </p>
+          <p>
+            © {year} {AGENT.name}. Your information goes to me only. It is never sold.
+          </p>
+        </div>
       </div>
+      <span className="ft-word" aria-hidden>
+        Greensboro
+      </span>
     </footer>
   );
 }

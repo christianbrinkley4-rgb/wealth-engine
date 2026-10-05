@@ -277,8 +277,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
-  --font-display: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
@@ -306,7 +306,7 @@
 
   h1,
   h2 {
-    font-family: var(--font-source-serif), Georgia, "Times New Roman", serif;
+    font-family: var(--font-fraunces), Georgia, "Times New Roman", serif;
     letter-spacing: -0.022em;
   }
 

@@ -4,19 +4,13 @@ import { notFound } from "next/navigation";
 import { ArticleBody } from "@/app/components/ArticleBody";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { ARTICLES, getArticle } from "@/lib/articles";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
-
-/**
- * Question-led articles, one per real question a neighbor asked. The copy
- * lives in lib/articles.ts so figures that change each year are edited in one
- * place.
- */
+import { getTaxArticle, TAX_ARTICLES } from "@/lib/taxArticles";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return ARTICLES.map((article) => ({ slug: article.slug }));
+  return TAX_ARTICLES.map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({
@@ -25,37 +19,33 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = getTaxArticle(slug);
   if (!article) return {};
-  const path = `/answers/${article.slug}`;
+  const path = `/taxes-and-retirement/${article.slug}`;
   return {
     title: { absolute: article.metaTitle },
     description: article.description,
     alternates: { canonical: path },
-    openGraph: pageOpenGraph({
-      title: article.metaTitle,
-      description: article.description,
-      path,
-    }),
+    openGraph: pageOpenGraph({ title: article.metaTitle, description: article.description, path }),
   };
 }
 
-export default async function AnswerPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function TaxArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = getTaxArticle(slug);
   if (!article) notFound();
 
-  const path = `/answers/${article.slug}`;
+  const path = `/taxes-and-retirement/${article.slug}`;
 
   return (
-    <main className="text-[var(--color-navy)]">
+    <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Answers", path: "/answers" },
+              { name: "Taxes & retirement", path: "/taxes-and-retirement" },
               { name: article.title, path },
             ]),
           ),
@@ -83,18 +73,26 @@ export default async function AnswerPage({ params }: { params: Promise<{ slug: s
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Answers", href: "/answers" },
-          { name: "This article" },
+          { name: "Taxes & retirement", href: "/taxes-and-retirement" },
+          { name: "This explainer" },
         ]}
         eyebrow={article.eyebrow}
         title={article.title}
         lede={article.lede}
         secondaryHref={article.startHref}
-        secondaryLabel="Ask me your question"
+        secondaryLabel="Ask me a question"
+        note="Educational only. Not tax, legal, or investment advice."
       />
 
-      <ArticleBody article={article}>
-        <ComplianceDisclosure variant="medicare" />
+      <ArticleBody
+        article={article}
+        nextStep={{
+          heading: "Wondering how this hits your Medicare costs?",
+          body: "That’s the part I can help with directly. For tax prep or investment advice, I’ll point you to the right professional, including the advisor I work with.",
+          label: "Ask me a question",
+        }}
+      >
+        <ComplianceDisclosure showEstimateNote />
       </ArticleBody>
     </main>
   );

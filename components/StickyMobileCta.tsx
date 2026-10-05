@@ -99,22 +99,22 @@ export function StickyMobileCta() {
 
   return (
     <div
-      className="sticky-cta md:hidden"
+      className="scta"
       data-tucked={tucked ? "true" : undefined}
       role="region"
       aria-label="Call or get started"
       inert={tucked}
     >
-      <a href={AGENT.phoneHref} className="sticky-cta-call">
+      <a href={AGENT.phoneHref} className="scta-call">
         <Phone size={20} aria-hidden />
         Call Christian
       </a>
       {isHome ? (
-        <Link href="/plan-check" className="sticky-cta-second">
+        <Link href="/plan-check" className="scta-second">
           Plan check
         </Link>
       ) : (
-        <Link href={second.href} className="sticky-cta-second">
+        <Link href={second.href} className="scta-second">
           {second.label}
         </Link>
       )}

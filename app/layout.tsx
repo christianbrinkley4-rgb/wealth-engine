@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible_Next, Source_Serif_4 } from "next/font/google";
+import { Atkinson_Hyperlegible_Next, Fraunces } from "next/font/google";
 
 import { Analytics } from "@/app/components/Analytics";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { TopRouteChrome } from "@/app/components/TopRouteChrome";
+import { REVEAL_BOOT_SCRIPT, RevealObserver } from "@/components/motion/RevealObserver";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { AGENT, publishedProfiles } from "@/lib/agent";
 import {
@@ -18,6 +19,9 @@ import {
 import "./globals.css";
 import "./personal.css";
 import "./home.css";
+import "./system.css";
+import "./landing.css";
+import "./learn.css";
 
 // Designed for low-vision readers, which suits an audience turning 65.
 const bodyFont = Atkinson_Hyperlegible_Next({
@@ -30,10 +34,12 @@ const bodyFont = Atkinson_Hyperlegible_Next({
   fallback: ["system-ui", "Segoe UI", "Arial", "sans-serif"],
 });
 
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
+// Headlines: a warm, characterful serif with an optical-size axis, so the
+// big display sizes get finer detail and the small sizes stay sturdy.
+const displayFont = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: "variable",
+  axes: ["opsz", "SOFT"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -102,7 +108,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${bodyFont.variable} ${sourceSerif.variable} h-full antialiased`}>
+    // suppressHydrationWarning: the boot script below adds a class to <html>
+    // before React hydrates, on purpose.
+    <html
+      lang="en"
+      className={`${bodyFont.variable} ${displayFont.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: REVEAL_BOOT_SCRIPT }} />
+      </head>
       <body className="min-h-full bg-[var(--color-paper)] pb-28 text-[var(--color-navy)] md:pb-0">
         {publishedProfiles().map((profile) => (
           <link key={profile.network} rel="me" href={profile.url} />
@@ -126,6 +141,7 @@ export default function RootLayout({
         <SiteFooter />
 
         <StickyMobileCta />
+        <RevealObserver />
         <Analytics />
 
         {/* Turnstile loads from the forms that need it: lib/loadTurnstile.ts. */}

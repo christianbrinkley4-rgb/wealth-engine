@@ -1,8 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { TrackedLink } from "@/components/TrackedLink";
 import { AGENT } from "@/lib/agent";
-import type { Article } from "@/lib/articles";
+import { articleText, type Article } from "@/lib/articles";
 
 const LINK_PATTERN = /\[([^\]]+)\]\(([^)]+)\)/g;
 
@@ -15,14 +18,13 @@ function renderInline(text: string): ReactNode[] {
   while ((match = LINK_PATTERN.exec(text)) !== null) {
     if (match.index > last) nodes.push(text.slice(last, match.index));
     const [, label, href] = match;
-    const className = "underline underline-offset-2";
     nodes.push(
       href.startsWith("/") ? (
-        <Link key={match.index} href={href} className={className}>
+        <Link key={match.index} href={href}>
           {label}
         </Link>
       ) : (
-        <a key={match.index} href={href} className={className} rel="noopener">
+        <a key={match.index} href={href} rel="noopener">
           {label}
         </a>
       ),
@@ -41,96 +43,193 @@ export function formatArticleDate(iso: string): string {
   });
 }
 
-export function ArticleBody({ article }: { article: Article }) {
+const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 60);
+
+export type ArticleNextStep = {
+  heading: string;
+  body: string;
+  label: string;
+};
+
+const DEFAULT_NEXT_STEP: ArticleNextStep = {
+  heading: "Want to talk it through?",
+  body: "Bring this question and anything else on your mind. It's free, there's no obligation, and you'll be talking with me, not a call center.",
+  label: "Ask me your question",
+};
+
+/**
+ * The reading layout for every article: a sticky outline on wide screens, a
+ * progress line under the header, numbered sections, and one honest next
+ * step at the end.
+ */
+export function ArticleBody({
+  article,
+  nextStep = DEFAULT_NEXT_STEP,
+  children,
+}: {
+  article: Article;
+  nextStep?: ArticleNextStep;
+  /** Rendered at the end of the article column: the page's required disclosures. */
+  children?: ReactNode;
+}) {
+  const minutes = Math.max(2, Math.round(articleText(article).split(/\s+/).length / 220));
+  const outline = article.sections.map((section) => ({
+    id: slugify(section.h2),
+    title: section.h2,
+  }));
+
   return (
-    <>
-      <section className="bg-white pt-12 pb-4">
-        <div className="measure-prose app-shell max-w-3xl">
-          <p className="text-16 text-[var(--color-ink-muted)]">
-            By {AGENT.name}, Licensed Insurance Agent, Greensboro, NC. Updated{" "}
-            {formatArticleDate(article.updated)}.
-          </p>
-          <p className="text-19 mt-5 leading-relaxed">{renderInline(article.intro)}</p>
-        </div>
-      </section>
-
-      {article.sections.map((section, index) => (
-        <section
-          key={section.h2}
-          className={index % 2 === 0 ? "bg-white py-10" : "bg-[var(--color-paper)] py-10"}
-        >
-          <div className="measure-prose app-shell max-w-3xl">
-            <h2 className="text-28 font-semibold">{section.h2}</h2>
-            {section.blocks.map((block, blockIndex) =>
-              block.kind === "p" ? (
-                <p key={blockIndex} className="text-18 mt-4 leading-relaxed">
-                  {renderInline(block.text)}
-                </p>
-              ) : (
-                <ul key={blockIndex} className="text-18 mt-4 list-disc space-y-3 pl-6 leading-relaxed">
-                  {block.items.map((item) => (
-                    <li key={item}>{renderInline(item)}</li>
-                  ))}
-                </ul>
-              ),
-            )}
-          </div>
-        </section>
-      ))}
-
-      <section className="bg-white py-12">
-        <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Questions people ask me about this</h2>
-          <dl className="mt-8 flex flex-col gap-7">
-            {article.faq.map((item) => (
-              <div key={item.q} className="border-t border-gray-300 pt-6">
-                <dt className="text-19 font-semibold">{item.q}</dt>
-                <dd className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                  {item.a}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      <section className="bg-[var(--color-paper)] py-12">
-        <div className="measure-prose app-shell max-w-3xl">
-          <p className="text-20 rounded-xl border-2 border-[var(--color-navy)] bg-white p-6 leading-relaxed font-semibold">
-            Talk it through with a local agent, free: request a time at{" "}
-            <Link href={article.startHref} className="underline underline-offset-2">
-              christianbrinkleync.com/start
-            </Link>{" "}
-            or call/text{" "}
-            <a href={AGENT.phoneHref} className="underline underline-offset-2">
-              {AGENT.phone}
-            </a>
-            .
-          </p>
-
-          <h2 className="text-20 mt-10 font-semibold">Sources</h2>
-          <ul className="text-16 mt-3 list-disc space-y-2 pl-6 leading-relaxed">
-            {article.sources.map((source) => (
-              <li key={source.href}>
-                <a href={source.href} className="underline underline-offset-2" rel="noopener">
-                  {source.label}
+    <div className="art">
+      <div className="art-progress" aria-hidden />
+      <div className="shell art-grid">
+        <aside className="art-aside" aria-label="On this page">
+          <p className="art-aside-label">On this page</p>
+          <ol>
+            {outline.map((item, index) => (
+              <li key={item.id}>
+                <a href={`#${item.id}`}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  {item.title}
                 </a>
               </li>
             ))}
-          </ul>
+            <li>
+              <a href="#questions">
+                <span>{String(outline.length + 1).padStart(2, "0")}</span>
+                Common questions
+              </a>
+            </li>
+          </ol>
+        </aside>
 
-          <h2 className="text-20 mt-8 font-semibold">Keep reading</h2>
-          <ul className="text-16 mt-3 list-disc space-y-2 pl-6 leading-relaxed">
-            {article.related.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href} className="underline underline-offset-2">
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    </>
+        <article className="art-main">
+          <div className="art-byline">
+            <Image
+              src="/christian-brinkley-square.jpg"
+              alt=""
+              width={96}
+              height={96}
+              sizes="44px"
+            />
+            <p>
+              <strong>{AGENT.name}</strong>
+              <span>
+                Licensed agent, {AGENT.licenseLine} · Updated {formatArticleDate(article.updated)} ·{" "}
+                {minutes} min read
+              </span>
+            </p>
+          </div>
+
+          <p className="art-lead">{renderInline(article.intro)}</p>
+
+          <nav className="art-toc-mobile" aria-label="In this article">
+            <p>In this article</p>
+            <ol>
+              {outline.map((item) => (
+                <li key={item.id}>
+                  <a href={`#${item.id}`}>{item.title}</a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          {article.sections.map((section, index) => (
+            <section key={section.h2} id={outline[index].id} className="art-section">
+              <h2>
+                <span className="art-num" aria-hidden>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                {section.h2}
+              </h2>
+              {section.blocks.map((block, blockIndex) =>
+                block.kind === "p" ? (
+                  <p key={blockIndex}>{renderInline(block.text)}</p>
+                ) : (
+                  <ul key={blockIndex}>
+                    {block.items.map((item) => (
+                      <li key={item}>{renderInline(item)}</li>
+                    ))}
+                  </ul>
+                ),
+              )}
+            </section>
+          ))}
+
+          <section id="questions" className="art-section">
+            <h2>
+              <span className="art-num" aria-hidden>
+                {String(outline.length + 1).padStart(2, "0")}
+              </span>
+              Questions people ask me about this
+            </h2>
+            <div className="faq">
+              {article.faq.map((item) => (
+                <details key={item.q}>
+                  <summary>
+                    {item.q}
+                    <span className="faq-icon" aria-hidden />
+                  </summary>
+                  <p>{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          <aside className="art-next" aria-label="Next step">
+            <Image
+              src="/christian-brinkley-square.jpg"
+              alt=""
+              width={128}
+              height={128}
+              sizes="56px"
+              className="art-next-avatar"
+            />
+            <h2>{nextStep.heading}</h2>
+            <p>{nextStep.body}</p>
+            <div className="art-next-actions">
+              <TrackedLink href={article.startHref} className="btn" event="article_cta_click">
+                {nextStep.label} <ArrowRight size={18} className="arrow" aria-hidden />
+              </TrackedLink>
+              <a href={AGENT.phoneHref} className="btn btn-outline">
+                <Phone size={18} aria-hidden /> {AGENT.phone}
+              </a>
+            </div>
+          </aside>
+
+          <div className="art-refs">
+            <div>
+              <h2>Sources</h2>
+              <ol className="art-sources">
+                {article.sources.map((source) => (
+                  <li key={source.href}>
+                    <a href={source.href} rel="noopener">
+                      {source.label}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <div>
+              <h2>Keep reading</h2>
+              <ul className="art-related">
+                {article.related.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href}>
+                      {item.label} <ArrowRight size={16} aria-hidden />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          {children}
+        </article>
+      </div>
+    </div>
   );
 }

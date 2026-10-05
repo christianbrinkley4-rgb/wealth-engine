@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 
 import { AGENT } from "@/lib/agent";
 
+/** The close at the bottom of a service page: a face, a number, one next step. */
 export function KitchenTableClose({
   heading,
   body,
@@ -14,29 +16,32 @@ export function KitchenTableClose({
   href: string;
   label: string;
 }) {
+  const cleanLabel = label.replace(/\s*→\s*$/, "");
   return (
-    <section className="bg-[var(--color-paper)] py-14 md:py-16">
-      <div className="app-shell max-w-2xl text-center">
-        <h2 className="text-28 font-semibold">{heading}</h2>
-        <p className="text-18 mt-4 text-[var(--color-ink-muted)]">{body}</p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a
-            href={AGENT.phoneHref}
-            className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px hover:shadow-[0_2px_4px_rgba(21,46,52,0.1),0_4px_16px_rgba(21,46,52,0.1)] active:translate-y-0 active:shadow-[0_1px_2px_rgba(21,46,52,0.08)]"
-          >
-            <Phone className="size-5 shrink-0" aria-hidden />
-            {AGENT.phone}
-          </a>
-          <Link
-            href={href}
-            className="text-18 inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] bg-white px-8 font-semibold text-[var(--color-navy)] shadow-[0_1px_2px_rgba(21,46,52,0.05)] transition-all duration-200 ease-out hover:-translate-y-px hover:border-[var(--color-gold-ink)] hover:text-[var(--color-gold-ink)] hover:shadow-[0_2px_4px_rgba(21,46,52,0.07),0_3px_12px_rgba(21,46,52,0.06)] active:translate-y-0"
-          >
-            {label}
-          </Link>
+    <section className="ktc">
+      <div className="shell">
+        <div className="ktc-card" data-reveal>
+          <Image
+            src="/christian-brinkley-square.jpg"
+            alt=""
+            width={128}
+            height={128}
+            sizes="64px"
+            className="ktc-avatar"
+          />
+          <h2>{heading}</h2>
+          <p>{body}</p>
+          <div className="ktc-actions">
+            <a href={AGENT.phoneHref} className="btn">
+              <Phone size={19} aria-hidden />
+              {AGENT.phone}
+            </a>
+            <Link href={href} className="btn btn-outline">
+              {cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
+            </Link>
+          </div>
+          <p className="ktc-note">Free consultation in person or by phone. {AGENT.hours}</p>
         </div>
-        <p className="text-16 mt-6 text-[var(--color-ink-muted)]">
-          Free consultation in person or by phone. {AGENT.hours}
-        </p>
       </div>
     </section>
   );

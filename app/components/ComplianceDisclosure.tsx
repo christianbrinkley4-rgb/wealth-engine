@@ -7,13 +7,8 @@
  * Organization. Use it on anything that mentions Medicare.
  */
 
-import {
-  AGENT,
-  ESTIMATE_DISCLAIMER,
-  GOVERNMENT_DISCLAIMER,
-  hasPublishableNpn,
-  TPMO_DISCLAIMER,
-} from "@/lib/agent";
+import { TpmoDisclaimer } from "@/components/TpmoDisclaimer";
+import { AGENT, ESTIMATE_DISCLAIMER, GOVERNMENT_DISCLAIMER, hasPublishableNpn } from "@/lib/agent";
 
 export function ComplianceDisclosure({
   variant = "general",
@@ -23,17 +18,13 @@ export function ComplianceDisclosure({
   showEstimateNote?: boolean;
 }) {
   return (
-    <aside
-      aria-label="Required disclosures"
-      className="measure-prose text-15 mt-12 rounded-xl border border-gray-300 bg-white p-5 leading-relaxed text-[var(--color-ink-muted)] md:p-6"
-    >
-      <h2 className="text-15 font-semibold tracking-[0.06em] text-[var(--color-navy)] uppercase">
-        Disclosures
-      </h2>
+    <aside aria-label="Required disclosures" className="disclosure measure-prose">
+      <h2>Disclosures</h2>
 
-      <div className="mt-3 space-y-3">
+      <div>
+        {variant === "medicare" ? <TpmoDisclaimer className="disclosure-tpmo" /> : null}
         <p>
-          {AGENT.name} is a licensed insurance agent in {AGENT.licensedStates.join(", ")}
+          {AGENT.name} is a licensed insurance agent ({AGENT.licenseLine})
           {/* Never print a placeholder NPN on a licensed agent’s disclosure. */}
           {hasPublishableNpn() ? `, National Producer Number ${AGENT.npn}` : ""}. This site is his
           own. He represents a limited number of insurance companies and does not offer every plan
@@ -43,10 +34,7 @@ export function ComplianceDisclosure({
         {showEstimateNote ? <p>{ESTIMATE_DISCLAIMER}</p> : null}
 
         {variant === "medicare" ? (
-          <>
-            <p>{TPMO_DISCLAIMER}</p>
-            <p className="font-medium text-[var(--color-navy)]">{GOVERNMENT_DISCLAIMER}</p>
-          </>
+          <p className="disclosure-strong">{GOVERNMENT_DISCLAIMER}</p>
         ) : null}
 
         <p>

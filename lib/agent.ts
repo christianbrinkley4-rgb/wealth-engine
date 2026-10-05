@@ -140,7 +140,14 @@ export const AGENT = {
    */
   linesOfAuthority: ["Life", "Accident & Health"],
 
-  education: "Accounting master’s student at UNCG — expected completion June 2027",
+  /**
+   * The one license line printed on the site, exactly as Christian asked for
+   * it to read (October 2026): "NC Life & Health". Never "Life, Health &
+   * Medicare": Medicare is not a separate line of authority.
+   */
+  licenseLine: "NC Life & Health",
+
+  education: "Accounting master’s student at UNCG, expected completion June 2027",
 
   /**
    * A stated promise you keep beats an implied one you break. National call
@@ -270,7 +277,7 @@ export const ESTIMATE_DISCLAIMER =
 export const COMPENSATION_DISCLOSURE =
   "I am a licensed insurance agent. There is no charge for talking with me. " +
   "I represent a limited number of insurance companies rather than the whole " +
-  "market, so there will be plans I can’t show you — and I’ll tell you when " +
+  "market, so there will be plans I can’t show you, and I’ll tell you when " +
   "that’s the case rather than pretend otherwise. If you enroll in a plan or " +
   "buy a policy through me, the insurance company pays me a commission. Your " +
   "premium is not higher for using an agent. If what you need is something I " +
