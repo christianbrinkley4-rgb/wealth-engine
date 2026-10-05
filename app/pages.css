@@ -743,3 +743,8 @@
 .ab-lead {
   max-width: 48rem;
 }
+@media (max-width: 899px) {
+  .ab-photo {
+    max-width: 440px;
+  }
+}

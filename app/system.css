@@ -551,10 +551,12 @@ p {
   color: var(--cream-50);
   font-weight: 700;
   transform: translateY(-200%);
+  clip-path: inset(50%);
   transition: transform 0.2s ease;
 }
 .skip-link:focus {
   transform: none;
+  clip-path: none;
 }
 
 /* ─── Sticky mobile bar ───────────────────────────────────────────────── */
