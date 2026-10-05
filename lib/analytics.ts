@@ -20,8 +20,26 @@ export const MEASURED_EVENTS = {
   timeline_complete: "timeline_complete",
   /** Someone asked for their dates by email from the date tool. */
   timeline_email_request: "timeline_email_request",
-  /** A completed inquiry, counted once on the thank-you page. */
+  /**
+   * A completed inquiry, counted once: on the thank-you page, or when a quiz's
+   * email capture succeeds (the plan check's short path never reaches
+   * thank-you, and it is still a real request to hear from Christian).
+   */
   generate_lead: "generate_lead",
+  /** Someone pressed start on a quiz. */
+  quiz_start: "quiz_start",
+  /** Someone answered one step of a quiz. Carries the step number, never the answer. */
+  quiz_step: "quiz_step",
+  /** Someone left a quiz they had started without reaching the end. */
+  quiz_abandon: "quiz_abandon",
+  /** Someone reached the result screen of a quiz. */
+  quiz_complete: "quiz_complete",
+  /** The embedded booking calendar was shown to someone. */
+  booking_open: "booking_open",
+  /** The embedded calendar reported a finished booking. */
+  booking_complete: "booking_complete",
+  /** A tap on a "next step" link at the end of a Learning Hub article. */
+  article_cta_click: "article_cta_click",
 } as const;
 
 export type MeasuredEvent = keyof typeof MEASURED_EVENTS;
@@ -29,6 +47,17 @@ export type MeasuredEvent = keyof typeof MEASURED_EVENTS;
 export function isMeasuredEvent(name: string): name is MeasuredEvent {
   return Object.hasOwn(MEASURED_EVENTS, name);
 }
+
+/** The quizzes that report their steps. A quiz id names a tool, never a person. */
+export const QUIZ_IDS = ["plan_check", "help_request"] as const;
+export type QuizId = (typeof QUIZ_IDS)[number];
+
+export function isQuizId(value: unknown): value is QuizId {
+  return typeof value === "string" && (QUIZ_IDS as readonly string[]).includes(value);
+}
+
+/** What an event may say beyond the page: which quiz, and which step number. */
+export type EventDetail = { quiz_id?: QuizId; step?: number };
 
 /**
  * The page path, with anything a visitor typed removed.
@@ -43,9 +72,23 @@ export function safePagePath(url: string): string {
   return path.slice(0, 120);
 }
 
-/** The parameters an event may carry. Anything else is dropped. */
-export function eventParams(pagePath: string): { page_path: string } {
-  return { page_path: safePagePath(pagePath) };
+/**
+ * The parameters an event may carry. Anything else is dropped: an unknown
+ * quiz id, a step that is not a small whole number, or any other key a caller
+ * slipped in.
+ */
+export function eventParams(
+  pagePath: string,
+  detail?: EventDetail,
+): { page_path: string; quiz_id?: QuizId; step?: number } {
+  const params: { page_path: string; quiz_id?: QuizId; step?: number } = {
+    page_path: safePagePath(pagePath),
+  };
+  if (detail && isQuizId(detail.quiz_id)) params.quiz_id = detail.quiz_id;
+  if (detail && Number.isInteger(detail.step) && detail.step! >= 0 && detail.step! <= 50) {
+    params.step = detail.step;
+  }
+  return params;
 }
 
 /**

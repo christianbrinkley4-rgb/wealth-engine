@@ -18,13 +18,17 @@
 import { ArrowLeft, ArrowRight, CalendarCheck, Phone } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { trackLeadOnce } from "@/app/components/Analytics";
+import { useQuizTracking } from "@/hooks/useQuizTracking";
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
 import { newEventId, readAttribution } from "@/lib/attribution";
+import { loadTurnstile } from "@/lib/loadTurnstile";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const STORAGE_KEY = "plan-check-progress-v1";
-const CALENDLY_URL = "https://calendly.com/christianbrinkley4/free-medicare-review-call";
+/** The embedded Cal.com calendar, so booking never sends anyone to another site. */
+const BOOKING_HREF = "/schedule?topic=medicare";
 
 interface QuizOption {
   label: string;
@@ -172,6 +176,7 @@ function useTurnstile() {
 
   useEffect(() => {
     if (!TURNSTILE_SITE_KEY || ready) return;
+    loadTurnstile();
     const poll = setInterval(() => {
       if (turnstileApi()) {
         setReady(true);
@@ -246,7 +251,7 @@ function CaptureForm({
   mode,
 }: {
   quizPayload: Record<string, string>;
-  onCaptured: (email: string, name: string, phoneDigits: string | null) => void;
+  onCaptured: (email: string, name: string, phoneDigits: string | null, eventId: string) => void;
   /** "interstitial" appears mid-quiz after Q3; "results" appears on the results page. */
   mode: "interstitial" | "results";
 }) {
@@ -289,6 +294,9 @@ function CaptureForm({
     setError(null);
     setSending(true);
     const phoneDigits = phone.replace(/\D/g, "");
+    // One id for the browser conversion and the server's copy, so the two
+    // are counted as one inquiry.
+    const eventId = newEventId();
     try {
       const res = await fetch("/api/capture-lead", {
         method: "POST",
@@ -302,7 +310,7 @@ function CaptureForm({
           phone_number: phoneDigits.length >= 10 ? phoneDigits : null,
           quiz_answers: quizPayload,
           attribution: readAttribution(),
-          event_id: newEventId(),
+          event_id: eventId,
           consent_given: true,
           consent_text: CONSENT_TEXT,
           consent_version: CONSENT_VERSION,
@@ -319,7 +327,7 @@ function CaptureForm({
         setSending(false);
         return;
       }
-      onCaptured(cleanEmail, cleanName, phoneDigits.length >= 10 ? phoneDigits : null);
+      onCaptured(cleanEmail, cleanName, phoneDigits.length >= 10 ? phoneDigits : null, eventId);
     } catch {
       setError("Something went wrong on my end. Please try again, or call me.");
       setSending(false);
@@ -558,6 +566,7 @@ export function PlanCheckQuiz() {
   const [capturedName, setCapturedName] = useState("");
   const [phoneProvided, setPhoneProvided] = useState(false);
   const [interstitialShown, setInterstitialShown] = useState(false);
+  const tracking = useQuizTracking("plan_check");
 
   // Resume: answers persist on this device so abandoners can pick up where
   // they left off, including on the results screen after a reload.
@@ -623,7 +632,16 @@ export function PlanCheckQuiz() {
     }
   }, []);
 
-  function handleCaptured(email: string, name: string, phoneDigits: string | null) {
+  function handleCaptured(
+    email: string,
+    name: string,
+    phoneDigits: string | null,
+    eventId: string,
+  ) {
+    // The short path (email at question 3 or on the results screen) is a real
+    // inquiry even though it never reaches the thank-you page, so it is
+    // counted here, once.
+    trackLeadOnce(eventId, "medicare");
     setCapturedEmail(email);
     setCapturedName(name);
     if (phoneDigits) setPhoneProvided(true);
@@ -644,6 +662,8 @@ export function PlanCheckQuiz() {
     const nextAnswers = { ...answers, [question.id]: optionIndex };
     const nextIndex = questionIndex + 1;
     setAnswers(nextAnswers);
+    tracking.step(questionIndex + 1);
+    if (nextIndex >= QUESTIONS.length) tracking.complete();
     // Progressive capture: after Q3 (index 2), offer the email interstitial
     // once, unless they already gave an email.
     if (questionIndex === 2 && !interstitialShown && !capturedEmail) {
@@ -720,7 +740,10 @@ export function PlanCheckQuiz() {
           straight answer on whether a free review makes sense.
         </p>
         <button
-          onClick={() => setPhase("quiz")}
+          onClick={() => {
+            tracking.start();
+            setPhase("quiz");
+          }}
           className="mt-8 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-10 text-18 font-semibold text-[var(--color-paper)] transition-all duration-200 ease-out hover:-translate-y-px"
         >
           Start the plan check <ArrowRight className="size-5" aria-hidden />
@@ -743,8 +766,8 @@ export function PlanCheckQuiz() {
         <CaptureForm
           mode="interstitial"
           quizPayload={quizPayload(false)}
-          onCaptured={(email, name, phoneDigits) => {
-            handleCaptured(email, name, phoneDigits);
+          onCaptured={(email, name, phoneDigits, eventId) => {
+            handleCaptured(email, name, phoneDigits, eventId);
             setQuestionIndex(3);
             setPhase("quiz");
           }}
@@ -791,7 +814,7 @@ export function PlanCheckQuiz() {
           )}
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
             <a
-              href={CALENDLY_URL}
+              href={BOOKING_HREF}
               className="text-18 inline-flex min-h-14 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-8 font-semibold text-[var(--color-paper)] transition-all duration-200 ease-out hover:-translate-y-px"
             >
               <CalendarCheck className="size-5" aria-hidden />
@@ -841,6 +864,8 @@ export function PlanCheckQuiz() {
             setCapturedName("");
             setPhoneProvided(false);
             clearSaved();
+            tracking.reset();
+            tracking.start();
             setPhase("quiz");
           }}
           className="text-16 mt-6 w-full py-3 font-medium text-[var(--color-ink-muted)] underline underline-offset-2"

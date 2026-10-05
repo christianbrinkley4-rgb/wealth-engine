@@ -143,11 +143,6 @@ export default function PlanCheckPage() {
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
-        <p className="text-15 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-          We do not offer every plan available in your area. Currently we represent 8 organizations
-          which offer 65 products in your area. Please contact Medicare.gov or 1-800-MEDICARE to
-          get information on all of your options.
-        </p>
         <p className="text-15 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
           Questions go directly to {AGENT.name} at{" "}
           <a href={AGENT.phoneHref} className="underline underline-offset-2">

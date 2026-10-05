@@ -7,17 +7,38 @@ import { useEffect, useState } from "react";
 
 import { AGENT } from "@/lib/agent";
 
+/**
+ * Exact paths and path prefixes where the bar steps aside. Every Medicare
+ * page keeps it, including the Medicare tool and the town pages: those are
+ * where people decide to call. Matching is exact or by "/prefix/" so that
+ * "/plan" never hides "/plan-check" and "/medicare" never hid
+ * "/medicare-in/greensboro" again.
+ */
 const HIDE_PREFIXES = [
   "/lp",
   "/start",
   "/plan",
-  "/medicare",
   "/roth-window",
   "/remind-me",
   "/schedule",
   "/thank-you",
   "/privacy",
+  "/unsubscribe",
 ];
+
+/** Medicare pages offer the plan check as the second step; elsewhere, a question. */
+function secondStep(pathname: string): { href: string; label: string } {
+  if (pathname === "/plan-check") return { href: "/schedule?topic=medicare", label: "Book a time" };
+  if (
+    pathname.startsWith("/medicare") ||
+    ["/aep", "/anoc", "/annual-enrollment", "/advantage-vs-medigap", "/answers"].some(
+      (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+    )
+  ) {
+    return { href: "/plan-check", label: "Plan check" };
+  }
+  return { href: "/start", label: "Ask a question" };
+}
 
 const FIELD_SELECTOR = "input, select, textarea";
 
@@ -74,6 +95,7 @@ export function StickyMobileCta() {
   if (hidden) return null;
 
   const tucked = typing || (isHome && heroVisible);
+  const second = secondStep(pathname);
 
   return (
     <div
@@ -88,12 +110,12 @@ export function StickyMobileCta() {
         Call Christian
       </a>
       {isHome ? (
-        <a href="#your-timeline" className="sticky-cta-second">
-          My dates
-        </a>
+        <Link href="/plan-check" className="sticky-cta-second">
+          Plan check
+        </Link>
       ) : (
-        <Link href="/start" className="sticky-cta-second">
-          Ask a question
+        <Link href={second.href} className="sticky-cta-second">
+          {second.label}
         </Link>
       )}
     </div>

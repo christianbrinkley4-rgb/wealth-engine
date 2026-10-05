@@ -19,12 +19,12 @@ export const metadata: Metadata = {
   },
   description:
     "Free local Medicare help across the Piedmont Triad and beyond: Greensboro, High Point, Burlington, Asheboro, Oxford, Roxboro, and more. Find your town from Christian Brinkley, licensed NC agent.",
-  alternates: { canonical: "/medicare-nc-towns/" },
+  alternates: { canonical: "/medicare-nc-towns" },
   openGraph: pageOpenGraph({
     title: "Medicare help in your town",
     description:
       "Free local Medicare reviews across Guilford, Alamance, Randolph, Rockingham, Granville, Person, and nearby counties.",
-    path: "/medicare-nc-towns/",
+    path: "/medicare-nc-towns",
   }),
 };
 
@@ -182,7 +182,7 @@ export default function MedicareTownsHubPage() {
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
               { name: "Service area", path: "/service-area" },
-              { name: "Towns we serve", path: "/medicare-nc-towns/" },
+              { name: "Towns we serve", path: "/medicare-nc-towns" },
             ]),
           ),
         }}
@@ -263,11 +263,6 @@ export default function MedicareTownsHubPage() {
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
-        <p className="text-15 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-          We do not offer every plan available in your area. Currently we represent 8 organizations
-          which offer 65 products in your area. Please contact Medicare.gov or 1-800-MEDICARE to
-          get information on all of your options.
-        </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
     </main>

@@ -10,10 +10,17 @@ import {
 } from "@/lib/analytics";
 
 describe("what may be measured", () => {
-  it("reports only the four declared events", () => {
+  it("reports only the declared funnel events", () => {
     expect(Object.keys(MEASURED_EVENTS).sort()).toEqual([
+      "article_cta_click",
+      "booking_complete",
+      "booking_open",
       "generate_lead",
       "phone_click",
+      "quiz_abandon",
+      "quiz_complete",
+      "quiz_start",
+      "quiz_step",
       "timeline_complete",
       "timeline_email_request",
     ]);
@@ -38,6 +45,29 @@ describe("what an event may say about a visit", () => {
   it("sends the page path and nothing else", () => {
     expect(eventParams("/turning-65")).toEqual({ page_path: "/turning-65" });
     expect(Object.keys(eventParams("/"))).toEqual(["page_path"]);
+  });
+
+  it("lets a quiz say which quiz and which step, and nothing about the answer", () => {
+    expect(eventParams("/plan-check", { quiz_id: "plan_check", step: 3 })).toEqual({
+      page_path: "/plan-check",
+      quiz_id: "plan_check",
+      step: 3,
+    });
+    // Anything else a caller slips in is dropped, not forwarded.
+    const sneaky = { quiz_id: "plan_check", step: 2, answer: "Some of them", zip: "27401" };
+    expect(Object.keys(eventParams("/plan-check", sneaky as never)).sort()).toEqual([
+      "page_path",
+      "quiz_id",
+      "step",
+    ]);
+  });
+
+  it("drops an unknown quiz id or a step that is not a small whole number", () => {
+    expect(eventParams("/x", { quiz_id: "zip_lookup" as never, step: 2.5 })).toEqual({
+      page_path: "/x",
+    });
+    expect(eventParams("/x", { step: -1 })).toEqual({ page_path: "/x" });
+    expect(eventParams("/x", { step: 9999 })).toEqual({ page_path: "/x" });
   });
 
   it("drops anything a link carried in the query or the fragment", () => {

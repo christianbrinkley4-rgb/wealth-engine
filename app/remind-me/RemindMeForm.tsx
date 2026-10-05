@@ -2,11 +2,12 @@
 
 import { BellRing, CalendarClock, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { MedicareDates } from "@/components/MedicareDates";
 import { AGENT, REMINDER_CONSENT_TEXT } from "@/lib/agent";
 import { readAttribution } from "@/lib/attribution";
+import { loadTurnstile } from "@/lib/loadTurnstile";
 import {
   formatLongDate,
   getNextAepReminder,
@@ -38,6 +39,8 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
   const [consent, setConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  // The widget below renders itself (class "cf-turnstile") once the script arrives.
+  useEffect(() => loadTurnstile(), []);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<Result | null>(null);
 

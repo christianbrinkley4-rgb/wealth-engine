@@ -30,6 +30,7 @@ import {
   conversionTarget,
   eventParams,
   isMeasuredEvent,
+  type EventDetail,
   type MeasuredEvent,
 } from "@/lib/analytics";
 import { captureAttribution } from "@/lib/attribution";
@@ -51,6 +52,9 @@ const GOOGLE_TAG_ID = GA4_ID || GOOGLE_ADS_ID;
 const ADS_CONVERSIONS: Partial<Record<MeasuredEvent, string | undefined>> = {
   phone_click: process.env.NEXT_PUBLIC_GOOGLE_ADS_CALL_LABEL,
   generate_lead: process.env.NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL,
+  // A finished booking is the strongest signal the site produces. Optional:
+  // with no label set, it stays a GA4 event only.
+  booking_complete: process.env.NEXT_PUBLIC_GOOGLE_ADS_BOOKING_LABEL,
 };
 
 /** Report one Google Ads conversion, when that action has been configured. */
@@ -103,12 +107,12 @@ export function trackLeadOnce(eventId: string, topic?: string) {
  * Carries the event name and the page only: never answers, dates, or contact
  * details, which have no business in an analytics or ad platform.
  */
-export function trackEvent(name: string) {
+export function trackEvent(name: string, detail?: EventDetail) {
   if (typeof window === "undefined") return;
   // An event this file has not declared is a mistake, not a measurement.
   if (!isMeasuredEvent(name)) return;
   try {
-    window.gtag?.("event", name, eventParams(window.location.pathname));
+    window.gtag?.("event", name, eventParams(window.location.pathname, detail));
     trackAdsConversion(name);
     (window as Window & { sa_event?: (event: string) => void }).sa_event?.(name);
   } catch {

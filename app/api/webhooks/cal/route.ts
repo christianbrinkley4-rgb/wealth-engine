@@ -6,6 +6,7 @@ import {
   handleBooking,
   newUnsubscribeToken,
 } from "@/lib/nurtureStore";
+import { sendServerEvent } from "@/lib/serverAnalytics";
 import { getSupabaseAdmin, hasSupabaseAdminConfig } from "@/lib/supabase";
 import {
   CalPayloadError,
@@ -41,8 +42,17 @@ export async function POST(request: Request) {
     }
     const appointment = parseCalAppointment(body, config);
     if (!appointment) return reply({ ignored: true }, 200);
-    await saveCalAppointment(appointment);
+    const saved = await saveCalAppointment(appointment);
     await syncNurtureWithBooking(appointment);
+    // Count a new booking once: a retried delivery is a duplicate, and a
+    // reschedule is the same booking moving, not a second one.
+    if (
+      !saved.duplicate &&
+      (appointment.event_type === "BOOKING_CREATED" ||
+        appointment.event_type === "BOOKING_REQUESTED")
+    ) {
+      await sendServerEvent("booking_confirmed", appointment.topic);
+    }
     return reply({ received: true }, 200);
   } catch (error) {
     if (error instanceof CalPayloadError) return reply({ error: "Invalid request" }, error.status);

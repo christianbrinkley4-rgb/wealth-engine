@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Atkinson_Hyperlegible_Next, Source_Serif_4 } from "next/font/google";
 
 import { Analytics } from "@/app/components/Analytics";
@@ -38,8 +37,6 @@ const sourceSerif = Source_Serif_4({
   style: ["normal", "italic"],
   display: "swap",
 });
-
-const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -131,14 +128,7 @@ export default function RootLayout({
         <StickyMobileCta />
         <Analytics />
 
-        {TURNSTILE_SITE_KEY ? (
-          <Script
-            src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-            strategy="afterInteractive"
-            async
-            defer
-          />
-        ) : null}
+        {/* Turnstile loads from the forms that need it: lib/loadTurnstile.ts. */}
       </body>
     </html>
   );

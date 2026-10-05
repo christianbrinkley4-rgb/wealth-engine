@@ -8,6 +8,7 @@ import { newEventId, readAttribution } from "@/lib/attribution";
 import { timelineAnswers, type TimelineInput } from "@/lib/enrollmentTimeline";
 import { thankYouUrl } from "@/lib/thankYouUrl";
 import { trackEvent } from "@/app/components/Analytics";
+import { loadTurnstile } from "@/lib/loadTurnstile";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -70,6 +71,7 @@ export function TimelineEmailCapture({
    */
   useEffect(() => {
     if (!TURNSTILE_SITE_KEY || turnstileReady) return;
+    loadTurnstile();
     // Polled rather than checked inline: the script may already be there, and
     // the first tick catches that case without a synchronous setState.
     const poll = setInterval(() => {

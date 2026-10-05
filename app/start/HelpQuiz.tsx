@@ -7,6 +7,7 @@ import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 
 import { useIsClient } from "@/hooks/useIsClient";
+import { useQuizTracking } from "@/hooks/useQuizTracking";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
 import { newEventId, readAttribution } from "@/lib/attribution";
@@ -241,6 +242,12 @@ export function HelpQuiz() {
   const [turnstileReady, setTurnstileReady] = useState(false);
   const [turnstileRender, setTurnstileRender] = useState(0);
   const quickMode = Boolean(linked?.quick && stored.phase === "contact");
+  const tracking = useQuizTracking("help_request");
+  const startTracking = tracking.start;
+  // The short contact form (quick=1) skips the questions; opening it is the start.
+  useEffect(() => {
+    if (quickMode) startTracking();
+  }, [quickMode, startTracking]);
 
   const askContext = linked?.ask ?? "general";
   const topic = stored.topic;
@@ -334,6 +341,8 @@ export function HelpQuiz() {
   }
 
   function selectSituation(situation: QuizSituation) {
+    tracking.start();
+    tracking.step(1);
     const first = situation.firstAnswer;
     if (first) {
       patch({
@@ -358,6 +367,7 @@ export function HelpQuiz() {
     if (!topic) return;
     const nextAnswers = { ...stored.answers, [questionId]: value };
     const isLast = stored.branchIndex >= branchQuestions.length - 1;
+    tracking.step(stepNumber);
     if (isLast) {
       patch({ answers: nextAnswers, phase: "value" });
     } else {
@@ -541,6 +551,7 @@ export function HelpQuiz() {
       }
 
       clearStored();
+      tracking.complete();
       router.push(
         thankYouUrl({
           source: "help_quiz",

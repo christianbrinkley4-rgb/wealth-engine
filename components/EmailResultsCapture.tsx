@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION } from "@/lib/agent";
 import { newEventId, readAttribution } from "@/lib/attribution";
 import { thankYouUrl } from "@/lib/thankYouUrl";
+import { loadTurnstile } from "@/lib/loadTurnstile";
 
 interface EmailResultsCaptureProps {
   initialEmail?: string;
@@ -75,6 +76,7 @@ export function EmailResultsCapture({
    */
   useEffect(() => {
     if (!TURNSTILE_SITE_KEY || turnstileReady) return;
+    loadTurnstile();
     // Polled rather than checked inline: the script may already be there, and
     // the first tick catches that case without a synchronous setState.
     const poll = setInterval(() => {

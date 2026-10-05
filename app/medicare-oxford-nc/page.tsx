@@ -10,7 +10,6 @@ import {
   articleJsonLd,
   breadcrumbJsonLd,
   faqJsonLd,
-  localBusinessJsonLd,
   pageOpenGraph,
   serviceJsonLd,
 } from "@/lib/seo";
@@ -66,7 +65,7 @@ function CtaBlock() {
             Take the plan-fit quiz →
           </Link>
           <a
-            href="https://calendly.com/christianbrinkley4/free-medicare-review-call"
+            href="/schedule?topic=medicare"
             className="text-18 inline-flex min-h-14 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] bg-white px-8 font-semibold text-[var(--color-navy)] shadow-[0_1px_2px_rgba(21,46,52,0.05)] transition-all duration-200 ease-out hover:-translate-y-px hover:border-[var(--color-gold-ink)] hover:text-[var(--color-gold-ink)] hover:shadow-[0_2px_4px_rgba(21,46,52,0.07),0_3px_12px_rgba(21,46,52,0.06)] active:translate-y-0"
           >
             Book a free call
@@ -97,7 +96,7 @@ export default function MedicareOxfordPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Service area", path: "/medicare-nc-towns/" },
+              { name: "Service area", path: "/medicare-nc-towns" },
               { name: "Medicare help in Oxford, NC", path: "/medicare-oxford-nc" },
             ]),
           ),
@@ -135,15 +134,12 @@ export default function MedicareOxfordPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
-      />
+      {/* LocalBusiness markup comes once, site-wide, from app/layout.tsx. */}
 
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Service area", href: "/medicare-nc-towns/" },
+          { name: "Service area", href: "/medicare-nc-towns" },
           { name: "Medicare help in Oxford, NC" },
         ]}
         eyebrow="Medicare help · Oxford and Granville County"
@@ -273,7 +269,7 @@ export default function MedicareOxfordPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <p className="text-17 leading-relaxed text-[var(--color-ink-muted)]">
             I&apos;m based in Granville County, so meeting up around Oxford is easy. Here&apos;s{" "}
-            <Link href="/medicare-nc-towns/" className="underline underline-offset-2">
+            <Link href="/medicare-nc-towns" className="underline underline-offset-2">
               the full list of towns I serve
             </Link>
             .
@@ -289,11 +285,6 @@ export default function MedicareOxfordPage() {
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
-        <p className="text-15 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-          We do not offer every plan available in your area. Currently we represent 8
-          organizations which offer 65 products in your area. Please contact Medicare.gov or
-          1-800-MEDICARE to get information on all of your options.
-        </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
     </main>

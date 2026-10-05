@@ -10,7 +10,6 @@ import {
   articleJsonLd,
   breadcrumbJsonLd,
   faqJsonLd,
-  localBusinessJsonLd,
   pageOpenGraph,
   serviceJsonLd,
 } from "@/lib/seo";
@@ -107,10 +106,7 @@ export default function MedicareCreedmoorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
-      />
+      {/* LocalBusiness markup comes once, site-wide, from app/layout.tsx. */}
 
       <ServiceHero
         crumbs={[
@@ -286,11 +282,6 @@ export default function MedicareCreedmoorPage() {
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
-        <p className="text-15 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-          We do not offer every plan available in your area. Currently we represent 8 organizations
-          which offer 65 products in your area. Please contact Medicare.gov or 1-800-MEDICARE to
-          get information on all of your options.
-        </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
     </main>

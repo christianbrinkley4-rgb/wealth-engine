@@ -31,7 +31,7 @@ const STATIC_ROUTES: Array<{
   { path: "/medicare-graham-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
   { path: "/medicare-liberty-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
   { path: "/medicare-ramseur-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-nc-towns/", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
+  { path: "/medicare-nc-towns", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
   { path: "/plan-check", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-04" },
   { path: "/medicare-annual-enrollment-2026-checklist", changeFrequency: "monthly", priority: 0.9 },
   { path: "/medicare-advantage-doctor-networks", changeFrequency: "monthly", priority: 0.9 },
