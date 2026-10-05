@@ -890,6 +890,139 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=medicare&stage=comparing_plans",
   },
+  {
+    slug: "medicare-irmaa-income-premiums",
+    title: "Will Medicare cost me more because of my income?",
+    metaTitle: "IRMAA Explained: When Income Raises Medicare Costs",
+    description:
+      "Earn over $109K single or $218K joint? IRMAA adds surcharges to Medicare Part B and Part D. How the two-year lookback works, and how to appeal.",
+    keyword: "what is irmaa medicare income related monthly adjustment amount",
+    eyebrow: "Medicare questions, answered",
+    lede: "Your 2024 tax return sets your 2026 Medicare premiums. Here is how the income surcharge works, and what to do if your income has dropped since.",
+    published: "2026-10-05",
+    updated: "2026-10-05",
+    intro:
+      "Most people pay the standard Medicare Part B premium. But if your income is above a set limit, Medicare adds a surcharge called IRMAA, short for Income-Related Monthly Adjustment Amount. It applies to Part B and to Part D drug coverage. The surprise is the timing: the number comes from your tax return two years back, so a high-income year can raise your premiums long after the money is gone.",
+    sections: [
+      {
+        h2: "What IRMAA actually is",
+        blocks: [
+          p(
+            "IRMAA is an extra monthly charge added to your Part B premium and your Part D premium when your income crosses set thresholds. It is tiered, not gradual: cross a threshold by one dollar and you pay the full surcharge for that tier.",
+          ),
+          p(
+            "The income measure is called MAGI, modified adjusted gross income. For IRMAA that means your adjusted gross income plus any tax-exempt interest. It is not the same MAGI formula used for other programs, which trips people up.",
+          ),
+          p(
+            "Social Security sends a letter when IRMAA applies, showing the income year they used and the new premium. If your income has dropped since, do not just accept it. There is an appeal path.",
+          ),
+        ],
+      },
+      {
+        h2: "The two-year lookback",
+        blocks: [
+          p(
+            "Your 2026 premiums come from your 2024 MAGI; 2027 will come from 2025. That two-year lag is a timing trap: a single high-income year follows you.",
+          ),
+          p(
+            "The usual triggers are a large Roth conversion, selling property or investments at a gain, a big retirement account withdrawal, required minimum distributions kicking in, or a payout from an inherited IRA. Any of these can push one tax year over a threshold, and the surcharge shows up two years later.",
+          ),
+          p(
+            "Even if your income falls back to normal the next year, you pay the higher premium until the lookback catches up. That is why the timing of big income events matters as much as the amount.",
+          ),
+        ],
+      },
+      {
+        h2: "The 2026 brackets",
+        blocks: [
+          p(
+            "Below the first threshold you pay the standard Part B premium, $202.90 a month for 2026, with no Part D surcharge. Above it, five tiers step up. These are the official CMS figures for 2026, based on 2024 income.",
+          ),
+          ul(
+            "Single $109,001 to $137,000 (joint $218,001 to $274,000): Part B $284.10, Part D adds $14.50",
+            "Single $137,001 to $171,000 (joint $274,001 to $342,000): Part B $405.80, Part D adds $37.50",
+            "Single $171,001 to $205,000 (joint $342,001 to $410,000): Part B $527.50, Part D adds $60.40",
+            "Single $205,001 to $499,999 (joint $410,001 to $749,999): Part B $649.20, Part D adds $83.30",
+            "Single $500,000 or more (joint $750,000 or more): Part B $689.90, Part D adds $91.00",
+          ),
+          p(
+            "Married filing separately has its own tighter thresholds. And these numbers move most years, so check the current table rather than trusting last year's.",
+          ),
+        ],
+      },
+      {
+        h2: "If your income dropped, appeal it",
+        blocks: [
+          p(
+            "A life-changing event can get your IRMAA lowered. The qualifying events include stopping work or cutting hours, marriage, divorce, or the death of a spouse. If one of those cut your income after the tax year Medicare used, you can ask Social Security to use your current income instead.",
+          ),
+          p(
+            "The request goes on Form SSA-44, filed with your local Social Security office, with proof of the event and your lower income. It is a standard process, not a loophole, and it exists exactly for this situation.",
+          ),
+          p(
+            "One thing people miss: IRMAA is recalculated every year. If this year's surcharge came from an old high-income year, next year's letter may already fix itself. Still appeal when you qualify. Do not wait on the calendar.",
+          ),
+        ],
+      },
+      {
+        h2: "Planning around it",
+        blocks: [
+          p(
+            "You cannot change the lookback, but you can plan inside it. Spreading a large Roth conversion across low-income years, timing property sales, and using qualified charitable distributions from an IRA after age 70 and a half can keep a single year from spiking over a threshold.",
+          ),
+          p(
+            "This is tax planning, not just Medicare planning. Run the timing past a tax professional before you move money. A conversion that saves on lifetime taxes can still cost you two years of IRMAA, and you want both sides of that math.",
+          ),
+          p(
+            "If you are helping a parent with Medicare and their premiums look wrong, check the IRMAA letter first. It names the income year. Half the time the mystery is just the two-year lag.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "What income triggers IRMAA in 2026?",
+        a: "For 2026, IRMAA starts when your 2024 MAGI is more than $109,000 filing single or more than $218,000 filing jointly. Below that you pay the standard Part B premium of $202.90 a month with no Part D surcharge.",
+      },
+      {
+        q: "Can I appeal IRMAA if I retired?",
+        a: "Yes. Stopping work or reducing hours is a qualifying life-changing event. File Form SSA-44 with Social Security, with proof of the event and your current lower income, and ask them to base your premium on this year instead of the old tax year.",
+      },
+      {
+        q: "Does a Roth conversion trigger IRMAA?",
+        a: "It can. A Roth conversion counts as income in the year you do it, and that year's MAGI sets your premiums two years later. Large conversions in a single year are one of the most common IRMAA triggers.",
+      },
+      {
+        q: "Does IRMAA go away on its own?",
+        a: "It recalculates yearly from the newest tax return. Once the high-income year ages out of the window, the surcharge drops off. Still appeal right away when you qualify.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: What Medicare Costs",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/what-does-medicare-cost",
+      },
+      {
+        label: "Medicare Advocates: 2026 IRMAA Brackets and Income Limits",
+        href: "https://medicareadvocates.com/blog/irmaa-brackets-2026",
+      },
+      {
+        label: "RC Planning: What is IRMAA?",
+        href: "http://rcsplanning.com/what-is-irmaa/",
+      },
+      {
+        label: "Mariner Wealth Advisors: How Income Affects Medicare Premiums",
+        href: "https://www.marinerwealthadvisors.com/insights/how-income-affects-medicare-premiums/",
+      },
+    ],
+    related: [
+      { label: "What should I check before switching Medicare Advantage plans?", href: "/answers/switching-medicare-advantage-plans-aep" },
+      { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Medicare help near you", href: "/service-area" },
+    ],
+    startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {
