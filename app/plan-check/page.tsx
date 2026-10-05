@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     absolute: "Does Your Medicare Plan Still Fit? Free 90-Second Plan Check",
   },
   description:
-    "Answer 7 quick questions about your doctors, prescriptions, and costs, and find out whether your Medicare plan is worth a second look before December 7. Free, educational, no obligation.",
+    "Seven questions about your doctors, prescriptions, and costs. See whether your Medicare plan deserves a second look before December 7. Free, no obligation.",
   alternates: { canonical: "/plan-check" },
   openGraph: pageOpenGraph({
     title: "Does your Medicare plan still fit?",

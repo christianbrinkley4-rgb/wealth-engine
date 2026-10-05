@@ -11,7 +11,7 @@ import { featuredPlaces } from "@/lib/triad";
 
 const title = "Christian Brinkley | Medicare Help in Greensboro, High Point & Winston-Salem";
 const description =
-  "Turning 65 in the Triad? Christian Brinkley is a licensed agent who lives here, not a call center. Find your Medicare enrollment dates and meet at home or by phone. No cost.";
+  "Turning 65 in the Triad? Christian Brinkley is a licensed agent, not a call center. Find your Medicare enrollment dates, meet at home or by phone. No cost.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,

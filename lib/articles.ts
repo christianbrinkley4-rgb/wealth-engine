@@ -756,6 +756,140 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=medicare&stage=comparing_plans",
   },
+  {
+    slug: "switching-medicare-advantage-plans-aep",
+    title: "What should I check before switching Medicare Advantage plans?",
+    metaTitle: "Switching Medicare Advantage Plans? Check These First",
+    description:
+      "Switching Medicare Advantage plans during open enrollment? The six checks that matter: timing, doctors, drugs, costs, pharmacy, and ratings.",
+    keyword: "what should I check before switching medicare advantage plans",
+    eyebrow: "Medicare questions, answered",
+    lede: "October 15 to December 7 is your yearly window to switch. Six checks, in order, so January never surprises you.",
+    published: "2026-10-05",
+    updated: "2026-10-05",
+    intro:
+      "Every fall the same envelopes land in Triad mailboxes: the plan you have is changing, and so is everything around it. Your doctors, your prescriptions, your costs all get re-shuffled for January 1. The Annual Enrollment Period, October 15 to December 7, is when you get to respond. Networks change, drugs move tiers, premiums move, and sometimes a plan leaves an area entirely. Switching is allowed, but check a few things first. The order that works: the timing, the letter your plan already sent, your doctors, your drugs, your real cost, and the switch itself.",
+    sections: [
+      {
+        h2: "Know your two windows",
+        blocks: [
+          p(
+            "The Annual Enrollment Period runs October 15 to December 7. Your plan must get your request by December 7, and the new coverage starts January 1. Your 2026 plan covers you through December 31, so there is no gap as long as you act inside the window.",
+          ),
+          p(
+            "Already in a Medicare Advantage plan? You get a second window, January 1 to March 31. You can switch to another Medicare Advantage plan, or drop your plan and return to Original Medicare and join a separate drug plan.",
+          ),
+          p(
+            "Outside those windows you generally cannot switch without a life event: moving, losing or changing coverage, getting Medicaid, or getting Extra Help. For most people, fall is the one sure chance all year.",
+          ),
+        ],
+      },
+      {
+        h2: "Start with the letter your plan already sent",
+        blocks: [
+          p(
+            "Each fall your plan mails an Annual Notice of Change, due in your hands by September 30. It lists exactly what changes next year: premium, deductible, copays, covered drugs, and the network. It is the single most useful document in the process.",
+          ),
+          p(
+            "Read the summary table first, then the parts that touch your life: your drugs, your doctors, your costs. One hierarchy to know: the Evidence of Coverage, the plan's full rulebook, beats the brochure every time.",
+          ),
+          p("Never got the letter? Call your plan and ask for it, and keep it where you can find it."),
+        ],
+      },
+      {
+        h2: "Check one: your doctors, by name",
+        blocks: [
+          p(
+            "Look up every doctor and specialist you see, by name, in next year's provider directory. Not this year's. Doctors join and leave networks every year.",
+          ),
+          p(
+            "Check the hospitals you would actually use too, in an emergency or for a planned surgery. If a hospital you count on is out of network, that outweighs a small premium difference.",
+          ),
+          p(
+            "If your plan is leaving your area or ending its Medicare contract, the letter tells you. Losing coverage that way gives you a Special Enrollment Period. If anything in the letter is unclear, call 1-800-MEDICARE.",
+          ),
+        ],
+      },
+      {
+        h2: "Check two: your prescriptions, by tier",
+        blocks: [
+          p(
+            "Drug lists change every year. A drug can be dropped, moved to a higher tier, or given new rules like prior authorization. Go through your prescriptions one by one against next year's drug list.",
+          ),
+          p(
+            "Check the pharmacy side too: your regular pharmacy needs to be in the network at the preferred level, and confirm mail order still works the same way. Prices can jump at a non-preferred pharmacy.",
+          ),
+          p(
+            "One expensive brand-name drug can make this check worth more than everything else. Ten minutes with the formulary beats a January surprise at the counter.",
+          ),
+        ],
+      },
+      {
+        h2: "Check three: the full-year cost, not the premium",
+        blocks: [
+          p(
+            "A low premium with high copays can cost more over a year than a higher premium with low copays. Add the whole year: monthly premium times twelve, deductible, copays for the care you actually get, and the plan's out-of-pocket maximum, which caps what you pay for covered services.",
+          ),
+          p(
+            "Compare that full-year number, not the monthly number on the brochure. Two plans with the same premium can be far apart once you add your drugs and specialist visits.",
+          ),
+          p(
+            "Medicare publishes star ratings for plans. Use them as a tiebreaker when two plans look close, not as the decision itself. A five-star plan that drops your doctor is still the wrong plan.",
+          ),
+        ],
+      },
+      {
+        h2: "Then make the switch cleanly",
+        blocks: [
+          p(
+            "Decide by December 7 so the new plan starts January 1. Miss the deadline and you generally stay put until the January-to-March window, which only exists if you are already in a Medicare Advantage plan.",
+          ),
+          p(
+            "Keep your paperwork together: the Annual Notice of Change, the new plan's summary of benefits, and the enrollment confirmation. If a claim gets confused in January, those settle it.",
+          ),
+          p(
+            "Skim your new plan's Evidence of Coverage when it arrives: referrals, prior authorization, out-of-network rules. Before you need care, not after.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can I switch Medicare Advantage plans after December 7?",
+        a: "Generally no. If you are already in a Medicare Advantage plan, you get the January 1 to March 31 window to switch or return to Original Medicare. Otherwise you need a Special Enrollment Period from a life event, like moving or losing your current coverage.",
+      },
+      {
+        q: "What if my plan is leaving Medicare next year?",
+        a: "Your Annual Notice of Change tells you. Losing your coverage that way gives you a Special Enrollment Period to pick a new plan. If the letter is unclear, call 1-800-MEDICARE.",
+      },
+      {
+        q: "Do Medicare star ratings actually matter?",
+        a: "They are a real quality signal, but do not let them drive the decision. Doctors, drugs, and full-year cost come first. Then let the higher rating break a tie.",
+      },
+      {
+        q: "Should I just pick the cheapest premium?",
+        a: "Not alone. Add up the full year: premium, deductible, copays, and the out-of-pocket maximum. A cheap premium with expensive copays often costs more over twelve months.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: When you can join, switch, or drop a Medicare Advantage plan",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan",
+      },
+      {
+        label: "Medicare.gov: Compare types of Medicare Advantage Plans",
+        href: "https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/compare",
+      },
+    ],
+    related: [
+      { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+      { label: "HMO vs PPO Medicare Advantage: which fits your doctors?", href: "/answers/medicare-advantage-hmo-vs-ppo" },
+      { label: "Does Medicare Advantage cover dental?", href: "/answers/medicare-advantage-dental-coverage" },
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Medicare help near you", href: "/service-area" },
+    ],
+    startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {
