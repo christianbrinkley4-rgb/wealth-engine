@@ -122,10 +122,17 @@ p {
   color: var(--pine-950);
 }
 
+/* Honey on cream is only 2.2:1, under the 3:1 a focus ring needs. Pine is 9.4:1
+   on light surfaces; the dark surfaces below keep honey (7.4:1 on pine). */
 :focus-visible {
-  outline: 3px solid var(--honey-500);
+  outline: 3px solid var(--pine-700);
   outline-offset: 3px;
   border-radius: 4px;
+}
+.ft :focus-visible,
+.sh :focus-visible,
+.scta :focus-visible {
+  outline-color: var(--honey-400);
 }
 
 .shell {
@@ -718,7 +725,9 @@ p {
 .ft-legal .ft-tpmo {
   color: rgba(251, 248, 241, 0.86);
 }
-.ft-word {
+.ft::after {
+  content: "Greensboro";
+  content: "Greensboro" / "";
   position: absolute;
   right: -0.06em;
   bottom: -0.32em;
@@ -967,7 +976,7 @@ details[open]::details-content {
 @media print {
   .nav,
   .scta,
-  .ft-word {
+  .ft::after {
     display: none !important;
   }
   .js-reveal [data-reveal] {

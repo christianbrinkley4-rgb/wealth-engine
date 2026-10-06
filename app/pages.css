@@ -942,3 +942,28 @@
     margin-top: 1rem;
   }
 }
+
+/* ─── Tap targets: 44px minimum ───────────────────────────────────────────
+   Lists of links get real 44px rows. Single-line links inside text (crumbs,
+   bylines) keep their layout and grow their hit area with padding instead. */
+
+.ft-col a,
+.faqx-towns a,
+.ll-chips a,
+.ew-foot .link-draw,
+.wc-foot .link-draw {
+  min-height: 44px;
+}
+.tap {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.art-sources a,
+.sh-crumbs a,
+.art-byline a,
+.lh-author a {
+  display: inline-block;
+  padding: 0.75rem 0.4rem;
+  margin: -0.75rem -0.4rem;
+}

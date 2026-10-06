@@ -167,9 +167,6 @@ export function SiteFooter() {
           </p>
         </div>
       </div>
-      <span className="ft-word" aria-hidden>
-        Greensboro
-      </span>
     </footer>
   );
 }
