@@ -23,12 +23,18 @@ export function KitchenTableClose({
         <div className="ktc-card" data-reveal>
           <Image
             src="/christian-brinkley-square.jpg"
-            alt=""
-            width={128}
-            height={128}
-            sizes="64px"
+            alt={`${AGENT.name}, licensed insurance agent in ${AGENT.city}`}
+            width={192}
+            height={192}
+            sizes="88px"
             className="ktc-avatar"
           />
+          <p className="ktc-who">
+            <strong>{AGENT.name}</strong>
+            <span>
+              {AGENT.licenseLine} · {AGENT.city}, {AGENT.state}
+            </span>
+          </p>
           <h2>{heading}</h2>
           <p>{body}</p>
           <div className="ktc-actions">
@@ -40,7 +46,9 @@ export function KitchenTableClose({
               {cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
             </Link>
           </div>
-          <p className="ktc-note">Free consultation in person or by phone. {AGENT.hours}</p>
+          <p className="ktc-note">
+            Free consultation in person or by phone. It’s me who answers. {AGENT.hours}
+          </p>
         </div>
       </div>
     </section>

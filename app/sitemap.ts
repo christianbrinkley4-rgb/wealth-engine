@@ -54,6 +54,7 @@ const STATIC_ROUTES: Array<{
   { path: "/answers", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-10-01" },
   { path: "/learn", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-05" },
   { path: "/taxes-and-retirement", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-05" },
+  { path: "/medicare-words", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-05" },
   ...TAX_ARTICLES.map((article) => ({
     path: `/taxes-and-retirement/${article.slug}`,
     changeFrequency: "monthly" as const,

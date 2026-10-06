@@ -340,7 +340,7 @@ export default function HomePage() {
           <figure className="meet-photo" data-reveal="left">
             <Image
               src="/christian-brinkley.jpg"
-              alt="Christian Brinkley"
+              alt="Christian Brinkley, the licensed agent you talk to when you call"
               width={1200}
               height={1600}
               sizes="(max-width: 899px) 100vw, 520px"

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Menu, Phone, X } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -66,9 +67,15 @@ export function TopRouteChrome() {
       </a>
       <div className="shell nav-bar">
         <Link href="/" className="nav-brand" aria-label={`${AGENT.name}, home`}>
-          <span className="nav-mark" aria-hidden>
-            CB
-          </span>
+          <Image
+            src="/christian-brinkley-square.jpg"
+            alt={AGENT.name}
+            width={96}
+            height={96}
+            sizes="44px"
+            loading="eager"
+            className="nav-face"
+          />
           <span className="nav-brand-text">
             <span className="nav-name">{AGENT.name}</span>
             <span className="nav-license">

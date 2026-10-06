@@ -6,6 +6,7 @@ import type { ReactNode } from "react";
 import { TrackedLink } from "@/components/TrackedLink";
 import { AGENT } from "@/lib/agent";
 import { articleText, type Article } from "@/lib/articles";
+import { featuredPlaces } from "@/lib/triad";
 
 const LINK_PATTERN = /\[([^\]]+)\]\(([^)]+)\)/g;
 
@@ -78,6 +79,9 @@ export function ArticleBody({
   children?: ReactNode;
 }) {
   const minutes = Math.max(2, Math.round(articleText(article).split(/\s+/).length / 220));
+  const towns = featuredPlaces()
+    .map((place) => place.name)
+    .join(", ");
   const outline = article.sections.map((section) => ({
     id: slugify(section.h2),
     title: section.h2,
@@ -111,13 +115,15 @@ export function ArticleBody({
           <div className="art-byline">
             <Image
               src="/christian-brinkley-square.jpg"
-              alt=""
-              width={96}
-              height={96}
-              sizes="44px"
+              alt={`${AGENT.name}, licensed insurance agent in ${AGENT.city}`}
+              width={128}
+              height={128}
+              sizes="56px"
             />
             <p>
-              <strong>{AGENT.name}</strong>
+              <strong>
+                By <Link href="/about">{AGENT.name}</Link>
+              </strong>
               <span>
                 Licensed agent, {AGENT.licenseLine} · Updated {formatArticleDate(article.updated)} ·{" "}
                 {minutes} min read
@@ -181,14 +187,23 @@ export function ArticleBody({
           </section>
 
           <aside className="art-next" aria-label="Next step">
-            <Image
-              src="/christian-brinkley-square.jpg"
-              alt=""
-              width={128}
-              height={128}
-              sizes="56px"
-              className="art-next-avatar"
-            />
+            <div className="art-next-who">
+              <Image
+                src="/christian-brinkley-square.jpg"
+                alt={`${AGENT.name}, licensed insurance agent in ${AGENT.city}`}
+                width={240}
+                height={240}
+                sizes="112px"
+                className="art-next-avatar"
+              />
+              <p>
+                <span className="art-next-kicker">From a neighbor, not a newsroom</span>
+                <strong>{AGENT.name}</strong>
+                <span>
+                  {AGENT.licenseLine} · {AGENT.city}, {AGENT.state}
+                </span>
+              </p>
+            </div>
             <h2>{nextStep.heading}</h2>
             <p>{nextStep.body}</p>
             <div className="art-next-actions">
@@ -199,6 +214,9 @@ export function ArticleBody({
                 <Phone size={18} aria-hidden /> {AGENT.phone}
               </a>
             </div>
+            <p className="art-next-towns">
+              I meet people in {towns}, and the towns around them. Or we can talk by phone.
+            </p>
           </aside>
 
           <div className="art-refs">

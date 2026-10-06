@@ -48,6 +48,10 @@ ${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.stat
 - [Ways to arrange a meeting](${SITE_URL}/schedule)
 
 ${profileSection}
+## Who answers
+
+Every page on this site is published under one name: ${AGENT.name}, ${AGENT.licenseLine}. There is no call center, no lead resale, and no hand-off to another agent. Calls to ${AGENT.phone} go to Christian. Articles show the date they were last updated and list their official sources.
+
 ## Local questions this site is meant to answer
 
 This site is for people in and near Greensboro, High Point, and Winston-Salem, North Carolina who want a licensed agent they can meet in person. Typical questions:
@@ -63,6 +67,7 @@ ${TPMO_DISCLAIMER}
 ## Guides
 
 - [Learning Hub](${SITE_URL}/learn): every guide, answer, explainer, and tool on the site, organized by situation (turning 65, already on Medicare, costs, taxes, retirement income, insurance, helping a parent).
+- [Medicare words in plain English](${SITE_URL}/medicare-words): short definitions of Part A, Part B, Medicare Advantage, Part D, Medigap, IRMAA, the enrollment periods, and other common terms, each with a link to the official Medicare.gov, CMS, or Social Security page.
 - [Taxes and retirement](${SITE_URL}/taxes-and-retirement): plain-English explainers on Social Security taxes, required minimum distributions, and Roth conversions, and how retirement income affects Medicare premiums. Educational, not tax advice.
 - [Plan check](${SITE_URL}/plan-check): a seven-question quiz on whether a current Medicare plan deserves a second look before December 7. Answers stay on the device unless the visitor asks for results by email.
 - [Turning 65](${SITE_URL}/turning-65): Medicare enrollment timing, current coverage, and questions to consider before choosing a plan.

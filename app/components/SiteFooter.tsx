@@ -20,6 +20,7 @@ const START = [
 const LEARN = [
   { href: "/learn", label: "Learning Hub" },
   { href: "/answers", label: "Medicare questions, answered" },
+  { href: "/medicare-words", label: "Medicare words, in plain English" },
   { href: "/taxes-and-retirement", label: "Taxes & retirement" },
   { href: "/advantage-vs-medigap", label: "Advantage or Medigap" },
   { href: "/keep-my-doctor", label: "Keeping your doctors" },
