@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   }),
 };
 
+// Short contact form, pre-tagged so inquiries from this page are attributable.
+const START_HREF = "/start?topic=medicare&stage=already_on_medicare&quick=1&utm_source=site&utm_medium=anoc_page&utm_campaign=aep_2026";
+
 export default function AnocPage() {
   return (
     <main className="text-[var(--color-navy)]">
@@ -63,7 +66,7 @@ export default function AnocPage() {
                 "What the Annual Notice of Change is, why most people never read it, and how to get a free plain-English translation from a licensed local agent.",
               path: "/anoc",
               datePublished: "2026-09-21",
-              dateModified: "2026-09-21",
+              dateModified: "2026-10-06",
             }),
           ),
         }}
@@ -91,7 +94,7 @@ export default function AnocPage() {
         eyebrow="Medicare Advantage and Part D · The September letter"
         title="Got your ANOC letter? Don't just file it away."
         lede="Every fall, Medicare Advantage and Part D plans send an Annual Notice of Change, a letter explaining what's different next year. Bring it to me, in person or by phone, and I'll walk you through it in plain English. Free. No pressure to switch plans, no obligation to enroll in anything."
-        secondaryHref="/start"
+        secondaryHref={START_HREF}
         secondaryLabel="Book my free review →"
       />
 
@@ -125,8 +128,8 @@ export default function AnocPage() {
             </p>
             <p>
               If your plan still looks good, I&apos;ll tell you so. If something changed that
-              matters to you, we&apos;ll talk through your options before Medicare Open Enrollment
-              ends December 7.
+              matters to you, we&apos;ll talk through your options before Annual Enrollment ends
+              December 7.
             </p>
           </div>
         </div>
@@ -197,7 +200,7 @@ export default function AnocPage() {
               {AGENT.phone}
             </a>
             <Link
-              href="/start"
+              href={START_HREF}
               className="btn btn-outline"
             >
               Book my free review →
