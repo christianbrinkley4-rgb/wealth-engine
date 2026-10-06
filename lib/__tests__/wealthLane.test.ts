@@ -28,30 +28,49 @@ describe("wealth lane", () => {
     expect(copy.toLowerCase()).not.toContain("crypto");
   });
 
-  it("previews the hub without pretending the tools are live", () => {
+  it("sends the primary button to the published paycheck lesson", () => {
     expect(WealthLane.guides()).toHaveLength(6);
     expect(WealthLane.calculators()).toHaveLength(4);
     expect(WealthLane.quizzes()).toHaveLength(2);
     expect(WealthLane.checklists()).toHaveLength(2);
-    const cards = [
-      ...WealthLane.guides(),
+
+    const hero = WealthLane.hero();
+    const paycheck = WealthLane.guides().find((card) => card.id === "paycheck");
+    const lesson = WealthLane.paycheckLesson();
+    expect(hero.cta).toBe("Start with your paycheck");
+    expect(hero.ctaHref).toBe(WealthLane.paycheckPath);
+    expect(hero.ctaHref.includes("#")).toBe(false);
+    expect(paycheck?.status).toBe("Ready");
+    expect(paycheck?.href).toBe(hero.ctaHref);
+    expect(lesson.lines.map((line) => line.label)).toEqual([...WealthLane.stubLines()]);
+    for (const line of lesson.lines) {
+      expect(line.text.length).toBeGreaterThan(40);
+      expect(line.text).not.toMatch(/\$\d/);
+    }
+
+    const stillComing = [
+      ...WealthLane.guides().filter((card) => card.id !== "paycheck"),
       ...WealthLane.calculators(),
       ...WealthLane.quizzes(),
       ...WealthLane.checklists(),
     ];
-    expect(cards.every((card) => card.status === "Coming next")).toBe(true);
-    expect(WealthLane.hero().cta).toBe("Start with your paycheck");
+    expect(
+      stillComing.every((card) => card.status === "Coming next" && card.href === undefined),
+    ).toBe(true);
     expect(WealthLane.linksCta()).toBe("Open the wealth hub");
   });
 
   it("only links out of the lane to pages that already exist", () => {
-    for (const link of [
+    const hrefs = [
       ...WealthLane.bioLinks(),
       ...WealthLane.footerLinks(),
       ...WealthLane.nav(),
-    ]) {
+      ...WealthLane.guides().flatMap((card) => (card.href ? [{ href: card.href }] : [])),
+      { href: WealthLane.hero().ctaHref },
+    ];
+    for (const link of hrefs) {
       const path = link.href.split("#")[0];
-      expect(["/wealth", "/links", "/about", "/privacy", "/"]).toContain(path);
+      expect(["/wealth", "/wealth/paycheck", "/links", "/about", "/privacy", "/"]).toContain(path);
     }
   });
 });

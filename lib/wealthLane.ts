@@ -13,7 +13,9 @@ export type WealthCard = {
   kicker: string;
   title: string;
   text: string;
-  status: "Coming next";
+  status: "Coming next" | "Ready";
+  /** Set only when the lesson is actually published. */
+  href?: string;
 };
 
 export type WealthSection = {
@@ -28,6 +30,7 @@ const COMING = "Coming next" as const;
 export class WealthLane {
   static readonly hubPath = "/wealth";
   static readonly linksPath = "/links";
+  static readonly paycheckPath = "/wealth/paycheck";
 
   /** True for the young lane only, so Medicare chrome can step aside. */
   static isYoungPath(pathname: string): boolean {
@@ -55,7 +58,7 @@ export class WealthLane {
       titleMark: "paycheck",
       lede: "I’m Christian Brinkley. I write plain-language money lessons for a first job and the years after it: a pay stub, a starter emergency fund, a first budget, and the insurance questions that are actually yours.",
       cta: "Start with your paycheck",
-      ctaHref: "/wealth#paycheck",
+      ctaHref: this.paycheckPath,
       note: "One lesson at a time. Nothing on this page is an investment pick or a policy quote.",
       facts: [
         "Life and health license, North Carolina",
@@ -88,7 +91,7 @@ export class WealthLane {
         id: "guides",
         index: "01",
         title: "Guides",
-        lede: "Six lessons. They name the terms. They do not tell you what to buy.",
+        lede: "The paycheck lesson is ready to read. The other five are still being written. None of them tell you what to buy.",
       },
       calculators: {
         id: "calculators",
@@ -124,7 +127,8 @@ export class WealthLane {
         kicker: "Start here",
         title: "How to read your first paycheck",
         text: "Gross pay, federal tax, Social Security, and Medicare. What each line is doing on the stub.",
-        status: COMING,
+        status: "Ready",
+        href: this.paycheckPath,
       },
       {
         id: "emergency",
@@ -219,18 +223,56 @@ export class WealthLane {
   static log(): readonly { title: string; text: string }[] {
     return [
       {
-        title: "The front door is open.",
-        text: "This hub is live. The calculators, quizzes, and guides behind it are not.",
+        title: "The paycheck lesson is up.",
+        text: "It names the lines on a stub. It does not use sample dollars.",
       },
       {
-        title: "Paycheck lesson first.",
-        text: "Then the emergency fund lesson. Then a calculator that labels stub lines and calls every figure an estimate.",
+        title: "The rest is still next.",
+        text: "Emergency fund, budget, insurance, side income, and the workplace plan are not written yet. Calculators and quizzes are not built.",
       },
       {
         title: "Checklists stay on the page.",
         text: "When they are written, you can read them here. You will not have to hand over an email address.",
       },
     ];
+  }
+
+  /** The one lesson the primary button is allowed to open. */
+  static paycheckLesson() {
+    return {
+      eyebrow: "Pay stub",
+      title: "How to read your first paycheck",
+      lede: "A pay stub shows how your employer got from what you earned to what the stub says you take home. This page names the lines. It does not fill in dollars.",
+      close:
+        "If a line on your stub is not named here, ask payroll what it is. This page will not guess a number, pick a fund, or prepare a tax return.",
+      back: "Back to the wealth hub",
+      lines: [
+        {
+          label: "Gross pay",
+          text: "What you earned before withholdings. It may be hours times a rate, or a salary for that pay period. The stub should name the dates it covers.",
+        },
+        {
+          label: "Federal income tax",
+          text: "Money held back for federal income tax. Your W-4 is one thing that sets it. Withholding is not your final tax bill. A tax return is where the difference gets settled.",
+        },
+        {
+          label: "Social Security",
+          text: "A payroll tax that funds Social Security. On a W-2 job it is its own line. You pay a share, and your employer pays a share. The share taken from your check is the one you see.",
+        },
+        {
+          label: "Medicare",
+          text: "A payroll tax that funds Medicare hospital insurance. It is a separate line from Social Security. The tax is collected from wages. Medicare coverage is a different program, mostly for later life.",
+        },
+        {
+          label: "Net pay",
+          text: "What is left after the withholdings on that stub. It is the amount the stub says you take home for that period. Anything your bank does after the deposit is separate from the stub.",
+        },
+      ],
+      also: {
+        title: "Lines that depend on the job",
+        text: "You may also see state income tax, health insurance, or a retirement-plan contribution. Those show up only if they apply to you. A retirement line is a contribution, not a fund pick. Help choosing investments belongs with a securities-licensed professional.",
+      },
+    } as const;
   }
 
   static checklists(): readonly WealthCard[] {
@@ -282,19 +324,19 @@ export class WealthLane {
         note: "Money lessons for a first job and the years after.",
       },
       {
-        href: "/wealth#paycheck",
+        href: this.paycheckPath,
         label: "First paycheck",
-        note: "Where the hub starts.",
+        note: "The lesson that is up: how to read the lines on a stub.",
       },
       {
         href: "/wealth#emergency",
         label: "Emergency fund",
-        note: "A starter stash, explained without a fake target.",
+        note: "Still being written. No fake savings target in the meantime.",
       },
       {
         href: "/wealth#insurance",
         label: "Insurance questions",
-        note: "Life and health education. Not a quote.",
+        note: "Still being written. Not a quote.",
       },
       {
         href: "/about",
@@ -371,6 +413,21 @@ export class WealthLane {
       ...this.bioLinks().flatMap((link) => [link.label, link.note]),
       ...this.footerLinks().map((link) => link.label),
       this.disclosure(),
+      ...this.paycheckLessonCopy(),
+    ];
+  }
+
+  static paycheckLessonCopy(): readonly string[] {
+    const lesson = this.paycheckLesson();
+    return [
+      lesson.eyebrow,
+      lesson.title,
+      lesson.lede,
+      lesson.close,
+      lesson.back,
+      lesson.also.title,
+      lesson.also.text,
+      ...lesson.lines.flatMap((line) => [line.label, line.text]),
     ];
   }
 }

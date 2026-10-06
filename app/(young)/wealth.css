@@ -376,6 +376,15 @@ body:has(.wealth-lane) {
   line-height: 1.05;
 }
 
+.wealth-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wealth-card h3 a:hover {
+  color: var(--wl-lime);
+}
+
 .wealth-card p:last-child {
   color: var(--wl-muted);
   font-size: 0.95rem;
@@ -501,6 +510,64 @@ body:has(.wealth-lane) {
 }
 
 .wealth-link-row:hover strong {
+  color: var(--wl-lime);
+}
+
+.wealth-lesson {
+  padding-block: 1.8rem 3rem;
+}
+
+.wealth-lesson h1 {
+  max-width: 14ch;
+  margin-top: 0.7rem;
+  font-size: clamp(2.2rem, 8vw, 3.8rem);
+}
+
+.wealth-lesson-list {
+  display: grid;
+  margin-top: 1.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.wealth-lesson-list li,
+.wealth-lesson-also {
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--wl-line);
+}
+
+.wealth-lesson-list h2,
+.wealth-lesson-also h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.wealth-lesson-list p,
+.wealth-lesson-also p,
+.wealth-lesson-close {
+  max-width: 42rem;
+  margin-top: 0.45rem;
+  color: var(--wl-muted);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.wealth-lesson-also {
+  border-top-width: 2px;
+  border-top-color: rgba(223, 242, 90, 0.5);
+}
+
+.wealth-back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.6rem;
+  color: var(--wl-text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.wealth-back:hover {
   color: var(--wl-lime);
 }
 

@@ -135,13 +135,13 @@ function CardSection({
             <article
               key={item.id}
               id={item.id}
-              className={item.id === "paycheck" ? "wealth-card wealth-card-lead" : "wealth-card"}
+              className={item.href ? "wealth-card wealth-card-lead" : "wealth-card"}
             >
               <p className="wealth-kicker">
                 <span>{item.kicker}</span>
                 <span className="wealth-status">{item.status}</span>
               </p>
-              <h3>{item.title}</h3>
+              <h3>{item.href ? <Link href={item.href}>{item.title}</Link> : item.title}</h3>
               <p>{item.text}</p>
             </article>
           ))}

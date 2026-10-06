@@ -30,6 +30,7 @@ const STATIC_ROUTES: Array<{
   { path: "/retirement-income", changeFrequency: "monthly", priority: 0.85 },
   { path: "/roth-window", changeFrequency: "weekly", priority: 0.55 },
   { path: "/wealth", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/wealth/paycheck", changeFrequency: "monthly", priority: 0.65 },
 ];
 
 /**
@@ -68,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...STATIC_ROUTES.map(({ path, changeFrequency, priority }) => ({
       url: `${SITE_URL}${path}`,
-      lastModified: path === "/wealth" ? WEALTH_HUB_PUBLISHED : lastModified,
+      lastModified: path.startsWith("/wealth") ? WEALTH_HUB_PUBLISHED : lastModified,
       changeFrequency,
       priority,
     })),
