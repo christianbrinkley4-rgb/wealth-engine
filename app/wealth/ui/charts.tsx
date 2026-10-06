@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useState } from "react";
 
 import { money, moneyShort } from "@/lib/wealth/math";
 
@@ -43,7 +43,6 @@ export function LineChart({
   /** One sentence for screen readers that states the result. */
   describe: string;
 }) {
-  const clip = useId();
   const length = Math.max(...series.map((item) => item.values.length), 2);
   const [scrub, setScrub] = useState<number | null>(null);
   const active = scrub === null ? length - 1 : Math.min(scrub, length - 1);
@@ -87,11 +86,6 @@ export function LineChart({
         onPointerDown={onMove}
         onPointerLeave={() => setScrub(null)}
       >
-        <defs>
-          <clipPath id={clip}>
-            <rect x={PAD.left} y={0} width={innerW} height={H} className="w-chart-wipe" />
-          </clipPath>
-        </defs>
         {ticks.map((tick) => (
           <g key={tick}>
             <line x1={PAD.left} x2={W - PAD.right} y1={y(tick)} y2={y(tick)} className="w-chart-grid" />
@@ -111,14 +105,14 @@ export function LineChart({
             {xLabel(tick)}
           </text>
         ))}
-        <g clipPath={`url(#${clip})`}>
+        <g>
           {series.map((item) =>
             item.area ? (
               <path
                 key={`${item.name}-area`}
                 d={`${path(item.values)} L${x(item.values.length - 1)},${y(0)} L${x(0)},${y(0)} Z`}
                 fill={item.color}
-                opacity={0.14}
+                className="w-chart-area"
               />
             ) : null,
           )}
@@ -132,21 +126,21 @@ export function LineChart({
               strokeDasharray={item.dashed ? "3 7" : undefined}
               strokeLinecap="round"
               strokeLinejoin="round"
+              pathLength={item.dashed ? undefined : 1}
+              className={item.dashed ? "w-chart-dash" : "w-chart-line"}
+              style={{ filter: `drop-shadow(0 0 7px ${item.color})` }}
             />
           ))}
         </g>
         <line x1={x(active)} x2={x(active)} y1={PAD.top} y2={PAD.top + innerH} className="w-chart-cursor" />
         {series.map((item) => {
           const value = item.values[Math.min(active, item.values.length - 1)];
+          const cx = x(Math.min(active, item.values.length - 1));
           return value === undefined ? null : (
-            <circle
-              key={`${item.name}-dot`}
-              cx={x(Math.min(active, item.values.length - 1))}
-              cy={y(value)}
-              r={6}
-              fill={item.color}
-              className="w-chart-dot"
-            />
+            <g key={`${item.name}-dot`}>
+              <circle cx={cx} cy={y(value)} r={6} fill={item.color} className="w-chart-ping" />
+              <circle cx={cx} cy={y(value)} r={6} fill={item.color} className="w-chart-dot" />
+            </g>
           );
         })}
       </svg>

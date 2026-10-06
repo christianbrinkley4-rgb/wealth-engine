@@ -35,6 +35,17 @@ export function PersonalityQuiz() {
     if (match) queueMicrotask(() => setShared(match.id));
   }, []);
 
+  const [picked, setPicked] = useState<number | null>(null);
+  // Hold for a beat so the choice visibly lands before the next question slides in.
+  const choose = (type: PersonalityId, position: number) => {
+    if (picked !== null) return;
+    setPicked(position);
+    window.setTimeout(() => {
+      setPicked(null);
+      setAnswers((previous) => [...previous, type]);
+    }, 300);
+  };
+
   const finished = answers.length === PERSONALITY_QUESTIONS.length;
   const score = finished ? scorePersonality(answers) : null;
   const resultId = score?.winner ?? shared;
@@ -47,7 +58,7 @@ export function PersonalityQuiz() {
   if (result) {
     return (
       <div className="w-quiz w-result">
-        <div className="w-result-card" data-type={result.id}>
+        <div className="w-result-card" data-type={result.id} data-tilt>
           <Confetti />
           <p className="w-eyebrow">{score ? "Your money personality" : "A money personality"}</p>
           <h2 className="w-result-name">{result.name}</h2>
@@ -152,7 +163,8 @@ export function PersonalityQuiz() {
               <button
                 type="button"
                 className="w-option"
-                onClick={() => setAnswers((previous) => [...previous, option.type])}
+                data-picked={picked === position ? "true" : undefined}
+                onClick={() => choose(option.type, position)}
               >
                 <b aria-hidden>{String.fromCharCode(65 + position)}</b>
                 {option.label}

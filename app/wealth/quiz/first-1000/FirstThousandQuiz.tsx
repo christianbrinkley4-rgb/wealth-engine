@@ -23,6 +23,17 @@ export function FirstThousandQuiz() {
     if (plan && getPlanResult(plan)) queueMicrotask(() => setTrail([FIRST_1000_START, `result:${plan}`]));
   }, []);
 
+  const [picked, setPicked] = useState<number | null>(null);
+  // Hold for a beat so the choice visibly lands before the next question slides in.
+  const choose = (next: string, index: number) => {
+    if (picked !== null) return;
+    setPicked(index);
+    window.setTimeout(() => {
+      setPicked(null);
+      setTrail((previous) => [...previous, next]);
+    }, 300);
+  };
+
   const current = trail[trail.length - 1];
   const result = current.startsWith("result:") ? getPlanResult(current.slice(7)) : undefined;
   const node = result ? undefined : getTreeNode(current);
@@ -31,7 +42,7 @@ export function FirstThousandQuiz() {
   if (result) {
     return (
       <div className="w-quiz w-result">
-        <div className="w-result-card">
+        <div className="w-result-card" data-tilt>
           <Confetti />
           <p className="w-eyebrow">A plan to think over</p>
           <h2 className="w-result-name" style={{ fontSize: "clamp(2rem, 9vw, 3.2rem)", fontStyle: "normal" }}>
@@ -102,7 +113,8 @@ export function FirstThousandQuiz() {
               <button
                 type="button"
                 className="w-option"
-                onClick={() => setTrail((previous) => [...previous, option.next])}
+                data-picked={picked === index ? "true" : undefined}
+                onClick={() => choose(option.next, index)}
               >
                 <b aria-hidden>{String.fromCharCode(65 + index)}</b>
                 {option.label}

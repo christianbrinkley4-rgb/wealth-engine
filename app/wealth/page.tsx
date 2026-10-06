@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 
+import { DropsForm } from "@/app/wealth/ui/DropsForm";
 import { HeroDemo } from "@/app/wealth/ui/HeroDemo";
 import { EducationNote, Faq, JsonLd } from "@/app/wealth/ui/shell";
 import { ToolGrid } from "@/app/wealth/ui/ToolGrid";
@@ -17,6 +18,9 @@ export const metadata: Metadata = wealthMetadata({
   description,
   path: "/wealth",
 });
+
+const HOOK = ["Nobody", "taught", "you", "about", "money."];
+const HOOK_MARK = ["I\u2019m", "21", "and", "licensed."];
 
 const TICKER = [
   "Free tools",
@@ -43,7 +47,7 @@ const FAQ = [
   },
   {
     q: "Do the calculators save my numbers anywhere?",
-    a: "Only in your own browser, so they're still there when you come back. Nothing you type into a calculator or quiz is sent to me or stored on a server.",
+    a: "Only in your own browser, so they're still there when you come back. Nothing you type into a calculator or quiz is sent to me or stored on a server. The one exception is the email box, and only if you fill it in.",
   },
   {
     q: "How accurate are the calculators?",
@@ -71,12 +75,29 @@ export default function WealthHome() {
         }}
       />
 
-      <section className="w-hero">
+      <section className="w-hero" data-spot>
         <div className="w-shell w-hero-grid">
           <div>
             <p className="w-eyebrow">{WEALTH_BRAND}</p>
-            <h1 className="w-h1">
-              Nobody taught you about money. <span className="w-mark">I&apos;m 21 and licensed.</span>
+            <h1 className="w-h1" aria-label={[...HOOK, ...HOOK_MARK].join(" ")}>
+              <span aria-hidden>
+                {HOOK.map((word, index) => (
+                  <span key={word} className="w-word" style={{ "--i": index } as React.CSSProperties}>
+                    {`${word} `}
+                  </span>
+                ))}
+                <span className="w-mark">
+                  {HOOK_MARK.map((word, index) => (
+                    <span
+                      key={word}
+                      className="w-word"
+                      style={{ "--i": HOOK.length + index } as React.CSSProperties}
+                    >
+                      {index === HOOK_MARK.length - 1 ? word : `${word} `}
+                    </span>
+                  ))}
+                </span>
+              </span>
             </h1>
             <p className="w-lede">
               So I&apos;m building the money class I wanted. Calculators you can play with, quizzes that
@@ -142,7 +163,7 @@ export default function WealthHome() {
         </div>
       </section>
 
-      <section className="w-section w-band-ink">
+      <section className="w-section w-band-ink" data-spot>
         <div className="w-shell w-split">
           <div>
             <p className="w-eyebrow">Who&apos;s behind this</p>
@@ -193,30 +214,19 @@ export default function WealthHome() {
         </div>
       </section>
 
-      <section className="w-section" id="drops">
+      <section className="w-section" id="drops" style={{ scrollMarginTop: 110 }}>
         <div className="w-shell w-split">
           <div>
             <p className="w-eyebrow">Tool drops</p>
             <h2 className="w-h2">
-              Want the next tool <span className="w-mark">when it drops?</span>
+              Get the next tool <span className="w-mark">the day it drops.</span>
             </h2>
             <p className="w-lede">
-              Text me the word DROPS. It comes straight to my phone, not a call center, and I&apos;ll send
-              new tools as I finish them.
+              One email when something new is built. It comes from me, not a marketing robot. That&apos;s
+              the whole deal.
             </p>
           </div>
-          <div className="w-card">
-            <h3 className="w-h3">Text Christian</h3>
-            <p style={{ margin: "10px 0 0", color: "var(--w-muted)" }}>
-              {WEALTH_FACTS.phone}. Standard message rates apply. Text STOP any time and I&apos;ll take you
-              off the list.
-            </p>
-            <div className="w-btn-row">
-              <a href={`${WEALTH_FACTS.smsHref}?&body=DROPS`} className="w-btn">
-                <MessageCircle size={18} aria-hidden /> Text DROPS
-              </a>
-            </div>
-          </div>
+          <DropsForm />
         </div>
       </section>
 

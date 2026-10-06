@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { money, startLaterCost } from "@/lib/wealth/math";
 
@@ -15,6 +15,29 @@ const END_AGE = 65;
 export function HeroDemo() {
   const [monthly, setMonthly] = useState(200);
   const [age, setAge] = useState(22);
+  const touched = useRef(false);
+
+  // The demo plays itself once: the slider sweeps up and back so the number
+  // moves before anyone touches it. The first real touch takes over.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const start = performance.now() + 900;
+    let frame = 0;
+    const tick = (now: number) => {
+      if (touched.current) return;
+      const t = Math.min(1, Math.max(0, (now - start) / 2200));
+      setMonthly(Math.round((200 + Math.sin(t * Math.PI) * 300) / 25) * 25);
+      if (t < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const byHand = (setter: (value: number) => void) => (value: number) => {
+    touched.current = true;
+    setter(value);
+  };
+
   const result = startLaterCost({
     monthly,
     annualReturn: RATE,
@@ -24,7 +47,7 @@ export function HeroDemo() {
   });
 
   return (
-    <div className="w-panel">
+    <div className="w-panel" data-spot>
       <p className="w-demo-label">
         <span>Try it. Drag a slider.</span>
         <span>Live</span>
@@ -40,7 +63,7 @@ export function HeroDemo() {
           min={25}
           max={1000}
           step={25}
-          onChange={setMonthly}
+          onChange={byHand(setMonthly)}
           display={money(monthly)}
         />
         <SliderField
@@ -48,7 +71,7 @@ export function HeroDemo() {
           value={age}
           min={18}
           max={45}
-          onChange={setAge}
+          onChange={byHand(setAge)}
           display={String(age)}
         />
       </div>

@@ -66,6 +66,8 @@ export function ToolCard({
       className="w-tool"
       data-tone={tool.tone}
       data-done={done ? "true" : undefined}
+      data-tilt
+      data-reveal
       style={{ "--i": index } as React.CSSProperties}
     >
       <span className="w-tool-meta">
@@ -145,7 +147,7 @@ export function NextUp({
 
 export function WealthFooter() {
   return (
-    <footer className="w-footer">
+    <footer className="w-footer" data-spot>
       <div className="w-shell">
         <div className="w-footer-top">
           <p className="w-footer-brand">{WEALTH_BRAND}</p>

@@ -1,3 +1,4 @@
+import { Motion } from "@/app/wealth/ui/Motion";
 import { WealthFooter } from "@/app/wealth/ui/shell";
 import { WealthNav } from "@/app/wealth/ui/WealthNav";
 
@@ -15,6 +16,7 @@ export default function WealthLayout({ children }: { children: React.ReactNode }
       <WealthNav />
       {children}
       <WealthFooter />
+      <Motion />
     </div>
   );
 }
