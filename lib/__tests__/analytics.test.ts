@@ -21,6 +21,8 @@ describe("what may be measured", () => {
       "quiz_complete",
       "quiz_start",
       "quiz_step",
+      "review_click",
+      "review_page_view",
       "timeline_complete",
       "timeline_email_request",
     ]);
@@ -60,6 +62,17 @@ describe("what an event may say about a visit", () => {
       "quiz_id",
       "step",
     ]);
+  });
+
+  it("lets the review page say which kind of link brought someone, and nothing else", () => {
+    expect(eventParams("/review", { review_source: "card" })).toEqual({
+      page_path: "/review",
+      review_source: "card",
+    });
+    // A value nobody declared (a name, an email) is dropped, not forwarded.
+    expect(eventParams("/review", { review_source: "linda@example.com" as never })).toEqual({
+      page_path: "/review",
+    });
   });
 
   it("drops an unknown quiz id or a step that is not a small whole number", () => {

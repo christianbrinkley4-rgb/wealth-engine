@@ -83,6 +83,9 @@ export function SiteFooter() {
                   {AGENT.city}, {AGENT.state}
                 </span>
               </li>
+              <li>
+                <Link href="/review">Worked with me? Leave a review</Link>
+              </li>
             </ul>
             {profiles.length > 0 ? (
               <nav aria-label="Public profiles" className="ft-social">

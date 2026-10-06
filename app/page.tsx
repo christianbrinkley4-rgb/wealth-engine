@@ -21,7 +21,6 @@ import {
   AGENT,
   COMPENSATION_DISCLOSURE,
   GOOGLE_MAPS_PROFILE_URL,
-  GOOGLE_WRITE_REVIEW_URL,
 } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
 import { faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
@@ -460,14 +459,9 @@ export default function HomePage() {
                 appreciate one.
               </p>
               <div className="rv-actions">
-                <a
-                  href={GOOGLE_WRITE_REVIEW_URL}
-                  className="btn btn-outline btn-sm"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Leave a Google review
-                </a>
+                <Link href="/review" className="btn btn-outline btn-sm">
+                  Worked with me? Leave a review
+                </Link>
                 <a
                   href={GOOGLE_MAPS_PROFILE_URL}
                   className="link-draw"

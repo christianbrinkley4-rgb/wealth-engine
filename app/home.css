@@ -1884,3 +1884,16 @@
     font-size: 1rem;
   }
 }
+
+.home-reviews-ask {
+  margin: 1.5rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+}
+.home-reviews-ask a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-weight: 600;
+  color: var(--pine-700);
+}
