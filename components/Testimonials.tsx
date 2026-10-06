@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import Link from "next/link";
 
 import { GOOGLE_REVIEWS, TESTIMONIALS } from "@/lib/testimonials";
 
@@ -60,6 +61,10 @@ export function Testimonials() {
             </li>
           ))}
         </ul>
+        <p className="home-reviews-ask">
+          Worked with me?{" "}
+          <Link href="/review">Leave a review</Link>
+        </p>
       </div>
     </section>
   );

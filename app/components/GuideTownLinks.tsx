@@ -32,13 +32,13 @@ export function GuideTownLinks({
       <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
         {places.map((place) => (
           <li key={place.slug}>
-            <Link href={`${prefix}/${place.slug}`} className="text-17 underline underline-offset-2">
+            <Link href={`${prefix}/${place.slug}`} className="tap text-17 underline underline-offset-2">
               {place.name}
             </Link>
           </li>
         ))}
         <li>
-          <Link href="/service-area" className="text-17 font-medium underline underline-offset-2">
+          <Link href="/service-area" className="tap text-17 font-medium underline underline-offset-2">
             View all {TRIAD_CITIES.length} communities →
           </Link>
         </li>

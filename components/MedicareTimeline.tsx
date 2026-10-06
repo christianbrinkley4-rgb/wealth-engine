@@ -225,7 +225,7 @@ export function MedicareTimeline({ currentYear }: { currentYear: number }) {
             </>
           ) : (
             <div className="tl-empty">
-              <h3>Your dates will show here.</h3>
+              <p className="tl-empty-title">Your dates will show here.</p>
               <p>Pick the month you turn 65. You’ll see:</p>
               <ul>
                 <li>When your enrollment window opens</li>

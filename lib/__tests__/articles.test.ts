@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { ARTICLES, articleText } from "@/lib/articles";
+import { ARTICLES, articleText, getArticle } from "@/lib/articles";
+import { PART_B_2026, PART_D_2026 } from "@/lib/medicareCosts2026";
 
 const wordCount = (text: string) => text.split(/\s+/).filter(Boolean).length;
 
@@ -37,4 +38,20 @@ describe("question-led articles", () => {
       });
     });
   }
+});
+
+describe("figures come from the cost tables, not from the article", () => {
+  it("quotes the Part D cap, deductible limit and base premium as lib/medicareCosts2026.ts has them", () => {
+    const text = articleText(getArticle("do-i-need-medicare-drug-coverage")!);
+    expect(text).toContain(`$${PART_D_2026.outOfPocketCap.toLocaleString("en-US")}`);
+    expect(text).toContain(`$${PART_D_2026.maximumDeductible}`);
+    expect(text).toContain(`$${PART_D_2026.baseBeneficiaryPremium}`);
+    // 12 months late: 12% of the base premium, rounded to the nearest dime.
+    expect(text).toContain("$4.70");
+  });
+
+  it("quotes the Part B deductible as the cost table has it", () => {
+    const text = articleText(getArticle("does-medicare-cover-hearing-aids-and-glasses")!);
+    expect(text).toContain(`$${PART_B_2026.annualDeductible}`);
+  });
 });

@@ -1073,13 +1073,13 @@
 .tl-result {
   padding: 1.2rem 1.1rem;
 }
-.tl-empty h3 {
+.tl-empty-title {
   font-family: var(--home-serif);
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
 }
-.tl-empty p {
+.tl-empty p:not(.tl-empty-title) {
   margin: 0.4rem 0 0;
   font-size: 0.95rem;
   color: var(--home-text);
@@ -1883,4 +1883,17 @@
   .ref-table {
     font-size: 1rem;
   }
+}
+
+.home-reviews-ask {
+  margin: 1.5rem 0 0;
+  font-size: 0.95rem;
+  color: var(--ink-muted);
+}
+.home-reviews-ask a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-weight: 600;
+  color: var(--pine-700);
 }

@@ -524,7 +524,7 @@ const reviewSequence: NurtureSequence = {
       dayOffset: 7,
       subject: "One quick nudge",
       paragraphs: [
-        "Hi {firstName}, just floating this back up in case it got buried. If you were happy with our review, a short Google review helps more than you know.",
+        "Hi {firstName}, just floating this back up in case it got buried. If our time together was useful, a short Google review helps more than you know.",
         "",
         "{review}",
         "",

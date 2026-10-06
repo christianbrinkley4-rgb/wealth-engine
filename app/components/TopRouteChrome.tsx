@@ -66,7 +66,7 @@ export function TopRouteChrome() {
         Skip to the main content
       </a>
       <div className="shell nav-bar">
-        <Link href="/" className="nav-brand" aria-label={`${AGENT.name}, home`}>
+        <Link href="/" className="nav-brand" aria-label={`${AGENT.name} ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state}, home`}>
           <Image
             src="/christian-brinkley-square.jpg"
             alt={AGENT.name}
@@ -77,7 +77,7 @@ export function TopRouteChrome() {
             className="nav-face"
           />
           <span className="nav-brand-text">
-            <span className="nav-name">{AGENT.name}</span>
+            <span className="nav-name">{AGENT.name}</span>{" "}
             <span className="nav-license">
               {AGENT.licenseLine}
               <span className="nav-license-place">

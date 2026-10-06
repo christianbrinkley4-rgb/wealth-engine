@@ -273,6 +273,20 @@ export default function AboutPage() {
         </section>
       ) : null}
 
+      <section className="section-tight ab-review" aria-labelledby="ab-review-heading">
+        <div className="shell">
+          <h2 id="ab-review-heading" className="ab-h2" data-reveal>
+            Worked with me?
+          </h2>
+          <p className="ab-online-lede" data-reveal>
+            A Google review helps your neighbors find me.{" "}
+            <Link href="/review" className="link-draw">
+              <span>Leave a review</span>
+            </Link>
+          </p>
+        </div>
+      </section>
+
       <section className="section-tight">
         <div className="shell ab-lead">
           <LeadCluster heading="Questions I can help with" />

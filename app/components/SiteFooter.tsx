@@ -83,6 +83,9 @@ export function SiteFooter() {
                   {AGENT.city}, {AGENT.state}
                 </span>
               </li>
+              <li>
+                <Link href="/review">Worked with me? Leave a review</Link>
+              </li>
             </ul>
             {profiles.length > 0 ? (
               <nav aria-label="Public profiles" className="ft-social">
@@ -164,9 +167,6 @@ export function SiteFooter() {
           </p>
         </div>
       </div>
-      <span className="ft-word" aria-hidden>
-        Greensboro
-      </span>
     </footer>
   );
 }
