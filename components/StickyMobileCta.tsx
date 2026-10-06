@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { AGENT } from "@/lib/agent";
+import { WealthLane } from "@/lib/wealthLane";
 
 const HIDE_PREFIXES = [
   "/lp",
@@ -68,9 +69,9 @@ export function StickyMobileCta() {
     };
   }, []);
 
-  const hidden = HIDE_PREFIXES.some(
-    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
-  );
+  const hidden =
+    WealthLane.isYoungPath(pathname) ||
+    HIDE_PREFIXES.some((prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`));
   if (hidden) return null;
 
   const tucked = typing || (isHome && heroVisible);

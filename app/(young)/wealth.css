@@ -1,0 +1,556 @@
+/* Young-money lane. Scoped to .wealth-lane so Medicare pages keep cream and serif.
+   Loaded from the lane layout. Rules are inert on every other route. */
+
+html:has(.wealth-lane) {
+  background: #0c0f0d;
+  color-scheme: dark;
+}
+
+body:has(.wealth-lane) {
+  background: #0c0f0d;
+  color: #f4f1ea;
+  padding-bottom: 0;
+}
+
+.wealth-lane {
+  --wl-bg: #0c0f0d;
+  --wl-card: #141a16;
+  --wl-line: rgba(244, 241, 234, 0.14);
+  --wl-text: #f4f1ea;
+  --wl-muted: #c5cdc6;
+  --wl-lime: #dff25a;
+  --wl-lime-ink: #14180a;
+  --wl-display: var(--font-wealth-display), var(--font-body), "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(48rem 28rem at 85% -4rem, rgba(223, 242, 90, 0.09), transparent 60%),
+    var(--wl-bg);
+  color: var(--wl-text);
+  min-height: 100vh;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.wealth-lane :is(h1, h2, h3, p, ul, ol, figure) {
+  margin: 0;
+}
+
+.wealth-lane :is(h1, h2, h3) {
+  font-family: var(--wl-display);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+.wealth-lane :focus-visible {
+  outline: 2px solid var(--wl-lime);
+  outline-offset: 3px;
+}
+
+.wealth-lane ::selection {
+  background: var(--wl-lime);
+  color: var(--wl-lime-ink);
+}
+
+.wealth-shell {
+  width: min(1120px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.wealth-skip {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  z-index: 40;
+  transform: translateY(-160%);
+  padding: 0.7rem 1rem;
+  background: var(--wl-lime);
+  color: var(--wl-lime-ink);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.wealth-skip:focus {
+  transform: none;
+}
+
+.wealth-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(12, 15, 13, 0.88);
+  border-bottom: 1px solid var(--wl-line);
+  backdrop-filter: blur(16px);
+}
+
+.wealth-bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-block: 0.75rem 0.45rem;
+}
+
+.wealth-mark {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  color: inherit;
+  text-decoration: none;
+}
+
+.wealth-mark-name {
+  font-family: var(--wl-display);
+  font-size: 1.15rem;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.wealth-mark-name::before {
+  content: "";
+  display: inline-block;
+  width: 0.48rem;
+  height: 0.48rem;
+  margin-right: 0.45rem;
+  background: var(--wl-lime);
+  vertical-align: 0.08em;
+}
+
+.wealth-mark-role {
+  margin-left: 0.95rem;
+  color: var(--wl-muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.wealth-nav {
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.wealth-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.wealth-nav ul {
+  display: flex;
+  gap: 0.15rem 1.15rem;
+  width: max-content;
+  margin: 0;
+  padding: 0.1rem 0 0.35rem;
+  list-style: none;
+}
+
+.wealth-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--wl-text);
+  font-size: 0.92rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.wealth-nav a:hover,
+.wealth-nav a[aria-current="page"] {
+  color: var(--wl-lime);
+}
+
+.wealth-hero {
+  padding-block: 1.8rem 2.4rem;
+}
+
+.wealth-hero-grid {
+  display: grid;
+  gap: 1.6rem;
+  align-items: end;
+}
+
+.wealth-eyebrow {
+  color: var(--wl-lime);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.wealth-hero h1 {
+  margin-top: 0.85rem;
+  max-width: 12ch;
+  font-size: clamp(2.7rem, 12vw, 4.5rem);
+}
+
+.wealth-hero h1 em {
+  color: var(--wl-lime);
+  font-style: normal;
+}
+
+.wealth-lede {
+  max-width: 38rem;
+  margin-top: 1.1rem;
+  color: var(--wl-muted);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.wealth-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 3.25rem;
+  margin-top: 1.35rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: var(--wl-lime);
+  color: var(--wl-lime-ink);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.wealth-cta:hover {
+  background: #eef89a;
+}
+
+.wealth-note {
+  max-width: 36rem;
+  margin-top: 0.75rem;
+  color: var(--wl-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.wealth-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.wealth-facts li {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--wl-line);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.wealth-stub {
+  padding: 1.05rem 1.05rem 1.15rem;
+  border: 1px solid var(--wl-line);
+  border-radius: 18px;
+  background: rgba(16, 22, 18, 0.92);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+}
+
+.wealth-stub-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--wl-lime);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.wealth-stub ol {
+  margin-top: 0.35rem;
+  padding: 0;
+  list-style: none;
+}
+
+.wealth-stub li {
+  display: grid;
+  grid-template-columns: minmax(7.2rem, 10.5rem) 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.72rem 0;
+  border-top: 1px solid var(--wl-line);
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.wealth-stub li:last-child {
+  border-top: 2px solid rgba(223, 242, 90, 0.5);
+  font-family: var(--wl-display);
+  font-size: 1.2rem;
+  font-weight: 750;
+  letter-spacing: -0.03em;
+}
+
+.wealth-track {
+  height: 0.48rem;
+  border-radius: 99px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(244, 241, 234, 0.24) 0 6px,
+    transparent 6px 11px
+  );
+}
+
+.wealth-stub-note {
+  margin-top: 0.85rem;
+  color: var(--wl-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.wealth-section {
+  padding-block: 2.4rem 2.6rem;
+  border-top: 1px solid var(--wl-line);
+  scroll-margin-top: 5.5rem;
+}
+
+.wealth-section-head {
+  display: grid;
+  gap: 0.45rem;
+  margin-bottom: 1.15rem;
+}
+
+.wealth-index {
+  color: var(--wl-lime);
+  font-family: var(--wl-display);
+  font-size: 0.85rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+}
+
+.wealth-section h2 {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.wealth-section-head p:last-child {
+  max-width: 38rem;
+  margin-top: 0.55rem;
+  color: var(--wl-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.wealth-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.wealth-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-height: 100%;
+  padding: 1.1rem 1.1rem 1.2rem;
+  border: 1px solid var(--wl-line);
+  border-radius: 16px;
+  background: var(--wl-card);
+  scroll-margin-top: 5.5rem;
+}
+
+.wealth-card-lead {
+  border-color: rgba(223, 242, 90, 0.55);
+}
+
+.wealth-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: var(--wl-muted);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.wealth-status {
+  color: var(--wl-lime);
+  text-align: right;
+}
+
+.wealth-card h3 {
+  font-size: 1.4rem;
+  line-height: 1.05;
+}
+
+.wealth-card p:last-child {
+  color: var(--wl-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.wealth-log {
+  display: grid;
+  gap: 0;
+  margin: 0.2rem 0 0 0.3rem;
+  padding: 0 0 0 1.3rem;
+  border-left: 1px solid var(--wl-line);
+  list-style: none;
+}
+
+.wealth-log li {
+  position: relative;
+  padding-bottom: 1.45rem;
+}
+
+.wealth-log li::before {
+  content: "";
+  position: absolute;
+  top: 0.35rem;
+  left: calc(-1.3rem - 0.32rem);
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 99px;
+  background: var(--wl-lime);
+}
+
+.wealth-log h3 {
+  font-size: 1.45rem;
+}
+
+.wealth-log p {
+  max-width: 40rem;
+  margin-top: 0.4rem;
+  color: var(--wl-muted);
+  line-height: 1.5;
+}
+
+.wealth-foot {
+  padding-block: 2rem 2.6rem;
+  border-top: 1px solid var(--wl-line);
+}
+
+.wealth-foot p {
+  max-width: 68ch;
+  color: var(--wl-muted);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.wealth-foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.2rem;
+  margin-top: 1rem;
+}
+
+.wealth-foot-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--wl-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.wealth-foot-links a:hover {
+  color: var(--wl-lime);
+}
+
+.wealth-foot p:last-child {
+  margin-top: 0.35rem;
+}
+
+.wealth-links {
+  padding-block: 1.8rem 2.6rem;
+}
+
+.wealth-links h1 {
+  font-size: clamp(2.8rem, 10vw, 4.4rem);
+}
+
+.wealth-links .wealth-lede {
+  margin-top: 0.9rem;
+}
+
+.wealth-link-list {
+  margin-top: 1.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.wealth-link-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.05rem 0;
+  border-top: 1px solid var(--wl-line);
+  color: inherit;
+  text-decoration: none;
+}
+
+.wealth-link-row:last-child {
+  border-bottom: 1px solid var(--wl-line);
+}
+
+.wealth-link-row strong {
+  font-family: var(--wl-display);
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.wealth-link-row span {
+  color: var(--wl-muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.wealth-link-row:hover strong {
+  color: var(--wl-lime);
+}
+
+@media (min-width: 800px) {
+  .wealth-shell {
+    width: min(1120px, calc(100% - 4rem));
+  }
+
+  .wealth-bar-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.85rem;
+  }
+
+  .wealth-nav ul {
+    padding: 0;
+  }
+
+  .wealth-hero {
+    padding-block: 3.4rem 3.6rem;
+  }
+
+  .wealth-hero-grid {
+    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+    gap: 3rem;
+  }
+
+  .wealth-hero h1 {
+    font-size: clamp(3.4rem, 5.4vw, 4.7rem);
+  }
+
+  .wealth-section {
+    padding-block: 3.3rem;
+  }
+
+  .wealth-section-head {
+    grid-template-columns: 3.2rem 1fr;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .wealth-grid[data-cols="2"] {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1040px) {
+  .wealth-grid[data-cols="3"] {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

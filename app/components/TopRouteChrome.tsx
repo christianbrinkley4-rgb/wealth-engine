@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 import { AGENT } from "@/lib/agent";
+import { WealthLane } from "@/lib/wealthLane";
 
 const NAV = [
   { href: "/turning-65", label: "Turning 65" },
@@ -25,7 +26,8 @@ export function TopRouteChrome() {
   const [menuOpenOn, setMenuOpenOn] = useState<string | null>(null);
   const menuOpen = menuOpenOn === pathname;
 
-  if (pathname.startsWith("/lp/")) return null;
+  // Paid landing pages and the young-money lane carry their own chrome.
+  if (pathname.startsWith("/lp/") || WealthLane.isYoungPath(pathname)) return null;
 
   return (
     <header className="site-header">
