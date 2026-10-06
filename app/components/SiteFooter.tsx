@@ -51,6 +51,8 @@ const MORE = [
 export function SiteFooter() {
   const pathname = usePathname() ?? "/";
   if (pathname.startsWith("/lp/")) return null;
+  // The /wealth hub and /links carry their own footer.
+  if (pathname === "/links" || pathname === "/wealth" || pathname.startsWith("/wealth/")) return null;
 
   const year = new Date().getFullYear();
   const profiles = publishedProfiles();

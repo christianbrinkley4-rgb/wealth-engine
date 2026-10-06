@@ -24,6 +24,9 @@ const HIDE_PREFIXES = [
   "/thank-you",
   "/privacy",
   "/unsubscribe",
+  // The money hub for younger visitors has its own calls to action.
+  "/wealth",
+  "/links",
 ];
 
 /** Medicare pages offer the plan check as the second step; elsewhere, a question. */

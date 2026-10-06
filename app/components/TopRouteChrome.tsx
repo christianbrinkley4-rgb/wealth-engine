@@ -23,6 +23,11 @@ const SHEET_EXTRA = [
   { href: "/start", label: "Ask a question" },
 ] as const;
 
+/** The /wealth hub and /links carry their own header and footer. */
+function isWealthHub(pathname: string) {
+  return pathname === "/links" || pathname === "/wealth" || pathname.startsWith("/wealth/");
+}
+
 function isCurrent(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
@@ -58,7 +63,7 @@ export function TopRouteChrome() {
     };
   }, [menuOpen]);
 
-  if (pathname.startsWith("/lp/")) return null;
+  if (pathname.startsWith("/lp/") || isWealthHub(pathname)) return null;
 
   return (
     <header className="nav" data-scrolled={scrolled || menuOpen ? "true" : undefined}>
