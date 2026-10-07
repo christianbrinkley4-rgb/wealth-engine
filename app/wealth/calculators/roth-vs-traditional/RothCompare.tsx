@@ -4,13 +4,16 @@ import { LiveBar, LiveMoney, SliderField } from "@/app/wealth/ui/controls";
 import { useMarkExplored, usePersistentState } from "@/app/wealth/ui/hooks";
 import { money, rothVsTraditional } from "@/lib/wealth/math";
 
+import { normalizeRothState, ROTH_DEFAULTS } from "./state";
+
 const KEY = "cbw:roth";
-const DEFAULTS = { amount: 3000, years: 40, rate: 7, taxNow: 12, taxLater: 22 };
 
 export function RothCompare() {
   useMarkExplored("roth-vs-traditional");
-  const [state, setState] = usePersistentState(KEY, DEFAULTS);
-  const set = (patch: Partial<typeof DEFAULTS>) => setState((previous) => ({ ...previous, ...patch }));
+  const [saved, setState] = usePersistentState(KEY, ROTH_DEFAULTS);
+  const state = normalizeRothState(saved);
+  const set = (patch: Partial<typeof ROTH_DEFAULTS>) =>
+    setState((previous) => normalizeRothState({ ...normalizeRothState(previous), ...patch }));
 
   const result = rothVsTraditional({
     annualPreTax: state.amount,
@@ -24,7 +27,7 @@ export function RothCompare() {
 
   const takeaway =
     result.winner === "tie"
-      ? "Same tax rate now and later means a tie. The account type doesn't matter. The rate difference does."
+      ? `Both tax rates are ${state.taxNow}%. Roth and traditional tie under these assumptions.`
       : result.winner === "roth"
         ? `With a lower rate now (${state.taxNow}%) than later (${state.taxLater}%), Roth comes out ${money(gap)} ahead in this example.`
         : `With a higher rate now (${state.taxNow}%) than later (${state.taxLater}%), traditional comes out ${money(gap)} ahead in this example.`;
@@ -58,7 +61,7 @@ export function RothCompare() {
           step={250}
           onChange={(amount) => set({ amount })}
           display={money(state.amount)}
-          hint="Before tax. Account limits apply and change each year."
+          hint="2026 limits under 50: $7,500 for IRAs, $24,500 for 401(k) employee contributions. This slider compares pre-tax pay."
         />
         <SliderField
           label="Years until you use it"
@@ -102,7 +105,7 @@ export function RothCompare() {
               />
             </div>
             <p className="w-stat-sub">
-              Tax paid first. {money(result.rothDeposit)} goes in each year. Nothing owed on the way out.
+              Tax paid first. {money(result.rothDeposit)} goes in each year. This example assumes qualified, tax-free Roth withdrawals.
             </p>
           </li>
           <li>
@@ -126,9 +129,10 @@ export function RothCompare() {
         </ul>
         <p className="w-callout">{takeaway}</p>
         <p className="w-assume">
-          Simplified on purpose: one flat tax rate each side, yearly deposits, a steady return, and the same
-          slice of pay going to either account. It ignores employer matches, state taxes, deductions,
-          income limits and required withdrawals. It shows the idea, not your tax bill.
+          Compare 1 slice of pre-tax pay, with deposits at each year&apos;s end and a steady return.
+          Traditional contributions are fully deductible here. Roth withdrawals qualify for tax-free treatment.
+          Each side uses 1 flat tax rate. Employer matches, state taxes, contribution limits, income limits and required withdrawals are excluded.
+          This is an estimate, not your tax bill.
         </p>
       </div>
     </div>
