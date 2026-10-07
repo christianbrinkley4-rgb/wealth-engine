@@ -30,6 +30,7 @@ const LEARN = [
 ] as const;
 
 const MORE = [
+  { href: "/insurance-services", label: "All insurance services" },
   { href: "/life-insurance", label: "Life insurance" },
   { href: "/care-coverage", label: "Care and critical illness coverage" },
   { href: "/retirement-income", label: "Retirement income" },

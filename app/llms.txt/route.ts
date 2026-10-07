@@ -10,11 +10,16 @@ import { placeNames, TRIAD_CITIES } from "@/lib/triad";
 import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
 import { WEALTH_NAV, WEALTH_TOOLS } from "@/lib/wealth/site";
 import { PERSONALITIES } from "@/lib/wealth/quizzes";
+import { learnEntries } from "@/lib/learn";
 
 /** Public summary kept consistent with the visitor-facing pages. */
 export const dynamic = "force-static";
 
 export function GET() {
+  const articleLines = learnEntries()
+    .filter((entry) => entry.kind === "Answer" || entry.kind === "Explainer")
+    .map((entry) => `- [${entry.title}](${SITE_URL}${entry.href}): ${entry.blurb}`)
+    .join("\n");
   const cityLines = TRIAD_CITIES.map((city) =>
     [
       `- [Medicare in ${city.name}](${SITE_URL}/medicare-in/${city.slug}): personal help with enrollment, doctors, prescriptions, and coverage choices. Confirm Medicare Advantage availability for the visitor’s home address.`,
@@ -82,6 +87,7 @@ ${TPMO_DISCLAIMER}
 
 ## Guides
 
+- [Insurance services](${SITE_URL}/insurance-services): Medicare, life insurance, care coverage, annuity consultations and retirement education. See what each service covers and what to bring.
 - [Learning Hub](${SITE_URL}/learn): every guide, answer, explainer, and tool on the site, organized by situation (turning 65, already on Medicare, costs, taxes, retirement income, insurance, helping a parent).
 - [Medicare words in plain English](${SITE_URL}/medicare-words): short definitions of Part A, Part B, Medicare Advantage, Part D, Medigap, IRMAA, the enrollment periods, and other common terms, each with a link to the official Medicare.gov, CMS, or Social Security page.
 - [Taxes and retirement](${SITE_URL}/taxes-and-retirement): plain-English explainers on Social Security taxes, required minimum distributions, and Roth conversions, and how retirement income affects Medicare premiums. Educational, not tax advice.
@@ -100,6 +106,10 @@ ${TPMO_DISCLAIMER}
 - [Retirement income](${SITE_URL}/retirement-income): general education about retirement accounts and potential Medicare premium effects.
 - [Social Security timing](${SITE_URL}/social-security-timing): consider income needs, family circumstances, and personal benefit estimates.
 - [Medicare premium review](${SITE_URL}/irmaa-appeal): learn about requesting a review through Social Security after a qualifying life change.
+
+## Question-led articles and retirement explainers
+
+${articleLines}
 
 ## Published 2026 figures
 

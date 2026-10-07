@@ -18,6 +18,7 @@ export function wealthArticleJsonLd(input: Parameters<typeof articleJsonLd>[0]) 
     image: `${SITE_URL}${SHARE_IMAGE.url}`,
     author: { ...article.author, url: `${SITE_URL}/wealth/journey` },
     publisher: { "@type": "Person", "@id": `${SITE_URL}/#christian`, name: SITE_OWNER },
+    isPartOf: { "@id": `${SITE_URL}/wealth#hub` },
   };
 }
 
@@ -56,6 +57,7 @@ export function webAppJsonLd(input: { name: string; description: string; path: s
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
+    "@id": `${SITE_URL}${input.path}#app`,
     name: input.name,
     description: input.description,
     url: `${SITE_URL}${input.path}`,
@@ -64,6 +66,21 @@ export function webAppJsonLd(input: { name: string; description: string; path: s
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     author: { "@id": `${SITE_URL}/#christian` },
+    isPartOf: { "@id": `${SITE_URL}/wealth#hub` },
+    inLanguage: "en-US",
+  };
+}
+
+export function wealthHubJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${SITE_URL}/wealth#hub`,
+    url: `${SITE_URL}/wealth`,
+    name: WEALTH_BRAND,
+    description: "Free money calculators, quizzes and guides for people in their 20s and 30s.",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    publisher: { "@id": `${SITE_URL}/#christian` },
     inLanguage: "en-US",
   };
 }

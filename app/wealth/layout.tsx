@@ -1,5 +1,6 @@
 import { Motion } from "@/app/wealth/ui/Motion";
-import { WealthFooter } from "@/app/wealth/ui/shell";
+import { JsonLd, WealthFooter } from "@/app/wealth/ui/shell";
+import { wealthHubJsonLd } from "@/lib/wealth/seo";
 import { WealthNav } from "@/app/wealth/ui/WealthNav";
 
 import "./wealth.css";
@@ -13,6 +14,7 @@ import "./wealth.css";
 export default function WealthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="w-root">
+      <JsonLd data={wealthHubJsonLd()} />
       <WealthNav />
       {children}
       <WealthFooter />

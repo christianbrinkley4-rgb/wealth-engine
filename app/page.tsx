@@ -23,7 +23,7 @@ import {
   GOOGLE_MAPS_PROFILE_URL,
 } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
-import { faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
+import { faqJsonLd, localBusinessJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { hasTestimonials } from "@/lib/testimonials";
 import { featuredPlaces } from "@/lib/triad";
 
@@ -129,6 +129,10 @@ export default function HomePage() {
 
   return (
     <main className="hp">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()).replace(/</g, "\\u003c") }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(QUESTIONS)) }}
@@ -241,6 +245,9 @@ export default function HomePage() {
               );
             })}
           </ul>
+          <div className="mt-6">
+            <Link href="/insurance-services" className="btn btn-outline">Explore all insurance services</Link>
+          </div>
         </div>
       </section>
 
@@ -359,9 +366,8 @@ export default function HomePage() {
               Hey, I’m Christian.
             </h2>
             <p data-reveal style={{ "--i": 2 } as React.CSSProperties}>
-              I’m from Granville County, and I live and work in Greensboro now. I’m a licensed
-              insurance agent, and I’m studying accounting at UNCG. I finish my master’s in 2027
-              and I’m working toward becoming a CPA.
+              I’m based in Greensboro and licensed for Life &amp; Health insurance in North Carolina.
+              I’m an accounting senior at UNCG, graduating in December 2026.
             </p>
             <p data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               Down the road, I want to run a planning practice right here, helping families with

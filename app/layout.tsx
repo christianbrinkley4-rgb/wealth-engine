@@ -8,7 +8,7 @@ import { REVEAL_BOOT_SCRIPT, RevealObserver } from "@/components/motion/RevealOb
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { AGENT, publishedProfiles } from "@/lib/agent";
 import {
-  localBusinessJsonLd,
+  siteIdentityJsonLd,
   SITE_LOCALITY,
   SITE_INDEXABLE,
   SITE_NAME,
@@ -86,9 +86,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_OWNER} | Medicare, Life Insurance & Retirement in Greensboro`,
-    description:
-      "Medicare, life insurance, and retirement help from a licensed Greensboro agent serving the Piedmont Triad. Meet in person or by phone.",
+    // Let each page's Open Graph title and description supply the card text.
     images: ["/twitter-image"],
   },
   robots: {
@@ -123,10 +121,10 @@ export default function RootLayout({
         {publishedProfiles().map((profile) => (
           <link key={profile.network} rel="me" href={profile.url} />
         ))}
-        {/* Keep author and service information consistent across public pages. */}
+        {/* Shared author identity; insurance offers stay on insurance pages. */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteIdentityJsonLd()).replace(/</g, "\\u003c") }}
         />
         <TopRouteChrome />
         {/* Target for the skip link; the pages render their own <main> inside. */}

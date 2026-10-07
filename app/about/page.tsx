@@ -6,7 +6,7 @@ import { ArrowRight, CalendarDays, Mail, Phone } from "lucide-react";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { LeadCluster } from "@/app/components/LeadCluster";
 import { AGENT, COMPENSATION_DISCLOSURE, hasPublishableNpn, publishedProfiles } from "@/lib/agent";
-import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
+import { breadcrumbJsonLd, pageOpenGraph, SITE_URL } from "@/lib/seo";
 
 const title = "Christian Brinkley | Licensed Insurance Agent in Greensboro";
 const description =
@@ -72,6 +72,20 @@ export default function AboutPage() {
 
   return (
     <main className="ab">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "@id": `${SITE_URL}/about#profile`,
+        url: `${SITE_URL}/about`,
+        name: title,
+        mainEntity: {
+          "@type": "Person",
+          "@id": `${SITE_URL}/#christian`,
+          name: AGENT.name,
+          url: `${SITE_URL}/about`,
+          image: `${SITE_URL}/christian-brinkley.jpg`,
+        },
+      }).replace(/</g, "\\u003c") }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -12,7 +12,8 @@ const STATIC_ROUTES: Array<{
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
 }> = [
-  { path: "/", changeFrequency: "weekly", priority: 1.0 },
+  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-07" },
+  { path: "/insurance-services", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-07" },
   { path: "/care-coverage", changeFrequency: "monthly", priority: 0.85 },
   { path: "/long-term-care-insurance", changeFrequency: "monthly", priority: 0.85 },
   { path: "/short-term-care-insurance", changeFrequency: "monthly", priority: 0.8 },

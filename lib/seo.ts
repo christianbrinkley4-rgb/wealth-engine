@@ -158,15 +158,37 @@ export function publishedSameAs(): string[] | undefined {
   return AGENT.profiles.length > 0 ? [...AGENT.profiles] : undefined;
 }
 
+/** Shared identity only. Insurance offers belong on insurance pages, not the money hub. */
+export function siteIdentityJsonLd() {
+  const sameAs = publishedSameAs();
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: SITE_NAME,
+        inLanguage: "en-US",
+        publisher: { "@id": `${SITE_URL}/#christian` },
+      },
+      {
+        "@type": "Person",
+        "@id": `${SITE_URL}/#christian`,
+        name: SITE_OWNER,
+        url: `${SITE_URL}/about`,
+        image: `${SITE_URL}/christian-brinkley.jpg`,
+        jobTitle: "Licensed Insurance Agent",
+        description: "North Carolina Life & Health insurance agent and accounting senior at UNCG, graduating December 2026.",
+        ...(sameAs ? { sameAs } : {}),
+      },
+    ],
+  };
+}
+
 /**
- * The entity graph.
- *
- * This used to render on the home page alone, which meant every other page —
- * including the ones that answer real questions and are the likeliest to be
- * quoted — carried no statement of who wrote them or where he works. Search
- * engines and language models both build confidence about an entity from
- * repetition across a site, so it now ships in the root layout and appears
- * everywhere.
+ * The insurance entity graph, rendered on the insurance home and service index.
+ * Other pages share the smaller identity graph and reference these stable IDs.
  *
  * Deliberately a service-area business rather than a storefront: there is no
  * public street address, so this describes where he works rather than
