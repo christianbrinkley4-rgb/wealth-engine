@@ -13,8 +13,9 @@ import {
   rebalance,
 } from "@/lib/wealth/math";
 
+import { BUDGET_DEFAULTS, budgetPlanCsv, normalizeBudgetState } from "./plan";
+
 const KEY = "cbw:budget";
-const DEFAULTS = { income: 3000, period: "month" as "month" | "paycheck", ...CLASSIC_SPLIT };
 
 const BUCKETS: ReadonlyArray<{ key: BudgetKey; label: string; examples: string; color: string }> = [
   {
@@ -51,25 +52,16 @@ function verdict(split: Record<BudgetKey, number>): string {
 
 export function BudgetBuilder() {
   useMarkExplored("budget");
-  const [state, setState] = usePersistentState(KEY, DEFAULTS);
+  const [saved, saveState] = usePersistentState(KEY, BUDGET_DEFAULTS);
+  const state = normalizeBudgetState(saved);
+  const setState = (update: (previous: typeof BUDGET_DEFAULTS) => typeof BUDGET_DEFAULTS) =>
+    saveState((previous) => normalizeBudgetState(update(normalizeBudgetState(previous))));
   const split = { needs: state.needs, wants: state.wants, savings: state.savings };
   const monthlyIncome = state.period === "paycheck" ? (state.income * 26) / 12 : state.income;
   const dollars = budgetDollars(monthlyIncome, split);
 
   function downloadPlan() {
-    const rows = [
-      ["Bucket", "Share", "Per month", "Per year"],
-      ...BUCKETS.map((bucket) => [
-        bucket.label,
-        `${split[bucket.key]}%`,
-        Math.round(dollars[bucket.key]),
-        Math.round(dollars[bucket.key] * 12),
-      ]),
-      ["Total take-home", "100%", Math.round(monthlyIncome), Math.round(monthlyIncome * 12)],
-      [],
-      ["Made with the budget builder at christianbrinkleync.com/wealth. Education only, not advice."],
-    ];
-    const csv = rows.map((row) => row.map((cell) => `"${String(cell).replace(/"/g, '""')}"`).join(",")).join("\r\n");
+    const csv = budgetPlanCsv(state);
     const url = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
     const link = document.createElement("a");
     link.href = url;
@@ -157,7 +149,7 @@ export function BudgetBuilder() {
             </li>
           ))}
         </ul>
-        <p className="w-callout">{verdict(split)}</p>
+        <p className="w-callout">{monthlyIncome === 0 ? "$0 income means $0 in every bucket. Enter your take-home pay to put this split to work." : verdict(split)}</p>
         {state.period === "paycheck" ? (
           <p className="w-assume">
             Every two weeks is 26 paychecks a year, so an average month is 2.17 of them.
