@@ -6,33 +6,21 @@ import { LineChart } from "@/app/wealth/ui/charts";
 import { LiveBar, LiveMoney, MoneyField, ShareButton, SliderField } from "@/app/wealth/ui/controls";
 import { useMarkExplored, usePersistentState, writeStore } from "@/app/wealth/ui/hooks";
 import { catchUpMonthly, finalPoint, growthSeries, money, startLaterCost } from "@/lib/wealth/math";
+import { COMPOUND_DEFAULTS, END_AGE, normalizeCompoundState, readCompoundQuery } from "./settings";
 
 const KEY = "cbw:compound";
-const DEFAULTS = { start: 0, monthly: 250, years: 40, rate: 7, age: 22, wait: 10 };
-const END_AGE = 65;
-
-const clampTo = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
 export function CompoundCalculator() {
   useMarkExplored("compound-interest");
-  const [state, setState] = usePersistentState(KEY, DEFAULTS);
-  const set = (patch: Partial<typeof DEFAULTS>) => setState((previous) => ({ ...previous, ...patch }));
+  const [saved, setState] = usePersistentState(KEY, COMPOUND_DEFAULTS);
+  const state = normalizeCompoundState(saved);
+  const set = (patch: Partial<typeof COMPOUND_DEFAULTS>) =>
+    setState((previous) => normalizeCompoundState({ ...normalizeCompoundState(previous), ...patch }));
 
   // A shared link carries its numbers in the query string.
   useEffect(() => {
-    const query = new URLSearchParams(window.location.search);
-    if (!query.has("m")) return;
-    const read = (name: string, fallback: number) => {
-      const value = Number(query.get(name));
-      return Number.isFinite(value) && query.has(name) ? value : fallback;
-    };
-    writeStore(KEY, {
-      ...DEFAULTS,
-      start: clampTo(read("s", DEFAULTS.start), 0, 1_000_000),
-      monthly: clampTo(read("m", DEFAULTS.monthly), 0, 2000),
-      years: clampTo(read("y", DEFAULTS.years), 1, 50),
-      rate: clampTo(read("r", DEFAULTS.rate), 0, 12),
-    });
+    const shared = readCompoundQuery(new URLSearchParams(window.location.search));
+    if (shared) writeStore(KEY, shared);
   }, []);
 
   const series = growthSeries({
@@ -45,7 +33,7 @@ export function CompoundCalculator() {
   const growth = end.balance - end.contributed;
   const growthShare = end.balance > 0 ? Math.round((growth / end.balance) * 100) : 0;
 
-  const lateAge = Math.min(state.age + state.wait, END_AGE - 1);
+  const lateAge = state.age + state.wait;
   const wait = startLaterCost({
     monthly: state.monthly,
     annualReturn: state.rate,
@@ -125,9 +113,13 @@ export function CompoundCalculator() {
             describe={`Balance grows to ${money(end.balance)} after ${state.years} years, from ${money(end.contributed)} contributed.`}
           />
           <p className="w-callout">
-            {growthShare > 0
-              ? `${growthShare}% of that final number is growth. You never deposited it.`
-              : "At 0% there's no growth. This is just your deposits stacked up."}
+            {state.rate === 0
+              ? "At 0% there's no growth. This is just your deposits stacked up."
+              : end.balance === 0
+                ? "With $0 deposited, there's no money here to grow."
+                : growthShare === 0
+                  ? "Growth makes up less than 1% of this balance. Most of it came from your deposits."
+                  : `${growthShare}% of that final number is growth. You never deposited it.`}
           </p>
           <p className="w-assume">
             Assumes a steady {state.rate}% a year, compounded monthly, deposits at the end of each month. No
@@ -171,7 +163,7 @@ export function CompoundCalculator() {
               label="Years you wait"
               value={state.wait}
               min={1}
-              max={20}
+              max={Math.min(20, END_AGE - state.age - 1)}
               onChange={(waitYears) => set({ wait: waitYears })}
               display={`${state.wait}`}
             />

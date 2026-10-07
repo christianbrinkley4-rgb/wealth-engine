@@ -29,7 +29,7 @@ const FAQ = [
   },
   {
     q: "Why does starting ten years earlier matter so much?",
-    a: "The early dollars get the most time to compound. Ten extra years of deposits is a small part of the gap. Most of it is growth on those early deposits, which is why the chart bends upward at the end.",
+    a: "Starting 10 years earlier adds 120 deposits. Those deposits also get more time to grow. At 0% return, the entire gap is deposits.",
   },
   {
     q: "Does this include taxes, fees or inflation?",
@@ -71,11 +71,11 @@ export default function CompoundInterestPage() {
           <h2>Three things that move the number</h2>
           <ol>
             <li>
-              <strong>Time.</strong> Slide years from 20 to 40 and watch. Doubling the time does a lot more
-              than double the balance.
+              <strong>Time.</strong> Slide years from 20 to 40 and watch. More years add more deposits
+              and more time for growth at a positive rate.
             </li>
             <li>
-              <strong>The amount.</strong> This one is linear. Double the monthly amount, double the result.
+              <strong>The amount.</strong> Start with $0 and double the monthly amount. That doubles the result.
             </li>
             <li>
               <strong>The rate.</strong> Small changes add up over decades. It&apos;s also the one you
