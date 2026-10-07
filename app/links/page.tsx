@@ -4,6 +4,8 @@ import Link from "next/link";
 import { ArrowUpRight, FileSpreadsheet, Globe, MessageCircle, Sparkles, Terminal } from "lucide-react";
 
 import { wealthMetadata } from "@/lib/wealth/seo";
+import { JsonLd } from "@/app/wealth/ui/shell";
+import { SITE_URL } from "@/lib/seo";
 import { ANALYZER_FILE, BUDGET_FILE, EDUCATION_NOTE, WEALTH_BRAND, WEALTH_FACTS } from "@/lib/wealth/site";
 
 import "../wealth/wealth.css";
@@ -32,7 +34,7 @@ const LINKS = [
     download: true,
     icon: Terminal,
     title: "Financial Statement Analyzer",
-    note: "My Python ratio checker. Free download.",
+    note: "10 ratios. Python download. Free.",
   },
   {
     href: "/wealth",
@@ -57,6 +59,7 @@ const LINKS = [
 export default function LinksPage() {
   return (
     <div className="w-root">
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "CollectionPage", name: "Christian Brinkley's links", url: `${SITE_URL}/links`, hasPart: LINKS.filter((link) => link.href.startsWith("/")).map((link) => ({ "@type": "WebPage", name: link.title, url: `${SITE_URL}${link.href}` })) }} />
       <main className="w-links">
         <Image
           src="/christian-brinkley-square.jpg"

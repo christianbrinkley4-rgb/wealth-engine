@@ -121,7 +121,7 @@ export const WEALTH_TOOLS: readonly WealthTool[] = [
     href: "/wealth/tools#ratio-checker",
     kind: "Download",
     title: "Financial Statement Analyzer",
-    blurb: "A small Python tool I wrote. Ten ratios from any company's statements, in plain English.",
+    blurb: "10 ratios from company statements. A Python download with a sample you can run.",
     time: "Free",
     tone: "ink",
   },
@@ -168,7 +168,7 @@ export const PILLARS: readonly Pillar[] = [
   {
     id: "ai-and-money",
     title: "AI and money",
-    line: "I build these tools with AI and Python. I show the work so you can too.",
+    line: "I write Python. Start with 2 downloads and check the numbers yourself.",
     href: "/wealth/tools",
     cta: "Grab the tools",
   },
@@ -196,8 +196,8 @@ export const JOURNEY: readonly JourneyEntry[] = [
     tag: "Milestone",
     body: [
       "I'm 21. I'm a licensed insurance agent in North Carolina and an accounting senior at UNCG. I graduate in December.",
-      "Nobody sat me down and taught me money. I learned it from accounting classes, from sitting in on real client appointments, and from building things. So I'm putting what I learn here, in public, for free.",
-      "Today the hub went up: four calculators, two quizzes, six articles and two downloads. I built it with AI and I'm not going to pretend otherwise. I'll show how.",
+      "I've reviewed 100+ client files and sat in on dozens of client money appointments. Here, you can work through the math yourself.",
+      "The October 6 build has 4 calculators, 2 quizzes, 6 articles and 2 downloads. Open 1 tool and change the numbers.",
       "What I'm not: a financial advisor. I'm not securities licensed, so you won't get stock picks from me. You'll get the math, the tools, and what I'm learning.",
     ],
   },
@@ -210,7 +210,7 @@ export const JOURNEY: readonly JourneyEntry[] = [
       "Here's the honest starting line, so you can judge everything else I post.",
       "School: accounting at UNCG, 3.69 GPA, graduating December 2026. Microsoft Excel certified. I write Python.",
       "Work: I got my NC Life & Health license and I work with a financial advisor. I've reviewed 100+ client files and sat in on dozens of client money appointments. I ran the advisor's monthly budget and built Python automation for follow-ups.",
-      "That's it. No big portfolio to flex, no course to sell. Just the starting line.",
+      "That's my starting line at 21: insurance, accounting, Excel and Python.",
     ],
   },
 ];

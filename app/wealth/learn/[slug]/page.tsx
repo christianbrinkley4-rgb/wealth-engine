@@ -4,9 +4,9 @@ import { notFound } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
 import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";
-import { articleJsonLd } from "@/lib/seo";
+
 import { getWealthArticle, WEALTH_ARTICLES, WEALTH_PILLAR_LABELS } from "@/lib/wealth/articles";
-import { wealthMetadata } from "@/lib/wealth/seo";
+import { wealthArticleJsonLd, wealthMetadata } from "@/lib/wealth/seo";
 import { getTool } from "@/lib/wealth/site";
 
 /** Money guides. Copy and yearly figures live in lib/wealth/articles.ts. */
@@ -52,7 +52,7 @@ export default async function WealthArticlePage({ params }: { params: Promise<{ 
   return (
     <main>
       <JsonLd
-        data={articleJsonLd({
+        data={wealthArticleJsonLd({
           headline: article.title,
           description: article.description,
           path,

@@ -2,6 +2,9 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 
 import { describe, expect, it } from "vitest";
+import sitemap from "@/app/sitemap";
+import { GET as discoveryText } from "@/app/llms.txt/route";
+import { wealthArticleJsonLd } from "@/lib/wealth/seo";
 
 import { getWealthArticle, WEALTH_ARTICLES, wealthArticleText } from "@/lib/wealth/articles";
 import {
@@ -87,7 +90,7 @@ describe("hub voice rules", () => {
 describe("PUNCH voice", () => {
   const HEDGES =
     /\b(usually|generally|probably|maybe|perhaps|tends? to|typically|rarely|often|might|sort of|kind of|i think|in general|a lot of people|many people|some people|most people)\b/i;
-  const BANNED = /game.?changer|in today's world|delve|level up|deep dive|at the end of the day|once-a-year chance/i;
+  const BANNED = /game.?changer|in today's world|delve|level up|deep dive|at the end of the day|once-a-year chance|leverage|it's worth noting|importantly|bottom line/i;
 
   const data: string[] = [
     EDUCATION_NOTE,
@@ -123,6 +126,25 @@ describe("PUNCH voice", () => {
 });
 
 describe("tools and navigation", () => {
+  it("includes every hub route in both discovery documents", async () => {
+    const urls = new Set(sitemap().map((entry) => new URL(entry.url).pathname));
+    const text = await discoveryText().text();
+    const paths = [
+      ...ROUTES,
+      ...PERSONALITIES.map((type) => `/wealth/quiz/money-personality/${type.id}`),
+    ].filter((route) => route.startsWith("/wealth") || route === "/links");
+    for (const route of paths) {
+      expect(urls.has(route), route).toBe(true);
+      expect(text, route).toContain(`${route})`);
+    }
+  });
+
+  it("uses hub images and authorship for article structured data", () => {
+    const data = wealthArticleJsonLd({ headline: "A money question", description: "A 2-minute answer", path: "/wealth/learn/emergency-funds", datePublished: "2026-10-06", dateModified: "2026-10-07" });
+    expect(new URL(data.image).pathname).toBe("/wealth/opengraph-image");
+    expect(new URL(data.author.url).pathname).toBe("/wealth/journey");
+    expect(data.publisher["@type"]).toBe("Person");
+  });
   it("links only to pages that exist", () => {
     const hrefs = [
       ...WEALTH_TOOLS.map((tool) => tool.href),

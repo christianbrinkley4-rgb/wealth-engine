@@ -17,9 +17,9 @@ export function CompoundCalculator() {
   const set = (patch: Partial<typeof COMPOUND_DEFAULTS>) =>
     setState((previous) => normalizeCompoundState({ ...normalizeCompoundState(previous), ...patch }));
 
-  // A shared link carries its numbers in the query string.
+  // New links keep numbers in the browser-only fragment; older queries still open.
   useEffect(() => {
-    const shared = readCompoundQuery(new URLSearchParams(window.location.search));
+    const shared = readCompoundQuery(new URLSearchParams(window.location.hash.slice(1) || window.location.search));
     if (shared) writeStore(KEY, shared);
   }, []);
 
@@ -129,7 +129,7 @@ export function CompoundCalculator() {
             <ShareButton
               title="Compound interest calculator"
               text={`${money(state.monthly)} a month for ${state.years} years at ${state.rate}% comes to ${money(end.balance)}. Try your own numbers:`}
-              path={`/wealth/calculators/compound-interest?m=${state.monthly}&y=${state.years}&r=${state.rate}&s=${state.start}`}
+              path={`/wealth/calculators/compound-interest#m=${state.monthly}&y=${state.years}&r=${state.rate}&s=${state.start}`}
               label="Share these numbers"
             />
           </div>

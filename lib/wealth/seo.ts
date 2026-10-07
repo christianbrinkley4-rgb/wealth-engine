@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { SITE_OWNER, SITE_URL } from "@/lib/seo";
+import { articleJsonLd, SITE_OWNER, SITE_URL } from "@/lib/seo";
 import { WEALTH_BRAND } from "@/lib/wealth/site";
 
 const SHARE_IMAGE = {
@@ -9,6 +9,17 @@ const SHARE_IMAGE = {
   height: 630,
   alt: `${WEALTH_BRAND}: free money tools from ${SITE_OWNER}`,
 };
+
+/** Keep article imagery and authorship within the education hub. */
+export function wealthArticleJsonLd(input: Parameters<typeof articleJsonLd>[0]) {
+  const article = articleJsonLd(input);
+  return {
+    ...article,
+    image: `${SITE_URL}${SHARE_IMAGE.url}`,
+    author: { ...article.author, url: `${SITE_URL}/wealth/journey` },
+    publisher: { "@type": "Person", "@id": `${SITE_URL}/#christian`, name: SITE_OWNER },
+  };
+}
 
 /**
  * Metadata for a hub page. Titles are absolute so they carry the hub's name
@@ -19,6 +30,8 @@ export function wealthMetadata(input: { title: string; description: string; path
   return {
     title: { absolute: title },
     description: input.description,
+    applicationName: WEALTH_BRAND,
+    authors: [{ name: SITE_OWNER, url: `${SITE_URL}/wealth/journey` }],
     alternates: { canonical: input.path },
     openGraph: {
       type: "website",

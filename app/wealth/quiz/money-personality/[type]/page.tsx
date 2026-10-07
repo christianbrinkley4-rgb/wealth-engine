@@ -4,9 +4,9 @@ import { notFound } from "next/navigation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import { JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";
-import { articleJsonLd } from "@/lib/seo";
+
 import { getPersonality, PERSONALITIES } from "@/lib/wealth/quizzes";
-import { wealthMetadata } from "@/lib/wealth/seo";
+import { wealthArticleJsonLd, wealthMetadata } from "@/lib/wealth/seo";
 
 /**
  * One page per money personality. This is where a shared result lands, so
@@ -50,7 +50,7 @@ export default async function PersonalityTypePage({ params }: { params: Promise<
   return (
     <main>
       <JsonLd
-        data={articleJsonLd({
+        data={wealthArticleJsonLd({
           headline: `${result.name}: a money personality`,
           description: result.summary,
           path,
@@ -121,7 +121,7 @@ export default async function PersonalityTypePage({ params }: { params: Promise<
               ))}
             </ul>
             <p className="w-note">
-              <strong>For fun and self-reflection.</strong> I wrote these four types myself. It isn&apos;t a
+              <strong>For fun and self-reflection.</strong> These 4 types describe habits. It isn&apos;t a
               scientific test and it isn&apos;t advice. Nobody is 100% one type.
             </p>
           </div>

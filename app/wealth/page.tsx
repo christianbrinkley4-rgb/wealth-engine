@@ -169,7 +169,7 @@ export default function WealthHome() {
             <p className="w-eyebrow">Who&apos;s behind this</p>
             <h2 className="w-h2">I&apos;m Christian. Here&apos;s the honest resume.</h2>
             <p className="w-lede">
-              No big wins to flex yet. That&apos;s the point. You get to watch the whole thing from day one.
+              21 years old. Accounting at UNCG. Here are the facts behind the tools.
             </p>
             <ul className="w-facts">
               <li>

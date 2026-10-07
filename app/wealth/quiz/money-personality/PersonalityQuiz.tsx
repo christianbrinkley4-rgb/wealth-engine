@@ -189,7 +189,7 @@ export function PersonalityQuiz() {
           </button>
         </div>
         <p className="w-note">
-          <strong>For fun and self-reflection.</strong> I wrote these four types myself. It isn&apos;t a
+          <strong>For fun and self-reflection.</strong> These 4 types describe habits. It isn&apos;t a
           scientific test and it isn&apos;t advice. Nobody is 100% one type.
         </p>
       </div>

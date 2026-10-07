@@ -8,7 +8,8 @@ import {
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { placeNames, TRIAD_CITIES } from "@/lib/triad";
 import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
-import { WEALTH_TOOLS } from "@/lib/wealth/site";
+import { WEALTH_NAV, WEALTH_TOOLS } from "@/lib/wealth/site";
+import { PERSONALITIES } from "@/lib/wealth/quizzes";
 
 /** Public summary kept consistent with the visitor-facing pages. */
 export const dynamic = "force-static";
@@ -23,6 +24,10 @@ export function GET() {
   ).join("\n");
 
   const wealthLines = [
+    `- [Money tools for your 20s](${SITE_URL}/wealth): christianbuildswealth home.`,
+    `- [Christian's links](${SITE_URL}/links): downloads and contact links.`,
+    ...WEALTH_NAV.map((item) => `- [${item.label}](${SITE_URL}${item.href}): hub section.`),
+    ...PERSONALITIES.map((type) => `- [${type.name}](${SITE_URL}/wealth/quiz/money-personality/${type.id}): ${type.tagline}`),
     ...WEALTH_TOOLS.map(
       (tool) => `- [${tool.title}](${SITE_URL}${tool.href}): ${tool.kind}. ${tool.blurb}`,
     ),

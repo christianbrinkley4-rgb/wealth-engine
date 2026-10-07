@@ -28,7 +28,7 @@ const FAQ = [
   },
   {
     q: "Is this a scientific test?",
-    a: "No. I wrote the four types as a way to notice your own habits. It's for self-reflection. Nobody is 100% one type, and the result shows your mix.",
+    a: "No. These 4 types are a way to notice your own habits. It's for self-reflection. Nobody is 100% one type, and the result shows your mix.",
   },
   {
     q: "Can I share my result?",

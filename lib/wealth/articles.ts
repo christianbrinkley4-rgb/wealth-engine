@@ -275,7 +275,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
       {
         heading: "Accounting is the scoreboard",
         paragraphs: [
-          "I'm an accounting senior at UNCG, and the question I get most is: so you do taxes? Sometimes. But tax is one corner of it.",
+          "I'm an accounting senior at UNCG. Here's the distinction: tax is 1 branch of accounting. The work reaches well beyond filing returns.",
           "Accounting is how a business keeps score. Every sale, bill and paycheck gets recorded. Then it gets organized so someone can answer real questions. Are we making money? Can we pay our bills? Where did the cash go?",
         ],
       },

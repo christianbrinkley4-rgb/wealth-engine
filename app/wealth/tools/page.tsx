@@ -95,7 +95,7 @@ export default function WealthToolsPage() {
             Two downloads. <span className="w-mark">No email wall.</span>
           </>
         }
-        lede="Things I built that you can keep. Tap, download, use."
+        lede="2 downloads you can keep. Tap, download, use."
         crumbs={[{ name: "Free tools", path }]}
       />
 
@@ -143,8 +143,8 @@ export default function WealthToolsPage() {
               <p className="w-eyebrow">Python · .zip · 10 KB</p>
               <h2 className="w-h2">Financial Statement Analyzer</h2>
               <p className="w-lede">
-                A small Python tool I wrote. Give it a company&apos;s income statement and balance sheet. It
-                prints ten standard ratios, points out trends, and checks the data for errors.
+                10 ratios from 2 statements. Give this Python tool a company&apos;s income statement and balance sheet.
+                It prints standard ratios, flags trends, and checks the data for errors.
               </p>
               <div className="w-btn-row">
                 <a href={ANALYZER_FILE} download className="w-btn">

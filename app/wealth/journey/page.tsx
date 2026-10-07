@@ -92,7 +92,7 @@ export default function JourneyPage() {
       </section>
       <NextUp
         links={[
-          { href: "/wealth/tools", label: "Download the tools I built", kind: "Free tools" },
+          { href: "/wealth/tools", label: "Get the 2 free downloads", kind: "Free tools" },
           { href: "/wealth/learn/what-accountants-actually-do", label: "What accountants actually do", kind: "Article" },
           { href: "/wealth/quiz/money-personality", label: "Money personality quiz", kind: "Quiz" },
         ]}
