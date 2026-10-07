@@ -5,7 +5,7 @@ import { Plus, Trash2 } from "lucide-react";
 import { LineChart } from "@/app/wealth/ui/charts";
 import { LiveBar, LiveMoney, MoneyField, SliderField } from "@/app/wealth/ui/controls";
 import { useMarkExplored, usePersistentState } from "@/app/wealth/ui/hooks";
-import { type Debt, money, monthsLabel, simulatePayoff } from "@/lib/wealth/math";
+import { type Debt, type PayoffResult, money, monthsLabel, simulatePayoff } from "@/lib/wealth/math";
 
 const KEY = "cbw:debts:v2";
 /** Made-up starter numbers so the chart has something to show. */
@@ -18,6 +18,12 @@ const DEFAULTS: { extra: number; debts: Debt[] } = {
     { id: "d", name: "Car loan", balance: 6500, apr: 7.5, minPayment: 210 },
   ],
 };
+
+function payoffDescription(name: string, result: PayoffResult): string {
+  return result.stuck
+    ? `${name} still has ${money(result.timeline[result.timeline.length - 1])} owed after 50 years. Interest over those 50 years: ${money(result.totalInterest)}.`
+    : `${name} pays off in ${result.months} months with ${money(result.totalInterest)} interest.`;
+}
 
 export function DebtPayoff() {
   useMarkExplored("debt-payoff");
@@ -34,7 +40,7 @@ export function DebtPayoff() {
       ...previous,
       debts: [
         ...previous.debts,
-        { id: `${Date.now()}`, name: `Debt ${previous.debts.length + 1}`, balance: 1000, apr: 20, minPayment: 35 },
+        { id: `${Date.now()}-${Math.random().toString(36).slice(2)}`, name: `Debt ${previous.debts.length + 1}`, balance: 1000, apr: 20, minPayment: 35 },
       ],
     }));
   const remove = (id: string) =>
@@ -52,10 +58,10 @@ export function DebtPayoff() {
   const pad = (values: number[]) => [...values, ...Array(Math.max(0, length - values.length)).fill(0)];
 
   let takeaway: string;
-  if (total === 0) takeaway = "Add a debt to see both plans.";
+  if (total === 0) takeaway = "Start with 1 debt to compare both plans.";
   else if (stuck)
     takeaway =
-      "These payments never get ahead of the interest. Raise a minimum or add extra and watch the line come down.";
+      "At least 1 plan still has debt after 50 years. Raise the extra payment to test a shorter payoff.";
   else if (interestSaved < 1 && monthsSaved === 0)
     takeaway = "With these debts, both methods land in the same place. Pick the one you'll stick with.";
   else
@@ -124,7 +130,7 @@ export function DebtPayoff() {
       </div>
 
       <LiveBar targetId="result" label="Debt-free in">
-        {total === 0 ? "No debts" : avalanche.stuck ? "Never" : monthsLabel(avalanche.months)}
+        {total === 0 ? "No debts" : avalanche.stuck ? "Over 50 yr" : monthsLabel(avalanche.months)}
       </LiveBar>
       <div className="w-panel w-calc-sticky" id="result" style={{ scrollMarginTop: 110 }}>
         <div className="w-versus">
@@ -137,9 +143,9 @@ export function DebtPayoff() {
             <div key={name} data-win={win && !stuck ? "true" : undefined}>
               <h3>{name}</h3>
               <p>{how}</p>
-              <strong>{result.stuck ? "Never" : monthsLabel(result.months)}</strong>
+              <strong>{result.stuck ? "Over 50 yr" : monthsLabel(result.months)}</strong>
               <p>
-                Interest: <LiveMoney value={result.totalInterest} />
+                {result.stuck ? "Interest in 50 years: " : "Interest: "}<LiveMoney value={result.totalInterest} />
               </p>
               {!result.stuck && result.order.length > 1 ? (
                 <ol className="w-order" aria-label={`${name} payoff order`}>
@@ -160,7 +166,7 @@ export function DebtPayoff() {
           ]}
           xLabel={(index) => `Month ${index}`}
           xTitle="Total owed by month."
-          describe={`Avalanche pays off in ${avalanche.months} months with ${money(avalanche.totalInterest)} interest. Snowball pays off in ${snowball.months} months with ${money(snowball.totalInterest)} interest.`}
+          describe={`${payoffDescription("Avalanche", avalanche)} ${payoffDescription("Snowball", snowball)}`}
         />
         <p className="w-callout">{takeaway}</p>
         {!stuck && total > 0 && state.extra > 0 && !minimumOnly.stuck ? (

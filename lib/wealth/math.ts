@@ -119,7 +119,7 @@ export type PayoffResult = {
   order: string[];
   /** Total owed at the end of each month, starting with today. */
   timeline: number[];
-  /** True when the payments never get ahead of the interest. */
+  /** True when a balance remains at the 600-month projection limit. */
   stuck: boolean;
 };
 
@@ -139,6 +139,7 @@ export function simulatePayoff(debts: Debt[], extra: number, strategy: PayoffStr
   const total = () => live.reduce((sum, debt) => sum + debt.balance, 0);
   const timeline = [total()];
   const order: string[] = [];
+  const paidOff = new Set<(typeof live)[number]>();
   let totalInterest = 0;
   let totalPaid = 0;
   let months = 0;
@@ -178,8 +179,9 @@ export function simulatePayoff(debts: Debt[], extra: number, strategy: PayoffStr
       totalPaid += pay;
     }
     for (const debt of live) {
-      if (debt.balance <= 0.005 && !order.includes(debt.name)) {
+      if (debt.balance <= 0.005 && !paidOff.has(debt)) {
         debt.balance = 0;
+        paidOff.add(debt);
         order.push(debt.name);
       }
     }
