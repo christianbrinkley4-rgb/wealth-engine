@@ -3,9 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";
 import { EDUCATION_NOTE, WEALTH_BRAND, WEALTH_FACTS, WEALTH_NAV, type WealthTool } from "@/lib/wealth/site";
+import { ExploreNext } from "./ExploreNext";
 
 export function JsonLd({ data }: { data: unknown }) {
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
 }
 
 export type Crumb = { name: string; path: string };
@@ -128,6 +129,7 @@ export function NextUp({
   return (
     <section className="w-section w-next" aria-label={title}>
       <div className="w-shell">
+        <ExploreNext />
         <p className="w-eyebrow">{title}</p>
         <ul className="w-next-list">
           {links.map((link) => (

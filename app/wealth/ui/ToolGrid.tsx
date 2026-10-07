@@ -4,6 +4,7 @@ import { WEALTH_TOOLS } from "@/lib/wealth/site";
 
 import { EXPLORED_KEY, NO_SLUGS, usePersistentState } from "./hooks";
 import { ToolCard } from "./shell";
+import { ExploreNext } from "./ExploreNext";
 
 /**
  * Every tool in the hub, with a strip that remembers which ones this visitor
@@ -16,6 +17,7 @@ export function ToolGrid({ kinds }: { kinds?: ReadonlyArray<"Calculator" | "Quiz
 
   return (
     <>
+      <ExploreNext />
       {done > 0 ? (
         <div className="w-progress" role="status">
           <span>
