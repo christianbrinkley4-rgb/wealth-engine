@@ -7,6 +7,8 @@ import {
 } from "@/lib/agent";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { placeNames, TRIAD_CITIES } from "@/lib/triad";
+import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
+import { WEALTH_TOOLS } from "@/lib/wealth/site";
 
 /** Public summary kept consistent with the visitor-facing pages. */
 export const dynamic = "force-static";
@@ -19,6 +21,15 @@ export function GET() {
       `- [Retirement help in ${city.name}](${SITE_URL}/retirement-in/${city.slug}): Medicare and insurance education, with financial planning coordinated through an advisor.`,
     ].join("\n"),
   ).join("\n");
+
+  const wealthLines = [
+    ...WEALTH_TOOLS.map(
+      (tool) => `- [${tool.title}](${SITE_URL}${tool.href}): ${tool.kind}. ${tool.blurb}`,
+    ),
+    ...WEALTH_ARTICLES.map(
+      (article) => `- [${article.title}](${SITE_URL}/wealth/learn/${article.slug}): ${article.answer}`,
+    ),
+  ].join("\n");
 
   const profiles = publishedProfiles();
   const profileSection =
@@ -96,6 +107,12 @@ ${TPMO_DISCLAIMER}
 - [2026 Medicare Part B estimate](${SITE_URL}/medicare): an estimate using published 2026 rates.
 - [Roth conversion timing examples](${SITE_URL}/plan): compare estimated Medicare premium effects using 2026 rates.
 - [Roth conversion estimate](${SITE_URL}/roth-window): explore income-related Medicare charges using 2026 rates. Future rates may differ.
+
+## Money tools for people in their 20s and 30s (christianbuildswealth)
+
+A separate section of this site at ${SITE_URL}/wealth. General money education for younger adults. Christian is licensed for insurance, not securities, so nothing here recommends an investment.
+
+${wealthLines}
 
 ## Qualifications and disclosures
 

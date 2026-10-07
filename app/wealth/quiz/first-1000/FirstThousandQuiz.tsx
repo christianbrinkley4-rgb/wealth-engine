@@ -34,6 +34,19 @@ export function FirstThousandQuiz() {
     }, 300);
   };
 
+  // Keyboard: A to D (or 1 to 4) picks an answer.
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+      const key = event.key.toLowerCase();
+      const slot = "abcd".includes(key) && key.length === 1 ? "abcd".indexOf(key) : "1234".indexOf(key);
+      const buttons = document.querySelectorAll<HTMLButtonElement>(".w-quiz .w-option");
+      if (slot >= 0 && buttons[slot]) buttons[slot].click();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
   const current = trail[trail.length - 1];
   const result = current.startsWith("result:") ? getPlanResult(current.slice(7)) : undefined;
   const node = result ? undefined : getTreeNode(current);

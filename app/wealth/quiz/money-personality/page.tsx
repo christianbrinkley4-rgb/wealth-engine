@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+import Link from "next/link";
+
 import { PersonalityQuiz } from "@/app/wealth/quiz/money-personality/PersonalityQuiz";
 import { Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";
 import { wealthMetadata, webAppJsonLd } from "@/lib/wealth/seo";
@@ -51,7 +53,7 @@ export default function MoneyPersonalityPage() {
           { name: "Money personality", path },
         ]}
       />
-      <section className="w-section">
+      <section className="w-section-tight" style={{ paddingBottom: 56 }}>
         <div className="w-shell">
           <PersonalityQuiz />
         </div>
@@ -62,8 +64,10 @@ export default function MoneyPersonalityPage() {
           <p className="w-eyebrow">The four types</p>
           <div className="w-grid w-grid-4">
             {PERSONALITIES.map((type) => (
-              <div key={type.id} className="w-card">
-                <h2 className="w-h3">{type.name}</h2>
+              <div key={type.id} className="w-card" data-reveal>
+                <h2 className="w-h3">
+                  <Link href={`/wealth/quiz/money-personality/${type.id}`}>{type.name}</Link>
+                </h2>
                 <p style={{ margin: "8px 0 0", fontFamily: "var(--w-mono)", fontSize: "0.85rem" }}>{type.tagline}</p>
                 <p style={{ margin: "10px 0 0", color: "var(--w-muted)" }}>{type.summary}</p>
               </div>

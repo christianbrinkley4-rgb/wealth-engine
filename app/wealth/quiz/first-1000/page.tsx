@@ -50,7 +50,7 @@ export default function FirstThousandPage() {
           { name: "First $1,000", path },
         ]}
       />
-      <section className="w-section">
+      <section className="w-section-tight" style={{ paddingBottom: 56 }}>
         <div className="w-shell">
           <FirstThousandQuiz />
         </div>

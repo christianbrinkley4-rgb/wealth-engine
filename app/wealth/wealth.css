@@ -320,7 +320,8 @@ body:has(.w-root) {
   content: "/";
   margin-right: 6px;
 }
-.w-crumbs a {
+.w-crumbs a,
+.w-crumbs span {
   display: inline-block;
   padding-block: 6px;
 }

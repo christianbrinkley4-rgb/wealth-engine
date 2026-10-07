@@ -29,7 +29,7 @@ const TICKER = [
   "Real math you can check",
   "Built in Greensboro",
   "Education, not advice",
-  "Nothing to sign up for",
+  "No paywall, no account",
 ];
 
 const FAQ = [
@@ -135,7 +135,7 @@ export default function WealthHome() {
         <div className="w-shell">
           <p className="w-eyebrow">Pick one and start clicking</p>
           <h2 className="w-h2">
-            Eight tools. <span className="w-mark">Zero sign-ups.</span>
+            Eight tools. <span className="w-mark">Zero paywalls.</span>
           </h2>
           <p className="w-lede" style={{ marginBottom: 28 }}>
             Every one runs right here in your browser. Change a number and watch what happens.

@@ -4,6 +4,7 @@ import { SITE_URL } from "@/lib/seo";
 import { TAX_ARTICLES } from "@/lib/taxArticles";
 import { TRIAD_CITIES } from "@/lib/triad";
 import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
+import { PERSONALITIES } from "@/lib/wealth/quizzes";
 
 const STATIC_ROUTES: Array<{
   path: string;
@@ -75,6 +76,12 @@ const STATIC_ROUTES: Array<{
     path,
     changeFrequency: "weekly" as const,
     priority: path === "/wealth" ? 0.9 : path === "/links" ? 0.4 : 0.8,
+    lastModified: "2026-10-06",
+  })),
+  ...PERSONALITIES.map((type) => ({
+    path: `/wealth/quiz/money-personality/${type.id}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
     lastModified: "2026-10-06",
   })),
   ...WEALTH_ARTICLES.map((article) => ({
