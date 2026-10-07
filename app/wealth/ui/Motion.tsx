@@ -72,10 +72,14 @@ export function Motion() {
     };
 
     const onMove = (event: PointerEvent) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       last = event;
       if (!frame) frame = requestAnimationFrame(apply);
     };
     const onLeave = () => {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      last = null;
       clearTilt(tilted);
       clearPull(pulled);
       tilted = null;

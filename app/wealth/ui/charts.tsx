@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 
 import { money, moneyShort } from "@/lib/wealth/math";
 
@@ -43,21 +43,22 @@ export function LineChart({
   /** One sentence for screen readers that states the result. */
   describe: string;
 }) {
-  const length = Math.max(...series.map((item) => item.values.length), 2);
+  const id = useId();
+  const length = Math.max(...series.map((item) => item.values.length), 1);
   const [scrub, setScrub] = useState<number | null>(null);
   const active = scrub === null ? length - 1 : Math.min(scrub, length - 1);
 
   const top = niceMax(Math.max(...series.flatMap((item) => item.values), 1));
   const innerW = W - PAD.left - PAD.right;
   const innerH = H - PAD.top - PAD.bottom;
-  const x = (index: number) => PAD.left + (index / (length - 1)) * innerW;
+  const x = (index: number) => PAD.left + (index / Math.max(1, length - 1)) * innerW;
   const y = (value: number) => PAD.top + innerH - (value / top) * innerH;
 
   const path = (values: number[]) =>
     values.map((value, index) => `${index === 0 ? "M" : "L"}${x(index).toFixed(1)},${y(value).toFixed(1)}`).join(" ");
 
   const ticks = [0, 0.25, 0.5, 0.75, 1].map((fraction) => fraction * top);
-  const xTicks = [0, Math.round((length - 1) / 2), length - 1];
+  const xTicks = [...new Set([0, Math.round((length - 1) / 2), length - 1])];
 
   function onMove(event: React.PointerEvent<SVGSVGElement>) {
     const box = event.currentTarget.getBoundingClientRect();
@@ -144,8 +145,15 @@ export function LineChart({
           );
         })}
       </svg>
+      <label htmlFor={id} className="w-chart-foot">
+        {xTitle} <span>Read 1 point at a time.</span>
+      </label>
+      <input id={id} className="w-chart-scrubber" type="range" min={0} max={length - 1} value={active} disabled={length < 2}
+        aria-label={`${xTitle}: chart point`}
+        aria-valuetext={`${xLabel(active)}. ${series.map((item) => `${item.name}: ${money(item.values[Math.min(active, item.values.length - 1)] ?? 0)}`).join(". ")}`}
+        onChange={(event) => setScrub(Number(event.target.value))} />
       <p className="w-chart-foot">
-        {xTitle} <span>Drag across the chart to read any point.</span>
+        Drag the line or use the slider.
       </p>
     </figure>
   );

@@ -6,8 +6,7 @@ import { usePathname } from "next/navigation";
 import { WEALTH_BRAND, WEALTH_NAV } from "@/lib/wealth/site";
 
 /**
- * The hub's own header. No menu button: on a phone the links sit in a row
- * that scrolls sideways, so every section is one tap away.
+ * The hub's own header. Links wrap on a phone so every section stays visible.
  */
 export function WealthNav() {
   const pathname = usePathname() ?? "/wealth";
@@ -17,7 +16,7 @@ export function WealthNav() {
         Skip to the main content
       </a>
       <div className="w-shell w-nav-bar">
-        <Link href="/wealth" className="w-nav-brand" aria-label={`${WEALTH_BRAND}, home`}>
+        <Link href="/wealth" className="w-nav-brand" aria-label={`cb ${WEALTH_BRAND}, home`}>
           <span aria-hidden>cb</span>
           {WEALTH_BRAND}
         </Link>

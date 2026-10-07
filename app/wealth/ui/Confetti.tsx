@@ -48,7 +48,7 @@ export function Confetti() {
     const tick = (now: number) => {
       const age = now - start;
       context.clearRect(0, 0, width, height);
-      if (age > LIFE_MS) return;
+      if (age > LIFE_MS || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       context.globalAlpha = Math.min(1, (LIFE_MS - age) / 700);
       for (const piece of pieces) {
         piece.vx *= 0.985;

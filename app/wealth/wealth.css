@@ -157,6 +157,7 @@ body:has(.w-root) {
   padding-block: 10px 0;
 }
 .w-nav-brand {
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -186,11 +187,12 @@ body:has(.w-root) {
 }
 .w-nav-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 4px;
   margin: 0 -20px;
   padding: 0 20px 10px;
   list-style: none;
-  overflow-x: auto;
+  overflow-x: clip;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
@@ -200,7 +202,7 @@ body:has(.w-root) {
 .w-nav-links a {
   display: inline-flex;
   align-items: center;
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 14px;
   border: 2px solid transparent;
   border-radius: 999px;
@@ -757,7 +759,7 @@ body:has(.w-root) {
   background: var(--w-card);
 }
 .w-seg button {
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 16px;
   border: 0;
   border-radius: 999px;
@@ -1881,7 +1883,7 @@ body:has(.w-root) {
 .w-footer-brand {
   margin: 0 0 6px;
   font-family: var(--w-serif);
-  font-size: clamp(1.9rem, 9vw, 3.4rem);
+  font-size: clamp(1.45rem, 6.7vw, 3.4rem);
   font-weight: 800;
   font-style: italic;
   letter-spacing: -0.04em;
@@ -2101,6 +2103,11 @@ html:not(.js-reveal) .w-root [data-tilt],
 .w-panel:not(.w-calc-sticky) {
   position: relative;
 }
+@media (max-width: 959px) {
+  .w-calc-sticky {
+    position: relative;
+  }
+}
 .w-panel::after {
   content: "";
   position: absolute;
@@ -2286,12 +2293,76 @@ html:not(.js-reveal) .w-root [data-tilt],
   white-space: nowrap;
 }
 
+.w-crumbs a,
+.w-sources a,
+.w-footer-note a,
+.w-assume a,
+.w-prose a,
+.w-h3 a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 44px;
+}
+.w-chart-scrubber {
+  width: 100%;
+  min-height: 44px;
+  accent-color: var(--w-lime);
+  font-size: 16px;
+}
+.w-explore-next {
+  margin-bottom: 28px;
+  border-left: 6px solid var(--w-cobalt);
+}
+.w-explore-next > p:not(.w-eyebrow) {
+  margin: 12px 0 20px;
+}
+
+/* Keep ongoing decoration from repainting a phone that is waiting for input. */
+.w-ticker-track {
+  width: auto;
+  animation: none;
+}
+.w-ticker-track ul {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.w-ticker-track ul + ul {
+  display: none;
+}
+@media (max-width: 819px), (pointer: coarse) {
+  .w-panel::after,
+  .w-hero::before,
+  .w-nav-brand span {
+    animation: none;
+  }
+  .w-chart-ping {
+    display: none;
+  }
+  .w-word,
+  .js-reveal .w-root [data-reveal],
+  .w-quiz-step .w-options li,
+  .w-result-card {
+    filter: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .w-root *,
   .w-root *::before,
   .w-root *::after {
     animation: none !important;
     transition: none !important;
+  }
+  .js-reveal .w-root [data-reveal] {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+  .w-root [data-tilt],
+  .w-root .w-btn {
+    transform: none !important;
+    translate: none !important;
   }
 }
 
