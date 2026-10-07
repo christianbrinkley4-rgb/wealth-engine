@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowUpRight, RotateCcw } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 
 import { ShareButton } from "@/app/wealth/ui/controls";
 import { useMarkExplored } from "@/app/wealth/ui/hooks";
@@ -16,41 +16,75 @@ const MAX_STEPS = 5;
 export function FirstThousandQuiz() {
   useMarkExplored("first-1000");
   const [trail, setTrail] = useState<string[]>([FIRST_1000_START]);
+  const heading = useRef<HTMLHeadingElement>(null);
+  const focusNext = useRef(false);
+  const answerTimer = useRef<number | null>(null);
+  const answerLocked = useRef(false);
 
   // A shared link opens straight on its plan.
   useEffect(() => {
+    let active = true;
     const plan = new URLSearchParams(window.location.search).get("plan");
-    if (plan && getPlanResult(plan)) queueMicrotask(() => setTrail([FIRST_1000_START, `result:${plan}`]));
+    if (plan && getPlanResult(plan)) queueMicrotask(() => {
+      if (!active) return;
+      focusNext.current = true;
+      setTrail([FIRST_1000_START, `result:${plan}`]);
+    });
+    return () => {
+      active = false;
+      if (answerTimer.current !== null) window.clearTimeout(answerTimer.current);
+    };
   }, []);
 
   const [picked, setPicked] = useState<number | null>(null);
   // Hold for a beat so the choice visibly lands before the next question slides in.
   const choose = (next: string, index: number) => {
-    if (picked !== null) return;
+    if (answerLocked.current) return;
+    answerLocked.current = true;
     setPicked(index);
-    window.setTimeout(() => {
+    const advance = () => {
+      answerTimer.current = null;
+      focusNext.current = true;
       setPicked(null);
       setTrail((previous) => [...previous, next]);
-    }, 300);
+    };
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) advance();
+    else answerTimer.current = window.setTimeout(advance, 300);
   };
 
-  // Keyboard: A to D (or 1 to 4) picks an answer.
-  useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if (event.metaKey || event.ctrlKey || event.altKey) return;
-      const key = event.key.toLowerCase();
-      const slot = "abcd".includes(key) && key.length === 1 ? "abcd".indexOf(key) : "1234".indexOf(key);
-      const buttons = document.querySelectorAll<HTMLButtonElement>(".w-quiz .w-option");
-      if (slot >= 0 && buttons[slot]) buttons[slot].click();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  // Shortcuts only run while focus is inside this quiz, outside editable fields.
+  const onKey = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.metaKey || event.ctrlKey || event.altKey || event.repeat || event.nativeEvent.isComposing) return;
+    if (event.target instanceof HTMLElement && event.target.closest("input, textarea, select, [contenteditable]:not([contenteditable='false'])")) return;
+    const key = event.key.toLowerCase();
+    if (key.length !== 1) return;
+    const slot = "abcd".includes(key) ? "abcd".indexOf(key) : "1234".indexOf(key);
+    const buttons = event.currentTarget.querySelectorAll<HTMLButtonElement>(".w-option");
+    if (slot >= 0 && buttons[slot]) {
+      event.preventDefault();
+      buttons[slot].click();
+    }
+  };
 
   const current = trail[trail.length - 1];
   const result = current.startsWith("result:") ? getPlanResult(current.slice(7)) : undefined;
   const node = result ? undefined : getTreeNode(current);
-  const restart = () => setTrail([FIRST_1000_START]);
+  useEffect(() => {
+    answerLocked.current = false;
+    if (focusNext.current) {
+      heading.current?.focus();
+      focusNext.current = false;
+    }
+  }, [current]);
+  const move = (nextTrail: string[]) => {
+    if (answerTimer.current !== null) window.clearTimeout(answerTimer.current);
+    answerTimer.current = null;
+    answerLocked.current = false;
+    focusNext.current = true;
+    setPicked(null);
+    setTrail(nextTrail);
+  };
+  const restart = () => move([FIRST_1000_START]);
 
   if (result) {
     return (
@@ -58,7 +92,7 @@ export function FirstThousandQuiz() {
         <div className="w-result-card" data-tilt>
           <Confetti />
           <p className="w-eyebrow">A plan to think over</p>
-          <h2 className="w-result-name" style={{ fontSize: "clamp(2rem, 9vw, 3.2rem)", fontStyle: "normal" }}>
+          <h2 ref={heading} tabIndex={-1} className="w-result-name" style={{ fontSize: "clamp(2rem, 9vw, 3.2rem)", fontStyle: "normal" }}>
             {result.title}
           </h2>
           <p className="w-result-sum">{result.summary}</p>
@@ -110,7 +144,7 @@ export function FirstThousandQuiz() {
   const step = trail.length;
 
   return (
-    <div className="w-quiz">
+    <div className="w-quiz" onKeyDown={onKey}>
       <div className="w-quiz-progress" aria-hidden>
         {Array.from({ length: MAX_STEPS }, (_, index) => (
           <i key={index} data-on={index < step ? "true" : undefined} />
@@ -118,8 +152,8 @@ export function FirstThousandQuiz() {
       </div>
       <div className="w-quiz-step" key={node.id}>
         <p className="w-eyebrow">Question {step}</p>
-        <h2 className="w-quiz-q">{node.question}</h2>
-        {node.help ? <p className="w-quiz-help">{node.help}</p> : null}
+        <h2 ref={heading} tabIndex={-1} className="w-quiz-q" aria-describedby={node.help ? "first-1000-help" : undefined}>{node.question}</h2>
+        {node.help ? <p id="first-1000-help" className="w-quiz-help">{node.help}</p> : null}
         <ul className="w-options">
           {node.options.map((option, index) => (
             <li key={option.label}>
@@ -127,6 +161,7 @@ export function FirstThousandQuiz() {
                 type="button"
                 className="w-option"
                 data-picked={picked === index ? "true" : undefined}
+                aria-disabled={picked !== null}
                 onClick={() => choose(option.next, index)}
               >
                 <b aria-hidden>{String.fromCharCode(65 + index)}</b>
@@ -136,7 +171,7 @@ export function FirstThousandQuiz() {
           ))}
         </ul>
         {trail.length > 1 ? (
-          <button type="button" className="w-quiz-back" onClick={() => setTrail((previous) => previous.slice(0, -1))}>
+          <button type="button" className="w-quiz-back" onClick={() => move(trail.slice(0, -1))}>
             Back
           </button>
         ) : null}

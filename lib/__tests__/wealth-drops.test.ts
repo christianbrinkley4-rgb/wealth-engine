@@ -60,6 +60,45 @@ describe("tool-drop signups", () => {
     expect((await post("{nope")).status).toBe(400);
   });
 
+  it.each([null, [], 42, true])("rejects non-object JSON %j without contacting a service", async (body) => {
+    expect((await post(body)).status).toBe(400);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it("limits UTF-8 bytes before checking the honeypot", async () => {
+    expect((await post({ company: "猫".repeat(1500) })).status).toBe(400);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it("limits the sixth attempt and resets after ten minutes", async () => {
+    vi.useFakeTimers();
+    try {
+      for (let i = 0; i < 5; i++) expect((await post({ email: "bad" })).status).toBe(400);
+      expect((await post({ email: "bad" })).status).toBe(429);
+      vi.advanceTimersByTime(600_001);
+      expect((await post({ email: "bad" })).status).toBe(400);
+      expect(fetchSpy).not.toHaveBeenCalled();
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it("fails closed when a configured bot check has no token", async () => {
+    process.env.TURNSTILE_SECRET_KEY = "test-secret";
+    const response = await post({ email: "sam@example.com" });
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ retryCheck: true });
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
+  it("fails closed when bot verification is unavailable", async () => {
+    process.env.TURNSTILE_SECRET_KEY = "test-secret";
+    const response = await post({ email: "sam@example.com", turnstileToken: "test-token" });
+    expect(response.status).toBe(400);
+    expect(await response.json()).toMatchObject({ retryCheck: true });
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+  });
+
   it("swallows a filled honeypot without sending anything", async () => {
     const response = await post({ email: "bot@example.com", company: "Acme" });
     expect(response.status).toBe(200);

@@ -95,6 +95,7 @@ export function MoneyField({
   compact?: boolean;
 }) {
   const id = useId();
+  const [draft, setDraft] = useState<string | null>(null);
   return (
     <div className={compact ? "w-field w-field-compact" : "w-field"}>
       <label htmlFor={id}>{label}</label>
@@ -104,12 +105,17 @@ export function MoneyField({
           id={id}
           inputMode="decimal"
           autoComplete="off"
-          value={value === 0 ? "" : String(value)}
+          value={draft ?? (value === 0 ? "" : String(value))}
           placeholder="0"
+          onFocus={() => setDraft(value === 0 ? "" : String(value))}
+          onBlur={() => setDraft(null)}
           onChange={(event) => {
             const cleaned = event.target.value.replace(/[^0-9.]/g, "");
+            if (!/^\d*\.?\d*$/.test(cleaned)) return;
             const next = Number.parseFloat(cleaned);
-            onChange(Number.isFinite(next) ? Math.min(max, next) : 0);
+            const bounded = Number.isFinite(next) ? Math.min(max, next) : 0;
+            setDraft(next > max ? String(max) : cleaned);
+            onChange(bounded);
           }}
         />
         {suffix ? <span aria-hidden>{suffix}</span> : null}

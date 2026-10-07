@@ -25,9 +25,27 @@ export async function POST(request: Request) {
 
   let body: { email?: unknown; company?: unknown; turnstileToken?: unknown };
   try {
-    const raw = await request.text();
-    if (raw.length > MAX_BODY_BYTES) throw new Error("too large");
-    body = JSON.parse(raw) as typeof body;
+    const reader = request.body?.getReader();
+    if (!reader) throw new Error("missing body");
+    const chunks: Uint8Array[] = [];
+    let bytes = 0;
+    try {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        bytes += value.byteLength;
+        if (bytes > MAX_BODY_BYTES) {
+          await reader.cancel();
+          throw new Error("too large");
+        }
+        chunks.push(value);
+      }
+    } finally {
+      reader.releaseLock();
+    }
+    const parsed: unknown = JSON.parse(Buffer.concat(chunks).toString("utf8"));
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("invalid body");
+    body = parsed;
   } catch {
     return NextResponse.json({ error: "That didn't come through. Try again." }, { status: 400 });
   }

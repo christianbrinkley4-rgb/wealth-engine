@@ -17,18 +17,35 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
+/** Restore known fields only; damaged browser data must not become component state. */
+function restoreShape(saved: unknown, fallback: unknown): unknown {
+  if (Array.isArray(fallback)) {
+    if (!Array.isArray(saved)) return fallback;
+    // The empty array in this store is the list of explored tool slugs.
+    if (!fallback.length) return saved.filter((item) => typeof item === "string");
+    return saved.filter((item) => isPlainObject(item) === isPlainObject(fallback[0]))
+      .map((item) => restoreShape(item, fallback[0]));
+  }
+  if (isPlainObject(fallback)) {
+    if (!isPlainObject(saved)) return fallback;
+    return Object.fromEntries(Object.entries(fallback).map(([field, defaultValue]) => [
+      field, restoreShape(saved[field], defaultValue),
+    ]));
+  }
+  if (typeof saved !== typeof fallback || saved === null) return fallback;
+  if (typeof saved === "number" && !Number.isFinite(saved)) return fallback;
+  return saved;
+}
+
 export function readStore<T>(key: string, fallback: T): T {
+  if (typeof window === "undefined") return fallback;
   if (cache.has(key)) return cache.get(key) as T;
   let value = fallback;
   try {
     const raw = window.localStorage.getItem(key);
     if (raw !== null) {
       const parsed = JSON.parse(raw) as unknown;
-      if (isPlainObject(fallback) && isPlainObject(parsed)) {
-        value = { ...fallback, ...parsed } as T;
-      } else if (Array.isArray(fallback) === Array.isArray(parsed) && typeof parsed === typeof fallback) {
-        value = parsed as T;
-      }
+      value = restoreShape(parsed, fallback) as T;
     }
   } catch {
     // Private mode or a blocked store: the page still works, it just forgets.
@@ -57,8 +74,15 @@ export function usePersistentState<T>(
       const set = listeners.get(key) ?? new Set();
       listeners.set(key, set);
       set.add(listener);
+      const onStorage = (event: StorageEvent) => {
+        if (event.storageArea !== window.localStorage || (event.key !== key && event.key !== null)) return;
+        cache.delete(key);
+        listener();
+      };
+      window.addEventListener("storage", onStorage);
       return () => {
         set.delete(listener);
+        window.removeEventListener("storage", onStorage);
       };
     },
     [key],
@@ -101,7 +125,8 @@ export function useTween(target: number, duration = 420): number {
     const start = performance.now();
     let frame = 0;
     const tick = (now: number) => {
-      const t = reduced ? 1 : Math.min(1, (now - start) / duration);
+      const t = reduced || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+        ? 1 : Math.min(1, (now - start) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
       const value = from + (target - from) * eased;
       current.current = value;

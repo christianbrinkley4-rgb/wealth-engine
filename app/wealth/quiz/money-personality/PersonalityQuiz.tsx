@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowUpRight, RotateCcw } from "lucide-react";
-import { useEffect, useState } from "react";
+import { type KeyboardEvent, useEffect, useId, useRef, useState } from "react";
 
 import { Confetti } from "@/app/wealth/ui/Confetti";
 import { ShareButton } from "@/app/wealth/ui/controls";
@@ -27,45 +27,86 @@ export function PersonalityQuiz() {
   useMarkExplored("money-personality");
   const [answers, setAnswers] = useState<PersonalityId[]>([]);
   const [shared, setShared] = useState<PersonalityId | null>(null);
+  const heading = useRef<HTMLHeadingElement>(null);
+  const shouldFocus = useRef(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const locked = useRef(false);
+  const progressId = useId();
 
   // A shared link opens straight on its type.
   useEffect(() => {
+    let active = true;
     const type = new URLSearchParams(window.location.search).get("type");
     const match = type ? getPersonality(type) : undefined;
-    if (match) queueMicrotask(() => setShared(match.id));
+    if (match) queueMicrotask(() => {
+      if (!active) return;
+      shouldFocus.current = true;
+      setShared(match.id);
+    });
+    return () => { active = false; };
   }, []);
 
   const [picked, setPicked] = useState<number | null>(null);
   // Hold for a beat so the choice visibly lands before the next question slides in.
   const choose = (type: PersonalityId, position: number) => {
-    if (picked !== null) return;
+    if (locked.current) return;
+    locked.current = true;
     setPicked(position);
-    window.setTimeout(() => {
+    const advance = () => {
+      timer.current = null;
+      shouldFocus.current = true;
       setPicked(null);
       setAnswers((previous) => [...previous, type]);
-    }, 300);
+    };
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) advance();
+    else timer.current = setTimeout(advance, 300);
   };
 
-  // Keyboard: A to D (or 1 to 4) picks an answer.
+  // Letter shortcuts apply only while focus is inside this quiz.
+  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.defaultPrevented || event.repeat || event.nativeEvent.isComposing || event.metaKey || event.ctrlKey || event.altKey) return;
+    if (event.target instanceof HTMLElement && event.target.closest("input, textarea, select, [contenteditable]:not([contenteditable='false'])")) return;
+    const key = event.key.toLowerCase();
+    if (!/^[a-d1-4]$/.test(key)) return;
+    const slot = "abcd".includes(key) ? "abcd".indexOf(key) : "1234".indexOf(key);
+    const button = event.currentTarget.querySelectorAll<HTMLButtonElement>(".w-option")[slot];
+    if (button && !button.disabled) {
+      event.preventDefault();
+      button.click();
+    }
+  };
+
   useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if (event.metaKey || event.ctrlKey || event.altKey) return;
-      const key = event.key.toLowerCase();
-      const slot = "abcd".includes(key) && key.length === 1 ? "abcd".indexOf(key) : "1234".indexOf(key);
-      const buttons = document.querySelectorAll<HTMLButtonElement>(".w-quiz .w-option");
-      if (slot >= 0 && buttons[slot]) buttons[slot].click();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => { if (timer.current !== null) clearTimeout(timer.current); };
   }, []);
 
-  const finished = answers.length === PERSONALITY_QUESTIONS.length;
+  const finished = answers.length >= PERSONALITY_QUESTIONS.length;
   const score = finished ? scorePersonality(answers) : null;
   const resultId = score?.winner ?? shared;
   const result = resultId ? getPersonality(resultId) : undefined;
+  useEffect(() => {
+    locked.current = false;
+    if (shouldFocus.current) {
+      heading.current?.focus();
+      shouldFocus.current = false;
+    }
+  }, [answers.length, resultId]);
+
+  const cancelPending = () => {
+    if (timer.current !== null) clearTimeout(timer.current);
+    timer.current = null;
+    locked.current = false;
+    setPicked(null);
+    shouldFocus.current = true;
+  };
   const restart = () => {
+    cancelPending();
     setAnswers([]);
     setShared(null);
+  };
+  const back = () => {
+    cancelPending();
+    setAnswers((previous) => previous.slice(0, -1));
   };
 
   if (result) {
@@ -74,7 +115,7 @@ export function PersonalityQuiz() {
         <div className="w-result-card" data-type={result.id} data-tilt>
           <Confetti />
           <p className="w-eyebrow">{score ? "Your money personality" : "A money personality"}</p>
-          <h2 className="w-result-name">{result.name}</h2>
+          <h2 className="w-result-name" ref={heading} tabIndex={-1}>{result.name}</h2>
           <p className="w-result-tag">{result.tagline}</p>
           <p className="w-result-sum">{result.summary}</p>
           {score ? (
@@ -159,17 +200,17 @@ export function PersonalityQuiz() {
   const question = PERSONALITY_QUESTIONS[index];
 
   return (
-    <div className="w-quiz">
+    <div className="w-quiz" onKeyDown={onKeyDown}>
       <div className="w-quiz-progress" aria-hidden>
         {PERSONALITY_QUESTIONS.map((item, position) => (
           <i key={item.question} data-on={position <= index ? "true" : undefined} />
         ))}
       </div>
       <div className="w-quiz-step" key={index}>
-        <p className="w-eyebrow">
+        <p className="w-eyebrow" id={progressId}>
           Question {index + 1} of {PERSONALITY_QUESTIONS.length}
         </p>
-        <h2 className="w-quiz-q">{question.question}</h2>
+        <h2 className="w-quiz-q" ref={heading} tabIndex={-1} aria-describedby={progressId}>{question.question}</h2>
         <ul className="w-options">
           {question.options.map((option, position) => (
             <li key={option.label}>
@@ -177,6 +218,7 @@ export function PersonalityQuiz() {
                 type="button"
                 className="w-option"
                 data-picked={picked === position ? "true" : undefined}
+                disabled={picked !== null}
                 onClick={() => choose(option.type, position)}
               >
                 <b aria-hidden>{String.fromCharCode(65 + position)}</b>
@@ -186,7 +228,7 @@ export function PersonalityQuiz() {
           ))}
         </ul>
         {index > 0 ? (
-          <button type="button" className="w-quiz-back" onClick={() => setAnswers((previous) => previous.slice(0, -1))}>
+          <button type="button" className="w-quiz-back" onClick={back}>
             Back
           </button>
         ) : null}
