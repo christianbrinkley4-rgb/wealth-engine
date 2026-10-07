@@ -8,7 +8,7 @@ The audience is people approaching retirement, people who are already retired, a
 - Consultations are no cost, with no obligation to enroll or buy. Visitors can take time to decide.
 - Meetings can be at home, at a convenient public location, or by phone. A spouse or family member is welcome.
 - Questions and requests go directly to Christian and are not sold to other agents.
-- Christian is currently a licensed insurance agent and an accounting master’s student at UNCG. He works with an advisor for financial planning. Future CPA, CFP, tax, and investment credentials must not be presented as current qualifications.
+- Christian is currently a licensed insurance agent and an accounting senior at UNCG, graduating December 2026. He works with an advisor for financial planning. Future CPA, CFP, tax, and investment credentials must not be presented as current qualifications.
 
 ## How to write
 

@@ -147,7 +147,7 @@ export const AGENT = {
    */
   licenseLine: "NC Life & Health",
 
-  education: "Accounting master’s student at UNCG, expected completion June 2027",
+  education: "Accounting senior at UNCG, graduating December 2026",
 
   /**
    * A stated promise you keep beats an implied one you break. National call

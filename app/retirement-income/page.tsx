@@ -97,7 +97,7 @@ const FAQ = [
   },
   {
     q: "Are you a financial advisor?",
-    a: "I’m a licensed insurance agent and an accounting master’s student at UNCG. I work with an advisor for retirement financial planning, and I can help you prepare questions for a CPA when tax advice is needed.",
+    a: "I’m a licensed insurance agent and an accounting senior at UNCG. I work with an advisor for retirement financial planning, and I can help you prepare questions for a CPA when tax advice is needed.",
   },
 ] as const;
 

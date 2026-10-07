@@ -42,7 +42,7 @@ ${profiles.map((profile) => `- ${profile.label}: ${profile.url}`).join("\n")}
 
   const body = `# ${SITE_NAME}
 
-${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.state}, and an accounting master’s student at UNC Greensboro. He helps people approaching retirement, people already retired, and their families. Consultations are no cost, with no obligation to enroll or buy.
+${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.state}, and an accounting senior at UNC Greensboro. He helps people approaching retirement, people already retired, and their families. Consultations are no cost, with no obligation to enroll or buy.
 
 ## Personal, local help
 

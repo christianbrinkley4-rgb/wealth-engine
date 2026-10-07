@@ -225,8 +225,8 @@ export function localBusinessJsonLd() {
         },
         description:
           `${SITE_OWNER} is a licensed insurance agent in ${SITE_LOCALITY}, ` +
-          `${SITE_REGION}, and an accounting master’s student at UNC Greensboro ` +
-          "(expected completion June 2027). " +
+          `${SITE_REGION}, and an accounting senior at UNC Greensboro ` +
+          "(graduating December 2026). " +
           "He helps individuals and families with Medicare, life insurance, care coverage, " +
           "and annuities, and works with an advisor for financial planning.",
         image: `${SITE_URL}/christian-brinkley.jpg`,
