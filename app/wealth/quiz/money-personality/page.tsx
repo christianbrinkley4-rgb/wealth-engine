@@ -81,7 +81,7 @@ export default function MoneyPersonalityPage() {
         links={[
           { href: "/wealth/quiz/first-1000", label: "What do I do with my first $1,000?", kind: "Quiz" },
           { href: "/wealth/calculators/budget", label: "50/30/20 budget builder", kind: "Calculator" },
-          { href: "/wealth/learn", label: "Read the money basics", kind: "Learn" },
+          { href: "/wealth/learn/the-50-30-20-rule", label: "The 50/30/20 rule", kind: "Article" },
         ]}
       />
     </main>

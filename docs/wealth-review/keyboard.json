@@ -1,0 +1,293 @@
+[
+  {
+    "tag": "BUTTON",
+    "label": "Raise Monthly contribution",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Lower Years",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Raise Years",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Lower Yearly return",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Raise Yearly return",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": "Balance by year.: chart point",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Lower Your age now",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "chartFirst": "Year 0. Balance: $0. You put in: $0"
+  },
+  {
+    "chartLast": "Year 40. Balance: $656,203. You put in: $120,000"
+  },
+  {
+    "tag": "BUTTON",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Lower Needs",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Raise Needs",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Lower Wants",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Raise Wants",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Lower Savings and extra debt",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Raise Savings and extra debt",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Remove Credit card",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": "Debt name",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Remove Student loan",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": "Debt name",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Remove Medical bill",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "chartFirst": "Month 0. Avalanche: $14,500. Snowball: $14,500"
+  },
+  {
+    "chartLast": "Month 36. Avalanche: $0. Snowball: $0"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Raise Tax rate today",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Lower Tax rate in retirement",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Raise Tax rate in retirement",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Lower Pay set aside each year",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Raise Pay set aside each year",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Lower Years until you use it",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Raise Years until you use it",
+    "outline": "solid"
+  },
+  {
+    "tag": "BUTTON",
+    "label": "Lower Yearly return",
+    "outline": "solid"
+  },
+  {
+    "tag": "INPUT",
+    "label": null,
+    "outline": "solid"
+  },
+  {
+    "card": "The Vault",
+    "box": {
+      "x": 44,
+      "y": 363.109375,
+      "width": 117.484375,
+      "height": 44
+    }
+  },
+  {
+    "card": "The Vibe",
+    "box": {
+      "x": 44,
+      "y": 637.953125,
+      "width": 106.078125,
+      "height": 44
+    }
+  },
+  {
+    "card": "The Ghost",
+    "box": {
+      "x": 44,
+      "y": 362.796875,
+      "width": 125.078125,
+      "height": 44
+    }
+  },
+  {
+    "card": "The Grinder",
+    "box": {
+      "x": 44,
+      "y": 668.234375,
+      "width": 149.234375,
+      "height": 44
+    }
+  },
+  {
+    "missingLlms": []
+  }
+]

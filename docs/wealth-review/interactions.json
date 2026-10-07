@@ -1,0 +1,132 @@
+{
+  "log": [
+    {
+      "path": "/wealth",
+      "sliders": 2,
+      "badNumber": false
+    },
+    {
+      "path": "/wealth/calculators/compound-interest",
+      "sliders": 5,
+      "badNumber": false
+    },
+    {
+      "path": "/wealth/calculators/budget",
+      "sliders": 3,
+      "badNumber": false
+    },
+    {
+      "path": "/wealth/calculators/debt-payoff",
+      "sliders": 1,
+      "badNumber": false
+    },
+    {
+      "path": "/wealth/calculators/roth-vs-traditional",
+      "sliders": 5,
+      "badNumber": false
+    },
+    {
+      "download": "my-budget-plan.csv"
+    },
+    {
+      "download": "budget-spreadsheet.xlsx"
+    },
+    {
+      "download": "ratio-checker.zip"
+    },
+    {
+      "emptyDebt": true
+    },
+    {
+      "typedApr": "5.5"
+    },
+    {
+      "first1000": "buffer-then-debt",
+      "title": "Split it: small buffer first, then the debt",
+      "focused": "w-result-name"
+    },
+    {
+      "first1000": "attack-debt",
+      "title": "Point it at your highest-rate debt",
+      "focused": "w-result-name"
+    },
+    {
+      "first1000": "starter-fund",
+      "title": "Make it your starter emergency fund",
+      "focused": "w-result-name"
+    },
+    {
+      "first1000": "grab-match",
+      "title": "Look hard at the match you're leaving behind",
+      "focused": "w-result-name"
+    },
+    {
+      "first1000": "check-match",
+      "title": "First job: find out if there's a match",
+      "focused": "w-result-name"
+    },
+    {
+      "first1000": "short-term",
+      "title": "Keep it safe and easy to reach",
+      "focused": "w-result-name"
+    },
+    {
+      "first1000": "build-fund",
+      "title": "Finish the emergency fund",
+      "focused": "w-result-name"
+    },
+    {
+      "first1000": "long-term",
+      "title": "You're ready to learn long-term investing",
+      "focused": "w-result-name"
+    },
+    {
+      "personality": "vault",
+      "title": "The Vault",
+      "focused": "w-result-name"
+    },
+    {
+      "personality": "vibe",
+      "title": "The Vibe",
+      "focused": "w-result-name"
+    },
+    {
+      "personality": "ghost",
+      "title": "The Ghost",
+      "focused": "w-result-name"
+    },
+    {
+      "personality": "grinder",
+      "title": "The Grinder",
+      "focused": "w-result-name"
+    },
+    {
+      "hostile": "/wealth/quiz/first-1000?plan=__proto__",
+      "ok": true
+    },
+    {
+      "hostile": "/wealth/quiz/money-personality?type=%3Cscript%3E",
+      "ok": true
+    },
+    {
+      "hostile": "/wealth/calculators/compound-interest#m=NaN&y=Infinity&r=-99&s=1e100",
+      "ok": true
+    },
+    {
+      "reduced": "/wealth",
+      "hidden": 0,
+      "animations": 0
+    },
+    {
+      "reduced": "/wealth/calculators/compound-interest",
+      "hidden": 0,
+      "animations": 0
+    },
+    {
+      "reduced": "/wealth/quiz/money-personality?type=vibe",
+      "hidden": 0,
+      "animations": 0
+    }
+  ],
+  "errors": []
+}

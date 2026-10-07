@@ -1,0 +1,179 @@
+[
+  {
+    "path": "/wealth",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/calculators",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/calculators/compound-interest",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/calculators/budget",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/calculators/debt-payoff",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/calculators/roth-vs-traditional",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/quiz",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/quiz/first-1000",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/quiz/money-personality",
+    "axe": [],
+    "small": [
+      {
+        "text": "The Vault",
+        "c": "",
+        "html": "<a href=\"/wealth/quiz/money-personality/vault\">The Vault</a>"
+      },
+      {
+        "text": "The Vibe",
+        "c": "",
+        "html": "<a href=\"/wealth/quiz/money-personality/vibe\">The Vibe</a>"
+      },
+      {
+        "text": "The Ghost",
+        "c": "",
+        "html": "<a href=\"/wealth/quiz/money-personality/ghost\">The Ghost</a>"
+      },
+      {
+        "text": "The Grinder",
+        "c": "",
+        "html": "<a href=\"/wealth/quiz/money-personality/grinder\">The Grinder</a>"
+      }
+    ]
+  },
+  {
+    "path": "/wealth/learn",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/journey",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/tools",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/links",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/learn/budgeting-on-your-first-job",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/learn/what-is-a-roth-ira",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/learn/credit-scores-explained",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/learn/what-accountants-actually-do",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/learn/emergency-funds",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/learn/the-50-30-20-rule",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/quiz/money-personality/vault",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/quiz/money-personality/vibe",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/quiz/money-personality/ghost",
+    "axe": [],
+    "small": []
+  },
+  {
+    "path": "/wealth/quiz/money-personality/grinder",
+    "axe": [],
+    "small": []
+  },
+  {
+    "shareSearch": "",
+    "shareHash": "#m=250&y=30&r=7&s=2500000"
+  },
+  {
+    "nextTool": "1 NEXT MOVE\n\n50/30/20 budget builder\n\nType your take-home pay. Drag the split until it looks like your real life.\n\nTry this next"
+  },
+  {
+    "missingLlms": [],
+    "sitemap": true
+  },
+  {
+    "image": "/wealth/opengraph-image",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 65003
+  },
+  {
+    "image": "/wealth/quiz/money-personality/vault/opengraph-image",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 50584
+  },
+  {
+    "image": "/wealth/quiz/money-personality/vibe/opengraph-image",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 49965
+  },
+  {
+    "image": "/wealth/quiz/money-personality/ghost/opengraph-image",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 52381
+  },
+  {
+    "image": "/wealth/quiz/money-personality/grinder/opengraph-image",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 50638
+  }
+]
