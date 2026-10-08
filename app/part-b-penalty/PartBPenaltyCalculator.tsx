@@ -231,7 +231,7 @@ export function PartBPenaltyCalculator() {
             </>
           ) : (
             <div className="tl-empty">
-              <h3>Your estimate will show here.</h3>
+              <p className="tl-empty-title">Your estimate will show here.</p>
               <p>Enter two dates and you’ll see:</p>
               <ul>
                 <li>Whether a penalty applies at all</li>

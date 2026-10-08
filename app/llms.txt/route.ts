@@ -7,11 +7,19 @@ import {
 } from "@/lib/agent";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { placeNames, TRIAD_CITIES } from "@/lib/triad";
+import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
+import { WEALTH_NAV, WEALTH_TOOLS } from "@/lib/wealth/site";
+import { PERSONALITIES } from "@/lib/wealth/quizzes";
+import { learnEntries } from "@/lib/learn";
 
 /** Public summary kept consistent with the visitor-facing pages. */
 export const dynamic = "force-static";
 
 export function GET() {
+  const articleLines = learnEntries()
+    .filter((entry) => entry.kind === "Answer" || entry.kind === "Explainer")
+    .map((entry) => `- [${entry.title}](${SITE_URL}${entry.href}): ${entry.blurb}`)
+    .join("\n");
   const cityLines = TRIAD_CITIES.map((city) =>
     [
       `- [Medicare in ${city.name}](${SITE_URL}/medicare-in/${city.slug}): personal help with enrollment, doctors, prescriptions, and coverage choices. Confirm Medicare Advantage availability for the visitor’s home address.`,
@@ -19,6 +27,19 @@ export function GET() {
       `- [Retirement help in ${city.name}](${SITE_URL}/retirement-in/${city.slug}): Medicare and insurance education, with financial planning coordinated through an advisor.`,
     ].join("\n"),
   ).join("\n");
+
+  const wealthLines = [
+    `- [Money tools for your 20s](${SITE_URL}/wealth): christianbuildswealth home.`,
+    `- [Christian's links](${SITE_URL}/links): downloads and contact links.`,
+    ...WEALTH_NAV.map((item) => `- [${item.label}](${SITE_URL}${item.href}): hub section.`),
+    ...PERSONALITIES.map((type) => `- [${type.name}](${SITE_URL}/wealth/quiz/money-personality/${type.id}): ${type.tagline}`),
+    ...WEALTH_TOOLS.map(
+      (tool) => `- [${tool.title}](${SITE_URL}${tool.href}): ${tool.kind}. ${tool.blurb}`,
+    ),
+    ...WEALTH_ARTICLES.map(
+      (article) => `- [${article.title}](${SITE_URL}/wealth/learn/${article.slug}): ${article.answer}`,
+    ),
+  ].join("\n");
 
   const profiles = publishedProfiles();
   const profileSection =
@@ -31,7 +52,7 @@ ${profiles.map((profile) => `- ${profile.label}: ${profile.url}`).join("\n")}
 
   const body = `# ${SITE_NAME}
 
-${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.state}, and an accounting master’s student at UNC Greensboro. He helps people approaching retirement, people already retired, and their families. Consultations are no cost, with no obligation to enroll or buy.
+${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.state}, and an accounting senior at UNC Greensboro. He helps people approaching retirement, people already retired, and their families. Consultations are no cost, with no obligation to enroll or buy.
 
 ## Personal, local help
 
@@ -48,6 +69,10 @@ ${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.stat
 - [Ways to arrange a meeting](${SITE_URL}/schedule)
 
 ${profileSection}
+## Who answers
+
+Every page on this site is published under one name: ${AGENT.name}, ${AGENT.licenseLine}. There is no call center, no lead resale, and no hand-off to another agent. Calls to ${AGENT.phone} go to Christian. Articles show the date they were last updated and list their official sources.
+
 ## Local questions this site is meant to answer
 
 This site is for people in and near Greensboro, High Point, and Winston-Salem, North Carolina who want a licensed agent they can meet in person. Typical questions:
@@ -62,7 +87,9 @@ ${TPMO_DISCLAIMER}
 
 ## Guides
 
+- [Insurance services](${SITE_URL}/insurance-services): Medicare, life insurance, care coverage, annuity consultations and retirement education. See what each service covers and what to bring.
 - [Learning Hub](${SITE_URL}/learn): every guide, answer, explainer, and tool on the site, organized by situation (turning 65, already on Medicare, costs, taxes, retirement income, insurance, helping a parent).
+- [Medicare words in plain English](${SITE_URL}/medicare-words): short definitions of Part A, Part B, Medicare Advantage, Part D, Medigap, IRMAA, the enrollment periods, and other common terms, each with a link to the official Medicare.gov, CMS, or Social Security page.
 - [Taxes and retirement](${SITE_URL}/taxes-and-retirement): plain-English explainers on Social Security taxes, required minimum distributions, and Roth conversions, and how retirement income affects Medicare premiums. Educational, not tax advice.
 - [Plan check](${SITE_URL}/plan-check): a seven-question quiz on whether a current Medicare plan deserves a second look before December 7. Answers stay on the device unless the visitor asks for results by email.
 - [Turning 65](${SITE_URL}/turning-65): Medicare enrollment timing, current coverage, and questions to consider before choosing a plan.
@@ -80,6 +107,10 @@ ${TPMO_DISCLAIMER}
 - [Social Security timing](${SITE_URL}/social-security-timing): consider income needs, family circumstances, and personal benefit estimates.
 - [Medicare premium review](${SITE_URL}/irmaa-appeal): learn about requesting a review through Social Security after a qualifying life change.
 
+## Question-led articles and retirement explainers
+
+${articleLines}
+
 ## Published 2026 figures
 
 - [2026 Medicare costs](${SITE_URL}/medicare-costs-2026): the Part A, Part B, Part D and IRMAA figures for 2026, each taken from a named CMS fact sheet. Part B standard premium $202.90 a month; Part B annual deductible $283; Part A hospital deductible $1,736 per benefit period; Part D out-of-pocket cap $2,100 a year; Part D maximum deductible $615. Income-related surcharges begin above $109,000 for a single filer and $218,000 filing jointly, based on the 2024 tax return. These figures are federal and identical in every state; only plan availability and pricing vary locally.
@@ -91,6 +122,12 @@ ${TPMO_DISCLAIMER}
 - [2026 Medicare Part B estimate](${SITE_URL}/medicare): an estimate using published 2026 rates.
 - [Roth conversion timing examples](${SITE_URL}/plan): compare estimated Medicare premium effects using 2026 rates.
 - [Roth conversion estimate](${SITE_URL}/roth-window): explore income-related Medicare charges using 2026 rates. Future rates may differ.
+
+## Money tools for people in their 20s and 30s (christianbuildswealth)
+
+A separate section of this site at ${SITE_URL}/wealth. General money education for younger adults. Christian is licensed for insurance, not securities, so nothing here recommends an investment.
+
+${wealthLines}
 
 ## Qualifications and disclosures
 

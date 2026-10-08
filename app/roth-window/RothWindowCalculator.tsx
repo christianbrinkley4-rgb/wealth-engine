@@ -373,7 +373,7 @@ function RothWindowCalculatorInner() {
           </CardHeader>
           <CardContent className="space-y-4 p-6 pt-2">
             <p className="text-18 leading-relaxed">
-              I’m Christian, a licensed insurance agent and accounting master’s student in
+              I’m Christian, a licensed insurance agent and accounting senior in
               Greensboro. I can help explain how retirement income relates to Medicare and work with
               an advisor for financial planning. You’re welcome to bring your questions to a no-cost
               consultation.{" "}

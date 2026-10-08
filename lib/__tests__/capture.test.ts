@@ -307,7 +307,7 @@ describe("service area honesty", () => {
 
   it("does not publish guessed identity or domain facts", () => {
     expect(AGENT.education).toMatch(/student/i);
-    expect(AGENT.education).toMatch(/June 2027/);
+    expect(AGENT.education).toMatch(/December 2026/);
     expect(SITE_URL).not.toBe("https://wealth-engine.app");
   });
 

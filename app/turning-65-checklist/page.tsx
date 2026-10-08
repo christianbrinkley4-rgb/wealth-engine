@@ -167,6 +167,17 @@ export default function Turning65ChecklistPage() {
             </Link>{" "}
             or call me at {AGENT.phone}.
           </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Want a copy to print and write on?{" "}
+            <a
+              href="/turning-65-checklist.pdf"
+              download
+              className="font-semibold underline underline-offset-2"
+            >
+              Download the checklist (PDF, 2 pages)
+            </a>
+            . It has room for your dates, doctors, prescriptions, and questions.
+          </p>
         </div>
       </section>
 

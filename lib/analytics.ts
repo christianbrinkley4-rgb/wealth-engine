@@ -40,6 +40,10 @@ export const MEASURED_EVENTS = {
   booking_complete: "booking_complete",
   /** A tap on a "next step" link at the end of a Learning Hub article. */
   article_cta_click: "article_cta_click",
+  /** Someone opened the past-client review page. Never carries who they are. */
+  review_page_view: "review_page_view",
+  /** Someone tapped the button that goes to Google's review box. */
+  review_click: "review_click",
 } as const;
 
 export type MeasuredEvent = keyof typeof MEASURED_EVENTS;
@@ -56,8 +60,27 @@ export function isQuizId(value: unknown): value is QuizId {
   return typeof value === "string" && (QUIZ_IDS as readonly string[]).includes(value);
 }
 
-/** What an event may say beyond the page: which quiz, and which step number. */
-export type EventDetail = { quiz_id?: QuizId; step?: number };
+/**
+ * Where a visit to the review page came from. A label for a kind of link
+ * Christian hands out, never a person: "meeting" is the thank-you link he sends
+ * after a visit, "card" is the QR code, "text" is the link he texts.
+ */
+export const REVIEW_SOURCES = ["meeting", "card", "text"] as const;
+export type ReviewSource = (typeof REVIEW_SOURCES)[number];
+
+export function isReviewSource(value: unknown): value is ReviewSource {
+  return typeof value === "string" && (REVIEW_SOURCES as readonly string[]).includes(value);
+}
+
+/** What an event may say beyond the page: which quiz, which step, which review link. */
+export type EventDetail = { quiz_id?: QuizId; step?: number; review_source?: ReviewSource };
+
+type EventParams = {
+  page_path: string;
+  quiz_id?: QuizId;
+  step?: number;
+  review_source?: ReviewSource;
+};
 
 /**
  * The page path, with anything a visitor typed removed.
@@ -80,10 +103,11 @@ export function safePagePath(url: string): string {
 export function eventParams(
   pagePath: string,
   detail?: EventDetail,
-): { page_path: string; quiz_id?: QuizId; step?: number } {
-  const params: { page_path: string; quiz_id?: QuizId; step?: number } = {
+): EventParams {
+  const params: EventParams = {
     page_path: safePagePath(pagePath),
   };
+  if (detail && isReviewSource(detail.review_source)) params.review_source = detail.review_source;
   if (detail && isQuizId(detail.quiz_id)) params.quiz_id = detail.quiz_id;
   if (detail && Number.isInteger(detail.step) && detail.step! >= 0 && detail.step! <= 50) {
     params.step = detail.step;

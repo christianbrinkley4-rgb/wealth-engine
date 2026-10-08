@@ -73,6 +73,13 @@ const GUIDES: LearnEntry[] = [
     featured: true,
   },
   {
+    href: "/medicare-words",
+    title: "Medicare words, in plain English",
+    blurb: "Part A, Part B, Medigap, IRMAA: what each one means, in a sentence or two.",
+    situation: "turning-65",
+    kind: "Guide",
+  },
+  {
     href: "/turning-65-checklist",
     title: "Your turning-65 checklist",
     blurb: "Eight steps to take before your 65th birthday, in order.",

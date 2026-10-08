@@ -1,0 +1,57 @@
+[
+  {
+    "path": "/wealth",
+    "performance": 0.71,
+    "lcp": 4831.393800000001,
+    "cls": 0.00004138901565195684,
+    "tbt": 258.00000000000045,
+    "inp": null,
+    "jsBytes": 190068,
+    "accessibility": 1,
+    "seo": 0.66
+  },
+  {
+    "path": "/wealth/calculators/compound-interest",
+    "performance": 0.75,
+    "lcp": 4549.6996500000005,
+    "cls": 0.002259682246206462,
+    "tbt": 190,
+    "inp": null,
+    "jsBytes": 193022,
+    "accessibility": 1,
+    "seo": 0.66
+  },
+  {
+    "path": "/wealth/quiz/money-personality",
+    "performance": 0.76,
+    "lcp": 4224.32445,
+    "cls": 0.00004138901565195684,
+    "tbt": 234,
+    "inp": null,
+    "jsBytes": 197512,
+    "accessibility": 1,
+    "seo": 0.66
+  },
+  {
+    "path": "/wealth/learn/emergency-funds",
+    "performance": 0.79,
+    "lcp": 4229.681799999999,
+    "cls": 0.00004138901565195684,
+    "tbt": 116,
+    "inp": null,
+    "jsBytes": 188917,
+    "accessibility": 1,
+    "seo": 0.66
+  },
+  {
+    "path": "/links",
+    "performance": 0.88,
+    "lcp": 3326.63175,
+    "cls": 0.002408819210156536,
+    "tbt": 127,
+    "inp": null,
+    "jsBytes": 188615,
+    "accessibility": 1,
+    "seo": 0.69
+  }
+]

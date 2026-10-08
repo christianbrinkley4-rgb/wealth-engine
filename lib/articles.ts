@@ -12,6 +12,19 @@
  * qualifying for Medicaid. See docs/CONTENT-VOICE.md.
  */
 
+import {
+  CMS_PARTS_AB_SOURCE,
+  CMS_PART_D_SOURCE,
+  COSTS_YEAR,
+  PART_B_2026,
+  PART_D_2026,
+  PART_D_IRMAA_2026,
+} from "@/lib/medicareCosts2026";
+
+/** Whole dollars when the figure is whole, otherwise dollars and cents. */
+const money = (amount: number): string =>
+  Number.isInteger(amount) ? `$${amount.toLocaleString("en-US")}` : `$${amount.toFixed(2)}`;
+
 export type ArticleBlock =
   | { kind: "p"; text: string }
   | { kind: "ul"; items: string[] };
@@ -1018,6 +1031,227 @@ export const ARTICLES: Article[] = [
     related: [
       { label: "What should I check before switching Medicare Advantage plans?", href: "/answers/switching-medicare-advantage-plans-aep" },
       { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Medicare help near you", href: "/service-area" },
+    ],
+    startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
+  {
+    slug: "do-i-need-medicare-drug-coverage",
+    title: "Do I need Medicare drug coverage if I don't take many prescriptions?",
+    metaTitle: "Do I Need Medicare Part D If I Take Few Prescriptions?",
+    description:
+      "Taking few or no prescriptions at 65? What Medicare Part D costs, how the late penalty works, and what to check before you skip drug coverage.",
+    keyword: "do I need Part D if I don't take prescriptions",
+    eyebrow: "Medicare questions, answered",
+    lede: "Part D is optional, but skipping it can cost you for years. Here is how the penalty works, and the one thing to check first.",
+    published: "2026-10-06",
+    updated: "2026-10-06",
+    intro:
+      "A neighbor told me last month, \"I'm healthy, I take one pill a day, why would I pay for drug coverage?\" It's a fair question, and the honest answer is that Part D is optional. You can skip it. What you should know before you do is how the late penalty works, because it follows you for as long as you have Medicare.",
+    sections: [
+      {
+        h2: "What Part D is, and who already has it",
+        blocks: [
+          p(
+            "Part D is Medicare's prescription drug coverage. Original Medicare, Parts A and B, covers very little of what you pick up at the pharmacy. Drug coverage comes from a private plan you add on, or from a Medicare Advantage plan that includes it.",
+          ),
+          p(
+            "If you are in a Medicare Advantage plan, check whether it already includes drug coverage. Many do. In most Advantage HMOs and PPOs, joining a separate drug plan can get you dropped from the Advantage plan, so don't add one without checking first.",
+          ),
+        ],
+      },
+      {
+        h2: "How the late penalty works",
+        blocks: [
+          p(
+            `You get a seven month window around your 65th birthday to join a drug plan without a penalty. If you go 63 days or more without drug coverage that counts as "creditable," and then join later, Medicare adds a penalty to your monthly premium. It is ${PART_D_2026.latePenaltyPercentPerMonth}% of the national base premium (${money(PART_D_2026.baseBeneficiaryPremium)} in ${COSTS_YEAR}) for each full month you went without.`,
+          ),
+          p(
+            `Here is what that looks like. Say you wait 12 months. That is ${12 * PART_D_2026.latePenaltyPercentPerMonth}% of ${money(PART_D_2026.baseBeneficiaryPremium)}, rounded to the nearest dime, so about ${money(Math.round((12 * PART_D_2026.latePenaltyPercentPerMonth * PART_D_2026.baseBeneficiaryPremium) / 10) / 10)} a month added to whatever your plan charges. It has no end date. It is not a lot in year one, and it is still there in year fifteen.`,
+          ),
+        ],
+      },
+      {
+        h2: "Creditable coverage: the one thing to check",
+        blocks: [
+          p(
+            "You can skip Part D with no penalty if you already have drug coverage that Medicare calls creditable. That means it is expected to pay at least as much as a standard Part D plan. Coverage from a current employer, a retiree plan, the VA, or TRICARE is often creditable, but not always.",
+          ),
+          p(
+            "Your plan has to send you a notice each fall saying whether its drug coverage is creditable. Keep it. If you ever need to prove you had coverage, that letter is your proof. If you can't find it, call the plan and ask for it in writing.",
+          ),
+        ],
+      },
+      {
+        h2: "What a plan can cost you in 2026",
+        blocks: [
+          p(
+            `Premiums vary by plan, and some are low. Two limits are set for everyone. A plan can't charge a deductible above ${money(PART_D_2026.maximumDeductible)}, and your out-of-pocket drug costs are capped at ${money(PART_D_2026.outOfPocketCap)} for the year.`,
+          ),
+          p(
+            `Higher earners pay an extra monthly amount on top of the plan's premium, from ${money(PART_D_IRMAA_2026[1].surcharge)} up to ${money(PART_D_IRMAA_2026[PART_D_IRMAA_2026.length - 1].surcharge)} a month depending on income. That surcharge goes to Medicare, not to the plan. If your income is limited, ask about Extra Help, a Social Security program that lowers drug costs and waives the late penalty.`,
+          ),
+        ],
+      },
+      {
+        h2: "A way to think it through",
+        blocks: [
+          p(
+            "Few prescriptions today doesn't mean few prescriptions at 72. Look at it two ways: what a low-cost plan would cost you this year, and what the penalty would add if you needed coverage later. Then decide with both numbers in front of you.",
+          ),
+          p(
+            "If you're not sure whether you have creditable coverage, or what a plan would cost with your actual prescriptions, bring the list and we'll check it together. No cost, and no pressure to enroll.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can I sign up for Part D later without a penalty?",
+        a: "Only if you had creditable drug coverage the whole time, or you qualify for a Special Enrollment Period or Extra Help. Otherwise the late penalty applies for as long as you have Part D.",
+      },
+      {
+        q: "When can I join a drug plan if I missed my first window?",
+        a: "During the Annual Enrollment Period, October 15 to December 7. Coverage starts January 1 of the following year.",
+      },
+      {
+        q: "Does the Part D penalty ever go away?",
+        a: "No. It is added to your monthly premium for as long as you have Part D. It can be reconsidered if you disagree about whether you had creditable coverage.",
+      },
+      {
+        q: "Do I need Part D if I have a Medicare Advantage plan?",
+        a: "Check your plan first. Many Advantage plans include drug coverage. If yours does, you don't add a separate one.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: Drug coverage (Part D)",
+        href: "https://www.medicare.gov/drug-coverage-part-d",
+      },
+      {
+        label: "Medicare.gov: Drug costs",
+        href: "https://www.medicare.gov/basics/costs/help/drug-costs",
+      },
+      { label: CMS_PART_D_SOURCE.title, href: CMS_PART_D_SOURCE.url },
+    ],
+    related: [
+      { label: "What should I check before switching Medicare Advantage plans?", href: "/answers/switching-medicare-advantage-plans-aep" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+      { label: "Medicare words, in plain English", href: "/medicare-words" },
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Medicare help near you", href: "/service-area" },
+    ],
+    startHref: "/start?topic=medicare&stage=turning_65_soon",
+  },
+  {
+    slug: "does-medicare-cover-hearing-aids-and-glasses",
+    title: "Does Medicare cover hearing aids, eye exams, and glasses?",
+    metaTitle: "Does Medicare Cover Hearing Aids and Glasses? What to Know",
+    description:
+      "Original Medicare skips hearing aids, routine eye exams, and glasses, with a few exceptions. What is covered, what Advantage plans add, and what to ask.",
+    keyword: "does Medicare cover hearing aids and glasses",
+    eyebrow: "Medicare questions, answered",
+    lede: "Original Medicare covers some of the medical side of hearing and vision, and almost none of the everyday side. Here is where the line is.",
+    published: "2026-10-06",
+    updated: "2026-10-06",
+    intro:
+      "People are usually surprised by this one, often at the audiologist's front desk. Medicare pays for a lot of medical care, and hearing aids and glasses feel like medical care. They mostly aren't, as far as Original Medicare is concerned. There are a few exceptions, and some Advantage plans add an allowance. Here's how it sorts out.",
+    sections: [
+      {
+        h2: "Hearing: what Medicare pays for and what it doesn't",
+        blocks: [
+          p(
+            "Original Medicare does not cover hearing aids. It also doesn't cover the exam to fit them. You pay the full cost of both.",
+          ),
+          p(
+            `It does cover diagnostic hearing and balance exams when your doctor orders them to find out if you need medical treatment. After the Part B deductible (${money(PART_B_2026.annualDeductible)} in ${COSTS_YEAR}), you pay 20% of the Medicare-approved amount. In a hospital outpatient setting, there is a copayment on top.`,
+          ),
+          p(
+            "Hearing aids that you buy over the counter, without a prescription, are sold for mild to moderate hearing loss. Medicare doesn't pay for those either, but they usually cost less than prescription aids.",
+          ),
+        ],
+      },
+      {
+        h2: "Vision: the exceptions that matter",
+        blocks: [
+          p(
+            "Original Medicare doesn't cover routine eye exams, eyeglasses, or contact lenses. A few things are covered, and they all have a medical reason behind them:",
+          ),
+          ul(
+            "A yearly eye exam for diabetic eye disease, if you have diabetes.",
+            "A yearly glaucoma test, if you're at high risk.",
+            "Tests and some treatments for age-related macular degeneration.",
+            "One pair of glasses or contact lenses after cataract surgery that implants an intraocular lens.",
+          ),
+          p(
+            "Cataract surgery itself is covered when it is medically needed. The 20% coinsurance applies, and so does the Part B deductible.",
+          ),
+        ],
+      },
+      {
+        h2: "What Medicare Advantage plans add",
+        blocks: [
+          p(
+            "Many Advantage plans include some hearing and vision benefits. Medicare says most do. It is an extra the plan chooses to offer, so each one is different.",
+          ),
+          p(
+            "Look for an annual dollar limit on hearing aids and on eyewear, which is often an allowance rather than full coverage. Also look for a network. Some plans only pay if you use their audiologists or their glasses supplier. And ask whether the exam is covered separately from the device.",
+          ),
+          p(
+            "A Medicare Supplement plan, or Medigap, doesn't help here. It pays Medicare cost sharing and doesn't add hearing, vision, or dental.",
+          ),
+        ],
+      },
+      {
+        h2: "What to ask before you buy",
+        blocks: [
+          p(
+            "If you have an Advantage plan, call and ask three things before you schedule anything. What is the yearly limit? Do I have to use a certain provider? Do I need an approval first? Get the answers in writing, or write down the name of the person you talked to.",
+          ),
+          p(
+            "If you're on Original Medicare, ask the provider for the full price in writing, including the exam and any follow-up visits. Prices vary a lot, and a written quote lets you compare. And check each fall's plan changes if you're on Advantage. These benefits can shrink from one year to the next.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does Original Medicare cover hearing aids?",
+        a: "No. Original Medicare doesn't cover hearing aids or the exams to fit them. It covers diagnostic hearing exams when a doctor orders them for a medical reason.",
+      },
+      {
+        q: "Does Medicare cover glasses after cataract surgery?",
+        a: "Yes, one pair of glasses or contact lenses after cataract surgery that implants an intraocular lens. You pay the 20% coinsurance, and the Part B deductible applies.",
+      },
+      {
+        q: "Do Medicare Advantage plans cover hearing and vision?",
+        a: "Many do, but it varies by plan. Look at the yearly limit, the provider network, and whether the exam is covered apart from the device.",
+      },
+      {
+        q: "Can a Medicare Supplement plan pay for hearing aids?",
+        a: "No. Medicare Supplement plans pay Medicare's cost sharing. They don't add hearing, vision, or dental coverage.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: Hearing aids",
+        href: "https://www.medicare.gov/coverage/hearing-aids",
+      },
+      {
+        label: "Medicare.gov: Hearing and balance exams",
+        href: "https://www.medicare.gov/coverage/hearing-balance-exams",
+      },
+      {
+        label: "Medicare.gov: Eyeglasses and contact lenses",
+        href: "https://www.medicare.gov/coverage/eyeglasses-contact-lenses",
+      },
+      { label: CMS_PARTS_AB_SOURCE.title, href: CMS_PARTS_AB_SOURCE.url },
+    ],
+    related: [
+      { label: "Does Medicare Advantage cover dental?", href: "/answers/medicare-advantage-dental-coverage" },
+      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
       { label: "Build your turning-65 timeline", href: "/turning-65" },
       { label: "Medicare help near you", href: "/service-area" },
     ],

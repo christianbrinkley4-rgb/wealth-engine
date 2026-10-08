@@ -63,7 +63,7 @@ export default async function SchedulePage({
           <div className="sched-who">
             <Image
               src="/christian-brinkley-square.jpg"
-              alt="Christian Brinkley"
+              alt="Christian Brinkley, licensed insurance agent in Greensboro"
               width={128}
               height={128}
               sizes="64px"

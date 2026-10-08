@@ -20,6 +20,7 @@ const START = [
 const LEARN = [
   { href: "/learn", label: "Learning Hub" },
   { href: "/answers", label: "Medicare questions, answered" },
+  { href: "/medicare-words", label: "Medicare words, in plain English" },
   { href: "/taxes-and-retirement", label: "Taxes & retirement" },
   { href: "/advantage-vs-medigap", label: "Advantage or Medigap" },
   { href: "/keep-my-doctor", label: "Keeping your doctors" },
@@ -29,6 +30,7 @@ const LEARN = [
 ] as const;
 
 const MORE = [
+  { href: "/insurance-services", label: "All insurance services" },
   { href: "/life-insurance", label: "Life insurance" },
   { href: "/care-coverage", label: "Care and critical illness coverage" },
   { href: "/retirement-income", label: "Retirement income" },
@@ -50,6 +52,8 @@ const MORE = [
 export function SiteFooter() {
   const pathname = usePathname() ?? "/";
   if (pathname.startsWith("/lp/")) return null;
+  // The /wealth hub and /links carry their own footer.
+  if (pathname === "/links" || pathname === "/wealth" || pathname.startsWith("/wealth/")) return null;
 
   const year = new Date().getFullYear();
   const profiles = publishedProfiles();
@@ -81,6 +85,9 @@ export function SiteFooter() {
                   <br />
                   {AGENT.city}, {AGENT.state}
                 </span>
+              </li>
+              <li>
+                <Link href="/review">Worked with me? Leave a review</Link>
               </li>
             </ul>
             {profiles.length > 0 ? (
@@ -163,9 +170,6 @@ export function SiteFooter() {
           </p>
         </div>
       </div>
-      <span className="ft-word" aria-hidden>
-        Greensboro
-      </span>
     </footer>
   );
 }

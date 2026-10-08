@@ -3,6 +3,8 @@ import { ARTICLES } from "@/lib/articles";
 import { SITE_URL } from "@/lib/seo";
 import { TAX_ARTICLES } from "@/lib/taxArticles";
 import { TRIAD_CITIES } from "@/lib/triad";
+import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
+import { PERSONALITIES } from "@/lib/wealth/quizzes";
 
 const STATIC_ROUTES: Array<{
   path: string;
@@ -10,7 +12,8 @@ const STATIC_ROUTES: Array<{
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
 }> = [
-  { path: "/", changeFrequency: "weekly", priority: 1.0 },
+  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-07" },
+  { path: "/insurance-services", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-07" },
   { path: "/care-coverage", changeFrequency: "monthly", priority: 0.85 },
   { path: "/long-term-care-insurance", changeFrequency: "monthly", priority: 0.85 },
   { path: "/short-term-care-insurance", changeFrequency: "monthly", priority: 0.8 },
@@ -54,6 +57,40 @@ const STATIC_ROUTES: Array<{
   { path: "/answers", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-10-01" },
   { path: "/learn", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-05" },
   { path: "/taxes-and-retirement", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-05" },
+  { path: "/medicare-words", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-05" },
+  // The christianbuildswealth hub.
+  ...[
+    "/wealth",
+    "/wealth/calculators",
+    "/wealth/calculators/compound-interest",
+    "/wealth/calculators/budget",
+    "/wealth/calculators/debt-payoff",
+    "/wealth/calculators/roth-vs-traditional",
+    "/wealth/quiz",
+    "/wealth/quiz/first-1000",
+    "/wealth/quiz/money-personality",
+    "/wealth/learn",
+    "/wealth/journey",
+    "/wealth/tools",
+    "/links",
+  ].map((path) => ({
+    path,
+    changeFrequency: "weekly" as const,
+    priority: path === "/wealth" ? 0.9 : path === "/links" ? 0.4 : 0.8,
+    lastModified: "2026-10-06",
+  })),
+  ...PERSONALITIES.map((type) => ({
+    path: `/wealth/quiz/money-personality/${type.id}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+    lastModified: "2026-10-06",
+  })),
+  ...WEALTH_ARTICLES.map((article) => ({
+    path: `/wealth/learn/${article.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+    lastModified: article.updated,
+  })),
   ...TAX_ARTICLES.map((article) => ({
     path: `/taxes-and-retirement/${article.slug}`,
     changeFrequency: "monthly" as const,
