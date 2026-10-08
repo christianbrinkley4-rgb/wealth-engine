@@ -348,6 +348,12 @@ export default function WealthHome() {
           "tips-tax-deduction-2026",
           "teen-tax-return-dependent",
           "unemployment-tax-withholding",
+          "backdoor-roth-ira-steps",
+          "tax-loss-harvesting-wash-sale",
+          "i-bonds-vs-tips",
+          "credit-utilization-explained",
+          "social-security-62-vs-70",
+          "roth-ira-mistakes-to-avoid",
         ]}
       />
     </main>

@@ -197,7 +197,7 @@ export default function HsaExplainedPage() {
           { href: "/wealth/side-hustle-taxes", label: "Side-Hustle Taxes, Explained", kind: "Article" },
         ]}
       />
-    <TrafficGuideLinks slugs={["hsa-fsa-after-leaving-job"]} />
+    <TrafficGuideLinks slugs={["hsa-fsa-after-leaving-job", "hsa-triple-tax-advantage", "fsa-vs-hsa-which-is-better", "hsa-mistakes-to-avoid"]} />
     </main>
   );
 }

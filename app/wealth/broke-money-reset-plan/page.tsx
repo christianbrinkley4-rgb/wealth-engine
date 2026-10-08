@@ -78,6 +78,7 @@ const ARTICLE: ArticleData = {
   nextLinks: [
     { href: "/guides/unemployment-tax-withholding", label: "Unemployment and taxes", kind: "Article" },
     { href: "/guides/tax-extension-cannot-pay", label: "Cannot pay a tax bill?", kind: "Article" },
+    { href: "/guides/hysa-vs-money-market-account", label: "HYSA vs money market account", kind: "Article" },
     { href: "/wealth", label: "Wealth hub", kind: "Hub" },
     { href: "/wealth/emergency-fund-guide", label: "The Emergency Fund Guide", kind: "Article" },
     { href: "/wealth/health-insurance-basics", label: "Health Insurance Basics", kind: "Article" },
