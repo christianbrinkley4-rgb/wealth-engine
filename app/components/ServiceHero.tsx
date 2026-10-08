@@ -28,6 +28,7 @@ export function ServiceHero({
   secondaryLabel,
   note,
   proof = DEFAULT_PROOF,
+  hidePhoneCta = false,
 }: {
   crumbs: Array<{ name: string; href?: string }>;
   eyebrow: string;
@@ -37,6 +38,8 @@ export function ServiceHero({
   secondaryLabel: string;
   note?: ReactNode;
   proof?: readonly string[];
+  /** The /ai guides are purely informational; they carry no phone CTA. */
+  hidePhoneCta?: boolean;
 }) {
   // Older pages put an arrow character in the label; the button draws its own.
   const label = secondaryLabel.replace(/\s*→\s*$/, "");
@@ -63,10 +66,12 @@ export function ServiceHero({
           <p className="sh-lede">{lede}</p>
 
           <div className="sh-actions">
-            <a href={AGENT.phoneHref} className="btn btn-light">
-              <Phone size={19} aria-hidden />
-              {AGENT.phone}
-            </a>
+            {!hidePhoneCta && (
+              <a href={AGENT.phoneHref} className="btn btn-light">
+                <Phone size={19} aria-hidden />
+                {AGENT.phone}
+              </a>
+            )}
             <Link href={secondaryHref} className="btn btn-ghost-light">
               {label} <ArrowRight size={18} className="arrow" aria-hidden />
             </Link>

@@ -30,6 +30,11 @@ function isWealthHub(pathname: string) {
   return pathname === "/links" || pathname === "/wealth" || pathname.startsWith("/wealth/");
 }
 
+/** The /ai guides are purely informational; no phone number anywhere on them. */
+function isAiRoute(pathname: string) {
+  return pathname === "/ai" || pathname.startsWith("/ai/");
+}
+
 function isCurrent(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
@@ -121,10 +126,12 @@ export function TopRouteChrome() {
           <Link href="/plan-check" className="btn btn-accent btn-sm nav-cta">
             Plan check
           </Link>
-          <a className="nav-call" href={AGENT.phoneHref} aria-label={`Call ${AGENT.phone}`}>
-            <Phone size={17} aria-hidden />
-            <span className="nav-call-number">{AGENT.phone}</span>
-          </a>
+          {!isAiRoute(pathname) && (
+            <a className="nav-call" href={AGENT.phoneHref} aria-label={`Call ${AGENT.phone}`}>
+              <Phone size={17} aria-hidden />
+              <span className="nav-call-number">{AGENT.phone}</span>
+            </a>
+          )}
           <button
             type="button"
             className="nav-menu-button"
@@ -154,9 +161,11 @@ export function TopRouteChrome() {
           ))}
         </ul>
         <div className="nav-sheet-actions">
-          <a href={AGENT.phoneHref} className="btn btn-block">
-            <Phone size={19} aria-hidden /> {AGENT.phone}
-          </a>
+          {!isAiRoute(pathname) && (
+            <a href={AGENT.phoneHref} className="btn btn-block">
+              <Phone size={19} aria-hidden /> {AGENT.phone}
+            </a>
+          )}
           <Link href="/plan-check" className="btn btn-accent btn-block">
             90-second plan check
           </Link>

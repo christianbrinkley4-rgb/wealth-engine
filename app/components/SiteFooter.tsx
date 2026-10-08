@@ -54,6 +54,8 @@ export function SiteFooter() {
   if (pathname.startsWith("/lp/")) return null;
   // The /wealth hub and /links carry their own footer.
   if (pathname === "/links" || pathname === "/wealth" || pathname.startsWith("/wealth/")) return null;
+  // The /ai guides are purely informational; no phone number on them.
+  const isAiRoute = pathname === "/ai" || pathname.startsWith("/ai/");
 
   const year = new Date().getFullYear();
   const profiles = publishedProfiles();
@@ -66,9 +68,11 @@ export function SiteFooter() {
             Questions are easier <em>out loud.</em>
           </h2>
           <div className="ft-hero-side">
-            <a href={AGENT.phoneHref} className="ft-phone">
-              {AGENT.phone}
-            </a>
+            {!isAiRoute && (
+              <a href={AGENT.phoneHref} className="ft-phone">
+                {AGENT.phone}
+              </a>
+            )}
             <p>
               {AGENT.hours} {AGENT.afterHoursPromise}
             </p>

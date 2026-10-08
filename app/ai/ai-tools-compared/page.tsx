@@ -122,6 +122,7 @@ export default function AiToolsComparedPage() {
       />
 
       <ServiceHero
+        hidePhoneCta
         crumbs={[
           { name: "Home", href: "/" },
           { name: "AI for regular people", href: "/ai" },

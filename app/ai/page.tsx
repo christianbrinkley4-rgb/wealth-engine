@@ -114,6 +114,7 @@ export default function AiHubPage() {
       />
 
       <ServiceHero
+        hidePhoneCta
         crumbs={[{ name: "Home", href: "/" }, { name: "AI for regular people" }]}
         eyebrow="Practical AI · Plain English"
         title="AI for regular people"
