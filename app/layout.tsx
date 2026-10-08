@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { Atkinson_Hyperlegible_Next, Fraunces } from "next/font/google";
 
 import { Analytics } from "@/app/components/Analytics";
+import { MainContent } from "@/app/components/MainContent";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { TopRouteChrome } from "@/app/components/TopRouteChrome";
 import { REVEAL_BOOT_SCRIPT, RevealObserver } from "@/components/motion/RevealObserver";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
-import { AGENT, publishedProfiles } from "@/lib/agent";
+import { publishedProfiles } from "@/lib/agent";
 import {
   siteIdentityJsonLd,
   SITE_LOCALITY,
@@ -127,15 +128,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteIdentityJsonLd()).replace(/</g, "\\u003c") }}
         />
         <TopRouteChrome />
-        {/* Target for the skip link; the pages render their own <main> inside. */}
-        <div
-          id="main-content"
-          tabIndex={-1}
-          className="outline-none"
-          data-print-contact={`${AGENT.name} · Licensed agent, ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state} · ${AGENT.phone}. Estimates for education only, not a quote or a benefit determination.`}
-        >
-          {children}
-        </div>
+        <MainContent>{children}</MainContent>
 
         <SiteFooter />
 
