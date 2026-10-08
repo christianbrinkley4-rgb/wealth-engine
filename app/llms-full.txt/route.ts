@@ -99,6 +99,7 @@ export function GET() {
   }).join("\n\n");
 
   const medicareExtraLines = [
+    `- [The 2026-2027 money numbers](${SITE_URL}/numbers): tax brackets, retirement and HSA limits, Social Security, and Medicare figures, each tied to a named IRS, SSA, or CMS source.`,
     `- [2027 Medicare numbers at a glance](${SITE_URL}/medicare-numbers-2027): the 2027 Medicare premiums, deductibles, and caps, each tied to a named source.`,
     `- [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.`,
     `- [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the Part D out-of-pocket cap works in 2027.`,
@@ -110,6 +111,7 @@ export function GET() {
     `- [Medicare questions, answered](${SITE_URL}/answers): short answers to Medicare questions Triad neighbors actually asked.`,
     `- [Taxes and retirement hub](${SITE_URL}/taxes-and-retirement): plain-English explainers on Social Security taxes, RMDs, and Roth conversions.`,
     `- [The Learning Hub](${SITE_URL}/learn): every guide, answer, explainer, and tool on the site, organized by situation.`,
+    `- [Ask Christian](${SITE_URL}/ask): a public wall of real money, tax, and retirement questions, answered in plain English. Visitors can ask their own.`,
   ].join("\n");
 
   const calcLines = [
@@ -207,6 +209,7 @@ Plain-language AI guides for regular people, written from Christian's experience
 - [AI for seniors](${SITE_URL}/ai/ai-for-seniors): simplest useful starting points for 65+, with scam warnings.
 - [AI money tasks](${SITE_URL}/ai/ai-money-tasks): budgeting help, bill scripts, and subscription audits.
 - [AI mistakes to avoid](${SITE_URL}/ai/ai-mistakes-to-avoid): hallucinations, sensitive data, and blind trust.
+- [Connect your AI assistant](${SITE_URL}/ai/connect): add the site as an MCP connector in Claude or any MCP app, setup steps and example prompts.
 - [The Learning Hub](${SITE_URL}/learn): every guide, answer, explainer, and tool on the site, organized by situation.
 - [Medicare words in plain English](${SITE_URL}/medicare-words): short definitions of Part A, Part B, Medicare Advantage, Part D, Medigap, IRMAA, and the enrollment periods.
 - [Short machine summary](${SITE_URL}/llms.txt): the compact version of this index.

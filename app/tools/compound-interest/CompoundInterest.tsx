@@ -13,6 +13,7 @@ import {
   Slider,
   Stat,
 } from "../_components/tool-shared";
+import { ShareResultButton } from "../_components/share-card";
 
 export function CompoundInterest() {
   const [start, setStart] = useState(1000);
@@ -118,6 +119,12 @@ export function CompoundInterest() {
         </AssumptionBox>
 
         <CopyNumbersButton summary={summary} />
+        <ShareResultButton
+          headlineNumber={money(end.balance)}
+          headlineLabel={`Balance after ${years} years`}
+          toolName="Compound interest calculator"
+          toolPath="/tools/compound-interest"
+        />
       </div>
     </div>
   );

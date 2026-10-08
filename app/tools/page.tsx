@@ -19,7 +19,7 @@ import { ToolsDisclaimer } from "./_components/tool-footer";
 
 const path = "/tools";
 const description =
-  "Eight free calculators: Roth vs traditional, emergency fund, debt payoff, retirement projector, take-home pay, life insurance, compound interest, budget.";
+  "Eight free calculators and three guided quizzes: Roth vs traditional, emergency fund, debt payoff, Medigap vs Advantage, Roth conversions, and more.";
 
 export const metadata: Metadata = {
   title: { absolute: "Free Money Calculators | Christian Brinkley" },
@@ -72,6 +72,26 @@ const TOOLS = [
     href: "/tools/budget",
     title: "Budget",
     body: "Take-home pay against spending by category: your surplus or deficit in plain dollars, with a full breakdown.",
+  },
+  {
+    href: "/tools/medigap-or-advantage-quiz",
+    title: "Medigap or Advantage quiz",
+    body: "Seven questions to ask yourself, then a list of questions to bring to a licensed agent. Educational only, never a plan pick.",
+  },
+  {
+    href: "/tools/roth-conversion-quiz",
+    title: "Roth conversion quiz",
+    body: "Should you convert this year? Six questions on brackets, timing, and how you would pay the tax. Ends with a tax pro checklist.",
+  },
+  {
+    href: "/tools/cd-or-savings-quiz",
+    title: "CD or savings quiz",
+    body: "Where should your cash sit? Six questions on timing and access, then a checklist of what to compare.",
+  },
+  {
+    href: "/tools/roth-conversion-ladder",
+    title: "Roth conversion planner",
+    body: "Fill your tax bracket with Roth conversions year by year until RMD age, and compare lifetime taxes with vs without.",
   },
 ] as const;
 

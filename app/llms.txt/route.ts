@@ -1,4 +1,5 @@
 import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
+import { ASK_QUESTIONS } from "@/lib/askWall";
 import {
   AGENT,
   COMPENSATION_DISCLOSURE,
@@ -64,6 +65,7 @@ const NEW_GUIDE_PAGES = [
   { path: "/ai/ai-for-seniors", title: "AI for seniors", blurb: "Simplest useful starting points for 65+, with scam warnings." },
   { path: "/ai/ai-money-tasks", title: "AI money tasks", blurb: "Budgeting help, bill scripts, and subscription audits." },
   { path: "/ai/ai-mistakes-to-avoid", title: "AI mistakes to avoid", blurb: "Hallucinations, sensitive data, and blind trust." },
+  { path: "/ai/connect", title: "Connect your AI assistant", blurb: "Add the site as an MCP connector in Claude or any MCP app: setup steps, what it answers, example prompts." },
   { path: "/guides/what-medicare-does-not-cover", title: "What Medicare does not cover", blurb: "The exclusion list and cost-sharing gaps, plainly." },
   { path: "/guides/medicare-hsa-contributions", title: "Medicare and HSA contributions", blurb: "The 6-month retroactive Part A trap, as dated action steps." },
   { path: "/guides/working-while-collecting-social-security", title: "Working while collecting Social Security", blurb: "2026 earnings limits and how withheld benefits come back." },
@@ -74,6 +76,12 @@ const NEW_GUIDE_PAGES = [
   { path: "/guides/medicare-travel", title: "Does Medicare Advantage work out of state?", blurb: "Emergency coverage, HMO vs PPO travel, service-area rules." },
   { path: "/guides/irmaa-brackets-2026", title: "2026 IRMAA brackets", blurb: "The complete 2026 IRMAA table, verified against CMS." },
   { path: "/guides/standard-deduction-seniors-2026", title: "Standard deduction for seniors 2026", blurb: "2026 standard deduction plus the 65+ add-on amounts." },
+  { path: "/ask", title: "Ask Christian", blurb: "A public wall of real money, tax, and retirement questions, answered in plain English." },
+  ...ASK_QUESTIONS.map((question) => ({
+    path: `/ask/${question.slug}`,
+    title: question.title,
+    blurb: question.lede,
+  })),
 ] as const;
 
 export function GET() {
@@ -181,6 +189,7 @@ ${articleLines}
 
 ## 2027 figures
 
+- [The 2026-2027 money numbers](${SITE_URL}/numbers): tax brackets and standard deductions, 401(k) and IRA limits, HSA limits, Social Security wage base and COLA, and Medicare premiums, deductibles, and caps, each tied to a named IRS, SSA, or CMS source.
 - [2027 Medicare numbers at a glance](${SITE_URL}/medicare-numbers-2027): Part B standard premium about $209.50 a month (projected), Part D standard deductible $700 and out-of-pocket cap $2,400 (final), Medicare Advantage average premium about $12 a month. Each figure tied to a named source.
 - [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.
 - [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the $2,400 Part D out-of-pocket cap works in 2027.

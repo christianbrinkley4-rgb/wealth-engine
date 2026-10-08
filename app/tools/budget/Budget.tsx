@@ -16,6 +16,7 @@ import {
   MoneyField,
   Stat,
 } from "../_components/tool-shared";
+import { ShareResultButton } from "../_components/share-card";
 
 const CATEGORIES = [
   { key: "housing", label: "Housing", hint: "Rent or mortgage, plus renter or homeowner insurance." },
@@ -174,6 +175,12 @@ export function Budget() {
         </AssumptionBox>
 
         <CopyNumbersButton summary={summary} />
+        <ShareResultButton
+          headlineNumber={money(Math.abs(leftover))}
+          headlineLabel={leftover >= 0 ? "Left over each month" : "Short each month"}
+          toolName="Budget calculator"
+          toolPath="/tools/budget"
+        />
       </div>
     </div>
   );

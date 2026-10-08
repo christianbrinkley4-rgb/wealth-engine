@@ -10,6 +10,7 @@ import {
   MoneyField,
   Stat,
 } from "../_components/tool-shared";
+import { ShareResultButton } from "../_components/share-card";
 
 export function LifeInsuranceNeeds() {
   const [debts, setDebts] = useState(15000);
@@ -117,6 +118,12 @@ export function LifeInsuranceNeeds() {
         </AssumptionBox>
 
         <CopyNumbersButton summary={summary} />
+        <ShareResultButton
+          headlineNumber={money(total)}
+          headlineLabel="Starting-point coverage"
+          toolName="Life insurance needs calculator"
+          toolPath="/tools/life-insurance-needs"
+        />
       </div>
     </div>
   );

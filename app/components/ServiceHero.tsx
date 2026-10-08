@@ -78,7 +78,7 @@ export function ServiceHero({
           </div>
           {note ? (
             <div className="sh-note">{note}</div>
-          ) : (
+          ) : hidePhoneCta ? null : (
             <p className="sh-note">Free consultation. No obligation to enroll.</p>
           )}
         </div>

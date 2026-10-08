@@ -12,6 +12,7 @@ import {
   SelectField,
   Stat,
 } from "../_components/tool-shared";
+import { ShareResultButton } from "../_components/share-card";
 
 type FilingStatus = "single" | "joint";
 type Frequency = "weekly" | "biweekly" | "semimonthly" | "monthly";
@@ -201,6 +202,12 @@ export function TakeHomePay() {
         </AssumptionBox>
 
         <CopyNumbersButton summary={summary} />
+        <ShareResultButton
+          headlineNumber={money(per(net))}
+          headlineLabel={`Take-home, per ${frequency} check`}
+          toolName="Take-home pay calculator"
+          toolPath="/tools/take-home-pay"
+        />
       </div>
     </div>
   );

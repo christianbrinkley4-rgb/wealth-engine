@@ -27,6 +27,8 @@ const HIDE_PREFIXES = [
   // The money hub for younger visitors has its own calls to action.
   "/wealth",
   "/links",
+  // The /ai guides are purely informational; no phone number or sales CTA.
+  "/ai",
 ];
 
 /** Medicare pages offer the plan check as the second step; elsewhere, a question. */

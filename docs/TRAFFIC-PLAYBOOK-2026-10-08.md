@@ -291,3 +291,70 @@ Built on branch `traffic-expansion-2026-10-08`, expanding Codex's traffic-missio
 - Weekly ranking checks on target queries through April 2027 (tax season).
 - Monthly AI citation spot-checks: query the target questions in AI assistants, record actual citations and destination URLs.
 - Internal link CTR from hub pages to transactional guides.
+
+## Fourth batch: six viral differentiators (2026-10-08)
+
+Built on branch `differentiators-2026-10-08` per Christian's order: "add features that no one else is doing" and "only the highest quality work." Each feature held to the site's standing bar: tsc clean, tests added and green, production build green, 390px verified, zero em dashes, educational-only disclosures, no invented figures, no carrier/plan recommendations, metadata within limits. Nothing merged, pushed, or deployed; deploy remains held until Christian releases it.
+
+### 1. Shareable calculator result cards (commit f65cc0e)
+- "Share your result" button on all 8 tools, below "Copy my numbers."
+- Canvas-rendered 1200x630 branded PNG (site colors, headline number auto-fit, tool name, domain; no phone number).
+- Web Share API with file attachment on mobile, PNG download fallback.
+- Dynamic OG/twitter images per tool (`app/tools/[tool]/opengraph-image.tsx`), summary_large_image cards.
+- Headline values computed from the tool's real math (`lib/wealth/math`), never hand-written; a test asserts the card headline equals the OG default at default inputs.
+- 23 new tests. Full suite 834/834 at the time.
+
+### 2. MCP connector (commit 9030b2f)
+- `app/api/mcp/route.ts`: JSON-RPC MCP endpoint (initialize, tools/list, tools/call, resources/list, resources/read).
+- Tools: search_guides, get_guide, list_tools, get_2027_numbers. Resources: llms.txt content, 2027 numbers.
+- Content reuses `lib/trafficGuides.ts`, `lib/wealth/site.ts`, and the llms route logic; no duplication. New shared module `lib/medicareNumbers2027.ts` (medicare-numbers-2027 page refactored onto it).
+- `/ai/connect` setup page: plain-English Claude/MCP setup steps, example prompts, FAQPage schema. Informational surface: hidePhoneCta, no sales CTA.
+- Makes site content directly citable by AI assistants, a first-mover move in this lane.
+
+### 3. "Ask Christian" Q&A wall (commit 59eab9d)
+- `/ask`: public wall of answered questions, question submission form (20-2000 chars, honeypot + Turnstile, posts `{kind:"question"}` to the capture-lead API).
+- New `ask_questions` table (`supabase/migrate-2026-10-ask-wall.sql`); the leads table could not be reused (NOT NULL email + CHECK constraint on source). The question branch skips lead scoring, nurture, and alerts. **Run the migration in Supabase SQL Editor before launch; until then the API returns 503, never silently drops.**
+- 5 seeded answers as article URLs (`/ask/[slug]`): overtime premium rules, HSA after job change, 401k 60-day rollover, backdoor Roth, RMD age/amount. All figures reused from verified site content.
+- Article + BreadcrumbList + FAQPage schema, sitemap + llms wiring, nav/footer links.
+- 24 new tests.
+
+### 4. Three decision-tree quizzes (commit 1823e91)
+- `/tools/medigap-or-advantage-quiz` (7 questions): result is "questions to bring to a licensed agent," never a plan pick. No carrier/plan names. TPMO framing via ComplianceDisclosure.
+- `/tools/roth-conversion-quiz` (6 questions): three educational buckets, every result ends with "talk to a tax pro."
+- `/tools/cd-or-savings-quiz` (6 questions): comparison checklists, "not advice" close.
+- Shared quiz engine (pure-TS scoring, accessible QuizRunner: progressbar, back button, focus management, aria-live results).
+- Each result screen wires the shared ShareResultButton from feature 1.
+- 39 new tests, including copy audits (no em dashes, no carrier/plan names, no recommendation language).
+
+### 5. Annual numbers hub (commit 7d9f581)
+- `/numbers`: 2026-2027 money numbers, tax brackets (single + MFJ, all 7 rows), standard deduction + senior add-ons, 401k/IRA/HSA limits, Social Security (wage base $184,500, COLA 2.8%), Medicare (Part B $202.90/~$209.50, Part D $615->$700/$2,100->$2,400, Part A $1,736, MA avg ~$12), IRMAA note. Unverified 2027 cells read "Not yet announced," never projections.
+- WebPage + speakable + Article + Dataset schema, "Last updated" date, one source link per section.
+- `docs/NUMBERS-UPDATE-PLAYBOOK.md`: three-wave fall update procedure (IRS ~Oct, SSA ~Oct, CMS Oct/Nov) with exact sources and files, written for a one-session future update.
+- 13 new tests, including verbatim cross-checks of every figure against its declared site source.
+
+### 6. Roth conversion multi-year analyzer (commit 277ebf3)
+- `/tools/roth-conversion-ladder`: inputs age, pre-tax balance, current vs retirement bracket, growth, years to RMD age (73 for 1951-1959, 75 for 1960+, per SECURE 2.0).
+- Year-by-year bracket-fill conversion plan, lifetime tax with vs without conversions, edge cases (balance exhausted, past RMD age, retirement bracket >= current).
+- Real 2026 brackets from the codebase; math assertions hand-computed in tests.
+- Shareable result card wired in. Educational framing throughout ("talk to a tax pro").
+
+### Coordinator fixes on top (commit 5620be2)
+- Caught by the coordinator's 390px visual pass: the mobile sticky "Call Christian" bar was showing on /ai routes (pre-existing gap from the earlier /ai phone-suppression work; HIDE_PREFIXES missed /ai), and ServiceHero rendered "Free consultation. No obligation to enroll." on /ai pages.
+- Fixed: `/ai` added to StickyMobileCta HIDE_PREFIXES; ServiceHero suppresses the default enrollment note when hidePhoneCta is set.
+- New regression test `lib/__tests__/ai-phone-suppression.test.ts` (4 tests) locking in the /ai no-phone rule across header, sheet, footer, sticky bar, and hero.
+
+### Validation (coordinator)
+- `npx tsc --noEmit`: clean.
+- `npx vitest run`: 838/838 pass across 58 files (834 + 4 new).
+- Production build: green; all new routes prerendered (/ask, /numbers, /ai/connect, 3 quizzes, /tools/roth-conversion-ladder, 16 OG image routes).
+- 390px CDP pass: /ask, /numbers, /ai/connect, /tools/roth-conversion-ladder, /tools/medigap-or-advantage-quiz, all 0px horizontal overflow, visually verified.
+- Zero em dashes in new copy; disclosures on every page.
+
+### Measurement plan
+- Share cards: track social referral traffic per tool (UTM on shared URLs in a follow-up), OG unfurl validation via card validators at launch.
+- MCP: monitor API route hits; spot-check AI assistant citations naming the site monthly.
+- Ask wall: questions submitted/week, answers published, organic entrances to /ask/[slug] pages.
+- Quizzes: completion rate, share rate, entrances.
+- Numbers hub: backlinks acquired, branded + unbranded query impressions.
+- Roth analyzer: tool usage, share rate, time on page.
+- Same 28-day Search Console windows as prior batches; monthly AI citation spot-checks.

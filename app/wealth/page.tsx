@@ -143,6 +143,29 @@ export default function WealthHome() {
         </div>
       </div>
 
+      <section className="w-section" style={{ paddingBottom: 0 }}>
+        <div className="w-shell">
+          <Link
+            href="/numbers"
+            className="w-panel"
+            data-reveal
+            style={{ display: "block", textDecoration: "none", color: "inherit" }}
+          >
+            <p className="w-eyebrow">The 2026-2027 numbers hub</p>
+            <h2 className="w-h2">
+              Every money number that matters, <span className="w-mark">in one place.</span>
+            </h2>
+            <p className="w-lede" style={{ margin: "12px 0 20px" }}>
+              Tax brackets, 401(k) and IRA limits, HSA caps, Social Security, Medicare costs. Every
+              figure sourced from the IRS, SSA, or CMS. Bookmark it.
+            </p>
+            <span className="w-btn w-btn-ink">
+              Browse the numbers <ArrowRight size={18} aria-hidden />
+            </span>
+          </Link>
+        </div>
+      </section>
+
       <section className="w-section" id="tools" style={{ scrollMarginTop: 110 }}>
         <div className="w-shell">
           <p className="w-eyebrow">Pick one and start clicking</p>

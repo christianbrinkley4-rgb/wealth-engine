@@ -1,6 +1,7 @@
 import { TRAFFIC_GUIDES, TRAFFIC_GUIDE_DATE } from "@/lib/trafficGuides";
 import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles";
+import { ASK_QUESTIONS } from "@/lib/askWall";
 import { SITE_URL } from "@/lib/seo";
 import { TAX_ARTICLES } from "@/lib/taxArticles";
 import { TRIAD_CITIES } from "@/lib/triad";
@@ -22,6 +23,7 @@ const STATIC_ROUTES: Array<{
   { path: "/turning-65", changeFrequency: "weekly", priority: 0.95 },
   { path: "/medicare-costs", changeFrequency: "monthly", priority: 0.9 },
   { path: "/medicare-numbers-2027", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
+  { path: "/numbers", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
   { path: "/medicare-changes-2027", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
   { path: "/medicare-part-d-donut-hole-2027", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-08" },
   { path: "/turning-65-checklist", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-08" },
@@ -122,6 +124,10 @@ const STATIC_ROUTES: Array<{
     "/tools/life-insurance-needs",
     "/tools/compound-interest",
     "/tools/budget",
+    "/tools/roth-conversion-ladder",
+    "/tools/medigap-or-advantage-quiz",
+    "/tools/roth-conversion-quiz",
+    "/tools/cd-or-savings-quiz",
   ].map((path) => ({
     path,
     changeFrequency: "weekly" as const,
@@ -138,6 +144,7 @@ const STATIC_ROUTES: Array<{
     "/ai/ai-for-seniors",
     "/ai/ai-money-tasks",
     "/ai/ai-mistakes-to-avoid",
+    "/ai/connect",
   ].map((path) => ({
     path,
     changeFrequency: "weekly" as const,
@@ -187,6 +194,19 @@ const STATIC_ROUTES: Array<{
     changeFrequency: "monthly" as const,
     priority: 0.85,
     lastModified: article.updated,
+  })),
+  // "Ask Christian" public Q&A wall.
+  {
+    path: "/ask",
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+    lastModified: "2026-10-08",
+  },
+  ...ASK_QUESTIONS.map((question) => ({
+    path: `/ask/${question.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+    lastModified: question.updated,
   })),
 ];
 

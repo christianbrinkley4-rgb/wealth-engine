@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
 import { RothVsTraditional } from "./RothVsTraditional";
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: path },
   openGraph: pageOpenGraph({ title: "Roth vs traditional calculator", description, path }),
+  twitter: { ...pageTwitter({ title: "Roth vs traditional calculator", description }), images: [`${path}/twitter-image`] },
 };
 
 const PROOF = [

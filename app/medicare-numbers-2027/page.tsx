@@ -7,6 +7,10 @@ import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
+import {
+  MEDICARE_DATES_2027,
+  MEDICARE_NUMBERS_2027,
+} from "@/lib/medicareNumbers2027";
 
 /**
  * 2027 Medicare numbers at a glance: the linkable one-pager.
@@ -32,71 +36,6 @@ export const metadata: Metadata = {
     path: "/medicare-numbers-2027",
   }),
 };
-
-type Row = {
-  figure: string;
-  y2026: string;
-  y2027: string;
-  status: string;
-};
-
-const ROWS: Row[] = [
-  {
-    figure: "Part D standard deductible (max)",
-    y2026: "$615",
-    y2027: "$700",
-    status: "Final. CMS CY2027 Rate Announcement, April 6, 2026.",
-  },
-  {
-    figure: "Part D out-of-pocket cap",
-    y2026: "$2,100",
-    y2027: "$2,400",
-    status: "Final. CMS CY2027 Rate Announcement, April 6, 2026. Once you hit the cap, you pay $0 for covered drugs the rest of the year.",
-  },
-  {
-    figure: "Part B standard premium",
-    y2026: "$202.90 / month",
-    y2027: "~$209.50 / month",
-    status: "Projection. 2026 Medicare Trustees Report. CMS announces the final figure in November.",
-  },
-  {
-    figure: "Part B annual deductible",
-    y2026: "$283",
-    y2027: "~$292",
-    status: "Projection. 2026 Medicare Trustees Report. Not final until CMS announces in November.",
-  },
-  {
-    figure: "Part A hospital deductible",
-    y2026: "$1,736",
-    y2027: "Not yet announced",
-    status: "CMS announces the 2027 figure in the fall, usually with the Part B numbers. Part A has no monthly premium for most people.",
-  },
-  {
-    figure: "Medicare Advantage average premium",
-    y2026: "See note",
-    y2027: "~$12 / month",
-    status: "CMS projection, September 28, 2026. National average; your plan's actual premium is what matters.",
-  },
-];
-
-const DATES = [
-  {
-    t: "October 15, 2026",
-    b: "Annual Enrollment Period opens. You can join, switch, or drop Medicare Advantage and Part D plans.",
-  },
-  {
-    t: "December 7, 2026",
-    b: "Annual Enrollment Period closes. This deadline does not move. Changes take effect January 1, 2027.",
-  },
-  {
-    t: "January 1, 2027",
-    b: "New coverage and the new 2027 figures take effect. The Part D cap drops to $0 cost-sharing once reached.",
-  },
-  {
-    t: "November 2026",
-    b: "CMS announces the final 2027 Part B premium, Part B deductible, and income-related adjustment amounts. This page updates when that happens.",
-  },
-] as const;
 
 export default function MedicareNumbers2027Page() {
   return (
@@ -180,7 +119,7 @@ export default function MedicareNumbers2027Page() {
                 </tr>
               </thead>
               <tbody>
-                {ROWS.map((row) => (
+                {MEDICARE_NUMBERS_2027.map((row) => (
                   <tr key={row.figure} className="border-b border-gray-300 align-top">
                     <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                       {row.figure}
@@ -217,7 +156,7 @@ export default function MedicareNumbers2027Page() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The dates that matter</h2>
           <dl className="mt-8 flex flex-col gap-6">
-            {DATES.map((item) => (
+            {MEDICARE_DATES_2027.map((item) => (
               <div key={item.t} className="border-t border-gray-300 pt-5">
                 <dt className="text-19 font-semibold">{item.t}</dt>
                 <dd className="text-17 mt-1 leading-relaxed text-[var(--color-ink-muted)]">
