@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { DataFreshness } from "@/app/components/DataFreshness";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
@@ -113,6 +114,9 @@ export default function MedicareCostsPage() {
             These are the 2026 figures CMS announced in November 2025. They change a little most
             years, so treat this as the current picture, not a permanent one.
           </p>
+          <div className="mt-4">
+            <DataFreshness date="October 2026" source="CMS" />
+          </div>
           <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-3">
             <div className="card-surface p-6">
               <h3 className="text-20 font-semibold">Part B</h3>

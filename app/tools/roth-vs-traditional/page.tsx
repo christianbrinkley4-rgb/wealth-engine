@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { DataFreshness } from "@/app/components/DataFreshness";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 
-import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
+import { MathSection, ToolClose } from "../_components/tool-footer";
 import { RothVsTraditional } from "./RothVsTraditional";
 
 const path = "/tools/roth-vs-traditional";
@@ -56,6 +57,7 @@ export default function RothVsTraditionalPage() {
       />
 
       <ServiceHero
+        variant="compact"
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth vs traditional" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Roth vs traditional, in real dollars"
@@ -68,10 +70,26 @@ export default function RothVsTraditionalPage() {
       <section className="bg-white py-14">
         <div className="app-shell max-w-5xl">
           <RothVsTraditional />
+          <div className="mt-6">
+            <DataFreshness date="October 2026" source="IRS" />
+          </div>
         </div>
       </section>
 
-      <MathSection title="The math, in plain English">
+      <MathSection
+        title="The math, in plain English"
+        howTo={[
+          "Enter your age. It sets your 2026 IRA limit.",
+          "Set your yearly contribution. The tool caps it at the limit.",
+          "Choose how many years you keep contributing.",
+          "Set your tax rate now and your best guess for withdrawal time.",
+        ]}
+        formula={{
+          label: "The formula",
+          expression: "Growth factor = ((1 + r)^n - 1) / r\n\nTraditional after tax = contribution x factor x (1 - tax later)\nRoth after tax = contribution x (1 - tax now) x factor\n\nr = assumed yearly growth, n = years",
+          note: "When the two tax rates match, both sides tie exactly. Contributions compound yearly in this tool.",
+        }}
+      >
         <p>
           <strong>Traditional side:</strong> your full contribution goes in before tax. It grows for the
           number of years you set. At the end, tax comes out at your withdrawal rate.
@@ -90,11 +108,6 @@ export default function RothVsTraditionalPage() {
         </p>
       </MathSection>
 
-      <div className="bg-white px-4">
-        <div className="app-shell max-w-3xl py-10">
-          <ToolsDisclaimer />
-        </div>
-      </div>
 
       <ToolClose
         wealthHref="/wealth/roth-ira-explained"

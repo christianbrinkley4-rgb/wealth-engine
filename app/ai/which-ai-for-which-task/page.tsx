@@ -111,6 +111,7 @@ export default function WhichAiForWhichTaskPage() {
       />
 
       <ServiceHero
+        variant="info"
         hidePhoneCta
         crumbs={[
           { name: "Home", href: "/" },

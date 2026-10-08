@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 import { ServiceHero } from "@/app/components/ServiceHero";
+import { DataFreshness } from "@/app/components/DataFreshness";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 
-import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
+import { MathSection, ToolClose } from "../_components/tool-footer";
 import { TakeHomePay } from "./TakeHomePay";
 
 const path = "/tools/take-home-pay";
@@ -55,6 +56,7 @@ export default function TakeHomePayPage() {
       />
 
       <ServiceHero
+        variant="compact"
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Take-home pay" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="What does that salary actually pay?"
@@ -67,10 +69,25 @@ export default function TakeHomePayPage() {
       <section className="bg-white py-14">
         <div className="app-shell max-w-5xl">
           <TakeHomePay />
+          <div className="mt-6">
+            <DataFreshness date="October 2026" source="IRS and the State of North Carolina" />
+          </div>
         </div>
       </section>
 
-      <MathSection title="The math, in plain English">
+      <MathSection
+        title="The math, in plain English"
+        howTo={[
+          "Enter your gross yearly salary.",
+          "Pick your filing status. It changes the brackets.",
+          "Pick your pay frequency. It only splits the yearly number.",
+          "Read the per-check take-home, with every tax shown line by line.",
+        ]}
+        formula={{
+          label: "The formula",
+          expression: "Take-home = gross - federal tax - NC tax - payroll taxes\n\nFederal tax: (gross - standard deduction) through the 2026 brackets\nNC tax: 3.99% of gross\nPayroll: 6.2% Social Security (to $184,500)\n  + 1.45% Medicare (+ 0.9% over $200k single / $250k joint)\n\nPer paycheck = take-home / paychecks per year",
+        }}
+      >
         <p>
           <strong>Federal income tax:</strong> the 2026 standard deduction ($16,100 single, $32,200
           married filing jointly) comes off first. What is left runs through the seven federal
@@ -88,11 +105,6 @@ export default function TakeHomePayPage() {
         </p>
       </MathSection>
 
-      <div className="bg-white px-4">
-        <div className="app-shell max-w-3xl py-10">
-          <ToolsDisclaimer />
-        </div>
-      </div>
 
       <ToolClose
         wealthHref="/wealth/money-moves-in-your-20s"

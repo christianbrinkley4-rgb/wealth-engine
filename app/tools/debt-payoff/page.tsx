@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 
-import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
+import { MathSection, ToolClose } from "../_components/tool-footer";
 import { DebtPayoff } from "./DebtPayoff";
 
 const path = "/tools/debt-payoff";
@@ -55,6 +55,7 @@ export default function DebtPayoffPage() {
       />
 
       <ServiceHero
+        variant="compact"
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Debt payoff" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Avalanche vs snowball, on your debts"
@@ -70,7 +71,19 @@ export default function DebtPayoffPage() {
         </div>
       </section>
 
-      <MathSection title="The math, in plain English">
+      <MathSection
+        title="The math, in plain English"
+        howTo={[
+          "List each debt with its balance, APR, and minimum payment.",
+          "Set an extra payment, the amount above all minimums you can commit to.",
+          "Compare avalanche (highest APR first) with snowball (smallest balance first).",
+          "Pick the method you will actually stick with. That is the one that wins.",
+        ]}
+        formula={{
+          label: "The formula",
+          expression: "Each month: interest = balance x APR / 12\nThen minimums are paid, then the extra payment hits the target debt.\n\nAvalanche target = highest APR first\nSnowball target = smallest balance first\n\nWhen a debt hits zero, its minimum rolls into the next target.",
+        }}
+      >
         <p>
           <strong>Avalanche</strong> targets the debt with the highest APR. <strong>Snowball</strong>{" "}
           targets the smallest balance. Both pay every minimum first, then throw the extra payment at
@@ -88,11 +101,6 @@ export default function DebtPayoffPage() {
         </p>
       </MathSection>
 
-      <div className="bg-white px-4">
-        <div className="app-shell max-w-3xl py-10">
-          <ToolsDisclaimer />
-        </div>
-      </div>
 
       <ToolClose
         wealthHref="/wealth/student-loans-payoff-plan"

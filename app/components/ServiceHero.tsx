@@ -29,6 +29,7 @@ export function ServiceHero({
   note,
   proof = DEFAULT_PROOF,
   hidePhoneCta = false,
+  variant = "default",
 }: {
   crumbs: Array<{ name: string; href?: string }>;
   eyebrow: string;
@@ -40,11 +41,20 @@ export function ServiceHero({
   proof?: readonly string[];
   /** The /ai guides are purely informational; they carry no phone CTA. */
   hidePhoneCta?: boolean;
+  /**
+   * "default": the full dark-green band with portrait and proof checklist.
+   * "compact": a shorter band with a small ID-card portrait; the tool itself
+   * leads the page. "info": a light informational hero with no portrait and
+   * no phone CTA, for purely educational pages like /ai.
+   */
+  variant?: "default" | "compact" | "info";
 }) {
   // Older pages put an arrow character in the label; the button draws its own.
   const label = secondaryLabel.replace(/\s*→\s*$/, "");
+  const variantClass =
+    variant === "compact" ? " sh-compact" : variant === "info" ? " sh-info" : "";
   return (
-    <section className="sh on-dark">
+    <section className={`sh${variant === "info" ? "" : " on-dark"}${variantClass}`}>
       <div className="sh-glow" aria-hidden />
       <div className="shell sh-grid">
         <div className="sh-copy">
@@ -78,38 +88,53 @@ export function ServiceHero({
           </div>
           {note ? (
             <div className="sh-note">{note}</div>
+          ) : variant === "info" ? (
+            <p className="sh-note">Educational reading. No account, no cost, no sales pitch.</p>
           ) : (
             <p className="sh-note">Free consultation. No obligation to enroll.</p>
           )}
         </div>
 
-        <figure className="sh-figure">
-          <div className="sh-photo">
-            <Image
-              src="/christian-brinkley.jpg"
-              alt={`${AGENT.name}, licensed insurance agent in Greensboro, North Carolina`}
-              width={1200}
-              height={1600}
-              loading="eager"
-              fetchPriority="high"
-              sizes="(max-width: 899px) 76px, 340px"
-            />
-          </div>
-          <figcaption>
-            <span className="sh-name">{AGENT.name}</span>
-            <span className="sh-role">
-              {AGENT.licenseLine} · {AGENT.city}, {AGENT.state}
-            </span>
-          </figcaption>
-          <ul className="sh-proof">
+        {variant === "info" ? (
+          <ul className="sh-chips" aria-label="About these guides">
             {proof.map((point) => (
               <li key={point}>
-                <Check size={17} strokeWidth={2.25} aria-hidden />
+                <Check size={15} strokeWidth={2.5} aria-hidden />
                 <span>{point}</span>
               </li>
             ))}
           </ul>
-        </figure>
+        ) : (
+          <figure className="sh-figure">
+            <div className="sh-photo">
+              <Image
+                src="/christian-brinkley.jpg"
+                alt={`${AGENT.name}, licensed insurance agent in Greensboro, North Carolina`}
+                width={1200}
+                height={1600}
+                loading="eager"
+                fetchPriority="high"
+                sizes={variant === "compact" ? "76px" : "(max-width: 899px) 76px, 340px"}
+              />
+            </div>
+            <figcaption>
+              <span className="sh-name">{AGENT.name}</span>
+              <span className="sh-role">
+                {AGENT.licenseLine} · {AGENT.city}, {AGENT.state}
+              </span>
+            </figcaption>
+            {variant === "default" ? (
+              <ul className="sh-proof">
+                {proof.map((point) => (
+                  <li key={point}>
+                    <Check size={17} strokeWidth={2.25} aria-hidden />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </figure>
+        )}
       </div>
     </section>
   );

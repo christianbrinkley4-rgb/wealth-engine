@@ -234,6 +234,58 @@ body:has(.w-root) {
   }
 }
 
+/* Hamburger, phones under 768px: links fold into a dropdown panel. */
+.w-nav-menu {
+  display: none;
+}
+@media (max-width: 767px) {
+  .w-nav-bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block: 10px;
+    position: relative;
+  }
+  .w-nav-menu {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: var(--w-edge);
+    border-radius: 999px;
+    background: var(--w-lime);
+    color: var(--w-ink);
+    font-weight: 800;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  .w-nav nav {
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+  }
+  .w-nav-links {
+    display: none;
+    margin: 0;
+    padding: 10px 20px 16px;
+    background: var(--w-paper);
+    border-bottom: var(--w-edge);
+    box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.35);
+  }
+  .w-nav[data-open="true"] .w-nav-links {
+    display: grid;
+    gap: 6px;
+  }
+  .w-nav[data-open="true"] .w-nav-links a {
+    min-height: 52px;
+    font-size: 1.05rem;
+    border-color: var(--w-edge);
+    background: #fff;
+  }
+}
+
 /* ── Buttons ──────────────────────────────────────────────────────────── */
 
 .w-btn {

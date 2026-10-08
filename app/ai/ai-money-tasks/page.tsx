@@ -80,6 +80,7 @@ export default function AiMoneyTasksPage() {
       />
 
       <ServiceHero
+        variant="info"
         hidePhoneCta
         crumbs={[
           { name: "Home", href: "/" },

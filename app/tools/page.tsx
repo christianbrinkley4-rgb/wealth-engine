@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { GuideCapture } from "@/app/components/GuideCapture";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
@@ -159,6 +160,12 @@ export default function ToolsHubPage() {
               you, talk it through with a qualified professional before you act.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <GuideCapture />
         </div>
       </section>
 

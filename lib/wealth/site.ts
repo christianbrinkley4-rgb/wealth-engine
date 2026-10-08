@@ -136,9 +136,10 @@ export function getTool(slug: string): WealthTool {
 export const WEALTH_NAV = [
   { href: "/wealth/calculators", label: "Calculators" },
   { href: "/wealth/quiz", label: "Quizzes" },
-  { href: "/wealth/learn", label: "Learn" },
+  { href: "/wealth/learn", label: "Guides" },
   { href: "/wealth/journey", label: "Journey" },
   { href: "/wealth/tools", label: "Free tools" },
+  { href: "/", label: "Medicare help" },
 ] as const;
 
 export type Pillar = { id: string; title: string; line: string; href: string; cta: string };

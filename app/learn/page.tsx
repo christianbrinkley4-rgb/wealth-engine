@@ -53,7 +53,7 @@ export default function LearnPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Learning Hub", path: "/learn" },
+              { name: "Medicare guides", path: "/learn" },
             ]),
           ),
         }}
@@ -63,7 +63,7 @@ export default function LearnPage() {
         <div className="lh-hero-bg" aria-hidden />
         <div className="shell lh-hero-grid">
           <div>
-            <p className="eyebrow">The Learning Hub</p>
+            <p className="eyebrow">Medicare guides</p>
             <h1 className="lh-title">
               Plain answers to the money questions <em>nobody explains.</em>
             </h1>

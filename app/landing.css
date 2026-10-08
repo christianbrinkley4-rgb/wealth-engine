@@ -1123,6 +1123,51 @@
   }
 }
 
+/* ─── Trust-by-numbers band ─────────────────────────────────────────── */
+
+.tband {
+  border-block: 1px solid var(--line);
+  background: var(--white);
+}
+.tband-inner {
+  padding-block: 1.5rem;
+  text-align: center;
+}
+.tband-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 3rem;
+  margin: 0;
+}
+.tband-stat {
+  display: grid;
+  gap: 0.15rem;
+}
+.tband-stat dd {
+  order: -1;
+  margin: 0;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+}
+.tband-stat dt {
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+}
+.tband-stat dt a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.tband-note {
+  margin: 0.9rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
 /* ─── Reviews (awaiting) ──────────────────────────────────────────────── */
 
 .rv-card {
@@ -1133,10 +1178,51 @@
   border-radius: var(--radius-lg);
   text-align: center;
 }
-.rv-stars {
+.rv-gcard {
   display: inline-flex;
-  gap: 0.25rem;
-  color: var(--honey-500);
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.85rem 1.15rem 0.85rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.rv-gcard:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+.rv-gbadge {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: #1a73e8;
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+.rv-gtext {
+  display: grid;
+  gap: 0.15rem;
+  text-align: left;
+}
+.rv-gtext strong {
+  color: var(--ink);
+  font-size: 1.02rem;
+}
+.rv-gtext span {
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+}
+.rv-gcard .rv-go {
+  color: var(--ink-muted);
+  flex-shrink: 0;
 }
 .rv-card h2 {
   margin: 1rem 0 0;

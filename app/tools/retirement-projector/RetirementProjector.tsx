@@ -39,13 +39,14 @@ export function RetirementProjector() {
   return (
     <div className="t-calc">
       <div className="t-controls">
-        <MoneyField label="Your age now" value={currentAge} onChange={(v) => setCurrentAge(Math.max(16, Math.min(100, v)))} />
+        <MoneyField label="Your age now" value={currentAge} onChange={(v) => setCurrentAge(Math.max(16, Math.min(100, v)))} hint="Just sets the timeline. Nothing leaves your device." />
         <MoneyField
           label="Age you want to retire"
           value={retireAge}
           onChange={(v) => setRetireAge(Math.max(17, Math.min(100, v)))}
+          hint="The end of the timeline this tool projects to."
         />
-        <MoneyField label="Saved so far" value={saved} onChange={(v) => setSaved(Math.max(0, v))} />
+        <MoneyField label="Saved so far" value={saved} onChange={(v) => setSaved(Math.max(0, v))} hint="Retirement accounts plus any other savings, added together." />
         <Slider
           label="Monthly contribution"
           value={monthly}
@@ -54,6 +55,7 @@ export function RetirementProjector() {
           step={25}
           display={money(monthly)}
           onChange={setMonthly}
+          hint="What you put toward retirement each month."
         />
         <PercentField
           label="Assumed yearly growth"

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { GuideCapture } from "@/app/components/GuideCapture";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
@@ -206,6 +207,12 @@ export default function MedicareTravelPage() {
             Travel or planning a move? Call or text Christian Brinkley in Greensboro, NC at{" "}
             {AGENT.phone}. The review is free, with no obligation.
           </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <GuideCapture />
         </div>
       </section>
 

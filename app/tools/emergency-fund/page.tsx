@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 
-import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
+import { MathSection, ToolClose } from "../_components/tool-footer";
 import { EmergencyFund } from "./EmergencyFund";
 
 const path = "/tools/emergency-fund";
@@ -55,6 +55,7 @@ export default function EmergencyFundPage() {
       />
 
       <ServiceHero
+        variant="compact"
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Emergency fund" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Your emergency fund, sized to your life"
@@ -70,7 +71,19 @@ export default function EmergencyFundPage() {
         </div>
       </section>
 
-      <MathSection title="The math, in plain English">
+      <MathSection
+        title="The math, in plain English"
+        howTo={[
+          "Add up your monthly essential spending, the bills that never stop.",
+          "Choose months of coverage. Three is the common starting line.",
+          "Set what you can save each month.",
+          "Read the target and the month you hit it.",
+        ]}
+        formula={{
+          label: "The formula",
+          expression: "Target = monthly essential spending x months of coverage\n\nMonths to target = target / monthly savings (rounded up)",
+        }}
+      >
         <p>
           <strong>The target:</strong> monthly essential spending times the months of coverage you
           choose. Three months is the common starting line. Six months covers a longer stretch without
@@ -86,11 +99,6 @@ export default function EmergencyFundPage() {
         </p>
       </MathSection>
 
-      <div className="bg-white px-4">
-        <div className="app-shell max-w-3xl py-10">
-          <ToolsDisclaimer />
-        </div>
-      </div>
 
       <ToolClose
         wealthHref="/wealth/emergency-fund-guide"

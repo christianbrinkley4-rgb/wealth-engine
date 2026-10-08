@@ -94,6 +94,7 @@ export default function AiForSeniorsPage() {
       />
 
       <ServiceHero
+        variant="info"
         hidePhoneCta
         crumbs={[
           { name: "Home", href: "/" },

@@ -82,6 +82,7 @@ export function DebtPayoff() {
                 value={debt.name}
                 onChange={(event) => update(debt.id, { name: event.target.value })}
               />
+              <p className="t-hint">A nickname so you can tell your debts apart.</p>
             </div>
             <div className="t-field">
               <label htmlFor={`bal-${debt.id}`}>Balance ($)</label>
@@ -93,6 +94,7 @@ export function DebtPayoff() {
                 value={debt.balance}
                 onChange={(event) => update(debt.id, { balance: Math.max(0, Number(event.target.value) || 0) })}
               />
+              <p className="t-hint">What you still owe on this debt.</p>
             </div>
             <div className="t-field">
               <label htmlFor={`apr-${debt.id}`}>APR %</label>
@@ -105,6 +107,7 @@ export function DebtPayoff() {
                 value={debt.apr}
                 onChange={(event) => update(debt.id, { apr: Math.max(0, Number(event.target.value) || 0) })}
               />
+              <p className="t-hint">The yearly interest rate from your statement.</p>
             </div>
             <div className="t-field">
               <label htmlFor={`min-${debt.id}`}>Minimum ($)</label>
@@ -116,6 +119,7 @@ export function DebtPayoff() {
                 value={debt.minPayment}
                 onChange={(event) => update(debt.id, { minPayment: Math.max(0, Number(event.target.value) || 0) })}
               />
+              <p className="t-hint">The smallest payment the lender requires.</p>
             </div>
             <button type="button" className="t-link-btn" onClick={() => removeDebt(debt.id)}>
               Remove

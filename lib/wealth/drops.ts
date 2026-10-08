@@ -17,6 +17,23 @@ export const DROPS_CONSENT_TEXT =
   "Christian Brinkley will email you when a new tool is out. No spam. Your email is never sold or shared. " +
   "Reply unsubscribe to any email and you're off the list.";
 
+/**
+ * The guide list: the same one-email-to-Christian pipeline as tool drops,
+ * for readers who want new guides instead of new tools. Separate consent
+ * wording, separate version, so the record of what each person agreed to
+ * stays exact.
+ */
+export const GUIDE_DROPS_CONSENT_VERSION = "2026-10-08.v1";
+export const GUIDE_DROPS_CONSENT_TEXT =
+  "Christian Brinkley will email you when a new guide is out. No spam. Your email is never sold or shared. " +
+  "Reply unsubscribe to any email and you're off the list.";
+
+export type DropsList = "tools" | "guides";
+
+export function normalizeDropsList(value: unknown): DropsList {
+  return value === "guides" ? "guides" : "tools";
+}
+
 export const DROPS_EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export function normalizeDropsEmail(value: unknown): string | null {

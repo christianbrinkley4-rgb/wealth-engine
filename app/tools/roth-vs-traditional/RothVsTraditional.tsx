@@ -69,6 +69,7 @@ export function RothVsTraditional() {
           max={50}
           display={`${years} years`}
           onChange={setYears}
+          hint="How many years you keep contributing before you stop."
         />
         <PercentField label="Assumed yearly growth" value={rate} onChange={setRate} hint="You pick the rate. Nobody knows the real one ahead of time." />
         <PercentField label="Your tax rate now" value={taxNow} onChange={setTaxNow} hint="Your marginal rate this year, as a percent." />
