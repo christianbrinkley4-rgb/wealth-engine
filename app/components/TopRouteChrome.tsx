@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Menu, Phone, X } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -21,6 +22,11 @@ const SHEET_EXTRA = [
   { href: "/service-area", label: "Towns I serve" },
   { href: "/start", label: "Ask a question" },
 ] as const;
+
+/** The /wealth hub and /links carry their own header and footer. */
+function isWealthHub(pathname: string) {
+  return pathname === "/links" || pathname === "/wealth" || pathname.startsWith("/wealth/");
+}
 
 function isCurrent(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -57,7 +63,7 @@ export function TopRouteChrome() {
     };
   }, [menuOpen]);
 
-  if (pathname.startsWith("/lp/")) return null;
+  if (pathname.startsWith("/lp/") || isWealthHub(pathname)) return null;
 
   // The sheet lives OUTSIDE the header on purpose: .nav uses backdrop-filter,
   // which makes it a containing block for fixed-position descendants. A
@@ -67,63 +73,69 @@ export function TopRouteChrome() {
   // close button remains tappable.
   return (
     <>
-      <header className="nav" data-scrolled={scrolled || menuOpen ? "true" : undefined}>
-        <a href="#main-content" className="skip-link">
-          Skip to the main content
-        </a>
-        <div className="shell nav-bar">
-          <Link href="/" className="nav-brand" aria-label={`${AGENT.name}, home`}>
-            <span className="nav-mark" aria-hidden>
-              CB
-            </span>
-            <span className="nav-brand-text">
-              <span className="nav-name">{AGENT.name}</span>
-              <span className="nav-license">
-                {AGENT.licenseLine}
-                <span className="nav-license-place">
-                  {" "}
-                  · {AGENT.city}, {AGENT.state}
-                </span>
+    <header className="nav" data-scrolled={scrolled || menuOpen ? "true" : undefined}>
+      <a href="#main-content" className="skip-link">
+        Skip to the main content
+      </a>
+      <div className="shell nav-bar">
+        <Link href="/" className="nav-brand" aria-label={`${AGENT.name} ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state}, home`}>
+          <Image
+            src="/christian-brinkley-square.jpg"
+            alt={AGENT.name}
+            width={96}
+            height={96}
+            sizes="44px"
+            loading="eager"
+            className="nav-face"
+          />
+          <span className="nav-brand-text">
+            <span className="nav-name">{AGENT.name}</span>{" "}
+            <span className="nav-license">
+              {AGENT.licenseLine}
+              <span className="nav-license-place">
+                {" "}
+                · {AGENT.city}, {AGENT.state}
               </span>
             </span>
+          </span>
+        </Link>
+
+        <nav aria-label="Main" className="nav-links">
+          <ul>
+            {NAV.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="nav-actions">
+          <Link href="/plan-check" className="btn btn-accent btn-sm nav-cta">
+            Plan check
           </Link>
-
-          <nav aria-label="Main" className="nav-links">
-            <ul>
-              {NAV.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <div className="nav-actions">
-            <Link href="/plan-check" className="btn btn-accent btn-sm nav-cta">
-              Plan check
-            </Link>
-            <a className="nav-call" href={AGENT.phoneHref} aria-label={`Call ${AGENT.phone}`}>
-              <Phone size={17} aria-hidden />
-              <span className="nav-call-number">{AGENT.phone}</span>
-            </a>
-            <button
-              type="button"
-              className="nav-menu-button"
-              aria-expanded={menuOpen}
-              aria-controls="site-menu"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMenuOpenOn(menuOpen ? null : pathname)}
-            >
-              {menuOpen ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
-            </button>
-          </div>
+          <a className="nav-call" href={AGENT.phoneHref} aria-label={`Call ${AGENT.phone}`}>
+            <Phone size={17} aria-hidden />
+            <span className="nav-call-number">{AGENT.phone}</span>
+          </a>
+          <button
+            type="button"
+            className="nav-menu-button"
+            aria-expanded={menuOpen}
+            aria-controls="site-menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpenOn(menuOpen ? null : pathname)}
+          >
+            {menuOpen ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
+          </button>
         </div>
-      </header>
+      </div>
+    </header>
 
       <nav id="site-menu" aria-label="Menu" className="nav-sheet" hidden={!menuOpen}>
         <ul>
