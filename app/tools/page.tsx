@@ -88,6 +88,11 @@ const TOOLS = [
     title: "CD or savings quiz",
     body: "Where should your cash sit? Six questions on timing and access, then a checklist of what to compare.",
   },
+  {
+    href: "/tools/roth-conversion-ladder",
+    title: "Roth conversion planner",
+    body: "Fill your tax bracket with Roth conversions year by year until RMD age, and compare lifetime taxes with vs without.",
+  },
 ] as const;
 
 const PROOF = [
