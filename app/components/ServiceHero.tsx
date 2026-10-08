@@ -59,16 +59,18 @@ export function ServiceHero({
       <div className="shell sh-grid">
         <div className="sh-copy">
           <nav aria-label="Breadcrumb" className="sh-crumbs">
-            {crumbs.map((crumb, index) => (
-              <span key={`${crumb.name}-${index}`}>
-                {index > 0 ? <span aria-hidden> / </span> : null}
-                {crumb.href ? (
-                  <Link href={crumb.href}>{crumb.name}</Link>
-                ) : (
-                  <span aria-current="page">{crumb.name}</span>
-                )}
-              </span>
-            ))}
+            <ol>
+              {crumbs.map((crumb, index) => (
+                <li key={`${crumb.name}-${index}`}>
+                  {index > 0 ? <span aria-hidden> / </span> : null}
+                  {crumb.href ? (
+                    <Link href={crumb.href}>{crumb.name}</Link>
+                  ) : (
+                    <span aria-current="page">{crumb.name}</span>
+                  )}
+                </li>
+              ))}
+            </ol>
           </nav>
 
           <p className="eyebrow on-dark sh-eyebrow">{eyebrow}</p>
