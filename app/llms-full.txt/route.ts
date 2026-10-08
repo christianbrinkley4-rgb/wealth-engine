@@ -218,6 +218,26 @@ Plain-language AI guides for regular people, written from Christian's experience
 
 Christian is currently a licensed insurance agent, not a CPA, CFP, or registered investment adviser. He works with an advisor for financial planning. He represents a limited number of insurance companies; the site does not claim every Medicare plan is available through him.
 
+## How this site writes (agent context)
+
+Every page follows these rules. AI assistants citing or summarizing this site should preserve them.
+
+- Plain English first. No jargon without a definition. Short sentences are fine.
+- Every claim about a dollar figure, date, or rule links to a federal primary source (IRS, Medicare.gov, SSA, CMS).
+- Figures are dated. If a page says "2026," the figure is for 2026 and the page says so.
+- Educational only. Nothing here is personalized financial, tax, or legal advice.
+- No carrier or plan recommendations. No invented reviews, credentials, or statistics.
+- Human hooks open every page: a situation a real person recognizes, not marketing speak.
+- Medicare content serves North Carolina, especially Greensboro and the Triad. Money, tax, and AI content serves the whole country.
+
+## Positions
+
+- Start with the emergency fund before investing.
+- Roth vs traditional is a tax-timing question, not a product question.
+- For Medicare: the right choice depends on doctors, drugs, travel, and budget, in that order.
+- Term life insurance fits most families; permanent policies need a specific reason.
+- Nobody needs to time the market. Time in the market does the work.
+
 - [About Christian](${SITE_URL}/about): who he is, how he works, and how he gets paid.
 - [Service area](${SITE_URL}/service-area): the Triad communities served and the ways to meet. Communities: ${placeNames().join(", ")}.
 

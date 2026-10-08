@@ -218,6 +218,45 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="section-tight" aria-labelledby="ab-featured-heading">
+        <div className="shell">
+          <p className="eyebrow" data-reveal>
+            Featured
+          </p>
+          <h2 id="ab-featured-heading" className="ab-h2" data-reveal>
+            Start with these.
+          </h2>
+          <ul className="ab-start-grid">
+            {[
+              {
+                href: "/turning-65-checklist",
+                label: "Turning 65 checklist",
+                text: "Every step in order, with the dates that matter.",
+              },
+              {
+                href: "/medicare-costs-2026",
+                label: "What Medicare costs in 2026",
+                text: "Premiums, deductibles, and the numbers behind them.",
+              },
+              {
+                href: "/advantage-vs-medigap",
+                label: "Advantage vs Medigap",
+                text: "The honest comparison, side by side.",
+              },
+            ].map((item, index) => (
+              <li key={item.href} data-reveal style={{ "--i": index } as React.CSSProperties}>
+                <Link href={item.href} className="card ab-start-card">
+                  <span className="ab-start-num">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="ab-start-label">{item.label}</span>
+                  <span className="ab-start-text">{item.text}</span>
+                  <ArrowRight size={20} aria-hidden />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="section-tight" aria-labelledby="ab-scope-heading">
         <div className="shell">
           <p className="eyebrow" data-reveal>

@@ -174,6 +174,11 @@ export default async function TrafficGuidePage({ params }: Props) {
                 </Link>
               </li>
             ))}
+            <li>
+              <a href={`${path}/markdown`} className="underline">
+                Read this guide as plain text
+              </a>
+            </li>
           </ul>
         </nav>
         <aside className="mt-10">
