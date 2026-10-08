@@ -18,7 +18,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Supplement (Medigap) Plans in Greensboro, NC for 2027",
+    absolute: "Medicare Supplement (Medigap) Plans: Greensboro NC 2027",
   },
   description:
     "Medigap Plan G vs Plan N in Greensboro, NC: what each covers, what they tend to cost, when to buy, and how to compare. From a licensed local agent.",

@@ -19,10 +19,10 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Advantage vs. Medigap in Greensboro, NC (2027 Guide)",
+    absolute: "Medicare Advantage vs Medigap in Greensboro NC (2027)",
   },
   description:
-    "Medicare Advantage or Medigap in Greensboro, NC? Compare monthly costs, doctor choice, and the switching rules that matter, explained plainly by a licensed local agent.",
+    "Medicare Advantage or Medigap in Greensboro? Compare costs, doctor choice, and switching rules, explained by a licensed local agent.",
   alternates: { canonical: "/medicare-advantage-vs-medigap-greensboro-nc" },
   openGraph: pageOpenGraph({
     title: "Medicare Advantage vs. Medigap in Greensboro, NC",

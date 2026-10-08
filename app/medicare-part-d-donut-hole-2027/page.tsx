@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     absolute: "Is There Still a Medicare Donut Hole in 2027?",
   },
   description:
-    "The Medicare donut hole ended January 1, 2025. Here is how Part D works now: the $700 deductible, the $2,400 out-of-pocket cap, and how to pick a 2027 drug plan.",
+    "The Medicare donut hole ended January 1, 2025. How Part D works now: the $700 deductible, $2,400 cap, and picking a 2027 drug plan.",
   alternates: { canonical: "/medicare-part-d-donut-hole-2027" },
   openGraph: pageOpenGraph({
     title: "Is There Still a Medicare Donut Hole in 2027?",

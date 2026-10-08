@@ -18,10 +18,10 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Turning 65 Checklist: 8 Steps Before Your 65th Birthday | Greensboro NC",
+    absolute: "Turning 65 Checklist: 8 Steps Before Your 65th Birthday",
   },
   description:
-    "Turning 65 in Greensboro, High Point, or Winston-Salem? The 8-step Medicare checklist a licensed local agent walks through with every new client. Free, no call center.",
+    "Turning 65? The 8-step Medicare checklist a licensed Greensboro agent walks through with every new client. Free, no call center.",
   alternates: { canonical: "/turning-65-checklist" },
   openGraph: pageOpenGraph({
     title: "The Turning-65 Checklist: 8 steps before your 65th birthday",
@@ -114,7 +114,7 @@ export default function Turning65ChecklistPage() {
                 "The 8-step Medicare checklist for people turning 65 in the Piedmont Triad: enrollment dates, the Part B decision, the Medigap window, and the penalty traps.",
               path: "/turning-65-checklist",
               datePublished: "2026-10-03",
-              dateModified: "2026-10-03",
+              dateModified: "2026-10-08",
             }),
           ),
         }}
@@ -208,12 +208,48 @@ export default function Turning65ChecklistPage() {
             <Link href="/medicare-costs" className="underline underline-offset-2">
               here is what Medicare costs
             </Link>
+            , and{" "}
+            <Link href="/medicare-numbers-2027" className="underline underline-offset-2">
+              here are the 2027 numbers at a glance
+            </Link>
             .
           </p>
         </div>
       </section>
 
       <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Gather these before you start</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Enrollment goes much faster with the paperwork in one place. Pull these together before
+            you apply or sit down with anyone:
+          </p>
+          <ul className="mt-6 flex list-disc flex-col gap-3 pl-6">
+            <li className="text-17 leading-relaxed">
+              Your Social Security card and a government photo ID. You will need both to enroll
+              through Social Security.
+            </li>
+            <li className="text-17 leading-relaxed">
+              Your current health insurance card and a summary of the plan, so we can confirm
+              whether it counts as creditable coverage if you are delaying Part B.
+            </li>
+            <li className="text-17 leading-relaxed">
+              A list of every prescription with dosages and the pharmacy you use. Drug lists decide
+              more about your costs than almost anything else.
+            </li>
+            <li className="text-17 leading-relaxed">
+              The names of your doctors, specialists, and preferred hospital, so each can be checked
+              against a plan&apos;s network.
+            </li>
+            <li className="text-17 leading-relaxed">
+              If you are still working: proof of your employer coverage and your employment start
+              date, in case you need a Special Enrollment Period later.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The two windows you only get once</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">

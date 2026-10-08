@@ -24,7 +24,7 @@ import {
 /**
  * One page per Triad city, and each one earns its place.
  *
- * Thin city pages — the same paragraph with the town name swapped — are a
+ * Thin city pages, the same paragraph with the town name swapped, are a
  * well-known way to get a site treated as spam, and they are useless to read.
  * These are driven by lib/triad.ts, where every city carries its own county,
  * its own hospitals and its own honest complication: High Point buys plans

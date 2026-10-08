@@ -19,10 +19,10 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Changes for 2027: What You Need to Know Before Open Enrollment",
+    absolute: "Medicare Changes 2027: What to Know Before Open Enrollment",
   },
   description:
-    "What is changing for Medicare in 2027: Part D costs, the out-of-pocket cap, Medicare Advantage premiums, and what to check before December 7. From a licensed local agent in Greensboro, NC.",
+    "Medicare changes for 2027: Part D costs, the drug cap, Advantage premiums, and what to check before December 7. From a licensed Greensboro agent.",
   alternates: { canonical: "/medicare-changes-2027" },
   openGraph: pageOpenGraph({
     title: "Medicare Changes for 2027",
@@ -140,6 +140,17 @@ export default function MedicareChanges2027Page() {
               </li>
             ))}
           </ol>
+          <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
+            Want the figures without the explanation?{" "}
+            <Link href="/medicare-numbers-2027" className="underline underline-offset-2">
+              Here are the 2027 Medicare numbers at a glance
+            </Link>
+            . Wondering what the drug changes mean for your prescriptions?{" "}
+            <Link href="/medicare-part-d-donut-hole-2027" className="underline underline-offset-2">
+              Here is how Part D works in 2027
+            </Link>
+            .
+          </p>
           <p className="text-16 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             Sources: CMS 2027 Medicare Advantage and Part D announcements;{" "}
             <Link
