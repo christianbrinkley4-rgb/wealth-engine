@@ -191,7 +191,9 @@ p {
     background-color 0.25s ease,
     border-color 0.25s ease,
     color 0.25s ease;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 6px 16px -8px rgba(11, 33, 29, 0.45);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 6px 16px -8px rgba(11, 33, 29, 0.45);
 }
 /* A soft sheen sweeps across on hover: the "this is pressable" cue. */
 .btn::after {
@@ -210,7 +212,9 @@ p {
 }
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 14px 28px -12px rgba(11, 33, 29, 0.5);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 14px 28px -12px rgba(11, 33, 29, 0.5);
 }
 .btn:hover::after {
   transform: translateX(110%);
@@ -229,7 +233,9 @@ p {
 .btn-accent {
   --btn-bg: var(--honey-500);
   --btn-fg: var(--pine-950);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset, 0 8px 20px -10px rgba(138, 90, 16, 0.6);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 8px 20px -10px rgba(138, 90, 16, 0.6);
 }
 .btn-accent:hover {
   --btn-bg: var(--honey-400);
@@ -432,7 +438,8 @@ p {
   transform: translateY(-1px);
 }
 .nav-call-number {
-  display: none;
+  display: inline;
+  font-variant-numeric: tabular-nums;
 }
 .nav-cta {
   display: none;
@@ -450,11 +457,14 @@ p {
 }
 .nav-sheet {
   position: fixed;
-  inset: 4.25rem 0 0;
+  inset: 0;
   z-index: 49;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background: var(--cream-50);
-  padding: 1.5rem var(--gutter) 7rem;
+  /* Full-viewport sheet; the sticky header (z-50) stays above it so the
+     close button remains visible and tappable. Padding-top clears it. */
+  padding: 5.25rem var(--gutter) 7rem;
   animation: sheet-in 0.45s var(--ease-out-expo);
 }
 .nav-sheet[hidden] {
@@ -511,10 +521,17 @@ p {
 .nav-license-place {
   display: none;
 }
-@media (min-width: 640px) {
-  .nav-call-number {
-    display: inline;
+@media (max-width: 639px) {
+  /* The call pill carries the full phone number on mobile, so the brand
+     text steps aside for it; the CB mark remains the brand identifier. */
+  .nav-brand-text {
+    display: none;
   }
+  .nav-bar {
+    gap: 0.75rem;
+  }
+}
+@media (min-width: 640px) {
   .nav-license-place {
     display: inline;
   }
@@ -1180,7 +1197,9 @@ details[open]::details-content {
   height: 4rem;
   margin: 0 auto 1.1rem;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--white), 0 0 0 5px var(--line-strong);
+  box-shadow:
+    0 0 0 4px var(--white),
+    0 0 0 5px var(--line-strong);
 }
 .ktc h2 {
   margin: 0;

@@ -1384,7 +1384,17 @@ export const TRIAD_CITIES: TriadCity[] = [
 ];
 
 export function getTriadCity(slug: string): TriadCity | undefined {
-  return TRIAD_CITIES.find((city) => city.slug === slug);
+  const direct = TRIAD_CITIES.find((city) => city.slug === slug);
+  if (direct) return direct;
+  // Accept "<slug>-nc" aliases (e.g. /medicare-in/winston-salem-nc) for the
+  // big-city queries. The alias renders the same unique city content with the
+  // canonical URL pointing at the primary slug, so there is no doorway
+  // duplication: one page, two addresses, one canonical.
+  if (slug.endsWith("-nc")) {
+    const base = slug.slice(0, -3);
+    return TRIAD_CITIES.find((city) => city.slug === base);
+  }
+  return undefined;
 }
 
 const MEDICARE_AGENT_IN_CITY = /are you a .*medicare.*agent in/i;

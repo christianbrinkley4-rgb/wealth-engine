@@ -37,7 +37,13 @@ import {
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return TRIAD_CITIES.map((city) => ({ city: city.slug }));
+  // The four big-city "-nc" aliases (e.g. winston-salem-nc) resolve to the
+  // same city through getTriadCity; canonical stays on the primary slug.
+  const aliases = ["greensboro-nc", "winston-salem-nc", "high-point-nc", "burlington-nc"];
+  return [
+    ...TRIAD_CITIES.map((city) => ({ city: city.slug })),
+    ...aliases.map((city) => ({ city })),
+  ];
 }
 
 export async function generateMetadata({

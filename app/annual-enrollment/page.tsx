@@ -125,7 +125,7 @@ export default function AnnualEnrollmentPage() {
                 "How to review your plan’s changes, prescription coverage, doctors, and costs before the annual enrollment deadline.",
               path: "/annual-enrollment",
               datePublished: "2026-08-31",
-              dateModified: "2026-09-18",
+              dateModified: "2026-10-08",
             }),
           ),
         }}
