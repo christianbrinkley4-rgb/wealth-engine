@@ -448,12 +448,17 @@ export function articleJsonLd(input: {
   /** ISO date. Real dates only, a fabricated freshness signal is a lie. */
   datePublished: string;
   dateModified: string;
+  /** Alternative phrasings of the headline, helps AI models match varied queries. */
+  alternativeHeadline?: string[];
 }) {
   const sameAs = publishedSameAs();
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: input.headline,
+    ...(input.alternativeHeadline && input.alternativeHeadline.length > 0
+      ? { alternativeHeadline: input.alternativeHeadline }
+      : {}),
     description: input.description,
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${input.path}` },
     author: {

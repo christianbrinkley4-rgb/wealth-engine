@@ -28,6 +28,7 @@ describe("accessibility: interactive components", () => {
     expect(src).toContain('aria-live="polite"');
     expect(src).toContain('role="status"');
     // Focus indicators must be present, not removed
+    expect(src).not.toMatch(/focus:outline-none(?!.*focus-visible)/);
     expect(src).toContain("focus-visible:outline");
   });
 

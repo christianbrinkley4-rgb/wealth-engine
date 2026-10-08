@@ -153,6 +153,8 @@ const STATIC_ROUTES: Array<{
   })),
   { path: "/guides", changeFrequency: "weekly", priority: 0.8, lastModified: TRAFFIC_GUIDE_DATE },
   ...TRAFFIC_GUIDES.map((guide) => ({ path: `/guides/${guide.slug}`, changeFrequency: "monthly" as const, priority: 0.8, lastModified: TRAFFIC_GUIDE_DATE })),
+  // Identical Markdown versions for AI crawlers (Manoj Ahirwar tip #3).
+  ...TRAFFIC_GUIDES.map((guide) => ({ path: `/guides/${guide.slug}/markdown`, changeFrequency: "monthly" as const, priority: 0.5, lastModified: TRAFFIC_GUIDE_DATE })),
   // Self-directed SEO guides.
   ...[
     "/guides/what-medicare-does-not-cover",

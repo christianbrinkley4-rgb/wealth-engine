@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import { ArrowRight } from "lucide-react";
 
 import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";
+import { faqJsonLd } from "@/lib/seo";
 
 import { getWealthArticle, WEALTH_ARTICLES, WEALTH_PILLAR_LABELS } from "@/lib/wealth/articles";
 import { wealthArticleJsonLd, wealthMetadata } from "@/lib/wealth/seo";
@@ -77,6 +78,7 @@ export default async function WealthArticlePage({ params }: { params: Promise<{ 
           dateModified: article.updated,
         })}
       />
+      {article.faq.length > 0 ? <JsonLd data={faqJsonLd(article.faq)} /> : null}
       <PageHead
         eyebrow={WEALTH_PILLAR_LABELS[article.pillar]}
         title={article.title}
