@@ -33,13 +33,13 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Annual Enrollment 2026 | Free Fall Review in Greensboro NC",
+    absolute: "Medicare Annual Enrollment for 2027 Coverage | Free Fall Review in Greensboro NC",
   },
   description:
     "Medicare Annual Enrollment runs Oct 15 to Dec 7. Sit down with Christian Brinkley, a licensed local agent in Greensboro, for a free no-pressure review of your 2027 coverage.",
   alternates: { canonical: "/aep" },
   openGraph: pageOpenGraph({
-    title: "Medicare Annual Enrollment 2026 | Free fall review in Greensboro NC",
+    title: "Medicare Annual Enrollment for 2027 coverage | Free fall review in Greensboro NC",
     description:
       "Oct 15 to Dec 7: review your 2027 Medicare coverage with a licensed local agent. Free, no pressure, no call center.",
     path: "/aep",
@@ -146,7 +146,7 @@ export default function AepPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Annual enrollment 2026", path: "/aep" },
+              { name: "Annual enrollment for 2027", path: "/aep" },
             ]),
           ),
         }}
@@ -156,12 +156,13 @@ export default function AepPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Medicare Annual Enrollment 2026: free fall review in Greensboro NC",
+              headline:
+                "Medicare Annual Enrollment for 2027 coverage: free fall review in Greensboro NC",
               description:
                 "What a free fall review covers: your plan's 2027 changes, prescriptions, doctors, and total costs, with a licensed local agent.",
               path: "/aep",
               datePublished: "2026-09-19",
-              dateModified: "2026-09-19",
+              dateModified: "2026-10-08",
             }),
           ),
         }}
@@ -171,7 +172,7 @@ export default function AepPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             serviceJsonLd({
-              name: "Medicare Annual Enrollment 2026 review",
+              name: "Medicare Annual Enrollment 2027 coverage review",
               description:
                 "A free fall review of your plan's 2027 changes, prescriptions, doctors, and total costs with a licensed local agent in Greensboro.",
               path: "/aep",
@@ -181,7 +182,7 @@ export default function AepPage() {
       />
 
       <ServiceHero
-        crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment 2026" }]}
+        crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment for 2027" }]}
         eyebrow="October 15 to December 7, 2026 · Piedmont Triad"
         title={AEP_HERO_TITLES[aepPhase()]}
         lede="From October 15 through December 7, you can change your Medicare coverage for next year. I'll sit down with you, in person or by phone, and walk through what's changing with your plan, your drugs, and your doctors. Free, no pressure, no call center."
@@ -295,8 +296,8 @@ export default function AepPage() {
             Wondering what the numbers look like next year?{" "}
             <Link href="/medicare-costs" className="underline underline-offset-2">
               See what Medicare costs
-            </Link>,
-            and if keeping your doctors is the top priority,{" "}
+            </Link>
+            , and if keeping your doctors is the top priority,{" "}
             <Link href="/keep-my-doctor" className="underline underline-offset-2">
               here&apos;s how to check your plan&apos;s network properly
             </Link>
@@ -344,8 +345,8 @@ export default function AepPage() {
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
               Annual Enrollment closes on December 7, and any changes you make take effect January
-              1. After the 7th, your options to change coverage are limited for the rest of the year,
-             so if you want to review your plan, the fall window is the time to do it.
+              1. After the 7th, your options to change coverage are limited for the rest of the
+              year, so if you want to review your plan, the fall window is the time to do it.
             </p>
             <p>
               If a life change, a move, losing employer coverage, already opened a window for you,
@@ -364,8 +365,8 @@ export default function AepPage() {
           <h2 className="text-28 font-semibold">A quick word on cost</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The consultation is free. If you enroll in a plan through me, the insurance company pays
-            me a commission, your premium is exactly the same as if you&apos;d enrolled on your
-            own. You just get a local human instead of a 1-800 number.
+            me a commission, your premium is exactly the same as if you&apos;d enrolled on your own.
+            You just get a local human instead of a 1-800 number.
           </p>
 
           <h2 className="text-28 mt-12 font-semibold">Questions I get every fall</h2>
