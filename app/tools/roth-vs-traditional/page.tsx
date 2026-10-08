@@ -88,7 +88,7 @@ export default function RothVsTraditionalPage() {
         formula={{
           label: "The formula",
           expression: "Growth factor = ((1 + r)^n - 1) / r\n\nTraditional after tax = contribution x factor x (1 - tax later)\nRoth after tax = contribution x (1 - tax now) x factor\n\nr = assumed yearly growth, n = years",
-          note: "When the two tax rates match, both sides tie exactly. Contributions compound yearly in this tool.",
+          note: "When the two tax rates match, both sides tie exactly. Contributions compound yearly in this tool. At a 0% growth rate the factor is just the number of years.",
         }}
       >
         <p>

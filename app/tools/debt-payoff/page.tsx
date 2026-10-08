@@ -82,7 +82,7 @@ export default function DebtPayoffPage() {
         ]}
         formula={{
           label: "The formula",
-          expression: "Each month: interest = balance x APR / 12\nThen minimums are paid, then the extra payment hits the target debt.\n\nAvalanche target = highest APR first\nSnowball target = smallest balance first\n\nWhen a debt hits zero, its minimum rolls into the next target.",
+          expression: "Each month: interest = balance x (APR / 100) / 12\nThen minimums are paid, then the extra payment hits the target debt.\n\nAvalanche target = highest APR first\nSnowball target = smallest balance first\n\nWhen a debt hits zero, its minimum rolls into the next target.",
         }}
       >
         <p>

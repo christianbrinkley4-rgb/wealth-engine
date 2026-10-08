@@ -25,12 +25,15 @@ export function MathSection({
   title,
   children,
   howTo,
+  howToTitle = "How to use this calculator",
   formula,
 }: {
   title: string;
   children: ReactNode;
   /** Numbered "how to use this calculator" walkthrough, shown before the formula. */
   howTo?: readonly string[];
+  /** Overrides the numbered-section heading. Defaults to "How to use this calculator". */
+  howToTitle?: string;
   /** The literal formula the tool computes, for readers (and AI citations) that want it. */
   formula?: { label: string; expression: string; note?: string };
 }) {
@@ -43,7 +46,7 @@ export function MathSection({
         </div>
         {howTo && howTo.length > 0 ? (
           <>
-            <h3 className="text-19 mt-8 font-semibold">How to use this calculator</h3>
+            <h3 className="text-19 mt-8 font-semibold">{howToTitle}</h3>
             <ol className="text-17 mt-3 space-y-2 leading-relaxed text-[var(--color-ink-muted)]">
               {howTo.map((step, index) => (
                 <li key={index} className="flex gap-3">

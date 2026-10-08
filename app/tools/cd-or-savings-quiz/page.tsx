@@ -59,7 +59,21 @@ export default function CdSavingsQuizPage() {
         </div>
       </section>
 
-      <MathSection title="How the quiz works">
+      <MathSection
+        title="How the quiz works"
+        howTo={[
+          "Answer all six questions, picking the option closest to how you use cash.",
+          "Read your result. It is a plain-English read, not a recommendation.",
+          "Work through the comparison checklist before you open any account.",
+        ]}
+        howToTitle="How to use this quiz"
+        formula={{
+          label: "The scoring rule",
+          expression:
+            "Score for each outcome = points from every answer leaning toward it\n\nWinning outcome = the highest score\nTie = high-yield savings, the simpler option",
+          note: "Skipped questions add no points.",
+        }}
+      >
         <p>
           Each answer leans toward one of three outcomes: a high-yield savings account, a CD, or a
           mix of the two. The outcome with the most leans wins, and ties go to the simpler option.

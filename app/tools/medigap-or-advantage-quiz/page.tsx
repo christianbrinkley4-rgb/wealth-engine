@@ -62,7 +62,21 @@ export default function MedigapQuizPage() {
         </div>
       </section>
 
-      <MathSection title="How the quiz works">
+      <MathSection
+        title="How the quiz works"
+        howTo={[
+          "Answer all seven questions, picking the option closest to your situation.",
+          "Read your result. It hands you questions to ask, not a recommendation.",
+          "Bring the question list to a licensed agent to compare real plans.",
+        ]}
+        howToTitle="How to use this quiz"
+        formula={{
+          label: "The scoring rule",
+          expression:
+            "Score for each outcome = points from every answer leaning toward it\n\nWinning outcome = the highest score\nTie = genuinely mixed, stated plainly instead of a forced pick",
+          note: "Skipped questions add no points.",
+        }}
+      >
         <p>
           Each answer leans a little toward one path or the other: Medigap, Medicare Advantage, or
           genuinely mixed. The path with the most leans wins. If your answers split evenly, the

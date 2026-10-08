@@ -71,7 +71,21 @@ export default function RothConversionLadderPage() {
         </div>
       </section>
 
-      <MathSection title="The math, in plain English">
+      <MathSection
+        title="The math, in plain English"
+        howTo={[
+          "Enter your birth year. It sets your RMD age under SECURE 2.0: 73 or 75.",
+          "Pick your filing status and the bracket you are in this year. That sets the top the tool fills to.",
+          "Enter your other yearly income and your pre-tax balance.",
+          "Set your expected retirement rate and growth rate, then read the year-by-year plan and the lifetime tax comparison.",
+        ]}
+        formula={{
+          label: "The formula",
+          expression:
+            "Headroom = top of your current bracket - your other taxable income\n\nEach year:\n  Grown balance = balance x (1 + growth rate)\n  Conversion = the smaller of (grown balance, headroom)\n  Tax on conversion = conversion x current bracket rate\n  Balance left = grown balance - conversion\n\nTax with the plan = conversion taxes paid\n  + (balance left at RMD age x retirement rate)\nTax without the plan = full grown balance x retirement rate\nLifetime savings = tax without - tax with",
+          note: "When your other income fills the whole bracket, headroom is zero and that year's conversion is zero. Conversion taxes come from outside funds.",
+        }}
+      >
         <p>
           <strong>Your RMD age</strong> comes from SECURE 2.0: 73 if you were born between 1951 and
           1959, 75 if you were born in 1960 or later. Every year between now and then is one

@@ -59,7 +59,21 @@ export default function RothConversionQuizPage() {
         </div>
       </section>
 
-      <MathSection title="How the quiz works">
+      <MathSection
+        title="How the quiz works"
+        howTo={[
+          "Answer all six questions, picking the option closest to your situation.",
+          "Read your result. It is a plain-English read, not a recommendation.",
+          "Bring the checklist at the end to a tax professional before you act on it.",
+        ]}
+        howToTitle="How to use this quiz"
+        formula={{
+          label: "The scoring rule",
+          expression:
+            "Score for each outcome = points from every answer leaning toward it\n\nWinning outcome = the highest score\nTie = too close to call, which is listed first",
+          note: "Skipped questions add no points. This is a framework, not advice.",
+        }}
+      >
         <p>
           Each answer leans toward one of three outcomes: a conversion looks worth exploring, it
           probably is not worth it this year, or the call is too close and belongs with a tax pro.

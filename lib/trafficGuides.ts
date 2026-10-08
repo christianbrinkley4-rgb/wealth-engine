@@ -634,6 +634,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         title: "Bring a local coverage checklist",
         body: "For Greensboro, Winston-Salem, High Point, and Burlington residents, start with your home address, doctors, prescriptions, and pharmacy. Verify coverage details for the coming year. This guide doesn't claim that a particular contract is leaving the Triad. Your notice and Medicare's current information determine what applies.",
       },
+      { title: "If you do nothing, you land on Original Medicare", body: "When a Medicare Advantage plan's contract ends and you don't join another plan, Medicare puts you on Original Medicare starting January 1. That means Parts A and B only. No drug coverage, no yearly cap on what you pay, none of the extra benefits your old plan had. A stand-alone Part D drug plan needs its own enrollment, and going 63 days or more without drug coverage can add a late enrollment penalty to your premium for as long as you carry Part D. Doing nothing is still a choice, so treat it like one." },
+      { title: "Work the window month by month", body: "The Special Enrollment Period runs December 8 through the last day of February. Use December to compare plans with your doctors and prescriptions in front of you. Enrollments made in January or February take effect the first day of the next month, so there is no backdating to guess about. For Greensboro, Winston-Salem, High Point, and Burlington residents, start with your home address, your doctors, your pharmacy, and every prescription you take. Your letter tells you when the old coverage ends. The new plan tells you when the new coverage starts. Get both dates in writing." },
+      { title: "Free help reading the letter in North Carolina", body: "You don't have to decode the letter alone. Every state has a State Health Insurance Assistance Program with free, unbiased Medicare counseling, and the counselors don't sell anything. In North Carolina the program is called SHIIP, run through the Department of Insurance, with trained counselors in every county. You can also call 1-800-MEDICARE with questions about your rights. Triad residents can ask Christian to walk through the letter too. Either way, keep the full letter and the envelope it came in, since they prove your enrollment rights." },
     ],
     comparison: {
       caption: "Don't treat every fall letter as nonrenewal",
@@ -659,12 +662,16 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         q: "Can Christian help me read the letter?",
         a: "Triad residents can request an insurance conversation with Christian. You can also review your rights directly with Medicare.",
       },
+      { q: "If my plan is not renewing, can I use the special window to join any Medicare Advantage plan?", a: "The Special Enrollment Period runs December 8 through the last day of February. Inside it you can join another Medicare Advantage plan, with or without drug coverage, or return to Original Medicare and add a stand-alone Part D plan. Coverage starts the first of the month after the plan receives your request." },
+      { q: "What if the nonrenewal letter arrived late and my coverage already ended?", a: "The Special Enrollment Period still runs through the last day of February, so move quickly. Call 1-800-MEDICARE or North Carolina's SHIIP program and ask about your options for any months you went uncovered, including drug coverage so you don't rack up a late enrollment penalty." },
     ],
     sources: [
       {
         title: "Medicare: Special Enrollment Periods",
         url: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods",
       },
+      { title: "CMS: Part D creditable coverage and late enrollment penalty", url: "https://www.cms.gov/medicare/enrollment-renewal/part-d-plans/creditable-coverage-and-late-enrollment-penalty" },
+      { title: "SSA: Medicare premiums and free SHIP counseling help", url: "https://www.ssa.gov/benefits/medicare/medicare-premiums.html" },
     ],
     related: [
       { title: "Medicare automatic renewal", href: "/guides/medicare-automatic-renewal" },
@@ -681,6 +688,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "How a 401(k) loan works", body: "IRS rules let you borrow up to the lesser of $50,000 or half your vested balance. You repay it within five years through payroll deductions with interest to yourself. Repay it late or leave your job and the balance may become a taxable distribution. Plans can refuse loans, so check your plan documents first." },
       { title: "What a withdrawal really costs", body: "Cashing out is taxed as ordinary income for the year you take it. Add the 10% early-distribution penalty when you are under 59 1/2 and no exception applies. In a 22% bracket with the penalty, nearly a third of the withdrawal disappears to taxes. Hardship withdrawals follow the same tax rules, even when the plan approves them." },
       { title: "When each choice makes sense", body: "Loans fit short-term gaps you are certain you can repay before leaving your job. Withdrawals fit true hardships where repayment is not possible. Neither choice beats building an emergency fund before you need one." },
+      { title: "An old loan shrinks your next one", body: "The $50,000 cap isn't always $50,000. The IRS reduces it by the gap between your highest outstanding loan balance in the last 12 months and what you still owe today. Say you borrowed $20,000 last spring and owe $12,000 now. Your new ceiling is $50,000 minus that $8,000 difference, or $42,000, and the 50%-of-vested-balance test still applies on top. Borrowing again and again quietly eats your room. The IRS loan rules walk through the exact math." },
+      { title: "Buying a home gets you more time", body: "The five-year repayment clock has one big exception. If you use the loan to buy your principal residence, the plan can stretch repayment beyond five years. Every other purpose has to fit inside five years with payments at least quarterly. Fall behind the schedule and the IRS treats the balance as a distribution, taxed and possibly penalized. Check your plan's loan policy before you count on the longer timeline." },
+      { title: "Leaving your job with a loan: the rollover deadline", body: "Most plans demand full repayment soon after you leave. If you can't pay, the unpaid balance becomes a distribution and shows up on Form 1099-R. Here is the part people miss: you can still roll that amount into an IRA or a new employer's plan by the due date of your tax return, extensions included, and avoid the tax hit entirely. Miss that deadline and it's taxable income, plus the 10% penalty if you're under 59 and a half." },
     ],
     comparison: {
       caption: "401(k) loan vs withdrawal at a glance",
@@ -700,10 +710,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       { q: "What happens to my 401(k) loan if I leave my job?", a: "Many plans demand the remaining balance soon after you leave. If you cannot repay, the unpaid amount becomes a taxable distribution. You then owe income tax and usually the 10% penalty if under 59 1/2." },
       { q: "Are hardship withdrawals free from the 10% penalty?", a: "Usually not. Hardship withdrawals are still taxed as income under 59 1/2. The 10% penalty applies unless a specific exception covers your situation." },
+      { q: "Is the interest I pay on my 401(k) loan tax-deductible?", a: "No. You repay the loan with after-tax dollars, and the interest goes back into your own account. When you withdraw that money in retirement, it gets taxed again. That double taxation on the interest is one of the hidden costs of borrowing from yourself." },
+      { q: "Can I take a 401(k) loan from an IRA?", a: "No. IRAs and IRA-based plans like SEPs and SIMPLE IRAs can't offer participant loans at all. Trying to borrow from an IRA counts as a prohibited transaction and can blow up the account's tax status. Loans only exist inside employer plans such as 401(k)s, 403(b)s, and 457(b)s." },
     ],
     sources: [
       { title: "IRS: Retirement Plans", url: "https://www.irs.gov/retirement-plans" },
       { title: "IRS: Tax Topics", url: "https://www.irs.gov/taxtopics" },
+      { title: "IRS: Retirement Topics - Loans", url: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-loans" },
+      { title: "IRS: Retirement Plans FAQs Regarding Loans", url: "https://www.irs.gov/retirement-plans/retirement-plans-faqs-regarding-loans" },
     ],
     related: [
       { title: "401(k) explained, plainly", href: "/wealth/401k-explained" },
@@ -722,6 +736,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "The ladder in three steps", body: "First, convert money from a traditional IRA or 401(k) into a Roth IRA. You pay ordinary income tax on the converted amount that year. Second, wait five tax years for that conversion's clock to run out. Third, withdraw the converted principal penalty-free, even before age 59 1/2." },
       { title: "The 5-year rule that matters", body: "Each conversion gets its own five-year clock starting January 1 of the conversion year. Touching converted dollars early can trigger the 10% penalty if you are under 59 1/2. Earnings follow separate rules and need their own five-year holding period. Keep a dated record of every conversion you make." },
       { title: "Taxes to plan for", body: "Conversions count as taxable income in the year they happen. A large conversion can push you into a higher bracket. Many people convert during low-income years to keep the tax bill small. Model the result on your own return before converting." },
+      { title: "Conversions count in the year you finish them", body: "A conversion completed on December 30 counts for that tax year. One completed on January 2 counts for the new year, even if you started the paperwork in December. That timing matters twice: it decides which tax return reports the income, and it starts that conversion's five-year clock on January 1 of that year. Converting late in the year? Confirm with your custodian that it will actually complete before December 31." },
+      { title: "Watch the pro-rata rule on mixed IRA money", body: "If your traditional IRA holds both pre-tax and after-tax dollars, the IRS won't let you convert just the after-tax part. Every conversion is treated as a proportional mix of all your traditional, SEP, and SIMPLE IRA balances. The fix many people use: roll the pre-tax money into your current employer's 401(k) first, which the pro-rata math ignores, then convert what's left. Form 8606 is where you report the taxable and nontaxable pieces each year." },
+      { title: "Big conversions can raise your Medicare premiums", body: "Roth conversions add to your modified adjusted gross income, and Medicare uses your MAGI from two years earlier to set Part B and Part D premiums. A large conversion at 63 can mean higher premiums at 65 through the income-related monthly adjustment amount. For 2026, the extra charges start above $109,000 single or $218,000 joint. If you're converting in your early 60s, model the premium effect alongside the tax bill." },
     ],
     comparison: {
       caption: "Roth conversion ladder vs direct Roth withdrawal",
@@ -741,10 +758,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       { q: "Can I withdraw my Roth IRA earnings early?", a: "Earnings face stricter rules than contributions. For tax-free, penalty-free earnings, the account must be five tax years old and you must meet a condition like age 59 1/2. Early earnings withdrawals are usually taxed and penalized." },
       { q: "Does every conversion really get its own five-year clock?", a: "Yes. Each conversion's clock starts January 1 of the year you convert. This clock is separate from the five-year rule on your first Roth contribution." },
+      { q: "Can I convert straight from my 401(k) to a Roth IRA?", a: "Yes. You can roll 401(k) money directly into a Roth IRA and pay tax on the pre-tax portion, or roll it to a traditional IRA first and convert later. Some plans also offer in-plan Roth conversions that keep the money inside the 401(k). Either way, the converted amount is taxable income in the year it happens." },
+      { q: "Is there a limit on how much I can convert in one year?", a: "No dollar limit exists, but the whole amount counts as income that year. Oversized conversions can push you into a higher bracket, raise Medicare premiums two years later, and shrink income-based tax credits. That's why many people convert a planned amount each year instead of everything at once." },
     ],
     sources: [
       { title: "IRS: Retirement Plans", url: "https://www.irs.gov/retirement-plans" },
       { title: "IRS Publication 590-A: Contributions to IRAs", url: "https://www.irs.gov/publications/p590a" },
+      { title: "IRS: Retirement Topics - Exceptions to Tax on Early Distributions", url: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-exceptions-to-tax-on-early-distributions" },
+      { title: "SSA: Medicare premiums for higher-income beneficiaries", url: "https://www.ssa.gov/benefits/medicare/medicare-premiums.html" },
     ],
     related: [
       { title: "Roth IRA explained, plainly", href: "/wealth/roth-ira-explained" },
@@ -804,6 +825,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "Who has to pay", body: "The IRS expects estimated payments when you will owe at least $1,000 after withholding and credits. Self-employed workers pay because no employer withholds for them. People with rental or investment income may owe them too. W-2 employees with side income can fall in as well." },
       { title: "The four due dates", body: "Payments are due April 15, June 15, and September 15 of the current year. The fourth payment is due January 15 of the next year. A date that lands on a weekend or holiday moves to the next business day. Each payment covers the income earned in that slice of the year." },
       { title: "Safe harbor rules", body: "You dodge the underpayment penalty by paying 90% of this year's tax. You can also pay 100% of last year's tax as a safe harbor. If last year's AGI was above $150,000, the safe harbor rises to 110%. State rules differ, so check your state separately." },
+      { title: "The 2026 dates on the calendar", body: "For 2026 income, payments land on April 15, June 15, and September 15, 2026, with the final one due January 15, 2027. If a date falls on a weekend or holiday, it slides to the next business day. The year gets sliced into uneven chunks: the June payment covers only two months of income while the September one covers three. That's why the IRS calls them payment periods, not quarters." },
+      { title: "How to actually send the money", body: "The fastest route is IRS Direct Pay or the IRS2Go app, straight from your bank account, and you get a confirmation number on the spot. EFTPS works too once you're enrolled. Paper filers mail Form 1040-ES with a voucher and a check. You can also pay weekly or monthly as long as each period's total is in by its due date. Whichever way you pay, save the confirmation with your tax records." },
+      { title: "Uneven income gets its own method", body: "If most of your money arrives late in the year, equal quarterly payments can overpay early and still leave you penalized. The IRS lets you annualize: match each payment to the income actually earned in that period, using Schedule AI of Form 2210. Freelancers with lumpy income, landlords with a big fourth-quarter sale, and anyone with a mid-year windfall should know this exists. It takes more math, but it can cut the penalty down to size." },
     ],
     comparison: {
       caption: "Safe harbor methods and penalty protection",
@@ -823,10 +847,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       { q: "What is the underpayment penalty?", a: "It is interest charged when you paid too little during the year. The rate changes quarterly and the IRS sets it. Hitting a safe-harbor amount protects you even if you still owe at filing." },
       { q: "Can I raise my W-2 withholding instead of paying quarterly?", a: "Yes. Withholding counts the same as estimated payments toward safe harbor. Many people with a job and a side business adjust their W-4 instead." },
+      { q: "I missed a quarterly payment. What now?", a: "Pay it as soon as you can. The penalty is figured period by period, so catching up stops the meter from running. File Form 2210 with your return to let the IRS compute the penalty, or let your tax software handle it." },
+      { q: "Does the underpayment penalty apply if I get a refund?", a: "It can. The penalty looks at whether you paid enough during the year, not at your final balance. Paying in April what you owed in June can still trigger it, even if your return shows a refund." },
     ],
     sources: [
       { title: "IRS: Small Business and Self-Employed Tax Center", url: "https://www.irs.gov/businesses/small-businesses-self-employed" },
       { title: "IRS: Tax Topics", url: "https://www.irs.gov/taxtopics" },
+      { title: "IRS: Estimated Taxes", url: "https://www.irs.gov/businesses/small-businesses-self-employed/estimated-taxes" },
+      { title: "IRS: About Form 1040-ES, Estimated Tax for Individuals", url: "https://www.irs.gov/forms-pubs/about-form-1040-es" },
     ],
     related: [
       { title: "Side hustle taxes, plainly", href: "/wealth/side-hustle-taxes" },
@@ -845,6 +873,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "How the taxes differ", body: "Employees split Social Security and Medicare taxes with their employer each paycheck. Contractors pay the full 15.3% self-employment tax on 92.35% of net earnings themselves. Contractors make quarterly estimated payments instead of relying on withholding. A wider menu of business deductions offsets some of the difference." },
       { title: "What misclassification looks like", body: "Some employers label workers as contractors to skip payroll taxes and benefits. The IRS decides status from behavioral control, financial control, and the relationship itself. A worker told when, where, and how to work is usually an employee. Misclassified workers can file Form SS-8 to ask the IRS for a determination." },
       { title: "Why it matters for your paycheck", body: "Contractor pay often looks higher per hour because nothing is withheld. Once you price in the extra payroll tax, quarterly payments, and missing benefits, the gap shrinks. Employees also get unemployment insurance and workers' comp that contractors lack. Compare total compensation, not just the hourly rate." },
+      { title: "You get to deduct half the self-employment tax", body: "The IRS lets you deduct the employer-equivalent half of self-employment tax from your income when you file. That's 7.65% of 92.35% of your net earnings, claimed on Schedule 1 of Form 1040. It lowers your income tax, not the self-employment tax itself. Employees can't deduct their half at all. It softens the gap between the two statuses, but it doesn't close it." },
+      { title: "High earners pay an extra 0.9% Medicare tax", body: "Above $200,000 of wages or self-employment income ($250,000 joint, $125,000 married filing separately), an additional 0.9% Medicare tax kicks in. Employees see it in withholding. Contractors figure it on Form 8959. It hits both statuses the same way, so it's not a reason to prefer one, but 1099 earners have to plan for it because nothing is withheld automatically." },
+      { title: "The 12.4% Social Security part has a ceiling", body: "Social Security's 12.4% stops at the annual wage base, which is $184,500 for 2026. The 2.9% Medicare part has no cap at all. W-2 wages and self-employment income share a single wage base per person, with wages counted first. Once your combined earnings pass the base, only the Medicare piece keeps going." },
     ],
     comparison: {
       caption: "W-2 employee vs 1099 contractor",
@@ -864,11 +895,16 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       { q: "Can I be a W-2 employee and a 1099 contractor at the same time?", a: "Yes, many people hold a job and freelance on the side. Each income stream follows its own tax rules. You may owe quarterly payments on freelance income even with W-2 withholding." },
       { q: "What should I do if I think I am misclassified?", a: "File Form SS-8 and let the IRS decide your worker status. Keep records of schedules, instructions, and tools your boss provided." },
+      { q: "What is Form 8919?", a: "If your employer treated you as a contractor but you believe you're an employee, Form 8919 lets you report your share of Social Security and Medicare taxes on those wages. You pay the employee half instead of the full self-employment tax. It doesn't settle the classification question, but it fixes your tax bill while you sort it out." },
+      { q: "Should I file Form SS-8 early if I think I'm misclassified?", a: "Yes. The IRS processes determinations in the order received and they take time, so filing early protects you. Keep working and paying tax as a contractor in the meantime, and keep records of schedules, instructions, and tools your boss provided." },
     ],
     sources: [
       { title: "IRS: Independent Contractor or Employee", url: "https://www.irs.gov/businesses/small-businesses-self-employed/independent-contractor-self-employed-or-employee" },
       { title: "IRS: Small Business and Self-Employed Tax Center", url: "https://www.irs.gov/businesses/small-businesses-self-employed" },
       { title: "IRS: Tax Topics", url: "https://www.irs.gov/taxtopics" },
+      { title: "IRS: Self-Employment Tax (Social Security and Medicare Taxes)", url: "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes" },
+      { title: "SSA: Contribution and Benefit Base", url: "https://www.ssa.gov/oact/cola/cbb.html" },
+      { title: "IRS: About Form 8919, Uncollected Social Security and Medicare Tax on Wages", url: "https://www.irs.gov/forms-pubs/about-form-8919" },
     ],
     related: [
       { title: "Side hustle taxes, plainly", href: "/wealth/side-hustle-taxes" },
@@ -887,6 +923,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "Eligibility and ownership", body: "You need a qualifying high-deductible health plan to open or fund an HSA. An FSA only needs an employer that offers one, and it works with most health plans. The HSA is your account forever, even after you leave the job. The FSA ends with the job, though a grace period can give you a little extra time." },
       { title: "Contribution limits for 2026", body: "HSA caps for 2026 are $4,400 self-only and $8,750 family, plus a $1,000 catch-up at 55 and older. The health FSA limit for 2026 is $3,400 per employee from salary reductions. FSA limits apply per employee, so two working spouses can each have one. Both limits adjust yearly for inflation." },
       { title: "Use-it-or-lose-it vs rollover", body: "HSA balances roll over in full every year with no deadline. FSA money generally expires at plan year-end under use-it-or-lose-it. Employers may allow up to $680 in carryover or a grace period of two and a half months. They cannot offer both, so check your plan documents." },
+      { title: "Medicare enrollment ends HSA contributions", body: "The month you enroll in Medicare, including premium-free Part A, your HSA eligibility stops. You keep the account and can spend what's in it, but new contributions become excess contributions with a 6% penalty for each year they stay in. The trap: if you sign up for Medicare after 65, Part A backdates up to six months, which can retroactively disqualify contributions you already made. People working past 65 often stop HSA contributions six months before filing for Medicare or Social Security." },
+      { title: "The dependent care FSA is a different animal", body: "Separate from the health FSA, the dependent care FSA pays for childcare or adult dependent care so you can work. For 2026 the limit jumps to $7,500 ($3,750 married filing separately), the first increase since 1986. It covers kids under 13, daycare, preschool, and day camps, but not overnight camps. Unlike the health FSA, there's no carryover at all, though some plans offer a short grace period. And it has nothing to do with your health plan choice." },
+      { title: "Your HSA can double as a retirement account", body: "After 65, the 20% penalty on non-medical HSA withdrawals disappears. Withdrawals for anything other than medical expenses are taxed as income, like a traditional IRA, but there's no penalty and no required withdrawals ever. That's why some people pay medical bills out of pocket, save the receipts, and let the HSA compound for decades. The IRS lets you reimburse yourself years later as long as the expense happened after the HSA was opened." },
     ],
     comparison: {
       caption: "FSA vs HSA head to head",
@@ -906,10 +945,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       { q: "Can I have an HSA and an FSA at the same time?", a: "A general-purpose FSA disqualifies you from HSA contributions. A limited-purpose FSA for dental and vision is allowed alongside an HSA. Confirm your FSA type before funding both." },
       { q: "Which works better for predictable medical costs?", a: "An FSA can fit well when you know your expenses for the year. The full annual election is available on day one, before you finish contributing. An HSA is stronger for building a long-term medical fund." },
+      { q: "I'm 66, still working, and on my employer's plan. Can I keep funding my HSA?", a: "Only if you're not enrolled in Medicare. Once Part A starts, contributions have to stop. If you delayed Medicare past 65, remember Part A backdates up to six months, so stop contributing at least six months before you apply." },
+      { q: "What are the 2026 HDHP minimums to qualify for an HSA?", a: "The plan must have a deductible of at least $1,700 self-only or $3,400 family, and out-of-pocket maximums no higher than $8,500 self-only or $17,000 family. If your plan's numbers don't clear both bars, it's not HSA-eligible no matter what HR calls it." },
     ],
     sources: [
       { title: "IRS Publication 969: Health Savings Accounts", url: "https://www.irs.gov/publications/p969" },
       { title: "IRS: Tax Topics", url: "https://www.irs.gov/taxtopics" },
+      { title: "IRS: Publication 503, Child and Dependent Care Expenses", url: "https://www.irs.gov/publications/p503" },
+      { title: "IRS: Revenue Procedure 2025-19, 2026 HSA and HDHP figures", url: "https://www.irs.gov/pub/irs-drop/rp-25-19.pdf" },
     ],
     related: [
       { title: "HSA explained, plainly", href: "/wealth/hsa-explained" },
@@ -928,6 +971,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "How the strategy works", body: "Sell a losing investment and use the loss to cancel out gains from winners. Short-term losses first offset short-term gains, which are taxed at higher rates. Net losses beyond your gains can offset up to $3,000 of ordinary income per year. Leftover losses carry forward to future tax years." },
       { title: "The wash sale rule", body: "You cannot claim the loss if you buy the same or a substantially identical security 30 days before or after the sale. That creates a 61-day window around your sale date. Breaking the rule disallows the loss for that year. The disallowed loss adjusts the cost basis of your replacement shares instead." },
       { title: "Limits and gotchas", body: "The $3,000 cap drops to $1,500 if you are married filing separately. The strategy applies to taxable accounts only, not IRAs or 401(k)s. Repurchasing the same fund inside your IRA can still trigger a wash sale. Track trades across every account you own." },
+      { title: "Automatic dividend reinvestment counts as buying", body: "If your fund reinvests dividends automatically, each reinvestment is a purchase. One landing inside the 61-day window around your sale can trigger the wash sale rule on that lot. Before you harvest, turn off automatic reinvestment on the security you're selling, in every account including your IRA. You can turn it back on after the window closes." },
+      { title: "The rule follows you across accounts, even your spouse's", body: "The IRS doesn't limit the wash sale rule to the account where you sold. Buying substantially identical securities in your IRA, your 401(k), or your spouse's accounts inside the window can still disallow the loss. When you harvest, check every account you and your spouse control for 30 days before and after the sale date." },
+      { title: "How the loss actually reaches your tax return", body: "Every sale gets reported on Form 8949, with the totals flowing to Schedule D. Your broker sends Form 1099-B, but its cost-basis numbers can be incomplete, especially for older positions or transferred accounts. Keep your own trade confirmations. If the wash sale rule disallowed part of a loss, that amount gets added to the basis of your replacement shares, which lowers your gain or raises your loss when you eventually sell those." },
     ],
     comparison: {
       caption: "Tax-loss harvesting outcomes",
@@ -947,10 +993,13 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       { q: "Does tax-loss harvesting work in a 401(k) or IRA?", a: "No. Trades inside retirement accounts are not taxed, so losses there have no tax value. Harvesting only works in taxable brokerage accounts." },
       { q: "What counts as substantially identical?", a: "Selling one S&P 500 index fund to buy another company's S&P 500 fund is risky. The IRS has never drawn a bright line for funds. Many investors switch to a fund tracking a different index to stay safe." },
+      { q: "Does the wash sale rule apply to cryptocurrency?", a: "Currently no. The IRS treats crypto as property, not a security, so the wash sale rule's stock-and-securities language doesn't reach it. Congress has proposed changing this more than once, so check the current law before you harvest crypto losses." },
+      { q: "Can I harvest losses in December and buy back in January?", a: "Only if January is more than 30 days after the sale. A December 20 sale means waiting until at least January 20. Count the days on a calendar. The window is 30 days before and after, 61 days total including the sale date." },
     ],
     sources: [
       { title: "IRS Publication 550: Investment Income and Expenses", url: "https://www.irs.gov/publications/p550" },
       { title: "IRS: Tax Topics", url: "https://www.irs.gov/taxtopics" },
+      { title: "IRS: Topic 409, Capital Gains and Losses", url: "https://www.irs.gov/taxtopics/tc409" },
     ],
     related: [
       { title: "Tax brackets explained, plainly", href: "/wealth/tax-brackets-explained-plainly" },
@@ -1010,6 +1059,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "Who actually needs this", body: "For 2026, the IRS phases out direct Roth IRA contributions for higher earners. If your income is above that range, direct contributions are off the table. The backdoor route still lets you get money into a Roth through a conversion. Check the current IRS figures to see where the phaseouts start." },
       { title: "The two steps, in order", body: "First, make a nondeductible contribution to a traditional IRA, up to the annual IRA limit ($7,500 for 2026 per the site's IRS figures). Second, convert that traditional IRA balance to a Roth IRA. The conversion itself has no income limit, which is why this path exists. You report both steps on your tax return using Form 8606." },
       { title: "The pro-rata rule warning", body: "The pro-rata rule is the trap. If you hold pre-tax money in any traditional, SEP, or SIMPLE IRA, the IRS treats your conversion as coming proportionally from all of them. That means part of your conversion is taxable, even if you converted only the new contribution. Rolling old pre-tax IRA money into a 401(k) first can clear the path." },
+      { title: "The calendar split: contribute for last year, convert this year", body: "You can make a prior-year IRA contribution up until the tax filing deadline, usually April 15. The conversion, though, always counts in the calendar year it happens. Contribute in February for the prior year, convert in March, and your paperwork spans two tax years: the contribution on last year's Form 8606, the conversion on this year's. That's normal. Just don't mix up which form reports which step." },
+      { title: "The paper trail: 5498, 1099-R, and 8606", body: "Your custodian reports the contribution to the IRS on Form 5498 and the conversion on Form 1099-R. Your job is Form 8606, where you report the nondeductible contribution and figure the taxable part of the conversion. File it every year you touch this strategy, even in years you only contributed and didn't convert. Skipping it is how after-tax basis gets lost and conversions get taxed twice." },
+      { title: "You need earned income to play", body: "IRA contributions require compensation: wages, salaries, self-employment income, and a few similar kinds. Investment income, rental income, and Social Security don't count. Your contribution can't exceed what you earned that year. A nonworking spouse can still contribute through a spousal IRA as long as the working spouse earned enough to cover both." },
     ],
     comparison: {
       caption: "Direct Roth contribution vs the backdoor route",
@@ -1029,11 +1081,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       { q: "Do I pay taxes on the backdoor Roth conversion?", a: "The conversion is tax-free if you convert only after-tax money with no earnings. Any growth before the conversion is taxable as ordinary income. This is why many people convert quickly after contributing." },
       { q: "Can I do a backdoor Roth every year?", a: "Yes, as long as you have earned income and the rules stay the same. The annual IRA contribution limit caps each year's amount. Many people repeat the two steps each January." },
+      { q: "Can I undo a backdoor Roth if I mess it up?", a: "Conversions can't be undone. Congress eliminated recharacterization of Roth conversions starting in 2018. If you converted the wrong amount or at the wrong time, it stays converted. That's why people convert quickly after contributing and double-check the pro-rata math first." },
+      { q: "What are the 2026 Roth IRA income limits that make the backdoor necessary?", a: "Direct Roth contributions phase out from $153,000 to $168,000 of modified adjusted gross income for single filers, and $242,000 to $252,000 for joint filers. Above those ranges, the backdoor route is the way in." },
     ],
     sources: [
       { title: "Source: IRS individual retirement arrangements (IRAs)", url: "https://www.irs.gov/retirement-plans/individual-retirement-arrangements-iras" },
       { title: "Source: IRS Roth IRAs", url: "https://www.irs.gov/retirement-plans/roth-iras" },
       { title: "Source: IRS Publication 590-A", url: "https://www.irs.gov/publications/p590a" },
+      { title: "IRS: About Form 8606, Nondeductible IRAs", url: "https://www.irs.gov/forms-pubs/about-form-8606" },
     ],
     related: [
       { title: "Roth IRA basics", href: "/wealth/roth-ira-explained" },
@@ -1047,17 +1102,20 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "mega-backdoor-roth-explained",
     title: "Mega Backdoor Roth: How It Works",
     description: "How the mega backdoor Roth uses after-tax 401(k) contributions and an in-service rollover to fund a Roth beyond normal limits.",
-    answer: "The mega backdoor Roth lets you move far more than the normal Roth IRA limit into a Roth each year. You make after-tax contributions to your 401(k), then roll them into a Roth through an in-service distribution or rollover. For 2026, the total 401(k) contribution limit is $70,000 for savers under 50. After-tax contributions fill the gap above your $24,500 elective deferral and any employer match.",
+    answer: "The mega backdoor Roth lets you move far more than the normal Roth IRA limit into a Roth each year. You make after-tax contributions to your 401(k), then roll them into a Roth through an in-service distribution or rollover. For 2026, the total 401(k) contribution limit is $72,000 for savers under 50. After-tax contributions fill the gap above your $24,500 elective deferral and any employer match.",
     sections: [
       { title: "What it actually is", body: "It is a strategy inside your 401(k), not an IRA trick. Your plan must allow after-tax contributions and in-service rollovers or distributions. Without both features, the mega backdoor is not available. Check your plan's summary description or ask your administrator." },
-      { title: "The math for 2026", body: "The 2026 overall 401(k) limit is $70,000 for those under 50. Subtract your $24,500 elective deferral and your employer's match to find your after-tax room. Example: with a $6,000 match, you could add $39,500 after-tax. That amount then rolls into a Roth." },
+      { title: "The math for 2026", body: "The 2026 overall 401(k) limit is $72,000 for those under 50. Subtract your $24,500 elective deferral and your employer's match to find your after-tax room. Example: with a $6,000 match, you could add $41,500 after-tax. That amount then rolls into a Roth." },
       { title: "The catch to know", body: "Not every plan allows it, and some only let you roll out once a year. After-tax contributions grow tax-deferred, but gains are taxable until rolled into the Roth. Rolling promptly keeps the taxable part small. Confirm fees and timing with your plan first." },
+      { title: "After-tax is not Roth: don't mix them up", body: "After-tax 401(k) contributions and Roth 401(k) contributions are different buckets. Roth contributions count against your $24,500 elective deferral limit. After-tax contributions don't. They use the leftover room under the $72,000 overall limit. The money also behaves differently: Roth grows tax-free, while after-tax grows tax-deferred with taxable earnings until you roll it out. Ask your plan which bucket your contributions are actually landing in." },
+      { title: "Two doors into the Roth", body: "Once the after-tax money is in, you have two ways to get it into Roth status. An in-service rollover moves it to a Roth IRA while you're still employed. An in-plan Roth rollover converts it to the Roth side of your 401(k) without leaving the plan. Some plans auto-convert after-tax contributions every paycheck, which keeps taxable growth near zero. Each path has different paperwork and timing, so ask your administrator which ones your plan allows." },
+      { title: "Testing can shrink the room for high earners", body: "After-tax contributions face nondiscrimination testing, the same kind that limits how much highly paid employees can defer. If your plan fails the test, some of your after-tax money comes back to you as a taxable refund. That's one reason smaller companies often don't offer after-tax contributions at all. If you're highly compensated, ask whether the plan has passed testing in recent years before you build a strategy around it." },
     ],
     comparison: {
       caption: "Regular backdoor Roth vs mega backdoor Roth",
       headers: ["Topic", "How they compare"],
       rows: [
-        ["Annual room", "Regular backdoor Roth: IRA limit ($7,500 for 2026) | Mega backdoor Roth: Leftover room under the $70,000 overall limit"],
+        ["Annual room", "Regular backdoor Roth: IRA limit ($7,500 for 2026) | Mega backdoor Roth: Leftover room under the $72,000 overall limit"],
         ["Where it lives", "Regular backdoor Roth: Traditional and Roth IRAs | Mega backdoor Roth: Your employer's 401(k) plan"],
         ["Plan permission needed", "Regular backdoor Roth: No | Mega backdoor Roth: Yes: after-tax plus in-service rollover"],
       ],
@@ -1065,16 +1123,19 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     checklist: [
       "Confirm your 401(k) allows after-tax contributions.",
       "Confirm it allows in-service rollovers or distributions to a Roth.",
-      "Contribute after-tax up to your remaining room under the $70,000 limit.",
+      "Contribute after-tax up to your remaining room under the $72,000 limit.",
       "Roll the after-tax balance to a Roth promptly to limit taxable growth.",
     ],
     faqs: [
       { q: "Does every 401(k) offer the mega backdoor?", a: "No. Your plan must allow after-tax contributions and an in-service rollover or distribution. Many large-company plans do, but smaller plans often skip these features. Ask your plan administrator directly." },
       { q: "Is the mega backdoor going away?", a: "Proposals to limit it have surfaced before, but the rules still allow it as of 2026. Tax law can change, so check the current IRS guidance each year. Do not plan decades ahead on one tactic." },
+      { q: "Does my employer match after-tax contributions?", a: "Usually not. Matches are typically calculated on pre-tax or Roth elective deferrals, not after-tax contributions. Your plan document spells out the match formula, so check it before you redirect deferrals into the after-tax bucket." },
+      { q: "What's the 2026 math if I'm over 50?", a: "Catch-up contributions sit on top of the $72,000 overall limit: $80,000 total with the standard $8,000 catch-up, or $83,250 if you're 60 to 63 with the $11,250 super catch-up. That raises the ceiling for after-tax contributions too." },
     ],
     sources: [
       { title: "Source: IRS 401(k) contribution limits", url: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" },
       { title: "Source: IRS 401(k) plans", url: "https://www.irs.gov/retirement-plans/401k-plans" },
+      { title: "IRS: Retirement Topics - Catch-Up Contributions", url: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-catch-up-contributions" },
     ],
     related: [
       { title: "401(k) explained", href: "/wealth/401k-explained" },
@@ -1093,6 +1154,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "How I bonds work", body: "You buy them directly from TreasuryDirect and hold them at least 12 months. Cashing out before five years costs the last three months of interest. Interest is exempt from state and local tax, and federal tax can wait until you redeem. The rate resets every six months based on inflation." },
       { title: "How TIPS work", body: "TIPS are marketable Treasury securities whose principal rises and falls with the consumer price index. You earn a fixed coupon rate on the adjusted principal. They can be bought at auction, on the secondary market, or through mutual funds. Like all Treasuries, they are exempt from state and local income tax." },
       { title: "The tax difference", body: "I bond interest is tax-deferred until you cash them in or they mature. TIPS holders owe federal tax each year on the inflation adjustment, even though they have not received it yet. Both skip state and local tax. If you hate surprise tax bills, that annual TIPS tax matters." },
+      { title: "The May and November rate resets", body: "The I bond composite rate resets every May 1 and November 1. Whatever rate is in effect when you buy sticks for your first six months, then your bond picks up the new rate. People who watch inflation data sometimes time purchases around a reset, buying before a drop is announced or waiting when a rise looks likely. Either way, the fixed-rate portion of your bond never changes for its 30-year life." },
+      { title: "Paper bonds through your tax refund", body: "On top of the $10,000 electronic limit per person per year, you can buy up to $5,000 in paper I bonds with your federal tax refund using Form 8888. The bonds arrive by mail in your name. It's the only way to get paper bonds anymore, and it effectively raises one person's annual purchase ceiling to $15,000." },
+      { title: "The education tax break", body: "I bond interest can be completely federal-tax-free when you use it for qualified higher education expenses, tuition and fees at eligible schools. The bonds must be in your name, not your child's, you must have been at least 24 when they were issued, and income limits apply. It's one of the few ways to make I bond interest permanently tax-free instead of just tax-deferred." },
     ],
     comparison: {
       caption: "I bonds vs TIPS at a glance",
@@ -1112,10 +1176,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       { q: "Can I lose money on I bonds?", a: "No. I bonds never go below their purchase value, and the inflation component cannot drag the combined rate below zero. TIPS can lose market value if sold before maturity, but held to maturity they return at least the original principal." },
       { q: "Which is better for an emergency fund?", a: "Neither is ideal, but I bonds work after the first 12 months since they hold value. TIPS prices can swing, so selling early can mean a loss. Keep true emergency money in an accessible savings account instead." },
+      { q: "What's the minimum purchase for each?", a: "I bonds start at $25 electronically through TreasuryDirect. TIPS start at $100 at auction or through TreasuryDirect. Both are within reach for small savers. You don't need thousands to start." },
+      { q: "How long do I bonds last?", a: "Thirty years. They stop earning interest at final maturity, so there's no reason to hold past that. You can cash them any time after 12 months, with a three-month interest penalty if you cash out before five years." },
     ],
     sources: [
       { title: "Source: TreasuryDirect I bonds", url: "https://www.treasurydirect.gov/savings-bonds/i-bonds/" },
       { title: "Source: TreasuryDirect home", url: "https://www.treasurydirect.gov/" },
+      { title: "TreasuryDirect: TIPS", url: "https://www.treasurydirect.gov/marketable-securities/tips/" },
+      { title: "IRS: About Form 8888, Allocation of Refund", url: "https://www.irs.gov/forms-pubs/about-form-8888" },
     ],
     related: [
       { title: "Emergency fund guide", href: "/wealth/emergency-fund-guide" },
@@ -1134,6 +1202,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "What they share", body: "Each is offered by a bank or credit union and pays a variable interest rate. Each is insured up to $250,000 per depositor per insured bank when held at an FDIC member bank. Rates on both tend to move with the broader interest-rate environment. Neither is an investment account, and neither buys stocks." },
       { title: "Where they differ", body: "Money market accounts usually offer check-writing or a debit card, while savings accounts usually do not. High-yield savings accounts sometimes pay slightly higher rates because they are simpler to run. Either way, compare the actual rate, not the account label. Fees and minimums vary by bank, so read the fine print." },
       { title: "How to choose", body: "Pick the savings account if the money is for a goal you rarely touch. Pick the money market account if you want to write the occasional check from it. Splitting across two banks keeps you under the $250,000 insurance limit if your balance is large. Rate-shop once or twice a year, since rates drift." },
+      { title: "A money market fund is a different product entirely", body: "The similar name confuses everyone. A money market account is a bank deposit, covered by FDIC insurance up to the limit. A money market fund is a mutual fund, an investment product, and FDIC insurance does not cover investments. Funds aim to hold a $1 share price, but they can lose money. If the word fund is in the name, it's the investment version, not the bank account." },
+      { title: "Ownership categories stretch the $250,000", body: "FDIC insurance is per depositor, per insured bank, per ownership category. Your single accounts are one category. Joint accounts are another. A couple with $250,000 in individual accounts plus a $500,000 joint account can be fully covered at one bank because the categories are insured separately. The FDIC's online estimator walks through your exact setup before you move money." },
+      { title: "Sweep accounts: follow the deposit", body: "Some fintech apps and brokerages sweep your cash to partner banks behind the scenes. FDIC insurance applies at the bank actually holding the deposit, and pass-through coverage has conditions the app has to meet. Before you park serious money somewhere new, confirm which bank holds it and verify that bank on the FDIC's BankFind tool. The brand on the app isn't what the insurance follows." },
     ],
     comparison: {
       caption: "High-yield savings vs money market account",
@@ -1153,6 +1224,8 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       { q: "Is my money safe in a high-yield savings account?", a: "Yes, up to $250,000 per depositor per insured bank under FDIC insurance. That covers principal plus earned interest. Use the FDIC's BankFind tool to verify a bank's coverage." },
       { q: "Can rates on these accounts drop?", a: "Yes. Both pay variable rates that move with the economy, so your APY can fall. The account itself stays safe and liquid either way. That is why rate-shopping once or twice a year pays off." },
+      { q: "Are online-only banks FDIC-insured?", a: "Many are, but check. Use the FDIC's BankFind tool and confirm the bank's name, not just the app's brand. Some fintech apps sweep your cash to partner banks, so make sure you know whose name is on the insurance." },
+      { q: "Does FDIC insurance cover the interest I've earned?", a: "Yes. Coverage includes both principal and accrued interest, up to the $250,000 limit per depositor per ownership category. If your balance plus earned interest pushes past the limit, the excess isn't covered." },
     ],
     sources: [
       { title: "Source: FDIC deposit insurance", url: "https://www.fdic.gov/resources/deposit-insurance/" },
@@ -1217,6 +1290,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "The penalty in plain English", body: "The IRS adds a 10% penalty on top of ordinary income tax for most withdrawals before 59 and a half. It applies to both pre-tax and Roth earnings taken early. Your own Roth contributions are the main exception, since you already paid tax on them. The penalty exists to discourage raiding retirement savings." },
       { title: "Exceptions that waive the penalty", body: "Leaving your job at 55 or later lets you withdraw from that employer's plan penalty-free. Substantially equal periodic payments, called SEPP or 72(t), allow scheduled withdrawals at any age. Disability, death, certain medical expenses, and court-ordered divorce settlements also qualify. Hardship withdrawals ease access rules but do not always waive the penalty." },
       { title: "What still costs you", body: "Even when the penalty is waived, the withdrawal is usually still taxable income. A big withdrawal can also push you into a higher tax bracket for the year. Rolling the money into an IRA instead keeps it growing tax-deferred. Treat early withdrawals as a last resort, not a plan." },
+      { title: "Emergency money: $1,000 a year, no penalty", body: "Since 2024, SECURE 2.0 lets you take one penalty-free distribution per year of up to $1,000 for personal or family emergency expenses. You self-certify the need, with no documentation to the IRS up front. The catch: you can't take another one for three years unless you repay the first or your later contributions at least match what you took. The income tax still applies. It's a pressure valve, not a strategy." },
+      { title: "Birth or adoption: $5,000 per child, per parent", body: "Qualified birth or adoption distributions let each parent take up to $5,000 per child penalty-free, within a year of the birth or finalized adoption. Both parents can each take $5,000 for the same child. You can repay it later and recover the tax through an amended return. Like every exception here, the 10% penalty is waived but the income tax isn't." },
+      { title: "The medical-expense math: 7.5% of your income", body: "Distributions for unreimbursed medical expenses skip the penalty to the extent they exceed 7.5% of your adjusted gross income. With $80,000 of AGI, the first $6,000 of medical bills doesn't count. Everything above it does. You don't need to itemize to use this exception. Keep the bills and receipts, because this is the one the IRS can ask you to prove." },
     ],
     comparison: {
       caption: "Common penalty exceptions compared",
@@ -1237,6 +1313,8 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       { q: "Does the rule of 55 work if I quit at 54?", a: "No. You must separate from service in the calendar year you turn 55 or later. Quitting at 54 and withdrawing at 55 does not qualify. Public safety employees have a lower threshold of 50." },
       { q: "Are hardship withdrawals penalty-free?", a: "Not automatically. Hardship rules let you access the money, but the 10% penalty still applies unless a separate exception covers you. Medical expenses above a set share of income are one exception that can pair with hardship. Check the IRS list before you withdraw." },
+      { q: "Does a penalty exception also waive the income tax?", a: "Almost never. The exceptions waive the 10% additional tax, not the income tax. The distribution is still taxable income in the year you take it. Roth contributions are the main carve-out, since you already paid tax on that money." },
+      { q: "What about domestic abuse or terminal illness?", a: "Both are newer exceptions. Victims of domestic abuse by a spouse or partner can take up to the lesser of $10,000 or half the vested balance, and people with a physician-certified terminal illness can take penalty-free distributions. Income tax still applies to both." },
     ],
     sources: [
       { title: "Source: IRS tax on early 401(k) distributions", url: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-tax-on-early-distributions" },
