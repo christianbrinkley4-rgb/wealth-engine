@@ -1,0 +1,393 @@
+/*
+ * /tools calculator chrome. Main-site palette and type scale, so the tools
+ * feel like the rest of the site instead of the wealth microsite. Nothing
+ * here touches shared files.
+ */
+
+.t-hero-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-gold);
+}
+
+.t-calc {
+  display: grid;
+  gap: 1.75rem;
+}
+
+@media (min-width: 960px) {
+  .t-calc {
+    grid-template-columns: 5fr 7fr;
+    align-items: start;
+  }
+}
+
+.t-controls {
+  display: grid;
+  gap: 1.25rem;
+  background: #ffffff;
+  border: 1px solid #d9ded8;
+  border-radius: var(--border-radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+}
+
+.t-field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9444rem;
+  color: var(--color-navy);
+}
+
+.t-field .t-display {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+.t-field input[type="range"] {
+  width: 100%;
+  margin-top: 0.5rem;
+  accent-color: var(--color-navy);
+}
+
+.t-hint {
+  font-size: 0.8333rem;
+  color: var(--color-ink-muted);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+
+.t-money {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.t-money span {
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.t-money input,
+.t-field select,
+.t-text-input {
+  font: inherit;
+  color: var(--color-navy);
+  background: #fff;
+  border: 1px solid #b9c2ba;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
+  width: 100%;
+}
+
+.t-money input:focus,
+.t-field select:focus,
+.t-text-input:focus {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 1px;
+}
+
+.t-radio-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.t-radio {
+  border: 1px solid #b9c2ba;
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-size: 0.9444rem;
+  font-weight: 600;
+  background: #fff;
+  color: var(--color-navy);
+  cursor: pointer;
+}
+
+.t-radio[aria-pressed="true"] {
+  background: var(--color-navy);
+  color: #fff;
+  border-color: var(--color-navy);
+}
+
+.t-panel {
+  background: #ffffff;
+  border: 1px solid #d9ded8;
+  border-radius: var(--border-radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+}
+
+.t-stat-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+}
+
+.t-stat {
+  border: 1px solid #e4e8e1;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  background: var(--color-paper);
+}
+
+.t-stat dt {
+  font-size: 0.8333rem;
+  font-weight: 600;
+  color: var(--color-ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.t-stat dd {
+  margin: 0.3rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.t-stat-hero {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+}
+
+.t-stat-hero dt {
+  color: var(--color-gold);
+}
+
+.t-stat-hero dd {
+  color: #fff;
+}
+
+.t-compare {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .t-compare {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.t-compare-card {
+  border: 1px solid #e4e8e1;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  background: var(--color-paper);
+}
+
+.t-compare-card h3 {
+  margin: 0;
+  font-size: 1.0556rem;
+}
+
+.t-compare-card[data-winner="true"] {
+  border-color: var(--color-navy);
+  box-shadow: inset 0 3px 0 var(--color-navy);
+}
+
+.t-winner-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--color-navy);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.t-kv {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.t-kv li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.9444rem;
+}
+
+.t-kv li strong {
+  color: var(--color-navy);
+  white-space: nowrap;
+}
+
+.t-table-wrap {
+  overflow-x: auto;
+}
+
+table.t-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9444rem;
+}
+
+.t-table th,
+.t-table td {
+  text-align: right;
+  padding: 0.5rem 0.6rem;
+  border-bottom: 1px solid #e4e8e1;
+  white-space: nowrap;
+}
+
+.t-table th:first-child,
+.t-table td:first-child {
+  text-align: left;
+}
+
+.t-table thead th {
+  font-size: 0.8333rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-muted);
+}
+
+.t-table tbody tr:last-child th,
+.t-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.t-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid #e4e8e1;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.t-legend {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 0.8333rem;
+  color: var(--color-ink-muted);
+}
+
+.t-legend i {
+  display: inline-block;
+  width: 1.6rem;
+  height: 0.22rem;
+  border-radius: 2px;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+}
+
+.t-assume {
+  border-left: 4px solid var(--color-navy);
+  background: var(--color-paper);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.9444rem;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+
+.t-assume strong {
+  color: var(--color-navy);
+}
+
+.t-disclaimer {
+  border: 1px solid #d9ded8;
+  border-radius: 10px;
+  background: #fff;
+  padding: 1rem 1.15rem;
+  font-size: 0.8333rem;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+
+.t-copy-btn {
+  justify-self: start;
+}
+
+.t-debt-row {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #e4e8e1;
+  border-radius: 10px;
+  padding: 0.9rem;
+  background: var(--color-paper);
+}
+
+@media (min-width: 640px) {
+  .t-debt-row {
+    grid-template-columns: 2fr 1.4fr 1fr 1.4fr auto;
+    align-items: end;
+  }
+}
+
+.t-debt-row .t-field label {
+  font-size: 0.8333rem;
+}
+
+.t-link-btn {
+  background: none;
+  border: none;
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.5rem;
+  min-height: 44px;
+}
+
+/* Hub landing cards */
+.t-hub-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .t-hub-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.t-hub-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 1.4rem;
+}
+
+.t-hub-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  color: var(--color-navy);
+}
+
+.t-hub-card p {
+  margin: 0;
+  color: var(--color-ink-muted);
+  line-height: 1.6;
+  font-size: 0.9444rem;
+}
+
+.t-hub-card .t-go {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
