@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
-import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
+import { MathSection, ToolClose } from "../_components/tool-footer";
 import { LifeInsuranceNeeds } from "./LifeInsuranceNeeds";
 
 const path = "/tools/life-insurance-needs";
@@ -56,6 +56,7 @@ export default function LifeInsuranceNeedsPage() {
       />
 
       <ServiceHero
+        variant="compact"
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Life insurance needs" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="How much life insurance is enough?"
@@ -71,7 +72,20 @@ export default function LifeInsuranceNeedsPage() {
         </div>
       </section>
 
-      <MathSection title="The math, in plain English">
+      <MathSection
+        title="The math, in plain English"
+        howTo={[
+          "Add up debts, not counting the mortgage.",
+          "Multiply yearly income by the years your family needs it.",
+          "Add the mortgage balance and future education costs.",
+          "Read the starting point, then talk to an agent before acting on it.",
+        ]}
+        formula={{
+          label: "The formula",
+          expression: "DIME = D + I + M + E\n\nD = debts (no mortgage)\nI = yearly income x years needed\nM = mortgage balance\nE = future education costs",
+          note: "A starting point for a conversation with an agent, not a coverage amount to buy.",
+        }}
+      >
         <p>
           <strong>D is debt:</strong> everything owed except the mortgage. <strong>I is income:</strong>{" "}
           yearly income times the years your family needs it. <strong>M is mortgage:</strong> the
@@ -89,11 +103,6 @@ export default function LifeInsuranceNeedsPage() {
         </p>
       </MathSection>
 
-      <div className="bg-white px-4">
-        <div className="app-shell max-w-3xl py-10">
-          <ToolsDisclaimer />
-        </div>
-      </div>
 
       <ToolClose
         wealthHref="/wealth/life-insurance-explained"

@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { DROPS_CONSENT_TEXT, normalizeDropsEmail } from "@/lib/wealth/drops";
+import { DROPS_CONSENT_TEXT, GUIDE_DROPS_CONSENT_TEXT, normalizeDropsEmail } from "@/lib/wealth/drops";
 
 /**
  * The route is exercised with every outside service unset and fetch blocked,
@@ -105,10 +105,10 @@ describe("tool-drop signups", () => {
     expect(fetchSpy).not.toHaveBeenCalled();
   });
 
-  it("says so, and points to a text, when email is not set up", async () => {
+  it("says so, without a list-specific fallback, when email is not set up", async () => {
     const response = await post({ email: "sam@example.com" });
     expect(response.status).toBe(503);
-    expect(((await response.json()) as { error: string }).error).toContain("Text DROPS");
+    expect(((await response.json()) as { error: string }).error).toContain("Try again");
     expect(fetchSpy).not.toHaveBeenCalled();
   });
 
@@ -116,5 +116,63 @@ describe("tool-drop signups", () => {
     expect(DROPS_CONSENT_TEXT).toMatch(/unsubscribe/i);
     expect(DROPS_CONSENT_TEXT).toMatch(/never sold or shared/i);
     expect(DROPS_CONSENT_TEXT).not.toMatch(/[—–]/);
+  });
+});
+
+describe("guide signups", () => {
+  it("labels the email and consent for the guides list", async () => {
+    const sent: Array<{ subject: string; text: string }> = [];
+    vi.doMock("@/lib/notifyLead", () => ({
+      sendStoredEmailSnapshot: async (options: { subject: string; text: string }) => {
+        sent.push({ subject: options.subject, text: options.text });
+        return { ok: true, retryable: false };
+      },
+    }));
+    vi.resetModules();
+    try {
+      const { POST } = await import("@/app/api/wealth-drops/route");
+      const response = await POST(
+        new Request("http://localhost/api/wealth-drops", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: "sam@example.com", list: "guides" }),
+        }),
+      );
+      expect(response.status).toBe(200);
+      expect(sent).toHaveLength(1);
+      expect(sent[0].subject).toContain("Guide signup");
+      expect(sent[0].text).toContain("new-guide emails");
+      expect(sent[0].text).toContain(GUIDE_DROPS_CONSENT_TEXT);
+    } finally {
+      vi.doUnmock("@/lib/notifyLead");
+      vi.resetModules();
+    }
+  });
+
+  it("defaults an unknown list to tool drops", async () => {
+    const sent: Array<{ subject: string; text: string }> = [];
+    vi.doMock("@/lib/notifyLead", () => ({
+      sendStoredEmailSnapshot: async (options: { subject: string; text: string }) => {
+        sent.push({ subject: options.subject, text: options.text });
+        return { ok: true, retryable: false };
+      },
+    }));
+    vi.resetModules();
+    try {
+      const { POST } = await import("@/app/api/wealth-drops/route");
+      const response = await POST(
+        new Request("http://localhost/api/wealth-drops", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: "sam@example.com", list: "bogus" }),
+        }),
+      );
+      expect(response.status).toBe(200);
+      expect(sent[0].subject).toContain("Tool drops signup");
+      expect(sent[0].text).toContain(DROPS_CONSENT_TEXT);
+    } finally {
+      vi.doUnmock("@/lib/notifyLead");
+      vi.resetModules();
+    }
   });
 });

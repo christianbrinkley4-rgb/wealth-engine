@@ -326,6 +326,12 @@ p {
   gap: 1rem;
   min-height: 4.25rem;
 }
+/* The 8-item nav needs more room than the content shell: the header gets a
+   wider measure, and the desktop nav compacts (icon-only call pill, tighter
+   links) so everything fits without overflow. */
+.nav .shell {
+  --shell: 1360px;
+}
 .nav-brand {
   display: flex;
   align-items: center;
@@ -548,7 +554,7 @@ p {
     display: inline;
   }
 }
-@media (min-width: 1080px) {
+@media (min-width: 1440px) {
   .nav-links {
     display: block;
   }
@@ -561,11 +567,13 @@ p {
   .nav-sheet {
     display: none;
   }
-}
-@media (min-width: 1080px) and (max-width: 1279px) {
-  .nav-call-number,
-  .nav-license-place {
+  /* Compact the 8-item nav so it fits the 1360px header shell. */
+  .nav-license-place,
+  .nav-call-number {
     display: none;
+  }
+  .nav-links a {
+    padding: 0 0.55rem;
   }
 }
 
@@ -1187,6 +1195,157 @@ details[open]::details-content {
     flex-shrink: 0;
     color: var(--honey-300);
   }
+}
+
+/* ─── Service hero variants ─────────────────────────────────────────── */
+
+.sh-compact {
+  padding: clamp(1.25rem, 3vw, 2rem) 0 clamp(1.75rem, 4vw, 2.75rem);
+}
+.sh-compact .sh-grid {
+  gap: 1.25rem;
+}
+.sh-compact .sh-eyebrow {
+  margin-top: 0.75rem;
+}
+.sh-compact .sh-title {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+.sh-compact .sh-lede {
+  margin-top: 0.8rem;
+}
+.sh-compact .sh-actions {
+  margin-top: 1.25rem;
+}
+@media (min-width: 900px) {
+  .sh-compact .sh-grid {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  /* Keep the small ID card: never promote to the big portrait column. */
+  .sh-compact .sh-figure {
+    display: grid;
+    grid-template-columns: 4.75rem 1fr;
+    align-items: center;
+    gap: 0.25rem 1rem;
+    max-width: 22rem;
+    padding: 1rem;
+    border: 1px solid rgba(251, 248, 241, 0.12);
+    border-radius: var(--radius);
+    background: rgba(251, 248, 241, 0.04);
+  }
+  .sh-compact .sh-photo {
+    width: 4.75rem;
+    height: 4.75rem;
+    aspect-ratio: auto;
+    border-radius: 50%;
+    box-shadow: none;
+    outline: none;
+  }
+  .sh-compact .sh-figure figcaption {
+    margin-top: 0;
+  }
+}
+
+/* Info: purely educational pages (/ai). Light band, no portrait, chip list. */
+.sh-info {
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--line);
+}
+.sh-info .sh-glow {
+  display: none;
+}
+.sh-info .sh-title {
+  color: var(--color-navy);
+}
+.sh-info .sh-lede {
+  color: var(--color-ink-muted);
+}
+.sh-info .sh-crumbs {
+  color: var(--color-ink-muted);
+}
+.sh-info .sh-crumbs a {
+  color: var(--color-navy);
+  text-decoration-color: rgba(21, 46, 52, 0.3);
+}
+.sh-info .sh-note {
+  color: var(--color-ink-muted);
+}
+.sh-info .btn-ghost-light {
+  --btn-fg: var(--pine-900);
+  --btn-border: var(--pine-900);
+}
+.sh-info .btn-ghost-light:hover {
+  --btn-bg: rgba(21, 46, 52, 0.06);
+  --btn-border: var(--pine-900);
+}
+.sh-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.sh-chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+.sh-chips svg {
+  flex-shrink: 0;
+  color: var(--pine-700, #2c5d51);
+}
+
+/* ─── Hub card grid (shared pattern: /tools, /guides) ─────────────────── */
+.hub-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 720px) {
+  .hub-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.hub-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 1.4rem;
+}
+.hub-card h2,
+.hub-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  color: var(--color-navy);
+}
+.hub-card p {
+  margin: 0;
+  color: var(--color-ink-muted);
+  line-height: 1.6;
+  font-size: 0.9444rem;
+}
+.hub-card .hub-go {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+/* Date-stamped data line: "Figures current as of October 2026." */
+.data-fresh {
+  font-size: 0.85rem;
+  color: var(--color-ink-muted);
+  margin: 0;
 }
 
 /* ─── Page close ──────────────────────────────────────────────────────── */

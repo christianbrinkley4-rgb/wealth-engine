@@ -102,11 +102,12 @@ export function TakeHomePay() {
   return (
     <div className="t-calc">
       <div className="t-controls">
-        <MoneyField label="Gross salary (per year)" value={gross} onChange={(v) => setGross(Math.max(0, v))} />
+        <MoneyField label="Gross salary (per year)" value={gross} onChange={(v) => setGross(Math.max(0, v))} hint="Your pay before taxes and deductions, for the whole year." />
         <ChoiceField<FilingStatus>
           label="Filing status"
           value={status}
           onChange={setStatus}
+          hint="Single or married filing jointly. It changes which tax brackets apply."
           options={[
             { value: "single", label: "Single" },
             { value: "joint", label: "Married filing jointly" },
@@ -116,6 +117,7 @@ export function TakeHomePay() {
           label="Pay frequency"
           value={frequency}
           onChange={setFrequency}
+          hint="How often you get a paycheck. It only changes the per-paycheck split."
           options={[
             { value: "weekly", label: "Weekly (52 paychecks)" },
             { value: "biweekly", label: "Every two weeks (26)" },

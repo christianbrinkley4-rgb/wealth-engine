@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
-import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
+import { MathSection, ToolClose } from "../_components/tool-footer";
 import { Budget } from "./Budget";
 
 const path = "/tools/budget";
@@ -56,6 +56,7 @@ export default function BudgetPage() {
       />
 
       <ServiceHero
+        variant="compact"
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Budget" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Budget, in one screen"
@@ -71,7 +72,19 @@ export default function BudgetPage() {
         </div>
       </section>
 
-      <MathSection title="The math, in plain English">
+      <MathSection
+        title="The math, in plain English"
+        howTo={[
+          "Start with your monthly take-home pay, the amount that lands in your account.",
+          "Fill in each spending category with your best honest guess.",
+          "Read the leftover line. That is your verdict.",
+          "Nudge one category at a time and watch the verdict change.",
+        ]}
+        formula={{
+          label: "The formula",
+          expression: "Leftover = take-home pay - (housing + transport + food\n  + utilities + insurance + debt + fun + savings + other)\n\nCategory share = category / take-home pay",
+        }}
+      >
         <p>
           The verdict is subtraction. Leftover is your monthly take-home pay minus every expense
           category added together. If the number is negative, you are spending more than you bring
@@ -94,11 +107,6 @@ export default function BudgetPage() {
         </p>
       </MathSection>
 
-      <div className="bg-white px-4">
-        <div className="app-shell max-w-3xl py-10">
-          <ToolsDisclaimer />
-        </div>
-      </div>
 
       <ToolClose
         wealthHref="/wealth/budgeting-that-actually-works"

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
-import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
+import { MathSection, ToolClose } from "../_components/tool-footer";
 import { CompoundInterest } from "./CompoundInterest";
 
 const path = "/tools/compound-interest";
@@ -56,6 +56,7 @@ export default function CompoundInterestPage() {
       />
 
       <ServiceHero
+        variant="compact"
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Compound interest" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Compound interest, live"
@@ -71,7 +72,21 @@ export default function CompoundInterestPage() {
         </div>
       </section>
 
-      <MathSection title="The math, in plain English">
+      <MathSection
+        title="The math, in plain English"
+        howTo={[
+          "Set a starting amount. Zero works if you are just getting going.",
+          "Pick a monthly contribution you could actually keep up with.",
+          "Choose how many years the money stays put and compounding.",
+          "Try a low, middle, and high yearly rate to see a range instead of one guess.",
+        ]}
+        formula={{
+          label: "The formula",
+          expression:
+            "Balance = P x (1 + r/12)^n + PMT x (((1 + r/12)^n - 1) / (r/12))\n\nP = starting amount, PMT = monthly contribution,\nr = assumed yearly rate, n = number of months",
+          note: "The tool walks through every month one at a time instead of using the closed formula. Same answer either way.",
+        }}
+      >
         <p>
           Compounding is growth on top of growth. Your money earns a return, then that return earns
           its own return. Over long stretches, most of the final balance can come from growth, not
@@ -92,11 +107,6 @@ export default function CompoundInterestPage() {
         </p>
       </MathSection>
 
-      <div className="bg-white px-4">
-        <div className="app-shell max-w-3xl py-10">
-          <ToolsDisclaimer />
-        </div>
-      </div>
 
       <ToolClose
         wealthHref="/wealth/money-moves-in-your-20s"

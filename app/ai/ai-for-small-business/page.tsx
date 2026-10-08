@@ -77,6 +77,7 @@ export default function AiForSmallBusinessPage() {
       />
 
       <ServiceHero
+        variant="info"
         hidePhoneCta
         crumbs={[
           { name: "Home", href: "/" },

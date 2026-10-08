@@ -11,7 +11,6 @@ import {
   Landmark,
   Phone,
   ShieldCheck,
-  Star,
 } from "lucide-react";
 
 import { EnrollmentWindow } from "@/components/home/EnrollmentWindow";
@@ -24,6 +23,7 @@ import {
 } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
 import { faqJsonLd, localBusinessJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
+import { SITE_STATS } from "@/lib/siteStats";
 import { hasTestimonials } from "@/lib/testimonials";
 import { featuredPlaces } from "@/lib/triad";
 
@@ -227,6 +227,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Trust by numbers ───────────────────────────────────────────── */}
+      <section className="tband" aria-label="What this site offers">
+        <div className="shell tband-inner">
+          <dl className="tband-stats">
+            <div className="tband-stat">
+              <dt>
+                <Link href="/tools">Free calculators</Link>
+              </dt>
+              <dd>{SITE_STATS.calculators}</dd>
+            </div>
+            <div className="tband-stat">
+              <dt>
+                <Link href="/guides">Plain-English guides</Link>
+              </dt>
+              <dd>{SITE_STATS.guides}</dd>
+            </div>
+            <div className="tband-stat">
+              <dt>
+                <Link href="/wealth">Money articles</Link>
+              </dt>
+              <dd>{SITE_STATS.articles}</dd>
+            </div>
+          </dl>
+          <p className="tband-note">Counted from the pages on this site. All free, no account.</p>
+        </div>
+      </section>
+
       {/* ── Where are you right now? ───────────────────────────────────── */}
       <section className="section-tight sit" aria-labelledby="sit-heading">
         <div className="shell">
@@ -412,13 +439,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Learning Hub ───────────────────────────────────────────────── */}
+      {/* ── Guides ───────────────────────────────────────────────────────── */}
       <section className="section lib" aria-labelledby="lib-heading">
         <div className="shell">
           <div className="section-head split">
             <div>
               <p className="eyebrow" data-reveal>
-                The Learning Hub
+                Guides
               </p>
               <h2 id="lib-heading" data-reveal style={{ "--i": 1 } as React.CSSProperties}>
                 Read first. <em>Call when you’re ready.</em>
@@ -453,7 +480,7 @@ export default function HomePage() {
           </ul>
           <div className="lib-foot" data-reveal>
             <Link href="/learn" className="btn btn-outline">
-              <BookOpen size={18} aria-hidden /> Browse the Learning Hub
+              <BookOpen size={18} aria-hidden /> Browse the guides
             </Link>
           </div>
         </div>
@@ -466,29 +493,31 @@ export default function HomePage() {
         <section className="section-tight rv" aria-labelledby="rv-heading">
           <div className="shell">
             <div className="rv-card" data-reveal>
-              <div className="rv-stars" aria-hidden>
-                {Array.from({ length: 5 }, (_, i) => (
-                  <Star key={i} size={20} strokeWidth={1.5} />
-                ))}
-              </div>
+              <a
+                href={GOOGLE_MAPS_PROFILE_URL}
+                className="rv-gcard"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="rv-gbadge" aria-hidden>
+                  G
+                </span>
+                <span className="rv-gtext">
+                  <strong>Christian Brinkley</strong>
+                  <span>Google Business Profile · Greensboro, NC</span>
+                </span>
+                <ArrowRight size={18} className="rv-go" aria-hidden />
+              </a>
               <h2 id="rv-heading">I’d rather earn reviews than write them.</h2>
               <p>
                 You won’t find made-up testimonials on this site. When people I’ve helped leave a
-                review, it’ll show up right here, word for word. If we’ve worked together, I’d really
-                appreciate one.
+                review on Google, it’ll show up right here, word for word. If we’ve worked together,
+                I’d really appreciate one.
               </p>
               <div className="rv-actions">
                 <Link href="/review" className="btn btn-outline btn-sm">
                   Worked with me? Leave a review
                 </Link>
-                <a
-                  href={GOOGLE_MAPS_PROFILE_URL}
-                  className="link-draw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>See my Google profile</span>
-                </a>
               </div>
             </div>
           </div>

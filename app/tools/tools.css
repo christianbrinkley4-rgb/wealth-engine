@@ -102,6 +102,7 @@
   border: 1px solid #b9c2ba;
   border-radius: 999px;
   padding: 0.45rem 1rem;
+  min-height: 44px;
   font-size: 0.9444rem;
   font-weight: 600;
   background: #fff;
@@ -390,4 +391,22 @@ table.t-table {
   margin-top: 0.9rem;
   font-weight: 700;
   color: var(--color-navy);
+}
+
+/* Literal formula block inside MathSection (AI-citation bait, plain reading). */
+.t-formula {
+  border: 1px solid var(--color-line, #e5e0d5);
+  border-radius: 0.75rem;
+  background: #ffffff;
+  padding: 1.1rem 1.25rem;
+}
+.t-formula-expr {
+  margin: 0.6rem 0 0;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-navy);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
 }

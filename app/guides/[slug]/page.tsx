@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { GuideCapture } from "@/app/components/GuideCapture";
 import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 import { findTrafficGuide, TRAFFIC_GUIDES, TRAFFIC_GUIDE_DATE } from "@/lib/trafficGuides";
@@ -175,6 +176,9 @@ export default async function TrafficGuidePage({ params }: Props) {
             ))}
           </ul>
         </nav>
+        <aside className="mt-10">
+          <GuideCapture />
+        </aside>
         <aside className="mt-10 rounded-xl bg-[var(--color-paper)] p-6">
           <h2 className="text-28 font-semibold">Have an insurance question?</h2>
           <p className="text-17 mt-3">

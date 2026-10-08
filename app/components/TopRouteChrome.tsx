@@ -11,8 +11,9 @@ import { AGENT } from "@/lib/agent";
 const NAV = [
   { href: "/turning-65", label: "Turning 65" },
   { href: "/annual-enrollment", label: "On Medicare" },
-  { href: "/learn", label: "Learning Hub" },
-  { href: "/guides", label: "Guides" },
+  { href: "/learn", label: "Medicare guides" },
+  { href: "/guides", label: "Money & tax guides" },
+  { href: "/wealth/learn", label: "Money guides" },
   { href: "/taxes-and-retirement", label: "Taxes & Retirement" },
   { href: "/wealth", label: "Wealth" },
   { href: "/about", label: "About" },

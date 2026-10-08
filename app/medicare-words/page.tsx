@@ -56,7 +56,7 @@ export default function MedicareWordsPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Learning Hub", path: "/learn" },
+              { name: "Medicare guides", path: "/learn" },
               { name: "Medicare words", path: PATH },
             ]),
           ),
@@ -70,7 +70,7 @@ export default function MedicareWordsPage() {
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Learning Hub", href: "/learn" },
+          { name: "Medicare guides", href: "/learn" },
           { name: "Medicare words" },
         ]}
         eyebrow="Medicare, translated"

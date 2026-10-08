@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
-import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
+import { MathSection, ToolClose } from "../_components/tool-footer";
 import { RetirementProjector } from "./RetirementProjector";
 
 const path = "/tools/retirement-projector";
@@ -56,6 +56,7 @@ export default function RetirementProjectorPage() {
       />
 
       <ServiceHero
+        variant="compact"
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Retirement projector" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="What could your savings reach?"
@@ -71,7 +72,20 @@ export default function RetirementProjectorPage() {
         </div>
       </section>
 
-      <MathSection title="The math, in plain English">
+      <MathSection
+        title="The math, in plain English"
+        howTo={[
+          "Enter your age now and the age you want to retire. That is the timeline.",
+          "Add what you have saved so far.",
+          "Set a monthly contribution you could keep up.",
+          "Try a low, middle, and high growth rate to see a range, not one guess.",
+        ]}
+        formula={{
+          label: "The formula",
+          expression: "Balance = P x (1 + r/12)^n + PMT x (((1 + r/12)^n - 1) / (r/12))\n\nP = saved so far, PMT = monthly contribution,\nr = assumed yearly growth, n = months until your retirement age",
+          note: "The tool walks through every month one at a time. The rate is steady here; real returns bounce around.",
+        }}
+      >
         <p>
           Each month, the balance grows by one twelfth of your yearly rate. Then your monthly
           contribution is added. That repeats every month until your retirement age.
@@ -92,11 +106,6 @@ export default function RetirementProjectorPage() {
         </p>
       </MathSection>
 
-      <div className="bg-white px-4">
-        <div className="app-shell max-w-3xl py-10">
-          <ToolsDisclaimer />
-        </div>
-      </div>
 
       <ToolClose
         wealthHref="/wealth/money-moves-in-your-20s"

@@ -38,7 +38,7 @@ export function CompoundInterest() {
   return (
     <div className="t-calc">
       <div className="t-controls">
-        <MoneyField label="Starting amount" value={start} onChange={(v) => setStart(Math.max(0, v))} />
+        <MoneyField label="Starting amount" value={start} onChange={(v) => setStart(Math.max(0, v))} hint="What you have saved today. Zero is a fine place to start." />
         <Slider
           label="Monthly contribution"
           value={monthly}
@@ -47,6 +47,7 @@ export function CompoundInterest() {
           step={25}
           display={money(monthly)}
           onChange={setMonthly}
+          hint="What you add each month, on top of the starting amount."
         />
         <Slider
           label="Years"
@@ -55,6 +56,7 @@ export function CompoundInterest() {
           max={50}
           display={`${years} years`}
           onChange={setYears}
+          hint="How long the money stays invested and compounding."
         />
         <PercentField
           label="Assumed yearly rate"

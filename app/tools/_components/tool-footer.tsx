@@ -15,14 +15,25 @@ import { AGENT } from "@/lib/agent";
 export function ToolsDisclaimer() {
   return (
     <div className="t-disclaimer" role="note">
-      <strong>Results are estimates for education, not financial advice.</strong> Christian is a licensed
-      insurance agent (NC Life &amp; Health), not a registered investment adviser.
+      <strong>Results are estimates for education, not financial advice.</strong>{" "}Christian is a licensed insurance agent (NC Life &amp; Health), not a registered investment adviser.
     </div>
   );
 }
 
 /** Plain-English explanation of the math a tool uses. */
-export function MathSection({ title, children }: { title: string; children: ReactNode }) {
+export function MathSection({
+  title,
+  children,
+  howTo,
+  formula,
+}: {
+  title: string;
+  children: ReactNode;
+  /** Numbered "how to use this calculator" walkthrough, shown before the formula. */
+  howTo?: readonly string[];
+  /** The literal formula the tool computes, for readers (and AI citations) that want it. */
+  formula?: { label: string; expression: string; note?: string };
+}) {
   return (
     <section className="bg-[var(--color-paper)] py-14">
       <div className="measure-prose app-shell max-w-3xl">
@@ -30,6 +41,35 @@ export function MathSection({ title, children }: { title: string; children: Reac
         <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
           {children}
         </div>
+        {howTo && howTo.length > 0 ? (
+          <>
+            <h3 className="text-19 mt-8 font-semibold">How to use this calculator</h3>
+            <ol className="text-17 mt-3 space-y-2 leading-relaxed text-[var(--color-ink-muted)]">
+              {howTo.map((step, index) => (
+                <li key={index} className="flex gap-3">
+                  <span
+                    aria-hidden
+                    className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-navy)] text-13 font-semibold text-white"
+                  >
+                    {index + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </>
+        ) : null}
+        {formula ? (
+          <div className="t-formula mt-8">
+            <h3 className="text-19 font-semibold">{formula.label}</h3>
+            <p className="t-formula-expr" aria-label={`Formula: ${formula.expression}`}>
+              {formula.expression}
+            </p>
+            {formula.note ? (
+              <p className="text-15 mt-3 leading-relaxed text-[var(--color-ink-muted)]">{formula.note}</p>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     </section>
   );

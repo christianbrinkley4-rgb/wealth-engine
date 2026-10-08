@@ -27,7 +27,7 @@ const HIDE_PREFIXES = [
   // The money hub for younger visitors has its own calls to action.
   "/wealth",
   "/links",
-  // The /ai guides are purely informational; no phone number or sales CTA.
+  // The /ai guides are purely informational; no phone number anywhere on them.
   "/ai",
 ];
 

@@ -18,8 +18,9 @@ const START = [
 ] as const;
 
 const LEARN = [
-  { href: "/learn", label: "Learning Hub" },
-  { href: "/guides", label: "Money, tax & Medicare guides" },
+  { href: "/learn", label: "Medicare guides" },
+  { href: "/guides", label: "Money & tax guides" },
+  { href: "/wealth/learn", label: "Money guides" },
   { href: "/numbers", label: "2026-2027 money numbers" },
   { href: "/answers", label: "Medicare questions, answered" },
   { href: "/ask", label: "Ask Christian" },
@@ -125,7 +126,7 @@ export function SiteFooter() {
           </div>
 
           <div className="ft-col">
-            <h3>Learn</h3>
+            <h3>Guides</h3>
             <ul>
               {LEARN.map((item) => (
                 <li key={item.href}>

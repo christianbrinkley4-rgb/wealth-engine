@@ -134,11 +134,13 @@ export function ChoiceField<T extends string>({
   options,
   value,
   onChange,
+  hint,
 }: {
   label: string;
   options: Array<{ value: T; label: string }>;
   value: T;
   onChange: (value: T) => void;
+  hint?: string;
 }) {
   return (
     <div className="t-field">
@@ -158,6 +160,7 @@ export function ChoiceField<T extends string>({
           </button>
         ))}
       </div>
+      {hint ? <p className="t-hint">{hint}</p> : null}
     </div>
   );
 }
