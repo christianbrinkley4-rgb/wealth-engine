@@ -61,7 +61,7 @@ primary or strong secondary sources on October 8, 2026. None are invented.
 - **Why:** Spikes every December. Existing answers split into two weak camps:
   penalty-scare pieces and forum Q&A. This page handles both cases cleanly
   (already enrolled = auto-renewal + the Jan 1-Mar 31 Advantage second chance;
-  never enrolled = GEP Jan 1-Mar 31, coverage July 1, permanent penalties)
+  never enrolled = check SEP first, otherwise GEP Jan 1-Mar 31 with coverage the following month and possible penalties)
   with a next-windows table and a 4-step action list.
 - **Measure:** ranking for "missed medicare open enrollment"; seasonal traffic
   Dec-Jan; assists to /special-enrollment and /start.
@@ -147,3 +147,93 @@ primary or strong secondary sources on October 8, 2026. None are invented.
   dashes, no hedges, no banned phrases. A lint script lives at /tmp
   (lint_articles.py / lint2.py) for reuse; consider promoting one into the
   repo before the next batch.
+
+## Second batch: practical tax and account-change questions
+
+Prepared October 8, 2026 on a feature branch based on production commit fd99ea3. Not deployed.
+
+The referenced KEYWORD-BATTLE-PLAN-2026-10-08.md was absent from origin/master. The separate research note records this batch's evidence rather than reconstructing an unseen plan.
+
+Selection is qualitative. No search-volume data, Search Console access, traffic ranking, or keyword-difficulty export was available. Search results include strong IRS and national-publisher answers; these are specific intent gaps, not proven weak competition. Existing hubs are internal-link starting points, not measured high-traffic pages.
+
+### 1. /guides/overtime-tax-deduction-2026
+- Target query: "does all overtime qualify for no tax on overtime 2026"
+- Why chosen: Fresh deduction confusion. Narrow the broad headline to qualifying pay and records; national publisher and IRS competition remains strong.
+- Scope: National, federal education
+- Sources: [IRS: Overtime deduction rules](https://www.irs.gov/newsroom/what-to-know-about-the-no-tax-on-overtime-deduction); [IRS: Tips and overtime deductions](https://www.irs.gov/newsroom/one-big-beautiful-bill-how-to-take-advantage-of-no-tax-on-tips-and-overtime)
+- Measure: URL-level Search Console impressions, clicks, CTR, query mix, and related-page engagement after publication. Track the target query in monthly AI citation spot checks.
+
+### 2. /guides/tips-tax-deduction-2026
+- Target query: "no tax on tips 2026 service charges qualify"
+- Why chosen: Separate voluntary tips from automatic charges. The new rules create a records-focused long-tail opening beyond generic deduction explainers.
+- Scope: National, federal education
+- Sources: [IRS: Tip recordkeeping and reporting](https://www.irs.gov/businesses/small-businesses-self-employed/tip-recordkeeping-and-reporting); [IRS: Tips and overtime deductions](https://www.irs.gov/newsroom/one-big-beautiful-bill-how-to-take-advantage-of-no-tax-on-tips-and-overtime)
+- Measure: URL-level Search Console impressions, clicks, CTR, query mix, and related-page engagement after publication. Track the target query in monthly AI citation spot checks.
+
+### 3. /guides/teen-tax-return-dependent
+- Target query: "does my teenager need to file taxes if I claim them"
+- Why chosen: Existing teen first-job content covers paychecks. This page addresses the parent-dependent filing decision and self-employment exception.
+- Scope: National, federal education
+- Sources: [IRS: Students and taxes](https://www.irs.gov/individuals/students); [IRS: Check whether you must file](https://www.irs.gov/individuals/check-if-you-need-to-file-a-tax-return); [IRS: Self-employed tax center](https://www.irs.gov/businesses/small-businesses-self-employed/self-employed-individuals-tax-center)
+- Measure: URL-level Search Console impressions, clicks, CTR, query mix, and related-page engagement after publication. Track the target query in monthly AI citation spot checks.
+
+### 4. /guides/1099-k-personal-items-sold-at-loss
+- Target query: "1099 k personal items sold at a loss what to do"
+- Why chosen: Records and classification are more useful than another reporting-threshold headline. Connect the existing side-hustle guide to a specific filing problem.
+- Scope: National, federal education
+- Sources: [IRS: What to do with Form 1099-K](https://www.irs.gov/businesses/what-to-do-with-form-1099-k); [IRS: Form 1099-K questions](https://www.irs.gov/businesses/understanding-your-form-1099-k)
+- Measure: URL-level Search Console impressions, clicks, CTR, query mix, and related-page engagement after publication. Track the target query in monthly AI citation spot checks.
+
+### 5. /guides/tax-extension-cannot-pay
+- Target query: "tax extension deadline cannot pay taxes what happens"
+- Why chosen: Timely before the October filing-extension deadline. Answer the unpaid-balance problem without debt-relief sales pressure.
+- Scope: National, federal education
+- Sources: [IRS: Extension to file](https://www.irs.gov/filing/get-an-extension-to-file-your-tax-return); [IRS: Help paying a tax bill](https://www.irs.gov/newsroom/options-for-taxpayers-who-need-help-paying-a-tax-bill)
+- Measure: URL-level Search Console impressions, clicks, CTR, query mix, and related-page engagement after publication. Track the target query in monthly AI citation spot checks.
+
+### 6. /guides/unemployment-tax-withholding
+- Target query: "is unemployment taxable should I withhold 10 percent"
+- Why chosen: Bridge the gap between a yes/no tax answer and the specific withholding form. Useful alongside the existing money-trouble content.
+- Scope: National, federal education
+- Sources: [IRS: Unemployment compensation](https://www.irs.gov/individuals/employees/unemployment-compensation); [IRS: Form W-4V and instructions](https://www.irs.gov/pub/irs-pdf/fw4v.pdf)
+- Measure: URL-level Search Console impressions, clicks, CTR, query mix, and related-page engagement after publication. Track the target query in monthly AI citation spot checks.
+
+### 7. /guides/inherited-ira-ten-year-rule
+- Target query: "inherited IRA 10 year rule annual withdrawals required"
+- Why chosen: Competitive query with consequential oversimplifications. Use a tightly scoped decision table and records checklist, without withdrawal recommendations.
+- Scope: National, federal education
+- Sources: [IRS: Publication 590-B, IRA beneficiaries](https://www.irs.gov/publications/p590b)
+- Measure: URL-level Search Console impressions, clicks, CTR, query mix, and related-page engagement after publication. Track the target query in monthly AI citation spot checks.
+
+### 8. /guides/401k-rollover-after-leaving-job
+- Target query: "401k rollover after leaving job check 20 percent withholding"
+- Why chosen: Broad rollover results are crowded. Focus on payment mechanics and the avoidable check-payee confusion, linked from the existing 401(k) explainer.
+- Scope: National, federal education
+- Sources: [IRS: Leaving employment](https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-termination-of-employment); [IRS: Rollovers of retirement distributions](https://www.irs.gov/retirement-plans/plan-participant-employee/rollovers-of-retirement-plan-and-ira-distributions)
+- Measure: URL-level Search Console impressions, clicks, CTR, query mix, and related-page engagement after publication. Track the target query in monthly AI citation spot checks.
+
+### 9. /guides/hsa-fsa-after-leaving-job
+- Target query: "what happens to HSA FSA when you leave your job"
+- Why chosen: Existing HSA content explains tax benefits. A side-by-side departure checklist answers a different, time-sensitive question.
+- Scope: National, federal education
+- Sources: [IRS: Publication 969, HSAs and health FSAs](https://www.irs.gov/publications/p969)
+- Measure: URL-level Search Console impressions, clicks, CTR, query mix, and related-page engagement after publication. Track the target query in monthly AI citation spot checks.
+
+### 10. /guides/medicare-plan-not-renewing-triad
+- Target query: "Medicare plan not renewing Greensboro 2027 what to do"
+- Why chosen: Local seasonal intent distinct from the existing automatic-renewal guide. Explain the notice workflow without naming carriers or asserting local exits.
+- Scope: Greensboro, Winston-Salem, High Point, Burlington NC
+- Sources: [Medicare: Special Enrollment Periods](https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods)
+- Measure: URL-level Search Console impressions, clicks, CTR, query mix, and related-page engagement after publication. Track the target query in monthly AI citation spot checks.
+
+### Supporting discovery work
+
+Added /guides as a working browse index for both batches, contextual links from existing hubs and related articles, sitemap entries, and both llms indexes. Each new guide has canonical metadata, Article/BreadcrumbList/FAQPage JSON-LD, visible matching FAQs, a comparison table, records checklist, primary sources, contact details, educational disclosure, and an insurance-only /start invitation. No client-side calculator data is collected.
+
+### Measurement boundaries
+
+Capture a baseline at publication, then compare 28-day windows. Review seasonal Medicare queries weekly through enrollment and tax queries through filing season. Record actual AI citations and destination URLs, not just mentions. FAQ schema and llms files do not guarantee rich results, indexing, citations, or a first-place ranking. Do not treat zero traffic before deployment as a content result.
+
+### Correction found while linking existing guides
+
+Corrected /guides/missed-medicare-enrollment: General Enrollment coverage begins the month after signup, not July 1. Clarified premium Part A and the possible Special Enrollment Period. Qualified automatic-renewal text so it does not contradict nonrenewal notices or promise unchanged doctors and prescriptions. Source: [Medicare coverage start rules](https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start). This was a targeted correction, not a full audit of older pages.

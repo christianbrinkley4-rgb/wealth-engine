@@ -1,3 +1,4 @@
+import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -174,6 +175,13 @@ export default function ToolsHubPage() {
         </p>
         <ComplianceDisclosure />
       </div>
+    <TrafficGuideLinks
+        slugs={[
+          "401k-rollover-after-leaving-job",
+          "hsa-fsa-after-leaving-job",
+          "tax-extension-cannot-pay",
+        ]}
+      />
     </main>
   );
 }

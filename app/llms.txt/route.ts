@@ -1,3 +1,4 @@
+import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
 import {
   AGENT,
   COMPENSATION_DISCLOSURE,
@@ -17,6 +18,8 @@ export const dynamic = "force-static";
 
 /** New hub pages (Oct 2026): wealth library, tools, AI guides, SEO guides. */
 const NEW_GUIDE_PAGES = [
+  ...TRAFFIC_GUIDES.map((guide) => ({ path: `/guides/${guide.slug}`, title: guide.title, blurb: guide.answer })),
+  { path: "/guides", title: "Money, tax, and Medicare guides", blurb: "Browse practical guides by question." },
   { path: "/wealth/money-moves-in-your-20s", title: "Five money moves for your 20s", blurb: "The five money moves that matter most in your 20s, in plain English." },
   { path: "/wealth/roth-ira-explained", title: "Roth IRA, explained", blurb: "What a Roth IRA is, who it fits, and the 2026 IRS limits." },
   { path: "/wealth/building-in-public", title: "Building in public: the manifesto", blurb: "Why Christian documents his money journey in public." },

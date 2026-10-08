@@ -13,7 +13,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  *
  * Targets "what happens if you miss medicare open enrollment". Covers both
  * cases: already enrolled (auto-renewal, MA open enrollment second chance)
- * and never enrolled (GEP Jan 1-Mar 31, coverage July 1, penalties).
+ * and never enrolled (GEP Jan 1-Mar 31, coverage the following month, possible penalties).
  */
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     absolute: "Missed Medicare Enrollment? What Happens Next",
   },
   description:
-    "Missed the December 7 deadline? Your plan renews automatically. Missed your first enrollment at 65? Here are your next windows and the penalties to avoid.",
+    "Missed a Medicare enrollment deadline? Check renewal notices, special enrollment rights, and when coverage can start after signing up.",
   alternates: { canonical: "/guides/missed-medicare-enrollment" },
   openGraph: pageOpenGraph({
     title: "Missed Medicare enrollment? What happens next",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   {
     q: "Do I lose my Medicare coverage if I do nothing during open enrollment?",
-    a: "No. Your current plan renews automatically for the next year. You keep your coverage with no gap. You simply lose the chance to change plans until the next window.",
+    a: "Missing open enrollment doesn't itself cancel coverage. Coverage generally renews if the plan continues and you remain eligible. Check any nonrenewal notice and confirm next year's coverage.",
   },
   {
     q: "Can I still switch plans after December 7?",
@@ -42,7 +42,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "What is the General Enrollment Period?",
-    a: "The General Enrollment Period runs January 1 to March 31 each year. It is for people who missed their first chance to enroll in Part A and Part B at 65. Coverage starts July 1, and late penalties may apply.",
+    a: "The General Enrollment Period runs January 1 to March 31 each year for Part B and premium Part A. Coverage starts the month after you sign up. Check whether a Special Enrollment Period applies first. Late penalties may apply.",
   },
   {
     q: "How is the Part B late enrollment penalty calculated?",
@@ -112,18 +112,17 @@ export default function MissedMedicareEnrollmentPage() {
             <p className="text-19 font-semibold">In short</p>
             <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
               The Annual Enrollment Period runs October 15 to December 7 each year. Missing it does
-              not cancel your coverage. Your current plan renews on its own. What you lose is the
-              chance to change plans, unless another enrollment window opens for you.
+              not itself cancel your coverage. Renewal depends on the plan continuing and your
+              eligibility. Read any nonrenewal notice and check other enrollment windows.
             </p>
           </div>
 
           <h2 className="text-28 mt-12 font-semibold">Case 1: you already have a plan</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            If you like your current plan, doing nothing was the right move. Your Medicare
-            Advantage or Part D plan renews automatically for the next year. Your doctors, your
-            drugs, and your coverage continue with no gap. The one thing to check: your plan's
-            Annual Notice of Change, which arrives each September. Costs and networks can change
-            even when the plan name stays the same.
+            Coverage generally renews if the plan continues and you remain eligible. Check the
+            Annual Notice of Change and any nonrenewal letter. Doctors, covered drugs, costs,
+            and networks can change. A familiar plan name doesn't guarantee the same coverage.
+            Read the <Link href="/guides/medicare-plan-not-renewing-triad" className="underline">Triad nonrenewal checklist</Link> if your letter says coverage is ending.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             If you wanted to switch and missed the window, Medicare Advantage members get a second
@@ -134,10 +133,12 @@ export default function MissedMedicareEnrollmentPage() {
 
           <h2 className="text-28 mt-12 font-semibold">Case 2: you never enrolled at 65</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Your first enrollment window is the 7 months around your 65th birthday. If that passed
-            without enrolling, your next chance is the General Enrollment Period, January 1 to
-            March 31 each year. Coverage starts July 1. That leaves months with no Medicare
-            coverage, and late enrollment penalties may apply.
+            Your initial age-based enrollment window is the 7 months around your 65th birthday.
+            If you missed it, check whether a Special Enrollment Period applies. Otherwise,
+            General Enrollment runs January 1 to March 31 for Part B and premium Part A.
+            Coverage starts the month after you sign up. Late enrollment penalties may apply.
+            People eligible for premium-free Part A can generally sign up after first becoming eligible.
+            See <a href="https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start" className="underline">Medicare's coverage start rules</a>.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The penalties are permanent. Part B adds 10 percent to your premium for each full
@@ -180,7 +181,7 @@ export default function MissedMedicareEnrollmentPage() {
                   </th>
                   <td className="text-16 whitespace-nowrap py-4 pr-4">Jan 1 to Mar 31</td>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
-                    Enroll in Part A and Part B for the first time; coverage starts July 1
+                    Enroll in Part B or premium Part A; coverage starts the month after signing up
                   </td>
                 </tr>
                 <tr className="border-b border-gray-300 align-top">
