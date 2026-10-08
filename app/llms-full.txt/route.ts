@@ -208,6 +208,7 @@ Plain-language AI guides for regular people, written from Christian's experience
 - [AI for seniors](${SITE_URL}/ai/ai-for-seniors): simplest useful starting points for 65+, with scam warnings.
 - [AI money tasks](${SITE_URL}/ai/ai-money-tasks): budgeting help, bill scripts, and subscription audits.
 - [AI mistakes to avoid](${SITE_URL}/ai/ai-mistakes-to-avoid): hallucinations, sensitive data, and blind trust.
+- [Connect your AI assistant](${SITE_URL}/ai/connect): add the site as an MCP connector in Claude or any MCP app, setup steps and example prompts.
 - [The Learning Hub](${SITE_URL}/learn): every guide, answer, explainer, and tool on the site, organized by situation.
 - [Medicare words in plain English](${SITE_URL}/medicare-words): short definitions of Part A, Part B, Medicare Advantage, Part D, Medigap, IRMAA, and the enrollment periods.
 - [Short machine summary](${SITE_URL}/llms.txt): the compact version of this index.

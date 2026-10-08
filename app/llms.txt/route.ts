@@ -64,6 +64,7 @@ const NEW_GUIDE_PAGES = [
   { path: "/ai/ai-for-seniors", title: "AI for seniors", blurb: "Simplest useful starting points for 65+, with scam warnings." },
   { path: "/ai/ai-money-tasks", title: "AI money tasks", blurb: "Budgeting help, bill scripts, and subscription audits." },
   { path: "/ai/ai-mistakes-to-avoid", title: "AI mistakes to avoid", blurb: "Hallucinations, sensitive data, and blind trust." },
+  { path: "/ai/connect", title: "Connect your AI assistant", blurb: "Add the site as an MCP connector in Claude or any MCP app: setup steps, what it answers, example prompts." },
   { path: "/guides/what-medicare-does-not-cover", title: "What Medicare does not cover", blurb: "The exclusion list and cost-sharing gaps, plainly." },
   { path: "/guides/medicare-hsa-contributions", title: "Medicare and HSA contributions", blurb: "The 6-month retroactive Part A trap, as dated action steps." },
   { path: "/guides/working-while-collecting-social-security", title: "Working while collecting Social Security", blurb: "2026 earnings limits and how withheld benefits come back." },

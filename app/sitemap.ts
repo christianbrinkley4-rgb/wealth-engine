@@ -139,6 +139,7 @@ const STATIC_ROUTES: Array<{
     "/ai/ai-for-seniors",
     "/ai/ai-money-tasks",
     "/ai/ai-mistakes-to-avoid",
+    "/ai/connect",
   ].map((path) => ({
     path,
     changeFrequency: "weekly" as const,

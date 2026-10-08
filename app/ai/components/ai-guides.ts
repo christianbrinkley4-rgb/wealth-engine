@@ -44,4 +44,10 @@ export const AI_GUIDES: readonly AiGuide[] = [
     title: "AI mistakes to avoid",
     blurb: "Hallucinations, sensitive data, and blind trust. The three traps, and the fix.",
   },
+  {
+    slug: "connect",
+    title: "Connect your AI assistant",
+    blurb:
+      "Let Claude or another AI app read the site's guides, calculators, and 2027 numbers directly. Setup steps and example prompts.",
+  },
 ];
