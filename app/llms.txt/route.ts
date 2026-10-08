@@ -1,4 +1,5 @@
 import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
+import { ASK_QUESTIONS } from "@/lib/askWall";
 import {
   AGENT,
   COMPENSATION_DISCLOSURE,
@@ -75,6 +76,12 @@ const NEW_GUIDE_PAGES = [
   { path: "/guides/medicare-travel", title: "Does Medicare Advantage work out of state?", blurb: "Emergency coverage, HMO vs PPO travel, service-area rules." },
   { path: "/guides/irmaa-brackets-2026", title: "2026 IRMAA brackets", blurb: "The complete 2026 IRMAA table, verified against CMS." },
   { path: "/guides/standard-deduction-seniors-2026", title: "Standard deduction for seniors 2026", blurb: "2026 standard deduction plus the 65+ add-on amounts." },
+  { path: "/ask", title: "Ask Christian", blurb: "A public wall of real money, tax, and retirement questions, answered in plain English." },
+  ...ASK_QUESTIONS.map((question) => ({
+    path: `/ask/${question.slug}`,
+    title: question.title,
+    blurb: question.lede,
+  })),
 ] as const;
 
 export function GET() {

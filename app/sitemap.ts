@@ -1,6 +1,7 @@
 import { TRAFFIC_GUIDES, TRAFFIC_GUIDE_DATE } from "@/lib/trafficGuides";
 import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles";
+import { ASK_QUESTIONS } from "@/lib/askWall";
 import { SITE_URL } from "@/lib/seo";
 import { TAX_ARTICLES } from "@/lib/taxArticles";
 import { TRIAD_CITIES } from "@/lib/triad";
@@ -192,6 +193,19 @@ const STATIC_ROUTES: Array<{
     changeFrequency: "monthly" as const,
     priority: 0.85,
     lastModified: article.updated,
+  })),
+  // "Ask Christian" public Q&A wall.
+  {
+    path: "/ask",
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+    lastModified: "2026-10-08",
+  },
+  ...ASK_QUESTIONS.map((question) => ({
+    path: `/ask/${question.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+    lastModified: question.updated,
   })),
 ];
 

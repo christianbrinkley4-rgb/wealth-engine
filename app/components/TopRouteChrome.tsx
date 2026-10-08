@@ -21,6 +21,7 @@ const NAV = [
 const SHEET_EXTRA = [
   { href: "/plan-check", label: "Plan check quiz" },
   { href: "/answers", label: "Medicare questions, answered" },
+  { href: "/ask", label: "Ask Christian" },
   { href: "/service-area", label: "Towns I serve" },
   { href: "/ai", label: "AI guides" },
   { href: "/start", label: "Ask a question" },

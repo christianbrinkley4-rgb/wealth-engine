@@ -22,6 +22,7 @@ const LEARN = [
   { href: "/guides", label: "Money, tax & Medicare guides" },
   { href: "/numbers", label: "2026-2027 money numbers" },
   { href: "/answers", label: "Medicare questions, answered" },
+  { href: "/ask", label: "Ask Christian" },
   { href: "/medicare-words", label: "Medicare words, in plain English" },
   { href: "/taxes-and-retirement", label: "Taxes & retirement" },
   { href: "/advantage-vs-medigap", label: "Advantage or Medigap" },

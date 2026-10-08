@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
+import { NAME_MAX_LENGTH, validateQuestion } from "@/lib/askWall";
 import { normalizeUsPhone } from "@/lib/contact";
 import {
   captureInCommandCenter,
@@ -59,6 +60,10 @@ interface Attribution extends Record<string, string | undefined> {
 }
 
 interface LeadPayload {
+  /** "question" = the Ask Christian wall; everything else is the lead path. */
+  kind?: string;
+  /** The wall question, only when kind === "question". */
+  question?: string;
   /** "partial" = reached the contact step; "complete" = submitted contact details. */
   stage?: "partial" | "complete";
   email?: string;
@@ -220,6 +225,74 @@ export async function POST(request: NextRequest) {
 
     // Honeypot: pretend it worked so the bot doesn’t retry with a new shape.
     if (typeof body.website === "string" && body.website.trim().length > 0) {
+      return NextResponse.json({ success: true });
+    }
+
+    /* ---------------------------------------------------------------
+     * "Ask Christian" wall question. Informational, not a lead: no email,
+     * no consent, no lead scoring, no nurture, no owner alert, no Meta
+     * event. It lands in ask_questions for review before anything appears
+     * on the wall. The leads table cannot take it: email is NOT NULL and
+     * the source check constraint would reject a wall value.
+     * ------------------------------------------------------------- */
+    if (body.kind === "question") {
+      const turnstile = await verifyTurnstile(body.turnstile_token, ip);
+      if (!turnstile.ok) {
+        if (turnstile.reason === "verification-unavailable") {
+          return NextResponse.json(
+            {
+              error: "The form check is temporarily unavailable. Please try again shortly.",
+              code: "verification_unavailable",
+            },
+            { status: 503, headers: { "Retry-After": "30" } },
+          );
+        }
+        return NextResponse.json(
+          { error: "Couldn’t verify that you’re a person. Refresh the page and try once more." },
+          { status: 400 },
+        );
+      }
+
+      const name =
+        typeof body.full_name === "string"
+          ? body.full_name.trim().slice(0, NAME_MAX_LENGTH) || null
+          : null;
+      const validated = validateQuestion(body.question);
+      if (!validated.ok) {
+        return NextResponse.json({ error: validated.error, field: "question" }, { status: 400 });
+      }
+
+      if (!hasSupabaseAdminConfig()) {
+        console.error("[capture-lead] Supabase is not configured; wall question not stored.");
+        return NextResponse.json(
+          {
+            error: "I couldn’t save that right now. Please try again shortly.",
+            code: "storage_unavailable",
+          },
+          { status: 503 },
+        );
+      }
+
+      try {
+        const questionDb = getSupabaseAdmin();
+        const { error } = await questionDb.from("ask_questions").insert({
+          name,
+          question: validated.question,
+          attribution: normalizeAttribution(body.attribution),
+          ip_hint: ip,
+        });
+        if (error) throw new Error(error.message);
+      } catch (storageError) {
+        console.error("[capture-lead] ask_questions insert failed:", storageError);
+        return NextResponse.json(
+          {
+            error: "I couldn’t save that right now. Please try again shortly.",
+            code: "storage_unavailable",
+          },
+          { status: 503 },
+        );
+      }
+
       return NextResponse.json({ success: true });
     }
 

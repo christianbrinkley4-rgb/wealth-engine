@@ -111,6 +111,7 @@ export function GET() {
     `- [Medicare questions, answered](${SITE_URL}/answers): short answers to Medicare questions Triad neighbors actually asked.`,
     `- [Taxes and retirement hub](${SITE_URL}/taxes-and-retirement): plain-English explainers on Social Security taxes, RMDs, and Roth conversions.`,
     `- [The Learning Hub](${SITE_URL}/learn): every guide, answer, explainer, and tool on the site, organized by situation.`,
+    `- [Ask Christian](${SITE_URL}/ask): a public wall of real money, tax, and retirement questions, answered in plain English. Visitors can ask their own.`,
   ].join("\n");
 
   const calcLines = [
