@@ -74,6 +74,17 @@ export default function WealthHome() {
           })),
         }}
       />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          url: `${SITE_URL}/wealth`,
+          speakable: {
+            "@type": "SpeakableSpecification",
+            cssSelector: [".w-h1", ".w-lede"],
+          },
+        }}
+      />
 
       <section className="w-hero" data-spot>
         <div className="w-shell w-hero-grid">
@@ -159,6 +170,101 @@ export default function WealthHome() {
                 <span>{pillar.cta}</span>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-section" id="library" style={{ paddingTop: 0, scrollMarginTop: 110 }}>
+        <div className="w-shell">
+          <p className="w-eyebrow">The library</p>
+          <h2 className="w-h2" style={{ marginBottom: 12 }}>
+            Money guides, <span className="w-mark">by life stage.</span>
+          </h2>
+          <p className="w-lede" style={{ marginBottom: 28 }}>
+            Twenty-eight short guides. Pick where you are and start reading. Each one takes about
+            five minutes.
+          </p>
+          <div className="w-lib-grid">
+            <div className="w-lib-group" data-reveal>
+              <h3>Start here</h3>
+              <ul>
+                <li><Link href="/wealth/money-moves-in-your-20s">Five money moves for your 20s</Link></li>
+                <li><Link href="/wealth/roth-ira-explained">Roth IRA, explained</Link></li>
+                <li><Link href="/wealth/building-in-public">Building in public: the manifesto</Link></li>
+              </ul>
+            </div>
+            <div className="w-lib-group" data-reveal>
+              <h3>Teens</h3>
+              <ul>
+                <li><Link href="/wealth/teens-first-job-money-guide">Your First Job: A Teen Money Guide</Link></li>
+                <li><Link href="/wealth/credit-score-basics">Credit Scores, Explained Plainly</Link></li>
+              </ul>
+            </div>
+            <div className="w-lib-group" data-reveal>
+              <h3>Your 20s</h3>
+              <ul>
+                <li><Link href="/wealth/budgeting-that-actually-works">Budgeting That Actually Works</Link></li>
+                <li><Link href="/wealth/student-loans-payoff-plan">A Student Loan Payoff Plan That Fits on One Page</Link></li>
+                <li><Link href="/wealth/credit-cards-beginners">Credit Cards for Beginners</Link></li>
+                <li><Link href="/wealth/emergency-fund-guide">The Emergency Fund Guide</Link></li>
+              </ul>
+            </div>
+            <div className="w-lib-group" data-reveal>
+              <h3>Your 30s and 40s</h3>
+              <ul>
+                <li><Link href="/wealth/buying-first-home-money-guide">Buying Your First Home: The Money Parts</Link></li>
+                <li><Link href="/wealth/401k-explained">Your 401(k), Explained</Link></li>
+                <li><Link href="/wealth/life-insurance-explained">Life Insurance, Explained in Plain English</Link></li>
+                <li><Link href="/wealth/529-college-savings-basics">529 College Savings Plans, Explained</Link></li>
+                <li><Link href="/wealth/529-vs-roth-for-college">529 vs. Roth IRA for College</Link></li>
+                <li><Link href="/wealth/hsa-explained">The HSA, Explained in Plain English</Link></li>
+                <li><Link href="/wealth/rent-vs-buy-math">Rent vs. Buy: The Math, Minus the Opinions</Link></li>
+                <li><Link href="/wealth/car-buying-money-guide">The Real Cost of Buying a Car</Link></li>
+                <li><Link href="/wealth/side-hustle-taxes">Side-Hustle Taxes, Explained in Plain English</Link></li>
+              </ul>
+            </div>
+            <div className="w-lib-group" data-reveal>
+              <h3>Taxes</h3>
+              <ul>
+                <li><Link href="/wealth/first-tax-return-guide">Your First Tax Return, Explained</Link></li>
+                <li><Link href="/wealth/tax-brackets-explained-plainly">Tax Brackets, Explained Plainly</Link></li>
+                <li><Link href="/wealth/roth-vs-traditional-taxes">Roth vs Traditional: The Tax Trade</Link></li>
+              </ul>
+            </div>
+            <div className="w-lib-group" data-reveal>
+              <h3>Insurance</h3>
+              <ul>
+                <li><Link href="/wealth/disability-insurance-explained">Disability Insurance, Explained</Link></li>
+                <li><Link href="/wealth/health-insurance-basics">Health Insurance Basics</Link></li>
+              </ul>
+            </div>
+            <div className="w-lib-group" data-reveal>
+              <h3>Approaching retirement</h3>
+              <ul>
+                <li><Link href="/wealth/catch-up-contributions-after-50">Catch-Up Contributions After 50</Link></li>
+                <li><Link href="/wealth/pre-retirement-5-year-checklist">Your 5-Year Pre-Retirement Checklist</Link></li>
+                <li><Link href="/wealth/social-security-explained">Social Security, Explained in Plain English</Link></li>
+                <li><Link href="/wealth/rmd-explained-73">RMDs at 73, Explained in Plain English</Link></li>
+              </ul>
+            </div>
+            <div className="w-lib-group" data-reveal>
+              <h3>When money is tight</h3>
+              <ul>
+                <li><Link href="/wealth/broke-money-reset-plan">The Broke Money Reset Plan</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="w-lib-more">
+            <Link href="/ai" className="w-pillar" data-reveal>
+              <strong>AI in daily life</strong>
+              <span>What AI can actually do for a normal person. Honest about limits.</span>
+              <span>Read the guides</span>
+            </Link>
+            <Link href="/start" className="w-pillar" data-reveal>
+              <strong>Get the drops by email</strong>
+              <span>One email when something new is built. It comes from me.</span>
+              <span>Start here</span>
+            </Link>
           </div>
         </div>
       </section>

@@ -2374,3 +2374,60 @@ html:not(.js-reveal) .w-root [data-tilt],
     display: none !important;
   }
 }
+
+/* Library index: life-stage guide groups. */
+.w-lib-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .w-lib-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 980px) {
+  .w-lib-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.w-lib-group {
+  border-top: 6px solid var(--w-ink);
+  border-radius: 0 0 14px 14px;
+  padding: 18px 20px;
+  background: var(--w-paper-2);
+}
+.w-lib-group h3 {
+  font-family: var(--w-serif);
+  font-size: 1.12rem;
+  margin: 0 0 10px;
+}
+.w-lib-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.w-lib-group a {
+  color: var(--w-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--w-muted);
+  text-underline-offset: 3px;
+  font-size: 0.94rem;
+}
+.w-lib-group a:hover {
+  text-decoration-color: var(--w-ink);
+}
+.w-lib-more {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+  margin-top: 22px;
+}
+@media (min-width: 640px) {
+  .w-lib-more {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

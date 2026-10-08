@@ -13,6 +13,7 @@ const NAV = [
   { href: "/annual-enrollment", label: "On Medicare" },
   { href: "/learn", label: "Learning Hub" },
   { href: "/taxes-and-retirement", label: "Taxes & Retirement" },
+  { href: "/wealth", label: "Wealth" },
   { href: "/about", label: "About" },
 ] as const;
 
@@ -20,6 +21,7 @@ const SHEET_EXTRA = [
   { href: "/plan-check", label: "Plan check quiz" },
   { href: "/answers", label: "Medicare questions, answered" },
   { href: "/service-area", label: "Towns I serve" },
+  { href: "/ai", label: "AI guides" },
   { href: "/start", label: "Ask a question" },
 ] as const;
 
