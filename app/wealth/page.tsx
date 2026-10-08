@@ -377,6 +377,10 @@ export default function WealthHome() {
           "credit-utilization-explained",
           "social-security-62-vs-70",
           "roth-ira-mistakes-to-avoid",
+          "child-tax-credit-2026",
+          "sep-ira-vs-solo-401k",
+          "social-security-survivor-benefits",
+          "hard-inquiry-vs-soft-inquiry",
         ]}
       />
     </main>

@@ -9,7 +9,7 @@ export const SITE_STATS = {
   /** Decision-tree quizzes under /tools. */
   quizzes: 3,
   /** Plain-English guides: TRAFFIC_GUIDES plus the standalone /guides pages. */
-  guides: 41,
+  guides: 46,
   /** Money articles under /wealth, not counting hub and section pages. */
   articles: 28,
 } as const;

@@ -281,7 +281,7 @@ export default function AnnualEnrollmentPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-    <TrafficGuideLinks slugs={["medicare-plan-not-renewing-triad"]} />
+    <TrafficGuideLinks slugs={["medicare-plan-not-renewing-triad", "medicare-dual-eligible-snp-triad"]} />
     </main>
   );
 }

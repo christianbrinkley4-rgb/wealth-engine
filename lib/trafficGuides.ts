@@ -1650,6 +1650,407 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     opportunity: "Seasonal spike every January through April with genuinely confused searchers. A beginner-friendly, IRS-cited listicle matches the intent better than dense IRS pages.",
     intent: "informational",
   },
+  {
+    slug: "child-tax-credit-2026",
+    title: "Child Tax Credit 2026: The $2,200 Rules, Explained",
+    description:
+      "What the 2026 Child Tax Credit is worth, who counts as a qualifying child, the income limits, and how the refundable part works.",
+    query: "child tax credit 2026 how much per child who qualifies",
+    opportunity:
+      "NerdWallet, Bankrate, and IRS pages dominate this high-volume family-tax query. No site coverage exists. A plain-English 2026 guide built around the $2,200 amount, the new parent-SSN rule, and the refund math fills the gap.",
+    intent: "informational",
+    answer:
+      "For 2026, the Child Tax Credit is worth up to $2,200 per qualifying child under age 17. The full credit starts phasing out above $200,000 of modified adjusted gross income, or $400,000 on a joint return. Up to $1,700 can come back as a refund through the Additional Child Tax Credit.",
+    sections: [
+      {
+        title: "What changed for 2026",
+        body: "The One, Big, Beautiful Bill made the Child Tax Credit permanent at $2,200 per qualifying child, up from $2,000, and tied it to inflation starting with the 2026 tax year. The refundable portion, called the Additional Child Tax Credit, goes up to $1,700 per child. There is no monthly advance payment; the credit is claimed once a year on your tax return.",
+      },
+      {
+        title: "Who counts as a qualifying child",
+        body: "The child must be under 17 at the end of the tax year, and must be your son, daughter, stepchild, foster child, sibling, or a descendant of one of them. The child must live with you for more than half the year, not provide more than half of their own support, be claimed as your dependent, and be a U.S. citizen, national, or resident alien with a valid Social Security number issued before your return's due date.",
+      },
+      {
+        title: "The income limits",
+        body: "You get the full credit with modified adjusted gross income up to $200,000, or $400,000 if you file jointly. Above that, the credit shrinks by $50 for each $1,000 of extra income. Higher earners can still end up with a partial credit before it disappears completely.",
+      },
+      {
+        title: "The refundable part",
+        body: "The Child Tax Credit first wipes out your tax bill. If anything is left over, the Additional Child Tax Credit can refund up to $1,700 of it per child, but you need more than $2,500 of earned income. The refund equals 15 percent of your earned income above $2,500, up to the cap, so very low earners get a smaller amount.",
+      },
+      {
+        title: "The parent Social Security number rule",
+        body: "Starting with 2025 returns, the taxpayer claiming the credit, or at least one spouse on a joint return, must have a valid Social Security number issued before the return's due date. Filing with an ITIN on the filer line disqualifies the whole credit, even when the child has an SSN.",
+      },
+    ],
+    comparison: {
+      caption: "Which credit fits the dependent",
+      headers: ["Dependent", "Credit available"],
+      rows: [
+        ["Qualifying child under 17", "Child Tax Credit, up to $2,200"],
+        ["Dependent 17 or older, or another relative", "Credit for Other Dependents, up to $500"],
+        ["Qualifying child but little or no tax owed", "Additional Child Tax Credit, up to $1,700 refund"],
+        ["Child without a valid SSN", "No Child Tax Credit; check the Credit for Other Dependents"],
+      ],
+    },
+    checklist: [
+      "Confirm each child is under 17 at the end of the tax year.",
+      "Make sure every SSN, yours and each child's, is valid and issued before the filing due date.",
+      "Check your modified adjusted gross income against the $200,000 or $400,000 phaseout.",
+      "If you owe little tax, confirm you have more than $2,500 of earned income for the refundable part.",
+      "Claim the credit on Form 1040 with Schedule 8812.",
+    ],
+    faqs: [
+      {
+        q: "Can I get the Child Tax Credit if I owe no tax?",
+        a: "You cannot get the nonrefundable part without a tax bill, but you may get the Additional Child Tax Credit as a refund, up to $1,700 per child, if you have more than $2,500 of earned income.",
+      },
+      {
+        q: "Does a 17-year-old qualify?",
+        a: "No. The child must be under 17 at the end of the tax year. An older teen may qualify you for the Credit for Other Dependents, worth up to $500.",
+      },
+      {
+        q: "What if my spouse and I file separately?",
+        a: "You can still claim the credit, but the phaseout starts at $200,000 of modified adjusted gross income. The $400,000 joint-return threshold does not apply.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: Tax credits for individuals",
+        url: "https://www.irs.gov/newsroom/tax-credits-for-individuals",
+      },
+      {
+        title: "IRS: Does my child qualify for the Child Tax Credit?",
+        url: "https://www.irs.gov/help/ita/does-my-childdependent-qualify-for-the-child-tax-credit-or-the-credit-for-other-dependents",
+      },
+      {
+        title: "IRS: How to avoid Child Tax Credit errors",
+        url: "https://www.irs.gov/tax-professionals/eitc-central/how-to-avoid-child-tax-credit-errors",
+      },
+    ],
+    related: [
+      { title: "Your first tax return, start to finish", href: "/wealth/first-tax-return-guide" },
+      { title: "Tax brackets explained plainly", href: "/wealth/tax-brackets-explained-plainly" },
+      { title: "Teen tax return as a dependent", href: "/guides/teen-tax-return-dependent" },
+    ],
+  },
+  {
+    slug: "sep-ira-vs-solo-401k",
+    title: "SEP IRA vs Solo 401(k): 2026 Limits Compared",
+    description:
+      "SEP IRA or solo 401(k)? Compare the 2026 contribution limits, catch-up rules, and deadlines, then see which plan lets a one-person business save more.",
+    query: "sep ira vs solo 401k which is better self employed 2026 limits",
+    opportunity:
+      "Investopedia, NerdWallet, and Bankrate all rank for this freelancer query with 2026 limit tables. No site coverage exists. A plain-English comparison with verified 2026 numbers fits the side-hustle and tax clusters.",
+    intent: "informational",
+    answer:
+      "For an owner-only business, a solo 401(k) usually wins because it adds a $24,500 employee deferral for 2026 on top of the employer share. A SEP IRA only allows employer contributions. Both plans cap total additions at $72,000 for 2026.",
+    sections: [
+      {
+        title: "The one structural difference",
+        body: "A SEP IRA has a single contribution lane: employer money only, capped at 25% of compensation, which works out to about 20% of net self-employment earnings after the deductible half of self-employment tax. A solo 401(k) has the same employer lane plus an employee lane: the $24,500 elective deferral for 2026. That extra lane is why the solo 401(k) shelters more at the same income.",
+      },
+      {
+        title: "2026 limits, line by line",
+        body: "Employee deferral: $24,500, solo 401(k) only, and no deferral exists for a SEP. Age-50 catch-up: $8,000, solo 401(k) only. Super catch-up for ages 60 through 63: $11,250, solo 401(k) only. Total annual additions: $72,000 under both plans. Compensation that can count: up to $360,000. A SEP IRA has no deferral and no catch-up at any age.",
+      },
+      {
+        title: "Where the solo 401(k) pulls ahead",
+        body: "Take a freelancer with about $100,000 of net self-employment income. A SEP IRA allows roughly the employer share, about $18,500. A solo 401(k) allows the same employer share plus the full $24,500 deferral, about $43,000 combined. The gap closes only at very high incomes, where 25% of compensation reaches the $72,000 cap on its own.",
+      },
+      {
+        title: "The tradeoffs that come with the solo 401(k)",
+        body: "A solo 401(k) can allow loans up to 50% of the balance or $50,000, and it supports Roth contributions. But it is only for businesses with no employees other than the owner and a spouse; hire someone and the plan has to change. If plan assets pass $250,000, you file Form 5500-EZ each year. A SEP IRA is simpler to open and run, which is its main selling point.",
+      },
+      {
+        title: "Deadlines and the fine print",
+        body: "A SEP IRA can be set up and funded as late as your tax return due date, including extensions. A solo 401(k) involves more setup, usually needs an employer identification number, and the employee deferral election has its own timing rules. Because self-employment math and deadlines bite, run your exact number through IRS Publication 560 or a qualified tax pro before you file.",
+      },
+    ],
+    comparison: {
+      caption: "SEP IRA vs solo 401(k), 2026 rules",
+      headers: ["Feature", "How they compare"],
+      rows: [
+        ["Employee deferral", "None with a SEP IRA; $24,500 with a solo 401(k)"],
+        ["Catch-up at 50+", "None with a SEP IRA; $8,000 with a solo 401(k)"],
+        ["Catch-up at 60 to 63", "None with a SEP IRA; $11,250 with a solo 401(k)"],
+        ["Total additions, 2026", "$72,000 under both plans"],
+        ["Loans", "Not allowed from a SEP IRA; allowed if the solo 401(k) plan permits"],
+        ["Employees", "SEP can cover employees; solo 401(k) is owner and spouse only"],
+      ],
+    },
+    checklist: [
+      "Confirm your business has no employees other than you and your spouse before choosing a solo 401(k).",
+      "Use IRS Publication 560 to compute your real employer-share percentage.",
+      "Make the employee deferral election on time if you use a solo 401(k).",
+      "Do not count on catching up with a SEP IRA after 50; it has no catch-up lane.",
+      "File Form 5500-EZ once a solo 401(k) passes $250,000 in assets.",
+    ],
+    faqs: [
+      {
+        q: "Can I have a SEP IRA and a solo 401(k) at the same time?",
+        a: "Yes, but the totals still share the $72,000 annual additions limit per employer, and the employer pieces share the 25% compensation limit. Talk to a tax pro before splitting contributions.",
+      },
+      {
+        q: "Can I contribute if my W-2 job already maxes my 401(k)?",
+        a: "Your $24,500 employee deferral limit is per person across all 401(k) plans, so a maxed-out W-2 deferral leaves only the employer lane open for your solo plan.",
+      },
+      {
+        q: "Which is easier to open?",
+        a: "A SEP IRA. It takes minutes at most brokerages with almost no paperwork. A solo 401(k) needs a plan document and usually an EIN, plus ongoing attention once assets grow.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: One-participant 401(k) plans",
+        url: "https://www.irs.gov/retirement-plans/one-participant-401k-plans",
+      },
+      {
+        title: "IRS: SEP contribution limits",
+        url: "https://www.irs.gov/retirement-plans/plan-participant-employee/sep-contribution-limits-including-grandfathered-sarseps",
+      },
+    ],
+    related: [
+      { title: "Side-hustle taxes, explained in plain English", href: "/wealth/side-hustle-taxes" },
+      { title: "Estimated quarterly taxes, explained", href: "/guides/estimated-quarterly-taxes-guide" },
+      { title: "Your 401(k), explained", href: "/wealth/401k-explained" },
+    ],
+  },
+  {
+    slug: "social-security-survivor-benefits",
+    title: "Survivor Benefits: Who Qualifies and What You Get",
+    description:
+      "Widow and widower benefits, surviving children, and dependent parents: the eligibility rules, benefit percentages, and the $255 lump-sum payment.",
+    query: "social security survivor benefits widow how much age 60",
+    opportunity:
+      "High-volume SSA query dominated by federal and publisher pages. The site's retirement cluster covers claiming age and taxation but not survivors. A plain-English who-qualifies guide closes the gap.",
+    intent: "informational",
+    answer:
+      "A surviving spouse can collect up to 100% of the deceased worker's benefit at full retirement age, reduced to 71.5% if claimed at 60. Surviving children can get up to 75%. SSA generally pays from the date you apply, so apply promptly.",
+    sections: [
+      {
+        title: "Who can qualify",
+        body: "A widow or widower age 60 or older, or 50 to 59 with a disability, who was married at least 9 months and has not remarried before 60, or before 50 if disabled. A surviving ex-spouse qualifies with a 10-year marriage. Children qualify if they are under 18, or 18 to 19 and in school full time, or disabled before age 22. Dependent parents qualify at 62 or older if they received at least half their support from the worker.",
+      },
+      {
+        title: "What each person receives",
+        body: "A surviving spouse at full retirement age gets up to 100% of the worker's benefit; at 60 it is 71.5%, and the reduction is permanent. A spouse caring for the worker's child under 16 gets 75% at any age. Each eligible child gets up to 75%. One surviving dependent parent gets up to 82.5%; two get up to 75% each. A family maximum of 150% to 180% of the worker's benefit can trim individual shares. There is also a one-time $255 lump-sum death payment.",
+      },
+      {
+        title: "Why claiming age changes the check",
+        body: "Survivor benefits grow the longer you wait, from 71.5% at age 60 to 100% at full retirement age. If the worker claimed early, special rules set a floor under the survivor amount. You receive one benefit, the higher of your own or the survivor's, not both stacked together. SSA runs the exact math when you apply.",
+      },
+      {
+        title: "How to apply without losing months",
+        body: "Call SSA at 1-800-772-1213 or visit a local office; survivor applications cannot be completed online. Have proof of death, marriage and birth certificates, and both Social Security numbers ready. SSA accepts that you may not have every document yet, so file first and let them help you gather the rest.",
+      },
+    ],
+    comparison: {
+      caption: "Survivor benefit amounts as a share of the worker's benefit",
+      headers: ["Who receives it", "Share"],
+      rows: [
+        ["Surviving spouse at full retirement age", "Up to 100%"],
+        ["Surviving spouse at age 60", "71.5%"],
+        ["Disabled widow or widower, 50 to 59", "71.5%"],
+        ["Spouse caring for the worker's young child", "75%"],
+        ["Each eligible child", "Up to 75%"],
+        ["One dependent parent, 62+", "Up to 82.5%"],
+        ["Two dependent parents, 62+", "Up to 75% each"],
+      ],
+    },
+    checklist: [
+      "Apply as soon as you can; some benefits start from the application date.",
+      "Gather proof of death, the marriage certificate, and birth certificates.",
+      "Bring both Social Security numbers and last year's W-2 or tax return.",
+      "Ask SSA to compare your own benefit against the survivor benefit.",
+      "Report the death to SSA even if the funeral home already did.",
+    ],
+    faqs: [
+      {
+        q: "Can I get my own retirement benefit and survivor benefits together?",
+        a: "SSA pays the higher of the two, not both stacked. Many survivors take one early and switch to the larger one later.",
+      },
+      {
+        q: "What happens if I remarry?",
+        a: "Remarrying before 60, or before 50 if disabled, generally ends survivor eligibility. Remarrying at 60 or later does not.",
+      },
+      {
+        q: "Does working reduce survivor benefits?",
+        a: "The earnings test can reduce benefits if you are under full retirement age and earn over the annual limit. SSA withholds part of the check, and the withheld money is credited back later.",
+      },
+    ],
+    sources: [
+      {
+        title: "SSA: Survivors benefits",
+        url: "https://www.SSA.gov/marketing/assets/materials/EN-05-10402.pdf",
+      },
+      {
+        title: "SSA: Apply for widow's or widower's benefits",
+        url: "https://www.ssa.gov/forms/ssa-10.html?embedded_webview=true",
+      },
+    ],
+    related: [
+      { title: "Social Security, explained in plain English", href: "/wealth/social-security-explained" },
+      { title: "Social Security at 62 vs 70", href: "/guides/social-security-62-vs-70" },
+      { title: "Working while collecting Social Security", href: "/guides/working-while-collecting-social-security" },
+    ],
+  },
+  {
+    slug: "hard-inquiry-vs-soft-inquiry",
+    title: "Hard Inquiry vs Soft Inquiry: What Each Does to Your Score",
+    description:
+      "A hard inquiry can dent your score when you apply for credit. Checking your own credit never does. See which pulls count and how to handle a strange one.",
+    query: "hard inquiry vs soft inquiry does checking credit hurt score",
+    opportunity:
+      "Massive beginner-credit query owned by the bureaus and big publishers. The site's credit cluster covers scores, utilization, and cards but not inquiries. A CFPB-cited explainer fits the gap.",
+    intent: "informational",
+    answer:
+      "A hard inquiry happens when you apply for credit and can temporarily lower your score. A soft inquiry, like checking your own credit or prequalifying for a card, never affects your score.",
+    sections: [
+      {
+        title: "The one-line difference",
+        body: "A hard inquiry is a lender pulling your full credit file to decide whether to lend to you. It can shave a few points off your score for a while. A soft inquiry is a look at your file that decides nothing: you checking your own score, a prequalification, an employer background check, or your own card company reviewing your account.",
+      },
+      {
+        title: "What counts as which",
+        body: "Hard: applying for a credit card, mortgage, auto loan, or student loan, and sometimes an apartment application. Soft: checking your own report or score, prequalifying without applying, promotional offers, and account reviews by lenders you already have.",
+      },
+      {
+        title: "How long they stick around",
+        body: "A hard inquiry stays on your credit report for up to two years, though scoring models weigh recent activity most and the effect fades with time. Soft inquiries show on the copy you pull for yourself, but other lenders cannot see them and scores ignore them.",
+      },
+      {
+        title: "What to do about an unfamiliar inquiry",
+        body: "First check the date and company name, then think about anything you applied for around then. If you still do not recognize it, contact the company listed. If it was not authorized, dispute it with the credit bureau that shows it. Unauthorized inquiries can be a sign of identity theft, and you can place a fraud alert or freeze while you sort it out.",
+      },
+    ],
+    comparison: {
+      caption: "Hard vs soft inquiry, side by side",
+      headers: ["Hard inquiry", "Soft inquiry"],
+      rows: [
+        ["Applying for credit triggers it", "Checking your own credit, prequalifying, or account reviews"],
+        ["Can lower your score temporarily", "Never affects your score"],
+        ["Other lenders can see it", "Only you can see it on your own copy"],
+        ["Stays on your report up to two years", "Scores ignore it entirely"],
+      ],
+    },
+    checklist: [
+      "Prequalify with a soft pull before you apply.",
+      "Group rate-shopping applications close together.",
+      "Pull your own reports free each week to see every inquiry.",
+      "Dispute any inquiry you did not authorize.",
+      "Remember that checking your own score never hurts it.",
+    ],
+    faqs: [
+      {
+        q: "Does checking my own credit score lower it?",
+        a: "No. Checking your own credit is always a soft inquiry and never affects your score, no matter how often you look.",
+      },
+      {
+        q: "How many points does a hard inquiry cost?",
+        a: "Usually just a few, and the effect is temporary. Inquiries matter more when your file is thin or you apply for several kinds of credit at once.",
+      },
+      {
+        q: "Can I get a hard inquiry removed?",
+        a: "Only if it was unauthorized or an error. A legitimate inquiry from an application you approved stays until it ages off, up to two years.",
+      },
+    ],
+    sources: [
+      {
+        title: "CFPB: When can a credit card company look at my credit reports?",
+        url: "https://www.consumerfinance.gov/ask-cfpb/when-can-a-credit-card-company-look-at-my-credit-reports-en-3/?ref=theupturn.org",
+      },
+      {
+        title: "CFPB: Credit reports and scores",
+        url: "https://www.consumerfinance.gov/consumer-tools/credit-reports-and-scores/",
+      },
+    ],
+    related: [
+      { title: "Credit scores, explained plainly", href: "/wealth/credit-score-basics" },
+      { title: "Credit cards for beginners", href: "/wealth/credit-cards-beginners" },
+      { title: "Credit utilization, explained", href: "/guides/credit-utilization-explained" },
+    ],
+  },
+  {
+    slug: "medicare-dual-eligible-snp-triad",
+    title: "Dual Eligible in the Triad? What a D-SNP Does for You",
+    description:
+      "Have both Medicare and Medicaid in Greensboro, High Point, or Winston-Salem? See what Dual Special Needs Plans cover and when you can enroll.",
+    scope: "medicare",
+    query: "dual eligible special needs plan greensboro nc medicare medicaid",
+    opportunity:
+      "D-SNP queries spike every AEP. National carriers and NC brokers rank; the site has no D-SNP coverage despite deep Medicare content. A Triad-framed guide captures the local dual-eligible search during enrollment season.",
+    intent: "informational",
+    answer:
+      "Dual Special Needs Plans are Medicare Advantage plans built for people who have both Medicare and Medicaid. They coordinate your Medicare and Medicaid benefits under one plan and include prescription drug coverage. If you live in the Triad, compare the options available at your home address.",
+    sections: [
+      {
+        title: "What dual eligible means",
+        body: "You have Medicare and full Medicaid at the same time. Medicare pays first for Medicare-covered services, and Medicaid pays last, after Medicare and any other insurance you have. Your prescription drug coverage comes through Medicare, not Medicaid. In North Carolina, you can check your Medicaid status with your county Department of Social Services.",
+      },
+      {
+        title: "What a D-SNP actually is",
+        body: "A Special Needs Plan is a Medicare Advantage plan tailored to a specific group. The dual-eligible kind, a D-SNP, serves people with both Medicare and Medicaid. Like all Medicare Advantage plans it covers your Part A and Part B benefits, and every SNP includes Part D drug coverage. SNPs add care coordination and benefits shaped for their members. They come as HMO or PPO plan types, and they are not offered in every area, so availability depends on your address.",
+      },
+      {
+        title: "When you can enroll or switch",
+        body: "Annual Enrollment runs October 15 through December 7 each year. Dual-eligible enrollment rules changed in 2025, so if you remember the old quarterly switch window, check the current rules before assuming it still works. Having Medicaid also gives you more chances to join or switch plans during the year than Medicare alone does.",
+      },
+      {
+        title: "The Triad check before you choose",
+        body: "Confirm any plan serves your home address in Greensboro, High Point, Winston-Salem, or your town. Check that your doctors and pharmacy are in the network. Bring your Medicare and Medicaid cards to the conversation. A local licensed agent can compare the D-SNPs available at your address during Annual Enrollment and year-round.",
+      },
+    ],
+    comparison: {
+      caption: "Your coverage paths as a dual eligible",
+      headers: ["Option", "What it does"],
+      rows: [
+        ["Dual Special Needs Plan", "One Medicare Advantage plan coordinates Medicare and Medicaid, with drug coverage included"],
+        ["Original Medicare plus Medicaid", "Medicare pays first, Medicaid last; drugs through a separate Medicare drug plan"],
+        ["Medicare-Medicaid Plan", "Available only in some states; coordinates both programs under one plan"],
+      ],
+    },
+    checklist: [
+      "Confirm you have both Medicare Parts A and B and full Medicaid.",
+      "Check which D-SNPs serve your home address in the Triad.",
+      "Confirm your doctors and pharmacy are in the plan's network.",
+      "Bring both your Medicare and Medicaid cards to enrollment.",
+      "Review your plan every Annual Enrollment, October 15 to December 7.",
+    ],
+    faqs: [
+      {
+        q: "Does a D-SNP cost extra?",
+        a: "Plan premiums vary by area and plan. Many D-SNPs charge no premium, but confirm the details for your address before enrolling.",
+      },
+      {
+        q: "Will joining a D-SNP affect my Medicaid?",
+        a: "No. D-SNPs contract with your state Medicaid program to coordinate benefits. Joining one does not cancel your Medicaid.",
+      },
+      {
+        q: "Can I change plans outside Annual Enrollment?",
+        a: "People with Medicaid get more chances to join or switch plans during the year. The exact windows changed in 2025, so check the current rules or ask a local agent.",
+      },
+    ],
+    sources: [
+      {
+        title: "Medicare: Special Needs Plans",
+        url: "https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/SNP",
+      },
+      {
+        title: "Medicare: Medicaid",
+        url: "https://www.medicare.gov/basics/costs/help/medicaid",
+      },
+      {
+        title: "Medicare: Health plans that lower costs",
+        url: "https://www.medicare.gov/basics/costs/help/medicare-lower-costs",
+      },
+    ],
+    related: [
+      { title: "Medicare Annual Enrollment", href: "/annual-enrollment" },
+      { title: "When your Medicare plan is not renewing", href: "/guides/medicare-plan-not-renewing-triad" },
+      { title: "Medicare help in the Triad", href: "/medicare" },
+    ],
+  },
 ];
 
 export function findTrafficGuide(slug: string) {
