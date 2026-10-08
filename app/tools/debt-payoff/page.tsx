@@ -60,7 +60,7 @@ export default function DebtPayoffPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Debt payoff" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Avalanche vs snowball, on your debts"
-        lede="Two ways out of debt, tested on your real numbers. Avalanche attacks the highest rate first and costs the least. Snowball kills the smallest balance first and feels the fastest. Type in your debts and see both."
+        lede="Staring at three balances and not knowing which to attack first is the worst part. Two ways out of debt, tested on your real numbers. Avalanche attacks the highest rate first and costs the least. Snowball kills the smallest balance first and feels the fastest. Type in your debts and see both."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}

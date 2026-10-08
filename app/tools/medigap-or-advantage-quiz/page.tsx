@@ -50,7 +50,7 @@ export default function MedigapQuizPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Medigap or Advantage quiz" }]}
         eyebrow={`Quiz · ${DATA.questions.length} questions · your answers stay on your device`}
         title="Medigap or Medicare Advantage: 7 questions to ask yourself"
-        lede="This quiz will not pick a plan for you. It asks how you use health care, what you want to spend, and how much flexibility matters, then hands you a short list of questions to bring to a licensed agent."
+        lede="Everyone at the senior center has an opinion, and they all contradict each other. This quiz will not pick a plan for you. It asks how you use health care, what you want to spend, and how much flexibility matters, then hands you a short list of questions to bring to a licensed agent."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}

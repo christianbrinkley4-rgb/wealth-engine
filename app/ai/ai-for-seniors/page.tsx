@@ -103,7 +103,7 @@ export default function AiForSeniorsPage() {
         ]}
         eyebrow="AI guides · Seniors"
         title="AI for seniors"
-        lede="You do not need to be technical to use AI. If you can ask a question in plain words, you can use it. Here are the simplest starting points."
+        lede="Your grandkids talk about it like it is obvious, and every explanation assumes you already know the basics. You do not need to be technical to use AI. If you can ask a question in plain words, you can use it. Here are the simplest starting points."
         secondaryHref="/wealth"
         secondaryLabel="Browse the wealth notes →"
         proof={["Plain English, no jargon", "No hype", "Honest about limits"]}

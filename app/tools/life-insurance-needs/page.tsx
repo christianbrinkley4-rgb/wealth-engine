@@ -60,7 +60,7 @@ export default function LifeInsuranceNeedsPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Life insurance needs" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="How much life insurance is enough?"
-        lede="Start with DIME: your debts, the income to replace, the mortgage, and education costs. Add them up and you have a starting-point number. Bring that number to a conversation with an agent. It is the beginning of the discussion, not the answer."
+        lede="Nobody wants to do this math, but everyone with people depending on them should. Start with DIME: your debts, the income to replace, the mortgage, and education costs. Add them up and you have a starting-point number. Bring that number to a conversation with an agent. It is the beginning of the discussion, not the answer."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}

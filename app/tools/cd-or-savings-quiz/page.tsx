@@ -47,7 +47,7 @@ export default function CdSavingsQuizPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "CD or savings quiz" }]}
         eyebrow={`Quiz · ${DATA.questions.length} questions · your answers stay on your device`}
         title="CD or high-yield savings: which fits your cash?"
-        lede="Six questions about when you will need the money and how much access matters. You get a plain-English read plus a short checklist of what to compare before you open anything."
+        lede="The bank is offering 4% and you are not sure if you should lock it in. Six questions about when you will need the money and how much access matters. You get a plain-English read plus a short checklist of what to compare before you open anything."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}

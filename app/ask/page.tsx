@@ -46,7 +46,7 @@ export default function AskWallPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Ask Christian" }]}
         eyebrow="The public Q&A wall"
         title="Ask Christian"
-        lede="Real questions from neighbors about money, taxes, and retirement, answered in plain English. Read the wall, or ask your own below."
+        lede="You have a question you are a little embarrassed to ask out loud. Ask it here instead. Real questions from neighbors about money, taxes, and retirement, answered in plain English. Read the wall, or ask your own below."
         hidePhoneCta
         secondaryHref="#ask-form"
         secondaryLabel="Ask your question"

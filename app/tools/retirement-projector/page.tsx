@@ -60,7 +60,7 @@ export default function RetirementProjectorPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Retirement projector" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="What could your savings reach?"
-        lede="Pick your retirement age and your monthly contribution. Pick an assumed growth rate. The tool projects the balance year by year, split into what you put in and what growth added. The rate is labeled as assumed on purpose: it is a dial to explore, not a prediction."
+        lede="Retirement feels abstract until you see a number with your name on it. Pick your retirement age and your monthly contribution. Pick an assumed growth rate. The tool projects the balance year by year, split into what you put in and what growth added. The rate is labeled as assumed on purpose: it is a dial to explore, not a prediction."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}

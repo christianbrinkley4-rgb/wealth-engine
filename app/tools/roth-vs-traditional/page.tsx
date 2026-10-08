@@ -62,7 +62,7 @@ export default function RothVsTraditionalPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth vs traditional" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Roth vs traditional, in real dollars"
-        lede="The tax question, answered with arithmetic. Type in the same contribution for both accounts. The tool grows each side at your assumed rate, takes the tax out where it belongs, and shows which leaves more after tax."
+        lede="Pay tax now or pay it later. That is the whole question. Type in the same contribution for both accounts. The tool grows each side at your assumed rate, takes the tax out where it belongs, and shows which leaves more after tax."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}

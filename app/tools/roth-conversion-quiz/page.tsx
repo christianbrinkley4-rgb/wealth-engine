@@ -47,7 +47,7 @@ export default function RothConversionQuizPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth conversion quiz" }]}
         eyebrow={`Quiz · ${DATA.questions.length} questions · your answers stay on your device`}
         title="Should you do a Roth conversion this year?"
-        lede="A conversion is a bet on your tax rate now versus later. Six questions about your bracket, your timeline, and how you would pay the tax, then a plain-English read and a checklist to bring to a tax professional."
+        lede="Your brother-in-law swears everyone should convert, and your accountant changed the subject. A conversion is a bet on your tax rate now versus later. Six questions about your bracket, your timeline, and how you would pay the tax, then a plain-English read and a checklist to bring to a tax professional."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}
