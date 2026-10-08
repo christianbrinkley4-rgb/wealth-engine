@@ -155,10 +155,10 @@ export function TopRouteChrome() {
         </ul>
         <div className="nav-sheet-actions">
           <a href={AGENT.phoneHref} className="btn btn-block">
-            <Phone size={19} aria-hidden /> Call {AGENT.phone}
+            <Phone size={19} aria-hidden /> {AGENT.phone}
           </a>
           <Link href="/plan-check" className="btn btn-accent btn-block">
-            Take the 90-second plan check
+            90-second plan check
           </Link>
         </div>
         <p className="nav-sheet-note">

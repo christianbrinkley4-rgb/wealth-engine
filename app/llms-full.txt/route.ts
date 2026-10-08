@@ -197,6 +197,8 @@ ${calcLines}
 Plain-language AI guides for regular people, written from Christian's experience running his business on AI. Honest about limits.
 
 - [AI in daily life](${SITE_URL}/ai): what AI can actually do for a normal person, honest about limits.
+- [AI tools compared honestly](${SITE_URL}/ai/ai-tools-compared): ChatGPT, Claude, Gemini, Copilot, Perplexity, what each is good at, honest limits, cost.
+- [Which AI for which task](${SITE_URL}/ai/which-ai-for-which-task): match the task to the tool, plain-English decision guide.
 - [AI for job search](${SITE_URL}/ai/ai-for-job-search): resume help and interview prep with realistic expectations.
 - [AI for small business](${SITE_URL}/ai/ai-for-small-business): what a one-person business can automate.
 - [AI for seniors](${SITE_URL}/ai/ai-for-seniors): simplest useful starting points for 65+, with scam warnings.

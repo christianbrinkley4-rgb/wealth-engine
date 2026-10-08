@@ -54,6 +54,8 @@ const NEW_GUIDE_PAGES = [
   { path: "/tools/life-insurance-needs", title: "Life insurance needs calculator", blurb: "DIME method starting point for a conversation." },
   { path: "/tools/compound-interest", title: "Compound interest calculator", blurb: "Watch growth compound year by year." },
   { path: "/ai", title: "AI in daily life", blurb: "What AI can actually do for a normal person, honest about limits." },
+  { path: "/ai/ai-tools-compared", title: "AI tools compared honestly", blurb: "ChatGPT, Claude, Gemini, Copilot, Perplexity: what each is good at, limits, cost." },
+  { path: "/ai/which-ai-for-which-task", title: "Which AI for which task", blurb: "Match the task to the tool: writing, research, email, learning." },
   { path: "/ai/ai-for-job-search", title: "AI for job search", blurb: "Resume help and interview prep with realistic expectations." },
   { path: "/ai/ai-for-small-business", title: "AI for small business", blurb: "What a one-person business can automate." },
   { path: "/ai/ai-for-seniors", title: "AI for seniors", blurb: "Simplest useful starting points for 65+, with scam warnings." },

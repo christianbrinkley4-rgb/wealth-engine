@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 import { AI_GUIDES } from "./components/ai-guides";
-import { ContactLine } from "./components/ContactLine";
 
 /**
  * The /ai hub: what AI can actually do for a normal person, honest about
@@ -107,7 +104,7 @@ export default function AiHubPage() {
             articleJsonLd({
               headline: "AI for Regular People: What It Can Actually Do",
               description:
-                "What AI can actually do for a normal person, in plain English, from someone who uses it daily. Five things it does well, three it does badly.",
+                "What AI can actually do for a normal person, in plain English. Five things it does well, three it does badly.",
               path: "/ai",
               datePublished: "2026-10-08",
               dateModified: "2026-10-08",
@@ -118,12 +115,12 @@ export default function AiHubPage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "AI for regular people" }]}
-        eyebrow="Practical AI · From someone who uses it daily"
+        eyebrow="Practical AI · Plain English"
         title="AI for regular people"
-        lede="I run my business on AI every day. This section explains what it can actually do for a normal person, in plain English. It also covers what it cannot do, because that part matters more."
-        secondaryHref="/start"
-        secondaryLabel="Start a conversation →"
-        proof={["Plain English, no jargon", "Written from daily use", "Honest about limits"]}
+        lede="This section explains what AI can actually do for a normal person, in plain English. It also covers what it cannot do, because that part matters more."
+        secondaryHref="/wealth"
+        secondaryLabel="Browse the wealth notes →"
+        proof={["Plain English, no jargon", "No hype", "Honest about limits"]}
       />
 
       <section className="bg-white py-14">
@@ -179,21 +176,26 @@ export default function AiHubPage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">How I use it every day</h2>
+          <h2 className="text-28 font-semibold">The AIs, explained</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            I run my business on AI daily. My follow-up emails go out through automation I built
-            with Python, so no client waits on me. That system has booked 25 consultations from
-            website inquiries. I draft posts and articles with AI, then rewrite them in my own
-            voice before anything goes public. I use it as a research starting point, then I check
-            the real source before I trust anything. It saves me real time. It does not make
-            decisions for me.
+            There are five chatbots worth knowing: ChatGPT, Claude, Gemini, Microsoft Copilot,
+            and Perplexity. None is the best at everything. Each has things it does well and
+            honest limits.{" "}
+            <Link href="/ai/ai-tools-compared" className="underline underline-offset-2">
+              Read the honest comparison
+            </Link>
+            , or skip straight to{" "}
+            <Link href="/ai/which-ai-for-which-task" className="underline underline-offset-2">
+              which AI fits which task
+            </Link>
+            .
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            I also write about money and career in plain English.{" "}
+            Money questions deserve the same plain-English treatment.{" "}
             <Link href="/wealth" className="underline underline-offset-2">
-              My wealth notes live here
+              The wealth notes cover budgeting, saving, taxes, and building from zero
             </Link>
-            . AI is one tool in that kit.
+            .
           </p>
         </div>
       </section>
@@ -235,18 +237,21 @@ export default function AiHubPage() {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
-          <div className="mt-8">
-            <ContactLine />
-          </div>
         </div>
       </section>
 
-      <KitchenTableClose
-        heading="Questions about AI, or about anything else?"
-        body={`I answer my own messages. Call or text ${AGENT.phone} and we will take it one question at a time. No cost, no obligation.`}
-        href="/start"
-        label="Start a conversation →"
-      />
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Keep going</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            AI is one tool. Money is the bigger picture.{" "}
+            <Link href="/wealth" className="underline underline-offset-2">
+              Browse the wealth notes
+            </Link>{" "}
+            for plain-English guides on budgeting, saving, taxes, and building from zero.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

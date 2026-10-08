@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
-import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
-import { ContactLine } from "../components/ContactLine";
 import { SiblingNav } from "../components/SiblingNav";
 
 /**
@@ -87,9 +85,9 @@ export default function AiMistakesToAvoidPage() {
         eyebrow="AI guides · Mistakes to avoid"
         title="AI mistakes to avoid"
         lede="AI is useful and it is easy to misuse. These are the three mistakes that hurt people, and the simple fix for each one."
-        secondaryHref="/start"
-        secondaryLabel="Start a conversation →"
-        proof={["Plain English, no jargon", "Written from daily use", "Honest about limits"]}
+        secondaryHref="/wealth"
+        secondaryLabel="Browse the wealth notes →"
+        proof={["Plain English, no jargon", "No hype", "Honest about limits"]}
       />
 
       <section className="bg-white py-14">
@@ -152,20 +150,23 @@ export default function AiMistakesToAvoidPage() {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
-          <div className="mt-8">
-            <ContactLine />
-          </div>
         </div>
       </section>
 
       <SiblingNav current="ai-mistakes-to-avoid" />
 
-      <KitchenTableClose
-        heading="Not sure about something AI told you?"
-        body={`I answer my own messages. Call or text ${AGENT.phone} and we will check it together. No cost, no obligation.`}
-        href="/start"
-        label="Start a conversation →"
-      />
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Keep going</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            AI is one tool. Money is the bigger picture.{" "}
+            <Link href="/wealth" className="underline underline-offset-2">
+              Browse the wealth notes
+            </Link>{" "}
+            for plain-English guides on budgeting, saving, taxes, and building from zero.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

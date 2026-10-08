@@ -6,6 +6,18 @@ export type AiGuide = {
 
 export const AI_GUIDES: readonly AiGuide[] = [
   {
+    slug: "ai-tools-compared",
+    title: "AI tools compared honestly",
+    blurb:
+      "ChatGPT, Claude, Gemini, Copilot, Perplexity: what each is good at, honest limits, and cost. No hype, no affiliate links.",
+  },
+  {
+    slug: "which-ai-for-which-task",
+    title: "Which AI for which task",
+    blurb:
+      "Start from what you want to do. Seven common wants matched to the right tool.",
+  },
+  {
     slug: "ai-for-job-search",
     title: "AI for job search",
     blurb:
@@ -14,7 +26,7 @@ export const AI_GUIDES: readonly AiGuide[] = [
   {
     slug: "ai-for-small-business",
     title: "AI for small business",
-    blurb: "What a one-person business can automate. From my own playbook, with honest limits.",
+    blurb: "What a one-person business can automate, with honest limits.",
   },
   {
     slug: "ai-for-seniors",

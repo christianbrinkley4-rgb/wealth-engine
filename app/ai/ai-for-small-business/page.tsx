@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
-import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
-import { ContactLine } from "../components/ContactLine";
 import { SiblingNav } from "../components/SiblingNav";
 
 /**
@@ -87,9 +85,9 @@ export default function AiForSmallBusinessPage() {
         eyebrow="AI guides · Small business"
         title="AI for small business"
         lede="I run a one-person business on AI help every day. Here is what actually works, and where the limits are."
-        secondaryHref="/start"
-        secondaryLabel="Start a conversation →"
-        proof={["Plain English, no jargon", "Written from daily use", "Honest about limits"]}
+        secondaryHref="/wealth"
+        secondaryLabel="Browse the wealth notes →"
+        proof={["Plain English, no jargon", "No hype", "Honest about limits"]}
       />
 
       <section className="bg-white py-14">
@@ -97,17 +95,7 @@ export default function AiForSmallBusinessPage() {
           <h2 className="text-28 font-semibold">Follow-up messages</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             I built my follow-up emails as automation with Python. The messages personalize from
-            form results and inquiry type. No client waits because I got busy. That system has
-            booked 25 consultations from website inquiries.
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-[var(--color-paper)] py-14">
-        <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Scheduling help</h2>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            AI drafts my appointment reminders and confirmation messages. It turns messy notes into
+            form results and inquiry type. No client waits because I got busy. I use automation for follow-ups so nothing slips through the cracks. It turns messy notes into
             a clean task list for the day. I still set the priorities. It just formats them.
           </p>
         </div>
@@ -161,20 +149,23 @@ export default function AiForSmallBusinessPage() {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
-          <div className="mt-8">
-            <ContactLine />
-          </div>
         </div>
       </section>
 
       <SiblingNav current="ai-for-small-business" />
 
-      <KitchenTableClose
-        heading="Running a small business?"
-        body={`I answer my own messages. Call or text ${AGENT.phone} and we will talk it through. No cost, no obligation.`}
-        href="/start"
-        label="Start a conversation →"
-      />
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Keep going</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            AI is one tool. Money is the bigger picture.{" "}
+            <Link href="/wealth" className="underline underline-offset-2">
+              Browse the wealth notes
+            </Link>{" "}
+            for plain-English guides on budgeting, saving, taxes, and building from zero.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }

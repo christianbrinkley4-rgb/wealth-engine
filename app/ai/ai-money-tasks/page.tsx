@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
-import { ContactLine } from "../components/ContactLine";
 import { Note } from "../components/Note";
 import { SiblingNav } from "../components/SiblingNav";
 
@@ -89,9 +88,9 @@ export default function AiMoneyTasksPage() {
         eyebrow="AI guides · Money tasks"
         title="AI for money tasks"
         lede="AI can help you understand your money better. It cannot give you personal financial advice. Here is where the line is."
-        secondaryHref="/start"
-        secondaryLabel="Start a conversation →"
-        proof={["Plain English, no jargon", "Written from daily use", "Honest about limits"]}
+        secondaryHref="/wealth"
+        secondaryLabel="Browse the wealth notes →"
+        proof={["Plain English, no jargon", "No hype", "Honest about limits"]}
       />
 
       <section className="bg-white py-14">
@@ -158,20 +157,23 @@ export default function AiMoneyTasksPage() {
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
-          <div className="mt-8">
-            <ContactLine />
-          </div>
         </div>
       </section>
 
       <SiblingNav current="ai-money-tasks" />
 
-      <KitchenTableClose
-        heading="Questions about your money?"
-        body={`I answer my own messages. Call or text ${AGENT.phone} and we will take it one question at a time. No cost, no obligation.`}
-        href="/start"
-        label="Start a conversation →"
-      />
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Keep going</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            AI is one tool. Money is the bigger picture.{" "}
+            <Link href="/wealth" className="underline underline-offset-2">
+              Browse the wealth notes
+            </Link>{" "}
+            for plain-English guides on budgeting, saving, taxes, and building from zero.
+          </p>
+        </div>
+      </section>
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="general" />

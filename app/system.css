@@ -175,14 +175,14 @@ p {
   isolation: isolate;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: safe center;
   gap: 0.6rem;
   min-height: 3.4rem;
   padding: 0.85rem 1.5rem;
   border: 1.5px solid var(--btn-border);
   border-radius: 999px;
   background: var(--btn-bg);
-  color: var(--btn-fg);
+  color: var(--btn-fg, #fbf8f1);
   font-family: var(--font-body), system-ui, sans-serif;
   font-size: 1rem;
   font-weight: 700;

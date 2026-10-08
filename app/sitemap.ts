@@ -132,6 +132,8 @@ const STATIC_ROUTES: Array<{
   // AI in daily life guides.
   ...[
     "/ai",
+    "/ai/ai-tools-compared",
+    "/ai/which-ai-for-which-task",
     "/ai/ai-for-job-search",
     "/ai/ai-for-small-business",
     "/ai/ai-for-seniors",
