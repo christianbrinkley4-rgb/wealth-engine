@@ -70,6 +70,9 @@ const ARTICLE: ArticleData = {
     },
   ],
   nextLinks: [
+    { href: "/guides/overtime-tax-deduction-2026", label: "Overtime deduction rules", kind: "Article" },
+    { href: "/guides/tips-tax-deduction-2026", label: "Tips and service charges", kind: "Article" },
+    { href: "/guides/tax-extension-cannot-pay", label: "Cannot pay after an extension?", kind: "Article" },
     { href: "/wealth", label: "Wealth hub", kind: "Hub" },
     {
       href: "/wealth/tax-brackets-explained-plainly",

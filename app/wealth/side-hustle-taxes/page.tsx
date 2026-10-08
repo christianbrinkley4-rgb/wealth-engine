@@ -1,3 +1,4 @@
+import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -193,6 +194,9 @@ export default function SideHustleTaxesPage() {
           { href: "/wealth/hsa-explained", label: "The HSA, Explained in Plain English", kind: "Article" },
           { href: "/wealth/529-vs-roth-for-college", label: "529 vs. Roth IRA for College", kind: "Article" },
         ]}
+      />
+    <TrafficGuideLinks
+        slugs={["1099-k-personal-items-sold-at-loss", "teen-tax-return-dependent"]}
       />
     </main>
   );

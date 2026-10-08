@@ -1,3 +1,4 @@
+import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -196,6 +197,7 @@ export default function HsaExplainedPage() {
           { href: "/wealth/side-hustle-taxes", label: "Side-Hustle Taxes, Explained", kind: "Article" },
         ]}
       />
+    <TrafficGuideLinks slugs={["hsa-fsa-after-leaving-job"]} />
     </main>
   );
 }

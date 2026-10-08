@@ -1,3 +1,4 @@
+import { TRAFFIC_GUIDES, TRAFFIC_GUIDE_DATE } from "@/lib/trafficGuides";
 import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles";
 import { SITE_URL } from "@/lib/seo";
@@ -145,6 +146,8 @@ const STATIC_ROUTES: Array<{
     priority: path === "/ai" ? 0.85 : 0.75,
     lastModified: "2026-10-08",
   })),
+  { path: "/guides", changeFrequency: "weekly", priority: 0.8, lastModified: TRAFFIC_GUIDE_DATE },
+  ...TRAFFIC_GUIDES.map((guide) => ({ path: `/guides/${guide.slug}`, changeFrequency: "monthly" as const, priority: 0.8, lastModified: TRAFFIC_GUIDE_DATE })),
   // Self-directed SEO guides.
   ...[
     "/guides/what-medicare-does-not-cover",

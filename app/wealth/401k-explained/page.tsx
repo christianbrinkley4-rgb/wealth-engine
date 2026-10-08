@@ -1,3 +1,4 @@
+import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -206,6 +207,7 @@ export default function K401ExplainedPage() {
           { href: "/wealth/catch-up-contributions-after-50", label: "Catch-Up Contributions After 50", kind: "Article" },
         ]}
       />
+    <TrafficGuideLinks slugs={["401k-rollover-after-leaving-job"]} />
     </main>
   );
 }

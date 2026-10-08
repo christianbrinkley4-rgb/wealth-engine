@@ -1,3 +1,4 @@
+import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowDown, ArrowRight } from "lucide-react";
@@ -341,6 +342,14 @@ export default function WealthHome() {
       <div className="w-shell" style={{ paddingBottom: 56 }}>
         <EducationNote />
       </div>
+    <TrafficGuideLinks
+        slugs={[
+          "overtime-tax-deduction-2026",
+          "tips-tax-deduction-2026",
+          "teen-tax-return-dependent",
+          "unemployment-tax-withholding",
+        ]}
+      />
     </main>
   );
 }

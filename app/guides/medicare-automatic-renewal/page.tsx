@@ -1,3 +1,4 @@
+import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -245,6 +246,7 @@ export default function MedicareAutomaticRenewalPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+    <TrafficGuideLinks slugs={["medicare-plan-not-renewing-triad"]} />
     </main>
   );
 }

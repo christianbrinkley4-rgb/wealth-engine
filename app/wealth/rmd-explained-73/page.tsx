@@ -1,3 +1,4 @@
+import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -190,6 +191,7 @@ export default function RmdExplainedPage() {
           { href: "/wealth/529-vs-roth-for-college", label: "529 vs. Roth IRA for College", kind: "Article" },
         ]}
       />
+    <TrafficGuideLinks slugs={["inherited-ira-ten-year-rule"]} />
     </main>
   );
 }
