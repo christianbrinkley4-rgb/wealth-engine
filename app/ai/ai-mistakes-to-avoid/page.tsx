@@ -86,7 +86,7 @@ export default function AiMistakesToAvoidPage() {
         ]}
         eyebrow="AI guides · Mistakes to avoid"
         title="AI mistakes to avoid"
-        lede="AI is useful and it is easy to misuse. These are the three mistakes that hurt people, and the simple fix for each one."
+        lede="The fastest way to get burned by AI is to trust it like a person. These are the three mistakes that hurt people, and the simple fix for each one."
         secondaryHref="/wealth"
         secondaryLabel="Browse the wealth notes →"
         proof={["Plain English, no jargon", "No hype", "Honest about limits"]}

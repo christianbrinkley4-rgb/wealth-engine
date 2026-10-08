@@ -59,7 +59,7 @@ export default function RothConversionLadderPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth conversion planner" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Roth conversions, year by year"
-        lede="The years between retirement and required minimum distributions are a window. Each year, this tool fills your current tax bracket with a conversion, without crossing into the next one, then compares the lifetime tax bill against doing nothing."
+        lede="The years between retirement and required minimum distributions are the only stretch where you control your tax bracket this completely. Each year, this tool fills your current bracket with a conversion, without crossing into the next one, then compares the lifetime tax bill against doing nothing."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}

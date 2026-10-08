@@ -120,7 +120,7 @@ export default function WhichAiForWhichTaskPage() {
         ]}
         eyebrow="AI guides · Decision guide"
         title="Which AI for which task"
-        lede="Do not pick an AI and then look for uses. Start from what you want to do, and match the task to the tool. Seven common wants, seven honest answers."
+        lede="Opening the wrong tool for the job is why most people bounce off AI in a week. Do not pick an AI and then look for uses. Start from what you want to do, and match the task to the tool. Seven common wants, seven honest answers."
         secondaryHref="/ai/ai-tools-compared"
         secondaryLabel="Compare the tools →"
         proof={["Plain English, no jargon", "Task-first, not hype-first", "Honest about limits"]}

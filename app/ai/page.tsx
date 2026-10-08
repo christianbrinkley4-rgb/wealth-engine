@@ -119,7 +119,7 @@ export default function AiHubPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "AI for regular people" }]}
         eyebrow="Practical AI · Plain English"
         title="AI for regular people"
-        lede="This section explains what AI can actually do for a normal person, in plain English. It also covers what it cannot do, because that part matters more."
+        lede="Everyone is telling you AI will change everything, and nobody is telling you what to actually do with it. This section explains what AI can do for a normal person, in plain English. It also covers what it cannot do, because that part matters more."
         secondaryHref="/wealth"
         secondaryLabel="Browse the wealth notes →"
         proof={["Plain English, no jargon", "No hype", "Honest about limits"]}

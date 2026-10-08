@@ -60,7 +60,7 @@ export default function CompoundInterestPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Compound interest" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Compound interest, live"
-        lede="Drag the sliders and the curve redraws. The solid line is your balance. The dashed line is what you actually put in. The space between them is growth, and it gets wide fast. Then scroll down to see every year in a table."
+        lede="The most boring chart in finance is also the most powerful one. Drag the sliders and the curve redraws. The solid line is your balance. The dashed line is what you actually put in. The space between them is growth, and it gets wide fast. Then scroll down to see every year in a table."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}

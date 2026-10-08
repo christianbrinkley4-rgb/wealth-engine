@@ -60,7 +60,7 @@ export default function BudgetPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Budget" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Budget, in one screen"
-        lede="Type what you bring home each month, fill in the spending categories, and the verdict updates as you go. Leftover or short, in plain dollars, with a breakdown of where it all goes."
+        lede="Money comes in, money goes out, and somehow there is never quite enough left. Type what you bring home each month, fill in the spending categories, and the verdict updates as you go. Leftover or short, in plain dollars, with a breakdown of where it all goes."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}

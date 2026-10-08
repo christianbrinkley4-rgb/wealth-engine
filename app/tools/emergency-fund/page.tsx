@@ -60,7 +60,7 @@ export default function EmergencyFundPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Emergency fund" }]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Your emergency fund, sized to your life"
-        lede="An emergency fund is months of spending, not a round number someone else picked. Type in what you must spend each month and how many months you want covered. The tool sets the target and builds the plan to reach it."
+        lede="The water heater does not care about your savings goals. An emergency fund is months of spending, not a round number someone else picked. Type in what you must spend each month and how many months you want covered. The tool sets the target and builds the plan to reach it."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}

@@ -47,7 +47,7 @@ export default function GuidesPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Guides" }]}
         eyebrow="Guides · free to read"
         title="Money, tax, and Medicare guides"
-        lede="Start with the question in front of you. Money and tax guides cover federal rules for U.S. readers. Medicare help focuses on the Triad in North Carolina."
+        lede="You came here with one specific question. Start with it. Money and tax guides cover federal rules for U.S. readers. Medicare help focuses on the Triad in North Carolina."
         secondaryHref="/tools"
         secondaryLabel="Try the calculators →"
         proof={PROOF}
