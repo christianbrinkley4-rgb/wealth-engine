@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check, Mail, Phone } from "lucide-react";
@@ -13,20 +12,7 @@ import {
   type SchedulingTopic,
 } from "@/lib/scheduling";
 import { pageOpenGraph } from "@/lib/seo";
-
-// Cal.com embed is 141KB and only needed when the user reaches the calendar.
-// Load it client-side so it never blocks the initial page render.
-const CalEmbed = dynamic(
-  () => import("@/components/CalEmbed").then((mod) => mod.CalEmbed),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="flex min-h-[700px] items-center justify-center">
-        <div className="animate-pulse text-(--slate-dim)">Loading calendar...</div>
-      </div>
-    ),
-  },
-);
+import { CalEmbedLazy } from "./CalEmbedLazy";
 
 export const metadata: Metadata = {
   title: "Talk with Christian Brinkley",
@@ -151,7 +137,7 @@ export default async function SchedulePage({
                 </Link>
               </div>
               {bookingUrl ? (
-                <CalEmbed bookingUrl={bookingUrl} title={`${SCHEDULING_LABELS[topic]} calendar`} />
+                <CalEmbedLazy bookingUrl={bookingUrl} title={`${SCHEDULING_LABELS[topic]} calendar`} />
               ) : (
                 <div className="sched-request">
                   <h2>Tell me a little about what you need.</h2>
