@@ -110,6 +110,11 @@ export default function DebtPayoffPage() {
         wealthBody="How to line up federal and private loans, when extra payments matter most, and the order that costs the least. Plain English throughout."
         ctaHeading="Debt keeps you up at night? Let us look together"
         ctaBody="The tool shows the fastest math. A free 20-minute call checks the plan against your real budget, so it survives contact with real life."
+        related={[
+          { href: "/tools/budget", label: "Budget calculator" },
+          { href: "/wealth/credit-cards-beginners", label: "Credit cards for beginners" },
+          { href: "/tools/take-home-pay", label: "Take-home pay calculator" },
+        ]}
       />
     </main>
   );

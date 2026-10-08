@@ -19,6 +19,10 @@ const ARTICLE: ArticleData = {
         "It is insurance you pay to yourself. It is not a vacation fund, a down payment, or a chance to invest.",
         "Its job is to keep a bad week from becoming debt. That is the entire job description.",
       ],
+      linkRow: {
+        intro: "Keep going:",
+        links: [{ href: "/wealth/budgeting-that-actually-works", label: "Budgeting that actually works" }],
+      },
     },
     {
       heading: "Start with a starter fund",
@@ -40,6 +44,10 @@ const ARTICLE: ArticleData = {
         "Keep it in a high-yield savings account, separate from checking. Separate means you will not spend it by accident.",
         "It must stay liquid and safe. Investing emergency money turns a safety net into a gamble.",
       ],
+      linkRow: {
+        intro: "Keep going:",
+        links: [{ href: "/guides/hysa-vs-money-market-account", label: "HYSA vs money market account" }],
+      },
     },
     {
       heading: "Build it on autopay",
@@ -48,6 +56,10 @@ const ARTICLE: ArticleData = {
         "Raise the transfer when raises or windfalls arrive. Send found money to the fund before lifestyle absorbs it.",
         "When a real emergency raids the fund, rebuilding it becomes bill number one.",
       ],
+      linkRow: {
+        intro: "Keep going:",
+        links: [{ href: "/wealth/learn/emergency-funds", label: "Emergency funds, step by step" }],
+      },
     },
   ],
   panel: {

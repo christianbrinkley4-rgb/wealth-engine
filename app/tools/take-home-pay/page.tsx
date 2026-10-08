@@ -114,6 +114,11 @@ export default function TakeHomePayPage() {
         wealthBody="What to do with the paycheck once you know its real size. Short, practical, no jargon."
         ctaHeading="Salary talk coming up? Walk in knowing the number"
         ctaBody="The tool tells you what a salary pays. A free 20-minute call helps you plan around the real number before you sign anything."
+        related={[
+          { href: "/tools/budget", label: "Budget calculator" },
+          { href: "/wealth/tax-brackets-explained-plainly", label: "Tax brackets, explained plainly" },
+          { href: "/wealth/learn/budgeting-on-your-first-job", label: "Budgeting on your first job" },
+        ]}
       />
     </main>
   );

@@ -105,7 +105,7 @@ export default function SideHustleTaxesPage() {
               </p>
               <p>
                 Self-employment tax kicks in at $400 of net earnings for the year. Income tax
-                applies too, once your total income passes the filing threshold.
+                applies too, once your total income passes <Link href="/wealth/first-tax-return-guide">the filing threshold</Link>.
               </p>
             </section>
 
@@ -116,8 +116,8 @@ export default function SideHustleTaxesPage() {
                 everyone, employees included.
               </p>
               <p>
-                Employees pay through withholding. Self-employed people pay through quarterly
-                estimated payments. Four times a year you send the IRS a payment covering income tax
+                Employees pay through <Link href="/tools/take-home-pay">withholding</Link>. Self-employed people pay through <Link href="/guides/estimated-quarterly-taxes-guide">quarterly
+                estimated payments</Link>. Four times a year you send the IRS a payment covering income tax
                 and self-employment tax on recent earnings.
               </p>
               <p>Miss the rhythm and you can face an underpayment penalty at filing time.</p>

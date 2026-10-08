@@ -82,8 +82,8 @@ export default function FiveTwentyNineVsRothPage() {
             <section>
               <h2>How a 529 works</h2>
               <p>
-                A 529 is a state-run account built for education savings. Growth inside the account is
-                tax-deferred, and withdrawals for qualified education costs are tax-free.
+                A 529 is a state-run account built for education savings. <Link href="/wealth/calculators/compound-interest">Growth inside the account is
+                tax-deferred</Link>, and withdrawals for qualified education costs are tax-free.
               </p>
               <p>
                 Qualified costs include tuition, books, and room and board at eligible schools. North
@@ -98,7 +98,7 @@ export default function FiveTwentyNineVsRothPage() {
             <section>
               <h2>How a Roth IRA works for education</h2>
               <p>
-                A Roth IRA is a retirement account funded with after-tax dollars. You can withdraw
+                <Link href="/wealth/roth-ira-explained">A Roth IRA</Link> is a retirement account funded with after-tax dollars. You can withdraw
                 your contributions at any time, for any reason, with no tax or penalty.
               </p>
               <p>
@@ -125,7 +125,7 @@ export default function FiveTwentyNineVsRothPage() {
             <section>
               <h2>The SECURE 2.0 rollover</h2>
               <p>
-                Since 2024, unused 529 money can roll into the beneficiary&apos;s Roth IRA. The
+                Since 2024, unused <Link href="/wealth/529-college-savings-basics">529</Link> money can roll into the beneficiary&apos;s Roth IRA. The
                 lifetime cap is $35,000 per beneficiary.
               </p>
               <p>

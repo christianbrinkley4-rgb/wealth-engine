@@ -115,6 +115,11 @@ export default function BudgetPage() {
         wealthBody="How to turn these numbers into a system you keep: take-home pay, a starting split, one payday move, and a weekly check."
         ctaHeading="See a number you want to change? Let's talk it through"
         ctaBody="The calculator shows where the money goes. A free 20-minute call puts your real budget next to real accounts and a plan you can keep."
+        related={[
+          { href: "/tools/take-home-pay", label: "Take-home pay calculator" },
+          { href: "/wealth/learn/the-50-30-20-rule", label: "The 50/30/20 rule" },
+          { href: "/tools/debt-payoff", label: "Debt payoff calculator" },
+        ]}
       />
     </main>
   );

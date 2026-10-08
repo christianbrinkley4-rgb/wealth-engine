@@ -19,6 +19,10 @@ const ARTICLE: ArticleData = {
         "Four categories come first: housing, food, utilities, and minimum debt payments. Everything else waits.",
         "Write each bill, its amount, and its due date on one page. Clarity is the whole game here.",
       ],
+      linkRow: {
+        intro: "Keep going:",
+        links: [{ href: "/wealth/budgeting-that-actually-works", label: "Budgeting that actually works" }],
+      },
     },
     {
       heading: "Step 2: Call creditors before they call you",
@@ -33,6 +37,10 @@ const ARTICLE: ArticleData = {
         "No new charges, no new loans, no cash advances. New debt turns a bad month into a bad year.",
         "Pause every subscription and auto-payment you can. You can re-add them when income recovers.",
       ],
+      linkRow: {
+        intro: "Keep going:",
+        links: [{ href: "/tools/debt-payoff", label: "Debt payoff calculator" }],
+      },
     },
     {
       heading: "Step 4: Find one extra income lever",
@@ -47,6 +55,10 @@ const ARTICLE: ArticleData = {
         "Dial 211 or visit 211.org for local help with rent, utilities, and food. It is free, confidential, and built for this.",
         "Food banks, utility aid programs, and community agencies exist in every county. Using them is smart, not shameful.",
       ],
+      linkRow: {
+        intro: "Keep going:",
+        links: [{ href: "/wealth/emergency-fund-guide", label: "The emergency fund guide" }],
+      },
     },
   ],
   panel: {

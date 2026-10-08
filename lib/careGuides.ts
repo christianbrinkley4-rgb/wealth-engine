@@ -9,6 +9,7 @@ export interface CareGuide {
   questions: string[];
   faq: Array<{ q: string; a: string }>;
   sources: Array<{ title: string; url: string }>;
+  related: Array<{ title: string; href: string }>;
 }
 
 export const CARE_GUIDES: CareGuide[] = [
@@ -78,6 +79,11 @@ export const CARE_GUIDES: CareGuide[] = [
         url: "https://content.naic.org/consumer/long-term-care-insurance.htm",
       },
     ],
+    related: [
+      { title: "Short-term care insurance", href: "/short-term-care-insurance" },
+      { title: "Critical illness insurance", href: "/critical-illness-insurance" },
+      { title: "What Medicare doesn't cover", href: "/guides/what-medicare-does-not-cover" },
+    ],
   },
   {
     slug: "short-term-care-insurance",
@@ -141,6 +147,11 @@ export const CARE_GUIDES: CareGuide[] = [
         url: "https://www.medicare.gov/coverage/long-term-care",
       },
     ],
+    related: [
+      { title: "Long-term care insurance", href: "/long-term-care-insurance" },
+      { title: "Critical illness insurance", href: "/critical-illness-insurance" },
+      { title: "What Medicare doesn't cover", href: "/guides/what-medicare-does-not-cover" },
+    ],
   },
   {
     slug: "critical-illness-insurance",
@@ -203,6 +214,11 @@ export const CARE_GUIDES: CareGuide[] = [
         title: "North Carolina Department of Insurance: consumer guide to cancer insurance",
         url: "https://www.ncdoi.gov/documents/consumer/publications/consumer-guide-cancer-insurance/open",
       },
+    ],
+    related: [
+      { title: "Long-term care insurance", href: "/long-term-care-insurance" },
+      { title: "Short-term care insurance", href: "/short-term-care-insurance" },
+      { title: "Life insurance options", href: "/life-insurance" },
     ],
   },
 ];

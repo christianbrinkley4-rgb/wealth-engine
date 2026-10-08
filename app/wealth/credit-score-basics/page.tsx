@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -29,7 +30,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
     paragraphs: [],
     list: [
       "Paying every bill on time. Payment history carries the most weight.",
-      "Keeping card balances low next to their limits.",
+      "Keeping card balances low next to their limits. [Credit utilization, explained](/guides/credit-utilization-explained).",
       "Keeping old accounts open. Length of history helps.",
       "Using a mix of account types over time.",
     ],
@@ -39,7 +40,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
     paragraphs: [
       "Late or missed payments. A payment 30 days late can stay on your report for years.",
       "High balances. Maxed-out cards signal risk to lenders.",
-      "Too many new applications at once. Each hard inquiry dings the score a little.",
+      "Too many new applications at once. Each hard inquiry dings the score a little. [Hard vs soft inquiries](/guides/hard-inquiry-vs-soft-inquiry).",
       "Ignoring a bill sent to collections. Deal with those directly and in writing.",
     ],
   },
@@ -53,7 +54,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "How to check yours",
     paragraphs: [
-      "Many banks and card apps show your score for free. Checking your own score never hurts it. Look monthly, not daily.",
+      "Many banks and card apps show your score for free. Checking your own score never hurts it. Look monthly, not daily. [Credit scores, explained](/wealth/learn/credit-scores-explained).",
     ],
   },
 ];
@@ -87,6 +88,22 @@ export const metadata: Metadata = wealthMetadata({
   description: DESCRIPTION,
   path: PATH,
 });
+
+/** Render [label](href) spans as internal links. */
+function rich(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      return (
+        <Link key={index} href={match[2]}>
+          {match[1]}
+        </Link>
+      );
+    }
+    return <Fragment key={index}>{part}</Fragment>;
+  });
+}
 
 export default function CreditScoreBasicsPage() {
   const tool = getTool("money-personality");
@@ -128,7 +145,7 @@ export default function CreditScoreBasicsPage() {
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>{rich(paragraph)}</p>
                 ))}
                 {section.list ? (
                   <ul>

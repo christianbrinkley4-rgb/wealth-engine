@@ -114,6 +114,11 @@ export default function RetirementProjectorPage() {
         wealthBody="The handful of moves that matter most when time is on your side. Short, practical, no jargon."
         ctaHeading="See a number you like? Let us check it together"
         ctaBody="The projector explores the range. A free 20-minute call puts your number next to your real timeline, your real accounts, and what comes next."
+        related={[
+          { href: "/tools/compound-interest", label: "Compound interest calculator" },
+          { href: "/wealth/401k-explained", label: "Your 401(k), explained" },
+          { href: "/wealth/roth-ira-explained", label: "Roth IRA, explained" },
+        ]}
       />
     </main>
   );

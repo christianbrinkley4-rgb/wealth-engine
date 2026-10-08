@@ -182,10 +182,17 @@ export default function NumbersHubPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">When the 2027 numbers land</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            The IRS publishes the 2027 tax brackets and contribution limits in October. Social
-            Security announces the 2027 wage base and COLA in October too. CMS finalizes the 2027
-            Part B premium and deductible in November. This page updates as each one lands, and
-            the date at the top always says when.
+            The IRS publishes the{" "}
+            <Link href="/wealth/tax-brackets-explained-plainly" className="underline underline-offset-2">
+              2027 tax brackets
+            </Link>{" "}
+            and contribution limits in October. Social Security announces the 2027 wage base and
+            COLA in October too. CMS finalizes the{" "}
+            <Link href="/medicare-costs-2026" className="underline underline-offset-2">
+              2027 Part B premium
+            </Link>{" "}
+            and deductible in November. This page updates as each one lands, and the date at the
+            top always says when.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             These are national reference figures. Your plan&apos;s premiums and your own tax

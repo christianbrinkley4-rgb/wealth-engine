@@ -20,6 +20,10 @@ const ARTICLE: ArticleData = {
         "A 1099 reports income from freelance, contract, or gig work. No taxes were withheld, so you settle up yourself.",
         "With 1099 income you also pay the employer share of Social Security and Medicare taxes. Set aside money from every payment.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/guides/1099-vs-w2-classification", label: "1099 vs W-2: how worker status changes taxes" }],
+      },
     },
     {
       heading: "The standard deduction",
@@ -27,6 +31,10 @@ const ARTICLE: ArticleData = {
         "The standard deduction is income the IRS does not tax. For 2026 it is $16,100 for single filers.",
         "Subtract it from your income before you figure tax. It beats itemizing for simple first-time returns.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/wealth/tax-brackets-explained-plainly", label: "Tax brackets, explained plainly" }],
+      },
     },
     {
       heading: "When you must file vs when you should anyway",
@@ -42,6 +50,10 @@ const ARTICLE: ArticleData = {
         "IRS Free File offers free guided filing for qualifying incomes. The IRS site lists the current income cutoff.",
         "Volunteer programs at libraries and community centers offer free help each tax season.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/guides/tax-filing-mistakes-first-timers", label: "Tax filing mistakes first-timers make" }],
+      },
     },
   ],
   panel: {

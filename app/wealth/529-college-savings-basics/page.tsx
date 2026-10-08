@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -21,13 +22,13 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
     heading: "What a 529 is",
     paragraphs: [
       "A 529 is an account built for education expenses. You contribute after-tax dollars and choose investments inside the account.",
-      "Qualified withdrawals cover tuition, books, supplies, and room and board for enrolled students.",
+      "Qualified withdrawals cover tuition, books, supplies, and room and board for enrolled students. [The student loan payoff plan](/wealth/student-loans-payoff-plan).",
     ],
   },
   {
     heading: "The tax treatment",
     paragraphs: [
-      "Growth inside the account is tax-deferred. Withdrawals for qualified education expenses are tax-free at the federal level and in North Carolina.",
+      "Growth inside the account is tax-deferred. [See compound growth in action](/wealth/calculators/compound-interest). Withdrawals for qualified education expenses are tax-free at the federal level and in North Carolina.",
       "Non-qualified withdrawals face income tax plus a penalty on the earnings. Use the money for education and the tax benefits hold.",
     ],
   },
@@ -48,7 +49,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "529 vs Roth for college",
     paragraphs: [
-      "A Roth IRA can also help pay for education, under different rules. The two accounts serve different jobs.",
+      "A Roth IRA can also help pay for education, under different rules. The two accounts serve different jobs. [529 vs Roth for college, side by side](/wealth/529-vs-roth-for-college).",
     ],
   },
 ];
@@ -81,6 +82,22 @@ export const metadata: Metadata = wealthMetadata({
   description: DESCRIPTION,
   path: PATH,
 });
+
+/** Render [label](href) spans as internal links. */
+function rich(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      return (
+        <Link key={index} href={match[2]}>
+          {match[1]}
+        </Link>
+      );
+    }
+    return <Fragment key={index}>{part}</Fragment>;
+  });
+}
 
 export default function College529SavingsBasicsPage() {
   return (
@@ -121,7 +138,7 @@ export default function College529SavingsBasicsPage() {
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>{rich(paragraph)}</p>
                 ))}
                 {section.heading === "529 vs Roth for college" ? (
                   <p>

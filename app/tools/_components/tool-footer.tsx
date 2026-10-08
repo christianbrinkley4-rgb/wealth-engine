@@ -118,6 +118,7 @@ export function ToolClose({
   wealthBody,
   ctaHeading,
   ctaBody,
+  related = [],
 }: {
   wealthHref: string;
   wealthEyebrow: string;
@@ -125,6 +126,7 @@ export function ToolClose({
   wealthBody: string;
   ctaHeading: string;
   ctaBody: string;
+  related?: Array<{ href: string; label: string }>;
 }) {
   return (
     <>
@@ -134,6 +136,20 @@ export function ToolClose({
         title={wealthTitle}
         body={wealthBody}
       />
+      {related.length > 0 ? (
+        <section className="app-shell max-w-3xl pb-4" aria-label="Related tools and reads">
+          <h2 className="text-24 font-semibold">Related tools and reads</h2>
+          <ul className="text-18 mt-4 space-y-3">
+            {related.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="underline underline-offset-4">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
       <KitchenTableClose heading={ctaHeading} body={ctaBody} href="/start" label="Start a free review →" />
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ToolsDisclaimer />

@@ -51,8 +51,8 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         heading: "Why your paycheck looks wrong",
         paragraphs: [
           "Your offer letter shows gross pay. Your bank account gets net pay. The gap is taxes and anything you signed up for at work.",
-          "On a normal W-2 paycheck you'll see federal income tax, Social Security at 6.2% and Medicare at 1.45%. Most states take income tax too. Health insurance and retirement contributions come out as well if you enrolled.",
-          "So a budget built on your salary is already broken. Use the number that actually lands in your account.",
+          "On a normal W-2 paycheck you'll see federal income tax, Social Security at 6.2% and Medicare at 1.45%. [How tax brackets work](/wealth/tax-brackets-explained-plainly). Most states take income tax too. Health insurance and retirement contributions come out as well if you enrolled.",
+          "So a budget built on your salary is already broken. Use the number that actually lands in your account. [See what your take-home pay really is](/tools/take-home-pay).",
         ],
       },
       {
@@ -69,7 +69,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         heading: "Pay yourself on payday",
         paragraphs: [
           "Saving what's left at the end of the month fails. Nothing is ever left. Flip the order. Set an automatic transfer for the morning your paycheck hits.",
-          "If your job offers a retirement plan with a match, find out the formula. A match is part of your pay. You only get it if you contribute.",
+          "If your job offers a retirement plan with a match, find out the formula. A match is part of your pay. You only get it if you contribute. [Your 401(k), explained](/wealth/401k-explained).",
         ],
       },
       {
@@ -130,7 +130,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         heading: "The trade: tax now, none later",
         paragraphs: [
           "With a Roth, you contribute money that's already been taxed. In exchange, growth and qualified withdrawals are tax-free. The main route to qualified: you're at least 59 and a half, and the account has been open five years.",
-          "A traditional IRA flips it. You may get a tax deduction now, and you pay income tax when you take money out.",
+          "A traditional IRA flips it. You may get a tax deduction now, and you pay income tax when you take money out. [Roth vs traditional, explained](/wealth/roth-vs-traditional-taxes).",
         ],
       },
       {
@@ -146,8 +146,8 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
       {
         heading: "Why people in their 20s look at it",
         paragraphs: [
-          "Two reasons. First, a starting salary sits in a low tax bracket, and a Roth locks in that rate on the money you put in. Second, time. Tax-free growth gets decades to work.",
-          "Also worth knowing: you can take out the amount you contributed at any time without tax or penalty. Earnings are different. Pulling those early can mean tax and a 10% penalty.",
+          "Two reasons. First, a starting salary sits in a low tax bracket, and a Roth locks in that rate on the money you put in. [Compare with the calculator](/wealth/calculators/roth-vs-traditional). Second, time. Tax-free growth gets decades to work.",
+          "Also worth knowing: you can take out the amount you contributed at any time without tax or penalty. [The Roth IRA 5-year rule](/guides/roth-ira-five-year-rule). Earnings are different. Pulling those early can mean tax and a 10% penalty.",
           "Whether a Roth fits you depends on your income, your taxes and your goals. I can explain how it works. I can't tell you what to put in it.",
         ],
       },
@@ -205,9 +205,9 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         paragraphs: ["FICO publishes how its score is weighted."],
         list: [
           "Payment history, 35%. Do you pay on time?",
-          "Amounts owed, 30%. How much of your available credit are you using?",
+          "Amounts owed, 30%. How much of your available credit are you using? [Credit utilization, explained](/guides/credit-utilization-explained).",
           "Length of credit history, 15%. How old are your accounts?",
-          "New credit, 10%. How many accounts have you applied for lately?",
+          "New credit, 10%. How many accounts have you applied for lately? [Hard vs soft inquiries](/guides/hard-inquiry-vs-soft-inquiry).",
           "Credit mix, 10%. Cards, car loans, student loans and so on.",
         ],
       },
@@ -223,7 +223,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         paragraphs: [
           "Checking your own credit does not lower your score. That's a soft inquiry. Applying for new credit is a hard inquiry, and that can dip it a little for a while.",
           "You also don't need to carry a balance and pay interest to build credit. Using a card and paying the statement in full each month reports as on-time payments.",
-          "You can pull your credit reports from all three bureaus for free at AnnualCreditReport.com. Read them. Mistakes happen, and you can dispute them.",
+          "You can pull your credit reports from all three bureaus for free at AnnualCreditReport.com. Read them. [Credit cards for beginners](/wealth/credit-cards-beginners). Mistakes happen, and you can dispute them.",
         ],
       },
     ],
@@ -286,8 +286,8 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
           "Bookkeeping: recording the day-to-day transactions.",
           "Financial accounting: turning records into statements for owners, lenders and investors.",
           "Audit: checking that a company's statements are fair and backed by evidence.",
-          "Tax: preparing returns and planning around the rules.",
-          "Managerial accounting: budgets, costs and forecasts for the people running the business.",
+          "Tax: preparing returns and planning around the rules. [Tax brackets, explained plainly](/wealth/tax-brackets-explained-plainly).",
+          "Managerial accounting: budgets, costs and forecasts for the people running the business. [Budgeting that actually works](/wealth/budgeting-that-actually-works).",
         ],
       },
       {
@@ -300,7 +300,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
       {
         heading: "Why this matters for your own money",
         paragraphs: [
-          "Your life has the same three statements. Your paycheck and spending are an income statement. What you own and owe is a balance sheet. Your bank account is cash flow.",
+          "Your life has the same three statements. Your paycheck and spending are an income statement. [Budgeting on your first job](/wealth/learn/budgeting-on-your-first-job). What you own and owe is a balance sheet. Your bank account is cash flow.",
           "And a CPA is a state license, not a degree. It takes an exam, education and experience, and the details vary by state. I'm not a CPA. I'm a student who likes this stuff enough to build tools for it.",
         ],
       },
@@ -349,14 +349,14 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         heading: "What it's for",
         paragraphs: [
           "A blown tire. A cracked phone you need for work. Hours cut at your job. An emergency fund turns those from a crisis into a bad week.",
-          "Without one, the surprise goes on a credit card, and now you're paying interest on bad luck.",
+          "Without one, the surprise goes on a credit card, and now you're paying interest on bad luck. [The debt payoff calculator](/wealth/calculators/debt-payoff).",
         ],
       },
       {
         heading: "How much",
         paragraphs: [
           "The standard target is three to six months of essential expenses. Essential means rent, food, utilities, insurance, transportation and minimum debt payments. Not your full lifestyle.",
-          "On a first paycheck that number looks impossible. So break it up.",
+          "On a first paycheck that number looks impossible. So break it up. [Budgeting on your first job](/wealth/learn/budgeting-on-your-first-job).",
         ],
         list: [
           "Level 1: $500. Covers the most common surprises.",
@@ -369,7 +369,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         heading: "Where to keep it",
         paragraphs: [
           "Somewhere safe, separate and easy to reach. A savings account at a bank or credit union fits. Deposits at FDIC-insured banks are covered up to $250,000 per depositor, per bank, per ownership category. Credit unions have similar coverage through the NCUA.",
-          "Separate matters. Money in checking gets spent. A different account, with a boring name, gets left alone.",
+          "Separate matters. Money in checking gets spent. A different account, with a boring name, gets left alone. [HYSA vs money market](/guides/hysa-vs-money-market-account).",
         ],
       },
       {
@@ -425,21 +425,21 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         list: [
           "Needs, 50%. Housing, utilities, groceries, transportation, insurance, minimum debt payments.",
           "Wants, 30%. Eating out, subscriptions, travel, upgrades. Things you could cut but would rather not.",
-          "Savings and debt, 20%. Emergency fund, retirement, and anything above the minimum on debt.",
+          "Savings and debt, 20%. Emergency fund, retirement, and anything above the minimum on debt. [Emergency funds](/wealth/learn/emergency-funds).",
         ],
       },
       {
         heading: "A quick example",
         paragraphs: [
           "Say you bring home $3,000 a month. The classic split is $1,500 for needs, $900 for wants and $600 for savings and extra debt payments.",
-          "Now check it against real life. If rent and a car payment already eat $1,900, you're at 63% needs. The rule didn't fail. It just showed you where the pressure is.",
+          "Now check it against real life. If rent and a car payment already eat $1,900, you're at 63% needs. [The budget builder](/wealth/calculators/budget). The rule didn't fail. It just showed you where the pressure is.",
         ],
       },
       {
         heading: "When to bend it",
         paragraphs: [
           "In a high-rent city, needs can run 60% or more. On an entry-level salary, 20% savings may not be possible yet. Carrying high-rate debt? Flip wants and savings until it's gone.",
-          "The percentages matter less than the habit. Know your three numbers and move them on purpose.",
+          "The percentages matter less than the habit. Know your three numbers and move them on purpose. [Budgeting on your first job](/wealth/learn/budgeting-on-your-first-job).",
         ],
       },
       {

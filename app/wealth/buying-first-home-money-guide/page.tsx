@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -34,7 +35,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "PITI in plain English",
     paragraphs: [
-      "Your monthly housing payment is all four together. Quotes that show principal and interest only are telling half the story.",
+      "Your monthly housing payment is all four together. Quotes that show principal and interest only are telling half the story. [The budget builder](/tools/budget).",
     ],
     list: [
       "Principal: the part of each payment that shrinks your loan balance.",
@@ -47,13 +48,13 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
     heading: "The emergency fund after buying",
     paragraphs: [
       "Houses break on their own schedule. Roofs, furnaces, and water heaters do not check your bank balance first.",
-      "Keep an emergency fund intact after closing, separate from the down payment. A house with no cash cushion is fragile.",
+      "Keep an emergency fund intact after closing, separate from the down payment. A house with no cash cushion is fragile. [Emergency fund guide](/wealth/emergency-fund-guide).",
     ],
   },
   {
     heading: "The real affordability test",
     paragraphs: [
-      "Add up PITI plus utilities and upkeep, then run that total against take-home pay. Leave room for savings to keep growing.",
+      "Add up PITI plus utilities and upkeep, then run that total against take-home pay. Leave room for savings to keep growing. [Rent vs buy, the math](/wealth/rent-vs-buy-math).",
       "If one surprise repair would break the budget, the house is too much house. Waiting costs less than a forced sale.",
     ],
   },
@@ -87,6 +88,22 @@ export const metadata: Metadata = wealthMetadata({
   description: DESCRIPTION,
   path: PATH,
 });
+
+/** Render [label](href) spans as internal links. */
+function rich(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      return (
+        <Link key={index} href={match[2]}>
+          {match[1]}
+        </Link>
+      );
+    }
+    return <Fragment key={index}>{part}</Fragment>;
+  });
+}
 
 export default function BuyingFirstHomeMoneyGuidePage() {
   const tool = getTool("budget");
@@ -128,7 +145,7 @@ export default function BuyingFirstHomeMoneyGuidePage() {
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>{rich(paragraph)}</p>
                 ))}
                 {section.list ? (
                   <ul>

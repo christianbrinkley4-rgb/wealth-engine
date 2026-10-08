@@ -117,6 +117,11 @@ export default function RothVsTraditionalPage() {
         wealthBody="What a Roth IRA actually is, how the tax trade works, and who it fits. Five minutes, plain English."
         ctaHeading="The numbers raised a question? Bring it to me"
         ctaBody="A calculator shows you the arithmetic. A free 20-minute call puts it next to your real tax picture, your timeline, and what the answer means for you."
+        related={[
+          { href: "/wealth/401k-explained", label: "Your 401(k), explained" },
+          { href: "/guides/backdoor-roth-ira-steps", label: "Backdoor Roth IRA steps" },
+          { href: "/wealth/roth-vs-traditional-taxes", label: "Roth vs traditional taxes" },
+        ]}
       />
     </main>
   );

@@ -104,7 +104,7 @@ export default function HsaExplainedPage() {
                 limit.
               </p>
               <p>
-                The plan behind it must qualify as a high-deductible health plan. The 2026 minimum
+                The plan behind it must qualify as a <Link href="/wealth/health-insurance-basics">high-deductible health plan</Link>. The 2026 minimum
                 deductible is $1,700 for self-only and $3,400 for family coverage. Any money your
                 employer puts in counts toward your limit too.
               </p>
@@ -113,7 +113,7 @@ export default function HsaExplainedPage() {
             <section>
               <h2>How it differs from an FSA</h2>
               <p>
-                HSA money rolls over year after year with no deadline. Many FSAs have a
+                HSA money rolls over year after year with no deadline. Many <Link href="/guides/fsa-vs-hsa-which-is-better">FSAs</Link> have a
                 use-it-or-lose-it rule, so unspent money can disappear. The HSA also travels with you
                 when you switch employers.
               </p>
@@ -126,7 +126,7 @@ export default function HsaExplainedPage() {
             <section>
               <h2>After 65</h2>
               <p>
-                Once you enroll in Medicare you can no longer contribute to an HSA. Money already in
+                Once you <Link href="/guides/medicare-hsa-contributions">enroll in Medicare</Link> you can no longer contribute to an HSA. Money already in
                 the account stays available for medical costs.
               </p>
               <p>

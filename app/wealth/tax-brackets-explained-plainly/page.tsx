@@ -19,6 +19,10 @@ const ARTICLE: ArticleData = {
         "Your marginal rate is the rate on your last dollar of income. Your effective rate is total tax divided by total income.",
         "The effective rate always lands below the marginal rate. That gap is the whole point of brackets.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/wealth/first-tax-return-guide", label: "Your first tax return, explained" }],
+      },
     },
     {
       heading: "A worked example",
@@ -27,6 +31,10 @@ const ARTICLE: ArticleData = {
         "The first $12,400 is taxed at 10%, which is $1,240. The next $31,500 is taxed at 12%, which is $3,780.",
         "Total federal tax is $5,020. The marginal rate is 12%, and the effective rate is about 11.4%.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/tools/take-home-pay", label: "Take-home pay calculator" }],
+      },
     },
     {
       heading: "The 2026 federal brackets",
@@ -53,6 +61,10 @@ const ARTICLE: ArticleData = {
         "Brackets apply to taxable income, not total income. The standard deduction comes off before any bracket math.",
         "For 2026 that is $16,100 single and $32,200 married filing jointly. Itemizing only helps when deductions top those numbers.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/guides/standard-deduction-seniors-2026", label: "2026 standard deduction for seniors" }],
+      },
     },
   ],
   panel: {

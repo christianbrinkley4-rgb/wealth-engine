@@ -21,6 +21,10 @@ const ARTICLE: ArticleData = {
         "A copay is a flat fee per visit. Coinsurance is your percentage of the bill after the deductible.",
         "The out-of-pocket max is the yearly ceiling. Hit it and the plan pays 100% of covered care for the rest of the year.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/guides/fsa-vs-hsa-which-is-better", label: "FSA vs HSA: which wins?" }],
+      },
     },
     {
       heading: "A worked example",
@@ -29,6 +33,10 @@ const ARTICLE: ArticleData = {
         "You pay the first $2,000. Of the remaining $8,000, you pay 20%, which is $1,600. Your total is $3,600.",
         "Premiums sit outside this math. They are the price of admission, paid every month.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/tools/budget", label: "Budget calculator" }],
+      },
     },
     {
       heading: "High-deductible plans and HSAs",

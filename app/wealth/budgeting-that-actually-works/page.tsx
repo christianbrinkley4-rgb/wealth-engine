@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -26,7 +27,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "Start from take-home pay",
     paragraphs: [
-      "Your salary is not your budget. Your take-home pay is. Every number in the plan comes from what actually lands in your account.",
+      "Your salary is not your budget. Your take-home pay is. Every number in the plan comes from what actually lands in your account. [Take-home pay calculator](/tools/take-home-pay).",
     ],
   },
   {
@@ -53,7 +54,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "When the budget breaks",
     paragraphs: [
-      "Budgets break when life happens: a car repair, a slow month, a surprise bill. Keep a small buffer in checking for exactly this.",
+      "Budgets break when life happens: a car repair, a slow month, a surprise bill. Keep a small buffer in checking for exactly this. [Emergency fund guide](/wealth/emergency-fund-guide).",
       "When one category overspends, move money from another instead of quitting. Repair the plan the same week it breaks.",
     ],
   },
@@ -87,6 +88,22 @@ export const metadata: Metadata = wealthMetadata({
   description: DESCRIPTION,
   path: PATH,
 });
+
+/** Render [label](href) spans as internal links. */
+function rich(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      return (
+        <Link key={index} href={match[2]}>
+          {match[1]}
+        </Link>
+      );
+    }
+    return <Fragment key={index}>{part}</Fragment>;
+  });
+}
 
 export default function BudgetingThatActuallyWorksPage() {
   const tool = getTool("budget");
@@ -128,7 +145,7 @@ export default function BudgetingThatActuallyWorksPage() {
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>{rich(paragraph)}</p>
                 ))}
                 {section.heading === "The 50/30/20 split, as a starting point" ? (
                   <p>

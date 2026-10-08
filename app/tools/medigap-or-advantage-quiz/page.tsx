@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
@@ -109,6 +110,26 @@ export default function MedigapQuizPage() {
         title="Medicare Advantage vs Medigap, side by side"
         body="The full comparison: how each path handles doctors, drugs, travel, and costs, in plain English."
       />
+      <section className="app-shell max-w-3xl pb-4" aria-label="Related tools and reads">
+        <h2 className="text-24 font-semibold">Related tools and reads</h2>
+        <ul className="text-18 mt-4 space-y-3">
+          <li>
+            <Link href="/medicare-advantage-doctor-networks" className="underline underline-offset-4">
+              Medicare Advantage doctor networks
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/what-medicare-does-not-cover" className="underline underline-offset-4">
+              What Medicare does not cover
+            </Link>
+          </li>
+          <li>
+            <Link href="/annual-enrollment" className="underline underline-offset-4">
+              Annual enrollment, Oct 15 to Dec 7
+            </Link>
+          </li>
+        </ul>
+      </section>
       <KitchenTableClose
         heading="The quiz raised a question? Bring it to me"
         body="Bring your result and your question list to a free 20-minute call. We will go through your doctors, your prescriptions, and what each path would really cost you."

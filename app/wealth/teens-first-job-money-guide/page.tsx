@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -22,7 +23,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
     paragraphs: [
       "Your hourly rate times your hours is your gross pay. Your net pay is what lands in your account. The gap between them is taxes and deductions.",
       "Federal income tax is withheld from each check based on your W-4 and your earnings. Teens with low earnings may owe little or nothing at filing time.",
-      "Social Security takes 6.2 percent of your wages. Medicare takes 1.45 percent. These payroll taxes apply to almost every worker, including teens.",
+      "Social Security takes 6.2 percent of your wages. Medicare takes 1.45 percent. These payroll taxes apply to almost every worker, including teens. [Take-home pay calculator](/tools/take-home-pay).",
     ],
   },
   {
@@ -40,8 +41,8 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "What to do with the money",
     paragraphs: [
-      "Give every check three jobs: spending, saving, and a little fun money. Move the savings part first, before you spend anything.",
-      "An emergency fund is cash set aside for surprises like a car repair. Even a few hundred dollars beats scrambling when something breaks.",
+      "Give every check three jobs: spending, saving, and a little fun money. Move the savings part first, before you spend anything. [Budgeting on your first job](/wealth/learn/budgeting-on-your-first-job).",
+      "An emergency fund is cash set aside for surprises like a car repair. Even a few hundred dollars beats scrambling when something breaks. [Emergency funds](/wealth/learn/emergency-funds).",
     ],
     list: [
       "Spend some. Your first paychecks should be fun too.",
@@ -89,6 +90,22 @@ export const metadata: Metadata = wealthMetadata({
   path: PATH,
 });
 
+/** Render [label](href) spans as internal links. */
+function rich(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      return (
+        <Link key={index} href={match[2]}>
+          {match[1]}
+        </Link>
+      );
+    }
+    return <Fragment key={index}>{part}</Fragment>;
+  });
+}
+
 export default function TeensFirstJobMoneyGuidePage() {
   return (
     <main>
@@ -128,7 +145,7 @@ export default function TeensFirstJobMoneyGuidePage() {
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>{rich(paragraph)}</p>
                 ))}
                 {section.list ? (
                   <ul>

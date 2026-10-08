@@ -88,7 +88,7 @@ export default function RmdExplainedPage() {
                 tax gets collected over your retirement.
               </p>
               <p>
-                Roth IRAs have no RMDs while the original owner is alive. Traditional IRAs, 401(k)s,
+                <Link href="/wealth/roth-ira-explained">Roth IRAs</Link> have no RMDs while the original owner is alive. Traditional IRAs, <Link href="/wealth/401k-explained">401(k)s</Link>,
                 403(b)s, and 457(b)s do.
               </p>
             </section>
@@ -103,7 +103,7 @@ export default function RmdExplainedPage() {
               </p>
               <p>
                 Delaying the first one to April 1 means two withdrawals land in the same tax year.
-                Both count as taxable income that year.
+                Both count as <Link href="/wealth/tax-brackets-explained-plainly">taxable income</Link> that year.
               </p>
             </section>
 

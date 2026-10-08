@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -20,13 +21,13 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "What life insurance is for",
     paragraphs: [
-      "Life insurance replaces income when someone dies. If people depend on your paycheck, it protects them. If no one depends on your income, the need is smaller.",
+      "Life insurance replaces income when someone dies. If people depend on your paycheck, it protects them. [Disability insurance, explained](/wealth/disability-insurance-explained). If no one depends on your income, the need is smaller.",
     ],
   },
   {
     heading: "Term life, plainly",
     paragraphs: [
-      "You pick a term, like 10, 20, or 30 years. You pay premiums during the term. If you die during the term, it pays the death benefit.",
+      "You pick a term, like 10, 20, or 30 years. You pay premiums during the term. If you die during the term, it pays the death benefit. [How much life insurance do you need?](/tools/life-insurance-needs).",
       "If you outlive the term, coverage ends. Term is the simplest type.",
     ],
   },
@@ -41,7 +42,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
     heading: "How agents get paid",
     paragraphs: [
       "Most life insurance agents earn a commission from the carrier when a policy sells. The commission does not change your premium.",
-      "It does shape incentives. Ask directly: how are you paid on this sale? An honest agent answers plainly.",
+      "It does shape incentives. Ask directly: how are you paid on this sale? An honest agent answers plainly. [How I work with life insurance clients](/life-insurance).",
     ],
   },
   {
@@ -86,6 +87,22 @@ export const metadata: Metadata = wealthMetadata({
   path: PATH,
 });
 
+/** Render [label](href) spans as internal links. */
+function rich(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      return (
+        <Link key={index} href={match[2]}>
+          {match[1]}
+        </Link>
+      );
+    }
+    return <Fragment key={index}>{part}</Fragment>;
+  });
+}
+
 export default function LifeInsuranceExplainedPage() {
   return (
     <main>
@@ -125,7 +142,7 @@ export default function LifeInsuranceExplainedPage() {
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>{rich(paragraph)}</p>
                 ))}
                 {section.list ? (
                   <ul>

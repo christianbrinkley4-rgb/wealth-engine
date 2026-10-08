@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { DebtPayoff } from "@/app/wealth/calculators/debt-payoff/DebtPayoff";
 import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";
@@ -69,14 +70,14 @@ export default function DebtPayoffPage() {
           </p>
           <h2>The trick both share</h2>
           <p>
-            When a debt hits zero, don&apos;t pocket its payment. Roll it into the next debt. Your monthly
-            total stays the same, but more of it lands on one balance. That&apos;s why the line on the chart
+            When a debt hits zero, don&apos;t pocket its payment. Roll it into the next debt. Your <Link href="/tools/budget">monthly
+            total</Link> stays the same, but more of it lands on one balance. That&apos;s why the line on the chart
             gets steeper near the end.
           </p>
           <h2>Before you start</h2>
           <ul>
-            <li>Keep every minimum paid on time. A late fee wipes out a month of progress.</li>
-            <li>A small emergency buffer keeps a surprise bill from going back on the card.</li>
+            <li>Keep every minimum <Link href="/wealth/learn/credit-scores-explained">paid on time</Link>. A late fee wipes out a month of progress.</li>
+            <li>A small <Link href="/wealth/emergency-fund-guide">emergency buffer</Link> keeps a surprise bill from going back on the card.</li>
             <li>If the payments here never catch the interest, a nonprofit credit counselor is worth a call.</li>
           </ul>
           <EducationNote />

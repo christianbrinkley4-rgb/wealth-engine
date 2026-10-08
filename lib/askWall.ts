@@ -118,6 +118,7 @@ export const ASK_QUESTIONS: Article[] = [
     related: [
       { label: "Overtime deduction rules", href: "/guides/overtime-tax-deduction-2026" },
       { label: "How tax brackets work", href: "/wealth/tax-brackets-explained-plainly" },
+      { label: "No tax on tips: what qualifies", href: "/guides/tips-tax-deduction-2026" },
     ],
     startHref: "/start",
   },
@@ -182,6 +183,7 @@ export const ASK_QUESTIONS: Article[] = [
     related: [
       { label: "HSA and FSA after leaving a job", href: "/guides/hsa-fsa-after-leaving-job" },
       { label: "The HSA, explained", href: "/wealth/hsa-explained" },
+      { label: "The HSA triple tax advantage", href: "/guides/hsa-triple-tax-advantage" },
     ],
     startHref: "/start",
   },
@@ -250,6 +252,7 @@ export const ASK_QUESTIONS: Article[] = [
     related: [
       { label: "401(k) after leaving a job", href: "/guides/401k-rollover-after-leaving-job" },
       { label: "Your 401(k), explained", href: "/wealth/401k-explained" },
+      { label: "401(k) loan vs withdrawal", href: "/guides/401k-loan-vs-withdrawal" },
     ],
     startHref: "/start",
   },
@@ -322,6 +325,7 @@ export const ASK_QUESTIONS: Article[] = [
     related: [
       { label: "Backdoor Roth IRA steps", href: "/guides/backdoor-roth-ira-steps" },
       { label: "Roth IRA basics", href: "/wealth/roth-ira-explained" },
+      { label: "Roth vs traditional calculator", href: "/tools/roth-vs-traditional" },
     ],
     startHref: "/start",
   },
@@ -403,6 +407,7 @@ export const ASK_QUESTIONS: Article[] = [
     related: [
       { label: "RMDs at 73, explained", href: "/wealth/rmd-explained-73" },
       { label: "Social Security: 62 vs 70", href: "/guides/social-security-62-vs-70" },
+      { label: "Inherited IRA: the 10-year rule", href: "/guides/inherited-ira-ten-year-rule" },
     ],
     startHref: "/start",
   },

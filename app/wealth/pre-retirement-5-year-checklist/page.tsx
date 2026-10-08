@@ -46,6 +46,10 @@ const ARTICLE: ArticleData = {
         "Your full retirement age is 67 if you were born in 1960 or later. Claiming earlier shrinks the monthly check.",
         "Waiting past full retirement age grows it. The trade is smaller checks now versus a bigger check later.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/guides/social-security-62-vs-70", label: "Social Security: claim at 62 or 70?" }],
+      },
     },
     {
       heading: "Estate basics in one afternoon",

@@ -90,11 +90,11 @@ export default function CarBuyingMoneyGuidePage() {
             <section>
               <h2>How car loans work</h2>
               <p>
-                Financing means paying the price over time, plus the cost of credit. That cost shows
+                Financing means paying the price over time, plus <Link href="/wealth/credit-score-basics">the cost of credit</Link>. That cost shows
                 up as the APR, the annual percentage rate.
               </p>
               <p>
-                A longer loan lowers the monthly payment but raises the total interest paid. The FTC
+                A longer loan lowers the monthly payment but <Link href="/tools/debt-payoff">raises the total interest paid</Link>. The FTC
                 advises shopping for financing before shopping for the car.
               </p>
               <p>
@@ -122,8 +122,8 @@ export default function CarBuyingMoneyGuidePage() {
                 tires, and routine maintenance run every year you drive.
               </p>
               <p>
-                Repairs arrive less predictably, and older cars need them more. Budgeting these as
-                yearly costs keeps the total picture honest.
+                Repairs arrive less predictably, and older cars need them more. <Link href="/tools/budget">Budgeting these as
+                yearly costs</Link> keeps the total picture honest.
               </p>
             </section>
           </div>

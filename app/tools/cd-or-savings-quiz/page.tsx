@@ -109,6 +109,11 @@ export default function CdSavingsQuizPage() {
         wealthBody="How much to keep reachable, where to keep it, and how to build it month by month. Plain English, no jargon."
         ctaHeading="Sorting out where your cash should live?"
         ctaBody="A free 20-minute call can help you decide how much stays reachable and how much can work harder, in the context of your whole picture."
+        related={[
+          { href: "/tools/compound-interest", label: "Compound interest calculator" },
+          { href: "/guides/hysa-vs-money-market-account", label: "HYSA vs money market account" },
+          { href: "/wealth/learn/emergency-funds", label: "Emergency funds, step by step" },
+        ]}
       />
     </main>
   );

@@ -20,6 +20,10 @@ const ARTICLE: ArticleData = {
         "Roth contributions come from after-tax income. You pay tax today and qualified withdrawals come out tax-free.",
         "Both grow without yearly tax drag. The only question is when the IRS takes its cut.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/wealth/roth-ira-explained", label: "Roth IRA, explained" }],
+      },
     },
     {
       heading: "The one question that decides",
@@ -28,6 +32,10 @@ const ARTICLE: ArticleData = {
         "A high-earning year makes the traditional deduction valuable. A low-earning year makes Roth's pay-now price cheap.",
         "Nobody knows future rates for sure. Splitting contributions between both is a middle path for uncertain futures.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/tools/roth-vs-traditional", label: "Roth vs traditional calculator" }],
+      },
     },
     {
       heading: "Where each account lives",
@@ -36,6 +44,10 @@ const ARTICLE: ArticleData = {
         "High earners face Roth IRA income limits: $153,000 to $168,000 single, $242,000 to $252,000 married filing jointly.",
         "New for 2026: 401(k) catch-up contributions must be Roth when prior-year wages topped $150,000.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/wealth/401k-explained", label: "Your 401(k), explained" }],
+      },
     },
     {
       heading: "Withdrawals and timing",

@@ -108,6 +108,11 @@ export default function EmergencyFundPage() {
         wealthBody="Where to keep the fund, how big is big enough, and what counts as a real emergency. Plain English, no jargon."
         ctaHeading="Want a second pair of eyes on your number?"
         ctaBody="The tool sizes the target. A free 20-minute call checks it against your real budget and your real risks."
+        related={[
+          { href: "/tools/budget", label: "Budget calculator" },
+          { href: "/guides/hysa-vs-money-market-account", label: "HYSA vs money market account" },
+          { href: "/wealth/budgeting-that-actually-works", label: "Budgeting that actually works" },
+        ]}
       />
     </main>
   );

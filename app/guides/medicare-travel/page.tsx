@@ -5,6 +5,7 @@ import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { GuideCapture } from "@/app/components/GuideCapture";
+import { StandaloneRelatedLinks } from "@/app/components/StandaloneRelatedLinks";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
@@ -212,6 +213,7 @@ export default function MedicareTravelPage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
+          <StandaloneRelatedLinks slug="medicare-travel" />
           <GuideCapture />
         </div>
       </section>

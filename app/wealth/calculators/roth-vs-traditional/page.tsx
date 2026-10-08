@@ -104,10 +104,10 @@ export default function RothVsTraditionalPage() {
           </p>
           <h2>Things the math leaves out</h2>
           <ul>
-            <li>Roth IRA contributions (not earnings) can come out at any time without tax or penalty.</li>
+            <li><Link href="/guides/roth-ira-five-year-rule">Roth IRA contributions</Link> (not earnings) can come out at any time without tax or penalty.</li>
             <li>Roth IRAs have income limits. Traditional IRA deductions can be limited too if you have a plan at work.</li>
             <li>An employer match is a separate question. It doesn&apos;t depend on which type you pick.</li>
-            <li>Having some of each spreads out the guess about future tax rates.</li>
+            <li>Having some of each spreads out the guess about <Link href="/wealth/roth-vs-traditional-taxes">future tax rates</Link>.</li>
           </ul>
           <p>
             More on the account itself in <Link href="/wealth/learn/what-is-a-roth-ira">What a Roth IRA actually is</Link>.

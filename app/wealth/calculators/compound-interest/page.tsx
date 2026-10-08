@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { CompoundCalculator } from "@/app/wealth/calculators/compound-interest/CompoundCalculator";
 import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";
@@ -71,14 +72,14 @@ export default function CompoundInterestPage() {
           <h2>Three things that move the number</h2>
           <ol>
             <li>
-              <strong>Time.</strong> Slide years from 20 to 40 and watch. More years add more deposits
+              <strong>Time.</strong> <Link href="/wealth/money-moves-in-your-20s">Slide years from 20 to 40</Link> and watch. More years add more deposits
               and more time for growth at a positive rate.
             </li>
             <li>
               <strong>The amount.</strong> Start with $0 and double the monthly amount. That doubles the result.
             </li>
             <li>
-              <strong>The rate.</strong> Small changes add up over decades. It&apos;s also the one you
+              <strong>The rate.</strong> <Link href="/tools/retirement-projector">Small changes add up</Link> over decades. It&apos;s also the one you
               don&apos;t control.
             </li>
           </ol>

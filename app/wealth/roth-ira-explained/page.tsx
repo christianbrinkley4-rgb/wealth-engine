@@ -66,7 +66,7 @@ const SECTIONS: Section[] = [
     heading: "Your contributions can come back out",
     paragraphs: [
       "You can withdraw your contributions at any time, tax-free and penalty-free. You already paid tax on that money.",
-      "Earnings follow stricter rules. Qualified earnings withdrawals need you at 59.5 or older, with the account open at least five years.",
+      "Earnings follow stricter rules. Qualified earnings withdrawals need you at 59.5 or older, with the account open at least five years. [The Roth IRA 5-year rule](/guides/roth-ira-five-year-rule).",
       "Compare it against a traditional account with the [Roth vs traditional calculator](/wealth/calculators/roth-vs-traditional). My short intro guide is here: [What is a Roth IRA?](/wealth/learn/what-is-a-roth-ira).",
     ],
   },

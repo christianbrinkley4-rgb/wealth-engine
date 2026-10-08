@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Suspense } from "react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -88,6 +89,28 @@ export default async function StartPage({
           </Suspense>
           <div className="mx-auto w-full max-w-[640px]">
             <ComplianceDisclosure variant="medicare" />
+          </div>
+          <div className="mx-auto mt-10 w-full max-w-[640px]">
+            <h2 className="text-20 font-semibold text-[var(--color-ink-muted)]">
+              Reading while you wait
+            </h2>
+            <ul className="mt-3 space-y-2 text-16 text-[var(--color-ink-muted)]">
+              <li>
+                <Link href="/turning-65" className="underline underline-offset-4">
+                  Turning 65: the checklist
+                </Link>
+              </li>
+              <li>
+                <Link href="/medicare" className="underline underline-offset-4">
+                  Medicare in Greensboro and the Triad
+                </Link>
+              </li>
+              <li>
+                <Link href="/annual-enrollment" className="underline underline-offset-4">
+                  Annual enrollment, Oct 15 to Dec 7
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </section>

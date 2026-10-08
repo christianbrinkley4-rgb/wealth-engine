@@ -19,6 +19,10 @@ const ARTICLE: ArticleData = {
         "Health insurance pays doctors. Disability insurance pays you. It sends a monthly check while you cannot work.",
         "The check replaces part of your income, not all of it. The gap keeps the incentive to return.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/wealth/life-insurance-explained", label: "Life insurance, explained" }],
+      },
     },
     {
       heading: "Short-term vs long-term",
@@ -35,6 +39,10 @@ const ARTICLE: ArticleData = {
         "An individual policy is yours alone. It follows you between jobs, and you control the terms.",
         "Start from what work already gives you. You may need only a supplement, not a full policy.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/wealth/health-insurance-basics", label: "Health insurance basics" }],
+      },
     },
     {
       heading: "Elimination period and benefit period",
@@ -43,6 +51,10 @@ const ARTICLE: ArticleData = {
         "The benefit period is how long checks keep coming. Choices range from a few years to retirement age.",
         "A long wait with a long benefit period costs less than coverage that starts on day one.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/wealth/emergency-fund-guide", label: "The emergency fund guide" }],
+      },
     },
   ],
   panel: {

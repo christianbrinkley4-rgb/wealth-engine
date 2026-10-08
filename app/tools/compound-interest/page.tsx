@@ -115,6 +115,11 @@ export default function CompoundInterestPage() {
         wealthBody="Why starting early beats starting big, and the handful of moves that matter most when time is on your side."
         ctaHeading="Like what the curve shows? Make it real"
         ctaBody="The calculator shows the shape. A free 20-minute call puts your number next to real accounts and a real plan to start."
+        related={[
+          { href: "/tools/retirement-projector", label: "Retirement projector" },
+          { href: "/tools/roth-vs-traditional", label: "Roth vs traditional calculator" },
+          { href: "/wealth/401k-explained", label: "Your 401(k), explained" },
+        ]}
       />
     </main>
   );

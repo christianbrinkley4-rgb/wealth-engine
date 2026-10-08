@@ -123,6 +123,11 @@ export default function RothConversionLadderPage() {
         wealthBody="What a Roth actually is, how the tax trade works, and who it fits. Five minutes, plain English."
         ctaHeading="The numbers raised a question? Bring it to me"
         ctaBody="A calculator shows you the arithmetic. A free 20-minute call puts it next to your real tax picture, your timeline, and what the answer means for you."
+        related={[
+          { href: "/tools/roth-vs-traditional", label: "Roth vs traditional calculator" },
+          { href: "/guides/roth-conversion-ladder-explained", label: "Roth conversion ladder, explained" },
+          { href: "/wealth/401k-explained", label: "Your 401(k), explained" },
+        ]}
       />
     </main>
   );

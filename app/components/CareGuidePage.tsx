@@ -151,6 +151,15 @@ export function CareGuidePage({ slug }: { slug: string }) {
               </Link>
             </li>
           ))}
+          {guide.related
+            .filter((item) => !CARE_GUIDES.some((g) => `/${g.slug}` === item.href))
+            .map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="underline underline-offset-4">
+                  {item.title}
+                </Link>
+              </li>
+            ))}
         </ul>
       </section>
     </main>

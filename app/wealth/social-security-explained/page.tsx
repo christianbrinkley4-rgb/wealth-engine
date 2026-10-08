@@ -83,7 +83,7 @@ export default function SocialSecurityExplainedPage() {
                 current retirees, not to a personal account in your name.
               </p>
               <p>
-                Medicare runs on a separate 1.45% payroll tax with no wage cap. Social Security and
+                <Link href="/medicare">Medicare</Link> runs on a separate 1.45% payroll tax with no wage cap. Social Security and
                 Medicare are separate programs with separate trust funds.
               </p>
             </section>
@@ -108,7 +108,7 @@ export default function SocialSecurityExplainedPage() {
                 to set your benefit, so filing at that age gets the full amount.
               </p>
               <p>
-                Filing at 62 is the earliest option, and it permanently reduces your monthly check.
+                <Link href="/guides/social-security-62-vs-70">Filing at 62</Link> is the earliest option, and it permanently reduces your monthly check.
                 Every year you wait past full retirement age increases the check, up to age 70. After
                 70, waiting gains you nothing.
               </p>
@@ -134,7 +134,7 @@ export default function SocialSecurityExplainedPage() {
             <section>
               <h2>Working while collecting</h2>
               <p>
-                SSA reduces benefits for some workers who earn above a limit before full retirement
+                SSA reduces benefits for some workers who <Link href="/guides/working-while-collecting-social-security">earn above a limit</Link> before full retirement
                 age. The reduction ends once you reach full retirement age. SSA then recalculates
                 your benefit to credit back the months that were withheld.
               </p>

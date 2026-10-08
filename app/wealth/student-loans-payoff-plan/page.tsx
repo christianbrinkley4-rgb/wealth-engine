@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -20,7 +21,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "List every loan",
     paragraphs: [
-      "Write down each loan with three numbers: balance, interest rate, minimum payment. Your servicer shows all three. You cannot plan what you cannot see.",
+      "Write down each loan with three numbers: balance, interest rate, minimum payment. Your servicer shows all three. You cannot plan what you cannot see. [The debt payoff calculator](/tools/debt-payoff).",
     ],
   },
   {
@@ -41,13 +42,13 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
     heading: "Automate everything",
     paragraphs: [
       "Set autopay for at least the minimums on every loan. Add the extra payment as a separate automatic transfer.",
-      "A plan that runs itself survives busy months and forgotten logins.",
+      "A plan that runs itself survives busy months and forgotten logins. [Emergency fund guide](/wealth/emergency-fund-guide).",
     ],
   },
   {
     heading: "Point extra money at the plan",
     paragraphs: [
-      "Decide in advance where windfalls go: raises, refunds, side income. Money without a job gets spent. Money with a job kills loans.",
+      "Decide in advance where windfalls go: raises, refunds, side income. Money without a job gets spent. Money with a job kills loans. [Budgeting that actually works](/wealth/budgeting-that-actually-works).",
     ],
   },
 ];
@@ -80,6 +81,22 @@ export const metadata: Metadata = wealthMetadata({
   description: DESCRIPTION,
   path: PATH,
 });
+
+/** Render [label](href) spans as internal links. */
+function rich(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      return (
+        <Link key={index} href={match[2]}>
+          {match[1]}
+        </Link>
+      );
+    }
+    return <Fragment key={index}>{part}</Fragment>;
+  });
+}
 
 export default function StudentLoansPayoffPlanPage() {
   const tool = getTool("debt-payoff");
@@ -121,7 +138,7 @@ export default function StudentLoansPayoffPlanPage() {
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>{rich(paragraph)}</p>
                 ))}
                 {section.list ? (
                   <ul>

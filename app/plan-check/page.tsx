@@ -135,6 +135,27 @@ export default function PlanCheckPage() {
         </div>
       </section>
 
+      <section className="app-shell max-w-3xl pb-4" aria-label="Related reads">
+        <h2 className="text-24 font-semibold">Related reads</h2>
+        <ul className="text-18 mt-4 space-y-3">
+          <li>
+            <Link href="/annual-enrollment" className="underline underline-offset-4">
+              Annual enrollment, Oct 15 to Dec 7
+            </Link>
+          </li>
+          <li>
+            <Link href="/advantage-vs-medigap" className="underline underline-offset-4">
+              Medicare Advantage vs Medigap, side by side
+            </Link>
+          </li>
+          <li>
+            <Link href="/guides/medicare-plan-not-renewing-triad" className="underline underline-offset-4">
+              Your plan is not renewing? What to do next
+            </Link>
+          </li>
+        </ul>
+      </section>
+
       <KitchenTableClose
         heading="Ninety seconds now, or twenty minutes with me"
         body="The quiz gives you the quick read. The review gives you the full picture. Both are free, and both come from a real person in Greensboro, not a call center."

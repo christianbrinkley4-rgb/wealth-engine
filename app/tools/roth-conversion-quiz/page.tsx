@@ -112,6 +112,11 @@ export default function RothConversionQuizPage() {
         wealthBody="What a Roth IRA actually is, how the tax trade works, and who it fits. Five minutes, plain English."
         ctaHeading="The quiz raised a tax question? Bring it to me"
         ctaBody="I am an accounting senior and a licensed agent, not a tax pro, and I will tell you straight when a question belongs with one. A free 20-minute call can sort out which of these questions matter for you."
+        related={[
+          { href: "/tools/roth-conversion-ladder", label: "Roth conversion ladder tool" },
+          { href: "/tools/roth-vs-traditional", label: "Roth vs traditional calculator" },
+          { href: "/guides/backdoor-roth-ira-steps", label: "Backdoor Roth IRA steps" },
+        ]}
       />
 
     </main>

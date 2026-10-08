@@ -20,6 +20,10 @@ const ARTICLE: ArticleData = {
         "The extra money lands in the same account. It follows the same tax rules as your regular contributions.",
         "Counting employer match, total 2026 contributions cannot top $72,000.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/wealth/401k-explained", label: "Your 401(k), explained" }],
+      },
     },
     {
       heading: "The super catch-up at 60 to 63",
@@ -34,6 +38,10 @@ const ARTICLE: ArticleData = {
         "The 2026 IRA limit is $7,500 under 50. At 50 and older, a $1,100 catch-up raises it to $8,600.",
         "The limit covers traditional and Roth IRAs combined. It is one bucket, not one per account.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/wealth/roth-ira-explained", label: "Roth IRA, explained" }],
+      },
     },
     {
       heading: "The HSA catch-up at 55",
@@ -41,6 +49,10 @@ const ARTICLE: ArticleData = {
         "At 55, you can add $1,000 to a health savings account. That lifts the limit to $5,400 single or $9,750 family.",
         "Each spouse needs their own HSA for their own $1,000. One account cannot hold two catch-ups.",
       ],
+      linkRow: {
+        intro: "Keep reading:",
+        links: [{ href: "/wealth/hsa-explained", label: "HSAs, explained" }],
+      },
     },
     {
       heading: "The new 2026 Roth catch-up rule",

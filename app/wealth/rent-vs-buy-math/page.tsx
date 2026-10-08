@@ -121,12 +121,12 @@ export default function RentVsBuyMathPage() {
             <section>
               <h2>Run your own numbers</h2>
               <p>
-                List every monthly and one-time cost on both sides. Use real quotes for taxes,
+                <Link href="/tools/budget">List every monthly and one-time cost</Link> on both sides. Use real quotes for taxes,
                 insurance, and HOA dues, not guesses.
               </p>
               <p>
-                Compare total cost per year of staying, not just the monthly payment. This page
-                cannot tell you which choice wins. Your numbers can.
+                Compare total cost per year of staying, <Link href="/wealth/buying-first-home-money-guide">not just the monthly payment</Link>. This page
+                cannot tell you which choice wins. <Link href="/wealth/calculators/budget">Your numbers can</Link>.
               </p>
             </section>
           </div>

@@ -71,7 +71,7 @@ export default function BudgetPage() {
           <h2>What to do with your three numbers</h2>
           <ol>
             <li>Add up last month&apos;s real needs from your bank statement. Compare it to the needs number here.</li>
-            <li>Set an automatic transfer for the savings number, timed for payday.</li>
+            <li>Set an automatic transfer for the <Link href="/wealth/learn/the-50-30-20-rule">savings number</Link>, timed for payday.</li>
             <li>Whatever is left is yours to spend. No tracking every coffee.</li>
           </ol>
           <p>

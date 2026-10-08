@@ -1,4 +1,5 @@
 import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
+import { Fragment } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -28,8 +29,8 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "Pre-tax vs Roth",
     paragraphs: [
-      "Pre-tax contributions lower your taxable income now. You pay tax when you withdraw in retirement.",
-      "Roth contributions use after-tax dollars. Qualified withdrawals in retirement are tax-free. The mix depends on your tax picture now versus later.",
+      "Pre-tax contributions lower your taxable income now. You pay tax when you withdraw in retirement. [How tax brackets really work](/wealth/tax-brackets-explained-plainly).",
+      "Roth contributions use after-tax dollars. Qualified withdrawals in retirement are tax-free. The mix depends on your tax picture now versus later. [Roth vs traditional taxes, explained](/wealth/roth-vs-traditional-taxes).",
     ],
   },
   {
@@ -90,6 +91,22 @@ export const metadata: Metadata = wealthMetadata({
   path: PATH,
 });
 
+/** Render [label](href) spans as internal links. */
+function rich(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (match) {
+      return (
+        <Link key={index} href={match[2]}>
+          {match[1]}
+        </Link>
+      );
+    }
+    return <Fragment key={index}>{part}</Fragment>;
+  });
+}
+
 export default function K401ExplainedPage() {
   const tool = getTool("roth-vs-traditional");
   return (
@@ -130,7 +147,7 @@ export default function K401ExplainedPage() {
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>{rich(paragraph)}</p>
                 ))}
                 {section.list ? (
                   <ul>

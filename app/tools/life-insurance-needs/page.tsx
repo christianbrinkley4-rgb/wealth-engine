@@ -111,6 +111,11 @@ export default function LifeInsuranceNeedsPage() {
         wealthBody="Term vs permanent, how underwriting works, and the questions to ask before you buy. Plain English, no pressure."
         ctaHeading="Have your starting number? Let us talk it through"
         ctaBody="I am a licensed insurance agent (NC Life & Health) in Greensboro. A free 20-minute call turns your DIME number into a real plan for your family."
+        related={[
+          { href: "/wealth/disability-insurance-explained", label: "Disability insurance, explained" },
+          { href: "/life-insurance", label: "Life insurance help in Greensboro" },
+          { href: "/wealth/emergency-fund-guide", label: "The emergency fund guide" },
+        ]}
       />
     </main>
   );

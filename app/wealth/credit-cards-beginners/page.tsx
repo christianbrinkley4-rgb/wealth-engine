@@ -111,7 +111,7 @@ export default function CreditCardsBeginnersPage() {
                 interest immediately, from the day they post.
               </p>
               <p>
-                Paying only the minimum keeps the account current but shrinks the balance slowly.
+                <Link href="/tools/debt-payoff">Paying only the minimum</Link> keeps the account current but shrinks the balance slowly.
                 The rest of the balance keeps accruing interest.
               </p>
             </section>
@@ -119,12 +119,12 @@ export default function CreditCardsBeginnersPage() {
             <section>
               <h2>How cards connect to your credit score</h2>
               <p>
-                Your credit history is a record of how you handle borrowed money. On-time payments
+                <Link href="/wealth/credit-score-basics">Your credit history</Link> is a record of how you handle borrowed money. On-time payments
                 build that record. Late payments damage it.
               </p>
               <p>
-                The share of your limit you use also matters, so a maxed-out card drags on your
-                score. Carrying a balance does not help your score. Paying on time does.
+                The share of your limit you use also matters, so a maxed-out card <Link href="/guides/credit-utilization-explained">drags on your
+                score</Link>. Carrying a balance does not help your score. Paying on time does.
               </p>
             </section>
           </div>

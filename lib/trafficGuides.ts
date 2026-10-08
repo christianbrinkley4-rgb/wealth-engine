@@ -81,6 +81,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "How tax brackets work", href: "/wealth/tax-brackets-explained-plainly" },
       { title: "Qualified tips deduction", href: "/guides/tips-tax-deduction-2026" },
+      { title: "Take-home pay calculator", href: "/tools/take-home-pay" },
     ],
   },
   {
@@ -146,6 +147,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Your first tax return", href: "/wealth/first-tax-return-guide" },
       { title: "Overtime deduction rules", href: "/guides/overtime-tax-deduction-2026" },
+      { title: "How tipped workers report income", href: "/guides/tip-income-reporting-rules" },
     ],
   },
   {
@@ -212,6 +214,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "First-job money guide", href: "/wealth/teens-first-job-money-guide" },
       { title: "Side-hustle taxes", href: "/wealth/side-hustle-taxes" },
+      { title: "Tax filing mistakes first-timers make", href: "/guides/tax-filing-mistakes-first-timers" },
     ],
   },
   {
@@ -278,6 +281,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Side-hustle taxes", href: "/wealth/side-hustle-taxes" },
       { title: "First tax return guide", href: "/wealth/first-tax-return-guide" },
+      { title: "1099 vs W-2 classification", href: "/guides/1099-vs-w2-classification" },
     ],
   },
   {
@@ -344,6 +348,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Money reset plan", href: "/wealth/broke-money-reset-plan" },
       { title: "First tax return guide", href: "/wealth/first-tax-return-guide" },
+      { title: "Estimated quarterly taxes", href: "/guides/estimated-quarterly-taxes-guide" },
     ],
   },
   {
@@ -406,6 +411,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Money reset plan", href: "/wealth/broke-money-reset-plan" },
       { title: "Can't pay a tax bill?", href: "/guides/tax-extension-cannot-pay" },
+      { title: "Take-home pay calculator", href: "/tools/take-home-pay" },
     ],
   },
   {
@@ -473,6 +479,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Required minimum distributions", href: "/wealth/rmd-explained-73" },
       { title: "How tax brackets work", href: "/wealth/tax-brackets-explained-plainly" },
+      { title: "Roth conversion ladder", href: "/guides/roth-conversion-ladder-explained" },
     ],
   },
   {
@@ -539,6 +546,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Your 401(k), explained", href: "/wealth/401k-explained" },
       { title: "HSA and FSA after leaving a job", href: "/guides/hsa-fsa-after-leaving-job" },
+      { title: "401(k) loan vs withdrawal", href: "/guides/401k-loan-vs-withdrawal" },
     ],
   },
   {
@@ -722,6 +730,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "401(k) explained, plainly", href: "/wealth/401k-explained" },
       { title: "What to do with your 401(k) after leaving a job", href: "/guides/401k-rollover-after-leaving-job" },
+      { title: "401(k) early withdrawal exceptions", href: "/guides/401k-early-withdrawal-exceptions" },
     ],
     query: "401k loan vs withdrawal taxes",
     opportunity: "High-intent query from workers facing a cash crunch; thin, jargon-heavy results make a plain-English explainer winnable.",
@@ -770,6 +779,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Roth IRA explained, plainly", href: "/wealth/roth-ira-explained" },
       { title: "401(k) explained, plainly", href: "/wealth/401k-explained" },
+      { title: "Roth vs traditional calculator", href: "/tools/roth-vs-traditional" },
     ],
     query: "roth conversion ladder explained",
     opportunity: "Popular early-retirement search with confusing forum answers; a clear step-by-step covering the 5-year rule can outrank them.",
@@ -811,6 +821,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "HSA explained, plainly", href: "/wealth/hsa-explained" },
       { title: "What happens to your HSA or FSA after leaving a job", href: "/guides/hsa-fsa-after-leaving-job" },
+      { title: "HSA mistakes to avoid", href: "/guides/hsa-mistakes-to-avoid" },
     ],
     query: "hsa triple tax advantage",
     opportunity: "Evergreen benefits question asked every open enrollment; few pages lead with all three breaks in plain language.",
@@ -859,6 +870,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Side hustle taxes, plainly", href: "/wealth/side-hustle-taxes" },
       { title: "Filing your first tax return", href: "/wealth/first-tax-return-guide" },
+      { title: "SEP IRA vs solo 401(k)", href: "/guides/sep-ira-vs-solo-401k" },
     ],
     query: "estimated quarterly taxes due dates safe harbor",
     opportunity: "Freelancer staple query with year-specific dates; a current, plain guide beats dated IRS PDFs in search.",
@@ -909,6 +921,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Side hustle taxes, plainly", href: "/wealth/side-hustle-taxes" },
       { title: "1099-K for personal items sold at a loss", href: "/guides/1099-k-personal-items-sold-at-loss" },
+      { title: "Estimated quarterly taxes", href: "/guides/estimated-quarterly-taxes-guide" },
     ],
     query: "1099 vs w2 tax differences",
     opportunity: "Massive gig-economy query; most pages are payroll ads, so an education-first comparison can win clicks.",
@@ -957,6 +970,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "HSA explained, plainly", href: "/wealth/hsa-explained" },
       { title: "What happens to your HSA or FSA after leaving a job", href: "/guides/hsa-fsa-after-leaving-job" },
+      { title: "HSA triple tax advantage", href: "/guides/hsa-triple-tax-advantage" },
     ],
     query: "fsa vs hsa which is better",
     opportunity: "Open-enrollment classic with fresh 2026 limits; pages with current numbers and clear tables rank well.",
@@ -1004,6 +1018,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Tax brackets explained, plainly", href: "/wealth/tax-brackets-explained-plainly" },
       { title: "Compound interest calculator", href: "/tools/compound-interest" },
+      { title: "Roth vs traditional taxes", href: "/wealth/roth-vs-traditional-taxes" },
     ],
     query: "tax loss harvesting wash sale rule",
     opportunity: "Year-end spike query from DIY investors; a jargon-free walkthrough of the 30-day rule fills a gap.",
@@ -1045,6 +1060,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "The 2026 tips tax deduction", href: "/guides/tips-tax-deduction-2026" },
       { title: "Side hustle taxes, plainly", href: "/wealth/side-hustle-taxes" },
+      { title: "Overtime tax deduction 2026", href: "/guides/overtime-tax-deduction-2026" },
     ],
     query: "how to report tip income IRS",
     opportunity: "Distinct from the tips deduction guide; service workers search reporting rules year-round and official wording is dense.",
@@ -1093,6 +1109,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Roth IRA basics", href: "/wealth/roth-ira-explained" },
       { title: "Roth vs traditional calculator", href: "/tools/roth-vs-traditional" },
+      { title: "Roth IRA 5-year rule", href: "/guides/roth-ira-five-year-rule" },
     ],
     query: "backdoor roth ira steps",
     opportunity: "High search volume with mostly forum answers; a clear step-by-step guide with the pro-rata warning can win.",
@@ -1140,6 +1157,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "401(k) explained", href: "/wealth/401k-explained" },
       { title: "Roth IRA basics", href: "/wealth/roth-ira-explained" },
+      { title: "Backdoor Roth IRA steps", href: "/guides/backdoor-roth-ira-steps" },
     ],
     query: "mega backdoor roth explained",
     opportunity: "Niche but high-intent query; most explainers are dense, so a plain-English version with the 2026 math stands out.",
@@ -1188,6 +1206,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Emergency fund guide", href: "/wealth/emergency-fund-guide" },
       { title: "Compound interest calculator", href: "/tools/compound-interest" },
+      { title: "HYSA vs money market account", href: "/guides/hysa-vs-money-market-account" },
     ],
     query: "i bonds vs tips",
     opportunity: "Steady evergreen query; TreasuryDirect pages are official but dry, leaving room for a clear side-by-side comparison.",
@@ -1234,6 +1253,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Emergency fund guide", href: "/wealth/emergency-fund-guide" },
       { title: "Compound interest calculator", href: "/tools/compound-interest" },
+      { title: "CD or savings quiz", href: "/tools/cd-or-savings-quiz" },
     ],
     query: "hysa vs money market account",
     opportunity: "High-volume comparison query; bank pages push products, so a neutral FDIC-grounded guide can earn the click.",
@@ -1276,6 +1296,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Credit score basics", href: "/wealth/credit-score-basics" },
       { title: "Emergency fund guide", href: "/wealth/emergency-fund-guide" },
+      { title: "Hard vs soft inquiries", href: "/guides/hard-inquiry-vs-soft-inquiry" },
     ],
     query: "credit utilization explained",
     opportunity: "Huge search volume and lots of thin content; a precise explanation of per-card vs overall utilization can rank.",
@@ -1323,6 +1344,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "401(k) explained", href: "/wealth/401k-explained" },
       { title: "401(k) rollover after leaving a job", href: "/guides/401k-rollover-after-leaving-job" },
+      { title: "401(k) loan vs withdrawal", href: "/guides/401k-loan-vs-withdrawal" },
     ],
     query: "401k early withdrawal exceptions",
     opportunity: "Strong intent query from people facing real decisions; IRS pages list rules but a plain-English exception guide fills the gap.",
@@ -1364,6 +1386,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Roth IRA basics", href: "/wealth/roth-ira-explained" },
       { title: "Roth vs traditional calculator", href: "/tools/roth-vs-traditional" },
+      { title: "Backdoor Roth IRA steps", href: "/guides/backdoor-roth-ira-steps" },
     ],
     query: "roth ira five year rule",
     opportunity: "Confusing topic with scattered answers; one page covering both clocks and their interaction can own the query.",
@@ -1405,6 +1428,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Social Security explained", href: "/wealth/social-security-explained" },
       { title: "Retirement projector", href: "/tools/retirement-projector" },
+      { title: "Working while collecting Social Security", href: "/guides/working-while-collecting-social-security" },
     ],
     query: "social security 62 vs 70",
     opportunity: "One of the biggest retirement queries; SSA pages are factual but a clear 62-vs-70 framing with break-even math wins.",
