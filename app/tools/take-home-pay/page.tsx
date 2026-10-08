@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
 import { TakeHomePay } from "./TakeHomePay";
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: path },
   openGraph: pageOpenGraph({ title: "Take-home pay calculator", description, path }),
+  twitter: { ...pageTwitter({ title: "Take-home pay calculator", description }), images: [`${path}/twitter-image`] },
 };
 
 const PROOF = [

@@ -13,6 +13,7 @@ import {
   Slider,
   Stat,
 } from "../_components/tool-shared";
+import { ShareResultButton } from "../_components/share-card";
 
 export function RetirementProjector() {
   const [currentAge, setCurrentAge] = useState(21);
@@ -87,6 +88,12 @@ export function RetirementProjector() {
         </AssumptionBox>
 
         <CopyNumbersButton summary={summary} />
+        <ShareResultButton
+          headlineNumber={money(end.balance)}
+          headlineLabel={`Projected at age ${retireAge}`}
+          toolName="Retirement projector"
+          toolPath="/tools/retirement-projector"
+        />
       </div>
     </div>
   );

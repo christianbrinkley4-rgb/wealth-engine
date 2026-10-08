@@ -11,6 +11,7 @@ import {
   Slider,
   Stat,
 } from "../_components/tool-shared";
+import { ShareResultButton } from "../_components/share-card";
 
 export function EmergencyFund() {
   const [spending, setSpending] = useState(2500);
@@ -117,6 +118,12 @@ export function EmergencyFund() {
         </AssumptionBox>
 
         <CopyNumbersButton summary={summary} />
+        <ShareResultButton
+          headlineNumber={money(target)}
+          headlineLabel="Target fund size"
+          toolName="Emergency fund calculator"
+          toolPath="/tools/emergency-fund"
+        />
       </div>
     </div>
   );

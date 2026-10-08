@@ -10,6 +10,11 @@ import {
   MoneyField,
   Stat,
 } from "../_components/tool-shared";
+import {
+  DEBT_PAYOFF_SAMPLE_DEBTS,
+  DEBT_PAYOFF_SAMPLE_EXTRA,
+} from "../_components/share-card-data";
+import { ShareResultButton } from "../_components/share-card";
 
 type DebtInput = {
   id: string;
@@ -19,17 +24,13 @@ type DebtInput = {
   minPayment: number;
 };
 
-const SAMPLE_DEBTS: DebtInput[] = [
-  { id: "1", name: "Credit card", balance: 4500, apr: 24.99, minPayment: 90 },
-  { id: "2", name: "Auto loan", balance: 12000, apr: 7.5, minPayment: 260 },
-  { id: "3", name: "Student loan", balance: 8000, apr: 5.5, minPayment: 95 },
-];
+const SAMPLE_DEBTS: DebtInput[] = DEBT_PAYOFF_SAMPLE_DEBTS.map((debt) => ({ ...debt }));
 
 let nextId = 100;
 
 export function DebtPayoff() {
   const [debts, setDebts] = useState<DebtInput[]>(SAMPLE_DEBTS);
-  const [extra, setExtra] = useState(200);
+  const [extra, setExtra] = useState(DEBT_PAYOFF_SAMPLE_EXTRA);
 
   const update = (id: string, patch: Partial<DebtInput>) =>
     setDebts((prev) => prev.map((debt) => (debt.id === id ? { ...debt, ...patch } : debt)));
@@ -48,6 +49,7 @@ export function DebtPayoff() {
   const interestSaved = snowball.totalInterest - avalanche.totalInterest;
   const winner: "avalanche" | "snowball" | "tie" =
     Math.abs(interestSaved) < 1 ? "tie" : interestSaved > 0 ? "avalanche" : "snowball";
+  const sharePlan = winner === "snowball" ? snowball : avalanche;
 
   const summary = [
     "Debt payoff: my numbers",
@@ -206,6 +208,14 @@ export function DebtPayoff() {
         </AssumptionBox>
 
         <CopyNumbersButton summary={summary} />
+        <ShareResultButton
+          headlineNumber={sharePlan.stuck ? "50+ years" : monthsLabel(sharePlan.months)}
+          headlineLabel={
+            winner === "tie" ? "Debt-free, both plans agree" : `Debt-free with the ${winner} plan`
+          }
+          toolName="Debt payoff calculator"
+          toolPath="/tools/debt-payoff"
+        />
       </div>
     </div>
   );

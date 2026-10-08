@@ -12,6 +12,7 @@ import {
   Slider,
   Stat,
 } from "../_components/tool-shared";
+import { ShareResultButton } from "../_components/share-card";
 
 /** 2026 IRA limits from the verified figures doc: $7,500 under 50, $8,600 at 50+. */
 function iraLimit(age: number): number {
@@ -155,6 +156,16 @@ export function RothVsTraditional() {
         </AssumptionBox>
 
         <CopyNumbersButton summary={summary} />
+        <ShareResultButton
+          headlineNumber={money(result.winner === "traditional" ? result.traditional : result.roth)}
+          headlineLabel={
+            result.winner === "tie"
+              ? "Roth and traditional tie, after tax"
+              : `${result.winner === "roth" ? "Roth" : "Traditional"} leaves more, after tax`
+          }
+          toolName="Roth vs traditional calculator"
+          toolPath="/tools/roth-vs-traditional"
+        />
       </div>
     </div>
   );
