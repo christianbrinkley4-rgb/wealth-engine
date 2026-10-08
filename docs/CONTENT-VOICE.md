@@ -29,3 +29,14 @@ Only describe services that work today. A request form does not reserve an appoi
 “Personal help close to home. I serve Greensboro, High Point, Winston-Salem, and nearby communities. We can meet at your home or talk by phone. Bring your questions, and we’ll take them one at a time.”
 
 Last updated September 10, 2026, following Christian’s request for more natural language throughout the website.
+
+## The /wealth lane
+
+`/wealth` and `/links` speak to young adults and people early in a career. The voice there is direct and short. Medicare pages stay warm and calm. Do not copy one voice onto the other.
+
+On `/wealth` and `/links`:
+
+- Education only. No securities advice, stock picks, crypto tips, or personalized investment recommendations.
+- Christian is licensed in North Carolina for life and health. He is not securities-licensed. He is not a CPA yet.
+- No em dashes in visitor-facing copy.
+- One primary button. It leads to a lesson, not a sales form.

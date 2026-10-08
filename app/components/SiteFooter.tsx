@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { AGENT, GOVERNMENT_DISCLAIMER, TPMO_DISCLAIMER } from "@/lib/agent";
 import { featuredPlaces, SERVICE_AREA_LEDE } from "@/lib/triad";
+import { WealthLane } from "@/lib/wealthLane";
 
 /**
  * The site footer, absent on paid-traffic landing pages.
@@ -15,7 +16,7 @@ import { featuredPlaces, SERVICE_AREA_LEDE } from "@/lib/triad";
  */
 export function SiteFooter() {
   const pathname = usePathname() ?? "/";
-  if (pathname.startsWith("/lp/")) return null;
+  if (pathname.startsWith("/lp/") || WealthLane.isYoungPath(pathname)) return null;
 
   const year = new Date().getFullYear();
 
