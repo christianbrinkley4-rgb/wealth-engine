@@ -36,6 +36,7 @@ export default async function TrafficGuidePage({ params }: Props) {
   const schemas = [
     articleJsonLd({
       headline: guide.title,
+      alternativeHeadline: [guide.query],
       description: guide.description,
       path,
       datePublished: TRAFFIC_GUIDE_DATE,
