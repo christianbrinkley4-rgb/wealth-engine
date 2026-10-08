@@ -237,3 +237,57 @@ Capture a baseline at publication, then compare 28-day windows. Review seasonal 
 ### Correction found while linking existing guides
 
 Corrected /guides/missed-medicare-enrollment: General Enrollment coverage begins the month after signup, not July 1. Clarified premium Part A and the possible Special Enrollment Period. Qualified automatic-renewal text so it does not contradict nonrenewal notices or promise unchanged doctors and prescriptions. Source: [Medicare coverage start rules](https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start). This was a targeted correction, not a full audit of older pages.
+
+## Third batch: programmatic expansion from five SEO/AI-search playbooks (2026-10-08)
+
+Built on branch `traffic-expansion-2026-10-08`, expanding Codex's traffic-mission work per Christian's order. 21 new data-driven guides added to `lib/trafficGuides.ts` (31 total dynamic guides), following Codex's proven template: server-rendered, quick-answer box, sections, comparison table, records checklist, visible FAQs, primary-source links, Article/BreadcrumbList/FAQPage schema, educational disclosures, metadata within limits.
+
+### Playbook sources and what each contributed
+1. **Greg Isenberg "Marketing Engineers"**: the agent-workspace model inspired this batch's systematized production (three parallel content workers, coordinator assembly, mechanical validation gates instead of eyeballing). Weekly review loop adopted as the measurement cadence below.
+2. **Manoj Ahirwar "10K users $0 ads"**: (a) direct-answer content for AI LLMs, every guide opens with a quick-answer box; (b) LISTICLES for AI citations, 5 "mistakes to avoid" listicles built; (c) canonical URLs + JSON-LD + sitemap/llms wiring automatic via the data model; (d) PROGRAMMATIC SEO, this 21-guide batch is batch 1 of the programmatic push; (e) sitemaps already submitted; (f) AI citation tracking via the measurement plan below.
+3. **Nicholas Dulait (ChatSEO)**: keyword-selection discipline, every guide carries an explicit target `query` and `opportunity` rationale.
+4. **BowTiedBills**: KEY IDEA ADOPTED, every guide now carries an `intent` field (`informational` | `transactional` | `navigational`). The 11 transactional guides (action-oriented: rollovers, conversions, quarterly taxes, comparisons) get stronger internal linking from hub pages via `TrafficGuideLinks`.
+5. **Fivos Aresti (LinkedIn system)**: social execution belongs to the Grok bot team / christianbuildswealth lane, not built here. Content-side takeaway logged: the listicle and comparison-table formats double as LinkedIn carousel source material.
+
+### Batch A: 8 tax guides (all IRS-sourced, national)
+- /guides/401k-loan-vs-withdrawal (transactional): loan limits, 5-year repayment, withdrawal tax + 10% penalty
+- /guides/roth-conversion-ladder-explained (transactional): convert, 5-year clock per conversion, penalty-free principal
+- /guides/hsa-triple-tax-advantage: three breaks + 2026 limits ($4,400/$8,750/$1,000)
+- /guides/estimated-quarterly-taxes-guide (transactional): $1,000 threshold, quarterly dates, 90%/100%/110% safe harbor
+- /guides/1099-vs-w2-classification (transactional): 15.3% SE tax, Form SS-8, misclassification
+- /guides/fsa-vs-hsa-which-is-better (transactional): 2026 FSA $3,400, $680 carryover, HDHP requirement
+- /guides/tax-loss-harvesting-wash-sale (transactional): $3,000 cap, 30-day wash sale rule
+- /guides/tip-income-reporting-rules: daily records, $20/month threshold, Form 4137 (distinct from the deduction guide)
+
+### Batch B: 8 money/retirement guides (IRS/SSA/TreasuryDirect/FDIC/CFPB-sourced, national)
+- /guides/backdoor-roth-ira-steps (transactional): pro-rata rule warning, Form 8606
+- /guides/mega-backdoor-roth-explained (transactional): $70,000 overall 401(k) limit math
+- /guides/i-bonds-vs-tips (transactional): $10,000/yr I bond limit, tax-deferral vs annual TIPS tax
+- /guides/hysa-vs-money-market-account (transactional): FDIC $250,000 coverage
+- /guides/credit-utilization-explained: 30% guideline, per-card vs overall
+- /guides/401k-early-withdrawal-exceptions (transactional): rule of 55, SEPP/72(t), hardship
+- /guides/roth-ira-five-year-rule: contribution vs conversion clocks
+- /guides/social-security-62-vs-70: 62 vs 70 benefit math, break-even framing without advice
+
+### Batch C: 5 AI-citation listicles (IRS-sourced, national)
+- /guides/roth-ira-mistakes-to-avoid (7 mistakes)
+- /guides/hsa-mistakes-to-avoid (5 mistakes)
+- /guides/tax-deductions-side-hustlers-miss (6 deductions)
+- /guides/401k-mistakes-to-avoid (5 mistakes)
+- /guides/tax-filing-mistakes-first-timers (7 mistakes)
+
+### Intent wiring
+- 11 transactional guides surface with stronger hub linking (TrafficGuideLinks on /wealth, /wealth/401k-explained, /wealth/hsa-explained, /wealth/rmd-explained-73, /wealth/side-hustle-taxes, /wealth/first-tax-return-guide, /wealth/broke-money-reset-plan).
+- Every new guide is linked from at least one pillar page (enforced by test).
+
+### Validation
+- `npx tsc --noEmit`: clean.
+- `npx vitest run`: 702 tests pass across 47 files (up from 681).
+- Production build: all 41 guide pages generate (10 static + 31 dynamic).
+- Titles <60 chars, descriptions <155, zero em dashes, every stat source-linked to .gov.
+
+### Measurement plan
+- Baseline at publication, 28-day Search Console windows per URL (impressions, clicks, CTR, query mix).
+- Weekly ranking checks on target queries through April 2027 (tax season).
+- Monthly AI citation spot-checks: query the target questions in AI assistants, record actual citations and destination URLs.
+- Internal link CTR from hub pages to transactional guides.

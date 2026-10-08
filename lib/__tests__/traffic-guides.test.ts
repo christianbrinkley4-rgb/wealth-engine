@@ -20,8 +20,8 @@ describe("traffic guide publishing contract", () => {
   it("makes every generated guide discoverable once in the sitemap and both text indexes", async () => {
     const paths = sitemap().map((entry) => new URL(entry.url).pathname);
     const indexes = await Promise.all([shortIndex().text(), fullIndex().text()]);
-    expect(generateStaticParams()).toHaveLength(10);
-    expect(new Set(TRAFFIC_GUIDES.map((guide) => guide.slug)).size).toBe(10);
+    expect(generateStaticParams()).toHaveLength(31);
+    expect(new Set(TRAFFIC_GUIDES.map((guide) => guide.slug)).size).toBe(31);
     for (const guide of TRAFFIC_GUIDES) {
       const path = `/guides/${guide.slug}`;
       expect(paths.filter((value) => value === path)).toHaveLength(1);
@@ -59,9 +59,18 @@ describe("traffic guide publishing contract", () => {
         guide.faqs.map((faq) => faq.q),
       );
       for (const source of guide.sources) {
-        expect(["www.irs.gov", "www.medicare.gov", "www.cms.gov", "www.bls.gov"]).toContain(
-          new URL(source.url).hostname,
-        );
+        expect(
+          [
+            "www.irs.gov",
+            "www.medicare.gov",
+            "www.cms.gov",
+            "www.bls.gov",
+            "www.ssa.gov",
+            "www.treasurydirect.gov",
+            "www.fdic.gov",
+            "www.consumerfinance.gov",
+          ],
+        ).toContain(new URL(source.url).hostname);
         expect(html).toContain(source.url);
       }
     },

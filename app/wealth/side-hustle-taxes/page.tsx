@@ -196,7 +196,7 @@ export default function SideHustleTaxesPage() {
         ]}
       />
     <TrafficGuideLinks
-        slugs={["1099-k-personal-items-sold-at-loss", "teen-tax-return-dependent"]}
+        slugs={["1099-k-personal-items-sold-at-loss", "teen-tax-return-dependent", "estimated-quarterly-taxes-guide", "1099-vs-w2-classification", "tax-deductions-side-hustlers-miss", "tip-income-reporting-rules"]}
       />
     </main>
   );
