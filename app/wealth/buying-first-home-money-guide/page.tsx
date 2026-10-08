@@ -7,7 +7,7 @@ import { wealthArticleJsonLd, wealthMetadata } from "@/lib/wealth/seo";
 import { WEALTH_FACTS, getTool } from "@/lib/wealth/site";
 
 const PATH = "/wealth/buying-first-home-money-guide";
-const TITLE = "Buying Your First Home: The Money Parts";
+const TITLE = "Buying Your First Home";
 const DESCRIPTION =
   "The price is only the start. Down payment, closing costs, PITI, and the emergency fund you keep after closing, in plain English.";
 const MINUTES = 6;

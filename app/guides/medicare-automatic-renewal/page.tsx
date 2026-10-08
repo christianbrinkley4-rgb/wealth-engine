@@ -19,7 +19,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Do You Have to Renew Medicare Every Year? No, It Renews Itself",
+    absolute: "Does Medicare Renew Automatically? 2026 Answer",
   },
   description:
     "Medicare renews automatically each year. No forms, no re-enrollment. Here is when you actually need to act, and why your card has no expiration date.",

@@ -4,10 +4,10 @@
  * Sources, both checked on 2026-09-18:
  * - CMS, “2026 Medicare Parts A & B Premiums and Deductibles” (Nov 14, 2025)
  *   https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles
- *   — Part A and Part B figures, and the Part D IRMAA table.
+ * - Part A and Part B figures, and the Part D IRMAA table.
  * - CMS, “Final CY 2026 Part D Redesign Program Instructions”
  *   https://www.cms.gov/newsroom/fact-sheets/final-cy-2026-part-d-redesign-program-instructions
- *   — Part D deductible, out-of-pocket cap, and base beneficiary premium.
+ * - Part D deductible, out-of-pocket cap, and base beneficiary premium.
  *
  * The Part B premium and IRMAA brackets live in lib/irmaa.ts, which the
  * calculators already use. Re-stating them here would let the two drift, so
@@ -36,7 +36,7 @@ export const CMS_PART_D_SOURCE = {
 // ─── PART A ───────────────────────────────────────────────────────────────────
 // Roughly 99% of people pay no Part A premium, so the premiums below are the
 // exception, not the headline. The deductible is per benefit period, not per
-// year — the single most commonly misread figure on this list.
+// year, the single most commonly misread figure on this list.
 export const PART_A_2026 = {
   inpatientDeductible: 1736,
   coinsuranceDays61To90: 434,

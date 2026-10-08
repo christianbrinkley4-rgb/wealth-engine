@@ -15,10 +15,10 @@ import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Help Across North Carolina Towns | Christian Brinkley",
+    absolute: "Medicare Help Across NC Towns | Christian Brinkley",
   },
   description:
-    "Free local Medicare help across the Piedmont Triad and beyond: Greensboro, High Point, Burlington, Asheboro, Oxford, Roxboro, and more. Find your town from Christian Brinkley, licensed NC agent.",
+    "Free local Medicare help across the Piedmont Triad: Greensboro, High Point, Burlington, Asheboro, Oxford, Roxboro. Find your town with a licensed NC agent.",
   alternates: { canonical: "/medicare-nc-towns" },
   openGraph: pageOpenGraph({
     title: "Medicare help in your town",

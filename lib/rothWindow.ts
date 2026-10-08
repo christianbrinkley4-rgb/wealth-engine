@@ -107,7 +107,7 @@ export function calculateRothWindow(magi: number, filingStatus: FilingStatus): R
  *
  * Income is assumed flat; real-world ladders should be re-run yearly against
  * actual income. The output is illustrative, not a substitute for a tax
- * advisor — wire it into the PDF magnet with that caveat in mind.
+ * advisor, wire it into the PDF magnet with that caveat in mind.
  */
 export function buildConversionLadder(
   magi: number,

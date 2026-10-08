@@ -26,7 +26,7 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Help in Ramseur, NC | Free Reviews | Christian Brinkley",
+    absolute: "Medicare Help in Ramseur, NC | Christian Brinkley",
   },
   description:
     "Turning 65 in Ramseur, NC? Free Medicare help from Christian Brinkley, a licensed NC insurance agent. Call or text (919) 408-6671.",

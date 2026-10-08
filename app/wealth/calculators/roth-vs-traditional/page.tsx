@@ -10,7 +10,7 @@ const description =
   "Roth vs traditional, explained first and calculated second. See how your tax rate now and later decides which one leaves you more to spend.";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "Roth vs Traditional Calculator and Plain-English Explainer",
+  title: "Roth vs Traditional Calculator",
   description,
   path,
 });

@@ -13,7 +13,7 @@ import { describe, expect, it } from "vitest";
  * suppression and idempotency rules are still written the way the contract
  * states, and that recording a delivery cannot send one.
  *
- * The behavioural half — that the rules actually behave this way in Postgres —
+ * The behavioural half, that the rules actually behave this way in Postgres,
  * can only be checked against the live project, and is recorded in
  * docs/LIVE-VERIFICATION-2026-09-15.md rather than here.
  */
@@ -186,7 +186,7 @@ describe("enqueue_website_deliveries", () => {
   });
 
   it("enqueues no meta_capi row", () => {
-    // Nothing can report an outcome for it, so it would sit pending forever —
+    // Nothing can report an outcome for it, so it would sit pending forever,
     // which is exactly what a retry worker claims as owed work.
     expect(lines).not.toMatch(/meta_capi/);
     expect(outboxSql).toMatch(/job in \('owner_alert', 'prospect_reply', 'meta_capi'\)/);

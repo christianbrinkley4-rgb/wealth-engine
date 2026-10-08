@@ -5,7 +5,7 @@ import { extendTailwindMerge } from "tailwind-merge";
  * The type scale in globals.css is named by its pixel size at the default root
  * (text-18, text-28…). tailwind-merge only knows Tailwind's own scale names, so
  * without this it reads `text-20` as a colour rather than a font size and stops
- * treating the two as conflicting — which let a base `text-18` survive
+ * treating the two as conflicting, which let a base `text-18` survive
  * alongside an overriding `text-20` and win on source order.
  */
 const TYPE_SCALE = [

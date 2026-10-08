@@ -14,7 +14,7 @@
   /* Named --color-ink-muted, not --color-muted: the shadcn @theme block lower
      in this file also defines --color-muted (as a near-white *background*).
      The site value currently wins because this :root is unlayered, but that is
-     a coincidence of the cascade, not a decision — so the text token gets its
+     a coincidence of the cascade, not a decision, so the text token gets its
      own name.
      Was #6b7280: 4.26:1 on paper, under WCAG AA for normal text, on a site
      read mostly by people over 60. #4a5563 is 6.4:1. */
@@ -65,7 +65,7 @@
     color: inherit;
   }
 
-  /* Tap targets, scoped so it doesn't distort links inside sentences —
+  /* Tap targets, scoped so it doesn't distort links inside sentences,
      a blanket rule on `a` breaks line boxes in body copy. */
   button,
   input,
@@ -145,8 +145,8 @@
  * Type scale
  *
  * Every size on the site used to be a hard pixel value (text-[18px] and so
- * on), which meant a reader who had raised their browser's default font size —
- * common in this audience, and the first thing an optometrist suggests — saw
+ * on), which meant a reader who had raised their browser's default font size,
+ * common in this audience, and the first thing an optometrist suggests, saw
  * no change at all. These tokens hold the same sizes in rem, so the whole page
  * scales with that setting. The name is the size in pixels at the default
  * 18px root, so text-18 still means "18px" to anyone reading the markup.
@@ -180,7 +180,7 @@
 
 :root {
   --radius: 6px;
-  /* Was #f8fafc — a cool near-white that did not match --color-paper, so the
+  /* Was #f8fafc, a cool near-white that did not match --color-paper, so the
      <html> canvas showed a different colour to <body> wherever the page was
      shorter than the viewport or the user overscrolled. The UI primitives in
      components/ui read this token, so it is aliased rather than deleted. */
@@ -404,7 +404,7 @@
   }
 
   /* A printed page has no hover and no address bar, so links need their
-     destination spelled out — but only the ones that go somewhere useful. */
+     destination spelled out, but only the ones that go somewhere useful. */
   a[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 9pt;

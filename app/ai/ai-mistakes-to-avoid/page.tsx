@@ -13,7 +13,7 @@ import { SiblingNav } from "../components/SiblingNav";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI Mistakes to Avoid: Hallucinations, Privacy, Blind Trust | Christian Brinkley",
+    absolute: "AI Mistakes to Avoid | Christian Brinkley",
   },
   description:
     "The three big AI mistakes: trusting invented facts, sharing sensitive data, and trusting it blindly on money, health, or legal. The fix for each.",

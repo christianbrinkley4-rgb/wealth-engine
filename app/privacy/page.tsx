@@ -8,7 +8,7 @@ import { SITE_OWNER, SITE_OWNER_EMAIL } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "How Christian Brinkley handles consultation requests, booking details, contact preferences, and information processed by website service providers. Your inquiry is never sold.",
+    "How Christian Brinkley handles consultation requests, booking details, contact preferences, and information from website service providers. Never sold.",
   alternates: { canonical: "/privacy" },
 };
 

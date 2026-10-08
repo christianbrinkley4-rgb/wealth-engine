@@ -13,7 +13,7 @@
  * radius, so two kitchens fifteen minutes apart can be shopping from
  * different lists. That is the local fact a national marketplace will not have.
  *
- * Places past an honest half-hour — Clemmons, Asheboro proper, Lewisville —
+ * Places past an honest half-hour, Clemmons, Asheboro proper, Lewisville,
  * are not listed. Burlington and Reidsville are the highway edges (~30
  * minutes on I-40 and US-29 in ordinary traffic). Randleman is the south
  * edge toward Asheboro.
@@ -32,7 +32,7 @@
 export interface TriadCity {
   slug: string;
   name: string;
-  /** "Guilford County" — or a split when the town sits on a line. */
+  /** "Guilford County", or a split when the town sits on a line. */
   county: string;
   countyNote: string | null;
   /** Typical drive from downtown Greensboro in ordinary traffic. */
@@ -1442,8 +1442,8 @@ export function townPlaces(): TriadCity[] {
 /**
  * Towns people actually search (between the three hubs and the highway
  * edges). Pages for these already exist; this list is only so the homepage
- * and city templates can surface facts already on the record — county line,
- * drive time, hospitals — instead of repeating the same county lecture.
+ * and city templates can surface facts already on the record, county line,
+ * drive time, hospitals, instead of repeating the same county lecture.
  */
 export const HIGH_INTENT_SLUGS = [
   "kernersville",
@@ -1467,8 +1467,8 @@ function joinList(items: readonly string[]): string {
 }
 
 /**
- * One sentence per town, built from facts already on the record — drive time,
- * county, hospitals, named neighbors — so thinner city pages do not all share
+ * One sentence per town, built from facts already on the record, drive time,
+ * county, hospitals, named neighbors, so thinner city pages do not all share
  * the same county lecture with the name swapped.
  */
 export function placeCheckBeat(city: TriadCity): string {

@@ -3,7 +3,7 @@
 import { Minus, Plus } from "lucide-react";
 
 /**
- * A number you can nudge, type, or drag — in that order of reliability.
+ * A number you can nudge, type, or drag, in that order of reliability.
  *
  * The calculators asked for age and income with a slider and nothing else. A
  * slider is the least forgiving control there is: it needs a press, a
@@ -36,7 +36,7 @@ export function StepperField({
   max: number;
   step: number;
   onChange: (next: number) => void;
-  /** How the number reads in the field — currency, a plain age, and so on. */
+  /** How the number reads in the field, currency, a plain age, and so on. */
   format: (value: number) => string;
   /**
    * A cap, not a fixed width. The field flexes down so the control still fits

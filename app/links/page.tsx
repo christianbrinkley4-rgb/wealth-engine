@@ -15,7 +15,7 @@ import "../wealth/wealth.css";
  * no site header or footer in the way.
  */
 export const metadata: Metadata = wealthMetadata({
-  title: "Christian Brinkley: free money tools and links",
+  title: "Free Money Tools & Links",
   description:
     "Free budget spreadsheet, Financial Statement Analyzer, money calculators and quizzes from Christian Brinkley in Greensboro, NC.",
   path: "/links",

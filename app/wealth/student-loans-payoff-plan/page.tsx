@@ -7,7 +7,7 @@ import { wealthArticleJsonLd, wealthMetadata } from "@/lib/wealth/seo";
 import { WEALTH_FACTS, getTool } from "@/lib/wealth/site";
 
 const PATH = "/wealth/student-loans-payoff-plan";
-const TITLE = "A Student Loan Payoff Plan That Fits on One Page";
+const TITLE = "Student Loan Payoff Plan";
 const DESCRIPTION =
   "Avalanche or snowball: two plain-English ways to attack student loans. List the loans, pick a method, automate the payments.";
 const MINUTES = 5;

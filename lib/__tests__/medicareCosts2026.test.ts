@@ -12,7 +12,7 @@ import {
 /**
  * These are published figures on a page people will act on, so each one is
  * pinned to the CMS fact sheet it came from. A test failing here means the
- * numbers moved and the page needs re-checking — not that the test is wrong.
+ * numbers moved and the page needs re-checking, not that the test is wrong.
  */
 describe("the 2026 figures match the CMS fact sheets", () => {
   it("carries the Part A costs as published", () => {

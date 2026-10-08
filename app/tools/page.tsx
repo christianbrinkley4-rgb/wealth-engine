@@ -11,7 +11,7 @@ import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import { ToolsDisclaimer } from "./_components/tool-footer";
 
 /**
- * The /tools hub: seven interactive calculators, all client-side. The
+ * The /tools hub: eight interactive calculators, all client-side. The
  * heading, intro, and card descriptions render on the server; each tool is
  * its own client component on its own page. Every tool states its math and
  * frames results as estimates for education.
@@ -19,7 +19,7 @@ import { ToolsDisclaimer } from "./_components/tool-footer";
 
 const path = "/tools";
 const description =
-  "Seven free money calculators that show their math: Roth vs traditional, emergency fund, debt payoff, retirement projector, take-home pay, life insurance needs, and compound interest. No account, nothing leaves your device.";
+  "Eight free calculators: Roth vs traditional, emergency fund, debt payoff, retirement projector, take-home pay, life insurance, compound interest, budget.";
 
 export const metadata: Metadata = {
   title: { absolute: "Free Money Calculators | Christian Brinkley" },
@@ -67,6 +67,11 @@ const TOOLS = [
     href: "/tools/compound-interest",
     title: "Compound interest",
     body: "Watch small monthly deposits grow year by year at a rate you pick, with the full table underneath.",
+  },
+  {
+    href: "/tools/budget",
+    title: "Budget",
+    body: "Take-home pay against spending by category: your surplus or deficit in plain dollars, with a full breakdown.",
   },
 ] as const;
 

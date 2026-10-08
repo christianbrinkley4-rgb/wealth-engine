@@ -5,7 +5,7 @@
  * what your Part B premium will be; /roth-window says how much you could
  * convert before it changes. Neither says the thing people actually want to
  * know, which is what the difference is worth in dollars if you get the timing
- * wrong — and that is the number that makes somebody pick up the phone.
+ * wrong, and that is the number that makes somebody pick up the phone.
  *
  * WHAT THIS MODELS
  *
@@ -13,7 +13,7 @@
  * to Roth, and you can either do it in one year or spread it across several.
  * Converting in one year adds the whole balance to your MAGI, which can land
  * you several IRMAA tiers up. IRMAA is redetermined every year, so that lands
- * on one premium year — but the amounts are large and entirely avoidable, and
+ * on one premium year, but the amounts are large and entirely avoidable, and
  * they are published by CMS rather than estimated by me.
  *
  * WHAT THIS DELIBERATELY DOES NOT MODEL
@@ -28,7 +28,7 @@
  *     both wrong and a compliance problem.
  *
  * Everything below is a pure function of published numbers, so it can be
- * tested — and it is, in lib/__tests__/plan65.test.ts.
+ * tested, and it is, in lib/__tests__/plan65.test.ts.
  */
 
 import {

@@ -6,7 +6,7 @@ import { ServiceHero } from "@/app/components/ServiceHero";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 import { placesByCounty, SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
 
-const title = "Medicare and Insurance Help in Greensboro, High Point & Winston-Salem";
+const title = "Medicare Help: Greensboro, High Point, Winston-Salem";
 const description =
   "Christian Brinkley offers personal Medicare and insurance help in Greensboro, High Point, Winston-Salem, and nearby communities. Meet at home or by phone.";
 

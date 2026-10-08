@@ -7,7 +7,7 @@ import { wealthMetadata } from "@/lib/wealth/seo";
 const path = "/wealth/quiz";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "Money Quizzes: First $1,000 and Money Personality",
+  title: "Money Quizzes: First $1,000",
   description:
     "Two quick money quizzes. Find out what to think about doing with your first $1,000, and which of four money personalities you are.",
   path,

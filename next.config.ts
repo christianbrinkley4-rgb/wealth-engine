@@ -28,6 +28,29 @@ const nextConfig: NextConfig = {
         destination: "/lp/retirement-income",
         permanent: true,
       },
+      // Calculator canonicalization (2026-10-08): /tools is the canonical
+      // calculator system. The older /wealth/calculators versions 301 here so
+      // ranking signals consolidate on one URL per calculator.
+      {
+        source: "/wealth/calculators/compound-interest",
+        destination: "/tools/compound-interest",
+        permanent: true,
+      },
+      {
+        source: "/wealth/calculators/debt-payoff",
+        destination: "/tools/debt-payoff",
+        permanent: true,
+      },
+      {
+        source: "/wealth/calculators/roth-vs-traditional",
+        destination: "/tools/roth-vs-traditional",
+        permanent: true,
+      },
+      {
+        source: "/wealth/calculators/budget",
+        destination: "/tools/budget",
+        permanent: true,
+      },
     ];
   },
 };

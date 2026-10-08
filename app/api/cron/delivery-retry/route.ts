@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
  *
  * pg_cron on Command Center POSTs here every five minutes with the same
  * website ingress key already configured on Netlify (x-website-key). That keeps
- * the Resend API key on the website host only — no second copy on Supabase.
+ * the Resend API key on the website host only, no second copy on Supabase.
  */
 function isAuthorized(request: NextRequest): boolean {
   const expected = process.env.COMMAND_CENTER_INGEST_KEY?.trim();

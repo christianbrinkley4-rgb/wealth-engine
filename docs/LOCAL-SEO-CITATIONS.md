@@ -13,11 +13,11 @@ Every listing has to carry exactly the same three things, character for characte
 ```
 Christian Brinkley
 Greensboro, NC (service area — no street address shown)
-(336) 365-7422
+(919) 408-6671
 https://christianbrinkleync.com
 ```
 
-Category everywhere: **Insurance agent**. Never publish the old 919 number again.
+Category everywhere: **Insurance agent**. The (336) 365-7422 number was dropped on 2026-09-19/22 — never publish it anywhere. The (919) 408-6671 number is the correct public number on everything.
 
 Short description to paste when a site asks for one:
 
@@ -27,10 +27,10 @@ Short description to paste when a site asks for one:
 
 Do these in order. Each one is both a link and a place people search. Paste-ready Facebook / LinkedIn / Nextdoor copy is in [PROFILE-COPY.md](PROFILE-COPY.md).
 
-1. **Google Business Profile — independent listing, wired to the site.** Public Maps URL: https://www.google.com/maps?cid=12304450181097673337. **Place ID:** `ChIJCYLxNHVn4U0ReVLReD8wwqo`. Title is **Christian Brinkley**. Category **Insurance agent**. Website christianbrinkleync.com. Phone **(336) 365-7422**. Hours 9am–5pm Mon–Sat. This is the listing the site uses for `sameAs`, footer, About, and `/llms.txt`. A separate Bankers-titled Maps listing (CID `10422520109754041632`) exists and must stay off the website.
-2. **Facebook Page — created, NAP broken; needs Christian login.** https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/ already exists and already lists the website. The phone is still the old **(919) 408-6671**. Categories are Education / Financial Consultant / Accounting Service, not Insurance Agent. About still reads as a UNCG student assistant. Email is still a Bankers Life address. Agents cannot edit this without Page admin sign-in. Fix the fields this week so they match the NAP block above. Never publish the 919 number again.
+1. **Google Business Profile — independent listing, wired to the site.** Public Maps URL: https://www.google.com/maps?cid=12304450181097673337. **Place ID:** `ChIJCYLxNHVn4U0ReVLReD8wwqo`. Title is **Christian Brinkley**. Category **Insurance agent**. Website christianbrinkleync.com. Phone must read **(919) 408-6671** (the 336 number was dropped 2026-09-19; if the profile still shows 336, fix it). Hours 9am–5pm Mon–Sat. This is the listing the site uses for `sameAs`, footer, About, and `/llms.txt`. A separate Bankers-titled Maps listing (CID `10422520109754041632`) exists and must stay off the website.
+2. **Facebook Page — NAP broken again; needs Christian login.** https://www.facebook.com/profile.php?id=61566655540080 ("Christian Brinkley - Greensboro Retirement Resource") lists the website. The phone was changed to the dropped **(336) 365-7422** on Sept 18 — change it BACK to **(919) 408-6671**. Categories are Education / Financial Consultant / Accounting Service, not Insurance Agent. About still reads as a UNCG student assistant. Email is still a Bankers Life address. Agents cannot edit this without Page admin sign-in. Fix the fields this week so they match the NAP block above. Brief 4 in BROWSER-CITATION-BRIEFS.md has the exact steps.
 3. **LinkedIn — exists.** https://www.linkedin.com/in/christianbrinkley is the accounting-career profile; keep it that way. About is empty and there is no website. Add `https://christianbrinkleync.com` to the website field this week.
-4. **Nextdoor Business Page — not created; needs Christian login.** https://nextdoor.com/pages/christian-brinkley-greensboro-nc/ returns 404. Still the #1 new off-site action for this audience. Create it at https://business.nextdoor.com — category Insurance Agent, same NAP as above. Do not use a carrier-branded Nextdoor page.
+4. **Nextdoor Business Page — live at the jd6c10 page.** The correct and only page: https://nextdoor.com/page/christian-brinkley-greensboro-nc-jd6c10/ (verified live 2026-10-08; the account posts from it as "Local News Provider"). An older doc referenced /pages/christian-brinkley/ and a mistaken duplicate at /page/christian-brinkley-greensboro-nc/ (no jd6c10 suffix) created Sept 18. Brief 7 in BROWSER-CITATION-BRIEFS.md covers verifying the duplicate is gone; do not delete anything without Christian's explicit approval.
 5. **Bing Places — not done; needs Christian Microsoft login.** https://www.bingplaces.com. Import directly from the independent Google profile (Place ID above). Bing also feeds ChatGPT's search results, so this is worth more than its traffic suggests.
 6. **Apple Business Connect — not done; needs Christian Apple ID.** https://businessconnect.apple.com. Free, and it decides what iPhone Maps and Siri say about you. No verified independent Apple Maps share URL found yet (18 Sep 2026 hunt).
 7. **Yelp — not done; needs Christian login.** Free listing. No independent Christian Brinkley Greensboro insurance listing found publicly (18 Sep 2026 hunt). Claim/create at https://biz.yelp.com with the same NAP. Low traffic for insurance, but it's a citation Google reads.
@@ -60,7 +60,7 @@ Same email for each; send one at a time from Christian’s inbox:
 > Would that be useful for your members this fall? I can do 30 minutes or an hour, and I'm happy to work around your calendar.
 >
 > Christian Brinkley
-> (336) 365-7422 · christianbrinkleync.com
+> (919) 408-6671 · christianbrinkleync.com
 
 | Org | Contact |
 | --- | ------- |
@@ -92,7 +92,26 @@ What to say:
 
 Once three or four are in, they appear on the website automatically — the section is built and stays hidden until real ones exist.
 
-## Status snapshot — 18 September 2026 (evening)
+## Status snapshot — 8 October 2026 (audit)
+
+**Ranking goal is not complete.** Google Search Console still shows zero referring domains ("Referring page: None detected"); organic search drives ~5 users/week. Off-site claim/edit surfaces remain blocked at login for agents; briefs for the parent agent are in [BROWSER-CITATION-BRIEFS.md](BROWSER-CITATION-BRIEFS.md). Paste-ready directory copy is in [DIRECTORY-LISTING-DRAFTS.md](DIRECTORY-LISTING-DRAFTS.md).
+
+| Network | Public URL status | Who must act |
+| ------- | ----------------- | ------------ |
+| Google Maps (independent) | Live CID `12304450181097673337`, Place ID `ChIJCYLxNHVn4U0ReVLReD8wwqo`, wired on site. Phone must be verified as (919) 408-6671 (doc previously said 336; corrected 2026-10-08) | Parent browser task (Brief 6): check reviews, draft responses, verify NAP |
+| Facebook Page | Live (ID 61566655540080). Phone wrongly set to dropped 336 number on Sept 18 — must go back to (919) 408-6671. Category/About/email still need fixing | Parent browser task (Brief 4) |
+| LinkedIn | Profile exists; website field still empty | Parent browser task (Brief 5) |
+| Bing Places | Not done | Parent browser task (Brief 1): Microsoft login, import from Google |
+| Nextdoor | Live at /page/christian-brinkley-greensboro-nc-jd6c10/ (verified 2026-10-08) | Parent browser task (Brief 7): verify duplicate gone, check NAP |
+| Apple Business Connect | Not done | Parent browser task (Brief 3): Apple ID |
+| Yelp | Not done | Parent browser task (Brief 2): login, claim/create |
+| Free directories (Alignable, Hotfrog, Manta, etc.) | None submitted | Parent browser task (Brief 8) with DIRECTORY-LISTING-DRAFTS.md |
+| Senior-center/library talk outreach | 5 of 7 emails SENT 2026-10-08 (log: SEO-OUTREACH-LOG-2026-10-08.md); 2 held after user declined approval | Christian: approve resend of Kathy May + Kimberly Oldaker drafts if wanted |
+| Paid (Greensboro Chamber, BBB) | Not purchased | Christian's decision only |
+
+Prior snapshot (18 Sept 2026) archived below for reference.
+
+## Status snapshot — 18 September 2026 (evening) [archived]
 
 **Ranking goal is not complete.** Off-site claim/edit surfaces remain blocked at login for agents.
 

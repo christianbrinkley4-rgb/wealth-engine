@@ -12,7 +12,7 @@
  *      adjusted (IRMAA) one. Someone paying a surcharge does not also pay a
  *      surcharged penalty.
  *
- * Coverage from a current job — theirs or a spouse's — usually means no
+ * Coverage from a current job, theirs or a spouse's, usually means no
  * penalty at all, because a Special Enrollment Period applies. That is a fact
  * about a household, not arithmetic, so it is stated on the page rather than
  * guessed at here.

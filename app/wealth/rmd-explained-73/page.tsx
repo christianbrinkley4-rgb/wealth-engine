@@ -38,7 +38,10 @@ const sources: Array<{ label: string; href?: string }> = [
     label: "IRS: Retirement plan and IRA required minimum distributions FAQs",
     href: "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
   },
-  { label: "SECURE 2.0 Act of 2022 (RMD age raised to 73)" },
+  {
+    label: "SECURE 2.0 Act of 2022 (RMD age raised to 73)",
+    href: "https://www.congress.gov/bill/117th-congress/house-bill/2617",
+  },
 ];
 
 export default function RmdExplainedPage() {
@@ -93,8 +96,9 @@ export default function RmdExplainedPage() {
             <section>
               <h2>When RMDs start</h2>
               <p>
-                Under SECURE 2.0, RMDs begin at age 73 for people born between 1951 and 1959. Your
-                first RMD is due by April 1 of the year after you turn 73. Every RMD after that is due
+                Under SECURE 2.0, RMDs begin at age 73 for people born between 1951 and 1959.
+                Born in 1960 or later? Your RMD age is 75 under SECURE 2.0. Your
+                first RMD is due by April 1 of the year after you reach that age. Every RMD after that is due
                 by December 31.
               </p>
               <p>

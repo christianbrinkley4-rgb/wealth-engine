@@ -15,7 +15,7 @@ import { SiblingNav } from "../components/SiblingNav";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI for Seniors: Simple Starting Points and Safety | Christian Brinkley",
+    absolute: "AI for Seniors | Christian Brinkley",
   },
   description:
     "The simplest ways for seniors to use AI: plain-language questions, letter help, reading help. Plus safety warnings on scams and private info.",

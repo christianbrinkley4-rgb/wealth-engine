@@ -22,26 +22,26 @@ import { SERVICE_AREA_LEDE } from "@/lib/triad";
  * This is the line that matters on this page, and it is worth stating plainly
  * because it decides what the page is allowed to be:
  *
- *   Explaining how something works, in public, to everyone — publishing.
+ *   Explaining how something works, in public, to everyone, publishing.
  *   Telling one person what they specifically should do with their money,
- *   for compensation — investment advice, which needs registration.
+ *   for compensation, investment advice, which needs registration.
  *
  * So this page answers "what are my four options and what does each one do",
  * names the deadlines and the tax mechanics, and stops there. It does not
  * recommend a course of action, does not compare investments, and says out
  * loud which parts belong to a registered adviser or a CPA. Framed that way
  * it can rank for the searches without holding anybody out as something they
- * are not — and educational depth is what gets quoted by an assistant anyway,
+ * are not, and educational depth is what gets quoted by an assistant anyway,
  * where a services page never would be.
  */
 
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Retirement Planning Help in Greensboro, Winston-Salem & High Point, 401(k) & Medicare Timing",
+      "Retirement Planning Help in Greensboro & the Triad",
   },
   description:
-    "Learn how 401(k) options, required distributions, and retirement income can affect Medicare premiums. Local education from a licensed agent serving Greensboro, High Point, and Winston-Salem.",
+    "Learn how 401(k) options, required distributions, and retirement income can affect Medicare premiums. Local education in Greensboro and the Triad.",
   alternates: { canonical: "/retirement-income" },
   openGraph: pageOpenGraph({
     title: "Retirement questions in Greensboro, Winston-Salem & High Point",

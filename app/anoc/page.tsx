@@ -25,10 +25,10 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Got Your ANOC Letter? Free Plain-English Review | Greensboro NC",
+    absolute: "Got Your ANOC Letter? Free Medicare Review | Greensboro",
   },
   description:
-    "Your Medicare Advantage plan's Annual Notice of Change, translated into plain English. Free, no-pressure review with Christian Brinkley, a licensed local agent in Greensboro. Call (919) 408-6671.",
+    "Your plan's Annual Notice of Change, translated into plain English. Free, no-pressure review with licensed local agent Christian Brinkley. Call (919) 408-6671.",
   alternates: { canonical: "/anoc" },
   openGraph: pageOpenGraph({
     title: "Got your ANOC letter? Don't just file it away.",

@@ -25,7 +25,7 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Help in Butner, NC | Free Reviews | Christian Brinkley",
+    absolute: "Medicare Help in Butner, NC | Christian Brinkley",
   },
   description:
     "Turning 65 in Butner, NC? Free Medicare help from Christian Brinkley, licensed NC agent and your neighbor in Creedmoor. Call (919) 408-6671.",

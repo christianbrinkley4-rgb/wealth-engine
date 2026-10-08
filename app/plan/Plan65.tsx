@@ -25,7 +25,7 @@ import { cn } from "@/lib/utils";
  *
  * /medicare tells you what your premium will be and /roth-window tells you how
  * much room you have. Neither answers the question underneath both, which is
- * what the timing is worth in dollars — so this puts the inputs and that one
+ * what the timing is worth in dollars, so this puts the inputs and that one
  * number in the same place, and updates it as the sliders move.
  *
  * Every figure comes from the published 2026 CMS schedule via lib/plan65.ts.
@@ -37,7 +37,7 @@ const EMPHASIS = "#0f2241";
 const ACCENT = "#7a5c12";
 const WARN = "#b94f5c"; // 4.8:1 on white
 /*
- * The palette's emerald is #1f8f62, which is 4.07:1 on white — fine for the
+ * The palette's emerald is #1f8f62, which is 4.07:1 on white, fine for the
  * 28px figures but under AA for the 14px labels beside them. Stepped down
  * until the smallest use passes rather than using two greens.
  */

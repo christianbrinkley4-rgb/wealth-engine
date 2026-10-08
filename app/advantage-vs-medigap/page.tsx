@@ -20,19 +20,19 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  * That last part is the reason this page is worth writing. Most comparisons
  * treat the choice as reversible. Going Advantage first and switching to a
  * Medigap policy later usually means medical underwriting, and in most states
- * an insurer can decline you — which turns "you can always change your mind"
+ * an insurer can decline you, which turns "you can always change your mind"
  * into something closer to a one-way door.
  */
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Advantage vs Medigap in Greensboro, Winston-Salem & High Point",
+    absolute: "Medicare Advantage vs Medigap | Greensboro Guide",
   },
   description:
-    "Compare Medicare Advantage with Original Medicare and Medigap for Greensboro, High Point, and Winston-Salem. Doctors, costs, prescriptions, and enrollment rules, explained plainly.",
+    "Compare Medicare Advantage with Original Medicare and Medigap for Greensboro and the Triad: doctors, costs, prescriptions, enrollment rules, explained plainly.",
   alternates: { canonical: "/advantage-vs-medigap" },
   openGraph: pageOpenGraph({
-    title: "Medicare Advantage vs Medigap in Greensboro, Winston-Salem & High Point",
+    title: "Medicare Advantage vs Medigap | Greensboro Guide",
     description:
       "Understand the differences in coverage, costs, and enrollment rules before you decide, with a local agent who meets across the Triad.",
     path: "/advantage-vs-medigap",

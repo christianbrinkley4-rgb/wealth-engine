@@ -5,7 +5,7 @@ import { AGENT } from "@/lib/agent";
 /**
  * The layout declared `twitter:card = summary_large_image` while the site had
  * no share image at all, so every link shared to Facebook, Nextdoor, iMessage
- * or a text message rendered as an empty grey box with a URL under it — the
+ * or a text message rendered as an empty grey box with a URL under it, the
  * least trustworthy thing a link can look like, on a site whose whole argument
  * is that it isn’t a lead marketplace.
  */

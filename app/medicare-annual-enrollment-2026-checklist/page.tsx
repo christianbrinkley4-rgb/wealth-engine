@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     absolute: "Medicare Annual Enrollment 2026: Your Triad Review Checklist",
   },
   description:
-    "Oct 15 to Dec 7: the 5-step fall review checklist a licensed Greensboro Medicare agent walks through with Triad clients, prescriptions, doctors, costs, and Part D.",
+    "Oct 15 to Dec 7: the 5-step fall review checklist a licensed Greensboro Medicare agent walks through with Triad clients: prescriptions, doctors, costs, Part D.",
   alternates: { canonical: "/medicare-annual-enrollment-2026-checklist" },
   openGraph: pageOpenGraph({
     title: "Medicare Annual Enrollment 2026: your Triad review checklist",

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     absolute: "2026 Standard Deduction for Seniors: What You Actually Get",
   },
   description:
-    "The 2026 standard deduction plus the extra amount for age 65 and older: $18,150 single, $35,500 joint with both spouses 65+. Plus the new $6,000 senior deduction.",
+    "2026 standard deduction plus the extra amount for 65 and older: $18,150 single, $35,500 joint with both spouses 65+. Plus the new $6,000 senior deduction.",
   alternates: { canonical: "/guides/standard-deduction-seniors-2026" },
   openGraph: pageOpenGraph({
     title: "2026 standard deduction for seniors",

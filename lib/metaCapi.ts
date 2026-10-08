@@ -1,5 +1,5 @@
 /**
- * Meta Conversions API — the server half of the Lead event.
+ * Meta Conversions API, the server half of the Lead event.
  *
  * Browser pixels get blocked by iOS, ad blockers, and privacy extensions, and
  * this audience runs a lot of them. The server event always fires. Both events
@@ -72,7 +72,7 @@ export function isMetaCapiConfigured(): boolean {
   return ADS_ALLOWED && PIXEL_ID.length > 0 && ACCESS_TOKEN.length > 0;
 }
 
-/** Never throws — a tracking failure must not fail a lead submission. */
+/** Never throws, a tracking failure must not fail a lead submission. */
 export async function sendMetaLeadEvent(input: CapiLeadInput): Promise<void> {
   if (!isMetaCapiConfigured()) return;
   const sourceUrl = metaSourceUrl(input.sourceUrl);

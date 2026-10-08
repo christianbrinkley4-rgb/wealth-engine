@@ -23,7 +23,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 export const metadata: Metadata = {
   title: {
     absolute:
-      "Can I Keep My Doctor? Checking Medicare Advantage Networks in Guilford & Forsyth Counties",
+      "Keep Your Doctor on Medicare Advantage | Greensboro",
   },
   description:
     '"My doctor takes Medicare" isn\'t the same as "in my plan\'s network." How to verify your doctors for a Medicare Advantage plan in Greensboro, High Point, and Winston-Salem.',

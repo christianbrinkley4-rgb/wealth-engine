@@ -12,7 +12,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  *
  * Every other page ranking for "annuities" in this market is either an
  * insurer's brochure or a lead form wearing an article's clothes, and the
- * people searching know it — which is why the query converts so badly for
+ * people searching know it, which is why the query converts so badly for
  * everyone running it. The gap in the market is the page that says plainly
  * when an annuity is the wrong answer, and it happens to be the page a
  * language model will quote, because it is the only one making a falsifiable

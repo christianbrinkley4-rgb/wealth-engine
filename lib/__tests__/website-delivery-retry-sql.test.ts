@@ -49,7 +49,7 @@ describe("website delivery retry SQL", () => {
 
 describe("website delivery retry cron SQL", () => {
   it("asks the website to retry, authenticating from vault rather than a pasted key", () => {
-    // Sending is the website's job — it holds the Resend credentials — so the
+    // Sending is the website's job, it holds the Resend credentials, so the
     // cron only posts to its retry route, and the key it sends comes from vault
     // so this file can be committed without carrying a secret.
     expect(cronSql).toContain("cron.schedule(");

@@ -9,9 +9,9 @@ import { formatMoney } from "@/lib/partBPenalty";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 const title =
-  "Medicare Part B Late Enrollment Penalty Calculator, Greensboro, Winston-Salem & High Point";
+  "Part B Late Penalty Calculator | Greensboro Medicare Help";
 const description =
-  "Work out whether a Part B late enrollment penalty applies to you, what it adds each month, and what it costs over a retirement. Uses the 2026 standard premium. Local help in Greensboro, High Point, and Winston-Salem.";
+  "Work out whether a Part B late enrollment penalty applies, what it adds each month, and what it costs over a retirement. Free local help in Greensboro.";
 
 export const metadata: Metadata = {
   title: { absolute: title },

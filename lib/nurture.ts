@@ -144,7 +144,7 @@ export function renderStep(
 }
 
 /* ---------------------------------------------------------------------------
- * MEDICARE nurture — the core sequence.
+ * MEDICARE nurture, the core sequence.
  * ------------------------------------------------------------------------- */
 const medicareNurture: NurtureSequence = {
   key: "medicare-nurture",
@@ -491,14 +491,14 @@ const careNurture: NurtureSequence = {
 };
 
 /* ---------------------------------------------------------------------------
- * REVIEW sequence — enrolled when a consultation is booked, anchored to the
+ * REVIEW sequence, enrolled when a consultation is booked, anchored to the
  * appointment's end time (see the Cal.com webhook). The nurture cron runs
  * once daily, so Send 1's dayOffset 0 means "the first 9 AM run on or after
- * the appointment ends" — the closest the day-granularity machinery gets to
+ * the appointment ends", the closest the day-granularity machinery gets to
  * the strategy's 2–4-hours-after target. Send 2 follows 7 days later.
  *
  * Copy is the approved review-generation strategy wording, verbatim. Google
- * reviews only — never Yelp.
+ * reviews only, never Yelp.
  * ------------------------------------------------------------------------- */
 const reviewSequence: NurtureSequence = {
   key: REVIEW_SEQUENCE_KEY,
@@ -537,7 +537,7 @@ const reviewSequence: NurtureSequence = {
 };
 
 /* ---------------------------------------------------------------------------
- * RE-ENGAGE sequence — long-term nurture for leads that went quiet.
+ * RE-ENGAGE sequence, long-term nurture for leads that went quiet.
  * ------------------------------------------------------------------------- */
 const reengageSequence: NurtureSequence = {
   key: REENGAGE_SEQUENCE_KEY,
@@ -593,7 +593,7 @@ const reengageSequence: NurtureSequence = {
 };
 
 /* ---------------------------------------------------------------------------
- * QUIZ sequences — for the /plan-check "Does your Medicare plan still fit?"
+ * QUIZ sequences, for the /plan-check "Does your Medicare plan still fit?"
  * quiz. Two branches: completers finished all 7 questions; abandoners gave
  * an email at the Q3 interstitial but never finished. Completing the quiz
  * moves a lead from the abandoner branch to the completer branch (the

@@ -5,7 +5,7 @@ import { isHighIntentPlace, nearbyCountyContrasts, type TriadCity } from "@/lib/
 export type CitySnapshotTopic = "medicare" | "life" | "retirement";
 
 /**
- * Facts already stored on the city record — drive time, county, hospitals —
+ * Facts already stored on the city record, drive time, county, hospitals,
  * that the templates used to bury in one interchangeable county paragraph.
  */
 export function CitySnapshot({

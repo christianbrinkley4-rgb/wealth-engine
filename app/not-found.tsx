@@ -6,7 +6,7 @@ import { AGENT } from "@/lib/agent";
 
 /**
  * Without this file, a mistyped or retired URL rendered Next’s built-in
- * "404 | This page could not be found." — a bare line of system text wedged
+ * "404 | This page could not be found.", a bare line of system text wedged
  * between this site’s header and footer, offering nobody a way onward. Someone
  * arriving from an old ad or a half-copied link deserves the same page as
  * everyone else: the phone number, and the four things people actually came

@@ -2,7 +2,7 @@
  * Single source of truth for who runs this site and what must be disclosed.
  *
  * ─────────────────────────────────────────────────────────────────────────
- * ACTION REQUIRED — every value marked TODO must be verified before ads run.
+ * ACTION REQUIRED, every value marked TODO must be verified before ads run.
  * Nothing else in the codebase hardcodes this information, so this is the only
  * file to edit when a license, carrier count, or phone number changes.
  * ─────────────────────────────────────────────────────────────────────────
@@ -43,7 +43,7 @@ export type SocialProfile = {
  */
 export const GOOGLE_MAPS_CID = "12304450181097673337";
 export const GOOGLE_MAPS_PROFILE_URL = `https://www.google.com/maps?cid=${GOOGLE_MAPS_CID}`;
-/** Independent GBP Place ID — use for review asks; never invent a second listing. */
+/** Independent GBP Place ID, use for review asks; never invent a second listing. */
 export const GOOGLE_PLACE_ID = "ChIJCYLxNHVn4U0ReVLReD8wwqo";
 export const GOOGLE_WRITE_REVIEW_URL = "https://g.page/r/CXlS0Xg_MMKqEBM/review";
 
@@ -268,7 +268,7 @@ export const ESTIMATE_DISCLAIMER =
  * the appropriate answer to the question every prospect is silently asking.
  *
  * Note the second sentence. An agent who represents a limited number of
- * carriers has to say so — it is the difference between a personal-brand site
+ * carriers has to say so, it is the difference between a personal-brand site
  * and a misleading one, and it is separate from whether the carrier is named.
  * Saying it plainly also costs less than being caught not saying it: people
  * expect an agent to represent someone, and they trust the ones who volunteer

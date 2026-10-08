@@ -201,7 +201,7 @@ describe("quiz sequences", () => {
       const seq = getSequence(key)!;
       expect(seq.steps).toHaveLength(3);
       for (const step of seq.steps) {
-        // Check the step's own copy. The "— Christian" signature follows the
+        // Check the step's own copy. The "Christian" signature follows the
         // pre-existing convention of every nurture email on the site.
         const own = (
           step.subject +

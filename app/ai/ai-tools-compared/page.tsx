@@ -15,7 +15,7 @@ import { SiblingNav } from "../components/SiblingNav";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI Tools Compared Honestly: ChatGPT vs Claude vs Gemini | Christian Brinkley",
+    absolute: "AI Tools Compared Honestly | Christian Brinkley",
   },
   description:
     "ChatGPT, Claude, Gemini, Copilot, and Perplexity compared in plain English: what each is good at, honest limits, and what the free and paid tiers cost.",
@@ -42,7 +42,7 @@ const TOOLS = [
     maker: "Anthropic",
     what: "A chatbot known for careful, well-written answers. Strong on long documents and nuanced writing.",
     goodAt: "Writing help, summarizing long documents, working through complicated questions step by step.",
-    limits: "Free tier has daily message caps. No built-in web search on the free tier, so it cannot check current facts itself.",
+    limits: "Free tier has daily message caps. Free plans change what they include pretty often, so check the current features before counting on it for up-to-date facts.",
     cost: "Free tier available. Pro is $20 a month. Prices change, check anthropic.com before paying.",
   },
   {

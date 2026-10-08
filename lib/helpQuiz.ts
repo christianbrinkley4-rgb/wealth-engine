@@ -4,8 +4,8 @@
  * Two design rules, both learned the hard way:
  *
  * 1. The value screen has to be worth the answers. It runs BEFORE the contact
- *    step and its job is to hand back something specific — a real deadline, a
- *    rule that catches people out — not a paraphrase of what they just told us.
+ *    step and its job is to hand back something specific, a real deadline, a
+ *    rule that catches people out, not a paraphrase of what they just told us.
  *    Everything in it is a structural rule (enrollment windows, penalty
  *    formulas, lookback periods), never a dollar figure that goes stale.
  *
@@ -44,7 +44,7 @@ export interface HelpQuizOption {
    * Show this option only when an earlier answer matches.
    *
    * Someone already on Medicare was being offered "When I have to sign up,
-   * and by when" — a question they answered years ago. Every option still
+   * and by when", a question they answered years ago. Every option still
    * lives in this list so a stored answer can always be given a label; the
    * quiz simply stops offering the ones that do not apply.
    */
@@ -233,7 +233,7 @@ export const TOPIC_META: Record<HelpQuizTopic, HelpQuizTopicMeta> = {
 
 /**
  * The first screen of /start. Four cards, matching the four indexed lead
- * pages — not three generic topics. Turning 65 and annual enrollment both
+ * pages, not three generic topics. Turning 65 and annual enrollment both
  * land on Medicare, but they skip the "where are you" question because the
  * card already answered it.
  */
@@ -311,8 +311,8 @@ export const BRANCH_QUESTIONS: Record<InterestTopic, HelpQuizQuestion[]> = {
 /**
  * The free-text box on the contact step.
  *
- * It exists because landing pages make specific promises — "tell me who you
- * see", "have me look at my premium" — and a fixed multiple-choice quiz can’t
+ * It exists because landing pages make specific promises, "tell me who you
+ * see", "have me look at my premium", and a fixed multiple-choice quiz can’t
  * keep them. The prompt changes to match wherever they came from, so the
  * button and the question finally agree with each other.
  */
@@ -402,7 +402,7 @@ export const STEP_LABELS: Record<HelpQuizPhase, string> = {
 
 /**
  * The free answer. Everything below is a structural rule that holds year to
- * year — enrollment windows, penalty formulas, lookback periods — so nothing
+ * year, enrollment windows, penalty formulas, lookback periods, so nothing
  * here goes stale between ad campaigns. Dollar thresholds deliberately live in
  * the calculators, where they can be updated in one place.
  */

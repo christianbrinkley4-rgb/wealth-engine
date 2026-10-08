@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
       const window = getT65Window(birth_month, birth_year, now);
 
       // A reminder for a window that is already open would arrive in the past.
-      // Say so instead — this person should be talking to someone now.
+      // Say so instead, this person should be talking to someone now.
       if (window.status !== "upcoming") {
         alreadyOpen = true;
       }

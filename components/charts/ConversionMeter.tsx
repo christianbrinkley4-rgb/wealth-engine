@@ -3,8 +3,8 @@ import type { IrmaaBracket } from "@/lib/irmaa";
 /**
  * How much room is left in this Medicare bracket, as a meter.
  *
- * The Roth page's whole question is a single ratio against a limit — income
- * used, against the threshold where the next surcharge starts — which is the
+ * The Roth page's whole question is a single ratio against a limit , income
+ * used, against the threshold where the next surcharge starts , which is the
  * textbook case for a meter rather than a chart. The three stat tiles above it
  * state the numbers; this shows the shape of the answer, which is what tells
  * someone whether they have plenty of room or are about to trip over the line.

@@ -13,7 +13,7 @@ import { AI_GUIDES } from "./components/ai-guides";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI for Regular People: What It Can Actually Do | Christian Brinkley",
+    absolute: "AI for Regular People | Christian Brinkley",
   },
   description:
     "What AI can actually do for a normal person, in plain English, from someone who uses it daily. Five things it does well, three it does badly.",

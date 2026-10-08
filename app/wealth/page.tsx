@@ -12,10 +12,10 @@ import { wealthMetadata } from "@/lib/wealth/seo";
 import { JOURNEY, PILLARS, WEALTH_BRAND, WEALTH_FACTS, WEALTH_TOOLS } from "@/lib/wealth/site";
 
 const description =
-  "Free money calculators, quizzes and plain-English guides for your 20s and 30s. Built by Christian Brinkley, a 21-year-old licensed agent and accounting senior in Greensboro, NC.";
+  "Free money calculators, quizzes and plain-English guides for your 20s and 30s, built by Christian Brinkley, a licensed agent and accounting senior.";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "Money tools for your 20s: calculators, quizzes and guides",
+  title: "Money tools for your 20s",
   description,
   path: "/wealth",
 });

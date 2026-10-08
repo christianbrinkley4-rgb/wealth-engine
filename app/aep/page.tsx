@@ -21,7 +21,7 @@ import {
  * The 2026 Annual Enrollment campaign landing page.
  *
  * Evergreen /annual-enrollment teaches the window; this page is the seasonal
- * front door — what a fall review covers, how it works, and how to book one.
+ * front door, what a fall review covers, how it works, and how to book one.
  * Copy drafted from the AEP 2026 content pack, in Christian's voice.
  */
 
@@ -33,10 +33,10 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Annual Enrollment for 2027 Coverage | Free Fall Review in Greensboro NC",
+    absolute: "Medicare Annual Enrollment 2027 | Free Review in Greensboro",
   },
   description:
-    "Medicare Annual Enrollment runs Oct 15 to Dec 7. Sit down with Christian Brinkley, a licensed local agent in Greensboro, for a free no-pressure review of your 2027 coverage.",
+    "Medicare Annual Enrollment runs Oct 15 to Dec 7. Free no-pressure review of your 2027 coverage with licensed local agent Christian Brinkley in Greensboro.",
   alternates: { canonical: "/aep" },
   openGraph: pageOpenGraph({
     title: "Medicare Annual Enrollment for 2027 coverage | Free fall review in Greensboro NC",
@@ -190,7 +190,7 @@ export default function AepPage() {
         secondaryLabel="Book my free review →"
       />
 
-      {/* ANOC campaign — the September letter, translated into plain English. */}
+      {/* ANOC campaign, the September letter, translated into plain English. */}
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <p className="text-13 font-medium tracking-[0.12em] text-[var(--color-navy)] uppercase">

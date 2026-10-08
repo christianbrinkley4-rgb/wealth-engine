@@ -16,7 +16,7 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Help in Mebane, NC | Free Reviews | Christian Brinkley",
+    absolute: "Medicare Help in Mebane, NC | Christian Brinkley",
   },
   description:
     "Turning 65 or reviewing your Medicare in Mebane, NC? Free local help from Christian Brinkley, licensed NC agent. Call (919) 408-6671.",

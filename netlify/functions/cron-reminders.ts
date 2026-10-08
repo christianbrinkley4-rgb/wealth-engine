@@ -1,5 +1,5 @@
 /**
- * Netlify Scheduled Function — triggers the Next.js enrollment-reminder cron route.
+ * Netlify Scheduled Function, triggers the Next.js enrollment-reminder cron route.
  *
  * Production runs on Netlify, where vercel.json crons do not execute. This
  * function was added alongside the nurture scheduler because the reminders

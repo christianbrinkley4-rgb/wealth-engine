@@ -2,7 +2,7 @@
  * Server-side lead classifier. Pure function so it’s trivial to test and
  * cheap to re-run from a backfill script.
  *
- * The schema reserves irmaa_risk_status ('low' | 'moderate' | 'high') — we
+ * The schema reserves irmaa_risk_status ('low' | 'moderate' | 'high'), we
  * derive it from the calculated premium and also compute a numeric score so
  * Make.com routes can branch on either ("if score >= 70: SMS Christian").
  */
@@ -34,7 +34,7 @@ const TIER_2_PREMIUM = 405.8;
  * Piedmont Triad ZIP prefixes.
  *
  * The original list was ["272", "273"], which covered High Point, Kernersville,
- * Summerfield and Oak Ridge — but not Greensboro (274xx) or Winston-Salem
+ * Summerfield and Oak Ridge, but not Greensboro (274xx) or Winston-Salem
  * (271xx). Leads from the two largest cities in the market, including the one
  * this business is based in, were scoring as out-of-area.
  */
@@ -68,7 +68,7 @@ export function scoreLead(input: LeadScoringInput): LeadScoringResult {
 
   // Source intent. Roth-calculator users are typically affluent pre-retirees
   // actively planning. Help-quiz completions include topic + contact and are
-  // the primary ad funnel — score at least as high as the wizard.
+  // the primary ad funnel, score at least as high as the wizard.
   if (input.source === "roth_calculator") score += 20;
   else if (input.source === "help_quiz") score += 20;
   else if (input.source === "wizard_completion") score += 15;

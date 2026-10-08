@@ -13,7 +13,7 @@ import { SiblingNav } from "../components/SiblingNav";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI for Job Search: Resumes and Interview Prep | Christian Brinkley",
+    absolute: "AI for Job Search | Christian Brinkley",
   },
   description:
     "Use AI to sharpen your resume and practice interviews. Drafting help, mock questions, and realistic expectations. No invented experience, ever.",

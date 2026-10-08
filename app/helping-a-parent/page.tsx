@@ -12,7 +12,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  * Written for the adult child, not the person turning 65.
  *
  * A large share of Medicare decisions are actually researched by a son or
- * daughter in their forties or fifties — and every other page on this site
+ * daughter in their forties or fifties, and every other page on this site
  * addresses the beneficiary directly, which leaves that person reading over
  * someone else’s shoulder. They’re also the audience paid social can still
  * reach properly, since the ad rules that strip age targeting on the 65-plus
@@ -21,10 +21,10 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Helping a Parent with Medicare in Greensboro, Winston-Salem & High Point",
+    absolute: "Helping a Parent With Medicare | Greensboro Guide",
   },
   description:
-    "If you are the one researching for Mom or Dad in the Piedmont Triad: the deadlines that matter, what you are allowed to do on their behalf, and what to ask. Meet in Greensboro, High Point, or Winston-Salem.",
+    "Researching Medicare for Mom or Dad in the Piedmont Triad? The deadlines that matter, what you can do on their behalf, and what to ask.",
   alternates: { canonical: "/helping-a-parent" },
   openGraph: pageOpenGraph({
     title: "Helping a parent with Medicare in Greensboro, Winston-Salem & High Point",

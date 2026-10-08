@@ -90,7 +90,7 @@ export const FIRST_1000_RESULTS: readonly PlanResult[] = [
     ],
     watchOut: "The buffer is for true emergencies. Concert tickets are not an emergency.",
     links: [
-      { href: "/wealth/calculators/debt-payoff", label: "Debt payoff calculator" },
+      { href: "/tools/debt-payoff", label: "Debt payoff calculator" },
       { href: "/wealth/learn/emergency-funds", label: "Emergency funds, explained" },
     ],
   },
@@ -107,7 +107,7 @@ export const FIRST_1000_RESULTS: readonly PlanResult[] = [
     ],
     watchOut: "Stop adding to the card while you pay it down, or the math never ends.",
     links: [
-      { href: "/wealth/calculators/debt-payoff", label: "Avalanche vs snowball calculator" },
+      { href: "/tools/debt-payoff", label: "Avalanche vs snowball calculator" },
       { href: "/wealth/learn/credit-scores-explained", label: "Credit scores, explained" },
     ],
   },
@@ -125,7 +125,7 @@ export const FIRST_1000_RESULTS: readonly PlanResult[] = [
     watchOut: "Savings at a bank or credit union is insured up to legal limits. Check for FDIC or NCUA coverage.",
     links: [
       { href: "/wealth/learn/emergency-funds", label: "How big should it be?" },
-      { href: "/wealth/calculators/budget", label: "Budget builder" },
+      { href: "/tools/budget", label: "Budget builder" },
     ],
   },
   {
@@ -141,8 +141,8 @@ export const FIRST_1000_RESULTS: readonly PlanResult[] = [
     ],
     watchOut: "Check the vesting schedule. Some matches only become fully yours after a set time at the company.",
     links: [
-      { href: "/wealth/calculators/roth-vs-traditional", label: "Roth vs traditional" },
-      { href: "/wealth/calculators/compound-interest", label: "See what a match can grow into" },
+      { href: "/tools/roth-vs-traditional", label: "Roth vs traditional" },
+      { href: "/tools/compound-interest", label: "See what a match can grow into" },
     ],
   },
   {
@@ -175,7 +175,7 @@ export const FIRST_1000_RESULTS: readonly PlanResult[] = [
     ],
     watchOut: "Compare savings rates between banks and credit unions. They are not all the same.",
     links: [
-      { href: "/wealth/calculators/budget", label: "Find the monthly amount" },
+      { href: "/tools/budget", label: "Find the monthly amount" },
       { href: "/wealth/learn/the-50-30-20-rule", label: "The 50/30/20 rule" },
     ],
   },
@@ -193,7 +193,7 @@ export const FIRST_1000_RESULTS: readonly PlanResult[] = [
     watchOut: "Unsteady income, like commissions or gig work, is a reason to lean toward six months.",
     links: [
       { href: "/wealth/learn/emergency-funds", label: "Emergency funds, explained" },
-      { href: "/wealth/calculators/budget", label: "Budget builder" },
+      { href: "/tools/budget", label: "Budget builder" },
     ],
   },
   {
@@ -210,8 +210,8 @@ export const FIRST_1000_RESULTS: readonly PlanResult[] = [
     watchOut:
       "I'm not securities licensed, so this stops at education. Anyone promising a guaranteed return deserves hard questions.",
     links: [
-      { href: "/wealth/calculators/compound-interest", label: "Compound interest calculator" },
-      { href: "/wealth/calculators/roth-vs-traditional", label: "Roth vs traditional" },
+      { href: "/tools/compound-interest", label: "Compound interest calculator" },
+      { href: "/tools/roth-vs-traditional", label: "Roth vs traditional" },
       { href: "/wealth/learn/what-is-a-roth-ira", label: "What a Roth IRA actually is" },
     ],
   },
@@ -257,8 +257,8 @@ export const PERSONALITIES: readonly Personality[] = [
       "Skipping things that matter to you to protect a number.",
     ],
     nextSteps: [
-      { href: "/wealth/calculators/budget", label: "Give yourself a guilt-free wants number" },
-      { href: "/wealth/calculators/compound-interest", label: "See what idle savings could do over time" },
+      { href: "/tools/budget", label: "Give yourself a guilt-free wants number" },
+      { href: "/tools/compound-interest", label: "See what idle savings could do over time" },
       { href: "/wealth/learn/what-is-a-roth-ira", label: "Learn what a Roth IRA is" },
     ],
   },
@@ -279,7 +279,7 @@ export const PERSONALITIES: readonly Personality[] = [
       "Card balances that follow the fun home.",
     ],
     nextSteps: [
-      { href: "/wealth/calculators/budget", label: "Build a budget with a real fun line in it" },
+      { href: "/tools/budget", label: "Build a budget with a real fun line in it" },
       { href: "/wealth/learn/emergency-funds", label: "Set up a starter emergency fund" },
       { href: "/wealth/quiz/first-1000", label: "Plan your next $1,000" },
     ],
@@ -303,7 +303,7 @@ export const PERSONALITIES: readonly Personality[] = [
     nextSteps: [
       { href: "/wealth/learn/budgeting-on-your-first-job", label: "Do the ten-minute first budget" },
       { href: "/wealth/learn/credit-scores-explained", label: "Learn what's in your credit score" },
-      { href: "/wealth/calculators/debt-payoff", label: "Face the debt number once" },
+      { href: "/tools/debt-payoff", label: "Face the debt number once" },
     ],
   },
   {
@@ -323,8 +323,8 @@ export const PERSONALITIES: readonly Personality[] = [
       "Burnout from fixing everything with more hours.",
     ],
     nextSteps: [
-      { href: "/wealth/calculators/budget", label: "Give every new dollar a job" },
-      { href: "/wealth/calculators/compound-interest", label: "See what a raise could grow into" },
+      { href: "/tools/budget", label: "Give every new dollar a job" },
+      { href: "/tools/compound-interest", label: "See what a raise could grow into" },
       { href: "/wealth/learn/what-accountants-actually-do", label: "Think like an accountant about your income" },
     ],
   },

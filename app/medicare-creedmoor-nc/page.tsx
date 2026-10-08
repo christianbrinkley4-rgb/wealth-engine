@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     absolute: "Medicare Help in Creedmoor, NC | Free Local Plan Reviews",
   },
   description:
-    "Christian Brinkley is a licensed insurance agent and lifelong Creedmoor resident helping Granville County neighbors understand Medicare. Free, no-pressure plan reviews in Creedmoor, Oxford, Butner, and Stem. Call (919) 408-6671.",
+    "Licensed NC agent and lifelong Creedmoor resident helping Granville County neighbors understand Medicare. Free, no-pressure plan reviews. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-creedmoor-nc" },
   openGraph: pageOpenGraph({
     title: "Medicare help from someone who grew up here.",

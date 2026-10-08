@@ -12,12 +12,12 @@
  *   NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL      conversion label for an inquiry
  *   NEXT_PUBLIC_META_PIXEL_ID
  *   NEXT_PUBLIC_NEXTDOOR_PIXEL_ID
- *   NEXT_PUBLIC_SIMPLE_ANALYTICS  ("true" — no id needed)
+ *   NEXT_PUBLIC_SIMPLE_ANALYTICS  ("true", no id needed)
  *
  * Simple Analytics is cookieless and collects no personal data, so it needs no
  * consent banner and nothing about it contradicts the promise this site makes
  * about not passing people's information around. It measures traffic. It does
- * not optimise an ad — only the Meta pixel does that.
+ * not optimise an ad, only the Meta pixel does that.
  *
  * The matching server-side Meta Lead event lives in lib/metaCapi.ts and shares
  * an event_id with the browser event so Meta counts one lead, not two.

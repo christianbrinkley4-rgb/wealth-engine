@@ -1,8 +1,8 @@
 /**
  * Stand-in for the `npm:@supabase/supabase-js` client the website-inquiry Edge
  * Function imports. Deno resolves that specifier; Node cannot, so vitest.config
- * aliases it here. This lets the function's request handling — authorization,
- * validation, dispatch and response shape — be tested without a database and
+ * aliases it here. This lets the function's request handling , authorization,
+ * validation, dispatch and response shape , be tested without a database and
  * without a Deno runtime.
  *
  * It is deliberately dumb: it records what was asked for and returns what the

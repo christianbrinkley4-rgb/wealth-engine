@@ -25,10 +25,10 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Turning 65 Medicare Help in Greensboro, Winston-Salem & High Point",
+    absolute: "Turning 65 Medicare Help | Greensboro, NC",
   },
   description:
-    "Turning 65 in the Piedmont Triad? Map employer coverage, Part B, Medigap, and a younger spouse with a local licensed agent who meets in Greensboro, High Point, and Winston-Salem.",
+    "Turning 65 in the Piedmont Triad? Map employer coverage, Part B, Medigap, and a younger spouse with a local licensed agent in Greensboro.",
   alternates: { canonical: "/turning-65" },
   openGraph: pageOpenGraph({
     title: "Turning 65 Medicare help in Greensboro, Winston-Salem & High Point",

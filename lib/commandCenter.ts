@@ -42,7 +42,7 @@ export type CommandCenterReceipt = {
   /**
    * Empty until the Command Center enqueues deliveries. An older Edge Function
    * simply returns nothing here, and the site captures and emails exactly as
-   * it does today — marking is additive, never a precondition.
+   * it does today, marking is additive, never a precondition.
    */
   outbox: Outbox;
 };
@@ -112,7 +112,7 @@ export async function captureInCommandCenter(
  * Report what happened to one queued delivery.
  *
  * Deliberately cannot throw and deliberately cannot fail the request. If the
- * mark does not land, the row stays pending — which is the safe state, because
+ * mark does not land, the row stays pending, which is the safe state, because
  * pending is what a Command Center-side worker retries. The alternative, losing
  * the visitor's submission over a bookkeeping call, is not a trade worth making.
  *

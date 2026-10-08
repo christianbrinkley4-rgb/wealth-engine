@@ -2,7 +2,7 @@ import { spawnSync } from "node:child_process";
 
 /**
  * Notify IndexNow after a production deploy is live. Failures are logged and
- * do not fail the deploy — crawl notice is not a publish blocker.
+ * do not fail the deploy, crawl notice is not a publish blocker.
  */
 export const onSuccess = async function onSuccess() {
   if (process.env.CONTEXT && process.env.CONTEXT !== "production") {

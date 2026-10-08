@@ -24,7 +24,7 @@ export default function Error({
      * asks for a file that no longer exists and React lands here.
      *
      * A reload fixes it, and a 65-year-old should not have to know that. So we
-     * reload once, guarded by a key in session storage — if the same failure
+     * reload once, guarded by a key in session storage, if the same failure
      * survives a fresh copy of the site, it is a real error and the page stays
      * put with the phone number on it rather than looping.
      */

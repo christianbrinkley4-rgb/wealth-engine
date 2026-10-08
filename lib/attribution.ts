@@ -18,7 +18,7 @@ export interface Attribution {
   utm_campaign?: string;
   utm_content?: string;
   utm_term?: string;
-  /** Meta click id — also needed for Conversions API match quality. */
+  /** Meta click id, also needed for Conversions API match quality. */
   fbclid?: string;
   /** Google click id, if you ever run search ads. */
   gclid?: string;

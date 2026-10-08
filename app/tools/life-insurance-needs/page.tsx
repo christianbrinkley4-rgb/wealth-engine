@@ -11,7 +11,7 @@ const description =
   "Free life insurance needs calculator. The DIME method (debt, income, mortgage, education) as a starting point for a conversation with an agent.";
 
 export const metadata: Metadata = {
-  title: { absolute: "How Much Life Insurance Do I Need? (DIME) | Christian Brinkley" },
+  title: { absolute: "How Much Life Insurance Do I Need? | Christian Brinkley" },
   description,
   alternates: { canonical: path },
   openGraph: pageOpenGraph({ title: "Life insurance needs calculator", description, path }),

@@ -10,7 +10,7 @@ import { breadcrumbJsonLd, pageOpenGraph, SITE_URL } from "@/lib/seo";
 
 const title = "Christian Brinkley | Licensed Insurance Agent in Greensboro";
 const description =
-  "Christian Brinkley is a licensed insurance agent in Greensboro serving the Piedmont Triad. He helps families with Medicare, life insurance, and retirement questions. Meet at home or by phone.";
+  "Licensed agent Christian Brinkley serves Greensboro and the Piedmont Triad: Medicare, life insurance, and retirement questions. Meet at home or by phone.";
 
 const [firstName, ...lastNameParts] = AGENT.name.split(" ");
 

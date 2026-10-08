@@ -158,15 +158,15 @@ Same NAP on every listing:
 ```
 Christian Brinkley
 Greensboro, NC (service area — no street address shown)
-(336) 365-7422
+(919) 408-6671
 https://christianbrinkleync.com
 ```
 
-Category: **Insurance agent**. Never publish (919) 408-6671. Do not name any
+Category: **Insurance agent**. Never publish the dropped (336) 365-7422 number. Do not name any
 carrier on the public site or in public business-page About fields.
 
 1. **Bing Places** — https://www.bingplaces.com — import from the independent Google profile.
-2. **Facebook Page NAP** — https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/ — phone (336) 365-7422, category Insurance Agent, paste Intro from PROFILE-COPY.md, remove carrier email and the 919 number.
+2. **Facebook Page NAP** — https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/ — phone (919) 408-6671, category Insurance Agent, paste Intro from PROFILE-COPY.md, remove carrier email.
 3. **Nextdoor Business Page** — https://business.nextdoor.com — create Insurance Agent page with the NAP above. Do not use a carrier-branded Nextdoor page.
 4. **Apple Business Connect** — https://businessconnect.apple.com
 5. **Yelp** — claim a free listing with the same NAP.

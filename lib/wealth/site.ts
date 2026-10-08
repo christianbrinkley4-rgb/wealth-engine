@@ -55,7 +55,7 @@ export type WealthTool = {
 export const WEALTH_TOOLS: readonly WealthTool[] = [
   {
     slug: "compound-interest",
-    href: "/wealth/calculators/compound-interest",
+    href: "/tools/compound-interest",
     kind: "Calculator",
     title: "Compound interest",
     blurb: "Drag three sliders. Watch the curve bend. See what waiting ten years costs.",
@@ -64,7 +64,7 @@ export const WEALTH_TOOLS: readonly WealthTool[] = [
   },
   {
     slug: "budget",
-    href: "/wealth/calculators/budget",
+    href: "/tools/budget",
     kind: "Calculator",
     title: "50/30/20 budget builder",
     blurb: "Type your take-home pay. Drag the split until it looks like your real life.",
@@ -73,7 +73,7 @@ export const WEALTH_TOOLS: readonly WealthTool[] = [
   },
   {
     slug: "debt-payoff",
-    href: "/wealth/calculators/debt-payoff",
+    href: "/tools/debt-payoff",
     kind: "Calculator",
     title: "Debt payoff: avalanche vs snowball",
     blurb: "Add your debts. See both methods side by side, in months and in interest.",
@@ -82,7 +82,7 @@ export const WEALTH_TOOLS: readonly WealthTool[] = [
   },
   {
     slug: "roth-vs-traditional",
-    href: "/wealth/calculators/roth-vs-traditional",
+    href: "/tools/roth-vs-traditional",
     kind: "Calculator",
     title: "Roth vs traditional",
     blurb: "Pay tax now or pay it later. One slider shows why the answer flips.",

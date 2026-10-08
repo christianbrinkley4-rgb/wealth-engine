@@ -13,7 +13,7 @@ import { SiblingNav } from "../components/SiblingNav";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI for Small Business: What One Person Can Automate | Christian Brinkley",
+    absolute: "AI for Small Business | Christian Brinkley",
   },
   description:
     "What a one-person business can automate with AI: follow-ups, scheduling, bookkeeping drafts, content ideas. From real daily use, with honest limits.",

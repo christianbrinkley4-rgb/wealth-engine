@@ -96,7 +96,7 @@ function ThankYouInner() {
   const topicKey =
     topicRaw && Object.hasOwn(TOPIC_LABELS, topicRaw) ? (topicRaw as InterestTopic) : null;
   const eventId = searchParams.get("eid");
-  /* Set by the API when no email provider is configured — see thankYouUrl. */
+  /* Set by the API when no email provider is configured, see thankYouUrl. */
   const emailUnavailable = searchParams.get("noemail") === "1";
 
   // The conversion event. Shares its id with the server-side event so the ad

@@ -7,7 +7,7 @@
  *
  * CRITICAL ACCOUNTING NOTE:
  * IRMAA is based on Modified Adjusted Gross Income (MAGI) from 2 years prior.
- * 2026 premiums are determined by the user’s 2024 tax return MAGI — not
+ * 2026 premiums are determined by the user’s 2024 tax return MAGI, not
  * their current income. The wizard should surface this distinction to the user.
  *
  * FILING STATUS NOTE:
@@ -170,7 +170,7 @@ export function calculatePartBPremium(income: number, filingStatus: FilingStatus
   );
 
   // This fallback should never be reached given the top bracket has no max.
-  // If it is reached, log it so we can diagnose — never fail silently.
+  // If it is reached, log it so we can diagnose, never fail silently.
   if (!match) {
     console.error(
       `[irmaa.ts] No bracket found for income=${validIncome}, status=${filingStatus}. Returning standard base. This is a bug, please report.`,
@@ -190,7 +190,7 @@ export function calculatePartBPremium(income: number, filingStatus: FilingStatus
  * @example
  * getPlainEnglishSummary(result, 150000, "individual")
  * // → "At your income level ($150,000), you fall into the Tier 2 IRMAA
- * //    bracket. You will pay $405.80/month — $202.90 more than the
+ * //    bracket. You will pay $405.80/month, $202.90 more than the
  * //    standard premium. That’s approximately $2,434.80 more per year."
  */
 export function getPlainEnglishSummary(

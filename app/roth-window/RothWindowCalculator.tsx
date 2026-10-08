@@ -416,12 +416,12 @@ function RothWindowCalculatorInner() {
  * `useSearchParams` puts everything below it behind a Suspense boundary, and a
  * boundary with `fallback={null}` inside a statically prerendered page makes
  * Next bail the whole route out to client-side rendering: the built HTML for
- * this page contained a BAILOUT marker and no content at all — no heading, no
+ * this page contained a BAILOUT marker and no content at all, no heading, no
  * copy, nothing for a crawler to read or a slow connection to show.
  *
  * The static half of the page now lives in page.tsx, which is a server
- * component, so the shell ships as HTML. Only the interactive calculator —
- * the part that genuinely depends on the query string — waits here.
+ * component, so the shell ships as HTML. Only the interactive calculator,
+ * the part that genuinely depends on the query string, waits here.
  */
 export function RothWindowCalculator() {
   return (

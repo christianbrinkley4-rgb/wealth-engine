@@ -2,7 +2,7 @@
  * Cloudflare Turnstile verification.
  *
  * Inactive until TURNSTILE_SECRET_KEY is set, so nothing breaks before the
- * keys exist. Once a paid ad points at the form, turn it on — a honeypot alone
+ * keys exist. Once a paid ad points at the form, turn it on, a honeypot alone
  * doesn’t hold up against the form spam that follows public ad traffic.
  *
  * Setup: cloudflare.com → Turnstile → add site → put the site key in

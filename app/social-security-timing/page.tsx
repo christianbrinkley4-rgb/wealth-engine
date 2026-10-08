@@ -10,7 +10,7 @@ import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
- * When to claim Social Security — the biggest retirement-income question
+ * When to claim Social Security, the biggest retirement-income question
  * there is, and the site had nothing on it.
  *
  * Two things make this page worth publishing rather than duplicating what is
@@ -18,7 +18,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  * the higher earner is not really choosing their own income, they are setting
  * the floor under whichever of the two lives longer, and most break-even
  * arithmetic online ignores that entirely. The second is the connection to
- * Medicare, which is this practice's actual edge — claiming decisions and
+ * Medicare, which is this practice's actual edge, claiming decisions and
  * withdrawal decisions land in the same tax return that sets an IRMAA
  * surcharge two years later, and almost nobody looks at the two together.
  *

@@ -12,7 +12,7 @@ const description =
   "Building in public: a 21-year-old licensed agent and accounting senior documenting what he learns about money, one dated entry at a time.";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "The Journey: Building in Public at 21",
+  title: "Building in Public at 21",
   description,
   path,
 });

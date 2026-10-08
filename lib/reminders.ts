@@ -1,7 +1,7 @@
 /**
  * Enrollment-window reminders.
  *
- * Most people who land on this site aren’t ready to talk — they turn 65 in
+ * Most people who land on this site aren’t ready to talk, they turn 65 in
  * seven months, or their annual window is months away. Asking them for a phone
  * call is the wrong ask; asking whether they’d like to be told when their
  * window actually opens is a real service, and it converts a "not yet" into a
@@ -12,10 +12,10 @@
  *
  * The two windows:
  *
- *   Initial Enrollment Period (turning 65) — seven months: the three months
+ *   Initial Enrollment Period (turning 65), seven months: the three months
  *   before the month you turn 65, that month, and the three months after.
  *
- *   Annual Enrollment Period (already enrolled) — October 15 to December 7
+ *   Annual Enrollment Period (already enrolled), October 15 to December 7
  *   every year, for coverage starting January 1.
  */
 
@@ -136,7 +136,7 @@ export function getT65Dates(birthMonth: number, birthYear: number): T65Dates {
 }
 
 /**
- * The next Annual Enrollment Period reminder date — October 1, which is both
+ * The next Annual Enrollment Period reminder date, October 1, which is both
  * comfortably ahead of the October 15 opening and the point from which plan
  * details for the coming year may be discussed.
  */

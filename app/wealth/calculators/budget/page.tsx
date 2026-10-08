@@ -10,7 +10,7 @@ const description =
   "Free 50/30/20 budget calculator. Enter your take-home pay, drag the sliders, and see needs, wants and savings in dollars. Download your plan.";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "50/30/20 Budget Calculator: Build Your Split",
+  title: "50/30/20 Budget Calculator",
   description,
   path,
 });

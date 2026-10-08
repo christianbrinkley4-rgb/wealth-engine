@@ -23,7 +23,7 @@ Write-review link (send to clients):
 https://search.google.com/local/writereview?placeid=ChIJCYLxNHVn4U0ReVLReD8wwqo
 
 Title **Christian Brinkley**. Category **Insurance agent**. Website
-christianbrinkleync.com. Phone **(336) 365-7422**. Hours 9am–5pm Mon–Sat.
+christianbrinkleync.com. Phone **(919) 408-6671**. Hours 9am–5pm Mon–Sat.
 
 A separate Maps listing still exists under a Bankers Life title
 (CID `10422520109754041632`). Keep that URL off the website.
@@ -125,14 +125,14 @@ https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-615
 Website already points at christianbrinkleync.com — leave that. The rest is
 wrong, and the wrong phone is the one that matters most. Every public listing
 has to match the NAP block in [LOCAL-SEO-CITATIONS.md](LOCAL-SEO-CITATIONS.md).
-Never publish the old 919 number again. Do not mention Bankers Life on this
+Never publish the dropped (336) 365-7422 number. Do not mention Bankers Life on this
 Page.
 
 ### Fix these fields this week
 
 | Field        | What's there now                                                              | Change it to                                                                                          |
 | ------------ | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Phone        | (919) 408-6671                                                                | (336) 365-7422                                                                                        |
+| Phone        | (336) 365-7422 (dropped 2026-09-19; set here Sept 18)                         | (919) 408-6671                                                                                        |
 | Category     | Education / Financial Consultant / Accounting Service                         | **Insurance Agent** — Facebook search for "Medicare Greensboro" reads this                            |
 | About / Intro | "UNCG Accounting Grad Student and Assistant to Will Chappell (Financial Advisor)" | the Intro copy below. Do not name Bankers Life or Will Chappell on the public business page         |
 | Email        | christian.brinkley@bankerslife.com                                            | take it off the public Page. It names Bankers Life. Phone is the public contact.                      |
@@ -145,7 +145,7 @@ Licensed insurance agent in Greensboro. I help Triad families figure out Medicar
 ```
 
 - **Work:** Licensed Insurance Agent — Greensboro, NC
-- **Contact:** (336) 365-7422
+- **Contact:** (919) 408-6671
 - **Featured / pinned post:** the first post from
   [SOCIAL-POSTS-READY.md](SOCIAL-POSTS-READY.md), on this Page, after upline
   review. Do not publish the Medicare posts only on your personal profile.
@@ -157,17 +157,16 @@ Licensed insurance agent in Greensboro. I help Triad families figure out Medicar
 This is still the #1 off-site action of the three. Nextdoor skews older, skews
 local, and your neighbors are exactly the people with a parent turning 65.
 
-The NAP-matching Business Page does **not** exist yet.
-https://nextdoor.com/pages/christian-brinkley-greensboro-nc/ returns 404.
-Create it this week. Do not point the site at any Bankers Life Agent Nextdoor
+The Business Page is **live**: https://nextdoor.com/page/christian-brinkley-greensboro-nc-jd6c10/
+(verified 2026-10-08; the account posts from it). Do not point the site at any Bankers Life Agent Nextdoor
 page; it uses the office phone and stays off SOCIAL_PROFILES.
 
-- Claim a free **Business Page** at https://business.nextdoor.com — category
+- The page was claimed at https://business.nextdoor.com — category
   "Insurance Agent," service area Greensboro plus surrounding.
 - Do **not** post promotional content to the neighborhood feed from your
   personal account. It gets flagged and removed, and neighbors remember.
 - Business description: same Intro copy as Facebook above. Same phone
-  (336) 365-7422, same website. No Bankers Life, no old 919 number.
+  (919) 408-6671, same website. No Bankers Life, never the dropped 336 number.
 - The post to publish is in [SOCIAL-POSTS-READY.md](SOCIAL-POSTS-READY.md),
   after upline review.
 
@@ -181,16 +180,16 @@ tagging you when someone else asks.
 
 ## Do these this week — free, and they compound
 
-1. **Change the Google listing phone** from (336) 852-9061 to (336) 365-7422.
+1. **Verify the Google listing phone** reads (919) 408-6671 (the 336 number was dropped 2026-09-19).
    Do not create a second Google profile. Do not link that listing from the
    website until the title is no longer Bankers Life Agent.
 2. **Fix the Facebook Page** — it exists; phone, category, About, and email are
    wrong. URL and field list are above.
 3. **LinkedIn website field** — https://www.linkedin.com/in/christianbrinkley
    → Contact info → Website → `https://christianbrinkleync.com`
-4. **Nextdoor Business Page** — create it. It does not exist yet. Details
-   above. Do not link the existing Bankers Life Agent Nextdoor page from the
-   site; it uses the office phone.
+4. **Nextdoor Business Page** — live at /page/christian-brinkley-greensboro-nc-jd6c10/
+   (verified 2026-10-08). Verify the Sept 18 duplicate is gone and the NAP matches.
+   Do not link any Bankers Life Agent Nextdoor page from the site.
 5. **Bing Places** — https://www.bingplaces.com. Imports from your Google
    profile in about five minutes. ChatGPT's search runs on Bing, so this is
    the most direct fix for assistants not knowing you exist.

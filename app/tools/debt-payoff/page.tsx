@@ -11,7 +11,7 @@ const description =
   "Free debt payoff calculator. List your real debts and compare avalanche vs snowball: months to zero and total interest, side by side.";
 
 export const metadata: Metadata = {
-  title: { absolute: "Debt Payoff Calculator: Avalanche vs Snowball | Christian Brinkley" },
+  title: { absolute: "Debt Payoff Calculator | Christian Brinkley" },
   description,
   alternates: { canonical: path },
   openGraph: pageOpenGraph({ title: "Debt payoff calculator", description, path }),

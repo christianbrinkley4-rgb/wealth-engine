@@ -7,7 +7,7 @@ import { wealthMetadata } from "@/lib/wealth/seo";
 const path = "/wealth/calculators";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "Free Money Calculators With Live Sliders",
+  title: "Free Money Calculators",
   description:
     "Four free calculators: compound interest, 50/30/20 budget, debt payoff (avalanche vs snowball), and Roth vs traditional. No sign-up.",
   path,

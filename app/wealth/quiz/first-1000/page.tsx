@@ -9,7 +9,7 @@ const description =
   "What should you do with your first $1,000? Answer a few quick questions about debt, savings and your job, and get a short plan to think over.";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "What Should I Do With My First $1,000? Quick Quiz",
+  title: "First $1,000 Quiz",
   description,
   path,
 });

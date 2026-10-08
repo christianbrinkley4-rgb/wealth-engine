@@ -28,7 +28,7 @@ Button (Google): Learn more → /turning-65
 >
 > If you're covered through your own or your spouse's current job, and the employer has 20 or more employees, you can usually wait without a penalty. When that coverage ends, you get eight months to sign up.
 >
-> Every situation is a little different. Call me and we'll go through yours. (336) 365-7422
+> Every situation is a little different. Call me and we'll go through yours. (919) 408-6671
 
 Button (Google): Learn more → /part-b-penalty
 
@@ -48,7 +48,7 @@ Button (Google): Learn more → /annual-enrollment
 >
 > A plan that looks cheaper can cost more if your doctor isn't in its network or your medicine isn't covered.
 >
-> I'll check both for you before you decide. Call me. I'll be the one who picks up. (336) 365-7422
+> I'll check both for you before you decide. Call me. I'll be the one who picks up. (919) 408-6671
 
 Button (Google): Learn more → /keep-my-doctor
 

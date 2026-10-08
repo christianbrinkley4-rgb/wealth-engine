@@ -5,7 +5,7 @@
  * Medicare marketing rules treat health and financial answers as nobody's
  * business but the household's. So measurement here is deliberately thin: a
  * named event, and the page it happened on. No answers, no dates of birth, no
- * income, no ZIP, no email, no phone number — not even hashed.
+ * income, no ZIP, no email, no phone number, not even hashed.
  *
  * The allow-list is the point. A future edit that adds `{ zip_code }` to an
  * event does not quietly start shipping it to Google; it fails the test that
@@ -85,8 +85,8 @@ type EventParams = {
 /**
  * The page path, with anything a visitor typed removed.
  *
- * A query string on this site can carry a topic, a campaign, or — if a link is
- * ever built carelessly — something personal. None of it belongs in an
+ * A query string on this site can carry a topic, a campaign, or, if a link is
+ * ever built carelessly, something personal. None of it belongs in an
  * analytics hit, so only the path survives, capped in case of a long slug.
  */
 export function safePagePath(url: string): string {

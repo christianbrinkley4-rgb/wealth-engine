@@ -27,10 +27,10 @@ import { SERVICE_AREA_LEDE } from "@/lib/triad";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Life Insurance in Greensboro, Winston-Salem & High Point, personal review",
+    absolute: "Life Insurance Help in Greensboro | Free Review",
   },
   description:
-    "Review life insurance with Christian Brinkley in Greensboro, High Point, or Winston-Salem. Understand your current coverage, your family’s needs, and what may change when you retire. No cost or obligation.",
+    "Review life insurance with Christian Brinkley in Greensboro, High Point, or Winston-Salem. Understand your coverage and what may change at retirement.",
   alternates: { canonical: "/life-insurance" },
   openGraph: pageOpenGraph({
     title: "Life insurance help in Greensboro, Winston-Salem & High Point",

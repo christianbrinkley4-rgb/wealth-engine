@@ -53,6 +53,7 @@ const STATIC_ROUTES: Array<{
   { path: "/irmaa-appeal", changeFrequency: "monthly", priority: 0.85 },
   { path: "/service-area", changeFrequency: "monthly", priority: 0.9 },
   { path: "/about", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
   { path: "/part-b-penalty", changeFrequency: "monthly", priority: 0.9 },
   { path: "/medicare-costs-2026", changeFrequency: "monthly", priority: 0.95 },
@@ -69,10 +70,6 @@ const STATIC_ROUTES: Array<{
   ...[
     "/wealth",
     "/wealth/calculators",
-    "/wealth/calculators/compound-interest",
-    "/wealth/calculators/budget",
-    "/wealth/calculators/debt-payoff",
-    "/wealth/calculators/roth-vs-traditional",
     "/wealth/quiz",
     "/wealth/quiz/first-1000",
     "/wealth/quiz/money-personality",
@@ -124,6 +121,7 @@ const STATIC_ROUTES: Array<{
     "/tools/take-home-pay",
     "/tools/life-insurance-needs",
     "/tools/compound-interest",
+    "/tools/budget",
   ].map((path) => ({
     path,
     changeFrequency: "weekly" as const,

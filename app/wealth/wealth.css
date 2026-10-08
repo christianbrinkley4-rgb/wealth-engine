@@ -1209,6 +1209,7 @@ body:has(.w-root) {
   line-height: 1;
   color: var(--w-lime);
   font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
 }
 .w-panel .w-slider label {
   color: var(--w-on-ink);

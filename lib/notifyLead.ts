@@ -1,8 +1,8 @@
 /**
  * Lead delivery. Two jobs, both time-critical:
  *
- *   1. Tell Christian, immediately — email, optional webhook, optional SMS.
- *   2. Tell the prospect, immediately — the answers they were promised, plus a
+ *   1. Tell Christian, immediately, email, optional webhook, optional SMS.
+ *   2. Tell the prospect, immediately, the answers they were promised, plus a
  *      booking link, while the site is still open in front of them.
  *
  * Nothing here throws. The lead is already saved by the time these run, and a
@@ -376,7 +376,7 @@ function ownerAlertHtml(topic: string, payload: LeadNotifyPayload): string {
 /**
  * Alert Christian. Never throws.
  *
- * `ok` is true when at least one channel actually delivered — the caller uses
+ * `ok` is true when at least one channel actually delivered, the caller uses
  * that to decide whether a lead whose database write failed can still be
  * reported to the visitor as received. `retryable` is true when nothing landed
  * but at least one channel failed in a way a later attempt could survive, so
@@ -496,7 +496,7 @@ const CALLBACK_PROMISE_TEXT =
 
 /**
  * The email the site has been promising and never sending: their answers, the
- * same guidance they saw on screen, and a way to book time — inside a minute
+ * same guidance they saw on screen, and a way to book time, inside a minute
  * of hitting submit, while they still remember filling in the form.
  */
 export async function sendProspectAutoReply(input: {
@@ -711,7 +711,7 @@ export function isProspectEmailConfigured() {
  * Enrollment-window reminders
  *
  * Two emails: one now, confirming the reminder is set, and one months later
- * when the window actually opens. The second is the whole point — it arrives
+ * when the window actually opens. The second is the whole point, it arrives
  * on the day the person can finally act, from someone they already asked to
  * get in touch.
  * ------------------------------------------------------------------------- */
@@ -789,7 +789,7 @@ export async function sendReminderSignupConfirmation(input: {
 
 /**
  * The reminder itself, sent by the daily cron job when it comes due.
- * Returns whether it actually went out — the caller only marks the row sent
+ * Returns whether it actually went out, the caller only marks the row sent
  * when it did, so a failure retries tomorrow rather than vanishing.
  */
 export async function sendReminderDue(input: {

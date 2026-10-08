@@ -108,7 +108,7 @@ export const SITE_REGION = AGENT.state;
  * Per-page Open Graph, merged with the site-wide bits.
  *
  * Next replaces the parent segment's `openGraph` object wholesale when a page
- * declares its own — it does not merge. Six pages declared a title and
+ * declares its own, it does not merge. Six pages declared a title and
  * description and in doing so dropped og:image, og:site_name and og:locale, so
  * the landing pages that get shared to Facebook and Nextdoor were the only
  * ones posting as a bare grey box. Build the object here instead of by hand.
@@ -445,7 +445,7 @@ export function articleJsonLd(input: {
   headline: string;
   description: string;
   path: string;
-  /** ISO date. Real dates only — a fabricated freshness signal is a lie. */
+  /** ISO date. Real dates only, a fabricated freshness signal is a lie. */
   datePublished: string;
   dateModified: string;
 }) {

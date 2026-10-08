@@ -13,14 +13,14 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  * Deliberately contains no claim about which plans any particular hospital or
  * practice participates in. Those change every year, they vary by individual
  * plan rather than by carrier, and publishing a stale table would be worse
- * than publishing nothing — someone could choose a plan on it and lose their
+ * than publishing nothing, someone could choose a plan on it and lose their
  * doctor. What the page does instead is teach the reliable way to check, which
  * is genuinely useful, and offer to do the checking.
  */
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Can I Keep My Doctor on Medicare in Greensboro, Winston-Salem & High Point?",
+    absolute: "Can I Keep My Doctor on Medicare? | Greensboro",
   },
   description:
     "Whether you keep your doctor depends on the coverage you choose. How to check networks in Greensboro, High Point, and Winston-Salem before you enroll.",

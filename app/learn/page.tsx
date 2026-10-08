@@ -10,7 +10,7 @@ import { AGENT } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
 import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 
-const title = "The Learning Hub: Medicare, Taxes & Retirement in Plain English";
+const title = "Medicare & Retirement Learning Hub";
 const description =
   "Plain-English guides on Medicare, Social Security, taxes in retirement, and insurance, organized by where you are. From Christian Brinkley in Greensboro, NC.";
 

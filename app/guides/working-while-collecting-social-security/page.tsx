@@ -18,7 +18,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Working While Collecting Social Security: 2026 Earnings Limits",
+    absolute: "2026 Earnings Limits While Collecting Social Security",
   },
   description:
     "How much can you earn in 2026 while collecting Social Security? The exact limits: $24,480 before full retirement age, $65,160 in the year you reach it.",

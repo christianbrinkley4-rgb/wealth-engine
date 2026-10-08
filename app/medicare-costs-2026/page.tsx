@@ -18,9 +18,9 @@ import { formatMoney } from "@/lib/partBPenalty";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 const title =
-  "2026 Medicare Costs in NC: Premiums, Deductibles & IRMAA, Greensboro & the Triad";
+  "2026 Medicare Costs in NC: Premiums, IRMAA, Deductibles";
 const description =
-  "Every 2026 Medicare figure in one place, taken from the CMS fact sheets: the $202.90 Part B premium, the $283 deductible, Part A hospital costs, the $2,100 Part D cap, and both IRMAA tables. What they mean if you live in Greensboro, High Point, or Winston-Salem is the conversation.";
+  "Every 2026 Medicare figure in one place, from CMS fact sheets: Part B $202.90, deductible $283, Part D cap $2,100, both IRMAA tables. Free review in Greensboro.";
 
 export const metadata: Metadata = {
   title: { absolute: title },

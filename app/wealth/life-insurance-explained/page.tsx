@@ -7,7 +7,7 @@ import { wealthArticleJsonLd, wealthMetadata } from "@/lib/wealth/seo";
 import { WEALTH_FACTS } from "@/lib/wealth/site";
 
 const PATH = "/wealth/life-insurance-explained";
-const TITLE = "Life Insurance, Explained in Plain English";
+const TITLE = "Life Insurance Explained";
 const DESCRIPTION =
   "Term and whole life do different jobs. What each one is, how agents get paid, and the questions to ask before you sign.";
 const MINUTES = 6;

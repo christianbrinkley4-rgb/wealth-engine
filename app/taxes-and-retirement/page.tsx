@@ -10,7 +10,7 @@ import { articleText } from "@/lib/articles";
 import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import { TAX_ARTICLES } from "@/lib/taxArticles";
 
-const title = "Taxes & Retirement in Plain English | Christian Brinkley, Greensboro";
+const title = "Taxes & Retirement in Plain English | Christian Brinkley";
 const description =
   "Plain-English explainers on Social Security taxes, RMDs, Roth conversions, and how retirement income affects Medicare costs. Educational, not tax advice.";
 

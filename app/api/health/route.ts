@@ -12,7 +12,7 @@ import { getReadinessReport } from "@/lib/readiness";
  *
  * This is intentionally public so a deployment platform can check it without
  * sharing CRON_SECRET. It returns categories, booleans, and remediation text
- * only — never environment-variable values or credentials.
+ * only, never environment-variable values or credentials.
  */
 
 export const dynamic = "force-dynamic";

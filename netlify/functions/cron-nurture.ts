@@ -1,5 +1,5 @@
 /**
- * Netlify Scheduled Function — triggers the Next.js nurture cron route.
+ * Netlify Scheduled Function, triggers the Next.js nurture cron route.
  *
  * Production runs on Netlify, where vercel.json crons do not execute, so this
  * function calls the route over HTTPS with the CRON_SECRET bearer token,

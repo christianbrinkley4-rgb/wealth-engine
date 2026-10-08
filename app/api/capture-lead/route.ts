@@ -164,7 +164,7 @@ function deliveryStatus(result: DeliveryResult): DeliveryStatus {
  * Two silences are deliberate. A channel that is not configured is left
  * pending rather than marked permanent, because the site being unable to send
  * says nothing about whether a Command Center-side worker can. And a job with
- * no id is simply not marked — an Edge Function that does not yet enqueue
+ * no id is simply not marked, an Edge Function that does not yet enqueue
  * deliveries returns no ids, and the capture still has to work.
  */
 async function recordDeliveries(
@@ -250,7 +250,7 @@ export async function POST(request: NextRequest) {
 
     /* ---------------------------------------------------------------
      * Partial lead: someone reached the contact step and hasn’t given
-     * details yet. No contact info, no consent — just enough to know an
+     * details yet. No contact info, no consent, just enough to know an
      * ad produced real interest and where it stalled.
      * ------------------------------------------------------------- */
     if (body.stage === "partial") {
@@ -409,7 +409,7 @@ export async function POST(request: NextRequest) {
       consent_user_agent: userAgent?.slice(0, 400) ?? null,
       consent_at: new Date().toISOString(),
       // Permission to call is not permission to text, so this is its own flag
-      // with its own stored wording — and it only counts with a phone number.
+      // with its own stored wording, and it only counts with a phone number.
       sms_consent:
         body.sms_consent === true &&
         body.sms_consent_text === SMS_CONSENT_TEXT &&
@@ -430,7 +430,7 @@ export async function POST(request: NextRequest) {
     /*
      * Storage is best-effort; the alert is not. A lead that reaches Christian’s
      * inbox but not the database is a bad day. A lead that reaches neither is a
-     * paid click thrown away — so if the insert can’t happen, we still send the
+     * paid click thrown away, so if the insert can’t happen, we still send the
      * notification and tell the visitor it went through, because it did.
      */
     let stored = false;
@@ -489,7 +489,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(CONFIG_ERROR, { status: 503 });
     }
 
-    // When the database write failed, the alert IS the lead — so send it before
+    // When the database write failed, the alert IS the lead, so send it before
     // answering, and only claim success if it actually went out.
     if (!stored) {
       const alert = await notifyLeadCaptured({
@@ -602,13 +602,13 @@ export async function POST(request: NextRequest) {
 
     /*
      * Nurture enrollment: the automated follow-up sequence for this topic.
-     * Best-effort and consent-gated — a queue hiccup here must never fail
+     * Best-effort and consent-gated, a queue hiccup here must never fail
      * the request. Duplicates (network retries) are skipped by the
      * enrollment itself, which keeps one active enrollment per sequence.
      *
      * The enrollment carries its own contact snapshot, so it runs against the
      * website database in BOTH storage modes. When the Command Center owns
-     * lead storage, `supabase` above is deliberately null — but the nurture
+     * lead storage, `supabase` above is deliberately null, but the nurture
      * tables and the cron that reads them still live here, so gating on
      * `supabase` would silently drop every Command Center lead from nurture.
      */
@@ -691,7 +691,7 @@ export async function POST(request: NextRequest) {
     /*
      * `emailConfigured` is not a detail the visitor needs, but the thank-you
      * page does. Without an email provider set, sendProspectAutoReply is a
-     * no-op — and the confirmation page was still telling people their answers
+     * no-op, and the confirmation page was still telling people their answers
      * were on their way to their inbox. Promising an email that cannot be sent
      * is worse than not promising one, particularly on a site whose entire
      * argument is that it does what it says.

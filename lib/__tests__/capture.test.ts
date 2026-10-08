@@ -246,7 +246,7 @@ describe("adult-child entry point", () => {
 describe("local lead scoring", () => {
   /**
    * The prefix list originally covered High Point and Summerfield but not
-   * Greensboro (274xx) or Winston-Salem (271xx) — so leads from the two
+   * Greensboro (274xx) or Winston-Salem (271xx), so leads from the two
    * biggest cities in the market scored as out-of-area.
    */
   const TRIAD_ZIPS = {

@@ -8,7 +8,7 @@ import { getBrackets, type FilingStatus, type IrmaaBracket } from "@/lib/irmaa";
  * what would it cost me?" A tier table answers that; a tier table with the
  * reader's row emphasised answers it at a glance.
  *
- * Form: emphasis, not categorical — one hue for the reader's tier, a neutral
+ * Form: emphasis, not categorical, one hue for the reader's tier, a neutral
  * for the rest. Categorical colour here would imply the six tiers are six
  * unrelated things rather than one ordered scale, and would bury the only row
  * that matters.

@@ -13,8 +13,8 @@ describe("calculatePlan65", () => {
   it("puts a joint filer under $218,000 in the standard tier with real headroom", () => {
     const r = calculatePlan65(base);
     expect(r.currentBracket.bracketName).toBe("Standard (No Surcharge)");
-    // The standard tier's ceiling is inclusive — $218,000 exactly is still
-    // standard — so $180,000 leaves precisely $38,000 of room.
+    // The standard tier's ceiling is inclusive , $218,000 exactly is still
+    // standard , so $180,000 leaves precisely $38,000 of room.
     expect(r.headroom).toBe(38_000);
     expect(r.atTopBracket).toBe(false);
   });

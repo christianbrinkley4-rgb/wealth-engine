@@ -29,7 +29,7 @@ describe("search discovery", () => {
     const paths = sitemap().map((entry) => new URL(entry.url).pathname);
     expect(new Set(paths).size).toBe(paths.length);
     for (const guide of CARE_GUIDES) expect(paths).toContain(`/${guide.slug}`);
-    for (const path of ["/start", "/schedule", "/remind-me", "/llms.txt", "/privacy"])
+    for (const path of ["/start", "/schedule", "/remind-me", "/llms.txt"])
       expect(paths).not.toContain(path);
     expect(paths.some((path) => /^\/(lp|go|api)\//.test(path))).toBe(false);
   });

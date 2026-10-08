@@ -13,7 +13,7 @@ import { formatLongDate, getT65Dates, getT65Window, MONTHS } from "@/lib/reminde
  * window described in relative months ("three before, three after") has to be
  * converted into real dates by the reader, in their head, usually late at
  * night, and that is where it goes wrong. Given a birth month this does the
- * conversion for them, and shows the two deadlines the prose version buries —
+ * conversion for them, and shows the two deadlines the prose version buries,
  * the date after which coverage no longer starts on time, and the Medigap
  * window that cannot be reopened.
  *
@@ -54,7 +54,7 @@ export function MedicareDates({
    * A date on its own is a fact; a date with a distance attached is a
    * decision. "Sign up by October 31, 2027" reads as comfortably far off right
    * up until it isn't, and the people who miss the window are rarely the ones
-   * who never knew the date — they are the ones who knew it and had no sense
+   * who never knew the date, they are the ones who knew it and had no sense
    * of how fast it was arriving.
    */
   const daysUntil = (date: Date) =>

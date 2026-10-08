@@ -9,7 +9,7 @@ const description =
   "Debt payoff calculator: avalanche vs snowball, side by side. Enter your debts and see months to payoff and total interest for each method.";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "Debt Payoff Calculator: Avalanche vs Snowball",
+  title: "Debt Payoff Calculator",
   description,
   path,
 });

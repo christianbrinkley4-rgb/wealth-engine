@@ -16,7 +16,7 @@ const ALERT_SMS_TO = process.env.ALERT_SMS_TO?.trim() || "";
 /**
  * Inbound SMS auto-reply for the business text number.
  *
- * This is a response to someone who texted first — one short, informational
+ * This is a response to someone who texted first, one short, informational
  * reply, at most one per number per 24 hours. It is NOT marketing and does
  * not enroll anyone in anything. Christian gets an alert with the message so
  * he can follow up personally, which is the actual point.
@@ -107,7 +107,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, skipped: "opt-out" });
   }
 
-  // Alert Christian with what they said — the personal follow-up is the point.
+  // Alert Christian with what they said, the personal follow-up is the point.
   if (ALERT_SMS_TO) {
     const preview = body.length > 120 ? body.slice(0, 117) + "…" : body;
     await sendSms(ALERT_SMS_TO, `Text from +1${from}: ${preview || "(no message)"}`);

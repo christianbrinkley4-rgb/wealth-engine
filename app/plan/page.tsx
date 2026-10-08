@@ -13,7 +13,7 @@ import { AGENT } from "@/lib/agent";
  *
  * The heading, the explanation and the disclosure are rendered on the server
  * so the page has a body a crawler can read; only the interactive dashboard is
- * a client component. /roth-window taught this lesson the expensive way — its
+ * a client component. /roth-window taught this lesson the expensive way, its
  * whole page sat inside a client boundary and shipped an empty document.
  */
 

@@ -16,7 +16,7 @@ import { SiblingNav } from "../components/SiblingNav";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "AI for Money Tasks: Budgets, Bills, Subscriptions | Christian Brinkley",
+    absolute: "AI for Money Tasks | Christian Brinkley",
   },
   description:
     "Use AI for budgeting help, bill negotiation scripts, subscription audits, and reading statements. Educational only, never personal advice.",

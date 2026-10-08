@@ -102,7 +102,7 @@ export function EmailResultsCapture({
     /*
      * Rendered directly rather than through turnstile.ready(). The shared
      * api.js tag is loaded async, and Cloudflare's script throws outright if
-     * ready() is called on an async tag — which took whole pages down. When
+     * ready() is called on an async tag, which took whole pages down. When
      * window.turnstile exists at all, it is already safe to render.
      */
     try {

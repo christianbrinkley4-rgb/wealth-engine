@@ -12,7 +12,7 @@ const description =
   "Free money personality quiz. Eight questions, four types: The Vault, The Vibe, The Ghost and The Grinder. See your strengths, blind spots and next steps.";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "Money Personality Quiz: 8 Questions, 4 Types",
+  title: "Money Personality Quiz",
   description,
   path,
 });

@@ -38,7 +38,7 @@ import { cn } from "@/lib/utils";
 
 /**
  * Only the non-identifying part of the quiz is persisted. Name, email and
- * phone stay in component state — household computers are the norm in this
+ * phone stay in component state, household computers are the norm in this
  * audience and an abandoned session shouldn’t leave contact details on disk.
  */
 type StoredQuiz = {
@@ -140,8 +140,8 @@ interface UrlEntry {
 /**
  * Reads /start?topic=medicare&stage=helping_spouse_or_parent
  *
- * `stage` lets a landing page written for one audience — the adult child
- * researching for a parent, say — hand people straight to the second question
+ * `stage` lets a landing page written for one audience, the adult child
+ * researching for a parent, say, hand people straight to the second question
  * instead of asking them something the page already established.
  */
 function readUrlEntry(params: Pick<URLSearchParams, "get">): UrlEntry | null {
@@ -186,7 +186,7 @@ export function HelpQuiz() {
   const linked = isClient && dismissedEntry !== entryKey ? urlEntry : null;
   const linkedTopic = linked?.topic ?? null;
 
-  // A deep link from the home page is honored without writing to storage —
+  // A deep link from the home page is honored without writing to storage,
   // derived rather than applied in an effect, so there is no cascading render.
   const stored: StoredQuiz =
     linked?.quick || (!persisted.topic && linked)
@@ -286,7 +286,7 @@ export function HelpQuiz() {
     /*
      * Rendered directly rather than through turnstile.ready(). The shared
      * api.js tag is loaded async, and Cloudflare's script throws outright if
-     * ready() is called on an async tag — which took whole pages down. When
+     * ready() is called on an async tag, which took whole pages down. When
      * window.turnstile exists at all, it is already safe to render.
      */
     try {
@@ -408,7 +408,7 @@ export function HelpQuiz() {
   /**
    * Records the lead as soon as the value screen is reached, before contact
    * details exist. Without this, everyone who abandons at the last step is
-   * invisible — and on cold ad traffic that is most people.
+   * invisible, and on cold ad traffic that is most people.
    */
   function recordPartial(nextPhase: HelpQuizPhase) {
     if (!topic) return;

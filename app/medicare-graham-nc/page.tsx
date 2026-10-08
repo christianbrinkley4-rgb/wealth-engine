@@ -25,7 +25,7 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Help in Graham, NC | Free Reviews | Christian Brinkley",
+    absolute: "Medicare Help in Graham, NC | Christian Brinkley",
   },
   description:
     "Turning 65 in Graham, NC? Free Medicare help from Christian Brinkley, a licensed NC insurance agent. Call or text (919) 408-6671.",

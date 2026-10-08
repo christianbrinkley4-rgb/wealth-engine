@@ -38,7 +38,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     slug: "budgeting-on-your-first-job",
     pillar: "money-basics",
     title: "Budgeting on your first job",
-    metaTitle: "Budgeting on Your First Job: A 10-Minute First Budget",
+    metaTitle: "First Job Budget: 10 Minutes",
     description:
       "Your first paycheck is smaller than your salary says. Here's how to read it and build a first budget in ten minutes.",
     answer:
@@ -110,7 +110,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     slug: "what-is-a-roth-ira",
     pillar: "money-basics",
     title: "What a Roth IRA actually is",
-    metaTitle: "What Is a Roth IRA? Plain-English Guide for Your 20s (2026)",
+    metaTitle: "Roth IRA Guide for Your 20s",
     description:
       "A Roth IRA is an account, not an investment. You pay tax now so qualified withdrawals later are tax-free. 2026 limits inside.",
     answer:
@@ -184,7 +184,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     slug: "credit-scores-explained",
     pillar: "money-basics",
     title: "Credit scores, explained",
-    metaTitle: "Credit Scores Explained: What Moves the Number and What Doesn't",
+    metaTitle: "Credit Scores Explained",
     description:
       "A credit score runs from 300 to 850. Five things move it, and two of them do most of the work. Here's the breakdown.",
     answer:
@@ -263,7 +263,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     slug: "what-accountants-actually-do",
     pillar: "accounting-explained",
     title: "What accountants actually do",
-    metaTitle: "What Do Accountants Actually Do? An Accounting Senior Explains",
+    metaTitle: "What Do Accountants Actually Do?",
     description:
       "Accounting isn't just taxes. It's how a business keeps score. Here's what the work looks like, from an accounting senior.",
     answer:
@@ -336,7 +336,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     slug: "emergency-funds",
     pillar: "money-basics",
     title: "Emergency funds: how much, and where",
-    metaTitle: "Emergency Fund: How Much You Need and Where to Keep It",
+    metaTitle: "Emergency Fund: How Much You Need",
     description:
       "An emergency fund is cash for surprises, not for plans. The standard target is three to six months of expenses. Start with one.",
     answer:
@@ -408,7 +408,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     slug: "the-50-30-20-rule",
     pillar: "money-basics",
     title: "The 50/30/20 rule",
-    metaTitle: "The 50/30/20 Rule: How It Works and When to Bend It",
+    metaTitle: "The 50/30/20 Rule Explained",
     description:
       "50% needs, 30% wants, 20% savings and debt, all from take-home pay. A starting point, not a law. Here's how to use it.",
     answer:

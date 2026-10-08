@@ -11,8 +11,8 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
  * The tax-aware moat, as a page.
  *
  * Almost nobody selling Medicare in this market can talk about Form SSA-44,
- * and the people it applies to — anyone who just retired and is being charged
- * on the income they earned two years ago — are exactly the households worth
+ * and the people it applies to , anyone who just retired and is being charged
+ * on the income they earned two years ago , are exactly the households worth
  * knowing. It is also genuinely useful whether or not they ever call.
  *
  * Everything here is a structural rule rather than a dollar figure, so it does
@@ -21,10 +21,10 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Appealing a High Medicare Premium in Greensboro, Winston-Salem & High Point",
+    absolute: "Appeal a High Medicare Premium | Greensboro Help",
   },
   description:
-    "If your income has fallen after retirement or another qualifying life change, Social Security may review income-related Medicare premium charges. Local help in Greensboro, High Point, and Winston-Salem.",
+    "If your income fell after retirement, Social Security may review income-related Medicare premium charges. Local help in Greensboro and the Triad.",
   alternates: { canonical: "/irmaa-appeal" },
   openGraph: pageOpenGraph({
     title: "Appealing a high Medicare premium in Greensboro, Winston-Salem & High Point",

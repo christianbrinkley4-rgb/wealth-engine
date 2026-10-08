@@ -46,7 +46,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
 
   const years = selectableBirthYears();
 
-  // Show them the date as soon as they pick it — the answer is useful whether
+  // Show them the date as soon as they pick it, the answer is useful whether
   // or not they finish the form.
   const preview =
     kind === "t65" && birthMonth && birthYear

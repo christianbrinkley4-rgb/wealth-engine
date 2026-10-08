@@ -2,7 +2,7 @@
  * Real things real clients said. Nothing else goes in this file.
  *
  * ─────────────────────────────────────────────────────────────────────────
- * ACTION REQUIRED — this array is empty, and while it is empty the site shows
+ * ACTION REQUIRED, this array is empty, and while it is empty the site shows
  * no social proof at all.
  *
  * That is currently the largest single reason a visitor leaves without
@@ -17,7 +17,7 @@
  *
  * How to collect them, in rough order of value:
  *
- *   1. Google Business Profile reviews. These do double duty — they are the
+ *   1. Google Business Profile reviews. These do double duty, they are the
  *      strongest local ranking signal you have, and they are verifiable in a
  *      way an on-page quote never is. Ask every client you have already helped.
  *   2. A sentence in an email after you have solved something. "Would you mind
@@ -39,16 +39,16 @@
 export interface Testimonial {
   /** Their words, unedited apart from trimming. */
   quote: string;
-  /** "Linda M." — first name, last initial. */
+  /** "Linda M.", first name, last initial. */
   name: string;
-  /** "Greensboro" — the town, never a street. */
+  /** "Greensboro", the town, never a street. */
   location: string;
   /** What they came to you about. Keeps it concrete. */
   context?: string;
 }
 
 export const TESTIMONIALS: Testimonial[] = [
-  // Example of the shape — delete this comment and add real entries:
+  // Example of the shape, delete this comment and add real entries:
   // {
   //   quote:
   //     "He checked my cardiologist against the plan I was about to sign up for. He wasn't in it.",

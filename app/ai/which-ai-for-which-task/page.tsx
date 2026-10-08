@@ -13,10 +13,10 @@ import { SiblingNav } from "../components/SiblingNav";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Which AI for Which Task: A Plain-English Decision Guide | Christian Brinkley",
+    absolute: "Which AI for Which Task | Christian Brinkley",
   },
   description:
-    "I want to write better, research faster, sort my inbox: which AI should I use? A plain-English decision guide matching tasks to ChatGPT, Claude, Gemini, Copilot, and Perplexity.",
+    "Write better, research faster, sort your inbox: which AI should you use? A plain-English guide matching tasks to ChatGPT, Claude, Gemini, and Copilot.",
   alternates: { canonical: "/ai/which-ai-for-which-task" },
   openGraph: pageOpenGraph({
     title: "Which AI for which task",

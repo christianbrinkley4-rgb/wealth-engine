@@ -12,7 +12,7 @@ const description =
   "Two free downloads: a working Excel budget spreadsheet with a 50/30/20 check, and a Python tool that reads financial statements and explains ten ratios.";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "Free Budget Spreadsheet and Financial Statement Analyzer",
+  title: "Free Budget Spreadsheet",
   description,
   path,
 });

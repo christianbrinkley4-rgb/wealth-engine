@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     absolute: "Do I Need Part B If I Have Employer Insurance at 65?",
   },
   description:
-    "Working past 65? Whether you need Medicare Part B depends on your employer's size. The 20-employee rule, the 8-month special enrollment period, and the COBRA trap.",
+    "Working past 65? Whether you need Medicare Part B depends on your employer's size. The 20-employee rule, the 8-month special enrollment period, the COBRA trap.",
   alternates: { canonical: "/guides/medicare-part-b-employer-coverage" },
   openGraph: pageOpenGraph({
     title: "Do I need Part B if I have employer insurance at 65?",

@@ -9,7 +9,7 @@ const description =
   "Free compound interest calculator with live sliders. See your balance grow year by year, and what starting at 22 instead of 32 is worth.";
 
 export const metadata: Metadata = wealthMetadata({
-  title: "Compound Interest Calculator: Starting at 22 vs 32",
+  title: "Compound Interest Calculator",
   description,
   path,
 });

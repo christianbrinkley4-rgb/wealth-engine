@@ -179,6 +179,12 @@ ${articleLines}
 
 - [2026 Medicare costs](${SITE_URL}/medicare-costs-2026): the Part A, Part B, Part D and IRMAA figures for 2026, each taken from a named CMS fact sheet. Part B standard premium $202.90 a month; Part B annual deductible $283; Part A hospital deductible $1,736 per benefit period; Part D out-of-pocket cap $2,100 a year; Part D maximum deductible $615. Income-related surcharges begin above $109,000 for a single filer and $218,000 filing jointly, based on the 2024 tax return. These figures are federal and identical in every state; only plan availability and pricing vary locally.
 
+## 2027 figures
+
+- [2027 Medicare numbers at a glance](${SITE_URL}/medicare-numbers-2027): Part B standard premium about $209.50 a month (projected), Part D standard deductible $700 and out-of-pocket cap $2,400 (final), Medicare Advantage average premium about $12 a month. Each figure tied to a named source.
+- [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.
+- [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the $2,400 Part D out-of-pocket cap works in 2027.
+
 ## Free tools
 
 - [Medicare enrollment dates](${SITE_URL}/turning-65#enrollment-dates): find estimated enrollment dates, print them, or save them to a personal calendar without providing contact information. Includes the first-of-month birthday adjustment.

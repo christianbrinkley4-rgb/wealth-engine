@@ -19,7 +19,7 @@ import {
 /**
  * The door that was missing.
  *
- * Everything here aimed at Medicare was written for somebody turning 65 — a
+ * Everything here aimed at Medicare was written for somebody turning 65, a
  * group that refreshes once a year and is a fraction of the market. The larger
  * group is everybody already enrolled, and between October 15 and December 7
  * they are all asked to make a decision at once. That is the highest-volume
@@ -34,7 +34,7 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Annual Enrollment in Greensboro, Winston-Salem & High Point",
+    absolute: "Medicare Annual Enrollment Help | Greensboro",
   },
   description:
     "Review next year’s Medicare costs, prescriptions, and doctors with a licensed agent who meets in Greensboro, High Point, or Winston-Salem before you decide.",
