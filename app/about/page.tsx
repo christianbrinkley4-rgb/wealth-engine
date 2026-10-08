@@ -84,8 +84,22 @@ export default function AboutPage() {
           name: AGENT.name,
           url: `${SITE_URL}/about`,
           image: `${SITE_URL}/christian-brinkley.jpg`,
+          sameAs: AGENT.profiles,
         },
       }).replace(/</g, "\\u003c") }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: [".ab-hero-copy h1", ".ab-lede"],
+            },
+          }),
+        }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -106,10 +120,11 @@ export default function AboutPage() {
               Hey, I’m <em>Christian.</em>
             </h1>
             <p className="ab-lede">
-              I’m a licensed insurance agent in Greensboro, and I’m from Granville County. I help
-              families across the Triad with Medicare, life insurance, and retirement questions.
-              I’m not a call center. I sit down with people myself, listen first, and help them
-              figure out what they want to protect.
+              I’m a licensed insurance agent in Greensboro. I grew up in Creedmoor, in Granville
+              County. I’m 21, an accounting senior at UNCG, and I graduate in December 2026. I
+              help families across the Triad with Medicare, life insurance, and retirement
+              questions. I’m not a call center. I sit down with people myself, listen first, and
+              help them figure out what they want to protect.
             </p>
             <p className="ab-license">
               Licensed agent · {AGENT.licenseLine}
@@ -189,11 +204,45 @@ export default function AboutPage() {
               phone. If your current coverage still fits, that is a useful answer too.
             </p>
             <p data-reveal>
+              I got into this by working directly with a financial advisor. I reviewed 100+
+              client files, sat in on dozens of money appointments, and ran the advisor’s
+              monthly budget. That work showed me how retirement decisions connect to real life.
+            </p>
+            <p data-reveal>
               My accounting studies help me see how retirement decisions connect. Today I’m a
               licensed insurance agent, and I work with an advisor for retirement financial
               planning. Tax, legal, and investment advice belongs with the right qualified
               professional, and I’ll tell you when that conversation would help.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-tight" aria-labelledby="ab-scope-heading">
+        <div className="shell">
+          <p className="eyebrow" data-reveal>
+            Clear boundaries
+          </p>
+          <h2 id="ab-scope-heading" className="ab-h2" data-reveal>
+            What I do, and what I don’t do.
+          </h2>
+          <div className="ab-paid-grid" style={{ marginTop: "1.5rem" }}>
+            <div className="ab-paid-card" data-reveal>
+              <h2>What I do</h2>
+              <ul>
+                <li>Explain Medicare, life insurance, care coverage, and annuities in plain language.</li>
+                <li>Compare your costs, doctors, and prescriptions before you decide.</li>
+                <li>Work with a financial advisor when your planning goes beyond insurance.</li>
+              </ul>
+            </div>
+            <div className="ab-paid-card" data-reveal style={{ "--i": 1 } as React.CSSProperties}>
+              <h2>What I don’t do</h2>
+              <ul>
+                <li>Recommend securities or investments. I’m not securities licensed.</li>
+                <li>Give tax or legal advice. That belongs with a qualified professional.</li>
+                <li>Present future credentials as current. I’m not a CPA, CFP, or registered investment adviser.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -209,7 +258,7 @@ export default function AboutPage() {
           <ol className="ab-road-list">
             <li data-reveal>
               <span className="ab-road-when">Today</span>
-              <span className="ab-road-what">Licensed insurance agent, {AGENT.licenseLine}</span>
+              <span className="ab-road-what">Licensed insurance agent, {AGENT.licenseLine} (since June 2026)</span>
             </li>
             <li data-reveal style={{ "--i": 1 } as React.CSSProperties}>
               <span className="ab-road-when">In school</span>
@@ -218,10 +267,14 @@ export default function AboutPage() {
               </span>
             </li>
             <li data-reveal style={{ "--i": 2 } as React.CSSProperties}>
-              <span className="ab-road-when">Working toward</span>
-              <span className="ab-road-what">Becoming a CPA</span>
+              <span className="ab-road-when">Studying</span>
+              <span className="ab-road-what">SIE exam (studying now, not yet passed)</span>
             </li>
             <li data-reveal style={{ "--i": 3 } as React.CSSProperties}>
+              <span className="ab-road-when">Working toward</span>
+              <span className="ab-road-what">CPA track after the master’s degree</span>
+            </li>
+            <li data-reveal style={{ "--i": 4 } as React.CSSProperties}>
               <span className="ab-road-when">The goal</span>
               <span className="ab-road-what">
                 A planning practice here at home: Medicare, taxes, retirement, and insurance, with
@@ -230,8 +283,8 @@ export default function AboutPage() {
             </li>
           </ol>
           <p className="ab-road-note" data-reveal>
-            The last two are goals, not credentials I hold today. I’ll update this page as each one
-            becomes real.
+            The last three are goals, not credentials I hold today. I’ll update this page as each
+            one becomes real.
           </p>
         </div>
       </section>

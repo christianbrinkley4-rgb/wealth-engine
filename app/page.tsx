@@ -135,6 +135,19 @@ export default function HomePage() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: [".hx-title", ".hx-lede"],
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(QUESTIONS)) }}
       />
 

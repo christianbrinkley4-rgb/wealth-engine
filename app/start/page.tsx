@@ -42,6 +42,19 @@ export default async function StartPage({
           __html: JSON.stringify(breadcrumbJsonLd([{ name: "Get started", path: "/start" }])),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: ["main h1", "main h1 + p"],
+            },
+          }),
+        }}
+      />
       <section
         className={`bg-[var(--color-navy)] text-[var(--color-paper)] ${quickMedicare ? "py-5 md:py-6" : "py-7 md:py-12"}`}
       >

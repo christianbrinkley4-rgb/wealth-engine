@@ -56,6 +56,19 @@ export default function TaxesAndRetirementPage() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: [".sh-title", ".sh-lede"],
+            },
+          }),
+        }}
+      />
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Taxes & retirement" }]}

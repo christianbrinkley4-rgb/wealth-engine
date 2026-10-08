@@ -109,6 +109,19 @@ export default function Turning65Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: [".sh-title", ".sh-lede"],
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
               headline: "Turning 65: your Medicare Initial Enrollment Period in Greensboro",

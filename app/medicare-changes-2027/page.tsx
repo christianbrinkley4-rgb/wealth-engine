@@ -95,6 +95,19 @@ export default function MedicareChanges2027Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: [".sh-title", ".sh-lede"],
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
               headline: "Medicare Changes for 2027: What You Need to Know Before Open Enrollment",

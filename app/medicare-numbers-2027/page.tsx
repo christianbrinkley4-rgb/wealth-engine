@@ -115,6 +115,19 @@ export default function MedicareNumbers2027Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            speakable: {
+              "@type": "SpeakableSpecification",
+              cssSelector: [".sh-title", ".sh-lede"],
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
               headline: "2027 Medicare Costs at a Glance: Premiums, Deductibles, Caps",
