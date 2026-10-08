@@ -20,7 +20,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter 
 const title =
   "2026 Medicare Costs in NC: Premiums, IRMAA, Deductibles";
 const description =
-  "Every 2026 Medicare figure in one place, from CMS fact sheets: Part B $202.90, deductible $283, Part D cap $2,100, both IRMAA tables. Free review in Greensboro.";
+  "Every 2026 Medicare figure in one place, from CMS fact sheets: Part B $202.90, deductible $283, Part D cap $2,100, both IRMAA tables.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
