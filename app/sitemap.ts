@@ -22,6 +22,7 @@ const STATIC_ROUTES: Array<{
   { path: "/turning-65", changeFrequency: "weekly", priority: 0.95 },
   { path: "/medicare-costs", changeFrequency: "monthly", priority: 0.9 },
   { path: "/medicare-numbers-2027", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
+  { path: "/numbers", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
   { path: "/medicare-changes-2027", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
   { path: "/medicare-part-d-donut-hole-2027", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-08" },
   { path: "/turning-65-checklist", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-08" },

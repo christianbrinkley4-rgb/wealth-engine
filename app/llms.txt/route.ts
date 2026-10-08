@@ -181,6 +181,7 @@ ${articleLines}
 
 ## 2027 figures
 
+- [The 2026-2027 money numbers](${SITE_URL}/numbers): tax brackets and standard deductions, 401(k) and IRA limits, HSA limits, Social Security wage base and COLA, and Medicare premiums, deductibles, and caps, each tied to a named IRS, SSA, or CMS source.
 - [2027 Medicare numbers at a glance](${SITE_URL}/medicare-numbers-2027): Part B standard premium about $209.50 a month (projected), Part D standard deductible $700 and out-of-pocket cap $2,400 (final), Medicare Advantage average premium about $12 a month. Each figure tied to a named source.
 - [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.
 - [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the $2,400 Part D out-of-pocket cap works in 2027.

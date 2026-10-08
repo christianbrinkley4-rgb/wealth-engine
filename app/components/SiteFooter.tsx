@@ -20,6 +20,7 @@ const START = [
 const LEARN = [
   { href: "/learn", label: "Learning Hub" },
   { href: "/guides", label: "Money, tax & Medicare guides" },
+  { href: "/numbers", label: "2026-2027 money numbers" },
   { href: "/answers", label: "Medicare questions, answered" },
   { href: "/medicare-words", label: "Medicare words, in plain English" },
   { href: "/taxes-and-retirement", label: "Taxes & retirement" },

@@ -99,6 +99,7 @@ export function GET() {
   }).join("\n\n");
 
   const medicareExtraLines = [
+    `- [The 2026-2027 money numbers](${SITE_URL}/numbers): tax brackets, retirement and HSA limits, Social Security, and Medicare figures, each tied to a named IRS, SSA, or CMS source.`,
     `- [2027 Medicare numbers at a glance](${SITE_URL}/medicare-numbers-2027): the 2027 Medicare premiums, deductibles, and caps, each tied to a named source.`,
     `- [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.`,
     `- [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the Part D out-of-pocket cap works in 2027.`,
