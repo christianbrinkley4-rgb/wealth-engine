@@ -61,15 +61,24 @@ export function TopRouteChrome() {
   }, []);
 
   // A full-screen menu should not let the page scroll underneath it.
+  // Focus moves to the first menu link on open and returns to the
+  // menu button on close, so keyboard and screen reader users land
+  // inside the menu instead of being stranded on the page behind it.
   useEffect(() => {
     if (!menuOpen) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && setMenuOpenOn(null);
     window.addEventListener("keydown", onKey);
+    // Move focus into the menu on open
+    const firstLink = document.querySelector("#site-menu a") as HTMLElement | null;
+    firstLink?.focus();
     return () => {
       document.body.style.overflow = previous;
       window.removeEventListener("keydown", onKey);
+      // Return focus to the menu button on close
+      const menuButton = document.querySelector(".nav-menu-button") as HTMLElement | null;
+      menuButton?.focus();
     };
   }, [menuOpen]);
 
@@ -91,7 +100,7 @@ export function TopRouteChrome() {
         <Link href="/" className="nav-brand" aria-label={`${AGENT.name} ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state}, home`}>
           <Image
             src="/christian-brinkley-square.jpg"
-            alt={AGENT.name}
+            alt=""
             width={96}
             height={96}
             sizes="44px"

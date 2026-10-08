@@ -78,6 +78,9 @@ export function StepperField({
         onBlur={(event) => commitTyped(event.target.value)}
         className={`text-28 h-14 min-w-0 flex-1 ${inputMaxWidthClass} rounded-xl border border-gray-300 bg-white text-center font-semibold text-[var(--color-navy)] tabular-nums outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]`}
       />
+      <span className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        {label}: {format(value)}
+      </span>
 
       <button
         type="button"
