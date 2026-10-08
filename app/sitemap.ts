@@ -123,6 +123,9 @@ const STATIC_ROUTES: Array<{
     "/tools/life-insurance-needs",
     "/tools/compound-interest",
     "/tools/budget",
+    "/tools/medigap-or-advantage-quiz",
+    "/tools/roth-conversion-quiz",
+    "/tools/cd-or-savings-quiz",
   ].map((path) => ({
     path,
     changeFrequency: "weekly" as const,

@@ -1,0 +1,242 @@
+/* Scoped styles for the /tools decision-tree quizzes. Mobile-first;
+   everything stacks at 390px and breathes on desktop. */
+
+.quiz {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
+.intro {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+  margin: 0 0 1.75rem;
+}
+
+.progress {
+  height: 0.5rem;
+  border-radius: 999px;
+  background: #d9ded8;
+  overflow: hidden;
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--color-navy);
+  transition: width 0.25s ease;
+}
+
+.counter {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin: 0.75rem 0 0;
+}
+
+.question {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin: 1rem 0 0.5rem;
+  outline: none;
+}
+
+.sub {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+  margin: 0 0 1.25rem;
+}
+
+.options {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.option {
+  appearance: none;
+  border: 2px solid #d9ded8;
+  border-radius: 0.75rem;
+  background: #fff;
+  color: var(--color-navy);
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+.option:hover {
+  border-color: var(--color-navy);
+  background: #f7f9f7;
+}
+
+.option:focus-visible {
+  outline: 3px solid var(--color-gold-ink);
+  outline-offset: 2px;
+}
+
+.option:active {
+  transform: scale(0.99);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.back {
+  appearance: none;
+  border: none;
+  background: none;
+  color: var(--color-navy);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.back:disabled {
+  opacity: 0.35;
+  cursor: default;
+  text-decoration: none;
+}
+
+.privacy {
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
+  margin: 0;
+}
+
+/* Result screen */
+
+.eyebrow {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-gold-ink);
+  margin: 0 0 0.5rem;
+}
+
+.headline {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  font-weight: 800;
+  color: var(--color-navy);
+  margin: 0 0 0.75rem;
+}
+
+.lede {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+  margin: 0 0 1.25rem;
+}
+
+.bullets {
+  list-style: none;
+  margin: 0 0 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px solid #d9ded8;
+  border-radius: 0.75rem;
+  display: grid;
+  gap: 0.875rem;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-navy);
+}
+
+.bullets li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-gold-ink);
+  font-weight: 800;
+}
+
+.takeHeading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin: 0 0 0.75rem;
+}
+
+.takeList {
+  list-style: disc;
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+  display: grid;
+  gap: 0.625rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+}
+
+.closing {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--color-navy);
+  border-top: 2px solid #d9ded8;
+  padding-top: 1.25rem;
+  margin: 0 0 2rem;
+}
+
+/* Share card */
+
+.shareBox {
+  margin: 0 0 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+  border: 1px solid #d9ded8;
+  border-radius: 0.75rem;
+}
+
+.shareNote {
+  font-size: 0.875rem;
+  color: var(--color-ink-muted);
+  margin: 0.75rem 0 0;
+  line-height: 1.5;
+}
+
+.retake {
+  appearance: none;
+  border: 2px solid var(--color-navy);
+  background: #fff;
+  color: var(--color-navy);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.retake:hover {
+  background: #f0f3f0;
+}
+
+.retake:focus-visible {
+  outline: 3px solid var(--color-gold-ink);
+  outline-offset: 2px;
+}
