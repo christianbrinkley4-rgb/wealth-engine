@@ -12,6 +12,7 @@ const NAV = [
   { href: "/turning-65", label: "Turning 65" },
   { href: "/annual-enrollment", label: "On Medicare" },
   { href: "/learn", label: "Learning Hub" },
+  { href: "/guides", label: "Guides" },
   { href: "/taxes-and-retirement", label: "Taxes & Retirement" },
   { href: "/wealth", label: "Wealth" },
   { href: "/about", label: "About" },

@@ -9,6 +9,7 @@
 
 import { ARTICLES, articleText, type Article } from "@/lib/articles";
 import { TAX_ARTICLES } from "@/lib/taxArticles";
+import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
 
 export const SITUATIONS = [
   {
@@ -269,6 +270,20 @@ const ANSWER_SITUATION: Record<string, SituationId> = {
 const minutesFor = (article: Article) =>
   Math.max(2, Math.round(articleText(article).split(/\s+/).length / 220));
 
+/** Where each traffic guide belongs in the Learning Hub catalog. */
+const GUIDE_SITUATION: Record<string, SituationId> = {
+  "overtime-tax-deduction-2026": "taxes",
+  "tips-tax-deduction-2026": "taxes",
+  "teen-tax-return-dependent": "taxes",
+  "1099-k-personal-items-sold-at-loss": "taxes",
+  "tax-extension-cannot-pay": "taxes",
+  "unemployment-tax-withholding": "taxes",
+  "inherited-ira-ten-year-rule": "retirement-income",
+  "401k-rollover-after-leaving-job": "retirement-income",
+  "hsa-fsa-after-leaving-job": "taxes",
+  "medicare-plan-not-renewing-triad": "on-medicare",
+};
+
 export function learnEntries(): LearnEntry[] {
   const answers: LearnEntry[] = ARTICLES.map((article) => ({
     href: `/answers/${article.slug}`,
@@ -287,7 +302,14 @@ export function learnEntries(): LearnEntry[] {
     minutes: minutesFor(article),
     featured: index === 0,
   }));
-  return [...GUIDES, ...answers, ...explainers];
+  const trafficGuides: LearnEntry[] = TRAFFIC_GUIDES.map((guide) => ({
+    href: `/guides/${guide.slug}`,
+    title: guide.title,
+    blurb: guide.description,
+    situation: GUIDE_SITUATION[guide.slug] ?? "taxes",
+    kind: "Guide",
+  }));
+  return [...GUIDES, ...answers, ...explainers, ...trafficGuides];
 }
 
 export function entriesFor(situation: SituationId): LearnEntry[] {
