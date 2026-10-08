@@ -14,8 +14,7 @@ function pageDirs(relative: string): string[] {
     .map((entry) => entry.name)
     .filter((name) => {
       try {
-        readdirSync(join(ROOT, relative, name)).includes("page.tsx");
-        return true;
+        return readdirSync(join(ROOT, relative, name)).includes("page.tsx");
       } catch {
         return false;
       }
@@ -23,13 +22,20 @@ function pageDirs(relative: string): string[] {
 }
 
 describe("SITE_STATS trust band counts", () => {
-  it("calculators matches the /tools pages (hub excluded)", () => {
-    const tools = pageDirs("app/tools").filter((name) => name !== "_components");
+  it("calculators matches the /tools calculator pages (quizzes and hub excluded)", () => {
+    const tools = pageDirs("app/tools").filter(
+      (name) => name !== "_components" && !name.endsWith("-quiz")
+    );
     expect(tools).toHaveLength(SITE_STATS.calculators);
   });
 
+  it("quizzes matches the /tools quiz pages", () => {
+    const quizzes = pageDirs("app/tools").filter((name) => name.endsWith("-quiz"));
+    expect(quizzes).toHaveLength(SITE_STATS.quizzes);
+  });
+
   it("guides matches TRAFFIC_GUIDES plus the standalone /guides pages", () => {
-    expect(TRAFFIC_GUIDES).toHaveLength(10);
+    expect(TRAFFIC_GUIDES).toHaveLength(31);
     expect(STANDALONE_GUIDES).toHaveLength(10);
     expect(SITE_STATS.guides).toBe(TRAFFIC_GUIDES.length + STANDALONE_GUIDES.length);
   });

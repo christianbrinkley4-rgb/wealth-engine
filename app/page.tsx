@@ -239,6 +239,12 @@ export default function HomePage() {
             </div>
             <div className="tband-stat">
               <dt>
+                <Link href="/tools">Decision quizzes</Link>
+              </dt>
+              <dd>{SITE_STATS.quizzes}</dd>
+            </div>
+            <div className="tband-stat">
+              <dt>
                 <Link href="/guides">Plain-English guides</Link>
               </dt>
               <dd>{SITE_STATS.guides}</dd>

@@ -4,10 +4,12 @@
  * the band can never drift from the site it describes. No invented figures.
  */
 export const SITE_STATS = {
-  /** Interactive calculators under /tools, not counting the hub page. */
-  calculators: 8,
+  /** Interactive calculators under /tools, not counting quizzes or the hub. */
+  calculators: 9,
+  /** Decision-tree quizzes under /tools. */
+  quizzes: 3,
   /** Plain-English guides: TRAFFIC_GUIDES plus the standalone /guides pages. */
-  guides: 20,
+  guides: 41,
   /** Money articles under /wealth, not counting hub and section pages. */
   articles: 28,
 } as const;
