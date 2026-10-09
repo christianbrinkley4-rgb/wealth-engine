@@ -14,12 +14,13 @@
 
 .t-calc {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.75rem;
 }
 
 @media (min-width: 960px) {
   .t-calc {
-    grid-template-columns: 5fr 7fr;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     align-items: start;
   }
 }
@@ -186,6 +187,7 @@
   background: var(--color-paper);
 }
 
+.t-compare-card h2,
 .t-compare-card h3 {
   margin: 0;
   font-size: 1.0556rem;
@@ -227,7 +229,10 @@
 
 .t-kv li strong {
   color: var(--color-navy);
-  white-space: nowrap;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: right;
 }
 
 .t-table-wrap {
@@ -322,7 +327,7 @@ table.t-table {
 .t-debt-row {
   display: grid;
   gap: 0.6rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   border: 1px solid #e4e8e1;
   border-radius: 10px;
   padding: 0.9rem;
@@ -331,7 +336,7 @@ table.t-table {
 
 @media (min-width: 640px) {
   .t-debt-row {
-    grid-template-columns: 2fr 1.4fr 1fr 1.4fr auto;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.4fr) auto;
     align-items: end;
   }
 }
@@ -390,4 +395,14 @@ table.t-table {
   margin-top: 0.9rem;
   font-weight: 700;
   color: var(--color-navy);
+}
+
+/* Grid children must shrink so wide result tables scroll within their panel. */
+.t-calc > *,
+.t-panel > *,
+.t-controls > *,
+.t-debt-row > *,
+.t-compare > *,
+.t-money input {
+  min-width: 0;
 }

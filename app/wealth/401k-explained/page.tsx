@@ -1,3 +1,4 @@
+import { EditorialNote, ArticleContents } from "@/app/components/EditorialNote";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -11,17 +12,26 @@ const TITLE = "Your 401(k), Explained";
 const DESCRIPTION =
   "A 401(k) is a retirement account through your employer. How contributions, the match, and vesting work, with the 2026 limits.";
 const MINUTES = 6;
-const UPDATED = "October 8, 2026";
+const UPDATED = "October 9, 2026";
 
 const ANSWER =
-  "A 401(k) pulls retirement savings straight from your paycheck. In 2026 you can defer up to $24,500 of your own pay. Many employers match part of it. The match is part of your pay, but only if you contribute.";
+  "A 401(k) pulls retirement savings straight from your paycheck. In 2026 you can defer up to $24,500 of your own pay. Many employers match part of it. Check your plan for the matching formula and eligibility rules.";
 
 const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
+  {
+    heading: "Read the plan details",
+    paragraphs: [
+      "The plan document explains when you can join, how matching works, and which fees apply. Employer contributions can have different vesting rules.",
+      "Your contributions remain yours, but investment values can fall. A retirement account does not guarantee growth or protect every investment from losses.",
+      "The special catch-up replaces the ordinary catch-up for eligible ages. It is not an extra amount added on top of both limits.",
+      "Changing jobs does not automatically move your account. Compare the old plan, new plan, and IRA rules before choosing a rollover.",
+    ],
+  },
   {
     heading: "What a 401(k) is",
     paragraphs: [
       "It is a retirement plan your employer sponsors. You pick a contribution amount, and it leaves your paycheck automatically.",
-      "The plan offers investment options you choose from. Your money grows inside the account until retirement.",
+      "The plan offers investment options you choose from. Investment gains and losses stay inside the account until withdrawn.",
     ],
   },
   {
@@ -35,7 +45,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
     heading: "The match",
     paragraphs: [
       "Many employers match a slice of your contributions. One example formula: fifty cents per dollar up to six percent of pay. That is an example, not a rule.",
-      "The match is part of your pay. Contribute at least enough to capture the full match. Check your plan documents for the exact formula.",
+      "A match can increase retirement savings, subject to plan rules. Check your plan documents for the formula, eligibility, and vesting schedule.",
     ],
   },
   {
@@ -48,20 +58,30 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "The 2026 limits",
     paragraphs: [
-      "New for 2026: if your prior-year wages topped $150,000, catch-up contributions must go in as Roth.",
+      "For 2026, the Roth catch-up requirement applies if your 2025 wages from the sponsoring employer exceeded $150,000.",
     ],
     list: [
       "$24,500: the most you can defer from your own pay.",
       "$8,000 catch-up at age 50 and older, for a $32,500 total.",
       "$11,250 super catch-up at ages 60 to 63, for a $35,750 total.",
-      "$72,000: the combined employee plus employer limit.",
+      "$72,000: the combined employee plus employer limit, excluding catch-ups and subject to compensation limits.",
     ],
   },
 ];
 
 const SOURCES = [
-  { label: "IRS: 2026 retirement plan limits", href: "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" },
-  { label: "IRS: catch-up contributions", href: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-catch-up-contributions" },
+  {
+    label: "IRS: vesting and ownership",
+    href: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-vesting",
+  },
+  {
+    label: "IRS: 2026 retirement plan limits",
+    href: "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+  },
+  {
+    label: "IRS: catch-up contributions",
+    href: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-catch-up-contributions",
+  },
 ];
 
 const FAQ = [
@@ -71,7 +91,7 @@ const FAQ = [
   },
   {
     q: "Can I withdraw from my 401(k) early?",
-    a: "You can, but early withdrawals trigger income tax and an early-withdrawal penalty. The account is built for retirement.",
+    a: "Your plan must allow the withdrawal. Tax and an additional penalty may apply, but exceptions exist. Check the distribution rules before withdrawing.",
   },
   {
     q: "Roth or pre-tax: which is better?",
@@ -99,7 +119,8 @@ export default function K401ExplainedPage() {
           description: DESCRIPTION,
           path: PATH,
           datePublished: "2026-10-08",
-          dateModified: "2026-10-08",
+          dateModified: "2026-10-09",
+          citations: SOURCES.map((source) => source.href),
         })}
       />
       <PageHead
@@ -124,10 +145,16 @@ export default function K401ExplainedPage() {
             <span>Short answer</span>
             {ANSWER}
           </p>
+          <ArticleContents
+            items={SECTIONS.map((section, index) => ({
+              id: "section-" + index,
+              label: section.heading,
+            }))}
+          />
           <div className="w-prose">
-            {SECTIONS.map((section) => (
+            {SECTIONS.map((section, index) => (
               <section key={section.heading}>
-                <h2>{section.heading}</h2>
+                <h2 id={"section-" + index}>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -140,7 +167,9 @@ export default function K401ExplainedPage() {
                 ) : null}
                 {section.heading === "The 2026 limits" ? (
                   <p>
-                    <Link href="/wealth/catch-up-contributions-after-50">Read the catch-up contributions guide for ages 50 and up.</Link>
+                    <Link href="/wealth/catch-up-contributions-after-50">
+                      Read the catch-up contributions guide for ages 50 and up.
+                    </Link>
                   </p>
                 ) : null}
               </section>
@@ -160,18 +189,7 @@ export default function K401ExplainedPage() {
             </div>
           </aside>
 
-          <div className="w-sources">
-            <h2>Sources</h2>
-            <ul>
-              {SOURCES.map((source) => (
-                <li key={source.href}>
-                  <a href={source.href} rel="noopener">
-                    {source.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <EditorialNote sources={SOURCES} />
           <EducationNote />
         </div>
       </article>
@@ -182,7 +200,8 @@ export default function K401ExplainedPage() {
             <p className="w-eyebrow">Free to talk</p>
             <h2 className="w-h3">Talk through your numbers</h2>
             <p style={{ margin: "10px 0 0", color: "var(--w-on-ink-muted)" }}>
-              This page is general education, not personal advice. If you want to talk through your own situation, start here. No cost, no pressure.
+              This page is general education, not personal advice. If you want to talk through your
+              own situation, start here. No cost, no pressure.
             </p>
             <div className="w-btn-row">
               <Link href="/start" className="w-btn">
@@ -203,7 +222,11 @@ export default function K401ExplainedPage() {
         links={[
           { href: "/wealth", label: "Wealth home", kind: "Hub" },
           { href: "/wealth/roth-ira-explained", label: "Roth IRA, Explained", kind: "Article" },
-          { href: "/wealth/catch-up-contributions-after-50", label: "Catch-Up Contributions After 50", kind: "Article" },
+          {
+            href: "/wealth/catch-up-contributions-after-50",
+            label: "Catch-Up Contributions After 50",
+            kind: "Article",
+          },
         ]}
       />
     </main>

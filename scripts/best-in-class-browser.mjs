@@ -23,10 +23,10 @@ try {
   for(const [index,url] of urls.entries()){
     await cdp('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
     await cdp('Page.navigate',{url});await pause(3500);
-    const inspect=await cdp('Runtime.evaluate',{expression:`JSON.stringify({title:document.title,url:location.href,h1:document.querySelector('h1')?.innerText,fonts:[...document.querySelectorAll('h1,main p')].slice(0,5).map(e=>({text:e.innerText.slice(0,80),font:getComputedStyle(e).fontFamily,size:getComputedStyle(e).fontSize,line:getComputedStyle(e).lineHeight})),overflow:document.documentElement.scrollWidth>innerWidth,links:document.querySelectorAll('a').length})`,returnByValue:true});
+    const inspect=await cdp('Runtime.evaluate',{expression:`JSON.stringify({title:document.title,url:location.href,h1:document.querySelector('h1')?.innerText,fonts:[...document.querySelectorAll('h1,main p')].slice(0,5).map(e=>({text:e.innerText.slice(0,80),font:getComputedStyle(e).fontFamily,size:getComputedStyle(e).fontSize,line:getComputedStyle(e).lineHeight})),overflow:document.documentElement.scrollWidth>document.documentElement.clientWidth,links:document.querySelectorAll('a').length})`,returnByValue:true});
     const shot=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(out,`${index}-desktop.png`),Buffer.from(shot.data,'base64'));
     await cdp('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await pause(250);
-    const mobile=await cdp('Runtime.evaluate',{expression:'document.documentElement.scrollWidth>innerWidth',returnByValue:true});
+    const mobile=await cdp('Runtime.evaluate',{expression:'document.documentElement.scrollWidth>document.documentElement.clientWidth',returnByValue:true});
     const shot2=await cdp('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(out,`${index}-mobile.png`),Buffer.from(shot2.data,'base64'));
     await cdp('Input.dispatchKeyEvent',{type:'keyDown',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});await cdp('Input.dispatchKeyEvent',{type:'keyUp',key:'Tab',code:'Tab',windowsVirtualKeyCode:9});
     const focus=await cdp('Runtime.evaluate',{expression:`JSON.stringify({tag:document.activeElement.tagName,text:document.activeElement.textContent?.slice(0,100),outline:getComputedStyle(document.activeElement).outline})`,returnByValue:true});

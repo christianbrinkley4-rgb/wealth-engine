@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-09",
+  "tests": {
+    "files": 51,
+    "passed": 707,
+    "added": 40,
+    "command": "npm test -- --maxWorkers=2"
+  },
+  "build": {
+    "command": "next build --webpack",
+    "passed": true,
+    "staticOutputs": 242
+  },
+  "lint": {
+    "scope": "All changed TypeScript files",
+    "passed": true
+  },
+  "routes": 220,
+  "sitemapPages": 204,
+  "maxInitialJsGzipBytes": 225126,
+  "budgetBytes": 235520,
+  "provenanceContrast": 13.39,
+  "sample": [
+    {
+      "route": "/wealth/roth-ira-explained",
+      "words": 372,
+      "mainLinkDepth": 2
+    },
+    {
+      "route": "/wealth/401k-explained",
+      "words": 357,
+      "mainLinkDepth": 2
+    },
+    {
+      "route": "/wealth/hsa-explained",
+      "words": 384,
+      "mainLinkDepth": 2
+    },
+    {
+      "route": "/wealth/rmd-explained-73",
+      "words": 404,
+      "mainLinkDepth": 2
+    },
+    {
+      "route": "/guides/standard-deduction-seniors-2026",
+      "words": 644,
+      "mainLinkDepth": 2
+    },
+    {
+      "route": "/guides/working-while-collecting-social-security",
+      "words": 666,
+      "mainLinkDepth": 2
+    },
+    {
+      "route": "/guides/irmaa-brackets-2026",
+      "words": 670,
+      "mainLinkDepth": 2
+    },
+    {
+      "route": "/tools/take-home-pay",
+      "words": 452,
+      "mainLinkDepth": 2
+    },
+    {
+      "route": "/tools/compound-interest",
+      "words": 467,
+      "mainLinkDepth": 2
+    },
+    {
+      "route": "/tools/debt-payoff",
+      "words": 418,
+      "mainLinkDepth": 2
+    }
+  ],
+  "limitations": [
+    "No traffic analytics supplied.",
+    "No field Core Web Vitals or dedicated screen-reader session."
+  ],
+  "deployed": false,
+  "browser": {
+    "pages": 13,
+    "desktopAndMobileOverflowFailures": 0
+  }
+}

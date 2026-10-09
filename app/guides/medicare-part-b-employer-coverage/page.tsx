@@ -66,8 +66,11 @@ export default function MedicarePartBEmployerCoveragePage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Guides", path: "/guides/medicare-part-b-employer-coverage" },
-              { name: "Part B and employer coverage", path: "/guides/medicare-part-b-employer-coverage" },
+              { name: "Guides", path: "/guides" },
+              {
+                name: "Part B and employer coverage",
+                path: "/guides/medicare-part-b-employer-coverage",
+              },
             ]),
           ),
         }}
@@ -95,7 +98,7 @@ export default function MedicarePartBEmployerCoveragePage() {
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Guides" },
+          { name: "Guides", href: "/guides" },
           { name: "Part B and employer coverage" },
         ]}
         eyebrow="Guide · Updated October 8, 2026"
@@ -112,17 +115,15 @@ export default function MedicarePartBEmployerCoveragePage() {
             <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
               Part B covers doctor visits and outpatient care, and it has a monthly premium ($202.90
               in 2026). If your employer has 20 or more employees, you can delay Part B while you
-              keep working, with no late penalty. Below 20 employees, Medicare becomes primary at
-              65 and you must enroll.
+              keep working, with no late penalty. Below 20 employees, Medicare becomes primary at 65
+              and you must enroll.
             </p>
           </div>
 
           <h2 className="text-28 mt-12 font-semibold">The 20-employee rule</h2>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[520px] border-collapse text-left">
-              <caption className="sr-only">
-                Part B enrollment rules by employer size
-              </caption>
+              <caption className="sr-only">Part B enrollment rules by employer size</caption>
               <thead>
                 <tr className="border-b-2 border-[var(--color-navy)]">
                   <th scope="col" className="text-16 py-3 pr-4 font-semibold">

@@ -29,7 +29,7 @@ for (const route of Object.keys(manifest.routes)) {
 const depths = new Map([['/',0]]);
 for(let pass=0;pass<rows.length;pass++) {
   let changed=false;
-  for(const row of rows) if(depths.has(row.route)) for(const link of row.links) if(!depths.has(link)){depths.set(link,depths.get(row.route)+1);changed=true;}
+  for(const row of rows) if(depths.has(row.route)) for(const link of row.links) if(!depths.has(link)||depths.get(link)>depths.get(row.route)+1){depths.set(link,depths.get(row.route)+1);changed=true;}
   if(!changed) break;
 }
 for(const row of rows) row.mainLinkDepth=depths.get(row.route)??null;

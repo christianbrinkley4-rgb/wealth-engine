@@ -1,3 +1,4 @@
+import { CONTENT_CATALOG } from "@/lib/contentCatalog";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -50,7 +51,12 @@ export default function WealthLearnPage() {
         crumbs={[{ name: "Learn", path }]}
       />
       {PILLAR_ORDER.map((pillar) => (
-        <section className="w-section-tight" id={pillar} key={pillar} style={{ scrollMarginTop: 120 }}>
+        <section
+          className="w-section-tight"
+          id={pillar}
+          key={pillar}
+          style={{ scrollMarginTop: 120 }}
+        >
           <div className="w-shell">
             <p className="w-eyebrow">{PILLAR_LINES[pillar]}</p>
             <h2 className="w-h2" style={{ marginBottom: 22 }}>
@@ -61,9 +67,19 @@ export default function WealthLearnPage() {
                 <li key={article.slug} data-reveal>
                   <Link href={`/wealth/learn/${article.slug}`}>
                     <span>{article.minutes} min read</span>
-                    <strong style={{ fontFamily: "var(--w-serif)", fontSize: "1.3rem" }}>{article.title}</strong>
+                    <strong style={{ fontFamily: "var(--w-serif)", fontSize: "1.3rem" }}>
+                      {article.title}
+                    </strong>
                     <ArrowUpRight size={20} aria-hidden />
-                    <span style={{ color: "var(--w-muted)", textTransform: "none", letterSpacing: 0, fontFamily: "inherit", fontSize: "0.92rem" }}>
+                    <span
+                      style={{
+                        color: "var(--w-muted)",
+                        textTransform: "none",
+                        letterSpacing: 0,
+                        fontFamily: "inherit",
+                        fontSize: "0.92rem",
+                      }}
+                    >
                       {article.description}
                     </span>
                   </Link>
@@ -73,13 +89,44 @@ export default function WealthLearnPage() {
           </div>
         </section>
       ))}
+      <section className="w-section-tight">
+        <div className="w-shell">
+          <p className="w-eyebrow">Explore by question</p>
+          <h2 className="w-h2">More money guides</h2>
+          <ul className="w-next-list">
+            {CONTENT_CATALOG.filter((page) => page.path.startsWith("/wealth/")).map((page) => (
+              <li key={page.path}>
+                <Link href={page.path}>
+                  <span>Guide</span>
+                  <strong>{page.title}</strong>
+                  <ArrowUpRight size={20} aria-hidden />
+                  <span
+                    style={{
+                      color: "var(--w-muted)",
+                      textTransform: "none",
+                      letterSpacing: 0,
+                      fontFamily: "inherit",
+                    }}
+                  >
+                    {page.blurb}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
       <div className="w-shell" style={{ paddingBottom: 48 }}>
         <EducationNote />
       </div>
       <NextUp
         links={[
           { href: "/wealth/calculators", label: "Play with the calculators", kind: "Calculators" },
-          { href: "/wealth/quiz/first-1000", label: "What do I do with my first $1,000?", kind: "Quiz" },
+          {
+            href: "/wealth/quiz/first-1000",
+            label: "What do I do with my first $1,000?",
+            kind: "Quiz",
+          },
           { href: "/wealth/journey", label: "Follow the journey", kind: "Building in public" },
         ]}
       />

@@ -1,3 +1,5 @@
+import { EditorialNote } from "@/app/components/EditorialNote";
+import { SOURCES } from "@/lib/editorial";
 import type { Metadata } from "next";
 
 import { ServiceHero } from "@/app/components/ServiceHero";
@@ -48,17 +50,21 @@ export default function TakeHomePayPage() {
               description,
               path,
               datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
+              dateModified: "2026-10-09",
             }),
           ),
         }}
       />
 
       <ServiceHero
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Take-home pay" }]}
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Free tools", href: "/tools" },
+          { name: "Take-home pay" },
+        ]}
         eyebrow="Free tool · your numbers stay on your device"
         title="What does that salary actually pay?"
-        lede="A salary number and a paycheck are two different things. Type in your gross salary and filing status. The tool subtracts the 2026 standard deduction, runs the federal brackets, and adds NC tax and payroll taxes. It shows what lands in your account each payday."
+        lede="A salary number and a paycheck are two different things. Type in your gross salary and filing status. The tool subtracts the 2026 standard deduction, runs the federal brackets, and adds NC tax and payroll taxes. It estimates after-tax wages before other paycheck deductions."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}
@@ -77,15 +83,53 @@ export default function TakeHomePayPage() {
           brackets, 10% to 37%, each rate applying only to the slice inside it.
         </p>
         <p>
-          <strong>North Carolina tax:</strong> a flat 3.99% of income. <strong>Payroll taxes:</strong>{" "}
-          6.2% Social Security up to $184,500 of wages, plus 1.45% Medicare on all wages. An extra
-          0.9% Medicare applies above $200,000 single or $250,000 joint.
+          <strong>North Carolina tax:</strong> 3.99% after the NC standard deduction: $12,750 single
+          or $25,500 joint. <strong>Payroll taxes:</strong> 6.2% Social Security up to $184,500 of
+          wages, plus 1.45% Medicare on all wages. An extra 0.9% Medicare applies above $200,000
+          single or $250,000 joint.
         </p>
         <p>
           Divide the yearly take-home by your pay frequency and you get the per-check number. This
           leaves out pre-tax deductions like 401(k) contributions and health premiums, which would
-          lower the taxable part and raise the take-home.
+          reduce taxable income but also reduce available cash.
         </p>
+        <p>
+          This is an annual tax estimate for a single wage earner, divided into equal pay periods.
+          It is not a payroll withholding calculation.
+        </p>
+        <p>
+          Filing jointly does not mean the tool models two earners. Social Security wage limits
+          apply separately to each worker, so combined salaries need separate treatment.
+        </p>
+        <p>
+          The estimate assumes full-year wages, standard deductions, no dependents, no credits, and
+          no other income. It excludes age-based deductions and state adjustments.
+        </p>
+        <p>
+          Payroll withholding follows your W-4 and your employer&apos;s pay schedule. Additional
+          Medicare withholding can differ from the tax ultimately due on a joint return.
+        </p>
+        <p>
+          Salary deductions can reduce taxable income while also reducing cash deposited into your
+          bank account. A smaller tax bill does not erase the deduction itself.
+        </p>
+        <p>
+          Compare an estimate with a recent pay statement. Separate taxes from insurance, retirement
+          contributions, and other deductions before looking for a discrepancy.
+        </p>
+        <p>
+          An employer match is not included in spendable pay. Bonuses and irregular work can also
+          make an equal-period estimate differ from an actual check.
+        </p>
+        <EditorialNote
+          sources={[
+            SOURCES.tax,
+            SOURCES.ncDeduction,
+            SOURCES.ncRate,
+            SOURCES.payroll,
+            SOURCES.additional,
+          ]}
+        />
       </MathSection>
 
       <div className="bg-white px-4">

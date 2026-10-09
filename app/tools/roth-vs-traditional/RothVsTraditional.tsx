@@ -55,7 +55,12 @@ export function RothVsTraditional() {
   return (
     <div className="t-calc">
       <div className="t-controls">
-        <MoneyField label="Your age" value={age} onChange={(v) => setAge(Math.max(16, Math.min(100, v)))} hint="Age sets your 2026 IRA limit." />
+        <MoneyField
+          label="Your age"
+          value={age}
+          onChange={(v) => setAge(Math.max(16, Math.min(100, v)))}
+          hint="Age sets your 2026 IRA limit."
+        />
         <MoneyField
           label="Annual contribution"
           value={contribution}
@@ -70,14 +75,33 @@ export function RothVsTraditional() {
           display={`${years} years`}
           onChange={setYears}
         />
-        <PercentField label="Assumed yearly growth" value={rate} onChange={setRate} hint="You pick the rate. Nobody knows the real one ahead of time." />
-        <PercentField label="Your tax rate now" value={taxNow} onChange={setTaxNow} hint="Your marginal rate this year, as a percent." />
-        <PercentField label="Your tax rate at withdrawal" value={taxLater} onChange={setTaxLater} hint="The rate you expect to pay when you take the money out." />
+        <PercentField
+          label="Assumed yearly growth"
+          value={rate}
+          onChange={setRate}
+          hint="You pick the rate. Nobody knows the real one ahead of time."
+        />
+        <PercentField
+          label="Your tax rate now"
+          value={taxNow}
+          onChange={setTaxNow}
+          hint="Your marginal rate this year, as a percent."
+        />
+        <PercentField
+          label="Your tax rate at withdrawal"
+          value={taxLater}
+          onChange={setTaxLater}
+          hint="The rate you expect to pay when you take the money out."
+        />
       </div>
 
       <div className="t-panel" aria-live="polite">
         <dl className="t-stat-grid">
-          <Stat label="Roth, after tax" value={money(result.roth)} hero={result.winner === "roth"} />
+          <Stat
+            label="Roth, after tax"
+            value={money(result.roth)}
+            hero={result.winner === "roth"}
+          />
           <Stat
             label="Traditional, after tax"
             value={money(result.traditional)}
@@ -87,10 +111,12 @@ export function RothVsTraditional() {
 
         <div className="t-compare">
           <div className="t-compare-card" data-winner={result.winner === "roth"}>
-            <h3>
+            <h2>
               Roth
-              {result.winner === "roth" && result.winner !== undefined ? <span className="t-winner-tag">Leaves more</span> : null}
-            </h3>
+              {result.winner === "roth" && result.winner !== undefined ? (
+                <span className="t-winner-tag">Leaves more</span>
+              ) : null}
+            </h2>
             <ul className="t-kv">
               <li>
                 <span>Tax paid up front, each year</span>
@@ -107,10 +133,12 @@ export function RothVsTraditional() {
             </ul>
           </div>
           <div className="t-compare-card" data-winner={result.winner === "traditional"}>
-            <h3>
+            <h2>
               Traditional
-              {result.winner === "traditional" ? <span className="t-winner-tag">Leaves more</span> : null}
-            </h3>
+              {result.winner === "traditional" ? (
+                <span className="t-winner-tag">Leaves more</span>
+              ) : null}
+            </h2>
             <ul className="t-kv">
               <li>
                 <span>Deposited per year</span>
@@ -130,20 +158,23 @@ export function RothVsTraditional() {
 
         {result.winner === "tie" ? (
           <p className="text-17 leading-relaxed">
-            At equal tax rates the two tie. That is the whole lesson: when the rate now matches the rate
-            later, Roth and traditional leave you the same amount.
+            At equal tax rates the two tie. That is the whole lesson: when the rate now matches the
+            rate later, Roth and traditional leave you the same amount.
           </p>
         ) : (
           <p className="text-17 leading-relaxed">
-            <strong>{result.winner === "roth" ? "Roth" : "Traditional"} leaves {money(Math.abs(result.difference))} more</strong>{" "}
+            <strong>
+              {result.winner === "roth" ? "Roth" : "Traditional"} leaves{" "}
+              {money(Math.abs(result.difference))} more
+            </strong>{" "}
             under these inputs. Change the two tax rates and watch the lead flip.
           </p>
         )}
 
         {capped ? (
           <AssumptionBox>
-            <strong>Capped at the 2026 IRA limit.</strong> You entered {money(contribution)}, so the math
-            uses {money(limit)}, the legal max for age {age} in 2026.
+            <strong>Capped at the 2026 IRA limit.</strong> You entered {money(contribution)}, so the
+            math uses {money(limit)}, the legal max for age {age} in 2026.
           </AssumptionBox>
         ) : null}
 

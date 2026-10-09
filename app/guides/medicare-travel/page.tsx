@@ -67,7 +67,7 @@ export default function MedicareTravelPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Guides", path: "/guides/medicare-travel" },
+              { name: "Guides", path: "/guides" },
               { name: "Medicare and travel", path: "/guides/medicare-travel" },
             ]),
           ),
@@ -96,7 +96,7 @@ export default function MedicareTravelPage() {
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Guides" },
+          { name: "Guides", href: "/guides" },
           { name: "Medicare and travel" },
         ]}
         eyebrow="Guide · Updated October 8, 2026"
@@ -118,7 +118,9 @@ export default function MedicareTravelPage() {
             </p>
           </div>
 
-          <h2 className="text-28 mt-12 font-semibold">Original Medicare and Medigap: fully portable</h2>
+          <h2 className="text-28 mt-12 font-semibold">
+            Original Medicare and Medigap: fully portable
+          </h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             With Original Medicare, your red, white, and blue card works the same in every state.
             See any doctor or hospital that accepts Medicare. No referrals needed. Medigap follows
@@ -140,8 +142,8 @@ export default function MedicareTravelPage() {
           <ul className="text-17 mt-4 flex list-disc flex-col gap-3 pl-6 leading-relaxed text-[var(--color-ink-muted)]">
             <li>
               <strong className="text-[var(--color-navy)]">HMO plans</strong> generally cover only
-              providers inside the plan's network and service area. A checkup in another state is
-              typically not covered.
+              providers inside the plan&apos;s network and service area. A checkup in another state
+              is typically not covered.
             </li>
             <li>
               <strong className="text-[var(--color-navy)]">PPO plans</strong> generally cover
@@ -156,15 +158,15 @@ export default function MedicareTravelPage() {
 
           <h2 className="text-28 mt-12 font-semibold">Moving to a new state</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            A move out of your plan's service area opens a special enrollment period, so you can
-            pick new coverage in your new home. Original Medicare and Medigap need no changes. With
-            Medicare Advantage, check whether your plan operates in the new area. If it does not,
-            you will need a new plan.
+            A move out of your plan&apos;s service area opens a special enrollment period, so you
+            can pick new coverage in your new home. Original Medicare and Medigap need no changes.
+            With Medicare Advantage, check whether your plan operates in the new area. If it does
+            not, you will need a new plan.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Snowbirds, take note: most Advantage plans disenroll you if you stay outside the
-            service area for more than 6 continuous months. Some plans allow up to a year. Read
-            your plan's Evidence of Coverage before an extended stay.
+            Snowbirds, take note: most Advantage plans disenroll you if you stay outside the service
+            area for more than 6 continuous months. Some plans allow up to a year. Read your
+            plan&apos;s Evidence of Coverage before an extended stay.
           </p>
 
           <h2 className="text-28 mt-12 font-semibold">Outside the United States</h2>

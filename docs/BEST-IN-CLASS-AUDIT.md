@@ -16,7 +16,7 @@ Counts, sizes, word counts, and design scores below are audit measurements, not 
 
 Traffic analytics were unavailable. Priority uses homepage prominence and internal links, not an invented traffic ranking.
 The priority sample contains the homepage plus the ten content pages below.
-Shared improvements also cover the main navigation, wealth library, guide library, and calculator layouts.
+Shared improvements also cover homepage discovery, the wealth library, guide library, and calculator layouts.
 
 ## 1. Information quality
 
@@ -79,7 +79,7 @@ The ten most visible gaps, prioritized for repair:
 6. Source provenance is missing near important tables. Add named primary sources in the reading flow.
 7. Review dates and educational scope are inconsistent across calculators. Add a shared, truthful provenance block.
 8. Calculator headings skip levels. Repair the document outline without changing the visual type scale.
-9. Repeated field names produce duplicate input IDs in debt tools. Use stable component IDs and associated hints.
+9. Shared controls derive IDs from labels, risking collisions when reused. Use stable component IDs and associated hints.
 10. Copy feedback is only a button-label change. Add a polite status announcement and clear stale feedback.
 
 Our type pairing, uncluttered reading surface, visible focus outlines, and immediate definition boxes already compare well.
@@ -92,9 +92,9 @@ Existing strengths include live calculators, delegated pointer motion, reduced-m
 The first page load skips entrance animation. This protects the initial paint.
 No large animation framework is needed.
 
-P1: repeated input IDs weaken keyboard and assistive interactions.
+P1: label-derived IDs create a reuse risk for keyboard and assistive interactions.
 P2: clipboard status needs an accessible announcement. Loading states can reassure readers during route navigation.
-P2 follow-up: test representative interactions under network and CPU throttling before adding more animation.
+P2 follow-up: measure representative interactions under network and CPU throttling before adding more animation.
 Static explanatory prose should remain stable. Motion is not an information-quality substitute.
 
 ## 4. SEO
@@ -116,7 +116,7 @@ FAQ markup must remain identical to visible questions and answers.
 
 Robots intentionally blocks indexing without deployment configuration.
 This local build has no production lead credentials, so local noindex is expected.
-Preserve the existing deployment gate. Production configuration requires separate read-only verification, not disabling safeguards.
+Preserve the existing deployment gate. Read-only production verification confirmed robots allow crawling and the homepage declares index, follow.
 
 ## 5. AI-search optimization
 
@@ -143,7 +143,9 @@ This is a chosen engineering budget, not a claim about measured Core Web Vitals.
 Shared CSS, font variants, and third-party scripts remain potential performance costs.
 Preserve server rendering and avoid adding a UI framework.
 
-Local desktop and mobile checks found no horizontal overflow on the homepage, wealth hub, Roth article, or take-home calculator.
+Initial browser checks covered the homepage, wealth hub, Roth article, and take-home calculator.
+A deeper mobile check found calculator overflow. The original comparison against innerWidth had masked viewport expansion.
+The corrected check compares scrollWidth against clientWidth. Calculator grid sizing now keeps wide tables inside their panels.
 The first Tab reaches the skip link with a visible outline on those pages.
 Body text and primary controls use the established dark-on-light palette.
 Calculator field IDs and heading order need repair.
@@ -151,9 +153,62 @@ Real screen-reader sessions and field Core Web Vitals are not yet measured.
 
 ## Verification and closure
 
-Application fixes have not started at this audit checkpoint.
-Record final tests, build, route checks, screenshots, and remaining work here before opening the PR.
-No production deployment is part of this work.
+The baseline checkpoint was committed before application changes.
+
+All identified P0 and P1 findings have implementations and regression coverage in this branch.
+The remaining P2 work concerns field measurement and broader assistive-technology testing.
+Final evidence covers 220 rendered pages and 204 sitemap URLs. The largest initial script payload remains 225,126 gzip bytes.
+Every sampled page is reachable within two main-content links from the homepage.
+The provenance text contrast is 13.39:1 against its rendered cream background.
+[Validation measurements](best-in-class/validation.json) include final word counts and link depths.
+
+### Top ten fixes
+
+| Finding | Before | After |
+| --- | --- | --- |
+| NC tax estimate | Tax applied to gross wages. | State deductions precede tax; assumptions and primary sources are visible. |
+| Retirement explanations | Roth qualification, RMD examples, HSA eligibility, and catch-up context were incomplete. | Added specific rules, exceptions, and current primary references. |
+| Primary citations | Sampled guides and calculators lacked linked sources. | Shared provenance blocks show sources, author qualifications, and source-check dates. |
+| Thin pages | Several sampled explanations fell below the substance threshold. | Added useful eligibility and methodology details, without filler. |
+| Homepage discovery | Educational collections were buried. | Direct cards lead to calculators, money lessons, guides, and editorial standards. |
+| Collections | New wealth articles were missing from their index; guides lacked a collection. | Shared catalog feeds complete collections and corrected guide breadcrumbs. |
+| Article navigation | Readers had to scan long pages manually. | Section links target real headings with sticky-header clearance. |
+| Calculator accessibility | Label-derived IDs risked collisions; some headings skipped levels. | Stable IDs, associated hints, corrected headings, and announced copy feedback. |
+| Mobile calculator layout | Wide grids enlarged the mobile viewport; result styling could lose class separation. | Shrinkable grids contain tables; explicit classes preserve the main result style. |
+| AI discovery | Duplicated catalogs, incomplete indexes, no MCP, and no structured Roth definition. | Sitemap-backed indexes, tested read-only MCP resources, and cited definition markup. |
+
+The RMD article also distinguishes final birth-cohort rules from the proposed rule for people born in 1959.
+The linked federal regulation still reserves that cohort. The linked IRS proposal uses age 73.
+
+The benchmark review informed source visibility, section navigation, and clearer homepage entry points.
+Our uncluttered reading surface remains a strength. Competitors still have larger editorial teams and named expert reviewers.
+
+### Verification
+
+- Full suite: 51 files and 707 tests passed with two workers.
+- Added 40 regression tests for tax arithmetic, transport errors, public resources, discovery, schema, reading links, and accessible controls.
+- Changed TypeScript files pass ESLint.
+- Production build: compilation, TypeScript, and static generation passed.
+- Public HTTP crawl: every sitemap URL returned 200. Both AI indexes include every sitemap URL.
+- Metadata: public rendered pages have titles, descriptions, canonical links, and Open Graph fields.
+- No missing image alt attributes or route script-budget violations were found.
+- Internal global-error and the client-rendered, noindex thank-you page are documented outline exceptions.
+- The Roth definition is present in Article, DefinedTerm, visible FAQ, both AI indexes, and the MCP definition resource.
+- Browser checks cover desktop and mobile layouts, keyboard focus, reading anchors, and calculator changes through arrow keys.
+- Primary text colors were checked against their rendered backgrounds. The provenance block uses dark text on cream.
+- Read-only production checks confirmed index, follow and robots access for search and assistant crawlers.
+
+Evidence: [final routes](best-in-class/final-routes.json), [HTTP checks](best-in-class/final-http.json),
+[page screenshots](best-in-class/final-browser/results.json), and [interaction checks](best-in-class/final-details/results.json).
+
+### Remaining follow-ups and limits
+
+- P2: measure field Core Web Vitals after the owner orders a release. Local bundle sizes do not establish field performance.
+- P2: run dedicated NVDA or VoiceOver sessions and throttled interaction measurements before adding animation.
+- Traffic rankings were unavailable. Replace the documented prominence-based sample when analytics are available.
+- Independent financial review needs an actual qualified reviewer. This branch makes no claim of independent review.
+- This is a sampled audit, not proof that every site statement or competitor page was exhaustively reviewed.
+- No production deployment was performed. The owner retains the release decision.
 
 [irs-limits]: https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500
 [catchups]: https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-catch-up-contributions

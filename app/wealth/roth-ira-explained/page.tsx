@@ -1,3 +1,6 @@
+import { EditorialNote, ArticleContents } from "@/app/components/EditorialNote";
+import { SITE_URL } from "@/lib/seo";
+import { ROTH_DEFINITION } from "@/lib/editorial";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fragment } from "react";
@@ -25,9 +28,19 @@ type Section = { heading: string; paragraphs: string[]; list?: string[] };
 
 const SECTIONS: Section[] = [
   {
+    heading: "Before you contribute",
+    paragraphs: [
+      "Your combined traditional and Roth IRA contributions share an annual limit. Contributions also cannot exceed eligible compensation, subject to spousal IRA rules.",
+      "An employer plan has a separate contribution limit. Having a workplace plan does not automatically prevent Roth IRA contributions.",
+      "Check your filing status and modified adjusted gross income before contributing. Married people filing separately can face much lower income limits.",
+      "The withdrawal clock starts with the first tax year for which you contributed to any Roth IRA. It does not restart for each account.",
+      "A penalty exception does not necessarily make earnings tax-free. Keep records separating regular contributions, conversions, and earnings.",
+    ],
+  },
+  {
     heading: "The one-sentence version",
     paragraphs: [
-      "A Roth IRA is a retirement account that taxes you on the way in so you do not pay tax on the way out.",
+      "A Roth IRA holds money you already paid income tax on. Qualified withdrawals are tax-free. Nonqualified earnings can be taxable.",
     ],
   },
   {
@@ -41,7 +54,7 @@ const SECTIONS: Section[] = [
     heading: "Tax now, none later",
     paragraphs: [
       "You contribute money you already paid tax on. In retirement, qualified withdrawals are tax-free.",
-      "That is the mirror image of a traditional IRA, where you get the tax break now and pay later.",
+      "Traditional IRA contributions may be deductible. Eligibility depends on income, filing status, and workplace retirement coverage.",
     ],
   },
   {
@@ -50,8 +63,8 @@ const SECTIONS: Section[] = [
     list: [
       "Under 50: $7,500",
       "Age 50 and up: $8,600, including a $1,100 catch-up contribution",
-      "Single filers: full contributions up to $153,000 MAGI, phasing out by $168,000",
-      "Joint filers: full contributions up to $242,000 MAGI, phasing out by $252,000",
+      "Single filers: contributions phase out from $153,000 to $168,000 MAGI",
+      "Joint filers: contributions phase out from $242,000 to $252,000 MAGI",
       "Roth 401(k) employee deferral limit: $24,500",
     ],
   },
@@ -65,25 +78,26 @@ const SECTIONS: Section[] = [
   {
     heading: "Your contributions can come back out",
     paragraphs: [
-      "You can withdraw your contributions at any time, tax-free and penalty-free. You already paid tax on that money.",
-      "Earnings follow stricter rules. Qualified earnings withdrawals need you at 59.5 or older, with the account open at least five years.",
+      "Regular contributions come out first under IRS ordering rules, without income tax or an early-withdrawal penalty. Converted amounts have separate rules.",
+      "Qualified earnings withdrawals require a five-tax-year period plus a qualifying condition. Conditions include reaching age 59.5, disability, death, or qualifying first-home expenses.",
       "Compare it against a traditional account with the [Roth vs traditional calculator](/wealth/calculators/roth-vs-traditional). My short intro guide is here: [What is a Roth IRA?](/wealth/learn/what-is-a-roth-ira).",
     ],
   },
 ];
 
 const FAQ = [
+  { q: "What is a Roth IRA?", a: ROTH_DEFINITION.text },
   {
     q: "What is the Roth IRA contribution limit for 2026?",
     a: "$7,500 if you are under 50. $8,600 if you are 50 or older.",
   },
   {
     q: "Can I withdraw Roth IRA money early?",
-    a: "Your contributions, yes. You can take them out anytime with no tax or penalty. Earnings follow stricter rules.",
+    a: "Regular contributions can come out without income tax or penalty. Converted amounts and earnings follow separate rules.",
   },
   {
     q: "What makes a withdrawal qualified?",
-    a: "You are 59.5 or older, and the account has been open at least five years.",
+    a: "The five-tax-year requirement must be met. A qualifying condition must also apply, such as age 59.5, disability, death, or eligible first-home expenses.",
   },
   {
     q: "Can I contribute if I earn too much?",
@@ -92,6 +106,14 @@ const FAQ = [
 ];
 
 const SOURCES = [
+  {
+    href: "https://www.irs.gov/publications/p590b",
+    label: "IRS Publication 590-B: Roth withdrawals and ordering rules",
+  },
+  {
+    href: "https://www.irs.gov/publications/p590a",
+    label: "IRS Publication 590-A: contribution and deduction eligibility",
+  },
   {
     href: "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
     label: "IRS: 2026 retirement plan limits (401(k) and IRA)",
@@ -128,8 +150,20 @@ export default function RothIraExplainedPage() {
           description: DESCRIPTION,
           path: PATH,
           datePublished: "2026-10-08",
-          dateModified: "2026-10-08",
+          dateModified: "2026-10-09",
+          abstract: ROTH_DEFINITION.text,
+          citations: SOURCES.map((source) => source.href),
+          speakableSelectors: ["h1", ".w-answer"],
         })}
+      />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "DefinedTerm",
+          name: ROTH_DEFINITION.name,
+          description: ROTH_DEFINITION.text,
+          url: SITE_URL + PATH + "#definition",
+        }}
       />
       <PageHead
         eyebrow="Money basics"
@@ -139,21 +173,27 @@ export default function RothIraExplainedPage() {
       >
         <ul className="w-meta">
           <li>6 min read</li>
-          <li>Updated October 8, 2026</li>
+          <li>Updated October 9, 2026</li>
           <li>By Christian Brinkley</li>
         </ul>
       </PageHead>
 
       <article className="w-section-tight">
         <div className="w-shell w-narrow">
-          <p className="w-answer">
+          <p className="w-answer" id="definition">
             <span>Short answer</span>
             {ANSWER}
           </p>
+          <ArticleContents
+            items={SECTIONS.map((section, index) => ({
+              id: "section-" + index,
+              label: section.heading,
+            }))}
+          />
           <div className="w-prose">
-            {SECTIONS.map((section) => (
+            {SECTIONS.map((section, index) => (
               <section key={section.heading}>
-                <h2>{section.heading}</h2>
+                <h2 id={"section-" + index}>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{rich(paragraph)}</p>
                 ))}
@@ -181,26 +221,15 @@ export default function RothIraExplainedPage() {
             </div>
           </aside>
 
-          <div className="w-sources">
-            <h2>Sources</h2>
-            <ul>
-              {SOURCES.map((source) => (
-                <li key={source.href}>
-                  <a href={source.href} rel="noopener">
-                    {source.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <EditorialNote sources={SOURCES} />
           <EducationNote />
 
           <aside className="w-panel" style={{ marginTop: 36 }} aria-label="Start a conversation">
             <p className="w-eyebrow">No cost, no pressure</p>
             <h2 className="w-h3">Talk it through</h2>
             <p style={{ margin: "10px 0 0", color: "var(--w-on-ink-muted)" }}>
-              Have a money question or want a second set of eyes? Start a conversation and we will take it
-              one question at a time.
+              Have a money question or want a second set of eyes? Start a conversation and we will
+              take it one question at a time.
             </p>
             <div className="w-btn-row">
               <Link href="/start" className="w-btn">
@@ -218,9 +247,21 @@ export default function RothIraExplainedPage() {
       <NextUp
         title="Read next"
         links={[
-          { href: "/wealth/money-moves-in-your-20s", label: "Five money moves for your 20s", kind: "Article" },
-          { href: "/wealth/calculators/roth-vs-traditional", label: "Roth vs traditional", kind: "Calculator" },
-          { href: "/wealth/learn/what-is-a-roth-ira", label: "What is a Roth IRA?", kind: "Article" },
+          {
+            href: "/wealth/money-moves-in-your-20s",
+            label: "Five money moves for your 20s",
+            kind: "Article",
+          },
+          {
+            href: "/wealth/calculators/roth-vs-traditional",
+            label: "Roth vs traditional",
+            kind: "Calculator",
+          },
+          {
+            href: "/wealth/learn/what-is-a-roth-ira",
+            label: "What is a Roth IRA?",
+            kind: "Article",
+          },
         ]}
       />
     </main>

@@ -1,3 +1,5 @@
+import { EditorialNote, ArticleContents } from "@/app/components/EditorialNote";
+import { SOURCES as PRIMARY } from "@/lib/editorial";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -16,11 +18,11 @@ export const metadata: Metadata = wealthMetadata({ title, description, path });
 const faqItems: Array<{ q: string; a: string }> = [
   {
     q: "Can I invest the money in my HSA?",
-    a: "Yes. Most HSA providers let you invest once your balance passes a small threshold. Growth inside the account stays tax-free.",
+    a: "Some HSA providers offer investments, sometimes with a minimum balance. Check account terms and fees. Investment values can fall. Federal earnings are tax-free.",
   },
   {
     q: "What happens to my HSA if I change jobs?",
-    a: "Nothing changes. The account is yours, not your employer's. You can keep contributing only while enrolled in a qualifying high-deductible plan.",
+    a: "Nothing changes. The account is yours, not your employer's. Contributions require eligible coverage and compliance with the other IRS eligibility rules.",
   },
   {
     q: "Can I use HSA money for my spouse or kids?",
@@ -32,12 +34,13 @@ const faqItems: Array<{ q: string; a: string }> = [
   },
 ];
 
-const sources: Array<{ label: string; href?: string }> = [
+const sources: Array<{ label: string; href: string }> = [
   {
     label: "IRS Publication 969, Health Savings Accounts and Other Tax-Favored Health Plans",
-    href: "http://www.irs.gov/publications/p969/",
+    href: "https://www.irs.gov/publications/p969",
   },
-  { label: "IRS Rev. Proc. 2025-19 (2026 HSA inflation figures)" },
+  PRIMARY.hsa,
+  PRIMARY.hsaChanges,
 ];
 
 export default function HsaExplainedPage() {
@@ -49,7 +52,8 @@ export default function HsaExplainedPage() {
           description,
           path,
           datePublished: "2026-10-08",
-          dateModified: "2026-10-08",
+          dateModified: "2026-10-09",
+          citations: sources.map((source) => source.href),
         })}
       />
       <PageHead
@@ -60,7 +64,7 @@ export default function HsaExplainedPage() {
       >
         <ul className="w-meta">
           <li>6 min read</li>
-          <li>Updated October 8, 2026</li>
+          <li>Updated October 9, 2026</li>
           <li>By Christian Brinkley</li>
         </ul>
       </PageHead>
@@ -75,9 +79,39 @@ export default function HsaExplainedPage() {
             for self-only coverage and $8,750 for family coverage.
           </p>
 
+          <ArticleContents
+            items={[
+              { id: "read-0", label: "Check eligibility before contributing" },
+              { id: "read-1", label: "What an HSA is" },
+              { id: "read-2", label: "The triple tax advantage" },
+              { id: "read-3", label: "The 2026 numbers" },
+              { id: "read-4", label: "How it differs from an FSA" },
+              { id: "read-5", label: "After 65" },
+            ]}
+          />
           <div className="w-prose">
             <section>
-              <h2>What an HSA is</h2>
+              <h2 id="read-0">Check eligibility before contributing</h2>
+              <p>
+                Medicare enrollment generally ends HSA contribution eligibility. Disqualifying
+                additional coverage or being claimable as a dependent can also prevent
+                contributions.
+              </p>
+              <p>
+                Beginning in 2026, eligible bronze and catastrophic plans receive special HSA
+                treatment. They need not satisfy every ordinary high-deductible-plan limit.
+              </p>
+              <p>
+                Employer deposits count toward your annual contribution limit. Eligibility changes
+                during the year can reduce that limit or trigger testing-period rules.
+              </p>
+              <p>
+                Keep receipts for qualified expenses. A withdrawal for an ineligible expense can
+                create income tax and an additional tax.
+              </p>
+            </section>
+            <section>
+              <h2 id="read-1">What an HSA is</h2>
               <p>
                 A Health Savings Account is a tax-advantaged account for paying medical costs. You
                 contribute money, it can grow through investments, and you withdraw it for qualified
@@ -86,21 +120,21 @@ export default function HsaExplainedPage() {
             </section>
 
             <section>
-              <h2>The triple tax advantage</h2>
+              <h2 id="read-2">The triple tax advantage</h2>
               <p>
                 Break one: contributions go in pre-tax or tax-deductible, which lowers your taxable
                 income. Break two: the money grows tax-free while it sits in the account. Break
                 three: withdrawals for qualified medical expenses come out tax-free.
               </p>
-              <p>No other common account stacks all three breaks in the same way.</p>
+              <p>These are federal tax rules. State tax treatment can differ.</p>
             </section>
 
             <section>
-              <h2>The 2026 numbers</h2>
+              <h2 id="read-3">The 2026 numbers</h2>
               <p>
-                For 2026 you can contribute up to $4,400 with self-only coverage. The family coverage
-                limit is $8,750. At age 55 or older you can add a $1,000 catch-up on top of your
-                limit.
+                For 2026 you can contribute up to $4,400 with self-only coverage. The family
+                coverage limit is $8,750. At age 55 or older you can add a $1,000 catch-up on top of
+                your limit.
               </p>
               <p>
                 The plan behind it must qualify as a high-deductible health plan. The 2026 minimum
@@ -110,11 +144,11 @@ export default function HsaExplainedPage() {
             </section>
 
             <section>
-              <h2>How it differs from an FSA</h2>
+              <h2 id="read-4">How it differs from an FSA</h2>
               <p>
                 HSA money rolls over year after year with no deadline. Many FSAs have a
-                use-it-or-lose-it rule, so unspent money can disappear. The HSA also travels with you
-                when you switch employers.
+                use-it-or-lose-it rule, so unspent money can disappear. The HSA also travels with
+                you when you switch employers.
               </p>
               <p>
                 The tradeoff: you need that qualifying high-deductible plan to contribute. The two
@@ -123,7 +157,7 @@ export default function HsaExplainedPage() {
             </section>
 
             <section>
-              <h2>After 65</h2>
+              <h2 id="read-5">After 65</h2>
               <p>
                 Once you enroll in Medicare you can no longer contribute to an HSA. Money already in
                 the account stays available for medical costs.
@@ -149,23 +183,7 @@ export default function HsaExplainedPage() {
             </div>
           </aside>
 
-          <div className="w-sources">
-            <h2>Sources</h2>
-            <ul>
-              {sources.map((source) => (
-                <li key={source.label}>
-                  {source.href ? (
-                    <a href={source.href} rel="noopener">
-                      {source.label}
-                    </a>
-                  ) : (
-                    source.label
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-
+          <EditorialNote sources={sources} />
           <EducationNote />
 
           <section className="w-section">
@@ -192,8 +210,16 @@ export default function HsaExplainedPage() {
         title="Read next"
         links={[
           { href: "/wealth", label: "Wealth home", kind: "Hub" },
-          { href: "/wealth/health-insurance-basics", label: "Health Insurance Basics", kind: "Article" },
-          { href: "/wealth/side-hustle-taxes", label: "Side-Hustle Taxes, Explained", kind: "Article" },
+          {
+            href: "/wealth/health-insurance-basics",
+            label: "Health Insurance Basics",
+            kind: "Article",
+          },
+          {
+            href: "/wealth/side-hustle-taxes",
+            label: "Side-Hustle Taxes, Explained",
+            kind: "Article",
+          },
         ]}
       />
     </main>

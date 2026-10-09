@@ -1,0 +1,257 @@
+[
+  {
+    "url": "http://localhost:3108/",
+    "views": [
+      {
+        "kind": "discovery",
+        "mobile": false,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "kind": "discovery",
+        "mobile": true,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "hero": null,
+    "accessibleControls": [
+      {
+        "role": "button",
+        "name": "Open menu"
+      },
+      {
+        "role": "navigation",
+        "name": "Public profiles"
+      },
+      {
+        "role": "slider",
+        "name": "HOW LATE YOU SIGN UP FOR PART B"
+      },
+      {
+        "role": "button",
+        "name": "Sign up in March: coverage starts June 1"
+      },
+      {
+        "role": "button",
+        "name": "Sign up in April: coverage starts June 1"
+      },
+      {
+        "role": "button",
+        "name": "Sign up in May: coverage starts June 1"
+      },
+      {
+        "role": "button",
+        "name": "Sign up in June: coverage starts July 1"
+      },
+      {
+        "role": "button",
+        "name": "Sign up in July: coverage starts August 1"
+      },
+      {
+        "role": "button",
+        "name": "Sign up in August: coverage starts September 1"
+      },
+      {
+        "role": "button",
+        "name": "Sign up in September: coverage starts October 1"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3108/wealth/roth-ira-explained",
+    "views": [
+      {
+        "kind": "contents",
+        "mobile": false,
+        "overflow": false,
+        "color": "rgb(15, 31, 34)",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "kind": "contents",
+        "mobile": true,
+        "overflow": false,
+        "color": "rgb(15, 31, 34)",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "kind": "provenance",
+        "mobile": false,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgb(251, 248, 241)"
+      },
+      {
+        "kind": "provenance",
+        "mobile": true,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgb(251, 248, 241)"
+      }
+    ],
+    "anchor": {
+      "hash": "#section-0",
+      "top": 198.171875,
+      "headerBottom": 164
+    },
+    "hero": null,
+    "accessibleControls": [
+      {
+        "role": "navigation",
+        "name": "Wealth hub"
+      },
+      {
+        "role": "navigation",
+        "name": "Wealth hub"
+      },
+      {
+        "role": "navigation",
+        "name": "Breadcrumb"
+      },
+      {
+        "role": "navigation",
+        "name": "On this page"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3108/guides/irmaa-brackets-2026",
+    "views": [
+      {
+        "kind": "contents",
+        "mobile": false,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "kind": "contents",
+        "mobile": true,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "kind": "provenance",
+        "mobile": false,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgb(251, 248, 241)"
+      },
+      {
+        "kind": "provenance",
+        "mobile": true,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgb(251, 248, 241)"
+      }
+    ],
+    "anchor": {
+      "hash": "#read-0",
+      "top": 125.578125,
+      "headerBottom": 77.5
+    },
+    "hero": null,
+    "accessibleControls": [
+      {
+        "role": "button",
+        "name": "Open menu"
+      },
+      {
+        "role": "navigation",
+        "name": "Public profiles"
+      },
+      {
+        "role": "navigation",
+        "name": "Breadcrumb"
+      },
+      {
+        "role": "navigation",
+        "name": "On this page"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:3108/tools/take-home-pay",
+    "views": [
+      {
+        "kind": "provenance",
+        "mobile": false,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgb(251, 248, 241)"
+      },
+      {
+        "kind": "provenance",
+        "mobile": true,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgb(251, 248, 241)"
+      },
+      {
+        "kind": "calculator",
+        "mobile": false,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "kind": "calculator",
+        "mobile": true,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "hero": {
+      "className": "t-stat t-stat-hero",
+      "background": "rgb(16, 48, 42)"
+    },
+    "keyboard": {
+      "before": "65000",
+      "label": "Gross salary (per year)",
+      "after": {
+        "value": "65001",
+        "outline": "rgb(16, 48, 42) solid 3px"
+      }
+    },
+    "accessibleControls": [
+      {
+        "role": "button",
+        "name": "Open menu"
+      },
+      {
+        "role": "navigation",
+        "name": "Public profiles"
+      },
+      {
+        "role": "navigation",
+        "name": "Breadcrumb"
+      },
+      {
+        "role": "spinbutton",
+        "name": "Gross salary (per year)"
+      },
+      {
+        "role": "combobox",
+        "name": "Pay frequency"
+      },
+      {
+        "role": "button",
+        "name": "Single"
+      },
+      {
+        "role": "button",
+        "name": "Married filing jointly"
+      },
+      {
+        "role": "button",
+        "name": "Copy my numbers"
+      }
+    ]
+  }
+]

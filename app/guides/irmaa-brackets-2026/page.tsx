@@ -1,3 +1,5 @@
+import { EditorialNote, ArticleContents } from "@/app/components/EditorialNote";
+import { SOURCES } from "@/lib/editorial";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -68,7 +70,7 @@ export default function IrmaaBrackets2026Page() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Guides", path: "/guides/irmaa-brackets-2026" },
+              { name: "Guides", path: "/guides" },
               { name: "2026 IRMAA brackets", path: "/guides/irmaa-brackets-2026" },
             ]),
           ),
@@ -84,7 +86,9 @@ export default function IrmaaBrackets2026Page() {
                 "The complete 2026 IRMAA brackets: income thresholds, Part B premiums, Part D surcharges, the two-year lookback, and the appeal process.",
               path: "/guides/irmaa-brackets-2026",
               datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
+              dateModified: "2026-10-09",
+              citations: [SOURCES.cms].map((source) => source.href),
+              speakableSelectors: ["h1", "#definition"],
             }),
           ),
         }}
@@ -97,10 +101,10 @@ export default function IrmaaBrackets2026Page() {
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Guides" },
+          { name: "Guides", href: "/guides" },
           { name: "2026 IRMAA brackets" },
         ]}
-        eyebrow="Guide · Updated October 8, 2026 · Sourced from CMS"
+        eyebrow="Guide · Updated October 9, 2026 · Sourced from CMS"
         title="2026 IRMAA brackets: the complete table"
         lede="IRMAA is the surcharge higher earners pay on Medicare premiums. Here is every 2026 bracket, what triggers it, and how to fight it."
         secondaryHref="/start?topic=medicare&stage=already_on_medicare"
@@ -109,16 +113,29 @@ export default function IrmaaBrackets2026Page() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-4xl">
-          <div className="rounded-xl border-2 border-[var(--color-navy)] bg-[var(--color-paper)] p-6">
+          <ArticleContents
+            items={[
+              { id: "read-0", label: "The 2026 brackets" },
+              { id: "read-1", label: "The two-year lookback" },
+              { id: "read-2", label: "How to appeal" },
+              { id: "read-3", label: "Common questions" },
+            ]}
+          />
+          <div
+            id="definition"
+            className="rounded-xl border-2 border-[var(--color-navy)] bg-[var(--color-paper)] p-6"
+          >
             <p className="text-19 font-semibold">In short</p>
             <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
               IRMAA stands for Income-Related Monthly Adjustment Amount. It is an extra charge added
               to your Part B and Part D premiums when your income is above a set limit. Medicare
-              looks at your tax return from two years ago to set this year's surcharge.
+              looks at your tax return from two years ago to set this year&apos;s surcharge.
             </p>
           </div>
 
-          <h2 className="text-28 mt-12 font-semibold">The 2026 brackets</h2>
+          <h2 id="read-0" className="text-28 mt-12 font-semibold">
+            The 2026 brackets
+          </h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Your 2026 premiums are based on your 2024 modified adjusted gross income. CMS announced
             these figures on November 14, 2025:
@@ -146,40 +163,56 @@ export default function IrmaaBrackets2026Page() {
               </thead>
               <tbody>
                 <tr className="border-b border-gray-300 align-top">
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$109,000 or less</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$218,000 or less</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4 font-semibold">$202.90</td>
-                  <td className="text-16 whitespace-nowrap py-4">$0</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">$109,000 or less</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">$218,000 or less</td>
+                  <td className="text-16 py-4 pr-4 font-semibold whitespace-nowrap">$202.90</td>
+                  <td className="text-16 py-4 whitespace-nowrap">$0</td>
                 </tr>
                 <tr className="border-b border-gray-300 align-top">
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$109,001 to $137,000</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$218,001 to $274,000</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4 font-semibold">$284.10</td>
-                  <td className="text-16 whitespace-nowrap py-4">+$14.50</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">
+                    Over $109,000 through $137,000
+                  </td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">
+                    Over $218,000 through $274,000
+                  </td>
+                  <td className="text-16 py-4 pr-4 font-semibold whitespace-nowrap">$284.10</td>
+                  <td className="text-16 py-4 whitespace-nowrap">+$14.50</td>
                 </tr>
                 <tr className="border-b border-gray-300 align-top">
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$137,001 to $171,000</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$274,001 to $342,000</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4 font-semibold">$405.80</td>
-                  <td className="text-16 whitespace-nowrap py-4">+$37.50</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">
+                    Over $137,000 through $171,000
+                  </td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">
+                    Over $274,000 through $342,000
+                  </td>
+                  <td className="text-16 py-4 pr-4 font-semibold whitespace-nowrap">$405.80</td>
+                  <td className="text-16 py-4 whitespace-nowrap">+$37.50</td>
                 </tr>
                 <tr className="border-b border-gray-300 align-top">
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$171,001 to $205,000</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$342,001 to $410,000</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4 font-semibold">$527.50</td>
-                  <td className="text-16 whitespace-nowrap py-4">+$60.40</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">
+                    Over $171,000 through $205,000
+                  </td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">
+                    Over $342,000 through $410,000
+                  </td>
+                  <td className="text-16 py-4 pr-4 font-semibold whitespace-nowrap">$527.50</td>
+                  <td className="text-16 py-4 whitespace-nowrap">+$60.40</td>
                 </tr>
                 <tr className="border-b border-gray-300 align-top">
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$205,001 to $499,999</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$410,001 to $749,999</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4 font-semibold">$649.20</td>
-                  <td className="text-16 whitespace-nowrap py-4">+$83.30</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">
+                    Over $205,000, below $500,000
+                  </td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">
+                    Over $410,000, below $750,000
+                  </td>
+                  <td className="text-16 py-4 pr-4 font-semibold whitespace-nowrap">$649.20</td>
+                  <td className="text-16 py-4 whitespace-nowrap">+$83.30</td>
                 </tr>
                 <tr className="border-b border-gray-300 align-top">
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$500,000 or more</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$750,000 or more</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4 font-semibold">$689.90</td>
-                  <td className="text-16 whitespace-nowrap py-4">+$91.00</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">$500,000 or more</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">$750,000 or more</td>
+                  <td className="text-16 py-4 pr-4 font-semibold whitespace-nowrap">$689.90</td>
+                  <td className="text-16 py-4 whitespace-nowrap">+$91.00</td>
                 </tr>
               </tbody>
             </table>
@@ -190,15 +223,20 @@ export default function IrmaaBrackets2026Page() {
             charges.
           </p>
 
-          <h2 className="text-28 mt-12 font-semibold">The two-year lookback</h2>
+          <h2 id="read-1" className="text-28 mt-12 font-semibold">
+            The two-year lookback
+          </h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            IRMAA always looks backward. Your 2026 surcharge comes from your 2024 return. A one-time
-            income spike, like selling property, taking a large IRA withdrawal, or doing a big Roth
-            conversion, can raise your premiums two years later. The surcharge resets every year, so
-            a single high-income year only affects one year of premiums.
+            IRMAA usually uses a return from two years earlier. Your 2026 surcharge comes from your
+            2024 return. A one-time income spike, like selling property, taking a large IRA
+            withdrawal, or doing a big Roth conversion, can raise your premiums two years later. The
+            surcharge resets every year, so a single high-income year only affects one year of
+            premiums.
           </p>
 
-          <h2 className="text-28 mt-12 font-semibold">How to appeal</h2>
+          <h2 id="read-2" className="text-28 mt-12 font-semibold">
+            How to appeal
+          </h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             If your income dropped because of a life-changing event, you can ask Social Security to
             use newer income. Qualifying events include retirement, reduced work hours, marriage,
@@ -220,13 +258,20 @@ export default function IrmaaBrackets2026Page() {
             </Link>
             .
           </p>
+          <p className="text-17 mt-6">
+            Married people filing separately who lived together during the tax year use a different
+            CMS table. These joint-filer thresholds do not apply.
+          </p>
+          <EditorialNote sources={[SOURCES.cms]} />
           <GuideTownLinks />
         </div>
       </section>
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Common questions</h2>
+          <h2 id="read-3" className="text-28 font-semibold">
+            Common questions
+          </h2>
           <dl className="mt-8 flex flex-col gap-6">
             {FAQS.map((item) => (
               <div key={item.q} className="border-t border-gray-300 pt-5">

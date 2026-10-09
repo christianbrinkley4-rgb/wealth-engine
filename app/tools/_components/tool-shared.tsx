@@ -5,7 +5,7 @@
  * visitor's browser. No answers leave the device.
  */
 
-import { useState } from "react";
+import { useState, useId, useRef, useEffect } from "react";
 
 /** A labeled range slider with a big readable value. */
 export function Slider({
@@ -27,14 +27,16 @@ export function Slider({
   onChange: (value: number) => void;
   hint?: string;
 }) {
+  const id = useId();
   return (
     <div className="t-field">
-      <label htmlFor={`slider-${label}`}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <div className="t-display" aria-live="polite">
         {display}
       </div>
       <input
-        id={`slider-${label}`}
+        id={id}
+        aria-describedby={hint ? id + "-hint" : undefined}
         type="range"
         min={min}
         max={max}
@@ -42,7 +44,11 @@ export function Slider({
         value={value}
         onChange={(event) => onChange(Number(event.target.value))}
       />
-      {hint ? <p className="t-hint">{hint}</p> : null}
+      {hint ? (
+        <p id={id + "-hint"} className="t-hint">
+          {hint}
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -63,13 +69,15 @@ export function MoneyField({
   min?: number;
   max?: number;
 }) {
+  const id = useId();
   return (
     <div className="t-field">
-      <label htmlFor={`money-${label}`}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <div className="t-money">
         <span aria-hidden>$</span>
         <input
-          id={`money-${label}`}
+          id={id}
+          aria-describedby={hint ? id + "-hint" : undefined}
           type="number"
           inputMode="numeric"
           min={min}
@@ -81,7 +89,11 @@ export function MoneyField({
           }}
         />
       </div>
-      {hint ? <p className="t-hint">{hint}</p> : null}
+      {hint ? (
+        <p id={id + "-hint"} className="t-hint">
+          {hint}
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -104,12 +116,14 @@ export function PercentField({
   max?: number;
   step?: number;
 }) {
+  const id = useId();
   return (
     <div className="t-field">
-      <label htmlFor={`pct-${label}`}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <div className="t-money">
         <input
-          id={`pct-${label}`}
+          id={id}
+          aria-describedby={hint ? id + "-hint" : undefined}
           type="number"
           inputMode="decimal"
           min={min}
@@ -123,7 +137,11 @@ export function PercentField({
         />
         <span aria-hidden>%</span>
       </div>
-      {hint ? <p className="t-hint">{hint}</p> : null}
+      {hint ? (
+        <p id={id + "-hint"} className="t-hint">
+          {hint}
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -140,12 +158,13 @@ export function ChoiceField<T extends string>({
   value: T;
   onChange: (value: T) => void;
 }) {
+  const id = useId();
   return (
     <div className="t-field">
-      <span id={`choice-${label}`} role="presentation" style={{ fontWeight: 600, fontSize: "0.9444rem" }}>
+      <span id={id} role="presentation" style={{ fontWeight: 600, fontSize: "0.9444rem" }}>
         {label}
       </span>
-      <div className="t-radio-row" role="group" aria-labelledby={`choice-${label}`}>
+      <div className="t-radio-row" role="group" aria-labelledby={id}>
         {options.map((option) => (
           <button
             key={option.value}
@@ -176,11 +195,13 @@ export function SelectField<T extends string>({
   onChange: (value: T) => void;
   hint?: string;
 }) {
+  const id = useId();
   return (
     <div className="t-field">
-      <label htmlFor={`select-${label}`}>{label}</label>
+      <label htmlFor={id}>{label}</label>
       <select
-        id={`select-${label}`}
+        id={id}
+        aria-describedby={hint ? id + "-hint" : undefined}
         value={value}
         onChange={(event) => onChange(event.target.value as T)}
       >
@@ -190,7 +211,11 @@ export function SelectField<T extends string>({
           </option>
         ))}
       </select>
-      {hint ? <p className="t-hint">{hint}</p> : null}
+      {hint ? (
+        <p id={id + "-hint"} className="t-hint">
+          {hint}
+        </p>
+      ) : null}
     </div>
   );
 }
@@ -208,12 +233,20 @@ export function Stat({
   sub?: string;
 }) {
   return (
-    <div className={`t-stat${hero ? " t-stat-hero" : ""}`}>
+    <div className={hero ? "t-stat t-stat-hero" : "t-stat"}>
       <dt>{label}</dt>
       <dd>
         {value}
         {sub ? (
-          <span style={{ display: "block", fontSize: "0.8333rem", fontWeight: 400, marginTop: "0.25rem", opacity: 0.85 }}>
+          <span
+            style={{
+              display: "block",
+              fontSize: "0.8333rem",
+              fontWeight: 400,
+              marginTop: "0.25rem",
+              opacity: 0.85,
+            }}
+          >
             {sub}
           </span>
         ) : null}
@@ -227,22 +260,36 @@ export function Stat({
  * when the clipboard API is unavailable.
  */
 export function CopyNumbersButton({ summary }: { summary: string }) {
-  const [copied, setCopied] = useState(false);
+  const [copiedSummary, setCopiedSummary] = useState<string | null>(null);
+  const copied = copiedSummary === summary;
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(
+    () => () => {
+      if (timer.current) clearTimeout(timer.current);
+    },
+    [],
+  );
 
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(summary);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
+      setCopiedSummary(summary);
+      if (timer.current) clearTimeout(timer.current);
+      timer.current = setTimeout(() => setCopiedSummary(null), 2000);
     } catch {
       window.prompt("Copy your numbers:", summary);
     }
   };
 
   return (
-    <button type="button" className="btn btn-outline t-copy-btn" onClick={copy}>
-      {copied ? "Copied" : "Copy my numbers"}
-    </button>
+    <div>
+      <button type="button" className="btn btn-outline t-copy-btn" onClick={copy}>
+        {copied ? "Copied" : "Copy my numbers"}
+      </button>
+      <span role="status" className="sr-only">
+        {copied ? "Your numbers were copied." : ""}
+      </span>
+    </div>
   );
 }
 
@@ -282,12 +329,7 @@ export function MiniChart({
 
   return (
     <figure style={{ margin: 0 }}>
-      <svg
-        className="t-chart"
-        viewBox={`0 0 ${width} ${height}`}
-        role="img"
-        aria-label={ariaTitle}
-      >
+      <svg className="t-chart" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={ariaTitle}>
         <title>{ariaTitle}</title>
         {[0.25, 0.5, 0.75].map((fraction) => (
           <line
@@ -303,7 +345,9 @@ export function MiniChart({
         {series.map((s, seriesIndex) => (
           <polyline
             key={s.name}
-            points={s.values.map((value, valueIndex) => point(seriesIndex, valueIndex, s.values)).join(" ")}
+            points={s.values
+              .map((value, valueIndex) => point(seriesIndex, valueIndex, s.values))
+              .join(" ")}
             fill="none"
             stroke={s.color}
             strokeWidth={3}
