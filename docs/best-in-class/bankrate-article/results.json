@@ -1,0 +1,47 @@
+[
+  {
+    "url": "https://www.bankrate.com/retirement/what-is-an-ira/",
+    "title": "Bankrate.com - Compare mortgage, refinance, insurance, CD rates",
+    "h1": "Error 404",
+    "fonts": [
+      {
+        "text": "Error 404",
+        "font": "RecifeText, ui-serif, system-ui, serif",
+        "size": "48px",
+        "line": "57.6px"
+      },
+      {
+        "text": "Looks like this page doesn’t exist. Our bad! Try our homepage or search for anot",
+        "font": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+        "size": "18px",
+        "line": "30.6px"
+      },
+      {
+        "text": "MORTGAGES",
+        "font": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+        "size": "10px",
+        "line": "12px"
+      },
+      {
+        "text": "BANKING",
+        "font": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+        "size": "10px",
+        "line": "12px"
+      },
+      {
+        "text": "PERSONAL FINANCE",
+        "font": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+        "size": "10px",
+        "line": "12px"
+      }
+    ],
+    "overflow": false,
+    "links": 227,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to Main Content",
+      "outline": "rgb(229, 151, 0) auto 1px"
+    }
+  }
+]
