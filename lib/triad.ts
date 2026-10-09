@@ -1593,9 +1593,26 @@ export function placesByCounty(): Array<{ county: string; places: TriadCity[] }>
   return [...map.entries()].map(([county, places]) => ({ county, places }));
 }
 
-/** IA decision 5.2-5.4, October 9, 2026. URLs remain available to residents. */
-export const INDEXABLE_MEDICARE_SLUGS = ["greensboro", "winston-salem", "high-point", "kernersville", "burlington", "summerfield", "jamestown", "stokesdale"] as const;
-export function isIndexableTown(family: "medicare" | "retirement" | "life-insurance", slug: string): boolean {
+/**
+ * Which generated town pages search engines may index.
+ *
+ * Measured October 9, 2026 on a local build (five-word shingles, town names
+ * neutralised): every /retirement-in and /life-insurance-in page, and every
+ * /medicare-in page except Greensboro, shares more than 85% of its text with
+ * a sibling. Those pages stay online and linked from /service-area for the
+ * resident who wants them, and carry noindex so they are not read as doorway
+ * pages. A town comes back onto this list when its page says something the
+ * next town's page does not.
+ */
+export const INDEXABLE_MEDICARE_SLUGS = ["greensboro"] as const;
+
+export function isIndexableTown(
+  family: "medicare" | "retirement" | "life-insurance",
+  slug: string,
+): boolean {
   return family === "medicare" && (INDEXABLE_MEDICARE_SLUGS as readonly string[]).includes(slug);
 }
-export function indexableMedicarePlaces() { return TRIAD_CITIES.filter(city => isIndexableTown("medicare", city.slug)); }
+
+export function indexableMedicarePlaces(): TriadCity[] {
+  return TRIAD_CITIES.filter((city) => isIndexableTown("medicare", city.slug));
+}

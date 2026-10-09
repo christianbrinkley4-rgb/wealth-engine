@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { TrustFacts } from "@/app/components/TrustFacts";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Mail, Phone } from "lucide-react";
@@ -406,7 +405,6 @@ export default function AboutPage() {
         href="/start"
         label="Ask your question"
       />
-      <div className="shell py-8"><TrustFacts /></div>
     </main>
   );
 }

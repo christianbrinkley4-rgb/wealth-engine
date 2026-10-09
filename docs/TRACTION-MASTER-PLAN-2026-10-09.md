@@ -288,3 +288,11 @@ Sources read for this section: [OpenSEO write-up](https://blog.asadfaizee.is-a.d
 - GA4 showing that a meaningful share of sessions start on `/wealth` or `/guides` money pages. Then the money lane deserves its own conversion goal (signup) on equal footing.
 - A compliance answer that changes where the TPMO disclaimer must appear or how testimonials may be shown.
 - Christian approving a Meta campaign. Then the pixel stays and the privacy sentence is rewritten to be accurate.
+
+## 9. Addendum: baseline re-checked and outcome, October 9, 2026
+
+Re-checked against `ea436c0` before implementation: 146 page files and 15 route handlers (confirmed with `git ls-tree`). Phone in the repo is (919) 408-6671. `AGENT.npn` is `null`. `GOOGLE_REVIEWS` is `null` and `TESTIMONIALS` is empty. The live-site figures in section 1 (285 sitemap URLs, Lighthouse numbers, the Meta Pixel observation) were not re-measured.
+
+What shipped to the branch, what was rejected, and the numbers after are in [TRACTION-RELEASE-REPORT-2026-10-09.md](TRACTION-RELEASE-REPORT-2026-10-09.md). What still needs Christian is in [TRACTION-OPEN-DEPENDENCIES-2026-10-09.md](TRACTION-OPEN-DEPENDENCIES-2026-10-09.md).
+
+Two departures from this plan: T-03 now noindexes 19 of the 20 `/medicare-in` pages instead of 12, and T-13 was not delivered as specified. Both are explained in the release report, section 3.

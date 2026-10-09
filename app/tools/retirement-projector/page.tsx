@@ -50,7 +50,7 @@ export default function RetirementProjectorPage() {
         }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Retirement projector" }]} title="What could your savings reach?" lede="Explore a savings estimate using a growth rate and timeline you choose." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Retirement projector" }]} title="What could your savings reach?" lede="Retirement feels abstract until you see a number with your name on it. The growth rate is labeled as assumed on purpose: it is a dial to explore, not a prediction." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

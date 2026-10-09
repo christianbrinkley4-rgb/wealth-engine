@@ -245,7 +245,9 @@ export function EmailResultsCapture({
   }
 
   return (
-    <form ref={formRef} onFocusCapture={activate}
+    <form
+      ref={formRef}
+      onFocusCapture={activate}
       onSubmit={handleSubmit}
       noValidate
       className="card-surface mt-8 p-6 md:p-7"

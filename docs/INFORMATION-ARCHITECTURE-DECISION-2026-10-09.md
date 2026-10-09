@@ -182,3 +182,13 @@ No new town pages. Never a thin page for a town where none of the above can be w
 Only one redirect: `/wealth/calculators` to `/tools` (308).
 
 No page is deleted. No URL in the Medicare lane changes. Everything else is labels, menus, `noindex`, and sitemap membership, all reversible in one commit.
+
+## 8. Addendum after implementation review, October 9, 2026
+
+Section 5.2 kept eight `/medicare-in` pages in the index for 30 days while a rewrite (T-13) was scheduled. The rewrite that was produced replaced the pages with padded, weakly sourced filler and was rejected in review. Measured on the branch build, seven of the eight are 6% to 14% unique and Summerfield and Stokesdale are 79% alike.
+
+Decision now in the code: only `/medicare-in/greensboro` is indexable. The other 19 carry `noindex, follow`, stay online, and stay linked from `/service-area`. Restoring a town is one slug in `INDEXABLE_MEDICARE_SLUGS` in `lib/triad.ts`, and should follow a rewrite built on what Christian knows about that town.
+
+Section 5.1 is unchanged: all 11 hand-written pages stay indexed. Butner, Graham, Ramseur and Liberty were restored to their master text.
+
+Section 4.2 is implemented as written. The homepage H1 was not changed and still needs approval.

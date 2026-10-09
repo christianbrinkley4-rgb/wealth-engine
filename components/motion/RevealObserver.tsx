@@ -23,7 +23,10 @@ export function RevealObserver() {
 
     const show = (el: Element) => el.classList.add("is-in");
 
-    if (typeof IntersectionObserver === "undefined" || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
+    if (
+      typeof IntersectionObserver === "undefined" ||
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches
+    ) {
       document.querySelectorAll("[data-reveal]").forEach(show);
       return;
     }
@@ -66,4 +69,3 @@ export function RevealObserver() {
 
   return null;
 }
-

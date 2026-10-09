@@ -50,7 +50,7 @@ export default function EmergencyFundPage() {
         }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Emergency fund" }]} title="Your emergency fund, sized to your life" lede="Turn your monthly spending into a savings target and a plan to reach it." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Emergency fund" }]} title="Your emergency fund, sized to your life" lede="The water heater does not care about your savings goals. Type in what you must spend each month and how many months you want covered." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

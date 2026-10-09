@@ -1,4 +1,5 @@
 import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
+import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -271,10 +272,13 @@ export default function AnnualEnrollmentPage() {
         </div>
       </section>
 
-      <div className="measure-prose app-shell max-w-3xl py-8"><p>Review the <Link href="/medicare-changes-2027">changes for 2027</Link> and how the <Link href="/medicare-part-d-donut-hole-2027">Part D out-of-pocket cap works</Link>. Bring the <Link href="/medicare-annual-enrollment-2026-checklist">fall review checklist</Link> to your conversation.</p></div>
+      <ReadNext>
+        <p>
+          Review the <Link href="/medicare-changes-2027">changes for 2027</Link> and how the <Link href="/medicare-part-d-donut-hole-2027">Part D out-of-pocket cap works</Link>. Bring the <Link href="/medicare-annual-enrollment-2026-checklist">fall review checklist</Link> to your conversation.
+        </p>
+        <ChecklistPointer />
+      </ReadNext>
 
-      <div className="measure-prose app-shell max-w-3xl py-8"><p>Before you research coverage, <Link href="/medicare-plan-checklist">make a printable sheet of your doctors, prescriptions, and priorities</Link>. Your entries stay on your device.</p></div>
-      <div className="measure-prose app-shell max-w-3xl py-8"><p>Before you research coverage, <Link href="/medicare-plan-checklist">make a printable sheet of your doctors, prescriptions, and priorities</Link>. Your entries stay on your device.</p></div>
       <KitchenTableClose
         heading="Get a personal coverage review"
         body="Bring your Annual Notice of Change and prescription list. We will review the details that may affect your care and costs."

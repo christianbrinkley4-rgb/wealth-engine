@@ -1,25 +1,163 @@
-.checklist { padding-block: 16px 48px; }
-.checklist h2, .checklist h3 { font-size: 1.4rem; margin-block: 20px 12px; font-weight: 650; }
-.checklist p { margin-block: 12px; line-height: 1.65; }
-.checklist-field { margin-block: 24px; }
-.checklist-field label, .checklist legend { font-weight: 650; }
-.checklist-field input, .checklist-field textarea, .checklist-field select { display: block; width: 100%; border: 2px solid var(--color-navy); border-radius: 8px; padding: 12px; min-height: 48px; font-size: 1rem; background: white; }
-.checklist-field p, .checklist-privacy { font-size: .9rem; }
-.checklist-choice { display: flex; gap: 12px; align-items: center; min-height: 48px; }
-.checklist-choice input { width: 24px; height: 24px; }
-.checklist-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 24px; }
-.checklist a:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; }
-.plan-sheet { border: 1px solid var(--color-navy); padding: 20px; background: white; }
-.plan-sheet dt { font-weight: 650; }
-.plan-sheet dd { white-space: pre-wrap; overflow-wrap: anywhere; margin-block: 4px 12px; }
+.checklist {
+  padding-block: 8px 40px;
+}
+.checklist h2,
+.checklist h3 {
+  font-size: 1.4rem;
+  margin-block: 20px 12px;
+  font-weight: 650;
+}
+.checklist h2:focus {
+  outline: none;
+}
+.checklist h2:focus-visible {
+  outline: 3px solid var(--color-navy);
+  outline-offset: 4px;
+}
+.checklist p {
+  margin-block: 12px;
+  line-height: 1.65;
+}
+.checklist-progress {
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--color-ink-muted);
+}
+.checklist-field {
+  margin-block: 24px;
+}
+.checklist-field label,
+.checklist legend {
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+.checklist-field input,
+.checklist-field textarea,
+.checklist-field select {
+  display: block;
+  width: 100%;
+  border: 2px solid var(--color-navy);
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 48px;
+  font: inherit;
+  font-size: 1.05rem;
+  background: white;
+  color: inherit;
+}
+.checklist-field input:focus-visible,
+.checklist-field textarea:focus-visible,
+.checklist-field select:focus-visible,
+.checklist-choice input:focus-visible,
+.checklist-clear:focus-visible {
+  outline: 3px solid var(--color-navy);
+  outline-offset: 2px;
+}
+.checklist-field p {
+  margin-block: 4px 8px;
+  font-size: 1rem;
+  color: var(--color-ink-muted);
+}
+.checklist-privacy {
+  font-size: 1rem;
+  color: var(--color-ink-muted);
+}
+.checklist fieldset {
+  margin-block: 24px;
+  border: 0;
+  padding: 0;
+}
+.checklist-choice {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 48px;
+  font-size: 1.05rem;
+}
+.checklist-choice input {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+.checklist-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-block: 24px;
+}
+.checklist-clear {
+  min-height: 44px;
+  padding-inline: 8px;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: var(--color-ink-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.checklist a:not(.btn) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.checklist-shiip {
+  border-top: 1px solid rgba(21, 46, 52, 0.14);
+  padding-top: 20px;
+}
+.plan-sheet {
+  border: 1px solid var(--color-navy);
+  border-radius: 8px;
+  padding: 20px;
+  background: white;
+}
+.plan-sheet h3 {
+  margin-top: 0;
+}
+.plan-sheet dt {
+  font-weight: 650;
+}
+.plan-sheet dd {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 4px 0 12px;
+}
+
 @media print {
-  @page { size: letter; margin: .5in; }
-  body:has(.plan-sheet) * { visibility: hidden; }
-  body:has(.plan-sheet) .plan-sheet, body:has(.plan-sheet) .plan-sheet * { visibility: visible; }
-  .plan-sheet { position: absolute; inset: 0; border: 0; width: 100%; padding: 0; font: 10pt/1.2 Arial, sans-serif; }
-  .plan-sheet h3 { font-size: 16pt; margin: 0 0 8pt; }
-  .plan-sheet dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt 16pt; }
-  .plan-sheet dl > div { break-inside: avoid; }
-  .plan-sheet dd { margin-bottom: 6pt; }
-  .nav, .ft, .scta { display: none !important; }
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+  body:has(.plan-sheet) * {
+    visibility: hidden;
+  }
+  body:has(.plan-sheet) .plan-sheet,
+  body:has(.plan-sheet) .plan-sheet * {
+    visibility: visible;
+  }
+  .plan-sheet {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    width: 100%;
+    padding: 0;
+    font:
+      10pt/1.25 Arial,
+      sans-serif;
+  }
+  .plan-sheet h3 {
+    font-size: 16pt;
+    margin: 0 0 8pt;
+  }
+  .plan-sheet dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8pt 16pt;
+  }
+  .plan-sheet dl > div {
+    break-inside: avoid;
+  }
+  .plan-sheet dd {
+    margin-bottom: 6pt;
+  }
 }

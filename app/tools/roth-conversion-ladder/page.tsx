@@ -50,7 +50,7 @@ export default function RothConversionLadderPage() {
         }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth conversion planner" }]} title="Roth conversions, year by year" lede="Explore conversion timing using the stated assumptions, then discuss it with a tax professional." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth conversion planner" }]} title="Roth conversions, year by year" lede="The years between retirement and required minimum distributions are the only stretch where you control your tax bracket this completely. This tool fills your bracket with a conversion each year and compares the lifetime tax bill against doing nothing." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

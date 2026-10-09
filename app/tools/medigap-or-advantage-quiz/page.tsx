@@ -41,7 +41,7 @@ export default function MedigapQuizPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQS)) }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Medigap or Advantage quiz" }]} title="Medigap or Medicare Advantage: 7 questions to ask yourself" lede="Build a list of questions to discuss with a licensed agent. This quiz does not choose a plan." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Medigap or Advantage quiz" }]} title="Medigap or Medicare Advantage: 7 questions to ask yourself" lede="Everyone at the senior center has an opinion, and they all contradict each other. This quiz will not pick a plan for you. It hands you a short list of questions to bring to a licensed agent." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

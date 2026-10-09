@@ -51,7 +51,7 @@ export default function TakeHomePayPage() {
         }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Take-home pay" }]} title="What does that salary actually pay?" lede="Estimate your paycheck using the stated 2026 tax rates." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Take-home pay" }]} title="What does that salary actually pay?" lede="A salary number and a paycheck are two different things. Type in your gross salary and filing status to see what lands in your account each payday." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

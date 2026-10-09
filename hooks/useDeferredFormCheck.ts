@@ -10,7 +10,10 @@ export function useDeferredFormCheck() {
     const form = formRef.current;
     if (!form || active || typeof IntersectionObserver === "undefined") return;
     const observer = new IntersectionObserver((entries) => {
-      if (entries.some(entry => entry.isIntersecting)) { activate(); observer.disconnect(); }
+      if (entries.some((entry) => entry.isIntersecting)) {
+        activate();
+        observer.disconnect();
+      }
     });
     observer.observe(form);
     return () => observer.disconnect();

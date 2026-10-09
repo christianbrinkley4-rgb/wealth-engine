@@ -250,7 +250,14 @@ export function TimelineEmailCapture({
   const describe = (field: Field) => (invalid === field ? errorId : undefined);
 
   return (
-    <form ref={formRef} onFocusCapture={activate} className="tl-capture" onSubmit={submit} noValidate aria-labelledby={`${id}-heading`}>
+    <form
+      ref={formRef}
+      onFocusCapture={activate}
+      className="tl-capture"
+      onSubmit={submit}
+      noValidate
+      aria-labelledby={`${id}-heading`}
+    >
       <div className="tl-capture-intro">
         <h3 id={`${id}-heading`}>Want these dates in your inbox?</h3>
         <p>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
 import { MedicareTimeline } from "@/components/MedicareTimeline";
 
@@ -290,7 +291,11 @@ export default function Turning65Page() {
         </div>
       </section>
 
-      <div className="measure-prose app-shell max-w-3xl py-8"><p>Use the <Link href="/turning-65-checklist">turning-65 checklist</Link> to organize each next step. If you live nearby, these guides explain <Link href="/medicare-supplement-plans-greensboro-nc">Medigap in Greensboro</Link> and the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local coverage comparison</Link>.</p></div>
+      <ReadNext>
+        <p>
+          Use the <Link href="/turning-65-checklist">turning-65 checklist</Link> to organize each next step. If you live nearby, these guides explain <Link href="/medicare-supplement-plans-greensboro-nc">Medigap in Greensboro</Link> and the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local coverage comparison</Link>.
+        </p>
+      </ReadNext>
 
       <KitchenTableClose
         heading="Ready to review your Medicare timeline?"

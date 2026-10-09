@@ -1,31 +1,36 @@
-import { createElement } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { LOCAL_MEDICARE_TOWNS } from "@/lib/localMedicareFacts";
-import { INDEXABLE_MEDICARE_SLUGS } from "@/lib/triad";
-import { LocalMedicarePage } from "@/app/components/LocalMedicarePage";
 
-describe("sourced local Medicare pages", () => {
-  it("covers eight kept towns and the four identified handwritten pages", () => {
-    expect(Object.keys(LOCAL_MEDICARE_TOWNS).sort()).toEqual([...INDEXABLE_MEDICARE_SLUGS, "butner", "graham", "ramseur", "liberty"].sort());
-    const allowed = new Set(["www.guilfordcountync.gov", "www.senior-resources-guilford.org", "careers.conehealth.com", "library.greensboro-nc.gov", "www.highpointnc.gov", "www.wakehealth.edu", "forsyth.cc", "www.forsyth.cc", "www.shepherdscenter.org", "toknc.com", "www.novanthealth.org", "www.burlingtonnc.gov", "alamanceeldercare.com", "library.alamancecountync.gov", "www.summerfieldnc.gov", "www.jamestownpubliclibrary.com", "www.stokesdale.org", "www.butnernc.org", "www.granvillecounty.org", "www.dukehealth.org", "www.cityofgraham.com", "www.randolphcountync.gov", "www.ncdoi.gov", "www.randolphhealth.org", "www.randolphlibrary.org"]);
-    for (const town of Object.values(LOCAL_MEDICARE_TOWNS)) {
-      expect(town.facts).toHaveLength(4);
-      expect(new Set(town.facts.map(fact => fact.kind)).size).toBe(4);
-      for (const fact of town.facts) {
-        const url = new URL(fact.sourceUrl);
-        expect(url.protocol).toBe("https:"); expect(allowed.has(url.hostname) || ["library.nc.gov", "www.butnernc.gov"].includes(url.hostname)).toBe(true);
-        expect(fact.checkedOn).toBe("2026-10-09"); expect(fact.body).not.toContain("—");
-      }
+import { handoffDestination } from "@/lib/analytics";
+import { COUNTY_COUNSELING, countyCounseling, NC_SHIIP } from "@/lib/localMedicareFacts";
+import { TRIAD_CITIES } from "@/lib/triad";
+
+const HANDWRITTEN = ["butner", "graham", "ramseur", "liberty"] as const;
+
+describe("free counseling contacts on town pages", () => {
+  it("lists only contacts with an https source and a check date", () => {
+    for (const contact of [NC_SHIIP, ...Object.values(COUNTY_COUNSELING)]) {
+      expect(new URL(contact.sourceUrl).protocol).toBe("https:");
+      expect(contact.checkedOn).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(contact.phoneHref).toBe(`tel:+1${contact.phone.replace(/\D/g, "")}`);
+      // Every source is reported as a SHIIP hand-off, never as a call to Christian.
+      expect(handoffDestination(contact.sourceUrl)).toBe("nc_shiip");
     }
   });
-  it("renders each source and consistent dated schema without a claimed meeting place", () => {
-    for (const [key, town] of Object.entries(LOCAL_MEDICARE_TOWNS)) {
-      const html = renderToStaticMarkup(createElement(LocalMedicarePage, { townKey: key }));
-      for (const fact of town.facts) expect(html).toContain(fact.sourceUrl.replaceAll("&", "&amp;"));
-      expect(html).toContain("2026-10-09");
-      for (const match of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)) expect(() => JSON.parse(match[1])).not.toThrow();
-      expect(html).toContain("NC Life &amp; Health");
+
+  it("keys local contacts by a county the town data actually uses", () => {
+    const counties = new Set(TRIAD_CITIES.map((city) => city.county));
+    for (const county of Object.keys(COUNTY_COUNSELING)) expect(counties.has(county)).toBe(true);
+    expect(countyCounseling("Forsyth County")?.phone).toBe("336-748-0217");
+    // No verified local contact yet: the page falls back to the statewide line.
+    expect(countyCounseling("Guilford County")).toBeNull();
+  });
+
+  it("keeps the four hand-written town pages hand-written", () => {
+    for (const town of HANDWRITTEN) {
+      const source = readFileSync(`app/medicare-${town}-nc/page.tsx`, "utf8");
+      expect(source).toContain("Local Resources Worth Knowing");
+      expect(source).not.toContain("LocalMedicarePage");
     }
   });
 });

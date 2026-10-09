@@ -50,7 +50,7 @@ export default function LifeInsuranceNeedsPage() {
         }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Life insurance needs" }]} title="How much life insurance is enough?" lede="Estimate a starting point for a conversation about coverage." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Life insurance needs" }]} title="How much life insurance is enough?" lede="Nobody wants to do this math, but everyone with people depending on them should. Add it up and you have a starting-point number to bring to a conversation." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

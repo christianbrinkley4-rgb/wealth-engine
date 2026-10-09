@@ -208,7 +208,12 @@ export function ArticleBody({
             <h2>{nextStep.heading}</h2>
             <p>{nextStep.body}</p>
             <div className="art-next-actions">
-              <TrackedLink href={article.startHref} className="btn" event="article_cta_click" ctaLocation="article_end">
+              <TrackedLink
+                href={article.startHref}
+                className="btn"
+                event="article_cta_click"
+                ctaLocation="article_end"
+              >
                 {nextStep.label} <ArrowRight size={18} className="arrow" aria-hidden />
               </TrackedLink>
               <a data-cta-location="article_end" href={AGENT.phoneHref} className="btn btn-outline">

@@ -50,7 +50,7 @@ export default function BudgetPage() {
         }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Budget" }]} title="Budget, in one screen" lede="Compare your take-home pay with spending to see what is left each month." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Budget" }]} title="Budget, in one screen" lede="Money comes in, money goes out, and somehow there is never quite enough left. Type in what you bring home and what you spend, and see what is left." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

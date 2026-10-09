@@ -41,8 +41,8 @@ const bodyFont = Atkinson_Hyperlegible_Next({
 const displayFont = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
+  axes: ["opsz", "SOFT"],
   style: ["normal", "italic"],
-  preload: false,
   display: "swap",
 });
 
@@ -115,8 +115,6 @@ export default function RootLayout({
       className={`${bodyFont.variable} ${displayFont.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <head>
-      </head>
       <body className="min-h-full bg-[var(--color-paper)] pb-28 text-[var(--color-navy)] md:pb-0">
         {publishedProfiles().map((profile) => (
           <link key={profile.network} rel="me" href={profile.url} />

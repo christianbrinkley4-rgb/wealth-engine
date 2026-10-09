@@ -37,7 +37,7 @@ export default function RothConversionQuizPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQS)) }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth conversion quiz" }]} title="Should you do a Roth conversion this year?" lede="Consider the tax questions to bring to a qualified professional." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth conversion quiz" }]} title="Should you do a Roth conversion this year?" lede="Your brother-in-law swears everyone should convert, and your accountant changed the subject. Six questions, then a checklist to bring to a tax professional." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

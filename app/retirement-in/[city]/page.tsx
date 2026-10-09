@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { isIndexableTown } from "@/lib/triad";
 
 import {
   LocalCityServicePage,
@@ -19,7 +18,7 @@ export async function generateMetadata({
   params: Promise<{ city: string }>;
 }): Promise<Metadata> {
   const { city } = await params;
-  return { ...localServiceMetadata("retirement", city), robots: { index: isIndexableTown("retirement", city), follow: true } };
+  return { ...localServiceMetadata("retirement", city), robots: { index: false, follow: true } };
 }
 
 export default async function RetirementCityPage({

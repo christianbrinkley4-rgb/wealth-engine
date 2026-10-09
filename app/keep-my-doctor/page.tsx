@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -232,7 +233,9 @@ export default function KeepMyDoctorPage() {
         </div>
       </section>
 
-      <div className="measure-prose app-shell max-w-3xl py-8"><p>Before you research coverage, <Link href="/medicare-plan-checklist">make a printable sheet of your doctors, prescriptions, and priorities</Link>. Your entries stay on your device.</p></div>
+      <ReadNext>
+        <ChecklistPointer />
+      </ReadNext>
       <KitchenTableClose
         heading="Tell me who you see"
         body="Bring a list of your doctors, hospitals, and prescriptions. We can review them together during a no-cost, no-obligation consultation."

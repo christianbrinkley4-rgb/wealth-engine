@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -233,7 +234,11 @@ export default function AdvantageVsMedigapPage() {
         </div>
       </section>
 
-      <div className="measure-prose app-shell max-w-3xl py-8"><p>For local questions, read about <Link href="/medicare-supplement-plans-greensboro-nc">Medigap in Greensboro</Link> and the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">Greensboro comparison</Link>.</p></div>
+      <ReadNext>
+        <p>
+          For local questions, read about <Link href="/medicare-supplement-plans-greensboro-nc">Medigap in Greensboro</Link> and the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">Greensboro comparison</Link>.
+        </p>
+      </ReadNext>
 
       <KitchenTableClose
         heading="Tell me who you see and what you take"

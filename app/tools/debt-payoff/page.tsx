@@ -50,7 +50,7 @@ export default function DebtPayoffPage() {
         }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Debt payoff" }]} title="Avalanche vs snowball, on your debts" lede="Compare two payoff methods using your balances and interest rates." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Debt payoff" }]} title="Avalanche vs snowball, on your debts" lede="Staring at three balances and not knowing which to attack first is the worst part. Type in your debts and see both ways out." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

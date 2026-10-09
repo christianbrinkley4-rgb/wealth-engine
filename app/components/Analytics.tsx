@@ -29,6 +29,7 @@ import { usePathname } from "next/navigation";
 import {
   conversionTarget,
   ctaDetail,
+  handoffDestination,
   eventParams,
   isMeasuredEvent,
   safePagePath,
@@ -37,6 +38,7 @@ import {
   type ToolId,
   type MeasuredEvent,
 } from "@/lib/analytics";
+import { AGENT } from "@/lib/agent";
 import { captureAttribution } from "@/lib/attribution";
 
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
@@ -109,7 +111,10 @@ export function trackLeadOnce(eventId: string, topic?: string) {
 const completedTools = new Set<ToolId>();
 let toolPage = "";
 export function resetToolPage(path: string) {
-  if (path !== toolPage) { completedTools.clear(); toolPage = path; }
+  if (path !== toolPage) {
+    completedTools.clear();
+    toolPage = path;
+  }
 }
 
 /**
@@ -149,22 +154,27 @@ export function Analytics() {
   // tap on a phone link counts, wherever it sits on the page.
   useEffect(() => {
     function onClick(event: MouseEvent) {
-      const link = (event.target as Element | null)?.closest?.('a[href^="tel:"]');
-      if (link) trackEvent("phone_click", { cta_location: link.getAttribute("data-cta-location") as CtaLocation });
-      // Remaining plain inline anchors share the same allow-list. TrackedLink owns
-      // anchors carrying a location attribute, so it is never counted here twice.
-      const plainLink = (event.target as Element | null)?.closest?.('a[href]:not([data-cta-location])');
-      const plainCta = plainLink ? ctaDetail(plainLink.getAttribute("href") ?? "", "inline") : undefined;
-      if (plainCta) trackEvent("cta_click", plainCta);
-      const handoff = (event.target as Element | null)?.closest?.('a[data-handoff]');
-      if (handoff) {
-        try {
-        const url = new URL(handoff.getAttribute("href") ?? "", window.location.href);
-        const host = url.hostname;
-        const destination = host === "medicare.gov" || host.endsWith(".medicare.gov") ? (url.pathname.startsWith("/plan-compare") ? "medicare_plan_compare" : "medicare_gov") : host === "ssa.gov" || host.endsWith(".ssa.gov") ? "ssa_gov" : (host === "ncdoi.gov" || host.endsWith(".ncdoi.gov")) && url.pathname.includes("shiip") ? "nc_shiip" : undefined;
-        if (url.protocol === "https:" && destination) trackEvent("official_handoff_click", { destination });
-        } catch { /* A malformed outbound link cannot break the click handler. */ }
+      const target = event.target as Element | null;
+      // Only Christian's own number is a call to him. A tap on SHIIP's or
+      // Medicare's number is a visitor getting help elsewhere, not a lead.
+      const link = target?.closest?.('a[href^="tel:"]');
+      if (link && link.getAttribute("href") === AGENT.phoneHref) {
+        trackEvent("phone_click", {
+          cta_location: link.getAttribute("data-cta-location") as CtaLocation,
+        });
       }
+      // Plain anchors to the three contact pages. TrackedLink marks its own
+      // anchors with a location attribute, so a tap is never counted twice.
+      const plainLink = target?.closest?.("a[href]:not([data-cta-location])");
+      const plainCta = plainLink
+        ? ctaDetail(plainLink.getAttribute("href") ?? "", "inline")
+        : undefined;
+      if (plainCta) trackEvent("cta_click", plainCta);
+      const handoff = target?.closest?.("a[data-handoff]");
+      const destination = handoff
+        ? handoffDestination(handoff.getAttribute("href") ?? "")
+        : undefined;
+      if (destination) trackEvent("official_handoff_click", { destination });
     }
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
@@ -178,7 +188,11 @@ export function Analytics() {
     previousPath.current = pathname;
     try {
       window.fbq?.("track", "PageView");
-      if (GA4_ID) window.gtag?.("config", GA4_ID, { ...eventParams(pathname), page_location: window.location.origin + safePagePath(pathname) });
+      if (GA4_ID)
+        window.gtag?.("config", GA4_ID, {
+          ...eventParams(pathname),
+          page_location: window.location.origin + safePagePath(pathname),
+        });
     } catch {
       // ignore
     }

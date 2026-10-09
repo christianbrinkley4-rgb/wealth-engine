@@ -1,22 +1,39 @@
-# Traction release dependencies, October 9, 2026
+# Traction release: what still needs Christian, October 9, 2026
 
-This is a local release candidate. Nothing has been deployed or pushed. Code results and verification are in TRACTION-RELEASE-REPORT-2026-10-09.md and TRACTION-TEST-EVIDENCE-2026-10-09.md.
+Local release candidate on `claude/traction-2026-10-09`. Nothing deployed, nothing pushed to `master`. Results are in [TRACTION-RELEASE-REPORT-2026-10-09.md](TRACTION-RELEASE-REPORT-2026-10-09.md) and the gate in [CLAUDE-FINAL-RELEASE-GATE-2026-10-09.md](CLAUDE-FINAL-RELEASE-GATE-2026-10-09.md).
 
-| Ticket | Code delivered | External input or decision still required |
+## Decisions only Christian can make
+
+| # | Item | What the code does today | What is needed |
+| --- | --- | --- | --- |
+| 1 | **Reviews** | `GOOGLE_REVIEWS` is `null` and `TESTIMONIALS` is empty. The site shows a plain "See my Google profile" link. No count, no stars | Ask past clients for Google reviews. Then put the real count and rating in `lib/testimonials.ts`. Check with the compliance contact before any quote is shown |
+| 2 | **License number** | `AGENT.npn` is `null`. No lookup link and no identifier in structured data | Decide whether to publish the NPN. If yes, set it in `lib/agent.ts` and the "Check my license with the state" link appears by itself |
+| 3 | **Phone number** | The repo has (919) 408-6671 in `lib/agent.ts` and `lib/seo.ts`. An earlier note said the number had moved to a 336 line | Confirm which number is live. A 919 number on a Greensboro business is a known trust gap. Changing it means the Google profile and every listing change the same day |
+| 4 | **Meta Pixel (T-02)** | Unchanged. No privacy wording was edited | Pick one: switch it off in Netlify while ads are parked, or keep it and approve a privacy sentence that is true for Meta |
+| 5 | **Homepage H1** | Unchanged: "Medicare and money, explained by someone who lives here" | Approve or decline returning it to Medicare and local help |
+| 6 | **Guide signup promise (T-08)** | The form now also appears on `/learn` and `/answers/*`. Consent text is unchanged and says "Reply unsubscribe to any email and you're off the list." Nothing is stored. Each signup is an email to Christian | That promise is kept by hand. Confirm it is being kept, or approve storage with a real unsubscribe route |
+| 7 | **Town pages** | 19 of 20 `/medicare-in` pages are noindexed, including Winston-Salem and High Point | For each town worth bringing back, supply what only a local knows: where you meet people, which Social Security office residents use, what comes up there. Then add the slug to `INDEXABLE_MEDICARE_SLUGS` |
+| 8 | **Service counties** | The checklist offers the eight counties that have a town page here. Codex recorded that Christian named Guilford, Alamance, Wake, Granville and Randolph in its chat. That is not in the repo and Wake has no page | Confirm the real list |
+| 9 | **Compliance review of the checklist (T-07)** | It shows no plans, stores nothing, and recommends nothing | Run the page past the compliance contact before launch |
+| 10 | **Partnerships, listings, backlinks** | None created, claimed or implied. No email or message was sent | Outreach is Christian's |
+
+## After an approved deploy
+
+- In GA4, star `phone_click`, `generate_lead` and `booking_confirmed`. Register the custom dimensions in MEASUREMENT-SPEC section 6.1. Until then the new events are collected but invisible in reports.
+- Check the Cal.com webhook produces `booking_confirmed`. `booking_complete` is a browser diagnostic and must not be added to booking totals.
+- Run Lighthouse once on a deploy preview and once on production for `/`, `/turning-65`, `/learn`, `/tools/compound-interest` and one guide. That is the before and after this branch could not produce locally.
+- Export 28 days of Search Console data and follow GSC-IMPORT-WORKFLOW-2026-10-09.md.
+- Proposed, not applied: change the Netlify build command to `npm run check`.
+
+## Local facts that need a human check before they go on a page
+
+Codex gathered these. They were not re-verified and are not on the site.
+
+| County | Claimed contact | Why it is held back |
 | --- | --- | --- |
-| T-02 | Existing environment gates and provider tests retained. No privacy statement or pixel code changed. | Christian must choose A: disable Meta using the Netlify environment, or B: keep it and approve accurate privacy wording. The question remains unanswered. A future authorized deployment must verify the live request/cookie state. Local no-ID lab runs do not prove production Meta is off. |
-| T-08 | Success measurement and signup placement on `/learn` and answer articles. Existing endpoint, consent and storage retained. | Explain the actual unsubscribe process, then approve matching wording or explicitly authorize the specified storage/consent/unsubscribe implementation. The question remains unanswered. The existing unsubscribe promise has not been verified; this is a launch dependency. |
-| T-07 | Four-step checklist, device-only entries, printing, fixed analytics and official handoffs. | Compliance contact review before launch. Christian supplied Guilford, Alamance, Wake, Granville and Randolph counties, not a verified ZIP-to-county crosswalk. The page therefore uses a manual county selector and explicitly says ZIP does not look up county or plans. A ZIP cannot be classified as served/unserved. Other counties receive an honest “not confirmed here” message and official research links. A verified crosswalk is required before adding ZIP inference. No health-data persistence was added. |
-| T-06 | Trust block uses approved repository facts, profile links and a neutral Google review link. | Christian decides whether to publish an NPN and supplies a verified value. `AGENT.npn` remains null: no lookup link or Person identifier appears. Real review counts/ratings and approved testimonials require verified data and the existing compliance answer; no fabricated proof is displayed. |
-| T-01 | Fixed event taxonomy, deduplication, CTA surfaces and synthetic recorder tests. | After an authorized launch, configure GA4 key events `phone_click`, `generate_lead`, `booking_confirmed` and the custom dimensions in MEASUREMENT-SPEC. Check the live Cal.com webhook/server confirmed-booking path. `booking_complete` remains a browser diagnostic and must not be added to confirmed-booking totals. |
-| T-10 | One local check command and bounded test concurrency. | Proposed Netlify command: `npm run check` instead of the current build-only command. This proposal was not applied; it requires approval and a separate deployment action. |
-| T-12 | Tested CSV importer, synthetic fixture, crawl-graph suggestions and a dated workflow. | Real Search Console page/query-pair export and 28 days of data after T-03/T-04 ship. No live positions, targets, test/control assignments or effect sizes are claimed. Experiment postponed until at least ten distinct pages qualify. Separate aggregate Pages/Queries files cannot truthfully reconstruct page/query pairs. |
-| T-13 | Twelve pages rewritten with dated public sources; public locations are resources only, per Christian. | Source sites that reject automated requests require a human browser check when updating. Granville public sources were independently read through web retrieval; raw HTTP 403 is recorded, not described as a broken link. Existing LinkedIn, Manta and Brownbook profile bot blocks require human verification. No claim that Christian meets at these locations. |
+| Guilford | Senior Resources of Guilford, 336-373-4816 | The source page did not return the number to a plain request |
+| Alamance | SHIIP via Alamance ElderCare, 919-704-6714 | Third-party directory. A 919 number for a 336 county |
+| Granville | Granville County Senior Services, 919-693-1930 | Source returned HTTP 403 |
+| Randolph | None found | Use the state locator |
 
-Backlinks, local profile ownership/changes, reviews and external listings remain external business work. None was created, edited or solicited. No messages or emails were sent.
-
-The homepage H1, eyebrow, approved license wording `NC Life & Health`, disclosures, consent wording and form retention rules were preserved. The homepage H1 approval remains a separate decision. No carrier promise, personalized investment advice, plan recommendation or invented local office was added.
-
-T-14 is P2 and outside the requested P0/P1 implementation. Its metadata/header/CSP cleanup was not included. T-12's importer was included because the user explicitly requested an importable workflow when no Search Console export exists; its experiment remains postponed.
-
-Performance evidence is controlled local lab data, not real-user Core Web Vitals. After launch, inspect field data only if Search Console has enough real visits. Live tags and the unresolved Meta decision can materially change production performance.
+Open the source in a browser, read the number, then add it to `COUNTY_COUNSELING` in `lib/localMedicareFacts.ts` with the date.

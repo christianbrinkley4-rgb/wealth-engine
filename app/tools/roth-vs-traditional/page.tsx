@@ -52,7 +52,7 @@ export default function RothVsTraditionalPage() {
         }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth vs traditional" }]} title="Roth vs traditional, in real dollars" lede="Compare the same pre-tax contribution at tax rates you choose." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth vs traditional" }]} title="Roth vs traditional, in real dollars" lede="Pay tax now or pay it later. That is the whole question. Type in the same contribution for both accounts and see which leaves more after tax." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

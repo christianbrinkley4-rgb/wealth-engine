@@ -95,6 +95,30 @@ export function ctaDetail(href: string, location: CtaLocation): EventDetail | un
   return cta_id ? { cta_id, cta_location: location } : undefined;
 }
 
+/**
+ * Which official site an outbound link goes to, as one of the fixed labels.
+ * Anything else, including a look-alike host or a plain http link, is not
+ * reported. A local SHIIP site run by a county partner counts as SHIIP.
+ */
+export function handoffDestination(href: string): (typeof DESTINATIONS)[number] | undefined {
+  let url: URL;
+  try {
+    url = new URL(href);
+  } catch {
+    return undefined;
+  }
+  if (url.protocol !== "https:") return undefined;
+  const host = url.hostname;
+  const on = (domain: string) => host === domain || host.endsWith(`.${domain}`);
+  if (on("medicare.gov")) {
+    return url.pathname.startsWith("/plan-compare") ? "medicare_plan_compare" : "medicare_gov";
+  }
+  if (on("ssa.gov")) return "ssa_gov";
+  if (on("ncdoi.gov") && url.pathname.includes("shiip")) return "nc_shiip";
+  if (on("shepherdscenter.org") && url.pathname.includes("shiip")) return "nc_shiip";
+  return undefined;
+}
+
 /** What an event may say beyond the page: which quiz, which step, which review link. */
 export type EventDetail = {
   quiz_id?: QuizId; step?: number; review_source?: ReviewSource;

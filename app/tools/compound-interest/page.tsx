@@ -50,7 +50,7 @@ export default function CompoundInterestPage() {
         }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Compound interest" }]} title="Compound interest, live" lede="Change the deposits, time, and assumed rate to explore how savings could grow." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Compound interest" }]} title="Compound interest, live" lede="The most boring chart in finance is also the most powerful one. Drag the sliders and the curve redraws." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

@@ -37,7 +37,7 @@ export default function CdSavingsQuizPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQS)) }}
       />
 
-      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "CD or savings quiz" }]} title="CD or high-yield savings: which fits your cash?" lede="Organize questions about access, timing, and terms before choosing where to keep cash." />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "CD or savings quiz" }]} title="CD or high-yield savings: which fits your cash?" lede="The bank is offering 4% and you are not sure if you should lock it in. Six questions about when you will need the money and how much access matters." />
 
       <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">

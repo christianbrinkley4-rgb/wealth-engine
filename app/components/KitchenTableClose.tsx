@@ -47,7 +47,7 @@ export function KitchenTableClose({
               {cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
             </Link>
           </div>
-          <TrustFacts />
+          <TrustFacts compact />
           <p className="ktc-note">
             Free consultation in person or by phone. It’s me who answers. {AGENT.hours}
           </p>

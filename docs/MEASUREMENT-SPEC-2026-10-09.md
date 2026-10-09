@@ -218,3 +218,10 @@ Checklist: header plan-check button, hero button, sticky bar both buttons, page-
 - Any cross-session visitor identifier.
 - Server-side tagging, consent-mode banners, or a tag manager. Three providers do not need one.
 - Sending leads or outcomes to any ad platform as offline conversions. Revisit only if paid ads are approved, and then with Christian and compliance.
+
+## 9. Addendum after implementation review, October 9, 2026
+
+- `phone_click` now fires only for Christian's own number (`AGENT.phoneHref`). Town pages carry SHIIP phone numbers, and a call to SHIIP is not a lead. Section 3.3 said "any `tel:` link". Every `tel:` link on master was his number, so history is unaffected.
+- `official_handoff_click` with `destination: nc_shiip` also covers the Forsyth County SHIIP page on `shepherdscenter.org`. The label list is unchanged.
+- The host and path rules live in `handoffDestination()` in `lib/analytics.ts` and are unit tested, including a look-alike host.
+- Observed, not changed: `/start?quick=1` fires `quiz_start` on arrival, without a press. Worth a look when reading quiz start rates.

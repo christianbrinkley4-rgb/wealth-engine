@@ -4,8 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CitySnapshot } from "@/app/components/CitySnapshot";
-import { LocalMedicarePage } from "@/app/components/LocalMedicarePage";
-import { LOCAL_MEDICARE_TOWNS } from "@/lib/localMedicareFacts";
+import { NC_SHIIP, countyCounseling } from "@/lib/localMedicareFacts";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
@@ -67,7 +66,8 @@ export async function generateMetadata({
   return {
     title: { absolute: title },
     description,
-    robots: { index: isIndexableTown("medicare", city.slug), follow: true },
+    // Only ever tightens: an indexable town inherits the site-wide robots rule.
+    ...(isIndexableTown("medicare", city.slug) ? {} : { robots: { index: false, follow: true } }),
     alternates: { canonical: `/medicare-in/${city.slug}` },
     openGraph: pageOpenGraph({
       title: `Medicare help in ${city.name}, North Carolina`,
@@ -82,11 +82,10 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
   const city = getTriadCity(slug);
   if (!city) notFound();
 
-  if (LOCAL_MEDICARE_TOWNS[city.slug]) return <LocalMedicarePage townKey={city.slug} />;
-
   const others = relatedPlaces(city);
   const startHref = "/start?topic=medicare";
   const cityFaqs = medicareCityFaqs(city);
+  const localCounseling = countyCounseling(city.county);
 
   return (
     <main className="text-[var(--color-navy)]">
@@ -181,6 +180,49 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Free counseling that isn’t me</h2>
+          <p className="text-18 mt-4 leading-relaxed">
+            North Carolina runs a free Medicare counseling program called SHIIP, through the
+            Department of Insurance. It has trained counselors in every county, and they don’t sell
+            insurance. If you want a second set of eyes, or you’d rather not talk to an agent at
+            all, call them.
+          </p>
+          <ul className="text-18 mt-4 flex list-disc flex-col gap-2 pl-6 leading-relaxed">
+            {localCounseling ? (
+              <li>
+                {city.county}: {localCounseling.name},{" "}
+                <a href={localCounseling.phoneHref} className="underline underline-offset-2">
+                  {localCounseling.phone}
+                </a>
+                .{" "}
+                <a
+                  data-handoff
+                  href={localCounseling.sourceUrl}
+                  className="underline underline-offset-2"
+                >
+                  Their SHIIP page
+                </a>
+              </li>
+            ) : null}
+            <li>
+              Statewide: {NC_SHIIP.name},{" "}
+              <a href={NC_SHIIP.phoneHref} className="underline underline-offset-2">
+                {NC_SHIIP.phone}
+              </a>
+              .{" "}
+              <a data-handoff href={NC_SHIIP.sourceUrl} className="underline underline-offset-2">
+                Find the counselor for {city.county}
+              </a>
+            </li>
+          </ul>
+          <p className="text-15 mt-3 text-[var(--color-ink-muted)]">
+            Numbers checked October 9, 2026. SHIIP is separate from my practice.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-[var(--color-paper)] py-14">
+        <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Questions I get from {city.name}</h2>
           <dl className="mt-8 flex flex-col gap-7">
             {cityFaqs.map((item) => (
@@ -199,7 +241,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         </div>
       </section>
 
-      <section className="bg-[var(--color-paper)] py-14">
+      <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Also serving</h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
@@ -258,6 +300,20 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
                 Advantage vs Medigap guide
               </Link>
+              , then read how{" "}
+              <Link
+                href="/medicare-supplement-plans-greensboro-nc"
+                className="underline underline-offset-2"
+              >
+                Medigap works in Greensboro
+              </Link>{" "}
+              and the{" "}
+              <Link
+                href="/medicare-advantage-vs-medigap-greensboro-nc"
+                className="underline underline-offset-2"
+              >
+                Greensboro side-by-side
+              </Link>
               .
             </p>
           ) : null}
@@ -293,7 +349,6 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         </div>
       </section>
 
-      {city.slug === "greensboro" ? <div className="measure-prose app-shell max-w-3xl py-8"><p>For a closer look at the two paths, read about <Link href="/medicare-supplement-plans-greensboro-nc">Medigap in Greensboro</Link> and the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local comparison</Link>. Getting started? Use the <Link href="/turning-65-checklist">turning-65 checklist</Link>.</p></div> : null}
       <KitchenTableClose
         heading={`Request a consultation in ${city.name}`}
         body={`We can meet at home in ${city.name} when travel works, or talk by phone. Bring your doctors, prescriptions, and questions. No cost. No obligation.`}
