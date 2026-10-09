@@ -10,7 +10,7 @@ import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import { ToolsDisclaimer } from "./_components/tool-footer";
 
 /**
- * The /tools hub: seven interactive calculators, all client-side. The
+ * The /tools hub: interactive calculators, all client-side. The
  * heading, intro, and card descriptions render on the server; each tool is
  * its own client component on its own page. Every tool states its math and
  * frames results as estimates for education.
@@ -18,7 +18,7 @@ import { ToolsDisclaimer } from "./_components/tool-footer";
 
 const path = "/tools";
 const description =
-  "Seven free money calculators that show their math: Roth vs traditional, emergency fund, debt payoff, retirement projector, take-home pay, life insurance needs, and compound interest. No account, nothing leaves your device.";
+  "Free money calculators that show their math. Explore paycheck breakdowns, retirement savings, debt payoff, and more. No account needed.";
 
 export const metadata: Metadata = {
   title: { absolute: "Free Money Calculators | Christian Brinkley" },
@@ -32,6 +32,11 @@ export const metadata: Metadata = {
 };
 
 const TOOLS = [
+  {
+    href: "/tools/paycheck-breakdown",
+    title: "PaycheckOS",
+    body: "See where your paycheck went. Get federal tax estimates, plain explanations, and a breakdown card you can share.",
+  },
   {
     href: "/tools/roth-vs-traditional",
     title: "Roth vs traditional",

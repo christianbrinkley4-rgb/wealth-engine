@@ -391,3 +391,279 @@ table.t-table {
   font-weight: 700;
   color: var(--color-navy);
 }
+
+/* PaycheckOS uses the shared calculator surfaces and the site's navy/gold palette. */
+.p-page {
+  background: var(--color-paper);
+}
+.p-hero {
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+.p-disclosure {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #b9c2ba;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 0.8333rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.8rem;
+}
+.p-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.08;
+  margin: 0.65rem 0;
+}
+.p-hero > p:last-child {
+  max-width: 42rem;
+  line-height: 1.5;
+}
+.p-hero .t-hero-eyebrow,
+.p-empty .t-hero-eyebrow {
+  color: var(--color-gold-ink);
+}
+.p-workspace {
+  padding-bottom: 2rem;
+}
+.p-calc > * {
+  min-width: 0;
+}
+.p-calc h2,
+.p-calc h3,
+.p-sources h2 {
+  font-weight: 700;
+}
+.p-calc h2 {
+  font-size: 1.35rem;
+}
+.p-calc h3,
+.p-sources h2 {
+  font-size: 1.15rem;
+}
+.p-calc a,
+.p-hero a,
+.p-sources a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.p-calc a:focus-visible,
+.p-hero a:focus-visible,
+.p-sources a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+.p-calc .btn {
+  min-height: 44px;
+}
+.p-calc input,
+.p-calc select {
+  min-height: 44px;
+}
+.p-calc input[aria-invalid="true"] {
+  border-color: #9a3525;
+}
+.p-error {
+  color: #9a3525;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.p-details {
+  border-top: 1px solid #d9ded8;
+  padding-top: 0.75rem;
+}
+.p-details summary {
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 0.5rem 0;
+}
+.p-details p {
+  line-height: 1.5;
+}
+.p-details .t-field {
+  margin-top: 0.75rem;
+}
+.p-result-top {
+  background: var(--color-navy);
+  color: white;
+  border-radius: 10px;
+  padding: 1.15rem;
+}
+.p-result-top h2 {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  margin: 0.3rem 0 0.65rem;
+}
+.p-result-top a {
+  color: inherit;
+}
+.p-result-top p {
+  line-height: 1.5;
+}
+.p-result > p {
+  line-height: 1.5;
+}
+.p-empty {
+  min-height: 18rem;
+  align-content: center;
+}
+.p-empty p {
+  line-height: 1.6;
+}
+.p-pay-bar {
+  display: flex;
+  height: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e4e8e1;
+}
+.p-pay-bar span:first-child {
+  background: var(--color-navy);
+}
+.p-pay-bar span:nth-child(2) {
+  background: #b48c46;
+}
+.p-pay-bar span:nth-child(3) {
+  background: #a8b4a9;
+}
+.p-bar-key {
+  font-size: 0.8333rem;
+  color: var(--color-ink-muted);
+  margin-top: -0.75rem;
+}
+.p-mismatch {
+  border: 1px solid #9a3525;
+  background: #fff6ed;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.p-mismatch p {
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+.p-line {
+  border-bottom: 1px solid #e4e8e1;
+  padding: 0.8rem 0;
+}
+.p-line-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+}
+.p-line-heading dt {
+  font-weight: 600;
+  flex: 1 1 12rem;
+}
+.p-line-heading dd {
+  font-weight: 700;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.p-line > dd {
+  margin-left: 0;
+}
+.p-math {
+  padding-left: 1.3rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.p-math li {
+  margin: 0.6rem 0;
+  overflow-wrap: anywhere;
+}
+.p-annual {
+  margin-top: 1rem;
+}
+.p-annual > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+}
+.p-annual dd {
+  margin: 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.p-share {
+  display: grid;
+  gap: 0.75rem;
+}
+.p-share-card {
+  background: var(--color-navy);
+  color: #fff;
+  border-radius: 12px;
+  padding: 1.15rem;
+}
+.p-share-card a {
+  color: inherit;
+}
+.p-brand {
+  color: var(--color-gold);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+.p-share-card h3 {
+  margin-top: 0.3rem;
+}
+.p-share-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+.p-share-metrics > div {
+  flex: 1 1 7rem;
+  min-width: 0;
+}
+.p-share-metrics dt {
+  color: var(--color-gold);
+  font-size: 0.8333rem;
+}
+.p-share-metrics dd {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0;
+  overflow-wrap: anywhere;
+}
+.p-share-summary {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+}
+.p-share-note {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.p-share-url {
+  display: block;
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+  margin-top: 0.75rem;
+}
+.p-sources {
+  border-top: 1px solid #d9ded8;
+  padding-top: 1.5rem;
+}
+.p-sources p,
+.p-sources li {
+  font-size: 0.9444rem;
+  line-height: 1.6;
+  margin-top: 0.6rem;
+}
+.p-sources ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+@media (max-width: 400px) {
+  .p-calc .t-controls,
+  .p-calc .t-panel {
+    padding: 1rem;
+  }
+}

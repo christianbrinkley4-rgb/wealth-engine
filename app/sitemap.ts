@@ -121,6 +121,7 @@ const STATIC_ROUTES: Array<{
     "/tools/debt-payoff",
     "/tools/retirement-projector",
     "/tools/take-home-pay",
+    "/tools/paycheck-breakdown",
     "/tools/life-insurance-needs",
     "/tools/compound-interest",
   ].map((path) => ({
