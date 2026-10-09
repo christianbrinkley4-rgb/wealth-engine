@@ -3,18 +3,12 @@
 import { useState } from "react";
 
 import { money, monthsLabel, simulatePayoff } from "@/lib/wealth/math";
+import { debtRiskScenarios } from "@/lib/wealth/risk";
 
-import {
-  AssumptionBox,
-  CopyNumbersButton,
-  MoneyField,
-  Stat,
-} from "../_components/tool-shared";
-import {
-  DEBT_PAYOFF_SAMPLE_DEBTS,
-  DEBT_PAYOFF_SAMPLE_EXTRA,
-} from "../_components/share-card-data";
+import { AssumptionBox, CopyNumbersButton, MoneyField, Stat } from "../_components/tool-shared";
+import { DEBT_PAYOFF_SAMPLE_DEBTS, DEBT_PAYOFF_SAMPLE_EXTRA } from "../_components/share-card-data";
 import { ShareResultButton } from "../_components/share-card";
+import { RiskSection } from "../_components/risk-section";
 
 type DebtInput = {
   id: string;
@@ -37,7 +31,10 @@ export function DebtPayoff() {
 
   const addDebt = () => {
     nextId += 1;
-    setDebts((prev) => [...prev, { id: String(nextId), name: "New debt", balance: 0, apr: 0, minPayment: 0 }]);
+    setDebts((prev) => [
+      ...prev,
+      { id: String(nextId), name: "New debt", balance: 0, apr: 0, minPayment: 0 },
+    ]);
   };
 
   const removeDebt = (id: string) => setDebts((prev) => prev.filter((debt) => debt.id !== id));
@@ -50,6 +47,8 @@ export function DebtPayoff() {
   const winner: "avalanche" | "snowball" | "tie" =
     Math.abs(interestSaved) < 1 ? "tie" : interestSaved > 0 ? "avalanche" : "snowball";
   const sharePlan = winner === "snowball" ? snowball : avalanche;
+  const riskStrategy = winner === "snowball" ? "snowball" : "avalanche";
+  const debtRisk = debtRiskScenarios({ debts: live, extra, strategy: riskStrategy });
 
   const summary = [
     "Debt payoff: my numbers",
@@ -69,10 +68,12 @@ export function DebtPayoff() {
     <div className="t-calc">
       <div className="t-controls">
         <div>
-          <p className="text-15 font-semibold uppercase tracking-wide text-[var(--color-ink-muted)]">
+          <p className="text-15 font-semibold tracking-wide text-[var(--color-ink-muted)] uppercase">
             Your debts
           </p>
-          <p className="t-hint">Sample debts are filled in. Edit them to match your real balances.</p>
+          <p className="t-hint">
+            Sample debts are filled in. Edit them to match your real balances.
+          </p>
         </div>
         {debts.map((debt) => (
           <div className="t-debt-row" key={debt.id}>
@@ -94,7 +95,9 @@ export function DebtPayoff() {
                 type="number"
                 min={0}
                 value={debt.balance}
-                onChange={(event) => update(debt.id, { balance: Math.max(0, Number(event.target.value) || 0) })}
+                onChange={(event) =>
+                  update(debt.id, { balance: Math.max(0, Number(event.target.value) || 0) })
+                }
               />
               <p className="t-hint">What you still owe on this debt.</p>
             </div>
@@ -107,7 +110,9 @@ export function DebtPayoff() {
                 min={0}
                 step={0.1}
                 value={debt.apr}
-                onChange={(event) => update(debt.id, { apr: Math.max(0, Number(event.target.value) || 0) })}
+                onChange={(event) =>
+                  update(debt.id, { apr: Math.max(0, Number(event.target.value) || 0) })
+                }
               />
               <p className="t-hint">The yearly interest rate from your statement.</p>
             </div>
@@ -119,7 +124,9 @@ export function DebtPayoff() {
                 type="number"
                 min={0}
                 value={debt.minPayment}
-                onChange={(event) => update(debt.id, { minPayment: Math.max(0, Number(event.target.value) || 0) })}
+                onChange={(event) =>
+                  update(debt.id, { minPayment: Math.max(0, Number(event.target.value) || 0) })
+                }
               />
               <p className="t-hint">The smallest payment the lender requires.</p>
             </div>
@@ -211,6 +218,8 @@ export function DebtPayoff() {
           zero, its minimum rolls into the next target, so your total monthly payment never drops.
         </AssumptionBox>
 
+        <RiskSection scenarios={debtRisk.scenarios} />
+
         <CopyNumbersButton summary={summary} />
         <ShareResultButton
           headlineNumber={sharePlan.stuck ? "50+ years" : monthsLabel(sharePlan.months)}
@@ -219,6 +228,7 @@ export function DebtPayoff() {
           }
           toolName="Debt payoff calculator"
           toolPath="/tools/debt-payoff"
+          riskLine={debtRisk.riskLine}
         />
       </div>
     </div>

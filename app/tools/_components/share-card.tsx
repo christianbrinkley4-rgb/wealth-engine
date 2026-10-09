@@ -61,7 +61,20 @@ export function drawShareCard(ctx: CanvasRenderingContext2D, data: ShareCardData
   // One-line label.
   ctx.fillStyle = SHARE_BRAND.paper;
   ctx.font = SANS_FONT(42, 500);
-  ctx.fillText(data.headlineLabel, pad, frame + 110 + headlinePx + 40 + 78);
+  const labelY = frame + 110 + headlinePx + 40 + 78;
+  ctx.fillText(data.headlineLabel, pad, labelY);
+
+  // Optional risk hook (Honestly Calculator), shrunk until it fits.
+  if (data.riskLine) {
+    let riskPx = 32;
+    ctx.font = SANS_FONT(riskPx, 500);
+    while (ctx.measureText(data.riskLine).width > W - pad * 2 && riskPx > 20) {
+      riskPx -= 2;
+      ctx.font = SANS_FONT(riskPx, 500);
+    }
+    ctx.fillStyle = "#cfc8b8";
+    ctx.fillText(data.riskLine, pad, labelY + 62);
+  }
 
   // Footer: name and domain.
   ctx.fillStyle = "#ffffff";
@@ -108,6 +121,7 @@ export function ShareResultButton({
   headlineLabel,
   toolName,
   toolPath,
+  riskLine,
 }: ShareCardData) {
   const [status, setStatus] = useState<"idle" | "working" | "shared" | "saved" | "failed">("idle");
   const timer = useRef<number | undefined>(undefined);
@@ -120,7 +134,7 @@ export function ShareResultButton({
   const share = async () => {
     if (status === "working") return;
     setStatus("working");
-    const data: ShareCardData = { headlineNumber, headlineLabel, toolName, toolPath };
+    const data: ShareCardData = { headlineNumber, headlineLabel, toolName, toolPath, riskLine };
     try {
       const blob = await renderCardBlob(data);
       const fileName = shareCardFileName(toolPath);
@@ -131,7 +145,11 @@ export function ShareResultButton({
         navigator.canShare({ files: [file] })
       ) {
         try {
-          await navigator.share({ files: [file], title: `${toolName} result`, text: shareCardText(data) });
+          await navigator.share({
+            files: [file],
+            title: `${toolName} result`,
+            text: shareCardText(data),
+          });
           setStatus("shared");
           reset();
           return;
@@ -175,6 +193,7 @@ export function ShareResultButton({
       data-headline-label={headlineLabel}
       data-tool-name={toolName}
       data-tool-path={toolPath}
+      data-risk-line={riskLine}
     >
       {label}
     </button>

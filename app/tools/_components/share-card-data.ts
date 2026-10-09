@@ -15,6 +15,7 @@ import {
   simulatePayoff,
   type Debt,
 } from "@/lib/wealth/math";
+import { retirementRiskLine } from "@/lib/wealth/risk";
 
 /** The 1200x630 social card size, shared by canvas and the OG route. */
 export const SHARE_CARD_SIZE = { width: 1200, height: 630 } as const;
@@ -46,6 +47,8 @@ export type ShareCardData = {
   headlineLabel: string;
   toolName: string;
   toolPath: string;
+  /** Optional one-line risk hook, drawn under the label (Honestly Calculator). */
+  riskLine?: string;
 };
 
 export type ToolCardDefault = ShareCardData & { slug: ToolSlug };
@@ -75,6 +78,12 @@ function debtPayoffDefault(): { headlineNumber: string; headlineLabel: string } 
   };
 }
 
+function debtPayoffRiskLine(): string {
+  const minOnly = simulatePayoff(DEBT_PAYOFF_SAMPLE_DEBTS, 0, "avalanche");
+  const label = minOnly.stuck ? "50+ years" : monthsLabel(minOnly.months);
+  return `Minimums only: ${label} and ${money(minOnly.totalInterest)} interest.`;
+}
+
 function rothVsTraditionalDefault(): { headlineNumber: string; headlineLabel: string } {
   const result = rothVsTraditional({
     annualPreTax: 7500,
@@ -84,7 +93,10 @@ function rothVsTraditionalDefault(): { headlineNumber: string; headlineLabel: st
     taxLater: 22,
   });
   if (result.winner === "tie") {
-    return { headlineNumber: money(result.roth), headlineLabel: "Roth and traditional tie, after tax" };
+    return {
+      headlineNumber: money(result.roth),
+      headlineLabel: "Roth and traditional tie, after tax",
+    };
   }
   return {
     headlineNumber: money(result.winner === "roth" ? result.roth : result.traditional),
@@ -121,6 +133,7 @@ export const TOOL_CARD_DEFAULTS: Record<ToolSlug, ToolCardDefault> = {
   "debt-payoff": {
     slug: "debt-payoff",
     ...debtPayoffDefault(),
+    riskLine: debtPayoffRiskLine(),
     toolName: "Debt payoff calculator",
     toolPath: "/tools/debt-payoff",
   },
@@ -142,6 +155,7 @@ export const TOOL_CARD_DEFAULTS: Record<ToolSlug, ToolCardDefault> = {
     slug: "retirement-projector",
     headlineNumber: money(retirementDefault.balance),
     headlineLabel: "Projected at age 65",
+    riskLine: retirementRiskLine(),
     toolName: "Retirement projector",
     toolPath: "/tools/retirement-projector",
   },
@@ -175,6 +189,7 @@ export function buildShareCardData(input: {
   headlineLabel: string;
   toolName: string;
   toolPath: string;
+  riskLine?: string;
 }): ShareCardData {
   const headlineNumber = input.headlineNumber.trim();
   const headlineLabel = input.headlineLabel.trim();
@@ -183,16 +198,23 @@ export function buildShareCardData(input: {
   if (!headlineNumber || !headlineLabel || !toolName || !toolPath) {
     throw new Error("buildShareCardData needs a headline number, label, tool name, and tool path.");
   }
-  return { headlineNumber, headlineLabel, toolName, toolPath };
+  const riskLine = input.riskLine?.trim();
+  return riskLine
+    ? { headlineNumber, headlineLabel, toolName, toolPath, riskLine }
+    : { headlineNumber, headlineLabel, toolName, toolPath };
 }
 
 /** "budget-calculator-result.png" style download name from a tool path. */
 export function shareCardFileName(toolPath: string): string {
-  const slug = toolPath.replace(/^\/tools\//, "").replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "");
+  const slug = toolPath
+    .replace(/^\/tools\//, "")
+    .replace(/[^a-z0-9]+/gi, "-")
+    .replace(/^-|-$/g, "");
   return `${slug || "calculator"}-result.png`;
 }
 
 /** The text that travels with the image when the Web Share sheet opens. */
 export function shareCardText(data: ShareCardData): string {
-  return `My result from the ${data.toolName}: ${data.headlineLabel}, ${data.headlineNumber}.`;
+  const base = `My result from the ${data.toolName}: ${data.headlineLabel}, ${data.headlineNumber}.`;
+  return data.riskLine ? `${base} ${data.riskLine}` : base;
 }

@@ -77,12 +77,34 @@ export function ShareCardOg({ data }: { data: ShareCardData }) {
           >
             {data.headlineLabel}
           </div>
+          {data.riskLine ? (
+            <div
+              style={{
+                display: "flex",
+                marginTop: 26,
+                fontFamily: "sans-serif",
+                fontSize: 30,
+                fontWeight: 500,
+                color: "#cfc8b8",
+              }}
+            >
+              {data.riskLine}
+            </div>
+          ) : null}
         </div>
         <div style={{ display: "flex", alignItems: "center", fontFamily: "sans-serif" }}>
           <div style={{ display: "flex", fontSize: 32, fontWeight: 700, color: "#ffffff" }}>
             {SHARE_BRAND.name}
           </div>
-          <div style={{ display: "flex", marginLeft: 28, fontSize: 32, fontWeight: 500, color: SHARE_BRAND.gold }}>
+          <div
+            style={{
+              display: "flex",
+              marginLeft: 28,
+              fontSize: 32,
+              fontWeight: 500,
+              color: SHARE_BRAND.gold,
+            }}
+          >
             {SHARE_BRAND.domain}
           </div>
         </div>

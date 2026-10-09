@@ -53,6 +53,24 @@ describe("ShareResultButton on every tool", () => {
       unmount();
     }
   });
+
+  it("exposes the risk line on the honestly-calculator tools", () => {
+    const { unmount: unmountRetirement } = render(createElement(RetirementProjector));
+    const retirementButton = screen.getByRole("button", { name: "Share your result" });
+    expect(retirementButton.getAttribute("data-risk-line")).toBe(
+      TOOL_CARD_DEFAULTS["retirement-projector"].riskLine,
+    );
+    expect(retirementButton.getAttribute("data-risk-line")).toContain("26 of the last 98 years");
+    unmountRetirement();
+
+    const { unmount: unmountDebt } = render(createElement(DebtPayoff));
+    const debtButton = screen.getByRole("button", { name: "Share your result" });
+    expect(debtButton.getAttribute("data-risk-line")).toBe(
+      TOOL_CARD_DEFAULTS["debt-payoff"].riskLine,
+    );
+    expect(debtButton.getAttribute("data-risk-line")).toMatch(/^Minimums only: /);
+    unmountDebt();
+  });
 });
 
 /** A recording stand-in for CanvasRenderingContext2D. */
@@ -85,7 +103,10 @@ describe("share flow", () => {
   beforeEach(() => {
     createdAnchors = [];
     const originalCreate = document.createElement.bind(document);
-    vi.spyOn(document, "createElement").mockImplementation(((tag: string, options?: ElementCreationOptions) => {
+    vi.spyOn(document, "createElement").mockImplementation(((
+      tag: string,
+      options?: ElementCreationOptions,
+    ) => {
       const el = originalCreate(tag, options);
       if (tag === "a") createdAnchors.push(el as HTMLAnchorElement);
       return el;
@@ -139,7 +160,11 @@ describe("share flow", () => {
       fireEvent.click(screen.getByRole("button", { name: "Share your result" }));
       await waitFor(() => expect(screen.getByRole("button", { name: "Shared" })).toBeTruthy());
       expect(share).toHaveBeenCalledTimes(1);
-      const [payload] = share.mock.calls[0] as Array<{ files: File[]; title: string; text: string }>;
+      const [payload] = share.mock.calls[0] as Array<{
+        files: File[];
+        title: string;
+        text: string;
+      }>;
       expect(payload.files).toHaveLength(1);
       expect(payload.files[0].name).toBe("budget-result.png");
       expect(payload.files[0].type).toBe("image/png");

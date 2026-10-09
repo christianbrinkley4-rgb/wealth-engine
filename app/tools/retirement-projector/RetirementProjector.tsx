@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { finalPoint, growthSeries, money } from "@/lib/wealth/math";
+import { retirementRiskLine, retirementRiskScenarios } from "@/lib/wealth/risk";
 
 import {
   AssumptionBox,
@@ -14,6 +15,7 @@ import {
   Stat,
 } from "../_components/tool-shared";
 import { ShareResultButton } from "../_components/share-card";
+import { RiskSection } from "../_components/risk-section";
 
 export function RetirementProjector() {
   const [currentAge, setCurrentAge] = useState(21);
@@ -26,6 +28,12 @@ export function RetirementProjector() {
   const series = growthSeries({ start: saved, monthly, years, annualReturn: rate });
   const end = finalPoint(series);
   const growth = end.balance - end.contributed;
+  const riskScenarios = retirementRiskScenarios({
+    start: saved,
+    monthly,
+    years,
+    annualReturn: rate,
+  });
 
   const summary = [
     "Retirement projector: my numbers",
@@ -40,14 +48,24 @@ export function RetirementProjector() {
   return (
     <div className="t-calc">
       <div className="t-controls">
-        <MoneyField label="Your age now" value={currentAge} onChange={(v) => setCurrentAge(Math.max(16, Math.min(100, v)))} hint="Just sets the timeline. Nothing leaves your device." />
+        <MoneyField
+          label="Your age now"
+          value={currentAge}
+          onChange={(v) => setCurrentAge(Math.max(16, Math.min(100, v)))}
+          hint="Just sets the timeline. Nothing leaves your device."
+        />
         <MoneyField
           label="Age you want to retire"
           value={retireAge}
           onChange={(v) => setRetireAge(Math.max(17, Math.min(100, v)))}
           hint="The end of the timeline this tool projects to."
         />
-        <MoneyField label="Saved so far" value={saved} onChange={(v) => setSaved(Math.max(0, v))} hint="Retirement accounts plus any other savings, added together." />
+        <MoneyField
+          label="Saved so far"
+          value={saved}
+          onChange={(v) => setSaved(Math.max(0, v))}
+          hint="Retirement accounts plus any other savings, added together."
+        />
         <Slider
           label="Monthly contribution"
           value={monthly}
@@ -75,19 +93,30 @@ export function RetirementProjector() {
 
         <MiniChart
           ariaTitle={`Projected balance by year, reaching ${money(end.balance)} at age ${retireAge}`}
-          labels={{ start: `Age ${currentAge}`, mid: `Age ${Math.round((currentAge + retireAge) / 2)}`, end: `Age ${retireAge}` }}
+          labels={{
+            start: `Age ${currentAge}`,
+            mid: `Age ${Math.round((currentAge + retireAge) / 2)}`,
+            end: `Age ${retireAge}`,
+          }}
           series={[
             { name: "Projected balance", color: "#152e34", values: series.map((p) => p.balance) },
-            { name: "You put in", color: "#8fa3ff", dashed: true, values: series.map((p) => p.contributed) },
+            {
+              name: "You put in",
+              color: "#8fa3ff",
+              dashed: true,
+              values: series.map((p) => p.contributed),
+            },
           ]}
         />
 
         <AssumptionBox>
           <strong>Assumed rate, not a prediction.</strong> This uses a steady {rate}% a year,
           compounded monthly, for {years} years. Real returns bounce around year to year and can be
-          negative. No taxes, fees, or inflation are included. Change the rate and watch how wide the
-          range gets.
+          negative. No taxes, fees, or inflation are included. Change the rate and watch how wide
+          the range gets.
         </AssumptionBox>
+
+        <RiskSection scenarios={riskScenarios} />
 
         <CopyNumbersButton summary={summary} />
         <ShareResultButton
@@ -95,6 +124,7 @@ export function RetirementProjector() {
           headlineLabel={`Projected at age ${retireAge}`}
           toolName="Retirement projector"
           toolPath="/tools/retirement-projector"
+          riskLine={retirementRiskLine()}
         />
       </div>
     </div>

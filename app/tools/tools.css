@@ -410,3 +410,48 @@ table.t-table {
   white-space: pre-wrap;
   word-break: break-word;
 }
+
+/* "What could go wrong" panel (Honestly Calculator). Warm amber edge so it
+   reads as a caution, distinct from the navy assumption boxes. */
+.t-risk {
+  border: 1px solid #e8ddc9;
+  border-left: 4px solid #b45309;
+  border-radius: 0 10px 10px 0;
+  background: #fdfaf3;
+  padding: 1.1rem 1.25rem;
+}
+.t-risk h3 {
+  margin: 0;
+  font-size: 1.0556rem;
+  color: var(--color-navy);
+}
+.t-risk-intro {
+  margin: 0.35rem 0 0;
+  font-size: 0.9444rem;
+  color: var(--color-ink-muted);
+}
+.t-risk-row {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid #ece1c9;
+}
+.t-risk-row h4 {
+  margin: 0 0 0.25rem;
+  font-size: 0.9444rem;
+  color: var(--color-navy);
+}
+.t-risk-row p {
+  margin: 0;
+  font-size: 0.9444rem;
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+.t-risk-src {
+  margin-top: 0.35rem !important;
+  font-size: 0.8333rem !important;
+}
+.t-risk-src a {
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

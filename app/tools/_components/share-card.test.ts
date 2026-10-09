@@ -72,6 +72,28 @@ describe("share card helpers", () => {
     expect(text).toContain("$300");
   });
 
+  it("appends the risk line to the share text when present", () => {
+    const text = shareCardText({
+      headlineNumber: "$1,870,500",
+      headlineLabel: "Projected at age 65",
+      toolName: "Retirement projector",
+      toolPath: "/tools/retirement-projector",
+      riskLine: "But in 26 of the last 98 years, the market lost money.",
+    });
+    expect(text).toContain("But in 26 of the last 98 years, the market lost money.");
+  });
+
+  it("trims the risk line like every other field", () => {
+    const data = buildShareCardData({
+      headlineNumber: "$1,870,500",
+      headlineLabel: "Projected at age 65",
+      toolName: "Retirement projector",
+      toolPath: "/tools/retirement-projector",
+      riskLine: "  But in 26 of the last 98 years, the market lost money.  ",
+    });
+    expect(data.riskLine).toBe("But in 26 of the last 98 years, the market lost money.");
+  });
+
   it("keeps the card at the 1200x630 social size", () => {
     expect(SHARE_CARD_SIZE).toEqual({ width: 1200, height: 630 });
   });
@@ -110,6 +132,18 @@ describe("TOOL_CARD_DEFAULTS", () => {
     expect(TOOL_CARD_DEFAULTS["emergency-fund"].headlineNumber).toBe("$15,000");
     expect(TOOL_CARD_DEFAULTS["life-insurance-needs"].headlineNumber).toBe("$935,000");
     expect(TOOL_CARD_DEFAULTS["retirement-projector"].headlineNumber).toBe("$1,870,500");
+  });
+
+  it("carries a risk line on the two honestly-calculator tools", () => {
+    const retirement = TOOL_CARD_DEFAULTS["retirement-projector"];
+    expect(retirement.riskLine).toBe("But in 26 of the last 98 years, the market lost money.");
+    const debt = TOOL_CARD_DEFAULTS["debt-payoff"];
+    expect(debt.riskLine).toMatch(/^Minimums only: /);
+    expect(debt.riskLine).toContain("interest.");
+    for (const slug of TOOL_SLUGS) {
+      if (slug === "retirement-projector" || slug === "debt-payoff") continue;
+      expect(TOOL_CARD_DEFAULTS[slug].riskLine).toBeUndefined();
+    }
   });
 });
 
