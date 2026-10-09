@@ -1,0 +1,121 @@
+[
+  {
+    "url": "http://localhost:3108/tools/debt-payoff",
+    "views": [
+      {
+        "kind": "provenance",
+        "mobile": false,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgb(251, 248, 241)"
+      },
+      {
+        "kind": "provenance",
+        "mobile": true,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgb(251, 248, 241)"
+      },
+      {
+        "kind": "calculator",
+        "mobile": false,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgba(0, 0, 0, 0)"
+      },
+      {
+        "kind": "calculator",
+        "mobile": true,
+        "overflow": false,
+        "color": "rgb(16, 48, 42)",
+        "background": "rgba(0, 0, 0, 0)"
+      }
+    ],
+    "hero": {
+      "className": "t-stat t-stat-hero",
+      "background": "rgb(16, 48, 42)"
+    },
+    "keyboard": {
+      "before": "4500",
+      "label": "Balance ($)",
+      "after": {
+        "value": "4501",
+        "outline": "rgb(16, 48, 42) solid 3px"
+      }
+    },
+    "accessibleControls": [
+      {
+        "role": "button",
+        "name": "Open menu"
+      },
+      {
+        "role": "navigation",
+        "name": "Public profiles"
+      },
+      {
+        "role": "navigation",
+        "name": "Breadcrumb"
+      },
+      {
+        "role": "spinbutton",
+        "name": "Balance ($)"
+      },
+      {
+        "role": "spinbutton",
+        "name": "APR %"
+      },
+      {
+        "role": "spinbutton",
+        "name": "Minimum ($)"
+      },
+      {
+        "role": "button",
+        "name": "Remove"
+      },
+      {
+        "role": "spinbutton",
+        "name": "Balance ($)"
+      },
+      {
+        "role": "spinbutton",
+        "name": "APR %"
+      },
+      {
+        "role": "spinbutton",
+        "name": "Minimum ($)"
+      },
+      {
+        "role": "button",
+        "name": "Remove"
+      },
+      {
+        "role": "spinbutton",
+        "name": "Balance ($)"
+      },
+      {
+        "role": "spinbutton",
+        "name": "APR %"
+      },
+      {
+        "role": "spinbutton",
+        "name": "Minimum ($)"
+      },
+      {
+        "role": "button",
+        "name": "Remove"
+      },
+      {
+        "role": "button",
+        "name": "Add a debt"
+      },
+      {
+        "role": "spinbutton",
+        "name": "Extra payment each month"
+      },
+      {
+        "role": "button",
+        "name": "Copy my numbers"
+      }
+    ]
+  }
+]

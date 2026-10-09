@@ -12,7 +12,10 @@ const SHARE_IMAGE = {
 
 /** Keep article imagery and authorship within the education hub. */
 export function wealthArticleJsonLd(input: Parameters<typeof articleJsonLd>[0]) {
-  const article = articleJsonLd(input);
+  const article = articleJsonLd({
+    ...input,
+    speakableSelectors: input.speakableSelectors ?? ["h1", ".w-lede"],
+  });
   return {
     ...article,
     image: `${SITE_URL}${SHARE_IMAGE.url}`,
@@ -26,7 +29,11 @@ export function wealthArticleJsonLd(input: Parameters<typeof articleJsonLd>[0]) 
  * Metadata for a hub page. Titles are absolute so they carry the hub's name
  * instead of the Medicare site's title template.
  */
-export function wealthMetadata(input: { title: string; description: string; path: string }): Metadata {
+export function wealthMetadata(input: {
+  title: string;
+  description: string;
+  path: string;
+}): Metadata {
   const title = `${input.title} | ${WEALTH_BRAND}`;
   return {
     title: { absolute: title },

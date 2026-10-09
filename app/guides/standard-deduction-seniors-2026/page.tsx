@@ -1,3 +1,5 @@
+import { EditorialNote, ArticleContents } from "@/app/components/EditorialNote";
+import { SOURCES } from "@/lib/editorial";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -55,7 +57,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "Should a retiree itemize or take the standard deduction?",
-    a: "Take whichever is larger. Add up mortgage interest, state and local taxes, and charitable gifts. If the total beats your standard deduction amount, itemizing wins. For many retirees without a mortgage, the standard deduction is larger.",
+    a: "Take whichever is larger. Add up mortgage interest, state and local taxes, and charitable gifts. If the total beats your standard deduction amount, itemizing wins. Eligibility and deduction limits can change the comparison.",
   },
 ];
 
@@ -68,8 +70,11 @@ export default function StandardDeductionSeniors2026Page() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Guides", path: "/guides/standard-deduction-seniors-2026" },
-              { name: "Standard deduction for seniors", path: "/guides/standard-deduction-seniors-2026" },
+              { name: "Guides", path: "/guides" },
+              {
+                name: "Standard deduction for seniors",
+                path: "/guides/standard-deduction-seniors-2026",
+              },
             ]),
           ),
         }}
@@ -84,7 +89,9 @@ export default function StandardDeductionSeniors2026Page() {
                 "The 2026 standard deduction amounts for seniors: base figures, the extra age-65 amounts, worked examples, and the $6,000 senior bonus deduction.",
               path: "/guides/standard-deduction-seniors-2026",
               datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
+              dateModified: "2026-10-09",
+              citations: [SOURCES.tax, SOURCES.senior].map((source) => source.href),
+              speakableSelectors: ["h1", "#definition"],
             }),
           ),
         }}
@@ -97,10 +104,10 @@ export default function StandardDeductionSeniors2026Page() {
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Guides" },
+          { name: "Guides", href: "/guides" },
           { name: "Standard deduction for seniors" },
         ]}
-        eyebrow="Guide · Updated October 8, 2026"
+        eyebrow="Guide · Updated October 9, 2026"
         title="2026 standard deduction for seniors"
         lede="Turning 65 comes with a bigger standard deduction. Here are the exact 2026 amounts, the extra senior bonus, and two worked examples."
         secondaryHref="/start?topic=retirement"
@@ -109,16 +116,30 @@ export default function StandardDeductionSeniors2026Page() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-4xl">
-          <div className="rounded-xl border-2 border-[var(--color-navy)] bg-[var(--color-paper)] p-6">
+          <ArticleContents
+            items={[
+              { id: "read-0", label: "The 2026 amounts" },
+              { id: "read-1", label: "Two hypothetical examples" },
+              { id: "read-2", label: "The $6,000 senior bonus deduction" },
+              { id: "read-3", label: "Standard deduction or itemize?" },
+              { id: "read-4", label: "Common questions" },
+            ]}
+          />
+          <div
+            id="definition"
+            className="rounded-xl border-2 border-[var(--color-navy)] bg-[var(--color-paper)] p-6"
+          >
             <p className="text-19 font-semibold">In short</p>
             <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-              The standard deduction is the slice of your income the IRS does not tax. Everyone gets
-              a base amount by filing status. At 65, you add an extra amount on top. For 2025
-              through 2028, there is also a separate $6,000 senior bonus deduction.
+              The standard deduction reduces taxable income when you qualify and choose it instead
+              of itemizing. The base amount depends on filing status. At 65, you add an extra amount
+              on top. For 2025 through 2028, there is also a separate $6,000 senior bonus deduction.
             </p>
           </div>
 
-          <h2 className="text-28 mt-12 font-semibold">The 2026 amounts</h2>
+          <h2 id="read-0" className="text-28 mt-12 font-semibold">
+            The 2026 amounts
+          </h2>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[560px] border-collapse text-left">
               <caption className="sr-only">
@@ -145,25 +166,25 @@ export default function StandardDeductionSeniors2026Page() {
                   <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                     Single
                   </th>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$16,100</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">+$2,050</td>
-                  <td className="text-16 whitespace-nowrap py-4 font-semibold">$18,150</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">$16,100</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">+$2,050</td>
+                  <td className="text-16 py-4 font-semibold whitespace-nowrap">$18,150</td>
                 </tr>
                 <tr className="border-b border-gray-300 align-top">
                   <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                     Head of household
                   </th>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$24,150</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">+$2,050</td>
-                  <td className="text-16 whitespace-nowrap py-4 font-semibold">$26,200</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">$24,150</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">+$2,050</td>
+                  <td className="text-16 py-4 font-semibold whitespace-nowrap">$26,200</td>
                 </tr>
                 <tr className="border-b border-gray-300 align-top">
                   <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                     Married filing jointly
                   </th>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$32,200</td>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">+$1,650 per spouse</td>
-                  <td className="text-16 whitespace-nowrap py-4 font-semibold">
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">$32,200</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">+$1,650 per spouse</td>
+                  <td className="text-16 py-4 font-semibold whitespace-nowrap">
                     $35,500 if both are 65+
                   </td>
                 </tr>
@@ -175,19 +196,23 @@ export default function StandardDeductionSeniors2026Page() {
             older and blind adds $2,050 twice, for a $20,200 standard deduction.
           </p>
 
-          <h2 className="text-28 mt-12 font-semibold">Two worked examples</h2>
+          <h2 id="read-1" className="text-28 mt-12 font-semibold">
+            Two worked examples
+          </h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            <strong className="text-[var(--color-navy)]">Example 1:</strong> Linda, 68, single,
-            with $30,000 of income. Her standard deduction is $18,150. Her taxable income is
-            $11,850 before any other adjustments.
+            <strong className="text-[var(--color-navy)]">Example 1:</strong> Linda, 68, single, with
+            $30,000 of income. Her standard deduction is $18,150. Her taxable income is $11,850
+            before any other adjustments.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            <strong className="text-[var(--color-navy)]">Example 2:</strong> James and Carol, 70
-            and 67, filing jointly, with $60,000 of income. Their standard deduction is $35,500.
-            Their taxable income is $24,500 before any other adjustments.
+            <strong className="text-[var(--color-navy)]">Example 2:</strong> James and Carol, 70 and
+            67, filing jointly, with $60,000 of income. Their standard deduction is $35,500. Their
+            taxable income is $24,500 before any other adjustments.
           </p>
 
-          <h2 className="text-28 mt-12 font-semibold">The $6,000 senior bonus deduction</h2>
+          <h2 id="read-2" className="text-28 mt-12 font-semibold">
+            The $6,000 senior bonus deduction
+          </h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Separate from the standard deduction, taxpayers 65 or older can claim an extra $6,000
             per person for tax years 2025 through 2028. It works whether you itemize or take the
@@ -196,11 +221,13 @@ export default function StandardDeductionSeniors2026Page() {
             gets the $6,000.
           </p>
 
-          <h2 className="text-28 mt-12 font-semibold">Standard deduction or itemize?</h2>
+          <h2 id="read-3" className="text-28 mt-12 font-semibold">
+            Standard deduction or itemize?
+          </h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Compare your itemizable expenses against your standard deduction total. Common itemized
             expenses for retirees: mortgage interest, state and local taxes, and charitable gifts.
-            Without a mortgage, the standard deduction usually wins.{" "}
+            Check eligibility and limits before comparing totals.{" "}
             <Link href="/taxes-and-retirement" className="underline underline-offset-2">
               Here is the full picture of taxes in retirement
             </Link>
@@ -210,13 +237,16 @@ export default function StandardDeductionSeniors2026Page() {
             </Link>
             .
           </p>
+          <EditorialNote sources={[SOURCES.tax, SOURCES.senior]} />
           <GuideTownLinks />
         </div>
       </section>
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Common questions</h2>
+          <h2 id="read-4" className="text-28 font-semibold">
+            Common questions
+          </h2>
           <dl className="mt-8 flex flex-col gap-6">
             {FAQS.map((item) => (
               <div key={item.q} className="border-t border-gray-300 pt-5">

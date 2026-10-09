@@ -1,3 +1,4 @@
+import { EditorialNote } from "@/app/components/EditorialNote";
 import type { Metadata } from "next";
 
 import { ServiceHero } from "@/app/components/ServiceHero";
@@ -48,17 +49,21 @@ export default function DebtPayoffPage() {
               description,
               path,
               datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
+              dateModified: "2026-10-09",
             }),
           ),
         }}
       />
 
       <ServiceHero
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Debt payoff" }]}
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Free tools", href: "/tools" },
+          { name: "Debt payoff" },
+        ]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Avalanche vs snowball, on your debts"
-        lede="Two ways out of debt, tested on your real numbers. Avalanche attacks the highest rate first and costs the least. Snowball kills the smallest balance first and feels the fastest. Type in your debts and see both."
+        lede="Two ways out of debt, tested on your real numbers. Avalanche starts with the highest rate. Snowball starts with the smallest balance. Compare their modeled cost and timing. Type in your debts and see both."
         secondaryHref="/start"
         secondaryLabel="Talk it through with me →"
         proof={PROOF}
@@ -72,20 +77,59 @@ export default function DebtPayoffPage() {
 
       <MathSection title="The math, in plain English">
         <p>
-          <strong>Avalanche</strong> targets the debt with the highest APR. <strong>Snowball</strong>{" "}
-          targets the smallest balance. Both pay every minimum first, then throw the extra payment at
-          the one target debt.
+          <strong>Avalanche</strong> targets the debt with the highest APR.{" "}
+          <strong>Snowball</strong> targets the smallest balance. Both pay every minimum first, then
+          throw the extra payment at the one target debt.
         </p>
         <p>
-          When a debt reaches zero, its minimum payment rolls into the next target. Your total monthly
-          payment stays the same, so each payoff makes the next one faster. That rollover is the whole
-          engine of both methods.
+          When a debt reaches zero, its minimum payment rolls into the next target. Your total
+          monthly payment stays the same, so each payoff makes the next one faster. That rollover is
+          the whole engine of both methods.
         </p>
         <p>
-          Avalanche almost always costs less in interest. Snowball almost always scores the first win
-          sooner. The cheaper method only wins if you stick with it, so the right pick is the one you
-          will keep doing.
+          Avalanche prioritizes interest cost. Snowball prioritizes clearing a smaller balance.
+          Compare the results under the same assumptions.
         </p>
+        <p>
+          Replace the sample debts with balances, rates, and minimum payments from your statements.
+          The starting values are hypothetical examples, not typical borrowing costs.
+        </p>
+        <p>
+          The model applies monthly interest using APR divided by the number of months in a year.
+          Actual lenders may accrue interest daily.
+        </p>
+        <p>
+          Minimum payments stay fixed in this model. Credit card minimums often change with the
+          balance, so your statement schedule can differ.
+        </p>
+        <p>
+          After minimums, extra payments go to the selected target. When a debt is cleared, its
+          payment remains available for the next debt.
+        </p>
+        <p>
+          The model assumes no new borrowing, late fees, promotional-rate changes, or prepayment
+          charges. Any of those can change the result.
+        </p>
+        <p>
+          If payments cannot cover interest, a debt may keep growing. A missing payoff date is a
+          warning about the inputs, not a promised deadline.
+        </p>
+        <p>
+          Use the comparison to explore trade-offs between interest cost and early progress. It
+          cannot predict which repayment approach you will maintain.
+        </p>
+        <p>
+          Federal student loan forgiveness and income-driven repayment rules are outside this model.
+          Review those terms before making extra payments.
+        </p>
+        <EditorialNote
+          sources={[
+            {
+              label: "CFPB: debt planning tools",
+              href: "https://www.consumerfinance.gov/consumer-tools/educator-tools/your-money-your-goals/toolkit/",
+            },
+          ]}
+        />
       </MathSection>
 
       <div className="bg-white px-4">

@@ -179,7 +179,8 @@ export function siteIdentityJsonLd() {
         url: `${SITE_URL}/about`,
         image: `${SITE_URL}/christian-brinkley.jpg`,
         jobTitle: "Licensed Insurance Agent",
-        description: "North Carolina Life & Health insurance agent and accounting senior at UNCG, graduating December 2026.",
+        description:
+          "North Carolina Life & Health insurance agent and accounting senior at UNCG, graduating December 2026.",
         ...(sameAs ? { sameAs } : {}),
       },
     ],
@@ -448,6 +449,9 @@ export function articleJsonLd(input: {
   /** ISO date. Real dates only — a fabricated freshness signal is a lie. */
   datePublished: string;
   dateModified: string;
+  abstract?: string;
+  citations?: readonly string[];
+  speakableSelectors?: readonly string[];
 }) {
   const sameAs = publishedSameAs();
   return {
@@ -456,6 +460,12 @@ export function articleJsonLd(input: {
     headline: input.headline,
     description: input.description,
     mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${input.path}` },
+    ...(input.abstract ? { abstract: input.abstract } : {}),
+    ...(input.citations ? { citation: input.citations } : {}),
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: input.speakableSelectors ?? ["h1"],
+    },
     author: {
       "@type": "Person",
       "@id": `${SITE_URL}/#christian`,

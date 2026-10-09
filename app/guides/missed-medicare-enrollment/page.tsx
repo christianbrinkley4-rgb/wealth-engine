@@ -67,7 +67,7 @@ export default function MissedMedicareEnrollmentPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Guides", path: "/guides/missed-medicare-enrollment" },
+              { name: "Guides", path: "/guides" },
               { name: "Missed Medicare enrollment", path: "/guides/missed-medicare-enrollment" },
             ]),
           ),
@@ -96,7 +96,7 @@ export default function MissedMedicareEnrollmentPage() {
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Guides" },
+          { name: "Guides", href: "/guides" },
           { name: "Missed Medicare enrollment" },
         ]}
         eyebrow="Guide · Updated October 8, 2026"
@@ -119,11 +119,11 @@ export default function MissedMedicareEnrollmentPage() {
 
           <h2 className="text-28 mt-12 font-semibold">Case 1: you already have a plan</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            If you like your current plan, doing nothing was the right move. Your Medicare
-            Advantage or Part D plan renews automatically for the next year. Your doctors, your
-            drugs, and your coverage continue with no gap. The one thing to check: your plan's
-            Annual Notice of Change, which arrives each September. Costs and networks can change
-            even when the plan name stays the same.
+            If you like your current plan, doing nothing was the right move. Your Medicare Advantage
+            or Part D plan renews automatically for the next year. Your doctors, your drugs, and
+            your coverage continue with no gap. The one thing to check: your plan&apos;s Annual
+            Notice of Change, which arrives each September. Costs and networks can change even when
+            the plan name stays the same.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             If you wanted to switch and missed the window, Medicare Advantage members get a second
@@ -135,9 +135,9 @@ export default function MissedMedicareEnrollmentPage() {
           <h2 className="text-28 mt-12 font-semibold">Case 2: you never enrolled at 65</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Your first enrollment window is the 7 months around your 65th birthday. If that passed
-            without enrolling, your next chance is the General Enrollment Period, January 1 to
-            March 31 each year. Coverage starts July 1. That leaves months with no Medicare
-            coverage, and late enrollment penalties may apply.
+            without enrolling, your next chance is the General Enrollment Period, January 1 to March
+            31 each year. Coverage starts July 1. That leaves months with no Medicare coverage, and
+            late enrollment penalties may apply.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The penalties are permanent. Part B adds 10 percent to your premium for each full
@@ -169,7 +169,7 @@ export default function MissedMedicareEnrollmentPage() {
                   <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                     Medicare Advantage Open Enrollment
                   </th>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">Jan 1 to Mar 31</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">Jan 1 to Mar 31</td>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
                     Switch Advantage plans, or leave Advantage for Original Medicare
                   </td>
@@ -178,7 +178,7 @@ export default function MissedMedicareEnrollmentPage() {
                   <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                     General Enrollment Period
                   </th>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">Jan 1 to Mar 31</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">Jan 1 to Mar 31</td>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
                     Enroll in Part A and Part B for the first time; coverage starts July 1
                   </td>
@@ -187,7 +187,7 @@ export default function MissedMedicareEnrollmentPage() {
                   <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                     Special Enrollment Period
                   </th>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">Varies by event</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">Varies by event</td>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
                     Change plans after events like a move, loss of coverage, or a plan ending
                   </td>
@@ -196,7 +196,7 @@ export default function MissedMedicareEnrollmentPage() {
                   <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                     Next Annual Enrollment Period
                   </th>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">Oct 15 to Dec 7</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">Oct 15 to Dec 7</td>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
                     Join, switch, or drop Advantage and Part D plans for the following year
                   </td>

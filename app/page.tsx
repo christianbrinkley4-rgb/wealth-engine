@@ -17,11 +17,7 @@ import {
 import { EnrollmentWindow } from "@/components/home/EnrollmentWindow";
 import { WaitingCost } from "@/components/home/WaitingCost";
 import { Testimonials } from "@/components/Testimonials";
-import {
-  AGENT,
-  COMPENSATION_DISCLOSURE,
-  GOOGLE_MAPS_PROFILE_URL,
-} from "@/lib/agent";
+import { AGENT, COMPENSATION_DISCLOSURE, GOOGLE_MAPS_PROFILE_URL } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
 import { faqJsonLd, localBusinessJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { hasTestimonials } from "@/lib/testimonials";
@@ -124,14 +120,18 @@ const PLAN_CHECK_PREVIEW = [
 ] as const;
 
 export default function HomePage() {
-  const featured = learnEntries().filter((entry) => entry.featured).slice(0, 6);
+  const featured = learnEntries()
+    .filter((entry) => entry.featured)
+    .slice(0, 6);
   const towns = featuredPlaces();
 
   return (
     <main className="hp">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessJsonLd()).replace(/</g, "\\u003c"),
+        }}
       />
       <script
         type="application/ld+json"
@@ -172,8 +172,8 @@ export default function HomePage() {
             </h1>
             <p className="hx-lede">
               I’m Christian Brinkley, a licensed insurance agent in Greensboro. I help people
-              turning 65, people already on Medicare, and their kids figure out what to do next.
-              No call center. When you call, you get me.
+              turning 65, people already on Medicare, and their kids figure out what to do next. No
+              call center. When you call, you get me.
             </p>
             <div className="hx-actions" id="home-hero-actions">
               <Link href="/plan-check" className="btn btn-accent">
@@ -227,6 +227,48 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section-tight" aria-labelledby="money-library-heading">
+        <div className="shell">
+          <div className="section-head split">
+            <h2 id="money-library-heading">Start with a clear answer</h2>
+            <p>Explore the question, check the source, and try the numbers yourself.</p>
+          </div>
+          <ul className="sit-grid">
+            {[
+              {
+                href: "/wealth/learn",
+                title: "Understand your money",
+                text: "Retirement accounts, saving, borrowing, and your first paycheck.",
+              },
+              {
+                href: "/tools",
+                title: "Try a money calculator",
+                text: "Change an assumption and see how the estimate changes.",
+              },
+              {
+                href: "/guides",
+                title: "Find a Medicare or tax guide",
+                text: "Enrollment, coverage, Social Security, and retirement taxes.",
+              },
+              {
+                href: "/editorial-policy",
+                title: "See how we check facts",
+                text: "Primary sources, clear assumptions, and honest qualifications.",
+              },
+            ].map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="card sit-card">
+                  <span className="sit-title">{item.title}</span>
+                  <span className="sit-text">{item.text}</span>
+                  <span className="sit-cta">
+                    Explore <ArrowRight size={17} aria-hidden />
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
       {/* ── Where are you right now? ───────────────────────────────────── */}
       <section className="section-tight sit" aria-labelledby="sit-heading">
         <div className="shell">
@@ -259,7 +301,9 @@ export default function HomePage() {
             })}
           </ul>
           <div className="mt-6">
-            <Link href="/insurance-services" className="btn btn-outline">Explore all insurance services</Link>
+            <Link href="/insurance-services" className="btn btn-outline">
+              Explore all insurance services
+            </Link>
           </div>
         </div>
       </section>
@@ -379,8 +423,8 @@ export default function HomePage() {
               Hey, I’m Christian.
             </h2>
             <p data-reveal style={{ "--i": 2 } as React.CSSProperties}>
-              I’m based in Greensboro and licensed for Life &amp; Health insurance in North Carolina.
-              I’m an accounting senior at UNCG, graduating in December 2026.
+              I’m based in Greensboro and licensed for Life &amp; Health insurance in North
+              Carolina. I’m an accounting senior at UNCG, graduating in December 2026.
             </p>
             <p data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               Down the road, I want to run a planning practice right here, helping families with
@@ -474,8 +518,8 @@ export default function HomePage() {
               <h2 id="rv-heading">I’d rather earn reviews than write them.</h2>
               <p>
                 You won’t find made-up testimonials on this site. When people I’ve helped leave a
-                review, it’ll show up right here, word for word. If we’ve worked together, I’d really
-                appreciate one.
+                review, it’ll show up right here, word for word. If we’ve worked together, I’d
+                really appreciate one.
               </p>
               <div className="rv-actions">
                 <Link href="/review" className="btn btn-outline btn-sm">

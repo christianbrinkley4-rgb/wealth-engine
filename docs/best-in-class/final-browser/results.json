@@ -1,0 +1,587 @@
+[
+  {
+    "url": "http://localhost:3108/",
+    "title": "Christian Brinkley | Medicare Help in Greensboro, High Point & Winston-Salem",
+    "h1": "Medicare and money, explained by someone who lives here.",
+    "fonts": [
+      {
+        "text": "GREENSBORO, NC · MEDICARE, TAXES & RETIREMENT",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, sans-serif",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "Medicare and money, explained by someone who lives here.",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, \"Times New Roman\", serif",
+        "size": "70.2px",
+        "line": "70.2px"
+      },
+      {
+        "text": "I’m Christian Brinkley, a licensed insurance agent in Greensboro. I help people ",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "21.24px",
+        "line": "36.108px"
+      },
+      {
+        "text": "Free. No obligation. Your info is never sold.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "15.48px",
+        "line": "24.768px"
+      },
+      {
+        "text": "Explore the question, check the source, and try the numbers yourself.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "18.9px",
+        "line": "32.13px"
+      }
+    ],
+    "overflow": false,
+    "links": 110,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(31, 74, 64) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/wealth/roth-ira-explained",
+    "title": "Roth IRA, explained | christianbuildswealth",
+    "h1": "Roth IRA, explained",
+    "fonts": [
+      {
+        "text": "MONEY BASICS",
+        "font": "ui-monospace, \"SF Mono\", \"Cascadia Mono\", Menlo, Consolas, monospace",
+        "size": "14.04px",
+        "line": "22.464px"
+      },
+      {
+        "text": "Roth IRA, explained",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, serif",
+        "size": "85.5px",
+        "line": "87.21px"
+      },
+      {
+        "text": "The Roth IRA rewards early savers. Here is how it works, in plain English.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "33.12px"
+      },
+      {
+        "text": "SHORT ANSWER\nA Roth IRA is a retirement account you fund with after-tax money. Y",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.16px",
+        "line": "30.24px"
+      },
+      {
+        "text": "Your combined traditional and Roth IRA contributions share an annual limit. Cont",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.16px",
+        "line": "34.272px"
+      }
+    ],
+    "overflow": false,
+    "links": 39,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(43, 70, 240) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/guides",
+    "title": "Money and Medicare guides | Christian Brinkley",
+    "h1": "Money and Medicare guides",
+    "fonts": [
+      {
+        "text": "LEARN AT YOUR PACE",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, sans-serif",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "Money and Medicare guides",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, \"Times New Roman\", serif",
+        "size": "39.9996px",
+        "line": "63.9994px"
+      },
+      {
+        "text": "Plain-language guides to retirement taxes, Medicare, and common money questions.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "19.0008px",
+        "line": "30.4013px"
+      },
+      {
+        "text": "The exclusion list and cost-sharing gaps, plainly.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "18px",
+        "line": "28.8px"
+      },
+      {
+        "text": "The 6-month retroactive Part A trap, as dated action steps.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "18px",
+        "line": "28.8px"
+      }
+    ],
+    "overflow": false,
+    "links": 82,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(31, 74, 64) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/guides/irmaa-brackets-2026",
+    "title": "2026 IRMAA Brackets: Medicare Income Limits and Surcharges",
+    "h1": "2026 IRMAA brackets: the complete table",
+    "fonts": [
+      {
+        "text": "GUIDE · UPDATED OCTOBER 9, 2026 · SOURCED FROM CMS",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, sans-serif",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "2026 IRMAA brackets: the complete table",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, \"Times New Roman\", serif",
+        "size": "64.8px",
+        "line": "67.392px"
+      },
+      {
+        "text": "IRMAA is the surcharge higher earners pay on Medicare premiums. Here is every 20",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "35.19px"
+      },
+      {
+        "text": "Free consultation. No obligation to enroll.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "15.84px",
+        "line": "25.344px"
+      },
+      {
+        "text": "In short",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "19.0008px",
+        "line": "30.4013px"
+      }
+    ],
+    "overflow": false,
+    "links": 94,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(31, 74, 64) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/tools/take-home-pay",
+    "title": "Take-Home Pay Calculator (2026) | Christian Brinkley",
+    "h1": "What does that salary actually pay?",
+    "fonts": [
+      {
+        "text": "FREE TOOL · YOUR NUMBERS STAY ON YOUR DEVICE",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, sans-serif",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "What does that salary actually pay?",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, \"Times New Roman\", serif",
+        "size": "64.8px",
+        "line": "67.392px"
+      },
+      {
+        "text": "A salary number and a paycheck are two different things. Type in your gross sala",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "35.19px"
+      },
+      {
+        "text": "Free consultation. No obligation to enroll.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "15.84px",
+        "line": "25.344px"
+      },
+      {
+        "text": "Federal income tax: the 2026 standard deduction ($16,100 single, $32,200 married",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "16.9992px",
+        "line": "27.6237px"
+      }
+    ],
+    "overflow": false,
+    "links": 84,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(31, 74, 64) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/wealth/learn",
+    "title": "Learn Money Basics in Plain English | christianbuildswealth",
+    "h1": "Short reads. Zero jargon.",
+    "fonts": [
+      {
+        "text": "LEARN",
+        "font": "ui-monospace, \"SF Mono\", \"Cascadia Mono\", Menlo, Consolas, monospace",
+        "size": "14.04px",
+        "line": "22.464px"
+      },
+      {
+        "text": "Short reads. Zero jargon.",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, serif",
+        "size": "85.5px",
+        "line": "87.21px"
+      },
+      {
+        "text": "Each one answers a single question in about four minutes, then hands you a calcu",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "33.12px"
+      },
+      {
+        "text": "THE CLASS NOBODY GAVE YOU. START ANYWHERE.",
+        "font": "ui-monospace, \"SF Mono\", \"Cascadia Mono\", Menlo, Consolas, monospace",
+        "size": "14.04px",
+        "line": "22.464px"
+      },
+      {
+        "text": "HOW BUSINESSES KEEP SCORE, AND HOW TO READ THE SCOREBOARD.",
+        "font": "ui-monospace, \"SF Mono\", \"Cascadia Mono\", Menlo, Consolas, monospace",
+        "size": "14.04px",
+        "line": "22.464px"
+      }
+    ],
+    "overflow": false,
+    "links": 55,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(43, 70, 240) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/wealth/401k-explained",
+    "title": "Your 401(k), Explained | christianbuildswealth",
+    "h1": "Your 401(k), Explained",
+    "fonts": [
+      {
+        "text": "RETIREMENT",
+        "font": "ui-monospace, \"SF Mono\", \"Cascadia Mono\", Menlo, Consolas, monospace",
+        "size": "14.04px",
+        "line": "22.464px"
+      },
+      {
+        "text": "Your 401(k), Explained",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, serif",
+        "size": "85.5px",
+        "line": "87.21px"
+      },
+      {
+        "text": "A 401(k) is a retirement account through your employer. How contributions, the m",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "33.12px"
+      },
+      {
+        "text": "SHORT ANSWER\nA 401(k) pulls retirement savings straight from your paycheck. In 2",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.16px",
+        "line": "30.24px"
+      },
+      {
+        "text": "The plan document explains when you can join, how matching works, and which fees",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.16px",
+        "line": "34.272px"
+      }
+    ],
+    "overflow": false,
+    "links": 37,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(43, 70, 240) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/wealth/hsa-explained",
+    "title": "The HSA, Explained in Plain English | christianbuildswealth",
+    "h1": "The HSA, Explained in Plain English",
+    "fonts": [
+      {
+        "text": "HEALTH MONEY",
+        "font": "ui-monospace, \"SF Mono\", \"Cascadia Mono\", Menlo, Consolas, monospace",
+        "size": "14.04px",
+        "line": "22.464px"
+      },
+      {
+        "text": "The HSA, Explained in Plain English",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, serif",
+        "size": "85.5px",
+        "line": "87.21px"
+      },
+      {
+        "text": "What a Health Savings Account is, how the triple tax break works, and the 2026 c",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "33.12px"
+      },
+      {
+        "text": "SHORT ANSWER\nAn HSA is a savings account for medical costs with three tax breaks",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.16px",
+        "line": "30.24px"
+      },
+      {
+        "text": "Medicare enrollment generally ends HSA contribution eligibility. Disqualifying a",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.16px",
+        "line": "34.272px"
+      }
+    ],
+    "overflow": false,
+    "links": 35,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(43, 70, 240) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/wealth/rmd-explained-73",
+    "title": "RMDs at 73, Explained in Plain English | christianbuildswealth",
+    "h1": "RMDs at 73, Explained in Plain English",
+    "fonts": [
+      {
+        "text": "RETIREMENT BASICS",
+        "font": "ui-monospace, \"SF Mono\", \"Cascadia Mono\", Menlo, Consolas, monospace",
+        "size": "14.04px",
+        "line": "22.464px"
+      },
+      {
+        "text": "RMDs at 73, Explained in Plain English",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, serif",
+        "size": "85.5px",
+        "line": "87.21px"
+      },
+      {
+        "text": "What required minimum distributions are, why the IRS requires them, and how the ",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "33.12px"
+      },
+      {
+        "text": "SHORT ANSWER\nA required minimum distribution is the smallest amount you must wit",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.16px",
+        "line": "30.24px"
+      },
+      {
+        "text": "People born in 1960 or later generally begin at age 75. Earlier birth years have",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.16px",
+        "line": "34.272px"
+      }
+    ],
+    "overflow": false,
+    "links": 35,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(43, 70, 240) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/guides/standard-deduction-seniors-2026",
+    "title": "2026 Standard Deduction for Seniors: What You Actually Get",
+    "h1": "2026 standard deduction for seniors",
+    "fonts": [
+      {
+        "text": "GUIDE · UPDATED OCTOBER 9, 2026",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, sans-serif",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "2026 standard deduction for seniors",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, \"Times New Roman\", serif",
+        "size": "64.8px",
+        "line": "67.392px"
+      },
+      {
+        "text": "Turning 65 comes with a bigger standard deduction. Here are the exact 2026 amoun",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "35.19px"
+      },
+      {
+        "text": "Free consultation. No obligation to enroll.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "15.84px",
+        "line": "25.344px"
+      },
+      {
+        "text": "In short",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "19.0008px",
+        "line": "30.4013px"
+      }
+    ],
+    "overflow": false,
+    "links": 95,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(31, 74, 64) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/guides/working-while-collecting-social-security",
+    "title": "Working While Collecting Social Security: 2026 Earnings Limits",
+    "h1": "Working while collecting Social Security",
+    "fonts": [
+      {
+        "text": "GUIDE · UPDATED OCTOBER 9, 2026",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, sans-serif",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "Working while collecting Social Security",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, \"Times New Roman\", serif",
+        "size": "64.8px",
+        "line": "67.392px"
+      },
+      {
+        "text": "You can work and collect at the same time. Before full retirement age, an earnin",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "35.19px"
+      },
+      {
+        "text": "Free consultation. No obligation to enroll.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "15.84px",
+        "line": "25.344px"
+      },
+      {
+        "text": "In short",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "19.0008px",
+        "line": "30.4013px"
+      }
+    ],
+    "overflow": false,
+    "links": 94,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(31, 74, 64) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/tools/compound-interest",
+    "title": "Compound Interest Calculator | Christian Brinkley",
+    "h1": "Compound interest, live",
+    "fonts": [
+      {
+        "text": "FREE TOOL · YOUR NUMBERS STAY ON YOUR DEVICE",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, sans-serif",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "Compound interest, live",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, \"Times New Roman\", serif",
+        "size": "64.8px",
+        "line": "67.392px"
+      },
+      {
+        "text": "Drag the sliders and the curve redraws. The solid line is your balance. The dash",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "35.19px"
+      },
+      {
+        "text": "Free consultation. No obligation to enroll.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "15.84px",
+        "line": "25.344px"
+      },
+      {
+        "text": "You pick the rate. Nobody knows the real one ahead of time.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "14.9994px",
+        "line": "22.4991px"
+      }
+    ],
+    "overflow": false,
+    "links": 80,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(31, 74, 64) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/tools/debt-payoff",
+    "title": "Debt Payoff Calculator: Avalanche vs Snowball | Christian Brinkley",
+    "h1": "Avalanche vs snowball, on your debts",
+    "fonts": [
+      {
+        "text": "FREE TOOL · YOUR NUMBERS STAY ON YOUR DEVICE",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, sans-serif",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "Avalanche vs snowball, on your debts",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, \"Times New Roman\", serif",
+        "size": "64.8px",
+        "line": "67.392px"
+      },
+      {
+        "text": "Two ways out of debt, tested on your real numbers. Avalanche starts with the hig",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "35.19px"
+      },
+      {
+        "text": "Free consultation. No obligation to enroll.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "15.84px",
+        "line": "25.344px"
+      },
+      {
+        "text": "YOUR DEBTS",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "14.9994px",
+        "line": "23.999px"
+      }
+    ],
+    "overflow": false,
+    "links": 80,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(31, 74, 64) solid 3px"
+    }
+  }
+]

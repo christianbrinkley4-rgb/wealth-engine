@@ -1,3 +1,4 @@
+import { EditorialNote } from "@/app/components/EditorialNote";
 import type { Metadata } from "next";
 
 import { ServiceHero } from "@/app/components/ServiceHero";
@@ -48,14 +49,18 @@ export default function CompoundInterestPage() {
               description,
               path,
               datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
+              dateModified: "2026-10-09",
             }),
           ),
         }}
       />
 
       <ServiceHero
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Compound interest" }]}
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Free tools", href: "/tools" },
+          { name: "Compound interest" },
+        ]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Compound interest, live"
         lede="Drag the sliders and the curve redraws. The solid line is your balance. The dashed line is what you actually put in. The space between them is growth, and it gets wide fast. Then scroll down to see every year in a table."
@@ -89,6 +94,46 @@ export default function CompoundInterestPage() {
           No taxes, fees, or inflation are included. Investments can lose money, and real returns
           bounce around year to year.
         </p>
+        <p>
+          The starting balance enters before the first month. Monthly contributions enter after that
+          month&apos;s growth, so they begin earning the following month.
+        </p>
+        <p>
+          The annual rate is a nominal assumption divided into monthly rates. It is not a quoted
+          annual percentage yield or a prediction.
+        </p>
+        <p>
+          A constant positive return produces a smooth curve. Real investment returns vary, and the
+          order of gains and losses can change outcomes.
+        </p>
+        <p>
+          The contribution total tracks deposits separately from growth. This helps you see how much
+          of the final balance depends on an uncertain return assumption.
+        </p>
+        <p>
+          Try changing a single input while keeping the others fixed. The comparison shows how that
+          assumption changes the calculation, not which investment to buy.
+        </p>
+        <p>
+          Money needed soon may not have time to recover from losses. The tool cannot assess
+          liquidity, suitability, or the risk of a specific investment.
+        </p>
+        <p>
+          Fees, taxes, and inflation are excluded. The displayed future balance is nominal dollars,
+          so it does not show future purchasing power.
+        </p>
+        <p>
+          Compare scenarios with the same contribution timing. A calculator using beginning-of-month
+          deposits can produce a different answer without either formula being wrong.
+        </p>
+        <EditorialNote
+          sources={[
+            {
+              label: "SEC Investor.gov: compound interest calculator",
+              href: "https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator",
+            },
+          ]}
+        />
       </MathSection>
 
       <div className="bg-white px-4">

@@ -4,12 +4,7 @@ import { useState } from "react";
 
 import { money, monthsLabel, simulatePayoff } from "@/lib/wealth/math";
 
-import {
-  AssumptionBox,
-  CopyNumbersButton,
-  MoneyField,
-  Stat,
-} from "../_components/tool-shared";
+import { AssumptionBox, CopyNumbersButton, MoneyField, Stat } from "../_components/tool-shared";
 
 type DebtInput = {
   id: string;
@@ -36,7 +31,10 @@ export function DebtPayoff() {
 
   const addDebt = () => {
     nextId += 1;
-    setDebts((prev) => [...prev, { id: String(nextId), name: "New debt", balance: 0, apr: 0, minPayment: 0 }]);
+    setDebts((prev) => [
+      ...prev,
+      { id: String(nextId), name: "New debt", balance: 0, apr: 0, minPayment: 0 },
+    ]);
   };
 
   const removeDebt = (id: string) => setDebts((prev) => prev.filter((debt) => debt.id !== id));
@@ -67,10 +65,12 @@ export function DebtPayoff() {
     <div className="t-calc">
       <div className="t-controls">
         <div>
-          <p className="text-15 font-semibold uppercase tracking-wide text-[var(--color-ink-muted)]">
+          <p className="text-15 font-semibold tracking-wide text-[var(--color-ink-muted)] uppercase">
             Your debts
           </p>
-          <p className="t-hint">Sample debts are filled in. Edit them to match your real balances.</p>
+          <p className="t-hint">
+            Sample debts are filled in. Edit them to match your real balances.
+          </p>
         </div>
         {debts.map((debt) => (
           <div className="t-debt-row" key={debt.id}>
@@ -91,7 +91,9 @@ export function DebtPayoff() {
                 type="number"
                 min={0}
                 value={debt.balance}
-                onChange={(event) => update(debt.id, { balance: Math.max(0, Number(event.target.value) || 0) })}
+                onChange={(event) =>
+                  update(debt.id, { balance: Math.max(0, Number(event.target.value) || 0) })
+                }
               />
             </div>
             <div className="t-field">
@@ -103,7 +105,9 @@ export function DebtPayoff() {
                 min={0}
                 step={0.1}
                 value={debt.apr}
-                onChange={(event) => update(debt.id, { apr: Math.max(0, Number(event.target.value) || 0) })}
+                onChange={(event) =>
+                  update(debt.id, { apr: Math.max(0, Number(event.target.value) || 0) })
+                }
               />
             </div>
             <div className="t-field">
@@ -114,7 +118,9 @@ export function DebtPayoff() {
                 type="number"
                 min={0}
                 value={debt.minPayment}
-                onChange={(event) => update(debt.id, { minPayment: Math.max(0, Number(event.target.value) || 0) })}
+                onChange={(event) =>
+                  update(debt.id, { minPayment: Math.max(0, Number(event.target.value) || 0) })
+                }
               />
             </div>
             <button type="button" className="t-link-btn" onClick={() => removeDebt(debt.id)}>
@@ -157,11 +163,11 @@ export function DebtPayoff() {
         ) : (
           <div className="t-compare">
             <div className="t-compare-card" data-winner={winner === "avalanche"}>
-              <h3>
+              <h2>
                 Avalanche
                 {winner === "avalanche" ? <span className="t-winner-tag">Cheapest</span> : null}
-              </h3>
-              <p className="t-hint">Highest APR first. Least interest paid.</p>
+              </h2>
+              <p className="t-hint">Highest APR first. Compare the modeled interest.</p>
               <ul className="t-kv">
                 <li>
                   <span>Total interest</span>
@@ -174,11 +180,11 @@ export function DebtPayoff() {
               </ul>
             </div>
             <div className="t-compare-card" data-winner={winner === "snowball"}>
-              <h3>
+              <h2>
                 Snowball
                 {winner === "snowball" ? <span className="t-winner-tag">Cheapest</span> : null}
-              </h3>
-              <p className="t-hint">Smallest balance first. Fastest first win.</p>
+              </h2>
+              <p className="t-hint">Smallest balance first. Compare the payoff order.</p>
               <ul className="t-kv">
                 <li>
                   <span>Total interest</span>
@@ -196,7 +202,7 @@ export function DebtPayoff() {
         <p className="text-17 leading-relaxed text-[var(--color-ink-muted)]">
           {winner === "tie"
             ? "Here both methods cost the same. The tiebreaker is which order keeps you going."
-            : `Avalanche saves ${money(Math.abs(interestSaved))} in interest here. Snowball still wins on psychology: killing the smallest balance first gives you a win early.`}
+            : `${winner === "avalanche" ? "Avalanche" : "Snowball"} saves ${money(Math.abs(interestSaved))} in interest here. Choose a method you can sustain. Actual payments and interest can change the result.`}
         </p>
 
         <AssumptionBox>

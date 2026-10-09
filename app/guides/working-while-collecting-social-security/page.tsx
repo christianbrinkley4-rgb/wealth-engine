@@ -1,3 +1,5 @@
+import { EditorialNote, ArticleContents } from "@/app/components/EditorialNote";
+import { SOURCES } from "@/lib/editorial";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -67,7 +69,7 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Guides", path: "/guides/working-while-collecting-social-security" },
+              { name: "Guides", path: "/guides" },
               {
                 name: "Working while collecting Social Security",
                 path: "/guides/working-while-collecting-social-security",
@@ -86,7 +88,9 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
                 "The 2026 Social Security earnings test: exact limits, withholding rates, what counts as earnings, and what happens to withheld benefits.",
               path: "/guides/working-while-collecting-social-security",
               datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
+              dateModified: "2026-10-09",
+              citations: [SOURCES.earnings].map((source) => source.href),
+              speakableSelectors: ["h1", "#definition"],
             }),
           ),
         }}
@@ -99,10 +103,10 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Guides" },
+          { name: "Guides", href: "/guides" },
           { name: "Working while collecting Social Security" },
         ]}
-        eyebrow="Guide · Updated October 8, 2026"
+        eyebrow="Guide · Updated October 9, 2026"
         title="Working while collecting Social Security"
         lede="You can work and collect at the same time. Before full retirement age, an earnings limit applies. Here are the exact 2026 numbers."
         secondaryHref="/start?topic=retirement"
@@ -111,17 +115,31 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-4xl">
-          <div className="rounded-xl border-2 border-[var(--color-navy)] bg-[var(--color-paper)] p-6">
+          <ArticleContents
+            items={[
+              { id: "read-0", label: "The 2026 limits" },
+              { id: "read-1", label: "What the withholding looks like" },
+              { id: "read-2", label: "What counts as earnings" },
+              { id: "read-3", label: "How withheld months affect later benefits" },
+              { id: "read-4", label: "Common questions" },
+            ]}
+          />
+          <div
+            id="definition"
+            className="rounded-xl border-2 border-[var(--color-navy)] bg-[var(--color-paper)] p-6"
+          >
             <p className="text-19 font-semibold">In short</p>
             <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-              The earnings test is Social Security's rule for people who collect benefits before
-              full retirement age and keep working. Earn above the limit and Social Security
+              The earnings test is Social Security&apos;s rule for people who collect benefits
+              before full retirement age and keep working. Earn above the limit and Social Security
               withholds part of your checks. Reach full retirement age and the rule disappears
               completely.
             </p>
           </div>
 
-          <h2 className="text-28 mt-12 font-semibold">The 2026 limits</h2>
+          <h2 id="read-0" className="text-28 mt-12 font-semibold">
+            The 2026 limits
+          </h2>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[560px] border-collapse text-left">
               <caption className="sr-only">
@@ -145,7 +163,7 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
                   <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                     Under full retirement age all year
                   </th>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$24,480 a year</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">$24,480 a year</td>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
                     $1 withheld for every $2 earned over the limit
                   </td>
@@ -154,7 +172,7 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
                   <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                     Reaching full retirement age during 2026
                   </th>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">$65,160 a year</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">$65,160 a year</td>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
                     $1 withheld for every $3 earned over the limit, counting only earnings before
                     the month you reach full retirement age
@@ -164,7 +182,7 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
                   <th scope="row" className="text-16 py-4 pr-4 font-semibold">
                     At or past full retirement age
                   </th>
-                  <td className="text-16 whitespace-nowrap py-4 pr-4">No limit</td>
+                  <td className="text-16 py-4 pr-4 whitespace-nowrap">No limit</td>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
                     Nothing withheld, no matter how much you earn
                   </td>
@@ -173,29 +191,36 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
             </table>
           </div>
 
-          <h2 className="text-28 mt-12 font-semibold">What the withholding looks like</h2>
+          <h2 id="read-1" className="text-28 mt-12 font-semibold">
+            What the withholding looks like
+          </h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Say your benefit is $1,200 a month and you earn $34,480 from a part-time job in 2026.
-            That is $10,000 over the $24,480 limit. Social Security withholds $5,000 for the year,
-            about $417 a month, by holding back whole checks until the amount is covered.
+            In this hypothetical example, your benefit is $1,200 a month and you earn $34,480 from a
+            part-time job in 2026. That is $10,000 over the $24,480 limit. The annual withholding
+            calculation is $5,000. SSA generally holds whole monthly checks rather than deducting an
+            equal amount each month.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Report your expected earnings to Social Security in advance. If you do not, the agency
             recovers the overpayment later. That surprise bill is the part people remember.
           </p>
 
-          <h2 className="text-28 mt-12 font-semibold">What counts as earnings</h2>
+          <h2 id="read-2" className="text-28 mt-12 font-semibold">
+            What counts as earnings
+          </h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The test counts wages and net self-employment income. Bonuses and commissions count.
             These do not count: pensions, annuities, investment income, interest, veterans benefits,
             and other government retirement benefits. Only money you earn by working is tested.
           </p>
 
-          <h2 className="text-28 mt-12 font-semibold">Withheld money comes back</h2>
+          <h2 id="read-3" className="text-28 mt-12 font-semibold">
+            Withheld money comes back
+          </h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            This is the part most articles bury. Benefits withheld under the earnings test are not
-            lost. When you reach full retirement age, Social Security recalculates your benefit to
-            credit the months that were withheld. Your monthly checks go up from that point on.
+            Withheld benefits are not repaid as a lump-sum refund. When you reach full retirement
+            age, Social Security recalculates your benefit to credit the months that were withheld.
+            Your monthly checks go up from that point on.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Deciding when to claim in the first place is the bigger question.{" "}
@@ -203,21 +228,21 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
               Here is how to think through your Social Security start date
             </Link>
             . Working also affects your taxes:{" "}
-            <Link
-              href="/guides/is-social-security-taxed"
-              className="underline underline-offset-2"
-            >
+            <Link href="/guides/is-social-security-taxed" className="underline underline-offset-2">
               here is when Social Security gets taxed
             </Link>
             .
           </p>
+          <EditorialNote sources={[SOURCES.earnings]} />
           <GuideTownLinks />
         </div>
       </section>
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Common questions</h2>
+          <h2 id="read-4" className="text-28 font-semibold">
+            Common questions
+          </h2>
           <dl className="mt-8 flex flex-col gap-6">
             {FAQS.map((item) => (
               <div key={item.q} className="border-t border-gray-300 pt-5">

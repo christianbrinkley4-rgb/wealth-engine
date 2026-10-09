@@ -66,8 +66,11 @@ export default function WhatMedicareDoesNotCoverPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Guides", path: "/guides/what-medicare-does-not-cover" },
-              { name: "What Medicare does not cover", path: "/guides/what-medicare-does-not-cover" },
+              { name: "Guides", path: "/guides" },
+              {
+                name: "What Medicare does not cover",
+                path: "/guides/what-medicare-does-not-cover",
+              },
             ]),
           ),
         }}
@@ -95,7 +98,7 @@ export default function WhatMedicareDoesNotCoverPage() {
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Guides" },
+          { name: "Guides", href: "/guides" },
           { name: "What Medicare does not cover" },
         ]}
         eyebrow="Guide · Updated October 8, 2026"
@@ -169,9 +172,7 @@ export default function WhatMedicareDoesNotCoverPage() {
           </p>
           <div className="mt-6 overflow-x-auto">
             <table className="w-full min-w-[520px] border-collapse text-left">
-              <caption className="sr-only">
-                Your share of Medicare costs in 2026
-              </caption>
+              <caption className="sr-only">Your share of Medicare costs in 2026</caption>
               <thead>
                 <tr className="border-b-2 border-[var(--color-navy)]">
                   <th scope="col" className="text-16 py-3 pr-4 font-semibold">
@@ -253,10 +254,8 @@ export default function WhatMedicareDoesNotCoverPage() {
               cover the routine care Medicare excludes.
             </li>
             <li>
-              <strong className="text-[var(--color-navy)]">
-                Long-term care insurance
-              </strong>{" "}
-              covers custodial care that Medicare never pays for.
+              <strong className="text-[var(--color-navy)]">Long-term care insurance</strong> covers
+              custodial care that Medicare never pays for.
             </li>
           </ol>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
@@ -288,8 +287,8 @@ export default function WhatMedicareDoesNotCoverPage() {
             ))}
           </dl>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-            Questions about your own coverage? Call or text Christian Brinkley in Greensboro, NC
-            at {AGENT.phone}. The review is free, with no obligation.
+            Questions about your own coverage? Call or text Christian Brinkley in Greensboro, NC at{" "}
+            {AGENT.phone}. The review is free, with no obligation.
           </p>
         </div>
       </section>

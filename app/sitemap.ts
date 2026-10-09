@@ -12,36 +12,133 @@ const STATIC_ROUTES: Array<{
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
 }> = [
-  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-07" },
-  { path: "/insurance-services", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-07" },
+  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-09" },
+  { path: "/guides", changeFrequency: "monthly", priority: 0.8, lastModified: "2026-10-09" },
+  {
+    path: "/editorial-policy",
+    changeFrequency: "monthly",
+    priority: 0.5,
+    lastModified: "2026-10-09",
+  },
+  {
+    path: "/insurance-services",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-10-07",
+  },
   { path: "/care-coverage", changeFrequency: "monthly", priority: 0.85 },
   { path: "/long-term-care-insurance", changeFrequency: "monthly", priority: 0.85 },
   { path: "/short-term-care-insurance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/critical-illness-insurance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/turning-65", changeFrequency: "weekly", priority: 0.95 },
   { path: "/medicare-costs", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/medicare-numbers-2027", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
-  { path: "/medicare-changes-2027", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
-  { path: "/medicare-part-d-donut-hole-2027", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-08" },
-  { path: "/turning-65-checklist", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-08" },
-  { path: "/medicare-advantage-vs-medigap-greensboro-nc", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-08" },
-  { path: "/medicare-supplement-plans-greensboro-nc", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-08" },
+  {
+    path: "/medicare-numbers-2027",
+    changeFrequency: "weekly",
+    priority: 0.95,
+    lastModified: "2026-10-08",
+  },
+  {
+    path: "/medicare-changes-2027",
+    changeFrequency: "weekly",
+    priority: 0.95,
+    lastModified: "2026-10-08",
+  },
+  {
+    path: "/medicare-part-d-donut-hole-2027",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-10-08",
+  },
+  {
+    path: "/turning-65-checklist",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-10-08",
+  },
+  {
+    path: "/medicare-advantage-vs-medigap-greensboro-nc",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-10-08",
+  },
+  {
+    path: "/medicare-supplement-plans-greensboro-nc",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-10-08",
+  },
   { path: "/special-enrollment", changeFrequency: "monthly", priority: 0.85 },
   { path: "/annual-enrollment", changeFrequency: "weekly", priority: 0.95 },
   { path: "/aep", changeFrequency: "weekly", priority: 0.95 },
   { path: "/anoc", changeFrequency: "weekly", priority: 0.9 },
   { path: "/medicare-creedmoor-nc", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/medicare-asheboro-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-mebane-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-oxford-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-eden-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-roxboro-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-madison-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-butner-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-graham-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-liberty-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-ramseur-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
-  { path: "/medicare-nc-towns", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
+  {
+    path: "/medicare-asheboro-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
+  {
+    path: "/medicare-mebane-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
+  {
+    path: "/medicare-oxford-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
+  {
+    path: "/medicare-eden-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
+  {
+    path: "/medicare-roxboro-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
+  {
+    path: "/medicare-madison-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
+  {
+    path: "/medicare-butner-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
+  {
+    path: "/medicare-graham-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
+  {
+    path: "/medicare-liberty-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
+  {
+    path: "/medicare-ramseur-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
+  {
+    path: "/medicare-nc-towns",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-10-04",
+  },
   { path: "/plan-check", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-04" },
   { path: "/medicare-annual-enrollment-2026-checklist", changeFrequency: "monthly", priority: 0.9 },
   { path: "/medicare-advantage-doctor-networks", changeFrequency: "monthly", priority: 0.9 },
@@ -62,8 +159,18 @@ const STATIC_ROUTES: Array<{
   { path: "/roth-window", changeFrequency: "weekly", priority: 0.55 },
   { path: "/answers", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-10-01" },
   { path: "/learn", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-05" },
-  { path: "/taxes-and-retirement", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-05" },
-  { path: "/medicare-words", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-05" },
+  {
+    path: "/taxes-and-retirement",
+    changeFrequency: "monthly",
+    priority: 0.85,
+    lastModified: "2026-10-05",
+  },
+  {
+    path: "/medicare-words",
+    changeFrequency: "monthly",
+    priority: 0.85,
+    lastModified: "2026-10-05",
+  },
   // The christianbuildswealth hub.
   ...[
     "/wealth",
@@ -194,6 +301,20 @@ const STATIC_ROUTES: Array<{
  * `new Date()` told crawlers every page on the site had been rewritten on
  * every deploy, which is the fastest way to have lastmod ignored entirely.
  */
+const AUDIT_UPDATED = new Set([
+  "/wealth/learn",
+  "/wealth/roth-ira-explained",
+  "/wealth/401k-explained",
+  "/wealth/hsa-explained",
+  "/wealth/rmd-explained-73",
+  "/tools/take-home-pay",
+  "/tools/compound-interest",
+  "/tools/debt-payoff",
+  "/tools/roth-vs-traditional",
+  "/guides/standard-deduction-seniors-2026",
+  "/guides/working-while-collecting-social-security",
+  "/guides/irmaa-brackets-2026",
+]);
 const CONTENT_LAST_REVIEWED = "2026-10-01";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -224,7 +345,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...STATIC_ROUTES.map(({ path, changeFrequency, priority, lastModified: own }) => ({
       url: `${SITE_URL}${path}`,
-      lastModified: own ?? lastModified,
+      lastModified: AUDIT_UPDATED.has(path) ? "2026-10-09" : (own ?? lastModified),
       changeFrequency,
       priority,
     })),

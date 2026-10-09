@@ -1,0 +1,445 @@
+[
+  {
+    "url": "http://localhost:3108/",
+    "title": "Christian Brinkley | Medicare Help in Greensboro, High Point & Winston-Salem",
+    "h1": "Medicare and money, explained by someone who lives here.",
+    "fonts": [
+      {
+        "text": "GREENSBORO, NC · MEDICARE, TAXES & RETIREMENT",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, sans-serif",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "Medicare and money, explained by someone who lives here.",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, \"Times New Roman\", serif",
+        "size": "70.2px",
+        "line": "70.2px"
+      },
+      {
+        "text": "I’m Christian Brinkley, a licensed insurance agent in Greensboro. I help people ",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "21.24px",
+        "line": "36.108px"
+      },
+      {
+        "text": "Free. No obligation. Your info is never sold.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "15.48px",
+        "line": "24.768px"
+      },
+      {
+        "text": "Pick the one that sounds like you. Each one starts with plain answers, and you c",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "18.9px",
+        "line": "32.13px"
+      }
+    ],
+    "overflow": false,
+    "links": 106,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(31, 74, 64) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/wealth",
+    "title": "Money tools for your 20s: calculators, quizzes and guides | christianbuildswealth",
+    "h1": "Nobody taught you about money. I’m 21 and licensed.",
+    "fonts": [
+      {
+        "text": "CHRISTIANBUILDSWEALTH",
+        "font": "ui-monospace, \"SF Mono\", \"Cascadia Mono\", Menlo, Consolas, monospace",
+        "size": "14.04px",
+        "line": "22.464px"
+      },
+      {
+        "text": "Nobody taught you about money. I’m 21 and licensed.",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, serif",
+        "size": "100.8px",
+        "line": "96.768px"
+      },
+      {
+        "text": "So I'm building the money class I wanted. Calculators you can play with, quizzes",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "33.12px"
+      },
+      {
+        "text": "TRY IT. DRAG A SLIDER.\nLIVE",
+        "font": "ui-monospace, \"SF Mono\", \"Cascadia Mono\", Menlo, Consolas, monospace",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "at 65, from $200 a month starting at 22",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "15.48px",
+        "line": "24.768px"
+      }
+    ],
+    "overflow": false,
+    "links": 62,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(43, 70, 240) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/wealth/roth-ira-explained",
+    "title": "Roth IRA, explained | christianbuildswealth",
+    "h1": "Roth IRA, explained",
+    "fonts": [
+      {
+        "text": "MONEY BASICS",
+        "font": "ui-monospace, \"SF Mono\", \"Cascadia Mono\", Menlo, Consolas, monospace",
+        "size": "14.04px",
+        "line": "22.464px"
+      },
+      {
+        "text": "Roth IRA, explained",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, serif",
+        "size": "85.5px",
+        "line": "87.21px"
+      },
+      {
+        "text": "The Roth IRA rewards early savers. Here is how it works, in plain English.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "33.12px"
+      },
+      {
+        "text": "SHORT ANSWER\nA Roth IRA is a retirement account you fund with after-tax money. Y",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.16px",
+        "line": "30.24px"
+      },
+      {
+        "text": "A Roth IRA is a retirement account that taxes you on the way in so you do not pa",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.16px",
+        "line": "34.272px"
+      }
+    ],
+    "overflow": false,
+    "links": 28,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(43, 70, 240) solid 3px"
+    }
+  },
+  {
+    "url": "http://localhost:3108/tools/take-home-pay",
+    "title": "Take-Home Pay Calculator (2026) | Christian Brinkley",
+    "h1": "What does that salary actually pay?",
+    "fonts": [
+      {
+        "text": "FREE TOOL · YOUR NUMBERS STAY ON YOUR DEVICE",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, sans-serif",
+        "size": "12.96px",
+        "line": "20.736px"
+      },
+      {
+        "text": "What does that salary actually pay?",
+        "font": "Fraunces, \"Fraunces Fallback\", Georgia, \"Times New Roman\", serif",
+        "size": "64.8px",
+        "line": "67.392px"
+      },
+      {
+        "text": "A salary number and a paycheck are two different things. Type in your gross sala",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "20.7px",
+        "line": "35.19px"
+      },
+      {
+        "text": "Free consultation. No obligation to enroll.",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "15.84px",
+        "line": "25.344px"
+      },
+      {
+        "text": "Federal income tax: the 2026 standard deduction ($16,100 single, $32,200 married",
+        "font": "\"Atkinson Hyperlegible Next\", system-ui, \"Segoe UI\", Arial, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+        "size": "16.9992px",
+        "line": "27.6237px"
+      }
+    ],
+    "overflow": false,
+    "links": 77,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to the main content",
+      "outline": "rgb(31, 74, 64) solid 3px"
+    }
+  },
+  {
+    "url": "https://www.nerdwallet.com/",
+    "title": "NerdWallet: Finance smarter",
+    "h1": "Smart financial decisions start with NerdWallet",
+    "fonts": [
+      {
+        "text": "Smart financial decisions start with NerdWallet",
+        "font": "Gotham, system-ui, sans-serif",
+        "size": "52px",
+        "line": "57.2px"
+      },
+      {
+        "text": "Navigate every money move with guidance you can trust.",
+        "font": "Gotham, system-ui, sans-serif",
+        "size": "20px",
+        "line": "32.5px"
+      },
+      {
+        "text": "Credit cards",
+        "font": "Gotham, system-ui, sans-serif",
+        "size": "18px",
+        "line": "24.75px"
+      },
+      {
+        "text": "See the best cards for this month",
+        "font": "Gotham, system-ui, sans-serif",
+        "size": "14px",
+        "line": "21px"
+      },
+      {
+        "text": "Insurance",
+        "font": "Gotham, system-ui, sans-serif",
+        "size": "18px",
+        "line": "24.75px"
+      }
+    ],
+    "overflow": false,
+    "links": 441,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "LABEL",
+      "text": "",
+      "outline": "rgb(229, 151, 0) auto 1px"
+    }
+  },
+  {
+    "url": "https://www.nerdwallet.com/retirement/learn/what-is-a-roth-ira",
+    "title": "Roth IRA: What It Is and Who’s Eligible - NerdWallet",
+    "h1": "Roth IRA: What It Is and Who’s Eligible",
+    "fonts": [
+      {
+        "text": "You're our first priority.Every time.",
+        "font": "Gotham, system-ui, sans-serif",
+        "size": "24px",
+        "line": "36px"
+      },
+      {
+        "text": "NerdWallet, Inc. is an independent publisher and comparison service, not an inve",
+        "font": "Gotham, system-ui, sans-serif",
+        "size": "16px",
+        "line": "24px"
+      },
+      {
+        "text": "We believe everyone should be able to make financial decisions with confidence. ",
+        "font": "Gotham, system-ui, sans-serif",
+        "size": "16px",
+        "line": "24px"
+      },
+      {
+        "text": "So how do we make money? Our partners compensate us. This may influence which pr",
+        "font": "Gotham, system-ui, sans-serif",
+        "size": "16px",
+        "line": "24px"
+      },
+      {
+        "text": "Roth IRA: What It Is and Who’s Eligible",
+        "font": "Gotham, system-ui, sans-serif",
+        "size": "48px",
+        "line": "57.6px"
+      }
+    ],
+    "overflow": false,
+    "links": 399,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "LABEL",
+      "text": "",
+      "outline": "rgb(229, 151, 0) auto 1px"
+    }
+  },
+  {
+    "url": "https://www.investopedia.com/",
+    "title": "Investopedia",
+    "fonts": [
+      {
+        "text": "Investopedia was founded in 1999 with the mission of helping people improve thei",
+        "font": "SourceSansPro, \"Source Sans Pro-fallback\", sans-serif",
+        "size": "24px",
+        "line": "33.6px"
+      },
+      {
+        "text": "Financial education needs to serve readers of all backgrounds. We aspire for our",
+        "font": "SourceSansPro, \"Source Sans Pro-fallback\", sans-serif",
+        "size": "18px",
+        "line": "27px"
+      },
+      {
+        "text": "The Investopedia Advisor Council brings together independent financial advisors ",
+        "font": "SourceSansPro, \"Source Sans Pro-fallback\", sans-serif",
+        "size": "18px",
+        "line": "25.2px"
+      },
+      {
+        "text": "Meet the Advisor Council",
+        "font": "SourceSansPro, \"Source Sans Pro-fallback\", sans-serif",
+        "size": "18px",
+        "line": "21.6px"
+      }
+    ],
+    "overflow": false,
+    "links": 250,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to content",
+      "outline": "rgba(0, 0, 0, 0.95) none 0px"
+    }
+  },
+  {
+    "url": "https://www.investopedia.com/terms/r/rothira.asp",
+    "title": "Roth IRA: What It Is and How to Open One",
+    "h1": "Roth IRA: What It Is and How to Open One",
+    "fonts": [
+      {
+        "text": "Roth IRA: What It Is and How to Open One",
+        "font": "Cabin-semi-bold, Cabin-fallback, sans-serif",
+        "size": "48px",
+        "line": "52.8px"
+      },
+      {
+        "text": "Part of a series of articles to help you open a Roth IRA and invest for retireme",
+        "font": "SourceSansPro, \"Source Sans Pro-fallback\", sans-serif",
+        "size": "16px",
+        "line": "19.2px"
+      },
+      {
+        "text": "A Roth IRA is an IRA that’s contributed to with after-tax dollars, so contributi",
+        "font": "SourceSansPro, \"Source Sans Pro-fallback\", sans-serif",
+        "size": "18px",
+        "line": "28px"
+      },
+      {
+        "text": "Get personalized, AI-powered answers built on 27+ years of trusted expertise.",
+        "font": "SourceSansPro, \"Source Sans Pro-fallback\", sans-serif",
+        "size": "16.3px",
+        "line": "22.005px"
+      },
+      {
+        "text": "A Roth IRA is a type of tax-advantaged individual retirement account to which yo",
+        "font": "SourceSansPro, \"Source Sans Pro-fallback\", sans-serif",
+        "size": "18px",
+        "line": "27px"
+      }
+    ],
+    "overflow": false,
+    "links": 367,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to content",
+      "outline": "rgba(0, 0, 0, 0.95) none 0px"
+    }
+  },
+  {
+    "url": "https://www.bankrate.com/",
+    "title": "Bankrate — Compare Mortgage Rates & Financial Products",
+    "h1": "9 out of 10 homebuyers overpay for their mortgage. \nYou don't have to.",
+    "fonts": [
+      {
+        "text": "9 out of 10 homebuyers overpay for their mortgage. \nYou don't have to.",
+        "font": "RecifeText, ui-serif, system-ui, serif",
+        "size": "48px",
+        "line": "57.6px"
+      },
+      {
+        "text": "American homeowners overpay $3,343 on their mortgage every year. Not because goo",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+        "size": "18px",
+        "line": "30.6px"
+      },
+      {
+        "text": "Average saved by Bankrate mortgage users over 30 years",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+        "size": "16px",
+        "line": "22px"
+      },
+      {
+        "text": "Banks and credit unions surveyed every week",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+        "size": "16px",
+        "line": "22px"
+      },
+      {
+        "text": "Bankrate customers got better rates than 99% of banks in 2025",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", ui-sans-serif, system-ui, sans-serif",
+        "size": "16px",
+        "line": "22px"
+      }
+    ],
+    "overflow": false,
+    "links": 231,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to main content",
+      "outline": "rgb(229, 151, 0) auto 1px"
+    }
+  },
+  {
+    "url": "https://www.bankrate.com/retirement/what-is-a-roth-ira/",
+    "title": "Bankrate.com - Compare mortgage, refinance, insurance, CD rates",
+    "h1": "Error 404",
+    "fonts": [
+      {
+        "text": "Error 404",
+        "font": "RecifeText, ui-serif, system-ui, serif",
+        "size": "48px",
+        "line": "57.6px"
+      },
+      {
+        "text": "Looks like this page doesn’t exist. Our bad! Try our homepage or search for anot",
+        "font": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+        "size": "18px",
+        "line": "30.6px"
+      },
+      {
+        "text": "MORTGAGES",
+        "font": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+        "size": "10px",
+        "line": "12px"
+      },
+      {
+        "text": "BANKING",
+        "font": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+        "size": "10px",
+        "line": "12px"
+      },
+      {
+        "text": "PERSONAL FINANCE",
+        "font": "\"Instrument Sans\", ui-sans-serif, system-ui, sans-serif",
+        "size": "10px",
+        "line": "12px"
+      }
+    ],
+    "overflow": false,
+    "links": 227,
+    "mobileOverflow": false,
+    "firstTab": {
+      "tag": "A",
+      "text": "Skip to Main Content",
+      "outline": "rgb(229, 151, 0) auto 1px"
+    }
+  }
+]

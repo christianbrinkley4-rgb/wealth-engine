@@ -67,7 +67,7 @@ export default function MedicareAutomaticRenewalPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Guides", path: "/guides/medicare-automatic-renewal" },
+              { name: "Guides", path: "/guides" },
               { name: "Automatic renewal", path: "/guides/medicare-automatic-renewal" },
             ]),
           ),
@@ -96,7 +96,7 @@ export default function MedicareAutomaticRenewalPage() {
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Guides" },
+          { name: "Guides", href: "/guides" },
           { name: "Automatic renewal" },
         ]}
         eyebrow="Guide · Updated October 8, 2026"
@@ -180,7 +180,7 @@ export default function MedicareAutomaticRenewalPage() {
           <h2 className="text-28 mt-12 font-semibold">The letter that confuses everyone</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Each September, your Advantage or Part D plan sends an Annual Notice of Change. It lists
-            next year's premiums, copays, drug tiers, and network changes. Many people open it,
+            next year&apos;s premiums, copays, drug tiers, and network changes. Many people open it,
             see official language, and assume they must re-enroll. You do not. The letter is a
             notice, not a renewal form. Read it, compare it to this year, and act only if you want
             to change something.

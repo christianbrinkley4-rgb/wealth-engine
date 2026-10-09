@@ -66,7 +66,7 @@ export default function MedicareHsaContributionsPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
-              { name: "Guides", path: "/guides/medicare-hsa-contributions" },
+              { name: "Guides", path: "/guides" },
               { name: "HSA and Medicare", path: "/guides/medicare-hsa-contributions" },
             ]),
           ),
@@ -95,7 +95,7 @@ export default function MedicareHsaContributionsPage() {
       <ServiceHero
         crumbs={[
           { name: "Home", href: "/" },
-          { name: "Guides" },
+          { name: "Guides", href: "/guides" },
           { name: "HSA and Medicare" },
         ]}
         eyebrow="Guide · Updated October 8, 2026"
@@ -206,7 +206,10 @@ export default function MedicareHsaContributionsPage() {
             or more employees. During that delay, HSA contributions can continue. When the job or
             the coverage ends, you get a special enrollment period for Medicare. That is when the
             6-month lookback starts to matter.{" "}
-            <Link href="/guides/medicare-part-b-employer-coverage" className="underline underline-offset-2">
+            <Link
+              href="/guides/medicare-part-b-employer-coverage"
+              className="underline underline-offset-2"
+            >
               Here is how Part B works with employer coverage
             </Link>
             .

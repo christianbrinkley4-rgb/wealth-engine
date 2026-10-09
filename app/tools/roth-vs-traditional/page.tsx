@@ -1,6 +1,7 @@
+import { EditorialNote } from "@/app/components/EditorialNote";
+import { SOURCES } from "@/lib/editorial";
 import type { Metadata } from "next";
 
-import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 
@@ -49,14 +50,18 @@ export default function RothVsTraditionalPage() {
               description,
               path,
               datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
+              dateModified: "2026-10-09",
             }),
           ),
         }}
       />
 
       <ServiceHero
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth vs traditional" }]}
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Free tools", href: "/tools" },
+          { name: "Roth vs traditional" },
+        ]}
         eyebrow="Free tool · your numbers stay on your device"
         title="Roth vs traditional, in real dollars"
         lede="The tax question, answered with arithmetic. Type in the same contribution for both accounts. The tool grows each side at your assumed rate, takes the tax out where it belongs, and shows which leaves more after tax."
@@ -73,8 +78,8 @@ export default function RothVsTraditionalPage() {
 
       <MathSection title="The math, in plain English">
         <p>
-          <strong>Traditional side:</strong> your full contribution goes in before tax. It grows for the
-          number of years you set. At the end, tax comes out at your withdrawal rate.
+          <strong>Traditional side:</strong> your full contribution goes in before tax. It grows for
+          the number of years you set. At the end, tax comes out at your withdrawal rate.
         </p>
         <p>
           <strong>Roth side:</strong> tax comes out first, at your current rate. The smaller deposit
@@ -88,6 +93,20 @@ export default function RothVsTraditionalPage() {
           Contributions are capped at the 2026 IRA limit for your age: $7,500 under 50, $8,600 at 50
           and older. Growth compounds yearly in this tool.
         </p>
+        <p>
+          The comparison assumes the traditional contribution is fully deductible and Roth
+          withdrawals are qualified. Actual eligibility and deduction limits depend on your
+          circumstances.
+        </p>
+        <p>
+          Both sides use the same pretax budget. A contribution cap is different from the total
+          amount you can afford to set aside.
+        </p>
+        <p>
+          Tax rates are assumptions, not forecasts. State taxes, credits, benefit interactions,
+          fees, and investment losses can change the comparison.
+        </p>
+        <EditorialNote sources={[SOURCES.ira, SOURCES.distributions]} />
       </MathSection>
 
       <div className="bg-white px-4">

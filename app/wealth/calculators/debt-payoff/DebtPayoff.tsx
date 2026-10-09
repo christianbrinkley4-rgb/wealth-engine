@@ -5,7 +5,13 @@ import { Plus, Trash2 } from "lucide-react";
 import { LineChart } from "@/app/wealth/ui/charts";
 import { LiveBar, LiveMoney, MoneyField, SliderField } from "@/app/wealth/ui/controls";
 import { useMarkExplored, usePersistentState } from "@/app/wealth/ui/hooks";
-import { type Debt, type PayoffResult, money, monthsLabel, simulatePayoff } from "@/lib/wealth/math";
+import {
+  type Debt,
+  type PayoffResult,
+  money,
+  monthsLabel,
+  simulatePayoff,
+} from "@/lib/wealth/math";
 
 const KEY = "cbw:debts:v2";
 /** Made-up starter numbers so the chart has something to show. */
@@ -40,11 +46,20 @@ export function DebtPayoff() {
       ...previous,
       debts: [
         ...previous.debts,
-        { id: `${Date.now()}-${Math.random().toString(36).slice(2)}`, name: `Debt ${previous.debts.length + 1}`, balance: 1000, apr: 20, minPayment: 35 },
+        {
+          id: `${Date.now()}-${Math.random().toString(36).slice(2)}`,
+          name: `Debt ${previous.debts.length + 1}`,
+          balance: 1000,
+          apr: 20,
+          minPayment: 35,
+        },
       ],
     }));
   const remove = (id: string) =>
-    setState((previous) => ({ ...previous, debts: previous.debts.filter((debt) => debt.id !== id) }));
+    setState((previous) => ({
+      ...previous,
+      debts: previous.debts.filter((debt) => debt.id !== id),
+    }));
 
   const avalanche = simulatePayoff(debts, state.extra, "avalanche");
   const snowball = simulatePayoff(debts, state.extra, "snowball");
@@ -55,7 +70,10 @@ export function DebtPayoff() {
   const monthsSaved = snowball.months - avalanche.months;
   const stuck = avalanche.stuck || snowball.stuck;
   const length = Math.max(avalanche.timeline.length, snowball.timeline.length);
-  const pad = (values: number[]) => [...values, ...Array(Math.max(0, length - values.length)).fill(0)];
+  const pad = (values: number[]) => [
+    ...values,
+    ...Array(Math.max(0, length - values.length)).fill(0),
+  ];
 
   let takeaway: string;
   if (total === 0) takeaway = "Start with 1 debt to compare both plans.";
@@ -63,7 +81,8 @@ export function DebtPayoff() {
     takeaway =
       "At least 1 plan still has debt after 50 years. Raise the extra payment to test a shorter payoff.";
   else if (interestSaved < 1 && monthsSaved === 0)
-    takeaway = "With these debts, both methods land in the same place. Pick the one you'll stick with.";
+    takeaway =
+      "With these debts, both methods land in the same place. Pick the one you'll stick with.";
   else
     takeaway = `Avalanche saves ${money(interestSaved)} in interest${
       monthsSaved > 0 ? ` and finishes ${monthsLabel(monthsSaved)} sooner` : ""
@@ -92,7 +111,12 @@ export function DebtPayoff() {
               </button>
             </div>
             <div className="w-debt-fields">
-              <MoneyField compact label="Balance" value={debt.balance} onChange={(balance) => update(debt.id, { balance })} />
+              <MoneyField
+                compact
+                label="Balance"
+                value={debt.balance}
+                onChange={(balance) => update(debt.id, { balance })}
+              />
               <MoneyField
                 compact
                 label="APR"
@@ -141,11 +165,12 @@ export function DebtPayoff() {
             ] as const
           ).map(([name, how, result, win]) => (
             <div key={name} data-win={win && !stuck ? "true" : undefined}>
-              <h3>{name}</h3>
+              <h2>{name}</h2>
               <p>{how}</p>
               <strong>{result.stuck ? "Over 50 yr" : monthsLabel(result.months)}</strong>
               <p>
-                {result.stuck ? "Interest in 50 years: " : "Interest: "}<LiveMoney value={result.totalInterest} />
+                {result.stuck ? "Interest in 50 years: " : "Interest: "}
+                <LiveMoney value={result.totalInterest} />
               </p>
               {!result.stuck && result.order.length > 1 ? (
                 <ol className="w-order" aria-label={`${name} payoff order`}>
@@ -161,8 +186,18 @@ export function DebtPayoff() {
         </div>
         <LineChart
           series={[
-            { name: "Avalanche", color: "var(--w-lime)", values: pad(avalanche.timeline), area: true },
-            { name: "Snowball", color: "var(--w-coral)", values: pad(snowball.timeline), dashed: true },
+            {
+              name: "Avalanche",
+              color: "var(--w-lime)",
+              values: pad(avalanche.timeline),
+              area: true,
+            },
+            {
+              name: "Snowball",
+              color: "var(--w-coral)",
+              values: pad(snowball.timeline),
+              dashed: true,
+            },
           ]}
           xLabel={(index) => `Month ${index}`}
           xTitle="Total owed by month."
@@ -171,14 +206,14 @@ export function DebtPayoff() {
         <p className="w-callout">{takeaway}</p>
         {!stuck && total > 0 && state.extra > 0 && !minimumOnly.stuck ? (
           <p className="w-callout w-callout-quiet">
-            Minimums only would take {monthsLabel(minimumOnly.months)} and cost {money(minimumOnly.totalInterest)}{" "}
-            in interest. Your extra {money(state.extra)} a month cuts{" "}
-            {monthsLabel(Math.max(0, minimumOnly.months - avalanche.months))} off.
+            Minimums only would take {monthsLabel(minimumOnly.months)} and cost{" "}
+            {money(minimumOnly.totalInterest)} in interest. Your extra {money(state.extra)} a month
+            cuts {monthsLabel(Math.max(0, minimumOnly.months - avalanche.months))} off.
           </p>
         ) : null}
         <p className="w-assume">
-          Assumes fixed rates, no new charges, and that each paid-off debt&apos;s payment rolls into the next
-          one. Lenders figure interest daily, so expect small differences.
+          Assumes fixed rates, no new charges, and that each paid-off debt&apos;s payment rolls into
+          the next one. Lenders figure interest daily, so expect small differences.
         </p>
       </div>
     </div>

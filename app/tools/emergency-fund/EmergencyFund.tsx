@@ -66,7 +66,7 @@ export function EmergencyFund() {
         </dl>
 
         <div>
-          <h3 className="text-19 font-semibold">Your savings plan</h3>
+          <h2 className="text-19 font-semibold">Your savings plan</h2>
           {savePerMonth > 0 ? (
             <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
               Save {money(savePerMonth)} every month and you hit {money(target)} in about{" "}
