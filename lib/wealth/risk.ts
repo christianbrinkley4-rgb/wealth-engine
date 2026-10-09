@@ -3,12 +3,13 @@
  *
  * Every historical figure below is transcribed from NYU Stern's public
  * historical returns table (Aswath Damodaran, "Historical Returns on
- * Stocks, Bonds and Bills: 1928-2024", updated January 5, 2026):
+ * Stocks, Bonds and Bills", data 1928-2025, retrieved October 2026):
  * https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histretSP.html
  * Column used: "S&P 500 (includes dividends)", annual returns 1928-2025.
- * Counts were verified by script on 2026-10-08 (see
- * lib/__tests__/wealth-risk.test.ts). Nothing here is estimated or rounded
- * beyond the one decimal shown.
+ * Counts were verified by script against the live table on 2026-10-09 (see
+ * lib/__tests__/wealth-risk.test.ts): 26 negative years of 98, 2008 at
+ * -36.55%, worst 10-year stretch 1929-1938 at -1.67% a year. Nothing here
+ * is estimated or rounded beyond the one decimal shown.
  */
 
 import {
@@ -53,6 +54,13 @@ export function shockYearBalance(balance: number, shockPct: number): number {
 /**
  * Three downside scenarios for the retirement projector, computed from the
  * visitor's own inputs plus the verified historical figures above.
+ *
+ * The "bad decade" scenario runs the visitor's first 10 years (or the whole
+ * timeline when it is shorter) at the worst decade's annualized rate, then
+ * the remaining years at their assumed rate. That models a lost decade
+ * hitting early, which is what the title promises. A zero-year horizon has
+ * no multi-year scenario to run, so it returns only the two scenarios that
+ * do not depend on the horizon.
  */
 export function retirementRiskScenarios(input: {
   start: number;
@@ -60,39 +68,61 @@ export function retirementRiskScenarios(input: {
   years: number;
   annualReturn: number;
 }): RiskScenario[] {
-  const base = finalPoint(growthSeries(input));
-  const badDecade = finalPoint(
-    growthSeries({ ...input, annualReturn: SP_WORST_DECADE_ANNUAL_PCT }),
-  );
+  const years = Math.max(0, Math.floor(input.years));
+  const base = finalPoint(growthSeries({ ...input, years }));
   const shocked = shockYearBalance(base.balance, SP_2008_RETURN_PCT);
-  return [
-    {
-      title: "A bad decade",
-      body:
-        `The worst 10-year stretch on record was ${SP_WORST_DECADE_LABEL}. ` +
-        `It averaged ${SP_WORST_DECADE_ANNUAL_PCT}% a year. ` +
-        `At that rate your plan reaches ${money(badDecade.balance)} instead of ${money(base.balance)}.`,
-      sourceLabel: SP_DATA_SOURCE.label,
-      sourceUrl: SP_DATA_SOURCE.url,
-    },
-    {
-      title: "A 2008 in your last year",
-      body:
-        `In 2008 the S&P 500 fell ${Math.abs(SP_2008_RETURN_PCT)}%. ` +
-        `If a year like that hit right before you retire, ${money(base.balance)} becomes ${money(shocked)}. ` +
-        `The plan still works. The number is just smaller.`,
-      sourceLabel: SP_DATA_SOURCE.label,
-      sourceUrl: SP_DATA_SOURCE.url,
-    },
-    {
-      title: "How often the market loses",
-      body:
-        `In ${SP_NEGATIVE_YEARS} of the last ${SP_YEAR_COUNT} years, the S&P 500 lost money. ` +
-        `That is roughly one year in four. Steady growth is an assumption, not a promise.`,
-      sourceLabel: SP_DATA_SOURCE.label,
-      sourceUrl: SP_DATA_SOURCE.url,
-    },
-  ];
+
+  const frequency: RiskScenario = {
+    title: "How often the market loses",
+    body:
+      `In ${SP_NEGATIVE_YEARS} of the last ${SP_YEAR_COUNT} years, the S&P 500 lost money. ` +
+      `That is roughly one year in four. Steady growth is an assumption, not a promise.`,
+    sourceLabel: SP_DATA_SOURCE.label,
+    sourceUrl: SP_DATA_SOURCE.url,
+  };
+  const shock: RiskScenario = {
+    title: "A 2008 in your last year",
+    body:
+      `In 2008 the S&P 500 fell ${Math.abs(SP_2008_RETURN_PCT)}%. ` +
+      `If a year like that hit right before you retire, ${money(base.balance)} becomes ${money(shocked)}. ` +
+      `The plan still works. The number is just smaller.`,
+    sourceLabel: SP_DATA_SOURCE.label,
+    sourceUrl: SP_DATA_SOURCE.url,
+  };
+  if (years <= 0) return [shock, frequency];
+
+  const badYears = Math.min(10, years);
+  const badStart = finalPoint(
+    growthSeries({
+      start: input.start,
+      monthly: input.monthly,
+      years: badYears,
+      annualReturn: SP_WORST_DECADE_ANNUAL_PCT,
+    }),
+  );
+  const badBalance =
+    badYears >= years
+      ? badStart.balance
+      : finalPoint(
+          growthSeries({
+            start: badStart.balance,
+            monthly: input.monthly,
+            years: years - badYears,
+            annualReturn: input.annualReturn,
+          }),
+        ).balance;
+  const badDecade: RiskScenario = {
+    title: "A bad decade",
+    body:
+      `The worst 10-year stretch on record was ${SP_WORST_DECADE_LABEL}. ` +
+      `It averaged ${SP_WORST_DECADE_ANNUAL_PCT}% a year. ` +
+      (years >= 10
+        ? `If your first 10 years matched it, your plan reaches ${money(badBalance)} instead of ${money(base.balance)}.`
+        : `If your whole timeline ran at that rate, your plan reaches ${money(badBalance)} instead of ${money(base.balance)}.`),
+    sourceLabel: SP_DATA_SOURCE.label,
+    sourceUrl: SP_DATA_SOURCE.url,
+  };
+  return [badDecade, shock, frequency];
 }
 
 /** The one-line risk hook for share cards, built from verified figures. */
@@ -119,6 +149,13 @@ export function debtRiskScenarios(input: {
   extra: number;
   strategy: PayoffStrategy;
 }): DebtRisk {
+  // No balances, nothing at risk: the panel stays hidden (RiskSection
+  // renders nothing for an empty list) instead of showing "debt-free in
+  // 0 mo" copy that would read as broken.
+  if (!input.debts.some((debt) => debt.balance > 0)) {
+    return { scenarios: [], riskLine: "" };
+  }
+
   const minOnly = simulatePayoff(input.debts, 0, input.strategy);
   const minLabel = minOnly.stuck ? "50+ years" : monthsLabel(minOnly.months);
 
@@ -153,7 +190,7 @@ export function debtRiskScenarios(input: {
       "Skipping payments can add late fees and hurt your credit. " +
       "That damage sits on top of the math above. " +
       "Protect the minimums first, then the extra.",
-    sourceLabel: "General guidance, stated as guidance",
+    sourceLabel: "General guidance (not a statistic)",
     sourceUrl: "",
   });
 

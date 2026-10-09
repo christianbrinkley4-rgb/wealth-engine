@@ -7,6 +7,7 @@
 import type { RiskScenario } from "@/lib/wealth/risk";
 
 export function RiskSection({ scenarios }: { scenarios: RiskScenario[] }) {
+  if (scenarios.length === 0) return null;
   return (
     <section className="t-risk" aria-label="What could go wrong">
       <h3>What could go wrong</h3>

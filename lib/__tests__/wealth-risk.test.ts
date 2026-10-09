@@ -2,8 +2,8 @@
  * Tests for the Honestly Calculator risk math (lib/wealth/risk).
  *
  * The historical constants are pinned to NYU Stern's public returns table
- * (Damodaran, "Historical Returns on Stocks, Bonds and Bills: 1928-2024",
- * updated January 5, 2026). If the source table ever revises, these pins
+ * (Damodaran, "Historical Returns on Stocks, Bonds and Bills", data
+ * 1928-2025, retrieved October 2026). If the source table ever revises, these pins
  * fail loudly instead of drifting silently. The copy lint enforces the
  * house rules on every visitor-facing sentence: 25 words or fewer, no em
  * or en dashes, human voice.
@@ -79,14 +79,33 @@ describe("retirementRiskScenarios", () => {
     }
   });
 
-  it("shows the bad decade below the base case", () => {
+  it("models a bad decade as the first 10 years at the worst rate", () => {
     const [badDecade] = retirementRiskScenarios(input);
+    // First 10 years at -1.67%, remaining 34 at the visitor's 7%.
+    const badStart = finalPoint(
+      growthSeries({ start: 5000, monthly: 500, years: 10, annualReturn: SP_WORST_DECADE_ANNUAL_PCT }),
+    );
     const badBalance = finalPoint(
-      growthSeries({ ...input, annualReturn: SP_WORST_DECADE_ANNUAL_PCT }),
+      growthSeries({ start: badStart.balance, monthly: 500, years: 34, annualReturn: 7 }),
     ).balance;
     expect(badBalance).toBeLessThan(base);
     expect(badDecade.body).toContain(money(badBalance));
     expect(badDecade.body).toContain(money(base));
+    expect(badDecade.body).toContain("first 10 years");
+  });
+
+  it("uses whole-timeline copy when the horizon is under 10 years", () => {
+    const [badDecade] = retirementRiskScenarios({ start: 5000, monthly: 500, years: 5, annualReturn: 7 });
+    expect(badDecade.body).toContain("whole timeline");
+    expect(badDecade.body).not.toContain("first 10 years");
+  });
+
+  it("drops the multi-year scenario when the horizon is zero", () => {
+    const scenarios = retirementRiskScenarios({ start: 5000, monthly: 500, years: 0, annualReturn: 7 });
+    expect(scenarios.map((s) => s.title)).toEqual([
+      "A 2008 in your last year",
+      "How often the market loses",
+    ]);
   });
 
   it("shows the 2008 shock as a single-year hit to the base number", () => {
@@ -136,6 +155,19 @@ describe("debtRiskScenarios", () => {
     const { scenarios } = debtRiskScenarios({ debts, extra: 0, strategy: "avalanche" });
     expect(scenarios).toHaveLength(2);
     expect(scenarios.map((s) => s.title)).not.toContain("Money gets tight");
+  });
+
+  it("returns nothing to show when there are no balances", () => {
+    const empty = debtRiskScenarios({ debts: [], extra: 0, strategy: "avalanche" });
+    expect(empty.scenarios).toHaveLength(0);
+    expect(empty.riskLine).toBe("");
+    const zeroed = debtRiskScenarios({
+      debts: [{ id: "1", name: "Paid off", balance: 0, apr: 5, minPayment: 0 }],
+      extra: 100,
+      strategy: "avalanche",
+    });
+    expect(zeroed.scenarios).toHaveLength(0);
+    expect(zeroed.riskLine).toBe("");
   });
 
   it("never invents behavior statistics", () => {
