@@ -28,7 +28,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
     heading: "The tax treatment",
     paragraphs: [
-      "Growth inside the account is tax-deferred. [See compound growth in action](/wealth/calculators/compound-interest). Withdrawals for qualified education expenses are tax-free at the federal level and in North Carolina.",
+      "Growth inside the account is tax-deferred. [See compound growth in action](/tools/compound-interest). Withdrawals for qualified education expenses are tax-free at the federal level and in North Carolina.",
       "Non-qualified withdrawals face income tax plus a penalty on the earnings. Use the money for education and the tax benefits hold.",
     ],
   },

@@ -86,3 +86,7 @@ If nothing appears: check that the deploy finished after you added the settings,
 ## What this still doesn't tell you
 
 It counts taps and submitted requests, not conversations. Someone can tap and not call, or call and not show up. The number that decides whether an ad is worth repeating is **cost per attended appointment**, so keep counting appointments in your command center. Measurement narrows the guessing; it doesn't replace the follow-up.
+
+## Booking definition (October 9, 2026)
+
+`booking_confirmed` from the Cal.com webhook is the booking key event. Keep browser `booking_complete` as a diagnostic only; do not star it or add its count to confirmed bookings. Register fixed event dimensions from MEASUREMENT-SPEC-2026-10-09.md.

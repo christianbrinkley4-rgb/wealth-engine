@@ -1,5 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
+import { TrustFacts } from "@/app/components/TrustFacts";
+import { TrackedLink as Link } from "@/components/TrackedLink";
 import { ArrowRight, Phone } from "lucide-react";
 
 import { AGENT } from "@/lib/agent";
@@ -38,14 +39,15 @@ export function KitchenTableClose({
           <h2>{heading}</h2>
           <p>{body}</p>
           <div className="ktc-actions">
-            <a href={AGENT.phoneHref} className="btn">
+            <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn">
               <Phone size={19} aria-hidden />
               {AGENT.phone}
             </a>
-            <Link href={href} className="btn btn-outline">
+            <Link ctaLocation="page_close" href={href} className="btn btn-outline">
               {cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
             </Link>
           </div>
+          <TrustFacts />
           <p className="ktc-note">
             Free consultation in person or by phone. It’s me who answers. {AGENT.hours}
           </p>

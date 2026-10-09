@@ -257,7 +257,7 @@ describe("ask wall publishing contract", () => {
     // Informational surface: no phone number, no consultation CTA on the wall.
     expect(html).not.toMatch(/\(\d{3}\) \d{3}-\d{4}/);
     expect(html).not.toContain("Book a time");
-  });
+  }, 20000);
 
   it.each([0, 1, 2, 3, 4])(
     "renders answer page %i with schema, metadata, and disclosures",

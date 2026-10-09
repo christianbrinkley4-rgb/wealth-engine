@@ -67,7 +67,7 @@ const SECTIONS: Section[] = [
     paragraphs: [
       "You can withdraw your contributions at any time, tax-free and penalty-free. You already paid tax on that money.",
       "Earnings follow stricter rules. Qualified earnings withdrawals need you at 59.5 or older, with the account open at least five years. [The Roth IRA 5-year rule](/guides/roth-ira-five-year-rule).",
-      "Compare it against a traditional account with the [Roth vs traditional calculator](/wealth/calculators/roth-vs-traditional). My short intro guide is here: [What is a Roth IRA?](/wealth/learn/what-is-a-roth-ira).",
+      "Compare it against a traditional account with the [Roth vs traditional calculator](/tools/roth-vs-traditional). My short intro guide is here: [What is a Roth IRA?](/wealth/learn/what-is-a-roth-ira).",
     ],
   },
 ];
@@ -219,7 +219,7 @@ export default function RothIraExplainedPage() {
         title="Read next"
         links={[
           { href: "/wealth/money-moves-in-your-20s", label: "Five money moves for your 20s", kind: "Article" },
-          { href: "/wealth/calculators/roth-vs-traditional", label: "Roth vs traditional", kind: "Calculator" },
+          { href: "/tools/roth-vs-traditional", label: "Roth vs traditional", kind: "Calculator" },
           { href: "/wealth/learn/what-is-a-roth-ira", label: "What is a Roth IRA?", kind: "Article" },
         ]}
       />

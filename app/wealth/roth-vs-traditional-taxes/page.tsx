@@ -61,7 +61,7 @@ const ARTICLE: ArticleData = {
     eyebrow: "Try it · Calculator · 5 minutes",
     title: "Roth vs traditional calculator",
     blurb: "Plug in your numbers and see how the tax trade plays out over time.",
-    href: "/wealth/calculators/roth-vs-traditional",
+    href: "/tools/roth-vs-traditional",
     cta: "Open it",
   },
   sources: [

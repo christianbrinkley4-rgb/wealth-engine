@@ -1592,3 +1592,10 @@ export function placesByCounty(): Array<{ county: string; places: TriadCity[] }>
   }
   return [...map.entries()].map(([county, places]) => ({ county, places }));
 }
+
+/** IA decision 5.2-5.4, October 9, 2026. URLs remain available to residents. */
+export const INDEXABLE_MEDICARE_SLUGS = ["greensboro", "winston-salem", "high-point", "kernersville", "burlington", "summerfield", "jamestown", "stokesdale"] as const;
+export function isIndexableTown(family: "medicare" | "retirement" | "life-insurance", slug: string): boolean {
+  return family === "medicare" && (INDEXABLE_MEDICARE_SLUGS as readonly string[]).includes(slug);
+}
+export function indexableMedicarePlaces() { return TRIAD_CITIES.filter(city => isIndexableTown("medicare", city.slug)); }

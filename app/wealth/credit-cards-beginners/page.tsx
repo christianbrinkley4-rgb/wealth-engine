@@ -137,7 +137,7 @@ export default function CreditCardsBeginnersPage() {
               payoff paths, in months and in interest.
             </p>
             <div className="w-btn-row">
-              <Link href="/wealth/calculators/debt-payoff" className="w-btn">
+              <Link href="/tools/debt-payoff" className="w-btn">
                 Open it <ArrowRight size={18} aria-hidden />
               </Link>
             </div>

@@ -1,4 +1,5 @@
 "use client";
+import { useDeferredFormCheck } from "@/hooks/useDeferredFormCheck";
 
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
@@ -52,6 +53,7 @@ export function TimelineEmailCapture({
   const [error, setError] = useState<string | null>(null);
   const [invalid, setInvalid] = useState<Field | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const { formRef, active, activate } = useDeferredFormCheck();
   const [turnstileReady, setTurnstileReady] = useState(false);
   const [turnstileRender, setTurnstileRender] = useState(0);
   const turnstileContainer = useRef<HTMLDivElement>(null);
@@ -70,7 +72,7 @@ export function TimelineEmailCapture({
    * error screen in production. So we simply wait for the shared script.
    */
   useEffect(() => {
-    if (!TURNSTILE_SITE_KEY || turnstileReady) return;
+    if (!TURNSTILE_SITE_KEY || !active || turnstileReady) return;
     loadTurnstile();
     // Polled rather than checked inline: the script may already be there, and
     // the first tick catches that case without a synchronous setState.
@@ -86,7 +88,7 @@ export function TimelineEmailCapture({
       clearInterval(poll);
       clearTimeout(giveUp);
     };
-  }, [turnstileReady]);
+  }, [turnstileReady, active]);
 
   useEffect(() => {
     const container = turnstileContainer.current;
@@ -248,7 +250,7 @@ export function TimelineEmailCapture({
   const describe = (field: Field) => (invalid === field ? errorId : undefined);
 
   return (
-    <form className="tl-capture" onSubmit={submit} noValidate aria-labelledby={`${id}-heading`}>
+    <form ref={formRef} onFocusCapture={activate} className="tl-capture" onSubmit={submit} noValidate aria-labelledby={`${id}-heading`}>
       <div className="tl-capture-intro">
         <h3 id={`${id}-heading`}>Want these dates in your inbox?</h3>
         <p>

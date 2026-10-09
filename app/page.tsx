@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { TrustFacts } from "@/app/components/TrustFacts";
 import Image from "next/image";
-import Link from "next/link";
+import { TrackedLink as Link } from "@/components/TrackedLink";
 import {
   ArrowDown,
   ArrowRight,
@@ -176,10 +177,10 @@ export default function HomePage() {
               No call center. When you call, you get me.
             </p>
             <div className="hx-actions" id="home-hero-actions">
-              <Link href="/plan-check" className="btn btn-accent">
+              <Link ctaLocation="hero" href="/plan-check" className="btn btn-accent">
                 Take the 90-second plan check <ArrowRight size={19} className="arrow" aria-hidden />
               </Link>
-              <a href={AGENT.phoneHref} className="btn btn-outline">
+              <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-outline">
                 <Phone size={18} aria-hidden /> Call {AGENT.phone}
               </a>
             </div>
@@ -337,7 +338,7 @@ export default function HomePage() {
               whether a review is worth your time. Nothing gets sent anywhere unless you ask.
             </p>
             <div className="pc-actions" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
-              <Link href="/plan-check" className="btn btn-accent">
+              <Link ctaLocation="hero" href="/plan-check" className="btn btn-accent">
                 Start the plan check <ArrowRight size={19} className="arrow" aria-hidden />
               </Link>
               <span className="pc-meta">About 90 seconds · Free</span>
@@ -607,6 +608,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <div className="shell py-8"><TrustFacts /></div>
     </main>
   );
 }

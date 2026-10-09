@@ -96,6 +96,7 @@ export async function GET(
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
       "X-Robots-Tag": "index, follow",
+      Link: `<${SITE_URL}/guides/${slug}>; rel="canonical"`,
     },
   });
 }

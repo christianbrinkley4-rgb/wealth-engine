@@ -116,7 +116,7 @@ export default function IrmaaBrackets2026Page() {
             <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
               IRMAA stands for Income-Related Monthly Adjustment Amount. It is an extra charge added
               to your Part B and Part D premiums when your income is above a set limit. Medicare
-              looks at your tax return from two years ago to set this year's surcharge.
+              looks at your tax return from two years ago to set this year&apos;s surcharge.
             </p>
           </div>
 

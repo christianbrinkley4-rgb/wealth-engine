@@ -233,6 +233,8 @@ export default function AdvantageVsMedigapPage() {
         </div>
       </section>
 
+      <div className="measure-prose app-shell max-w-3xl py-8"><p>For local questions, read about <Link href="/medicare-supplement-plans-greensboro-nc">Medigap in Greensboro</Link> and the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">Greensboro comparison</Link>.</p></div>
+
       <KitchenTableClose
         heading="Tell me who you see and what you take"
         body="We can review your doctors, prescriptions, and budget together. The consultation is no cost, with no obligation to enroll."

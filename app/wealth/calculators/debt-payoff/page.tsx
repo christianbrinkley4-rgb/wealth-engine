@@ -5,7 +5,7 @@ import { DebtPayoff } from "@/app/wealth/calculators/debt-payoff/DebtPayoff";
 import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";
 import { wealthMetadata, webAppJsonLd } from "@/lib/wealth/seo";
 
-const path = "/wealth/calculators/debt-payoff";
+const path = "/tools/debt-payoff";
 const description =
   "Debt payoff calculator: avalanche vs snowball, side by side. Enter your debts and see months to payoff and total interest for each method.";
 
@@ -51,7 +51,7 @@ export default function DebtPayoffPage() {
         }
         lede="The sample debts are made up. Swap in yours, then slide the extra payment and watch both finish lines move."
         crumbs={[
-          { name: "Calculators", path: "/wealth/calculators" },
+          { name: "Calculators", path: "/tools" },
           { name: "Debt payoff", path },
         ]}
       />
@@ -88,7 +88,7 @@ export default function DebtPayoffPage() {
       <NextUp
         links={[
           { href: "/wealth/learn/credit-scores-explained", label: "Credit scores, explained", kind: "Article" },
-          { href: "/wealth/calculators/budget", label: "Find the extra with a budget", kind: "Calculator" },
+          { href: "/tools/budget", label: "Find the extra with a budget", kind: "Calculator" },
           { href: "/wealth/quiz/first-1000", label: "What do I do with my first $1,000?", kind: "Quiz" },
         ]}
       />

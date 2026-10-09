@@ -55,6 +55,7 @@ async function renderForm(kind: "timeline" | "results") {
       }),
     );
   }
+  fireEvent.focus(screen.getByLabelText("Email"));
   fireEvent.change(screen.getByLabelText("Email"), { target: { value: "test@example.com" } });
   fireEvent.click(screen.getByRole("checkbox"));
 }

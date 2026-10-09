@@ -6,5 +6,5 @@ import { QuizRunner } from "../medigap-or-advantage-quiz/quiz-engine/quiz-engine
 import { DATA } from "./data";
 
 export function CdSavingsQuizClient() {
-  return <QuizRunner data={DATA} />;
+  return <QuizRunner data={DATA} quizId="cd_or_savings" />;
 }

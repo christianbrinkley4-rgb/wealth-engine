@@ -65,7 +65,7 @@ const ARTICLE: ArticleData = {
     eyebrow: "Try it · Calculator · 5 minutes",
     title: "Build a budget that works",
     blurb: "Map every dollar now, so the next tight month never blindsides you.",
-    href: "/wealth/calculators/budget",
+    href: "/tools/budget",
     cta: "Open it",
   },
   sources: [{ label: "211.org: local help with rent, utilities, and food", href: "https://www.211.org" }],

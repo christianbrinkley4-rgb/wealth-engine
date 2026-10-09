@@ -290,6 +290,8 @@ export default function Turning65Page() {
         </div>
       </section>
 
+      <div className="measure-prose app-shell max-w-3xl py-8"><p>Use the <Link href="/turning-65-checklist">turning-65 checklist</Link> to organize each next step. If you live nearby, these guides explain <Link href="/medicare-supplement-plans-greensboro-nc">Medigap in Greensboro</Link> and the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local coverage comparison</Link>.</p></div>
+
       <KitchenTableClose
         heading="Ready to review your Medicare timeline?"
         body="Request a consultation and we’ll spend at least one hour on your enrollment timing, current coverage, doctors, and questions. Meet in person or by phone. No cost. No obligation. A request needs confirmation and is not a reserved appointment."

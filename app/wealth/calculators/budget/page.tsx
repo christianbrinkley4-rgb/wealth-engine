@@ -5,7 +5,7 @@ import { BudgetBuilder } from "@/app/wealth/calculators/budget/BudgetBuilder";
 import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";
 import { wealthMetadata, webAppJsonLd } from "@/lib/wealth/seo";
 
-const path = "/wealth/calculators/budget";
+const path = "/tools/budget";
 const description =
   "Free 50/30/20 budget calculator. Enter your take-home pay, drag the sliders, and see needs, wants and savings in dollars. Download your plan.";
 
@@ -51,7 +51,7 @@ export default function BudgetPage() {
         }
         lede="Type what you bring home. Drag one slider and the other two make room. It always adds up to 100."
         crumbs={[
-          { name: "Calculators", path: "/wealth/calculators" },
+          { name: "Calculators", path: "/tools" },
           { name: "Budget builder", path },
         ]}
       />
@@ -86,7 +86,7 @@ export default function BudgetPage() {
       <NextUp
         links={[
           { href: "/wealth/learn/the-50-30-20-rule", label: "The 50/30/20 rule, explained", kind: "Article" },
-          { href: "/wealth/calculators/debt-payoff", label: "Debt payoff: avalanche vs snowball", kind: "Calculator" },
+          { href: "/tools/debt-payoff", label: "Debt payoff: avalanche vs snowball", kind: "Calculator" },
           { href: "/wealth/tools#budget-spreadsheet", label: "Budget spreadsheet (Excel)", kind: "Download" },
         ]}
       />

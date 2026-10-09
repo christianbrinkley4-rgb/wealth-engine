@@ -1059,3 +1059,7 @@
     padding: 1.75rem 0;
   }
 }
+
+@supports (content-visibility: auto) {
+  .ll-group { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+}

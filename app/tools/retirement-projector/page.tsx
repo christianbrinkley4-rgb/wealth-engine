@@ -1,6 +1,7 @@
+import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { MathSection, ToolClose } from "../_components/tool-footer";
@@ -18,12 +19,6 @@ export const metadata: Metadata = {
   twitter: { ...pageTwitter({ title: "Retirement projector", description }), images: [`${path}/twitter-image`] },
 };
 
-const PROOF = [
-  "Your age, your timeline",
-  "Assumed rate, clearly labeled",
-  "Everything runs on your device",
-  "Results are estimates for education",
-] as const;
 
 export default function RetirementProjectorPage() {
   return (
@@ -55,20 +50,11 @@ export default function RetirementProjectorPage() {
         }}
       />
 
-      <ServiceHero
-        variant="compact"
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Retirement projector" }]}
-        eyebrow="Free tool · your numbers stay on your device"
-        title="What could your savings reach?"
-        lede="Retirement feels abstract until you see a number with your name on it. Pick your retirement age and your monthly contribution. Pick an assumed growth rate. The tool projects the balance year by year, split into what you put in and what growth added. The rate is labeled as assumed on purpose: it is a dial to explore, not a prediction."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Retirement projector" }]} title="What could your savings reach?" lede="Explore a savings estimate using a growth rate and timeline you choose." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
-          <RetirementProjector />
+          <ToolTracking toolId="retirement_projector"><RetirementProjector /></ToolTracking>
         </div>
       </section>
 

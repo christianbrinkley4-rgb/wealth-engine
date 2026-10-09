@@ -59,7 +59,7 @@ export default function FirstThousandPage() {
       <NextUp
         links={[
           { href: "/wealth/quiz/money-personality", label: "Money personality quiz", kind: "Quiz" },
-          { href: "/wealth/calculators/budget", label: "50/30/20 budget builder", kind: "Calculator" },
+          { href: "/tools/budget", label: "50/30/20 budget builder", kind: "Calculator" },
           { href: "/wealth/learn/emergency-funds", label: "Emergency funds, explained", kind: "Article" },
         ]}
       />

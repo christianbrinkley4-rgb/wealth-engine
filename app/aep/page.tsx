@@ -389,6 +389,10 @@ export default function AepPage() {
         </div>
       </section>
 
+      <div className="measure-prose app-shell max-w-3xl py-8"><p>Before you review coverage, read the <Link href="/medicare-changes-2027">2027 changes</Link> and the <Link href="/medicare-part-d-donut-hole-2027">Part D cap explanation</Link>, then work through the <Link href="/medicare-annual-enrollment-2026-checklist">Annual Enrollment checklist</Link>.</p></div>
+
+      <div className="measure-prose app-shell max-w-3xl py-8"><p>Before you research coverage, <Link href="/medicare-plan-checklist">make a printable sheet of your doctors, prescriptions, and priorities</Link>. Your entries stay on your device.</p></div>
+      <div className="measure-prose app-shell max-w-3xl py-8"><p>Before you research coverage, <Link href="/medicare-plan-checklist">make a printable sheet of your doctors, prescriptions, and priorities</Link>. Your entries stay on your device.</p></div>
       <KitchenTableClose
         heading="Book your free fall review"
         body="Annual Enrollment closes December 7, and my calendar fills up fast in November. Pick a time that works for you, or call me and you'll reach me, not a call center."

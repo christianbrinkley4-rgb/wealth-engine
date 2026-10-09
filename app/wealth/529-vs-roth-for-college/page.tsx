@@ -82,7 +82,7 @@ export default function FiveTwentyNineVsRothPage() {
             <section>
               <h2>How a 529 works</h2>
               <p>
-                A 529 is a state-run account built for education savings. <Link href="/wealth/calculators/compound-interest">Growth inside the account is
+                A 529 is a state-run account built for education savings. <Link href="/tools/compound-interest">Growth inside the account is
                 tax-deferred</Link>, and withdrawals for qualified education costs are tax-free.
               </p>
               <p>
@@ -147,7 +147,7 @@ export default function FiveTwentyNineVsRothPage() {
               College savings grow with time. Drag the sliders and see what starting early changes.
             </p>
             <div className="w-btn-row">
-              <Link href="/wealth/calculators/compound-interest" className="w-btn">
+              <Link href="/tools/compound-interest" className="w-btn">
                 Open it <ArrowRight size={18} aria-hidden />
               </Link>
             </div>

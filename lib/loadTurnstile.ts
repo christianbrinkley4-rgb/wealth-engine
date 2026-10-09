@@ -3,7 +3,7 @@
  *
  * It used to load on every page from the root layout, so someone reading an
  * article paid for a bot-check script they would never use. Forms now ask for
- * it when they mount.
+ * it on first focus or when the form becomes visible.
  *
  * The tag is added straight to the document from an effect, never rendered by
  * React. Rendering a <Script> inside a form once put a second copy of the tag

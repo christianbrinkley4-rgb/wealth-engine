@@ -455,3 +455,5 @@ table.t-table {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+.tool-header { padding-block: 24px 0; }

@@ -14,6 +14,7 @@ export const STANDALONE_GUIDES: Array<{
       { title: "Medicare while traveling", href: "/guides/medicare-travel" },
       { title: "2026 IRMAA brackets", href: "/guides/irmaa-brackets-2026" },
       { title: "Medicare Advantage vs Medigap", href: "/advantage-vs-medigap" },
+      { title: "Questions about Medigap or Advantage", href: "/tools/medigap-or-advantage-quiz" },
     ],
   },
   {

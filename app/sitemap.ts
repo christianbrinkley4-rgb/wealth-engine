@@ -4,7 +4,7 @@ import { ARTICLES } from "@/lib/articles";
 import { ASK_QUESTIONS } from "@/lib/askWall";
 import { SITE_URL } from "@/lib/seo";
 import { TAX_ARTICLES } from "@/lib/taxArticles";
-import { TRIAD_CITIES } from "@/lib/triad";
+import { indexableMedicarePlaces } from "@/lib/triad";
 import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
 import { PERSONALITIES } from "@/lib/wealth/quizzes";
 
@@ -14,6 +14,7 @@ const STATIC_ROUTES: Array<{
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
 }> = [
+  { path: "/medicare-plan-checklist", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-09" },
   { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-07" },
   { path: "/insurance-services", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-07" },
   { path: "/care-coverage", changeFrequency: "monthly", priority: 0.85 },
@@ -71,7 +72,6 @@ const STATIC_ROUTES: Array<{
   // The christianbuildswealth hub.
   ...[
     "/wealth",
-    "/wealth/calculators",
     "/wealth/quiz",
     "/wealth/quiz/first-1000",
     "/wealth/quiz/money-personality",
@@ -106,7 +106,6 @@ const STATIC_ROUTES: Array<{
     "/wealth/car-buying-money-guide",
     "/wealth/side-hustle-taxes",
     "/wealth/529-vs-roth-for-college",
-    "/links",
   ].map((path) => ({
     path,
     changeFrequency: "weekly" as const,
@@ -153,8 +152,6 @@ const STATIC_ROUTES: Array<{
   })),
   { path: "/guides", changeFrequency: "weekly", priority: 0.8, lastModified: TRAFFIC_GUIDE_DATE },
   ...TRAFFIC_GUIDES.map((guide) => ({ path: `/guides/${guide.slug}`, changeFrequency: "monthly" as const, priority: 0.8, lastModified: TRAFFIC_GUIDE_DATE })),
-  // Identical Markdown versions for AI crawlers (Manoj Ahirwar tip #3).
-  ...TRAFFIC_GUIDES.map((guide) => ({ path: `/guides/${guide.slug}/markdown`, changeFrequency: "monthly" as const, priority: 0.5, lastModified: TRAFFIC_GUIDE_DATE })),
   // Self-directed SEO guides.
   ...[
     "/guides/what-medicare-does-not-cover",
@@ -223,26 +220,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = CONTENT_LAST_REVIEWED;
 
   // One entry per Triad city, generated from the same source the pages use.
-  const cityRoutes: MetadataRoute.Sitemap = TRIAD_CITIES.flatMap((city) => [
-    {
-      url: `${SITE_URL}/medicare-in/${city.slug}`,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/life-insurance-in/${city.slug}`,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.85,
-    },
-    {
-      url: `${SITE_URL}/retirement-in/${city.slug}`,
-      lastModified,
-      changeFrequency: "monthly" as const,
-      priority: 0.85,
-    },
-  ]);
+  const cityRoutes: MetadataRoute.Sitemap = indexableMedicarePlaces().map(city => ({
+    url: `${SITE_URL}/medicare-in/${city.slug}`, lastModified, changeFrequency: "monthly", priority: 0.9,
+  }));
 
   return [
     ...STATIC_ROUTES.map(({ path, changeFrequency, priority, lastModified: own }) => ({

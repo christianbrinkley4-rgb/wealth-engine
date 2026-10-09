@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { TpmoDisclaimer } from "@/components/TpmoDisclaimer";
 import { AGENT, GOVERNMENT_DISCLAIMER, publishedProfiles } from "@/lib/agent";
-import { featuredPlaces } from "@/lib/triad";
+import { indexableMedicarePlaces } from "@/lib/triad";
 
 const START = [
   { href: "/plan-check", label: "Plan check quiz" },
@@ -23,7 +23,7 @@ const LEARN = [
   { href: "/wealth/learn", label: "Money guides" },
   { href: "/numbers", label: "2026-2027 money numbers" },
   { href: "/answers", label: "Medicare questions, answered" },
-  { href: "/ask", label: "Ask Christian" },
+  { href: "/ask", label: "Questions people asked" },
   { href: "/medicare-words", label: "Medicare words, in plain English" },
   { href: "/taxes-and-retirement", label: "Taxes & retirement" },
   { href: "/advantage-vs-medigap", label: "Advantage or Medigap" },
@@ -34,6 +34,8 @@ const LEARN = [
 ] as const;
 
 const MORE = [
+  { href: "/ai", label: "AI guides" },
+  { href: "/tools", label: "Free tools" },
   { href: "/insurance-services", label: "All insurance services" },
   { href: "/life-insurance", label: "Life insurance" },
   { href: "/care-coverage", label: "Care and critical illness coverage" },
@@ -139,7 +141,7 @@ export function SiteFooter() {
           <div className="ft-col">
             <h3>Near you</h3>
             <ul>
-              {featuredPlaces().map((city) => (
+              {indexableMedicarePlaces().map((city) => (
                 <li key={city.slug}>
                   <Link href={`/medicare-in/${city.slug}`}>Medicare in {city.name}</Link>
                 </li>

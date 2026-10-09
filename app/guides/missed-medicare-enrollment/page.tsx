@@ -123,7 +123,7 @@ export default function MissedMedicareEnrollmentPage() {
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Coverage generally renews if the plan continues and you remain eligible. Check the
             Annual Notice of Change and any nonrenewal letter. Doctors, covered drugs, costs,
-            and networks can change. A familiar plan name doesn't guarantee the same coverage.
+            and networks can change. A familiar plan name doesn&apos;t guarantee the same coverage.
             Read the <Link href="/guides/medicare-plan-not-renewing-triad" className="underline">Triad nonrenewal checklist</Link> if your letter says coverage is ending.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -140,7 +140,7 @@ export default function MissedMedicareEnrollmentPage() {
             General Enrollment runs January 1 to March 31 for Part B and premium Part A.
             Coverage starts the month after you sign up. Late enrollment penalties may apply.
             People eligible for premium-free Part A can generally sign up after first becoming eligible.
-            See <a href="https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start" className="underline">Medicare's coverage start rules</a>.
+            See <a href="https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start" className="underline">Medicare&apos;s coverage start rules</a>.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The penalties are permanent. Part B adds 10 percent to your premium for each full

@@ -136,7 +136,7 @@ export default function CarBuyingMoneyGuidePage() {
               a payment fits.
             </p>
             <div className="w-btn-row">
-              <Link href="/wealth/calculators/budget" className="w-btn">
+              <Link href="/tools/budget" className="w-btn">
                 Open it <ArrowRight size={18} aria-hidden />
               </Link>
             </div>

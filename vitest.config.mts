@@ -6,6 +6,8 @@ const root = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   test: {
+    // Bound concurrency so DOM-heavy tests remain stable alongside a build.
+    maxWorkers: 2,
     environment: "node",
     include: ["**/__tests__/**/*.test.ts", "**/*.test.ts"],
     exclude: ["**/node_modules/**", ".cache/**", ".next/**", ".next-preview/**", ".next-verify/**"],

@@ -146,7 +146,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
       {
         heading: "Why people in their 20s look at it",
         paragraphs: [
-          "Two reasons. First, a starting salary sits in a low tax bracket, and a Roth locks in that rate on the money you put in. [Compare with the calculator](/wealth/calculators/roth-vs-traditional). Second, time. Tax-free growth gets decades to work.",
+          "Two reasons. First, a starting salary sits in a low tax bracket, and a Roth locks in that rate on the money you put in. [Compare with the calculator](/tools/roth-vs-traditional). Second, time. Tax-free growth gets decades to work.",
           "Also worth knowing: you can take out the amount you contributed at any time without tax or penalty. [The Roth IRA 5-year rule](/guides/roth-ira-five-year-rule). Earnings are different. Pulling those early can mean tax and a 10% penalty.",
           "Whether a Roth fits you depends on your income, your taxes and your goals. I can explain how it works. I can't tell you what to put in it.",
         ],
@@ -349,7 +349,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         heading: "What it's for",
         paragraphs: [
           "A blown tire. A cracked phone you need for work. Hours cut at your job. An emergency fund turns those from a crisis into a bad week.",
-          "Without one, the surprise goes on a credit card, and now you're paying interest on bad luck. [The debt payoff calculator](/wealth/calculators/debt-payoff).",
+          "Without one, the surprise goes on a credit card, and now you're paying interest on bad luck. [The debt payoff calculator](/tools/debt-payoff).",
         ],
       },
       {
@@ -432,7 +432,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         heading: "A quick example",
         paragraphs: [
           "Say you bring home $3,000 a month. The classic split is $1,500 for needs, $900 for wants and $600 for savings and extra debt payments.",
-          "Now check it against real life. If rent and a car payment already eat $1,900, you're at 63% needs. [The budget builder](/wealth/calculators/budget). The rule didn't fail. It just showed you where the pressure is.",
+          "Now check it against real life. If rent and a car payment already eat $1,900, you're at 63% needs. [The budget builder](/tools/budget). The rule didn't fail. It just showed you where the pressure is.",
         ],
       },
       {

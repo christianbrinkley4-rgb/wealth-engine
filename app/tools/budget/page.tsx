@@ -1,6 +1,7 @@
+import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { MathSection, ToolClose } from "../_components/tool-footer";
@@ -18,12 +19,6 @@ export const metadata: Metadata = {
   twitter: { ...pageTwitter({ title: "Budget calculator", description }), images: [`${path}/twitter-image`] },
 };
 
-const PROOF = [
-  "Free to use, no account",
-  "Everything runs on your device",
-  "Surplus or deficit in plain dollars",
-  "Results are estimates for education",
-] as const;
 
 export default function BudgetPage() {
   return (
@@ -55,20 +50,11 @@ export default function BudgetPage() {
         }}
       />
 
-      <ServiceHero
-        variant="compact"
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Budget" }]}
-        eyebrow="Free tool · your numbers stay on your device"
-        title="Budget, in one screen"
-        lede="Money comes in, money goes out, and somehow there is never quite enough left. Type what you bring home each month, fill in the spending categories, and the verdict updates as you go. Leftover or short, in plain dollars, with a breakdown of where it all goes."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Budget" }]} title="Budget, in one screen" lede="Compare your take-home pay with spending to see what is left each month." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
-          <Budget />
+          <ToolTracking toolId="budget"><Budget /></ToolTracking>
         </div>
       </section>
 

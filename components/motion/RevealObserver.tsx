@@ -17,12 +17,13 @@ export function RevealObserver() {
 
   useEffect(() => {
     const root = document.documentElement;
-    (window as Window & { __revealReady?: boolean }).__revealReady = true;
-    if (!root.classList.contains("js-reveal")) return;
+    // SSR content stays readable while JavaScript starts. Only enable reveals
+    // after the observer has marked the initial visible elements as shown.
+    root.classList.remove("js-reveal");
 
     const show = (el: Element) => el.classList.add("is-in");
 
-    if (typeof IntersectionObserver === "undefined") {
+    if (typeof IntersectionObserver === "undefined" || window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) {
       document.querySelectorAll("[data-reveal]").forEach(show);
       return;
     }
@@ -35,6 +36,7 @@ export function RevealObserver() {
             io.unobserve(entry.target);
           }
         }
+        root.classList.add("js-reveal");
       },
       { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
     );
@@ -58,15 +60,10 @@ export function RevealObserver() {
     return () => {
       io.disconnect();
       mo.disconnect();
+      root.classList.remove("js-reveal");
     };
   }, [pathname]);
 
   return null;
 }
 
-/**
- * Runs before first paint. Hides reveal targets only when this browser can
- * show them again, and un-hides everything if the page never finishes
- * starting up, so a failed script can never leave a blank page.
- */
-export const REVEAL_BOOT_SCRIPT = `(function(){try{var d=document.documentElement;if(!('IntersectionObserver' in window))return;if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('js-reveal');setTimeout(function(){if(!window.__revealReady)d.classList.remove('js-reveal')},3500)}catch(e){}})();`;

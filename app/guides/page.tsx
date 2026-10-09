@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { STANDALONE_GUIDES } from "@/lib/standaloneGuides";
-import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
+import { MEDICARE_GUIDES, MONEY_GUIDES } from "@/lib/guideLanes";
 
 import { GuideCapture } from "@/app/components/GuideCapture";
 import { ServiceHero } from "@/app/components/ServiceHero";
@@ -55,9 +54,9 @@ export default function GuidesPage() {
 
       <section className="bg-white py-14">
         <div className="app-shell">
-          <h2 className="text-28 font-semibold">Work, taxes, and account changes</h2>
+          <h2 className="text-28 font-semibold">Money and taxes</h2>
           <div className="hub-grid mt-8">
-            {TRAFFIC_GUIDES.map((guide) => (
+            {MONEY_GUIDES.map((guide) => (
               <Link
                 key={guide.slug}
                 href={`/guides/${guide.slug}`}
@@ -74,9 +73,9 @@ export default function GuidesPage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="app-shell">
-          <h2 className="text-28 font-semibold">Retirement and Medicare</h2>
+          <h2 className="text-28 font-semibold">Medicare and Social Security</h2>
           <div className="hub-grid mt-8">
-            {STANDALONE_GUIDES.map((guide) => (
+            {MEDICARE_GUIDES.map((guide) => (
               <Link
                 key={guide.slug}
                 href={`/guides/${guide.slug}`}

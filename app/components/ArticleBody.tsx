@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { GuideCapture } from "@/app/components/GuideCapture";
 import { TrackedLink } from "@/components/TrackedLink";
 import { AGENT } from "@/lib/agent";
 import { articleText, type Article } from "@/lib/articles";
@@ -207,10 +208,10 @@ export function ArticleBody({
             <h2>{nextStep.heading}</h2>
             <p>{nextStep.body}</p>
             <div className="art-next-actions">
-              <TrackedLink href={article.startHref} className="btn" event="article_cta_click">
+              <TrackedLink href={article.startHref} className="btn" event="article_cta_click" ctaLocation="article_end">
                 {nextStep.label} <ArrowRight size={18} className="arrow" aria-hidden />
               </TrackedLink>
-              <a href={AGENT.phoneHref} className="btn btn-outline">
+              <a data-cta-location="article_end" href={AGENT.phoneHref} className="btn btn-outline">
                 <Phone size={18} aria-hidden /> {AGENT.phone}
               </a>
             </div>
@@ -219,13 +220,14 @@ export function ArticleBody({
             </p>
           </aside>
 
+          <GuideCapture />
           <div className="art-refs">
             <div>
               <h2>Sources</h2>
               <ol className="art-sources">
                 {article.sources.map((source) => (
                   <li key={source.href}>
-                    <a href={source.href} rel="noopener">
+                    <a href={source.href} rel="noopener" data-handoff>
                       {source.label}
                     </a>
                   </li>

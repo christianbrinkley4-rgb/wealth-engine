@@ -8,7 +8,7 @@ import {
   TPMO_DISCLAIMER,
 } from "@/lib/agent";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
-import { placeNames, TRIAD_CITIES } from "@/lib/triad";
+import { placeNames, indexableMedicarePlaces } from "@/lib/triad";
 import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
 import { WEALTH_NAV, WEALTH_TOOLS } from "@/lib/wealth/site";
 import { PERSONALITIES } from "@/lib/wealth/quizzes";
@@ -89,17 +89,16 @@ export function GET() {
     .filter((entry) => entry.kind === "Answer" || entry.kind === "Explainer")
     .map((entry) => `- [${entry.title}](${SITE_URL}${entry.href}): ${entry.blurb}`)
     .join("\n");
-  const cityLines = TRIAD_CITIES.map((city) =>
+  const cityLines = indexableMedicarePlaces().map((city) =>
     [
       `- [Medicare in ${city.name}](${SITE_URL}/medicare-in/${city.slug}): personal help with enrollment, doctors, prescriptions, and coverage choices. Confirm Medicare Advantage availability for the visitor’s home address.`,
-      `- [Life insurance in ${city.name}](${SITE_URL}/life-insurance-in/${city.slug}): review existing coverage and family needs.`,
-      `- [Retirement help in ${city.name}](${SITE_URL}/retirement-in/${city.slug}): Medicare and insurance education, with financial planning coordinated through an advisor.`,
     ].join("\n"),
   ).join("\n");
 
   const wealthLines = [
     `- [Money tools for your 20s](${SITE_URL}/wealth): christianbuildswealth home.`,
     `- [Christian's links](${SITE_URL}/links): downloads and contact links.`,
+    `- [Downloads](${SITE_URL}/wealth/tools): budget spreadsheet and ratio checker.`,
     ...WEALTH_NAV.map((item) => `- [${item.label}](${SITE_URL}${item.href}): hub section.`),
     ...PERSONALITIES.map((type) => `- [${type.name}](${SITE_URL}/wealth/quiz/money-personality/${type.id}): ${type.tagline}`),
     ...WEALTH_TOOLS.map(
@@ -195,6 +194,8 @@ ${articleLines}
 - [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the $2,400 Part D out-of-pocket cap works in 2027.
 
 ## Free tools
+
+- [Plan research checklist](${SITE_URL}/medicare-plan-checklist): organize doctors, prescriptions, pharmacies, travel, budget, and priorities in temporary browser state, then print and carry the sheet to Medicare.gov. Does not compare plans or check coverage.
 
 - [Medicare enrollment dates](${SITE_URL}/turning-65#enrollment-dates): find estimated enrollment dates, print them, or save them to a personal calendar without providing contact information. Includes the first-of-month birthday adjustment.
 - [Save Medicare dates](${SITE_URL}/remind-me): the same calendar tool; this page does not offer automatic reminder emails.

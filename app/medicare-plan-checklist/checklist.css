@@ -1,0 +1,25 @@
+.checklist { padding-block: 16px 48px; }
+.checklist h2, .checklist h3 { font-size: 1.4rem; margin-block: 20px 12px; font-weight: 650; }
+.checklist p { margin-block: 12px; line-height: 1.65; }
+.checklist-field { margin-block: 24px; }
+.checklist-field label, .checklist legend { font-weight: 650; }
+.checklist-field input, .checklist-field textarea, .checklist-field select { display: block; width: 100%; border: 2px solid var(--color-navy); border-radius: 8px; padding: 12px; min-height: 48px; font-size: 1rem; background: white; }
+.checklist-field p, .checklist-privacy { font-size: .9rem; }
+.checklist-choice { display: flex; gap: 12px; align-items: center; min-height: 48px; }
+.checklist-choice input { width: 24px; height: 24px; }
+.checklist-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-block: 24px; }
+.checklist a:not(.btn) { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; }
+.plan-sheet { border: 1px solid var(--color-navy); padding: 20px; background: white; }
+.plan-sheet dt { font-weight: 650; }
+.plan-sheet dd { white-space: pre-wrap; overflow-wrap: anywhere; margin-block: 4px 12px; }
+@media print {
+  @page { size: letter; margin: .5in; }
+  body:has(.plan-sheet) * { visibility: hidden; }
+  body:has(.plan-sheet) .plan-sheet, body:has(.plan-sheet) .plan-sheet * { visibility: visible; }
+  .plan-sheet { position: absolute; inset: 0; border: 0; width: 100%; padding: 0; font: 10pt/1.2 Arial, sans-serif; }
+  .plan-sheet h3 { font-size: 16pt; margin: 0 0 8pt; }
+  .plan-sheet dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt 16pt; }
+  .plan-sheet dl > div { break-inside: avoid; }
+  .plan-sheet dd { margin-bottom: 6pt; }
+  .nav, .ft, .scta { display: none !important; }
+}

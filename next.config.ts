@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
+      { source: "/wealth/calculators", destination: "/tools", permanent: true },
       {
         source: "/lp/retirement",
         destination: "/lp/retirement-income",

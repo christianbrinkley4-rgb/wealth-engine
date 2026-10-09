@@ -283,6 +283,7 @@ export default function Turning65ChecklistPage() {
         </div>
       </section>
 
+      <div className="measure-prose app-shell max-w-3xl py-8"><p>Before you research coverage, <Link href="/medicare-plan-checklist">make a printable sheet of your doctors, prescriptions, and priorities</Link>. Your entries stay on your device.</p></div>
       <KitchenTableClose
         heading="Work the checklist with me"
         body="Bring your 65th birthday month and your current insurance card. We will walk all eight steps together, free, no obligation, about 30 minutes."

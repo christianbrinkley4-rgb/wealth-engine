@@ -29,7 +29,7 @@ const SECTIONS: Section[] = [
     paragraphs: [
       "Your budget starts with what lands in your account, not your salary. Take-home pay is what you can actually spend.",
       "Write down where your money goes for one month. You cannot fix what you cannot see.",
-      "My budgeting guide walks through the whole setup: [Budgeting on your first job](/wealth/learn/budgeting-on-your-first-job). The [budget builder](/wealth/calculators/budget) gives you a place to run the numbers.",
+      "My budgeting guide walks through the whole setup: [Budgeting on your first job](/wealth/learn/budgeting-on-your-first-job). The [budget builder](/tools/budget) gives you a place to run the numbers.",
     ],
   },
   {
@@ -45,7 +45,7 @@ const SECTIONS: Section[] = [
     paragraphs: [
       "High-interest debt grows while you sleep. Every month you carry it costs you.",
       "List every debt, then attack the highest rate first. That is the avalanche method.",
-      "The [debt payoff calculator](/wealth/calculators/debt-payoff) runs avalanche and snowball side by side, in months and in interest.",
+      "The [debt payoff calculator](/tools/debt-payoff) runs avalanche and snowball side by side, in months and in interest.",
     ],
   },
   {
@@ -222,7 +222,7 @@ export default function MoneyMovesInYour20sPage() {
         links={[
           { href: "/wealth/roth-ira-explained", label: "Roth IRA, explained", kind: "Article" },
           { href: "/wealth/learn/budgeting-on-your-first-job", label: "Budgeting on your first job", kind: "Article" },
-          { href: "/wealth/calculators/budget", label: "50/30/20 budget builder", kind: "Calculator" },
+          { href: "/tools/budget", label: "50/30/20 budget builder", kind: "Calculator" },
         ]}
       />
     </main>

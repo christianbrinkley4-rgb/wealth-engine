@@ -66,7 +66,7 @@ const ARTICLE: ArticleData = {
     eyebrow: "Try it · Calculator · 5 minutes",
     title: "Build a budget that works",
     blurb: "Find the monthly surplus that becomes your automatic emergency fund transfer.",
-    href: "/wealth/calculators/budget",
+    href: "/tools/budget",
     cta: "Open it",
   },
   sources: [{ label: "Consumer Financial Protection Bureau", href: "https://www.consumerfinance.gov/" }],

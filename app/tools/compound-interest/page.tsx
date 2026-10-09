@@ -1,6 +1,7 @@
+import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { MathSection, ToolClose } from "../_components/tool-footer";
@@ -18,12 +19,6 @@ export const metadata: Metadata = {
   twitter: { ...pageTwitter({ title: "Compound interest calculator", description }), images: [`${path}/twitter-image`] },
 };
 
-const PROOF = [
-  "Drag the sliders, watch the curve",
-  "Full year-by-year table",
-  "Everything runs on your device",
-  "Results are estimates for education",
-] as const;
 
 export default function CompoundInterestPage() {
   return (
@@ -55,20 +50,11 @@ export default function CompoundInterestPage() {
         }}
       />
 
-      <ServiceHero
-        variant="compact"
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Compound interest" }]}
-        eyebrow="Free tool · your numbers stay on your device"
-        title="Compound interest, live"
-        lede="The most boring chart in finance is also the most powerful one. Drag the sliders and the curve redraws. The solid line is your balance. The dashed line is what you actually put in. The space between them is growth, and it gets wide fast. Then scroll down to see every year in a table."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Compound interest" }]} title="Compound interest, live" lede="Change the deposits, time, and assumed rate to explore how savings could grow." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
-          <CompoundInterest />
+          <ToolTracking toolId="compound_interest"><CompoundInterest /></ToolTracking>
         </div>
       </section>
 

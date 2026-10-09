@@ -5,7 +5,7 @@ import { RothCompare } from "@/app/wealth/calculators/roth-vs-traditional/RothCo
 import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";
 import { wealthMetadata, webAppJsonLd } from "@/lib/wealth/seo";
 
-const path = "/wealth/calculators/roth-vs-traditional";
+const path = "/tools/roth-vs-traditional";
 const description =
   "Roth vs traditional, explained first and calculated second. See how your tax rate now and later decides which one leaves you more to spend.";
 
@@ -51,7 +51,7 @@ export default function RothVsTraditionalPage() {
         }
         lede="Read the 60-second version first. Then drag the two tax sliders and watch the answer flip."
         crumbs={[
-          { name: "Calculators", path: "/wealth/calculators" },
+          { name: "Calculators", path: "/tools" },
           { name: "Roth vs traditional", path },
         ]}
       />
@@ -125,7 +125,7 @@ export default function RothVsTraditionalPage() {
       <NextUp
         links={[
           { href: "/wealth/learn/what-is-a-roth-ira", label: "What a Roth IRA actually is", kind: "Article" },
-          { href: "/wealth/calculators/compound-interest", label: "Compound interest, live", kind: "Calculator" },
+          { href: "/tools/compound-interest", label: "Compound interest, live", kind: "Calculator" },
           { href: "/wealth/quiz/money-personality", label: "Money personality quiz", kind: "Quiz" },
         ]}
       />

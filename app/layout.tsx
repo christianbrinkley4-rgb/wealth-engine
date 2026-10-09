@@ -5,7 +5,7 @@ import { Analytics } from "@/app/components/Analytics";
 import { MainContent } from "@/app/components/MainContent";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { TopRouteChrome } from "@/app/components/TopRouteChrome";
-import { REVEAL_BOOT_SCRIPT, RevealObserver } from "@/components/motion/RevealObserver";
+import { RevealObserver } from "@/components/motion/RevealObserver";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { publishedProfiles } from "@/lib/agent";
 import {
@@ -41,8 +41,8 @@ const bodyFont = Atkinson_Hyperlegible_Next({
 const displayFont = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  axes: ["opsz", "SOFT"],
   style: ["normal", "italic"],
+  preload: false,
   display: "swap",
 });
 
@@ -116,7 +116,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: REVEAL_BOOT_SCRIPT }} />
       </head>
       <body className="min-h-full bg-[var(--color-paper)] pb-28 text-[var(--color-navy)] md:pb-0">
         {publishedProfiles().map((profile) => (

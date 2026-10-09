@@ -162,7 +162,7 @@ export function BudgetBuilder() {
           <ShareButton
             title="50/30/20 budget builder"
             text={`My split is ${split.needs}/${split.wants}/${split.savings}. Build yours:`}
-            path="/wealth/calculators/budget"
+            path="/tools/budget"
           />
         </div>
       </div>

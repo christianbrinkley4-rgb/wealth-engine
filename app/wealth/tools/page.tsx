@@ -183,7 +183,7 @@ export default function WealthToolsPage() {
       <Faq items={FAQ} title="About the downloads" />
       <NextUp
         links={[
-          { href: "/wealth/calculators/budget", label: "Try the budget builder first", kind: "Calculator" },
+          { href: "/tools/budget", label: "Try the budget builder first", kind: "Calculator" },
           { href: "/wealth/learn/what-accountants-actually-do", label: "What accountants actually do", kind: "Article" },
           { href: "/wealth/journey", label: "How I'm building this", kind: "Journey" },
         ]}

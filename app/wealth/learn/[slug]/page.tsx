@@ -157,7 +157,7 @@ export default async function WealthArticlePage({ params }: { params: Promise<{ 
             label: item.title,
             kind: "Article",
           })),
-          { href: "/wealth/calculators", label: "All calculators", kind: "Calculators" },
+          { href: "/tools", label: "All calculators", kind: "Calculators" },
         ]}
       />
     </main>

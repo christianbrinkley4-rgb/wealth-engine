@@ -9,12 +9,15 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { useQuizTracking } from "@/hooks/useQuizTracking";
+import type { QuizId } from "@/lib/analytics";
 import { ShareResultButton } from "@/app/tools/_components/share-card";
 
 import styles from "./quiz-engine.module.css";
 import { scoreQuiz, type QuizData } from "./types";
 
-export function QuizRunner({ data }: { data: QuizData }) {
+export function QuizRunner({ data, quizId }: { data: QuizData; quizId: QuizId }) {
+  const tracking = useQuizTracking(quizId);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -29,6 +32,8 @@ export function QuizRunner({ data }: { data: QuizData }) {
   }, [step]);
 
   const choose = (optionIndex: number) => {
+    tracking.step(step + 1);
+    if (step + 1 === data.questions.length) tracking.complete();
     setAnswers((prev) => {
       const next = prev.slice();
       next[step] = optionIndex;
@@ -40,6 +45,7 @@ export function QuizRunner({ data }: { data: QuizData }) {
   const back = () => setStep((s) => Math.max(0, s - 1));
 
   const retake = () => {
+    tracking.reset();
     setAnswers([]);
     setStep(0);
   };

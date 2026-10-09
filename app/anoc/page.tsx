@@ -212,6 +212,10 @@ export default function AnocPage() {
         </div>
       </section>
 
+      <div className="measure-prose app-shell max-w-3xl py-8"><p>Compare your notice with the <Link href="/medicare-changes-2027">2027 changes</Link> and the <Link href="/medicare-part-d-donut-hole-2027">Part D cap explanation</Link>. Use the <Link href="/medicare-annual-enrollment-2026-checklist">fall checklist</Link> to organize your questions.</p></div>
+
+      <div className="measure-prose app-shell max-w-3xl py-8"><p>Before you research coverage, <Link href="/medicare-plan-checklist">make a printable sheet of your doctors, prescriptions, and priorities</Link>. Your entries stay on your device.</p></div>
+      <div className="measure-prose app-shell max-w-3xl py-8"><p>Before you research coverage, <Link href="/medicare-plan-checklist">make a printable sheet of your doctors, prescriptions, and priorities</Link>. Your entries stay on your device.</p></div>
       <KitchenTableClose
         heading="That letter won't read itself"
         body="The changes take effect January 1 either way. About fifteen minutes with me now beats a surprise in January. Free, no pressure."

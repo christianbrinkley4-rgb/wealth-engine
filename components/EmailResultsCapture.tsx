@@ -1,4 +1,5 @@
 "use client";
+import { useDeferredFormCheck } from "@/hooks/useDeferredFormCheck";
 
 import { Mail } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -60,6 +61,7 @@ export function EmailResultsCapture({
   const emailRef = useRef<HTMLInputElement>(null);
   const consentRef = useRef<HTMLInputElement>(null);
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const { formRef, active, activate } = useDeferredFormCheck();
   const [turnstileReady, setTurnstileReady] = useState(false);
   const [turnstileRender, setTurnstileRender] = useState(0);
   const turnstileContainer = useRef<HTMLDivElement>(null);
@@ -75,7 +77,7 @@ export function EmailResultsCapture({
    * error screen in production. So we simply wait for the shared script.
    */
   useEffect(() => {
-    if (!TURNSTILE_SITE_KEY || turnstileReady) return;
+    if (!TURNSTILE_SITE_KEY || !active || turnstileReady) return;
     loadTurnstile();
     // Polled rather than checked inline: the script may already be there, and
     // the first tick catches that case without a synchronous setState.
@@ -91,7 +93,7 @@ export function EmailResultsCapture({
       clearInterval(poll);
       clearTimeout(giveUp);
     };
-  }, [turnstileReady]);
+  }, [turnstileReady, active]);
 
   useEffect(() => {
     const container = turnstileContainer.current;
@@ -243,7 +245,7 @@ export function EmailResultsCapture({
   }
 
   return (
-    <form
+    <form ref={formRef} onFocusCapture={activate}
       onSubmit={handleSubmit}
       noValidate
       className="card-surface mt-8 p-6 md:p-7"

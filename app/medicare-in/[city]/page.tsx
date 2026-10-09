@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { isIndexableTown } from "@/lib/triad";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CitySnapshot } from "@/app/components/CitySnapshot";
+import { LocalMedicarePage } from "@/app/components/LocalMedicarePage";
+import { LOCAL_MEDICARE_TOWNS } from "@/lib/localMedicareFacts";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
@@ -64,6 +67,7 @@ export async function generateMetadata({
   return {
     title: { absolute: title },
     description,
+    robots: { index: isIndexableTown("medicare", city.slug), follow: true },
     alternates: { canonical: `/medicare-in/${city.slug}` },
     openGraph: pageOpenGraph({
       title: `Medicare help in ${city.name}, North Carolina`,
@@ -77,6 +81,8 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
   const { city: slug } = await params;
   const city = getTriadCity(slug);
   if (!city) notFound();
+
+  if (LOCAL_MEDICARE_TOWNS[city.slug]) return <LocalMedicarePage townKey={city.slug} />;
 
   const others = relatedPlaces(city);
   const startHref = "/start?topic=medicare";
@@ -287,6 +293,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         </div>
       </section>
 
+      {city.slug === "greensboro" ? <div className="measure-prose app-shell max-w-3xl py-8"><p>For a closer look at the two paths, read about <Link href="/medicare-supplement-plans-greensboro-nc">Medigap in Greensboro</Link> and the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local comparison</Link>. Getting started? Use the <Link href="/turning-65-checklist">turning-65 checklist</Link>.</p></div> : null}
       <KitchenTableClose
         heading={`Request a consultation in ${city.name}`}
         body={`We can meet at home in ${city.name} when travel works, or talk by phone. Bring your doctors, prescriptions, and questions. No cost. No obligation.`}

@@ -13,17 +13,16 @@ import { WEALTH_BRAND, WEALTH_NAV } from "@/lib/wealth/site";
  */
 export function WealthNav() {
   const pathname = usePathname() ?? "/wealth";
-  const [open, setOpen] = useState(false);
-
-  // Moving to another page closes the menu.
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname ]);
+  const [openOn, setOpenOn] = useState<string | null>(null);
+  const open = openOn === pathname;
 
   // Escape closes the menu.
   useEffect(() => {
     if (!open) return;
-    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
+    document.querySelector<HTMLElement>("#wealth-menu a")?.focus();
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setOpenOn(null); document.querySelector<HTMLElement>(".w-nav-menu")?.focus(); }
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open ]);
@@ -44,7 +43,7 @@ export function WealthNav() {
           aria-expanded={open}
           aria-controls="wealth-menu"
           aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((value) => !value)}
+          onClick={() => setOpenOn(open ? null : pathname)}
         >
           {open ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
           <span aria-hidden>{open ? "Close" : "Menu"}</span>
@@ -58,7 +57,7 @@ export function WealthNav() {
                   aria-current={
                     pathname === item.href || pathname.startsWith(`${item.href}/`) ? "page" : undefined
                   }
-                  onClick={() => setOpen(false)}
+                  onClick={() => setOpenOn(null)}
                 >
                   {item.label}
                 </Link>

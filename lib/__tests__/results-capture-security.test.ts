@@ -40,6 +40,7 @@ function stubTurnstile(token: string) {
 async function renderForm() {
   const { EmailResultsCapture } = await import("@/components/EmailResultsCapture");
   const view = render(createElement(EmailResultsCapture, { wizardData }));
+  fireEvent.focus(screen.getByLabelText("Email"));
   fireEvent.change(screen.getByLabelText("Email"), { target: { value: "Test@Example.com" } });
   fireEvent.click(screen.getByRole("checkbox"));
   return view;

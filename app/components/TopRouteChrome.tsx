@@ -1,31 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { TrackedLink as Link } from "@/components/TrackedLink";
 import { ArrowRight, Menu, Phone, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { AGENT } from "@/lib/agent";
 
-const NAV = [
+export const NAV = [
   { href: "/turning-65", label: "Turning 65" },
-  { href: "/annual-enrollment", label: "On Medicare" },
+  { href: "/annual-enrollment", label: "Already on Medicare" },
   { href: "/learn", label: "Medicare guides" },
-  { href: "/guides", label: "Money & tax guides" },
-  { href: "/wealth/learn", label: "Money guides" },
-  { href: "/taxes-and-retirement", label: "Taxes & Retirement" },
-  { href: "/wealth", label: "Wealth" },
+  { href: "/service-area", label: "Towns I serve" },
   { href: "/about", label: "About" },
 ] as const;
-
 const SHEET_EXTRA = [
-  { href: "/plan-check", label: "Plan check quiz" },
-  { href: "/answers", label: "Medicare questions, answered" },
-  { href: "/ask", label: "Ask Christian" },
-  { href: "/service-area", label: "Towns I serve" },
-  { href: "/ai", label: "AI guides" },
+  { href: "/wealth", label: "Money guides" },
   { href: "/start", label: "Ask a question" },
+  { href: "/tools", label: "Free tools" },
 ] as const;
 
 /** The /wealth hub and /links carry their own header and footer. */
@@ -97,7 +90,7 @@ export function TopRouteChrome() {
         Skip to the main content
       </a>
       <div className="shell nav-bar">
-        <Link href="/" className="nav-brand" aria-label={`${AGENT.name} ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state}, home`}>
+        <Link ctaLocation="header" href="/" className="nav-brand" aria-label={`${AGENT.name} ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state}, home`}>
           <Image
             src="/christian-brinkley-square.jpg"
             alt=""
@@ -123,7 +116,7 @@ export function TopRouteChrome() {
           <ul>
             {NAV.map((item) => (
               <li key={item.href}>
-                <Link
+                <Link ctaLocation="header"
                   href={item.href}
                   aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
                 >
@@ -135,11 +128,12 @@ export function TopRouteChrome() {
         </nav>
 
         <div className="nav-actions">
-          <Link href="/plan-check" className="btn btn-accent btn-sm nav-cta">
+          <Link href="/wealth" className="nav-money">Money guides</Link>
+          <Link ctaLocation="header" href="/plan-check" className="btn btn-accent btn-sm nav-cta">
             Plan check
           </Link>
           {!isAiRoute(pathname) && (
-            <a className="nav-call" href={AGENT.phoneHref} aria-label={`Call ${AGENT.phone}`}>
+            <a data-cta-location="header" className="nav-call" href={AGENT.phoneHref} aria-label={`Call ${AGENT.phone}`}>
               <Phone size={17} aria-hidden />
               <span className="nav-call-number">{AGENT.phone}</span>
             </a>
@@ -162,7 +156,7 @@ export function TopRouteChrome() {
         <ul>
           {[...NAV, ...SHEET_EXTRA].map((item, index) => (
             <li key={item.href} style={{ "--i": index } as React.CSSProperties}>
-              <Link
+              <Link ctaLocation="menu"
                 href={item.href}
                 aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
               >
@@ -174,11 +168,11 @@ export function TopRouteChrome() {
         </ul>
         <div className="nav-sheet-actions">
           {!isAiRoute(pathname) && (
-            <a href={AGENT.phoneHref} className="btn btn-block">
+            <a data-cta-location="menu" href={AGENT.phoneHref} className="btn btn-block">
               <Phone size={19} aria-hidden /> {AGENT.phone}
             </a>
           )}
-          <Link href="/plan-check" className="btn btn-accent btn-block">
+          <Link ctaLocation="menu" href="/plan-check" className="btn btn-accent btn-block">
             90-second plan check
           </Link>
         </div>

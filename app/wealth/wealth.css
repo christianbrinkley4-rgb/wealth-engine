@@ -221,7 +221,7 @@ body:has(.w-root) {
   background: var(--w-ink);
   color: var(--w-on-ink);
 }
-@media (min-width: 820px) {
+@media (min-width: 768px) {
   .w-nav-bar {
     flex-direction: row;
     align-items: center;
@@ -1827,7 +1827,7 @@ body:has(.w-root) {
   gap: 18px;
   scroll-margin-top: 120px;
 }
-@media (min-width: 820px) {
+@media (min-width: 768px) {
   .w-download {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
@@ -2483,4 +2483,10 @@ html:not(.js-reveal) .w-root [data-tilt],
   .w-lib-more {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+@media (min-width: 768px) {
+  .w-nav-links { flex-wrap: nowrap; gap: 0; }
+  .w-nav-links a { padding-inline: 8px; }
+  .w-nav-brand { font-size: .95rem; }
 }

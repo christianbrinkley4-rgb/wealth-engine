@@ -24,7 +24,7 @@ describe("search identity and service discovery", () => {
 
   it("connects wealth articles and calculators to education rather than an insurance provider", () => {
     const hub = wealthHubJsonLd();
-    const tool = webAppJsonLd({ name: "Budget", description: "Budget estimate", path: "/wealth/calculators/budget" });
+    const tool = webAppJsonLd({ name: "Budget", description: "Budget estimate", path: "/tools/budget" });
     const article = wealthArticleJsonLd({ headline: "Budget", description: "Budget basics", path: "/wealth/learn/the-50-30-20-rule", datePublished: "2026-10-06", dateModified: "2026-10-07" });
     expect(tool.isPartOf["@id"]).toBe(hub["@id"]);
     expect(article.isPartOf["@id"]).toBe(hub["@id"]);
