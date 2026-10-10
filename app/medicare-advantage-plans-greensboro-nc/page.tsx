@@ -317,6 +317,19 @@ export default function MedicareAdvantagePlansGreensboroPage() {
         </div>
       </section>
 
+      <section className="bg-white py-12">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2>Related Greensboro Medicare guides</h2>
+          <ul>
+            <li><Link href="/greensboro-medicare-cost-calculator" className="underline underline-offset-2">Greensboro Medicare cost calculator</Link> - estimate your yearly costs</li>
+            <li><Link href="/medicare-part-d-greensboro-nc" className="underline underline-offset-2">Part D drug coverage in Greensboro</Link></li>
+            <li><Link href="/medigap-plans-greensboro-nc" className="underline underline-offset-2">Medigap plan letters explained</Link></li>
+            <li><Link href="/medicare-costs-north-carolina" className="underline underline-offset-2">What Medicare costs in North Carolina</Link></li>
+            <li><Link href="/turning-65" className="underline underline-offset-2">Turning 65 in Greensboro</Link> - the full local guide</li>
+          </ul>
+        </div>
+      </section>
+
       <KitchenTableClose
         heading="Let's compare plans with your doctors and drugs"
         body={`Bring your doctor list and prescriptions. I will check them against the 2027 plans for your zip code and show you real numbers, not brochures. Free, no obligation. Call or text ${AGENT.phone}.`}
@@ -325,6 +338,12 @@ export default function MedicareAdvantagePlansGreensboroPage() {
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
+        <p className="text-sm text-gray-600">
+          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated October 2026.
+        </p>
+        <p className="text-sm text-gray-600">
+          Sources: <a href="https://www.medicare.gov" className="underline underline-offset-2" target="_blank" rel="noopener">Medicare.gov</a>, <a href="https://www.cms.gov" className="underline underline-offset-2" target="_blank" rel="noopener">CMS.gov</a>
+        </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
     </main>

@@ -187,8 +187,11 @@ export default function GreensboroMedicareCostCalculatorPage() {
           ))}
           <p>
             Want the full picture? Read{" "}
-            <Link href="/turning-65">Turning 65 in Greensboro</Link> or{" "}
-            <Link href="/advantage-vs-medigap">Medicare Advantage vs Medigap</Link>.
+            <Link href="/turning-65">Turning 65 in Greensboro</Link>,{" "}
+            <Link href="/medicare-advantage-plans-greensboro-nc">Advantage plans in Greensboro</Link>,{" "}
+            <Link href="/medigap-plans-greensboro-nc">Medigap plan letters</Link>,{" "}
+            <Link href="/medicare-part-d-greensboro-nc">Part D drug coverage</Link>, or{" "}
+            <Link href="/medicare-advantage-vs-medigap-greensboro-nc">Advantage vs Medigap</Link>.
           </p>
         </div>
       </section>
@@ -200,6 +203,12 @@ export default function GreensboroMedicareCostCalculatorPage() {
         label="Start with Christian"
       />
       <div className="app-shell max-w-3xl" style={{ marginTop: "2rem" }}>
+        <p className="text-sm text-gray-600">
+          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated October 2026.
+        </p>
+        <p className="text-sm text-gray-600">
+          Sources: <a href="https://www.medicare.gov" className="underline underline-offset-2" target="_blank" rel="noopener">Medicare.gov</a>, <a href="https://www.cms.gov" className="underline underline-offset-2" target="_blank" rel="noopener">CMS.gov</a>
+        </p>
         <ComplianceDisclosure variant="medicare" showEstimateNote />
       </div>
     </main>
