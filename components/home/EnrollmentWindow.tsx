@@ -138,9 +138,10 @@ export function EnrollmentWindow() {
         <div className="ew-readout" aria-live="polite">
           {chosen === -1 ? (
             <p>
-              <strong>Your window is seven months long.</strong> It opens in{" "}
-              {MONTHS[monthAt(birthMonth, -3)]}, three months before you turn 65, and closes at the
-              end of {MONTHS[monthAt(birthMonth, 3)]}. Tap a month to see when coverage would start.
+              <strong>Example: turning 65 in {birthName}.</strong> Your window is seven months
+              long. It opens in {MONTHS[monthAt(birthMonth, -3)]}, three months before you turn
+              65, and closes at the end of {MONTHS[monthAt(birthMonth, 3)]}. Tap a month to see
+              when coverage would start.
             </p>
           ) : (
             <p>

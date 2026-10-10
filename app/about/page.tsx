@@ -130,7 +130,8 @@ export default function AboutPage() {
             <p className="ab-lede">
               I’m Christian Brinkley, a licensed insurance agent (NC Life &amp; Health) in
               Greensboro. I grew up in Creedmoor, in Granville County. I’m an accounting
-              senior at UNCG, and I graduate in December 2026. I help families across the
+              senior at UNCG, and I graduate in December 2026. I’ve been a licensed agent
+              since June 2026 and have written 12 policies so far. I help families across the
               Triad with Medicare, life insurance, and retirement questions. I’m not a call
               center. I sit down with people myself, listen first, and help them figure out
               what they want to protect.

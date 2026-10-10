@@ -119,7 +119,7 @@ export default function MedicarePartDGreensboroPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">How Part D works in 2027</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            Part D is Medicare's prescription drug coverage. You can get it two ways: bundled
+            Part D is Medicare&rsquo;s prescription drug coverage. You can get it two ways: bundled
             inside most Medicare Advantage plans, or as a standalone plan paired with Original
             Medicare and Medigap. Either way, the structure is the same.
           </p>

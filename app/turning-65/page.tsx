@@ -323,7 +323,7 @@ export default function Turning65Page() {
 
           <h3 className="text-22 font-semibold mt-10">Medicare seminars at the library</h3>
           <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-            The Senior Education Network holds free "Medicare Made Simple" seminars at Benjamin
+            The Senior Education Network holds free &ldquo;Medicare Made Simple&rdquo; seminars at Benjamin
             Public Library, <strong>1530 Benjamin Pkwy, Greensboro, NC 27408</strong>. These cover
             Parts A, B, C, and D, enrollment deadlines, and include Q and A with Medicare
             educators. Check the{" "}

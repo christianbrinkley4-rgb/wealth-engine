@@ -11,7 +11,7 @@ import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 import { GreensboroCostCalculator } from "./CalculatorClient";
-import { FAQS, HOW_TO_STEPS, MA_PLANS_2025, MEDIGAP_G_TABLE, META, PATH } from "./data";
+import { FAQS, HOW_TO_STEPS, MA_LANDSCAPE_2027, MEDIGAP_G_TABLE, META, PATH } from "./data";
 
 export const metadata: Metadata = {
   title: { absolute: META.title },
@@ -75,7 +75,7 @@ export default function GreensboroMedicareCostCalculatorPage() {
               description: META.description,
               path: PATH,
               datePublished: "2026-10-09",
-              dateModified: "2026-10-09",
+              dateModified: "2026-10-10",
             }),
           ),
         }}
@@ -96,7 +96,7 @@ export default function GreensboroMedicareCostCalculatorPage() {
       <ToolHeader
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare cost calculator" }]}
         title="Greensboro Medicare Cost Calculator"
-        lede="Two paths, one year of costs, real 2025 plan figures from Guilford County. Move the sliders and see the math. This estimates. It does not recommend."
+        lede="Two paths, one year of costs, real 2027 plan figures from Guilford County. Move the sliders and see the math. This estimates. It does not recommend."
       />
 
       <section className="bg-white py-6">
@@ -110,11 +110,11 @@ export default function GreensboroMedicareCostCalculatorPage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2>2025 Medicare Advantage plans in the Greensboro area</h2>
+          <h2>2027 Medicare Advantage landscape in the Greensboro area</h2>
           <p>
-            These are real published 2025 figures for plans sold in North Carolina, from plan
-            Summaries of Benefits and the NC Department of Insurance plan landscape. Availability
-            varies by county and plan year. Verify anything current on{" "}
+            County-level figures from the CMS 2027 landscape file for Guilford County, plus
+            finalized Part D amounts from the CMS CY 2027 Rate Announcement. Individual plan
+            premiums, deductibles, and copays vary, so verify any specific plan on{" "}
             <a href="https://www.medicare.gov">Medicare.gov</a> before deciding.
           </p>
         </div>
@@ -123,27 +123,19 @@ export default function GreensboroMedicareCostCalculatorPage() {
             <table className="t-table">
               <thead>
                 <tr>
-                  <th>Plan</th>
-                  <th>Monthly premium</th>
-                  <th>Max out-of-pocket</th>
-                  <th>PCP / Specialist</th>
+                  <th>Figure</th>
+                  <th>2027 value</th>
                   <th>Source</th>
                 </tr>
               </thead>
               <tbody>
-                {MA_PLANS_2025.map((p) => (
-                  <tr key={p.plan}>
+                {MA_LANDSCAPE_2027.map((r) => (
+                  <tr key={r.metric}>
                     <td>
-                      <strong>{p.plan}</strong>
-                      <br />
-                      <span className="t-hint">{p.carrier}</span>
+                      <strong>{r.metric}</strong>
                     </td>
-                    <td>{p.premium}</td>
-                    <td>{p.moop}</td>
-                    <td>
-                      {p.pcp} / {p.specialist}
-                    </td>
-                    <td className="t-hint">{p.source}</td>
+                    <td>{r.value}</td>
+                    <td className="t-hint">{r.source}</td>
                   </tr>
                 ))}
               </tbody>

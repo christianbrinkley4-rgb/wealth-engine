@@ -2,14 +2,19 @@
  * Real plan data behind the Greensboro Medicare cost calculator.
  *
  * Sources (all public, checked October 2026):
- * - Part B premium/deductible: CMS, "2025 Medicare Parts A & B Premiums and Deductibles"
- *   (Nov 8, 2024). Standard Part B premium $185.00/month, Part B deductible $257.
+ * - Part B premium/deductible: 2026 Medicare Trustees Report projections for 2027
+ *   ($209.50/month premium, $292 deductible). These are PROJECTIONS, not final;
+ *   CMS announces final 2027 Parts A & B figures in November 2026.
  * - Medigap Plan G premiums: Blue Cross and Blue Shield of North Carolina, "Blue Medicare
  *   Supplement June 2026 - May 2027" rate outline, non-tobacco attained-age rates
- *   (nchealthplans.com). Averaged male/female below.
- * - MA plan figures: published 2025 Summaries of Benefits and the NC Department of
- *   Insurance 2025 MA landscape file, via medicareadvantage.com and q1medicare.com.
- *   Plan availability varies by county and year. Always verify on Medicare.gov.
+ *   (nchealthplans.com). Averaged male/female below. This filing is current.
+ * - MA plan figures: CMS 2027 landscape file for Guilford County, via
+ *   medicareadvantage.com (55 plans, $4.13 avg monthly premium, $6,697.27 avg
+ *   max out-of-pocket). National average MA premium ~$12/month from the CMS
+ *   press release of Sept 28, 2026 (projection). Part D $700 max deductible
+ *   and $2,400 out-of-pocket cap from the CMS CY 2027 Rate Announcement (final).
+ * - MA average copay per visit and per-drug monthly cost: unchanged planning
+ *   estimates with no 2027 source; labeled as estimates on the page.
  *
  * Nothing here is a recommendation. Every number is labeled an estimate.
  */
@@ -17,14 +22,17 @@
 export const META = {
   title: "Greensboro Medicare Cost Calculator: Medigap vs Medicare Advantage",
   description:
-    "Estimate your yearly Medicare costs in Greensboro, NC. Compare Medigap Plan G with $0-premium Medicare Advantage using real 2025 plan figures. Free, no signup.",
+    "Estimate your yearly Medicare costs in Greensboro, NC. Compare Medigap Plan G with $0-premium Medicare Advantage using real 2027 plan figures. Free, no signup.",
 };
 
 export const PATH = "/greensboro-medicare-cost-calculator";
 
-/** 2025 standard Part B premium and deductible (CMS). */
-export const PART_B_MONTHLY = 185;
-export const PART_B_DEDUCTIBLE = 257;
+/**
+ * 2027 projected standard Part B premium and deductible.
+ * Source: 2026 Medicare Trustees Report. PROJECTIONS; CMS finalizes Nov 2026.
+ */
+export const PART_B_MONTHLY = 209.5;
+export const PART_B_DEDUCTIBLE = 292;
 
 /**
  * BCBS NC Medigap Plan G monthly premium, non-tobacco, averaged male/female,
@@ -48,86 +56,68 @@ export function medigapGMonthly(age: number): number {
   return MEDIGAP_G_MONTHLY_BY_AGE[a] ?? 211;
 }
 
-/** Typical standalone Part D premium, labeled an estimate on the page. */
-export const PART_D_MONTHLY_ESTIMATE = 35;
+/**
+ * Projected average standalone Part D premium for 2027 (~$36/month).
+ * Source: CMS press release, Sept 28, 2026 ($35.09 in 2026, projected ~$36).
+ * Labeled an estimate on the page.
+ */
+export const PART_D_MONTHLY_ESTIMATE = 36;
 
 /** Blended average doctor copay for the MA estimate (PCP $0, specialist $35-40). */
 export const MA_AVG_COPAY_PER_VISIT = 20;
 
-/** Typical Part D deductible on $0-premium MA plans (UHC NC-26, 2025). */
-export const MA_PART_D_DEDUCTIBLE = 340;
+/**
+ * Part D maximum deductible for 2027 ($700, finalized in the CMS CY 2027
+ * Rate Announcement). Used as a conservative planning figure for the MA
+ * estimate; individual plans may set a lower drug deductible.
+ */
+export const MA_PART_D_DEDUCTIBLE = 700;
 
 /** Rough generic drug cost per medication per month, labeled an estimate. */
 export const DRUG_MONTHLY_PER_MED_ESTIMATE = 12;
 
-export interface MaPlanRow {
-  plan: string;
-  carrier: string;
-  premium: string;
-  deductible: string;
-  moop: string;
-  pcp: string;
-  specialist: string;
-  stars: string;
+export interface MaLandscapeRow {
+  metric: string;
+  value: string;
   source: string;
 }
 
-/** Real published 2025 figures. Availability varies by county and plan year. */
-export const MA_PLANS_2025: MaPlanRow[] = [
+/**
+ * 2027 Medicare Advantage landscape for Guilford County, NC.
+ * County figures from the CMS 2027 landscape file via medicareadvantage.com.
+ * Individual plan premiums, deductibles, and copays vary; verify any specific
+ * plan on Medicare.gov before deciding.
+ */
+export const MA_LANDSCAPE_2027: MaLandscapeRow[] = [
   {
-    plan: "AARP Medicare Advantage from UHC NC-26 (HMO-POS)",
-    carrier: "UnitedHealthcare",
-    premium: "$0",
-    deductible: "$0 health / $340 drug",
-    moop: "$4,900 in-network",
-    pcp: "$0 copay",
-    specialist: "Varies",
-    stars: "4.0",
-    source: "2025 plan details via q1medicare.com",
+    metric: "Medicare Advantage plans available in Guilford County",
+    value: "55",
+    source: "CMS 2027 landscape file, via medicareadvantage.com",
   },
   {
-    plan: "Aetna Medicare Signature (HMO)",
-    carrier: "Aetna",
-    premium: "$0",
-    deductible: "$0",
-    moop: "See plan documents",
-    pcp: "$0 copay",
-    specialist: "$35 copay",
-    stars: "See Medicare.gov",
-    source: "2025 Summary of Benefits",
+    metric: "Average monthly premium",
+    value: "$4.13",
+    source: "CMS 2027 landscape file, via medicareadvantage.com",
   },
   {
-    plan: "Aetna Medicare Value (PPO)",
-    carrier: "Aetna",
-    premium: "$0",
-    deductible: "$0",
-    moop: "$6,750",
-    pcp: "$0 copay",
-    specialist: "Varies",
-    stars: "See Medicare.gov",
-    source: "2025 Summary of Benefits",
+    metric: "Average maximum out-of-pocket",
+    value: "$6,697.27",
+    source: "CMS 2027 landscape file, via medicareadvantage.com",
   },
   {
-    plan: "HumanaChoice Regional PPO",
-    carrier: "Humana",
-    premium: "$0",
-    deductible: "$0",
-    moop: "$7,550",
-    pcp: "Varies",
-    specialist: "Varies",
-    stars: "See Medicare.gov",
-    source: "NC DOI 2025 MA landscape",
+    metric: "National average MA premium (2027)",
+    value: "About $12/month",
+    source: "CMS press release, Sept 28, 2026 (projection)",
   },
   {
-    plan: "Blue Medicare Freedom+ (PPO)",
-    carrier: "Blue Cross NC",
-    premium: "$0",
-    deductible: "$0",
-    moop: "$9,350",
-    pcp: "Varies",
-    specialist: "Varies",
-    stars: "See Medicare.gov",
-    source: "NC DOI 2025 MA landscape",
+    metric: "Part D maximum deductible (2027)",
+    value: "$700",
+    source: "CMS CY 2027 Rate Announcement (final)",
+  },
+  {
+    metric: "Part D out-of-pocket cap (2027)",
+    value: "$2,400",
+    source: "CMS CY 2027 Rate Announcement (final)",
   },
 ];
 
@@ -182,18 +172,18 @@ export function calculate(input: {
   const maYearly = partBYearly + visitCost + maDrugDeductible + drugYearly;
 
   const medigapLines = [
-    { label: "Part B premium (2025 standard)", amount: partBYearly },
+    { label: "Part B premium (2027 projected)", amount: partBYearly },
     { label: `Medigap Plan G premium (est., age ${Math.min(74, Math.max(65, Math.round(input.age)))})`, amount: medigapYearlyPremium },
-    { label: "Standalone Part D premium (est.)", amount: partDYearly },
-    { label: "Part B deductible (Plan G does not cover it)", amount: PART_B_DEDUCTIBLE },
+    { label: "Standalone Part D premium (2027 projected avg)", amount: partDYearly },
+    { label: "Part B deductible, 2027 projected (Plan G does not cover it)", amount: PART_B_DEDUCTIBLE },
     { label: `Drugs (${input.meds}/mo, est.)`, amount: drugYearly },
   ];
 
   const maLines = [
-    { label: "Part B premium (2025 standard)", amount: partBYearly },
+    { label: "Part B premium (2027 projected)", amount: partBYearly },
     { label: "MA plan premium (typical $0 plan)", amount: 0 },
     { label: `Doctor visits (${input.visits}/yr, est. copays)`, amount: visitCost },
-    { label: "Part D deductible (if you take drugs)", amount: maDrugDeductible },
+    { label: "Part D deductible, 2027 max (if you take drugs)", amount: maDrugDeductible },
     { label: `Drugs (${input.meds}/mo, est.)`, amount: drugYearly },
   ];
 
@@ -212,7 +202,7 @@ export function calculate(input: {
 export const FAQS = [
   {
     q: "Are these real Greensboro plan prices?",
-    a: "The Medicare Advantage figures come from published 2025 Summaries of Benefits and the NC Department of Insurance 2025 plan landscape. The Medigap Plan G premiums are Blue Cross NC's filed non-tobacco rates by age. Plan availability and prices vary by county and change every year, so always verify current details on Medicare.gov before deciding anything.",
+    a: "The Medicare Advantage figures come from the CMS 2027 landscape file for Guilford County (55 plans, $4.13 average monthly premium, $6,697.27 average max out-of-pocket). The Medigap Plan G premiums are Blue Cross NC's filed non-tobacco rates by age. The Part B premium and deductible shown are 2027 projections from the Medicare Trustees Report; CMS finalizes those in November 2026. Plan availability and prices vary by county and change every year, so always verify current details on Medicare.gov before deciding anything.",
   },
   {
     q: "Does this calculator recommend a plan?",
@@ -220,15 +210,15 @@ export const FAQS = [
   },
   {
     q: "Why does Medicare Advantage look cheaper here?",
-    a: "Most MA plans in Guilford County have $0 monthly premiums, so the estimate starts lower. But the estimate assumes average health. A bad year with hospital stays can push MA costs toward the plan's maximum out-of-pocket, which runs $4,900 to $9,350 on 2025 NC plans. Medigap Plan G has no such ceiling risk because it covers nearly all cost sharing after the Part B deductible.",
+    a: "Most MA plans in Guilford County have $0 monthly premiums, so the estimate starts lower. But the estimate assumes average health. A bad year with hospital stays can push MA costs toward the plan's maximum out-of-pocket, which averages $6,697.27 across Guilford County plans for 2027. Medigap Plan G has no such ceiling risk because it covers nearly all cost sharing after the Part B deductible.",
   },
   {
     q: "What is missing from these estimates?",
-    a: "Dental, vision, and hearing extras some MA plans bundle; drug costs beyond generics; any Part B late-enrollment penalty; and income-related premium surcharges (IRMAA). The Medigap premium shown is one carrier's filed rate, and your actual quote depends on the insurer, your exact age, and tobacco use.",
+    a: "Dental, vision, and hearing extras some MA plans bundle; drug costs beyond generics; any Part B late-enrollment penalty; and income-related premium surcharges (IRMAA). The Medigap premium shown is one carrier's filed rate, and your actual quote depends on the insurer, your exact age, and tobacco use. The Part B figures are projections until CMS finalizes them.",
   },
   {
     q: "Do I still pay the Part B premium with Medicare Advantage?",
-    a: "Yes. Almost everyone pays the Part B premium ($185/month in 2025) no matter which path they take. A few MA plans give part of it back, but that is the exception, not the rule.",
+    a: "Yes. Almost everyone pays the Part B premium ($209.50/month projected for 2027) no matter which path they take. A few MA plans give part of it back, but that is the exception, not the rule.",
   },
 ];
 

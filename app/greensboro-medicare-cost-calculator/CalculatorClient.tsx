@@ -147,8 +147,9 @@ export function GreensboroCostCalculator() {
 
       <AssumptionBox>
         <p>
-          <strong>What these numbers assume.</strong> Part B at the 2025 standard
-          ($185/month). Medigap Plan G at Blue Cross NC filed non-tobacco rates for your age.
+          <strong>What these numbers assume.</strong> Part B at the 2027 projected
+          standard ($209.50/month; CMS finalizes 2027 figures in November 2026).
+          Medigap Plan G at Blue Cross NC filed non-tobacco rates for your age.
           A typical $0-premium Advantage plan with average copays. Generic drug costs.
           Real quotes depend on the insurer, your exact age, tobacco use, and the drugs
           you take. Nothing here is a recommendation.

@@ -229,7 +229,7 @@ export default function MedicareCostsNorthCarolinaPage() {
             </strong>{" "}
             This is the biggest variable for most people. A person on two generics might
             spend $200 a year on drugs. A person on one specialty drug can hit the $2,400 cap.
-            Enter your exact medications on Medicare.gov's plan finder before every Annual
+            Enter your exact medications on Medicare.gov&rsquo;s plan finder before every Annual
             Enrollment Period.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">

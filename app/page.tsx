@@ -414,7 +414,8 @@ export default function HomePage() {
             </h2>
             <p data-reveal style={{ "--i": 2 } as React.CSSProperties}>
               I’m based in Greensboro and licensed for Life &amp; Health insurance in North Carolina.
-              I’m an accounting senior at UNCG, graduating in December 2026.
+              I’m an accounting senior at UNCG, graduating in December 2026. I’ve been a
+              licensed agent since June 2026 and have written 12 policies so far.
             </p>
             <p data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               Down the road, I want to run a planning practice right here, helping families with

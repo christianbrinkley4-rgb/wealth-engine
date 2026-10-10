@@ -241,7 +241,7 @@ export default function MedicareAdvantagePlansGreensboroPage() {
               Which doctors and hospitals must stay?
             </strong>{" "}
             Make a list: your primary care doctor, specialists, preferred hospital, and pharmacy.
-            Then check that list against each plan's directory. A plan that does not include
+            Then check that list against each plan&rsquo;s directory. A plan that does not include
             your cardiologist is not a bargain at any price.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -249,7 +249,7 @@ export default function MedicareAdvantagePlansGreensboroPage() {
               What do your prescriptions cost under each plan?
             </strong>{" "}
             Drug coverage varies more than anything else between plans. Enter your exact
-            medications on Medicare.gov's plan finder and sort by total yearly cost, not
+            medications on Medicare.gov&rsquo;s plan finder and sort by total yearly cost, not
             premium. Two plans with the same $0 premium can differ by thousands on drugs
             alone.
           </p>
