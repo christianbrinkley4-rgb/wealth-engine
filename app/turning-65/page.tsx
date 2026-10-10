@@ -187,7 +187,7 @@ export default function Turning65Page() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Turning 65" }]}
         eyebrow="Initial Enrollment Period · Piedmont Triad"
         title="Build your Medicare timeline before 65"
-        lede="You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered, in Greensboro, High Point, Winston-Salem, or by phone. I’ll help you understand your next steps."
+        lede="Turning 65 in Greensboro, NC? You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered, in Greensboro, High Point, Winston-Salem, or by phone. I’ll help you understand your next steps."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon&quick=1"
         secondaryLabel="Request a consultation →"
         note={
@@ -211,7 +211,7 @@ export default function Turning65Page() {
       </section>
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">The four things to get right</h2>
+          <h2 className="text-28 font-semibold">The four things to get right when turning 65 in Greensboro, NC</h2>
           <ol className="mt-8 flex flex-col gap-6">
             {STEPS.map((item, index) => (
               <li key={item.t} className="flex gap-5 border-t border-gray-300 pt-5">
@@ -352,7 +352,7 @@ export default function Turning65Page() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">What to bring to your first appointment</h2>
+          <h2 className="text-28 font-semibold">What to bring to your first appointment when turning 65 in Greensboro, NC</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Whether you meet with me, a SHIIP counselor, or anyone else, bring these and the
             conversation goes twice as fast:
@@ -421,7 +421,7 @@ export default function Turning65Page() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Questions people ask before they turn 65</h2>
+          <h2 className="text-28 font-semibold">Questions Greensboro residents ask before turning 65</h2>
           <dl className="mt-8 flex flex-col gap-7">
             {FAQ.map((item) => (
               <div key={item.q} className="border-t border-gray-300 pt-6">
