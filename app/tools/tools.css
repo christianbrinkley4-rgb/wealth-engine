@@ -457,3 +457,78 @@ table.t-table {
 }
 
 .tool-header { padding-block: 24px 0; }
+
+/* Greensboro Medicare cost calculator (also used outside /tools). */
+.t-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.t-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.t-verdict {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-navy);
+  background: #f7f3ea;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+.t-breakdowns { margin: 1rem 0; }
+.t-toggle {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.t-lines {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border: 1px solid #ece1c9;
+  border-radius: 10px;
+}
+.t-lines li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  font-size: 0.92rem;
+  border-bottom: 1px dashed #ece1c9;
+}
+.t-lines li:last-child { border-bottom: none; }
+.t-cta {
+  margin-top: 1.75rem;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: var(--color-navy);
+  color: #fff;
+  border-radius: 14px;
+}
+.t-cta p { margin: 0 0 0.75rem; font-size: 1.05rem; }
+.t-cta-button {
+  display: inline-block;
+  background: #fff;
+  color: var(--color-navy);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.t-cta-sub { margin: 0.75rem 0 0 !important; font-size: 0.9rem !important; opacity: 0.85; }
