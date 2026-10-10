@@ -33,7 +33,7 @@ export default function QuizIndexPage() {
       </section>
       <NextUp
         links={[
-          { href: "/wealth/calculators", label: "Play with the calculators", kind: "Calculators" },
+          { href: "/tools", label: "Play with the calculators", kind: "Calculators" },
           { href: "/wealth/learn", label: "Read the plain-English guides", kind: "Learn" },
           { href: "/wealth/journey", label: "Follow the journey", kind: "Building in public" },
         ]}

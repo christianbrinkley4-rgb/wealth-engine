@@ -10,7 +10,7 @@ import { breadcrumbJsonLd, pageOpenGraph, SITE_URL } from "@/lib/seo";
 
 const title = "Christian Brinkley | Licensed Insurance Agent in Greensboro";
 const description =
-  "Licensed agent Christian Brinkley serves Greensboro and the Piedmont Triad: Medicare, life insurance, and retirement questions. Meet at home or by phone.";
+  "Meet Christian Brinkley, a licensed NC insurance agent in Greensboro. Real person, real help with Medicare, no call centers. Call or text (919) 408-6671.";
 
 const [firstName, ...lastNameParts] = AGENT.name.split(" ");
 
@@ -84,6 +84,14 @@ export default function AboutPage() {
           name: AGENT.name,
           url: `${SITE_URL}/about`,
           image: `${SITE_URL}/christian-brinkley.jpg`,
+          jobTitle: "Licensed Insurance Agent",
+          telephone: AGENT.phone,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Greensboro",
+            addressRegion: "NC",
+            addressCountry: "US",
+          },
           sameAs: AGENT.profiles,
         },
       }).replace(/</g, "\\u003c") }} />
@@ -117,14 +125,15 @@ export default function AboutPage() {
           <div className="ab-hero-copy">
             <p className="eyebrow">About</p>
             <h1>
-              Hey, I’m <em>Christian.</em>
+              Hey, I’m <em>Christian Brinkley.</em>
             </h1>
             <p className="ab-lede">
-              I’m a licensed insurance agent in Greensboro. I grew up in Creedmoor, in Granville
-              County. I’m 21, an accounting senior at UNCG, and I graduate in December 2026. I
-              help families across the Triad with Medicare, life insurance, and retirement
-              questions. I’m not a call center. I sit down with people myself, listen first, and
-              help them figure out what they want to protect.
+              I’m Christian Brinkley, a licensed insurance agent (NC Life &amp; Health) in
+              Greensboro. I grew up in Creedmoor, in Granville County. I’m 21, an accounting
+              senior at UNCG, and I graduate in December 2026. I help families across the
+              Triad with Medicare, life insurance, and retirement questions. I’m not a call
+              center. I sit down with people myself, listen first, and help them figure out
+              what they want to protect.
             </p>
             <p className="ab-license">
               Licensed agent · {AGENT.licenseLine}

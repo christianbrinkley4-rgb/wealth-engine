@@ -1,4 +1,5 @@
 import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
+import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     absolute: "Medicare Annual Enrollment Help | Greensboro",
   },
   description:
-    "Review next year’s Medicare costs, prescriptions, and doctors with a licensed agent who meets in Greensboro, High Point, or Winston-Salem before you decide.",
+    "AEP is Oct 15-Dec 7. Review your 2027 Medicare costs, drugs, and doctors with a local licensed agent before the deadline. Free, no pressure.",
   alternates: { canonical: "/annual-enrollment" },
   openGraph: pageOpenGraph({
     title: "Medicare annual enrollment help in Greensboro, Winston-Salem & High Point",
@@ -181,6 +182,20 @@ export default function AnnualEnrollmentPage() {
         secondaryLabel="Review my coverage →"
       />
 
+      {/* Seasonal: funnel evergreen readers to the AEP booking page while the window is open. */}
+      <section className="bg-[var(--color-navy)] py-10">
+        <div className="measure-prose app-shell max-w-3xl">
+          <p className="text-17 leading-relaxed text-[var(--color-paper)]">
+            <strong className="font-semibold">Annual Enrollment is open now through December 7.</strong>{" "}
+            If you want a free review of your plan before the deadline,{" "}
+            <Link href="/aep" className="font-semibold underline underline-offset-2">
+              book your fall review here
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The twenty-minute version</h2>
@@ -270,6 +285,13 @@ export default function AnnualEnrollmentPage() {
           />
         </div>
       </section>
+
+      <ReadNext>
+        <p>
+          Review the <Link href="/medicare-changes-2027">changes for 2027</Link> and how the <Link href="/medicare-part-d-donut-hole-2027">Part D out-of-pocket cap works</Link>. Bring the <Link href="/medicare-annual-enrollment-2026-checklist">fall review checklist</Link> to your conversation.
+        </p>
+        <ChecklistPointer />
+      </ReadNext>
 
       <KitchenTableClose
         heading="Get a personal coverage review"

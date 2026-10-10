@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 
@@ -328,13 +329,13 @@ export default function AepPage() {
             ))}
           </ol>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-            When you reach out, you talk to me. I&apos;m a licensed insurance agent here in
-            Greensboro and an accounting master&apos;s student at UNCG. I&apos;m one person, not a
-            call center, and I personally answer every inquiry.{" "}
+            When you reach out, you talk to{" "}
             <Link href="/about" className="underline underline-offset-2">
-              More about me
+              Christian Brinkley
             </Link>
-            .
+            , a licensed insurance agent here in Greensboro and an accounting master&apos;s
+            student at UNCG. I&apos;m one person, not a call center, and I personally answer
+            every inquiry.
           </p>
         </div>
       </section>
@@ -388,6 +389,18 @@ export default function AepPage() {
           <LeadCluster current="/aep" heading="Turning 65, or a different Medicare question?" />
         </div>
       </section>
+
+      <ReadNext>
+        <p>
+          Before you review coverage, read the{" "}
+          <Link href="/medicare-changes-2027">2027 changes</Link> and the{" "}
+          <Link href="/medicare-part-d-donut-hole-2027">Part D cap explanation</Link>, then work
+          through the{" "}
+          <Link href="/medicare-annual-enrollment-2026-checklist">Annual Enrollment checklist</Link>
+          .
+        </p>
+        <ChecklistPointer />
+      </ReadNext>
 
       <KitchenTableClose
         heading="Book your free fall review"

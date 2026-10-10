@@ -78,7 +78,7 @@ export default function WealthLearnPage() {
       </div>
       <NextUp
         links={[
-          { href: "/wealth/calculators", label: "Play with the calculators", kind: "Calculators" },
+          { href: "/tools", label: "Play with the calculators", kind: "Calculators" },
           { href: "/wealth/quiz/first-1000", label: "What do I do with my first $1,000?", kind: "Quiz" },
           { href: "/wealth/journey", label: "Follow the journey", kind: "Building in public" },
         ]}

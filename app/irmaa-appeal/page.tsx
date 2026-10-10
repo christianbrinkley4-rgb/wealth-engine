@@ -21,10 +21,10 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Appeal a High Medicare Premium | Greensboro Help",
+    absolute: "IRMAA Appeal: How to Lower Your Medicare Premiums | Greensboro, NC",
   },
   description:
-    "If your income fell after retirement, Social Security may review income-related Medicare premium charges. Local help in Greensboro and the Triad.",
+    "Paying an IRMAA surcharge on your Medicare premiums? If your income dropped since retirement, Form SSA-44 lets you ask Social Security for a review. Free local help in Greensboro and the Triad.",
   alternates: { canonical: "/irmaa-appeal" },
   openGraph: pageOpenGraph({
     title: "Appealing a high Medicare premium in Greensboro, Winston-Salem & High Point",
@@ -158,7 +158,7 @@ export default function IrmaaAppealPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "IRMAA appeal" }]}
         eyebrow="Greensboro, High Point & Winston-Salem · Form SSA-44"
         title="Has your income gone down since you retired?"
-        lede="Medicare generally uses income from two years earlier to calculate income-related premium charges. If you’ve retired, reduced your work hours, or had another qualifying life change, you may be able to request a review through Social Security. I can help Triad households in Greensboro, High Point, and Winston-Salem understand the notice and prepare questions."
+        lede="IRMAA is an extra charge added to your Medicare Part B and Part D premiums when Social Security thinks your income is high. It uses your tax return from two years ago. If you have retired or earned less since then, the answer is yes, you can ask for a review. Form SSA-44 is how you request it. I help Triad households in Greensboro, High Point, and Winston-Salem understand the notice and prepare."
         secondaryHref="/start?topic=medicare&stage=already_on_medicare&ask=premium"
         secondaryLabel="Ask about your Medicare premiums →"
       />

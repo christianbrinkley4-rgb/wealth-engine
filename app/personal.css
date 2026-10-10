@@ -324,3 +324,6 @@
     transition: none !important;
   }
 }
+
+.nav-money { display: inline-flex; align-items: center; min-height: 44px; font-size: .85rem; white-space: nowrap; }
+@media (max-width: 1199px) { .nav-money { display: none; } }

@@ -134,11 +134,10 @@ export function getTool(slug: string): WealthTool {
 }
 
 export const WEALTH_NAV = [
-  { href: "/wealth/calculators", label: "Calculators" },
-  { href: "/wealth/quiz", label: "Quizzes" },
+  { href: "/tools", label: "Tools" },
   { href: "/wealth/learn", label: "Guides" },
+  { href: "/wealth/quiz", label: "Quizzes" },
   { href: "/wealth/journey", label: "Journey" },
-  { href: "/wealth/tools", label: "Free tools" },
   { href: "/", label: "Medicare help" },
 ] as const;
 

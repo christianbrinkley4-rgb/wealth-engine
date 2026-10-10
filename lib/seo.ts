@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 
 import {
   AGENT,
+  hasPublishableNpn,
   MEDICARE_TPMO_SCOPE,
   TPMO_ORGANIZATION_COUNT,
   TPMO_PRODUCT_COUNT,
@@ -179,6 +180,7 @@ export function siteIdentityJsonLd() {
         url: `${SITE_URL}/about`,
         image: `${SITE_URL}/christian-brinkley.jpg`,
         jobTitle: "Licensed Insurance Agent",
+        ...(hasPublishableNpn() ? { identifier: { "@type": "PropertyValue", propertyID: "NPN", value: AGENT.npn } } : {}),
         description: "North Carolina Life & Health insurance agent and accounting senior at UNCG, graduating December 2026.",
         ...(sameAs ? { sameAs } : {}),
       },
@@ -231,6 +233,7 @@ export function localBusinessJsonLd() {
         "@id": `${SITE_URL}/#christian`,
         name: SITE_OWNER,
         jobTitle: "Licensed Insurance Agent",
+        ...(hasPublishableNpn() ? { identifier: { "@type": "PropertyValue", propertyID: "NPN", value: AGENT.npn } } : {}),
         hasOccupation: {
           "@type": "Occupation",
           name: "Insurance Agent",

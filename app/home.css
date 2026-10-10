@@ -1897,3 +1897,8 @@
   font-weight: 600;
   color: var(--pine-700);
 }
+
+/* T-09: below-fold sections can wait for rendering without hiding content. */
+@supports (content-visibility: auto) {
+  .hp > section:not(:first-child) { content-visibility: auto; contain-intrinsic-size: auto 700px; }
+}

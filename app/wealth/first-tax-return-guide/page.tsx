@@ -60,7 +60,7 @@ const ARTICLE: ArticleData = {
     eyebrow: "Try it · Calculator · 5 minutes",
     title: "Build a budget that works",
     blurb: "See where your money goes each month, then give your refund a job.",
-    href: "/wealth/calculators/budget",
+    href: "/tools/budget",
     cta: "Open it",
   },
   sources: [

@@ -51,9 +51,9 @@ const COPY: Record<
     startHref: "/start?topic=life_insurance",
     compliance: "general",
     pick: (city) => ({ intro: city.lifeIntro, detail: city.lifeDetail, faq: city.lifeFaq }),
-    title: (city) => `Life Insurance Review in ${city}, NC`,
+    title: (city) => `Life Insurance Agent in ${city}, NC | Christian Brinkley`,
     description: (city) =>
-      `Get a personal life insurance review in ${city}. Check employer coverage, beneficiaries, policy dates, and family needs with a local licensed agent.`,
+      `Need life insurance in ${city}? Get a free personal review with a local licensed agent. No pressure, no jargon, just honest answers.`,
     headline: (city) => `Personal life insurance review in ${city}`,
     closeHeading: "Would you like to review your coverage together?",
     closeBody: (city) =>
@@ -74,7 +74,7 @@ const COPY: Record<
     }),
     title: (city) => `Retirement and Medicare Education in ${city}, NC`,
     description: (city) =>
-      `Learn how 401(k) options, Social Security timing, and retirement income may affect Medicare in ${city}. Education, not investment advice.`,
+      `Retiring in ${city}? Learn how Social Security timing and 401(k) choices affect your Medicare. Free guidance from a local licensed agent.`,
     headline: (city) => `Coordinate retirement income and Medicare in ${city}`,
     closeHeading: "Let’s talk about your retirement questions.",
     closeBody: (city) =>

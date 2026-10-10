@@ -126,7 +126,7 @@ export default function RentVsBuyMathPage() {
               </p>
               <p>
                 Compare total cost per year of staying, <Link href="/wealth/buying-first-home-money-guide">not just the monthly payment</Link>. This page
-                cannot tell you which choice wins. <Link href="/wealth/calculators/budget">Your numbers can</Link>.
+                cannot tell you which choice wins. <Link href="/tools/budget">Your numbers can</Link>.
               </p>
             </section>
           </div>

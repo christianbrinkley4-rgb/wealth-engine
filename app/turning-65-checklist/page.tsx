@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -283,6 +284,9 @@ export default function Turning65ChecklistPage() {
         </div>
       </section>
 
+      <ReadNext>
+        <ChecklistPointer />
+      </ReadNext>
       <KitchenTableClose
         heading="Work the checklist with me"
         body="Bring your 65th birthday month and your current insurance card. We will walk all eight steps together, free, no obligation, about 30 minutes."

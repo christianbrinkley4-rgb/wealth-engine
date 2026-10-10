@@ -7,7 +7,7 @@ import {
   TPMO_DISCLAIMER,
 } from "@/lib/agent";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
-import { placeNames, TRIAD_CITIES } from "@/lib/triad";
+import { placeNames, indexableMedicarePlaces } from "@/lib/triad";
 import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
 import { WEALTH_NAV, WEALTH_TOOLS } from "@/lib/wealth/site";
 import { PERSONALITIES } from "@/lib/wealth/quizzes";
@@ -134,6 +134,7 @@ export function GET() {
   const wealthLines = [
     `- [Money tools for your 20s and 30s](${SITE_URL}/wealth): christianbuildswealth home.`,
     `- [Christian's links](${SITE_URL}/links): downloads and contact links.`,
+    `- [Downloads](${SITE_URL}/wealth/tools): budget spreadsheet and ratio checker.`,
     ...WEALTH_NAV.map((item) => `- [${item.label}](${SITE_URL}${item.href}): hub section.`),
     ...PERSONALITIES.map(
       (type) => `- [${type.name}](${SITE_URL}/wealth/quiz/money-personality/${type.id}): ${type.tagline}`,
@@ -154,11 +155,9 @@ export function GET() {
     ),
   ].join("\n");
 
-  const cityLines = TRIAD_CITIES.map((city) =>
+  const cityLines = indexableMedicarePlaces().map((city) =>
     [
       `- [Medicare in ${city.name}](${SITE_URL}/medicare-in/${city.slug}): personal help with enrollment, doctors, prescriptions, and coverage choices. Confirm Medicare Advantage availability for the visitor’s home address.`,
-      `- [Life insurance in ${city.name}](${SITE_URL}/life-insurance-in/${city.slug}): review existing coverage and family needs.`,
-      `- [Retirement help in ${city.name}](${SITE_URL}/retirement-in/${city.slug}): Medicare and insurance education, with financial planning coordinated through an advisor.`,
     ].join("\n"),
   ).join("\n");
 
@@ -176,6 +175,8 @@ ${profiles.map((profile) => `- ${profile.label}: ${profile.url}`).join("\n")}
 ${AGENT.name} is a licensed insurance agent in ${AGENT.city}, ${AGENT.state}, and an accounting senior at UNC Greensboro graduating December 2026. This index lists every key page on the site: Medicare guides, money tools for younger adults, calculators, and contact details. Consultations are no cost, with no obligation to enroll or buy.
 
 ## Medicare help
+
+- [Plan research checklist](${SITE_URL}/medicare-plan-checklist): an on-device printable research sheet with an official Medicare.gov handoff, no coverage lookup.
 
 ${medicareLines}
 

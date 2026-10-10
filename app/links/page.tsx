@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, FileSpreadsheet, Globe, MessageCircle, Sparkles, Terminal } from "lucide-react";
+import {
+  ArrowUpRight,
+  FileSpreadsheet,
+  Globe,
+  MessageCircle,
+  Sparkles,
+  Terminal,
+} from "lucide-react";
 
 import { wealthMetadata } from "@/lib/wealth/seo";
 import { JsonLd } from "@/app/wealth/ui/shell";
 import { SITE_URL } from "@/lib/seo";
-import { ANALYZER_FILE, BUDGET_FILE, EDUCATION_NOTE, WEALTH_BRAND, WEALTH_FACTS } from "@/lib/wealth/site";
+import {
+  ANALYZER_FILE,
+  BUDGET_FILE,
+  EDUCATION_NOTE,
+  WEALTH_BRAND,
+  WEALTH_FACTS,
+} from "@/lib/wealth/site";
 
 import "../wealth/wealth.css";
 
@@ -14,12 +27,16 @@ import "../wealth/wealth.css";
  * Link-in-bio page for social profiles. Five links, nothing else to load, and
  * no site header or footer in the way.
  */
-export const metadata: Metadata = wealthMetadata({
-  title: "Free Money Tools & Links",
-  description:
-    "Free budget spreadsheet, Financial Statement Analyzer, money calculators and quizzes from Christian Brinkley in Greensboro, NC.",
-  path: "/links",
-});
+export const metadata: Metadata = {
+  ...wealthMetadata({
+    title: "Free Money Tools & Links",
+    description:
+      "Free budget spreadsheet, Financial Statement Analyzer, money calculators and quizzes from Christian Brinkley in Greensboro, NC.",
+    path: "/links",
+  }),
+  // A link-in-bio page for social profiles, not a search result.
+  robots: { index: false, follow: true },
+};
 
 const LINKS = [
   {
@@ -59,7 +76,19 @@ const LINKS = [
 export default function LinksPage() {
   return (
     <div className="w-root">
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "CollectionPage", name: "Christian Brinkley's links", url: `${SITE_URL}/links`, hasPart: LINKS.filter((link) => link.href.startsWith("/")).map((link) => ({ "@type": "WebPage", name: link.title, url: `${SITE_URL}${link.href}` })) }} />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Christian Brinkley's links",
+          url: `${SITE_URL}/links`,
+          hasPart: LINKS.filter((link) => link.href.startsWith("/")).map((link) => ({
+            "@type": "WebPage",
+            name: link.title,
+            url: `${SITE_URL}${link.href}`,
+          })),
+        }}
+      />
       <main className="w-links">
         <Image
           src="/christian-brinkley-square.jpg"

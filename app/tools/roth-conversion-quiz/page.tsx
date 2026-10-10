@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 import { MathSection, ToolClose } from "../_components/tool-footer";
-import { DATA, FAQS, META } from "./data";
+import { FAQS, META } from "./data";
 import { RothConversionQuizClient } from "./QuizClient";
 
 const path = "/tools/roth-conversion-quiz";
@@ -16,12 +16,6 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({ title: "Roth conversion quiz", description: META.description, path }),
 };
 
-const PROOF = [
-  "Six questions, about two minutes",
-  "Framework, not financial advice",
-  "Everything runs on your device",
-  "Ends with a tax pro checklist",
-] as const;
 
 export default function RothConversionQuizPage() {
   return (
@@ -43,17 +37,9 @@ export default function RothConversionQuizPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQS)) }}
       />
 
-      <ServiceHero
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth conversion quiz" }]}
-        eyebrow={`Quiz · ${DATA.questions.length} questions · your answers stay on your device`}
-        title="Should you do a Roth conversion this year?"
-        lede="Your brother-in-law swears everyone should convert, and your accountant changed the subject. A conversion is a bet on your tax rate now versus later. Six questions about your bracket, your timeline, and how you would pay the tax, then a plain-English read and a checklist to bring to a tax professional."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth conversion quiz" }]} title="Should you do a Roth conversion this year?" lede="Your brother-in-law swears everyone should convert, and your accountant changed the subject. Six questions, then a checklist to bring to a tax professional." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
           <RothConversionQuizClient />
         </div>

@@ -1,7 +1,8 @@
+import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
 import { DataFreshness } from "@/app/components/DataFreshness";
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { MathSection, ToolClose } from "../_components/tool-footer";
@@ -19,12 +20,6 @@ export const metadata: Metadata = {
   twitter: { ...pageTwitter({ title: "Take-home pay calculator", description }), images: [`${path}/twitter-image`] },
 };
 
-const PROOF = [
-  "2026 IRS brackets and deduction",
-  "NC flat 3.99% included",
-  "Every assumption labeled",
-  "Results are estimates",
-] as const;
 
 export default function TakeHomePayPage() {
   return (
@@ -56,20 +51,11 @@ export default function TakeHomePayPage() {
         }}
       />
 
-      <ServiceHero
-        variant="compact"
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Take-home pay" }]}
-        eyebrow="Free tool · your numbers stay on your device"
-        title="What does that salary actually pay?"
-        lede="A salary number and a paycheck are two different things. Type in your gross salary and filing status. The tool subtracts the 2026 standard deduction, runs the federal brackets, and adds NC tax and payroll taxes. It shows what lands in your account each payday."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Take-home pay" }]} title="What does that salary actually pay?" lede="A salary number and a paycheck are two different things. Type in your gross salary and filing status to see what lands in your account each payday." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
-          <TakeHomePay />
+          <ToolTracking toolId="take_home_pay"><TakeHomePay /></ToolTracking>
           <div className="mt-6">
             <DataFreshness date="October 2026" source="IRS and the State of North Carolina" />
           </div>

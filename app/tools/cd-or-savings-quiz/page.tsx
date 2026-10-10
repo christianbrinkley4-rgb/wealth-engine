@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 import { MathSection, ToolClose } from "../_components/tool-footer";
-import { DATA, FAQS, META } from "./data";
+import { FAQS, META } from "./data";
 import { CdSavingsQuizClient } from "./QuizClient";
 
 const path = "/tools/cd-or-savings-quiz";
@@ -16,12 +16,6 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({ title: "CD or savings quiz", description: META.description, path }),
 };
 
-const PROOF = [
-  "Six questions, about two minutes",
-  "Plain-English read, not advice",
-  "Everything runs on your device",
-  "Ends with a comparison checklist",
-] as const;
 
 export default function CdSavingsQuizPage() {
   return (
@@ -43,17 +37,9 @@ export default function CdSavingsQuizPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQS)) }}
       />
 
-      <ServiceHero
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "CD or savings quiz" }]}
-        eyebrow={`Quiz · ${DATA.questions.length} questions · your answers stay on your device`}
-        title="CD or high-yield savings: which fits your cash?"
-        lede="The bank is offering 4% and you are not sure if you should lock it in. Six questions about when you will need the money and how much access matters. You get a plain-English read plus a short checklist of what to compare before you open anything."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "CD or savings quiz" }]} title="CD or high-yield savings: which fits your cash?" lede="The bank is offering 4% and you are not sure if you should lock it in. Six questions about when you will need the money and how much access matters." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
           <CdSavingsQuizClient />
         </div>

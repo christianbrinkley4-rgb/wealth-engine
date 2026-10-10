@@ -12,7 +12,7 @@ import { AGENT } from "@/lib/agent";
 export const metadata: Metadata = {
   title: "Get a Personal Medicare and Coverage Review",
   description:
-    "Answer a few questions about Medicare, life insurance, or retirement timing. A local licensed agent personally reviews your situation.",
+    "Tell us about your situation and get a personal review from Christian Brinkley, a licensed local agent. Free, no call center, no pressure.",
   alternates: { canonical: "/start" },
   robots: { index: false, follow: true },
   openGraph: pageOpenGraph({

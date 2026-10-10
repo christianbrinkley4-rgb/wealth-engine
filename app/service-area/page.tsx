@@ -169,6 +169,98 @@ export default function ServiceAreaPage() {
         </div>
       </section>
 
+      <section className="app-shell max-w-4xl py-8" aria-labelledby="more-towns">
+        <h2 id="more-towns" className="text-24 font-semibold">
+          More towns I serve
+        </h2>
+        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-creedmoor-nc"
+            >
+              Medicare in Creedmoor
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-asheboro-nc"
+            >
+              Medicare in Asheboro
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-oxford-nc"
+            >
+              Medicare in Oxford
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-mebane-nc"
+            >
+              Medicare in Mebane
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-madison-nc"
+            >
+              Medicare in Madison
+            </Link>
+          </li>
+          <li>
+            <Link className="inline-flex min-h-11 items-center underline" href="/medicare-eden-nc">
+              Medicare in Eden
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-roxboro-nc"
+            >
+              Medicare in Roxboro
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-butner-nc"
+            >
+              Medicare in Butner
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-graham-nc"
+            >
+              Medicare in Graham
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-ramseur-nc"
+            >
+              Medicare in Ramseur
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-liberty-nc"
+            >
+              Medicare in Liberty
+            </Link>
+          </li>
+        </ul>
+      </section>
       <KitchenTableClose
         heading="Let’s talk about what matters to you."
         body="We can review your coverage, answer your questions, and discuss the next steps for you and your family. Your consultation is no cost, with no obligation to buy anything."

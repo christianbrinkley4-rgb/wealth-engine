@@ -24,15 +24,21 @@
  */
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import {
   conversionTarget,
+  ctaDetail,
+  handoffDestination,
   eventParams,
   isMeasuredEvent,
+  safePagePath,
   type EventDetail,
+  type CtaLocation,
+  type ToolId,
   type MeasuredEvent,
 } from "@/lib/analytics";
+import { AGENT } from "@/lib/agent";
 import { captureAttribution } from "@/lib/attribution";
 
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
@@ -102,6 +108,15 @@ export function trackLeadOnce(eventId: string, topic?: string) {
   trackLead(eventId, topic);
 }
 
+const completedTools = new Set<ToolId>();
+let toolPage = "";
+export function resetToolPage(path: string) {
+  if (path !== toolPage) {
+    completedTools.clear();
+    toolPage = path;
+  }
+}
+
 /**
  * A site interaction worth measuring (a call tap, a finished date lookup).
  * Carries the event name and the page only: never answers, dates, or contact
@@ -111,6 +126,12 @@ export function trackEvent(name: string, detail?: EventDetail) {
   if (typeof window === "undefined") return;
   // An event this file has not declared is a mistake, not a measurement.
   if (!isMeasuredEvent(name)) return;
+  resetToolPage(window.location.pathname);
+  if (name === "tool_complete") {
+    const id = eventParams(window.location.pathname, detail).tool_id;
+    if (!id || completedTools.has(id)) return;
+    completedTools.add(id);
+  }
   try {
     window.gtag?.("event", name, eventParams(window.location.pathname, detail));
     trackAdsConversion(name);
@@ -122,6 +143,8 @@ export function trackEvent(name: string, detail?: EventDetail) {
 
 export function Analytics() {
   const pathname = usePathname();
+  // The bootstrap scripts report the landing view; this effect owns subsequent routes.
+  const previousPath = useRef(pathname);
 
   useEffect(() => {
     captureAttribution();
@@ -131,8 +154,27 @@ export function Analytics() {
   // tap on a phone link counts, wherever it sits on the page.
   useEffect(() => {
     function onClick(event: MouseEvent) {
-      const link = (event.target as Element | null)?.closest?.('a[href^="tel:"]');
-      if (link) trackEvent("phone_click");
+      const target = event.target as Element | null;
+      // Only Christian's own number is a call to him. A tap on SHIIP's or
+      // Medicare's number is a visitor getting help elsewhere, not a lead.
+      const link = target?.closest?.('a[href^="tel:"]');
+      if (link && link.getAttribute("href") === AGENT.phoneHref) {
+        trackEvent("phone_click", {
+          cta_location: link.getAttribute("data-cta-location") as CtaLocation,
+        });
+      }
+      // Plain anchors to the three contact pages. TrackedLink marks its own
+      // anchors with a location attribute, so a tap is never counted twice.
+      const plainLink = target?.closest?.("a[href]:not([data-cta-location])");
+      const plainCta = plainLink
+        ? ctaDetail(plainLink.getAttribute("href") ?? "", "inline")
+        : undefined;
+      if (plainCta) trackEvent("cta_click", plainCta);
+      const handoff = target?.closest?.("a[data-handoff]");
+      const destination = handoff
+        ? handoffDestination(handoff.getAttribute("href") ?? "")
+        : undefined;
+      if (destination) trackEvent("official_handoff_click", { destination });
     }
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
@@ -141,9 +183,16 @@ export function Analytics() {
   // Client-side route changes need an explicit pageview.
   useEffect(() => {
     if (!pathname) return;
+    resetToolPage(pathname);
+    if (previousPath.current === pathname) return;
+    previousPath.current = pathname;
     try {
       window.fbq?.("track", "PageView");
-      if (GA4_ID) window.gtag?.("config", GA4_ID, eventParams(pathname));
+      if (GA4_ID)
+        window.gtag?.("config", GA4_ID, {
+          ...eventParams(pathname),
+          page_location: window.location.origin + safePagePath(pathname),
+        });
     } catch {
       // ignore
     }
@@ -169,7 +218,7 @@ fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`}
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
           {/* One tag, up to two destinations: the analytics property and the
               ads account. Ad personalisation stays off, this site measures
@@ -181,7 +230,7 @@ function gtag(){dataLayer.push(arguments);}
 window.gtag=gtag;gtag('js',new Date());
 gtag('set','allow_ad_personalization_signals',false);
 gtag('set','allow_google_signals',false);
-${GA4_ID ? `gtag('config','${GA4_ID}');` : ""}
+${GA4_ID ? `gtag('config','${GA4_ID}',{page_path:location.pathname,page_location:location.origin+location.pathname});` : ""}
 ${GOOGLE_ADS_ID ? `gtag('config','${GOOGLE_ADS_ID}');` : ""}`}
           </Script>
         </>

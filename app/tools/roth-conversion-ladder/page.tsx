@@ -1,10 +1,11 @@
+import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 
-import { MathSection, ToolClose, ToolsDisclaimer } from "../_components/tool-footer";
+import { MathSection, ToolClose } from "../_components/tool-footer";
 import { RothConversionLadder } from "./RothConversionLadder";
 
 const path = "/tools/roth-conversion-ladder";
@@ -18,12 +19,6 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({ title: "Roth conversion multi-year planner", description, path }),
 };
 
-const PROOF = [
-  "Real 2026 federal brackets",
-  "Bracket-fill plan, year by year",
-  "Lifetime tax comparison",
-  "Results are estimates for education",
-] as const;
 
 export default function RothConversionLadderPage() {
   return (
@@ -55,19 +50,11 @@ export default function RothConversionLadderPage() {
         }}
       />
 
-      <ServiceHero
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth conversion planner" }]}
-        eyebrow="Free tool · your numbers stay on your device"
-        title="Roth conversions, year by year"
-        lede="The years between retirement and required minimum distributions are the only stretch where you control your tax bracket this completely. Each year, this tool fills your current bracket with a conversion, without crossing into the next one, then compares the lifetime tax bill against doing nothing."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth conversion planner" }]} title="Roth conversions, year by year" lede="The years between retirement and required minimum distributions are the only stretch where you control your tax bracket this completely. This tool fills your bracket with a conversion each year and compares the lifetime tax bill against doing nothing." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
-          <RothConversionLadder />
+          <ToolTracking toolId="roth_conversion_ladder"><RothConversionLadder /></ToolTracking>
         </div>
       </section>
 
@@ -112,7 +99,6 @@ export default function RothConversionLadderPage() {
 
       <div className="bg-white px-4">
         <div className="app-shell max-w-3xl py-10">
-          <ToolsDisclaimer />
         </div>
       </div>
 

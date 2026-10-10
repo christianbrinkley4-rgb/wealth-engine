@@ -967,3 +967,31 @@
   padding: 0.75rem 0.4rem;
   margin: -0.75rem -0.4rem;
 }
+
+.trust-facts {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding-block: 12px;
+}
+.trust-facts p {
+  margin-block: 6px;
+}
+.trust-facts ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: inherit;
+  gap: 0 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.trust-facts a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ktc .trust-facts ul {
+  justify-content: center;
+}

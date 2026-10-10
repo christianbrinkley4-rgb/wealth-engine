@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { TrackedLink as Link } from "@/components/TrackedLink";
 import { Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -110,16 +110,16 @@ export function StickyMobileCta() {
       aria-label="Call or get started"
       inert={tucked}
     >
-      <a href={AGENT.phoneHref} className="scta-call">
+      <a data-cta-location="sticky_bar" href={AGENT.phoneHref} className="scta-call">
         <Phone size={20} aria-hidden />
         Call Christian
       </a>
       {isHome ? (
-        <Link href="/plan-check" className="scta-second">
+        <Link ctaLocation="sticky_bar" href="/plan-check" className="scta-second">
           Plan check
         </Link>
       ) : (
-        <Link href={second.href} className="scta-second">
+        <Link ctaLocation="sticky_bar" href={second.href} className="scta-second">
           {second.label}
         </Link>
       )}

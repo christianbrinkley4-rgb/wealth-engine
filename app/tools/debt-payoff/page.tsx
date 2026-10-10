@@ -1,6 +1,7 @@
+import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { MathSection, ToolClose } from "../_components/tool-footer";
@@ -18,12 +19,6 @@ export const metadata: Metadata = {
   twitter: { ...pageTwitter({ title: "Debt payoff calculator", description }), images: [`${path}/twitter-image`] },
 };
 
-const PROOF = [
-  "Your real debts, editable",
-  "Avalanche vs snowball compared",
-  "Everything runs on your device",
-  "Results are estimates for education",
-] as const;
 
 export default function DebtPayoffPage() {
   return (
@@ -55,20 +50,11 @@ export default function DebtPayoffPage() {
         }}
       />
 
-      <ServiceHero
-        variant="compact"
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Debt payoff" }]}
-        eyebrow="Free tool · your numbers stay on your device"
-        title="Avalanche vs snowball, on your debts"
-        lede="Staring at three balances and not knowing which to attack first is the worst part. Two ways out of debt, tested on your real numbers. Avalanche attacks the highest rate first and costs the least. Snowball kills the smallest balance first and feels the fastest. Type in your debts and see both."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Debt payoff" }]} title="Avalanche vs snowball, on your debts" lede="Staring at three balances and not knowing which to attack first is the worst part. Type in your debts and see both ways out." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
-          <DebtPayoff />
+          <ToolTracking toolId="debt_payoff"><DebtPayoff /></ToolTracking>
         </div>
       </section>
 

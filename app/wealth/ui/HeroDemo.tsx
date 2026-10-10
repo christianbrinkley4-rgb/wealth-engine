@@ -62,7 +62,7 @@ export function HeroDemo() {
         around and can be negative.
       </p>
       <div className="w-btn-row">
-        <Link href="/wealth/calculators/compound-interest" className="w-btn">
+        <Link href="/tools/compound-interest" className="w-btn">
           Open the full calculator <ArrowRight size={18} aria-hidden />
         </Link>
       </div>

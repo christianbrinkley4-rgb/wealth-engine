@@ -1,6 +1,7 @@
+import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { MathSection, ToolClose } from "../_components/tool-footer";
@@ -18,12 +19,6 @@ export const metadata: Metadata = {
   twitter: { ...pageTwitter({ title: "Emergency fund calculator", description }), images: [`${path}/twitter-image`] },
 };
 
-const PROOF = [
-  "Target based on your spending",
-  "Month-by-month savings plan",
-  "Everything runs on your device",
-  "Results are estimates for education",
-] as const;
 
 export default function EmergencyFundPage() {
   return (
@@ -55,20 +50,11 @@ export default function EmergencyFundPage() {
         }}
       />
 
-      <ServiceHero
-        variant="compact"
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Emergency fund" }]}
-        eyebrow="Free tool · your numbers stay on your device"
-        title="Your emergency fund, sized to your life"
-        lede="The water heater does not care about your savings goals. An emergency fund is months of spending, not a round number someone else picked. Type in what you must spend each month and how many months you want covered. The tool sets the target and builds the plan to reach it."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Emergency fund" }]} title="Your emergency fund, sized to your life" lede="The water heater does not care about your savings goals. Type in what you must spend each month and how many months you want covered." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
-          <EmergencyFund />
+          <ToolTracking toolId="emergency_fund"><EmergencyFund /></ToolTracking>
         </div>
       </section>
 

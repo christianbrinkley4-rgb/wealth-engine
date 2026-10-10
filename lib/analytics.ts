@@ -16,6 +16,14 @@
 export const MEASURED_EVENTS = {
   /** A tap or click on any phone link, anywhere on the site. */
   phone_click: "phone_click",
+  tool_start: "tool_start",
+  tool_complete: "tool_complete",
+  cta_click: "cta_click",
+  official_handoff_click: "official_handoff_click",
+  ask_submit: "ask_submit",
+  guide_signup: "guide_signup",
+  checklist_start: "checklist_start",
+  checklist_complete: "checklist_complete",
   /** Someone completed the Medicare date tool and saw their dates. */
   timeline_complete: "timeline_complete",
   /** Someone asked for their dates by email from the date tool. */
@@ -36,7 +44,7 @@ export const MEASURED_EVENTS = {
   quiz_complete: "quiz_complete",
   /** The embedded booking calendar was shown to someone. */
   booking_open: "booking_open",
-  /** The embedded calendar reported a finished booking. */
+  /** Browser diagnostic only. booking_confirmed from the webhook is the booking key event. */
   booking_complete: "booking_complete",
   /** A tap on a "next step" link at the end of a Learning Hub article. */
   article_cta_click: "article_cta_click",
@@ -53,7 +61,7 @@ export function isMeasuredEvent(name: string): name is MeasuredEvent {
 }
 
 /** The quizzes that report their steps. A quiz id names a tool, never a person. */
-export const QUIZ_IDS = ["plan_check", "help_request"] as const;
+export const QUIZ_IDS = ["plan_check", "help_request", "medigap_or_advantage", "roth_conversion", "cd_or_savings"] as const;
 export type QuizId = (typeof QUIZ_IDS)[number];
 
 export function isQuizId(value: unknown): value is QuizId {
@@ -72,15 +80,56 @@ export function isReviewSource(value: unknown): value is ReviewSource {
   return typeof value === "string" && (REVIEW_SOURCES as readonly string[]).includes(value);
 }
 
-/** What an event may say beyond the page: which quiz, which step, which review link. */
-export type EventDetail = { quiz_id?: QuizId; step?: number; review_source?: ReviewSource };
+export const TOOL_IDS = ["roth_vs_traditional", "emergency_fund", "debt_payoff", "retirement_projector", "take_home_pay", "life_insurance_needs", "compound_interest", "budget", "roth_conversion_ladder"] as const;
+export type ToolId = (typeof TOOL_IDS)[number];
+export const CTA_IDS = ["plan_check", "ask_question", "book_time"] as const;
+export const CTA_LOCATIONS = ["header", "hero", "sticky_bar", "page_close", "article_end", "inline", "menu", "tool_result"] as const;
+export type CtaLocation = (typeof CTA_LOCATIONS)[number];
+export const DESTINATIONS = ["medicare_plan_compare", "medicare_gov", "ssa_gov", "nc_shiip"] as const;
+export const LIST_IDS = ["guides", "drops"] as const;
+const FIXED_LABELS = { tool_id: TOOL_IDS, cta_id: CTA_IDS, cta_location: CTA_LOCATIONS, destination: DESTINATIONS, list_id: LIST_IDS };
 
-type EventParams = {
-  page_path: string;
-  quiz_id?: QuizId;
-  step?: number;
-  review_source?: ReviewSource;
+export function ctaDetail(href: string, location: CtaLocation): EventDetail | undefined {
+  const path = href.split(/[?#]/)[0];
+  const cta_id = path === "/plan-check" ? "plan_check" : path === "/start" ? "ask_question" : path === "/schedule" ? "book_time" : undefined;
+  return cta_id ? { cta_id, cta_location: location } : undefined;
+}
+
+/**
+ * Which official site an outbound link goes to, as one of the fixed labels.
+ * Anything else, including a look-alike host or a plain http link, is not
+ * reported. A local SHIIP site run by a county partner counts as SHIIP.
+ */
+export function handoffDestination(href: string): (typeof DESTINATIONS)[number] | undefined {
+  let url: URL;
+  try {
+    url = new URL(href);
+  } catch {
+    return undefined;
+  }
+  if (url.protocol !== "https:") return undefined;
+  const host = url.hostname;
+  const on = (domain: string) => host === domain || host.endsWith(`.${domain}`);
+  if (on("medicare.gov")) {
+    return url.pathname.startsWith("/plan-compare") ? "medicare_plan_compare" : "medicare_gov";
+  }
+  if (on("ssa.gov")) return "ssa_gov";
+  if (on("ncdoi.gov") && url.pathname.includes("shiip")) return "nc_shiip";
+  if (on("shepherdscenter.org") && url.pathname.includes("shiip")) return "nc_shiip";
+  return undefined;
+}
+
+/** What an event may say beyond the page: which quiz, which step, which review link. */
+export type EventDetail = {
+  quiz_id?: QuizId; step?: number; review_source?: ReviewSource;
+  tool_id?: ToolId;
+  cta_id?: (typeof CTA_IDS)[number];
+  cta_location?: CtaLocation;
+  destination?: (typeof DESTINATIONS)[number];
+  list_id?: (typeof LIST_IDS)[number];
 };
+
+type EventParams = { page_path: string } & EventDetail;
 
 /**
  * The page path, with anything a visitor typed removed.
@@ -111,6 +160,12 @@ export function eventParams(
   if (detail && isQuizId(detail.quiz_id)) params.quiz_id = detail.quiz_id;
   if (detail && Number.isInteger(detail.step) && detail.step! >= 0 && detail.step! <= 50) {
     params.step = detail.step;
+  }
+  for (const [key, allowed] of Object.entries(FIXED_LABELS)) {
+    const value = detail?.[key as keyof EventDetail];
+    if (typeof value === "string" && (allowed as readonly string[]).includes(value)) {
+      Object.assign(params, { [key]: value });
+    }
   }
   return params;
 }

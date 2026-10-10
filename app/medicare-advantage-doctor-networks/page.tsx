@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -307,6 +308,9 @@ export default function DoctorNetworksPage() {
         </div>
       </section>
 
+      <ReadNext>
+        <ChecklistPointer />
+      </ReadNext>
       <KitchenTableClose
         heading="Let's check your doctors together"
         body="Bring your doctor list to a free review, in person around Greensboro or by phone, and we'll verify each one against the plans you're considering."

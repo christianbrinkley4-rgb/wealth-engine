@@ -777,6 +777,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "SSA: Medicare premiums for higher-income beneficiaries", url: "https://www.ssa.gov/benefits/medicare/medicare-premiums.html" },
     ],
     related: [
+      { title: "Roth conversion questions", href: "/tools/roth-conversion-quiz" },
       { title: "Roth IRA explained, plainly", href: "/wealth/roth-ira-explained" },
       { title: "401(k) explained, plainly", href: "/wealth/401k-explained" },
       { title: "Roth vs traditional calculator", href: "/tools/roth-vs-traditional" },
@@ -1204,6 +1205,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "IRS: About Form 8888, Allocation of Refund", url: "https://www.irs.gov/forms-pubs/about-form-8888" },
     ],
     related: [
+      { title: "Emergency fund estimate", href: "/tools/emergency-fund" },
       { title: "Emergency fund guide", href: "/wealth/emergency-fund-guide" },
       { title: "Compound interest calculator", href: "/tools/compound-interest" },
       { title: "HYSA vs money market account", href: "/guides/hysa-vs-money-market-account" },
@@ -1251,6 +1253,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "Source: FDIC home", url: "https://www.fdic.gov/" },
     ],
     related: [
+      { title: "CD or savings questions", href: "/tools/cd-or-savings-quiz" },
       { title: "Emergency fund guide", href: "/wealth/emergency-fund-guide" },
       { title: "Compound interest calculator", href: "/tools/compound-interest" },
       { title: "CD or savings quiz", href: "/tools/cd-or-savings-quiz" },

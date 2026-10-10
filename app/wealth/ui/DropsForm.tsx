@@ -1,4 +1,6 @@
 "use client";
+import { useDeferredFormCheck } from "@/hooks/useDeferredFormCheck";
+import { trackEvent } from "@/app/components/Analytics";
 
 import { ArrowRight, Check } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
@@ -33,12 +35,13 @@ export function DropsForm() {
   const [company, setCompany] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
+  const { formRef, active, activate } = useDeferredFormCheck();
   const [turnstileReady, setTurnstileReady] = useState(false);
   const container = useRef<HTMLDivElement>(null);
   const widget = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!TURNSTILE_SITE_KEY || turnstileReady) return;
+    if (!TURNSTILE_SITE_KEY || !active || turnstileReady) return;
     loadTurnstile();
     const poll = setInterval(() => {
       if (turnstileApi()) {
@@ -51,7 +54,7 @@ export function DropsForm() {
       clearInterval(poll);
       clearTimeout(giveUp);
     };
-  }, [turnstileReady]);
+  }, [turnstileReady, active]);
 
   useEffect(() => {
     const api = turnstileApi();
@@ -74,7 +77,7 @@ export function DropsForm() {
         }
       }
     };
-  }, [turnstileReady]);
+  }, [turnstileReady, active]);
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();
@@ -100,6 +103,7 @@ export function DropsForm() {
         body: JSON.stringify({ email, company, turnstileToken }),
       });
       if (response.ok) {
+        trackEvent("guide_signup", { list_id: "drops" });
         setStatus("done");
         return;
       }
@@ -131,7 +135,7 @@ export function DropsForm() {
   }
 
   return (
-    <form className="w-card" onSubmit={submit} noValidate>
+    <form ref={formRef} onFocusCapture={activate} className="w-card" onSubmit={submit} noValidate>
       <div className="w-field">
         <label htmlFor={id}>Your email</label>
         <div className="w-field-box" style={{ fontFamily: "inherit", fontSize: "1.05rem", fontWeight: 600 }}>

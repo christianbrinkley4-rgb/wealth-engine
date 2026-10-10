@@ -1,5 +1,7 @@
 "use client";
 
+import { trackEvent } from "@/app/components/Analytics";
+
 import { CheckCircle2 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -81,6 +83,7 @@ export function AskQuestionForm() {
         return;
       }
 
+      trackEvent("ask_submit");
       setDone(true);
     } catch {
       setError("Something went wrong. Hang onto your question and try once more.");

@@ -1,3 +1,4 @@
+import { MONEY_GUIDES } from "@/lib/guideLanes";
 import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -344,6 +345,7 @@ export default function WealthHome() {
         </div>
       </section>
 
+      <section className="w-section"><div className="w-shell"><h2 className="w-h2">Money and tax guides</h2><ul className="w-grid">{MONEY_GUIDES.map(guide => <li key={guide.slug}><Link href={`/guides/${guide.slug}`} className="w-card"><h3>{guide.title}</h3><p>{guide.description}</p></Link></li>)}</ul><p><Link href="/taxes-and-retirement">Taxes in retirement</Link> · <Link href="/wealth/tools">Downloads</Link></p></div></section>
       <section className="w-section" id="drops" style={{ scrollMarginTop: 110 }}>
         <div className="w-shell w-split">
           <div>

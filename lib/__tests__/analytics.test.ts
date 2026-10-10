@@ -11,21 +11,31 @@ import {
 
 describe("what may be measured", () => {
   it("reports only the declared funnel events", () => {
-    expect(Object.keys(MEASURED_EVENTS).sort()).toEqual([
-      "article_cta_click",
-      "booking_complete",
-      "booking_open",
-      "generate_lead",
-      "phone_click",
-      "quiz_abandon",
-      "quiz_complete",
-      "quiz_start",
-      "quiz_step",
-      "review_click",
-      "review_page_view",
-      "timeline_complete",
-      "timeline_email_request",
-    ]);
+    expect(Object.keys(MEASURED_EVENTS).sort()).toEqual(
+      [
+        "article_cta_click",
+        "ask_submit",
+        "checklist_complete",
+        "checklist_start",
+        "cta_click",
+        "booking_complete",
+        "booking_open",
+        "generate_lead",
+        "guide_signup",
+        "official_handoff_click",
+        "phone_click",
+        "quiz_abandon",
+        "quiz_complete",
+        "quiz_start",
+        "quiz_step",
+        "review_click",
+        "review_page_view",
+        "timeline_complete",
+        "timeline_email_request",
+        "tool_complete",
+        "tool_start",
+      ].sort(),
+    );
   });
 
   it("refuses an event nobody declared", () => {

@@ -61,7 +61,7 @@ const ARTICLE: ArticleData = {
     eyebrow: "Try it · Calculator · 5 minutes",
     title: "Build a budget that works",
     blurb: "Know your must-pay bills now, so a lost paycheck never catches you blind.",
-    href: "/wealth/calculators/budget",
+    href: "/tools/budget",
     cta: "Open it",
   },
   sources: [{ label: "Social Security disability benefits (SSA)", href: "https://www.ssa.gov/disability" }],

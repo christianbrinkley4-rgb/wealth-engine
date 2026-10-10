@@ -18,7 +18,7 @@ export async function generateMetadata({
   params: Promise<{ city: string }>;
 }): Promise<Metadata> {
   const { city } = await params;
-  return localServiceMetadata("retirement", city);
+  return { ...localServiceMetadata("retirement", city), robots: { index: false, follow: true } };
 }
 
 export default async function RetirementCityPage({

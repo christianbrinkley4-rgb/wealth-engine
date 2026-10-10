@@ -1,8 +1,9 @@
+import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { DataFreshness } from "@/app/components/DataFreshness";
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { MathSection, ToolClose } from "../_components/tool-footer";
@@ -20,12 +21,6 @@ export const metadata: Metadata = {
   twitter: { ...pageTwitter({ title: "Roth vs traditional calculator", description }), images: [`${path}/twitter-image`] },
 };
 
-const PROOF = [
-  "2026 IRA limits built in",
-  "Same dollars in, side by side",
-  "Everything runs on your device",
-  "Results are estimates for education",
-] as const;
 
 export default function RothVsTraditionalPage() {
   return (
@@ -57,20 +52,11 @@ export default function RothVsTraditionalPage() {
         }}
       />
 
-      <ServiceHero
-        variant="compact"
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth vs traditional" }]}
-        eyebrow="Free tool · your numbers stay on your device"
-        title="Roth vs traditional, in real dollars"
-        lede="Pay tax now or pay it later. That is the whole question. Type in the same contribution for both accounts. The tool grows each side at your assumed rate, takes the tax out where it belongs, and shows which leaves more after tax."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Roth vs traditional" }]} title="Roth vs traditional, in real dollars" lede="Pay tax now or pay it later. That is the whole question. Type in the same contribution for both accounts and see which leaves more after tax." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
-          <RothVsTraditional />
+          <ToolTracking toolId="roth_vs_traditional"><RothVsTraditional /></ToolTracking>
           <div className="mt-6">
             <DataFreshness date="October 2026" source="IRS" />
           </div>

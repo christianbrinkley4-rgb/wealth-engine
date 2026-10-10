@@ -9,7 +9,7 @@
 
 import { ARTICLES, articleText, type Article } from "@/lib/articles";
 import { TAX_ARTICLES } from "@/lib/taxArticles";
-import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
+import { MEDICARE_GUIDES } from "@/lib/guideLanes";
 
 export const SITUATIONS = [
   {
@@ -65,6 +65,41 @@ export type LearnEntry = {
 };
 
 const GUIDES: LearnEntry[] = [
+  {
+    href: "/medicare-plan-checklist",
+    title: "Make your plan research sheet",
+    blurb: "Organize doctors, prescriptions, pharmacies, travel, and priorities on your device.",
+    situation: "on-medicare",
+    kind: "Checklist",
+  },
+  {
+    href: "/medicare-supplement-plans-greensboro-nc",
+    title: "Medigap in Greensboro",
+    blurb: "What to check about supplement coverage and enrollment.",
+    situation: "turning-65",
+    kind: "Guide",
+  },
+  {
+    href: "/medicare-advantage-vs-medigap-greensboro-nc",
+    title: "Advantage or Medigap in Greensboro",
+    blurb: "Doctors, travel, and costs to discuss before deciding.",
+    situation: "turning-65",
+    kind: "Guide",
+  },
+  {
+    href: "/medicare-changes-2027",
+    title: "Medicare changes for 2027",
+    blurb: "What is changing and what still needs confirmation.",
+    situation: "on-medicare",
+    kind: "Guide",
+  },
+  {
+    href: "/medicare-part-d-donut-hole-2027",
+    title: "The Part D cap in 2027",
+    blurb: "How the drug cost cap works.",
+    situation: "medicare-costs",
+    kind: "Guide",
+  },
   {
     href: "/turning-65",
     title: "Turning 65: when to sign up for Medicare",
@@ -302,7 +337,7 @@ export function learnEntries(): LearnEntry[] {
     minutes: minutesFor(article),
     featured: index === 0,
   }));
-  const trafficGuides: LearnEntry[] = TRAFFIC_GUIDES.map((guide) => ({
+  const trafficGuides: LearnEntry[] = MEDICARE_GUIDES.map((guide) => ({
     href: `/guides/${guide.slug}`,
     title: guide.title,
     blurb: guide.description,

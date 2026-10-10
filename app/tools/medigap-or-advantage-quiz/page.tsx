@@ -3,12 +3,12 @@ import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { AGENT } from "@/lib/agent";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 import { MathSection, ToolsDisclaimer, WealthLinkCard } from "../_components/tool-footer";
-import { DATA, FAQS, META } from "./data";
+import { FAQS, META } from "./data";
 import { MedigapQuizClient } from "./QuizClient";
 
 const path = "/tools/medigap-or-advantage-quiz";
@@ -20,12 +20,6 @@ export const metadata: Metadata = {
   openGraph: pageOpenGraph({ title: "Medigap or Medicare Advantage quiz", description: META.description, path }),
 };
 
-const PROOF = [
-  "Seven questions, about two minutes",
-  "No recommendation, just better questions",
-  "Everything runs on your device",
-  "Results are educational only",
-] as const;
 
 export default function MedigapQuizPage() {
   return (
@@ -47,17 +41,9 @@ export default function MedigapQuizPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQS)) }}
       />
 
-      <ServiceHero
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Medigap or Advantage quiz" }]}
-        eyebrow={`Quiz · ${DATA.questions.length} questions · your answers stay on your device`}
-        title="Medigap or Medicare Advantage: 7 questions to ask yourself"
-        lede="Everyone at the senior center has an opinion, and they all contradict each other. This quiz will not pick a plan for you. It asks how you use health care, what you want to spend, and how much flexibility matters, then hands you a short list of questions to bring to a licensed agent."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Medigap or Advantage quiz" }]} title="Medigap or Medicare Advantage: 7 questions to ask yourself" lede="Everyone at the senior center has an opinion, and they all contradict each other. This quiz will not pick a plan for you. It hands you a short list of questions to bring to a licensed agent." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
           <MedigapQuizClient />
         </div>

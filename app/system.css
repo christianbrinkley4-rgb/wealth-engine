@@ -920,7 +920,7 @@ details[open]::details-content {
 
 /*
  * Scroll reveals. Content is only hidden once the page has confirmed it can
- * reveal it again ("js-reveal" is set by an inline script in the layout), so
+ * reveal it again ("js-reveal" is set after the observer's initial callback), so
  * a visitor without JavaScript, or a crawler, always sees everything.
  */
 .js-reveal [data-reveal] {

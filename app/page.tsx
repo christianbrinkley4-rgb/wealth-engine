@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { TrustFacts } from "@/app/components/TrustFacts";
 import Image from "next/image";
-import Link from "next/link";
+import { TrackedLink as Link } from "@/components/TrackedLink";
 import {
   ArrowDown,
   ArrowRight,
@@ -27,7 +28,7 @@ import { SITE_STATS } from "@/lib/siteStats";
 import { hasTestimonials } from "@/lib/testimonials";
 import { featuredPlaces } from "@/lib/triad";
 
-const title = "Medicare Help in Greensboro | Christian Brinkley";
+const title = "Christian Brinkley | Medicare Help in Greensboro, NC";
 const description =
   "Turning 65 in the Triad? Christian Brinkley is a licensed agent, not a call center. Find your Medicare enrollment dates, meet at home or by phone. No cost.";
 export const metadata: Metadata = {
@@ -162,7 +163,7 @@ export default function HomePage() {
                 <span style={{ "--i": 0 } as React.CSSProperties}>Medicare and money,</span>
               </span>{" "}
               <span className="split-line">
-                <span style={{ "--i": 1 } as React.CSSProperties}>explained by someone</span>
+                <span style={{ "--i": 1 } as React.CSSProperties}>explained by Christian Brinkley,</span>
               </span>{" "}
               <span className="split-line">
                 <span style={{ "--i": 2 } as React.CSSProperties}>
@@ -171,15 +172,15 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="hx-lede">
-              I’m Christian Brinkley, a licensed insurance agent in Greensboro. I help people
+              I’m <Link href="/about" ctaLocation="hero">Christian Brinkley</Link>, a licensed insurance agent in Greensboro. I help people
               turning 65, people already on Medicare, and their kids figure out what to do next.
               No call center. When you call, you get me.
             </p>
             <div className="hx-actions" id="home-hero-actions">
-              <Link href="/plan-check" className="btn btn-accent">
+              <Link ctaLocation="hero" href="/plan-check" className="btn btn-accent">
                 Take the 90-second plan check <ArrowRight size={19} className="arrow" aria-hidden />
               </Link>
-              <a href={AGENT.phoneHref} className="btn btn-outline">
+              <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-outline">
                 <Phone size={18} aria-hidden /> Call {AGENT.phone}
               </a>
             </div>
@@ -337,7 +338,7 @@ export default function HomePage() {
               whether a review is worth your time. Nothing gets sent anywhere unless you ask.
             </p>
             <div className="pc-actions" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
-              <Link href="/plan-check" className="btn btn-accent">
+              <Link ctaLocation="hero" href="/plan-check" className="btn btn-accent">
                 Start the plan check <ArrowRight size={19} className="arrow" aria-hidden />
               </Link>
               <span className="pc-meta">About 90 seconds · Free</span>
@@ -607,6 +608,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <div className="shell py-8"><TrustFacts /></div>
     </main>
   );
 }

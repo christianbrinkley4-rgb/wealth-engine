@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 
@@ -9,6 +10,7 @@ import { AGENT } from "@/lib/agent";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
+  faqJsonLd,
   pageOpenGraph,
   serviceJsonLd,
 } from "@/lib/seo";
@@ -25,10 +27,10 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Got Your ANOC Letter? Free Medicare Review | Greensboro",
+    absolute: "What Is the Medicare Annual Notice of Change (ANOC)? | 2026 Guide",
   },
   description:
-    "Your plan's Annual Notice of Change, translated into plain English. Free, no-pressure review with licensed local agent Christian Brinkley. Call (919) 408-6671.",
+    "Your ANOC letter arrived in September. It lists what changes January 1. Annual Enrollment runs October 15 to December 7. Get a free plain-English review with licensed local agent Christian Brinkley. Call (919) 408-6671.",
   alternates: { canonical: "/anoc" },
   openGraph: pageOpenGraph({
     title: "Got your ANOC letter? Don't just file it away.",
@@ -40,6 +42,25 @@ export const metadata: Metadata = {
 
 // Short contact form, pre-tagged so inquiries from this page are attributable.
 const START_HREF = "/start?topic=medicare&stage=already_on_medicare&quick=1&utm_source=site&utm_medium=anoc_page&utm_campaign=aep_2026";
+
+const FAQ = [
+  {
+    q: "What is an ANOC letter?",
+    a: "The Annual Notice of Change is a letter your Medicare Advantage or Part D plan sends every September. It lists what changes on January 1: premiums, drug costs, coverage rules, and provider networks.",
+  },
+  {
+    q: "When do I need to act on my ANOC?",
+    a: "Annual Enrollment runs October 15 to December 7. That is your window to switch plans if something in the letter concerns you. Changes take effect January 1 whether you read the letter or not.",
+  },
+  {
+    q: "I have Original Medicare with Medigap. Will I get an ANOC?",
+    a: "No. The ANOC is for Medicare Advantage and Part D plans only. If you have Original Medicare with a Medigap supplement, you will not receive one.",
+  },
+  {
+    q: "Does it cost anything to have you review my letter?",
+    a: "No. I will go through your ANOC in plain English for free, in person around Greensboro or by phone. No pressure to switch plans and no obligation to enroll in anything.",
+  },
+] as const;
 
 export default function AnocPage() {
   return (
@@ -92,8 +113,8 @@ export default function AnocPage() {
           { name: "Your ANOC letter" },
         ]}
         eyebrow="Medicare Advantage and Part D · The September letter"
-        title="Got your ANOC letter? Don't just file it away."
-        lede="Every fall, Medicare Advantage and Part D plans send an Annual Notice of Change, a letter explaining what's different next year. Bring it to me, in person or by phone, and I'll walk you through it in plain English. Free. No pressure to switch plans, no obligation to enroll in anything."
+        title="What is the Annual Notice of Change?"
+        lede="The Annual Notice of Change, usually called an ANOC, is the letter your Medicare Advantage or Part D plan sends every September. It lists what changes on January 1: your premium, your drug costs, your coverage rules. Annual Enrollment runs October 15 to December 7, and that is your window to act on it. Bring the letter to me, in person or by phone, and I will walk you through it in plain English. Free. No pressure to switch plans."
         secondaryHref={START_HREF}
         secondaryLabel="Book my free review →"
       />
@@ -211,6 +232,33 @@ export default function AnocPage() {
           </p>
         </div>
       </section>
+
+      <section className="bg-[var(--color-paper)] py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Questions about the ANOC</h2>
+          <dl className="mt-8 flex flex-col gap-7">
+            {FAQ.map((item) => (
+              <div key={item.q} className="border-t border-gray-300 pt-6">
+                <dt className="text-19 font-semibold">{item.q}</dt>
+                <dd className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                  {item.a}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
+          />
+        </div>
+      </section>
+
+      <ReadNext>
+        <p>
+          Compare your notice with the <Link href="/medicare-changes-2027">2027 changes</Link> and the <Link href="/medicare-part-d-donut-hole-2027">Part D cap explanation</Link>. Use the <Link href="/medicare-annual-enrollment-2026-checklist">fall checklist</Link> to organize your questions.
+        </p>
+        <ChecklistPointer />
+      </ReadNext>
 
       <KitchenTableClose
         heading="That letter won't read itself"

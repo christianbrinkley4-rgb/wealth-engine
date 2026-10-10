@@ -116,7 +116,7 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
           <div className="rounded-xl border-2 border-[var(--color-navy)] bg-[var(--color-paper)] p-6">
             <p className="text-19 font-semibold">In short</p>
             <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-              The earnings test is Social Security's rule for people who collect benefits before
+              The earnings test is Social Security&apos;s rule for people who collect benefits before
               full retirement age and keep working. Earn above the limit and Social Security
               withholds part of your checks. Reach full retirement age and the rule disappears
               completely.

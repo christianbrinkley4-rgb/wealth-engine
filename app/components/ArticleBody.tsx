@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 
+import { GuideCapture } from "@/app/components/GuideCapture";
 import { TrackedLink } from "@/components/TrackedLink";
 import { AGENT } from "@/lib/agent";
 import { articleText, type Article } from "@/lib/articles";
@@ -152,17 +153,44 @@ export function ArticleBody({
                 </span>
                 {section.h2}
               </h2>
-              {section.blocks.map((block, blockIndex) =>
-                block.kind === "p" ? (
-                  <p key={blockIndex}>{renderInline(block.text)}</p>
-                ) : (
+              {section.blocks.map((block, blockIndex) => {
+                if (block.kind === "p") {
+                  return <p key={blockIndex}>{renderInline(block.text)}</p>;
+                }
+                if (block.kind === "table") {
+                  return (
+                    <div key={blockIndex} className="art-table-wrap">
+                      <table className="art-table">
+                        <thead>
+                          <tr>
+                            {block.headers.map((h) => (
+                              <th key={h} scope="col">
+                                {h}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {block.rows.map((row, ri) => (
+                            <tr key={ri}>
+                              {row.map((cell, ci) => (
+                                <td key={ci}>{renderInline(cell)}</td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  );
+                }
+                return (
                   <ul key={blockIndex}>
                     {block.items.map((item) => (
                       <li key={item}>{renderInline(item)}</li>
                     ))}
                   </ul>
-                ),
-              )}
+                );
+              })}
             </section>
           ))}
 
@@ -207,10 +235,15 @@ export function ArticleBody({
             <h2>{nextStep.heading}</h2>
             <p>{nextStep.body}</p>
             <div className="art-next-actions">
-              <TrackedLink href={article.startHref} className="btn" event="article_cta_click">
+              <TrackedLink
+                href={article.startHref}
+                className="btn"
+                event="article_cta_click"
+                ctaLocation="article_end"
+              >
                 {nextStep.label} <ArrowRight size={18} className="arrow" aria-hidden />
               </TrackedLink>
-              <a href={AGENT.phoneHref} className="btn btn-outline">
+              <a data-cta-location="article_end" href={AGENT.phoneHref} className="btn btn-outline">
                 <Phone size={18} aria-hidden /> {AGENT.phone}
               </a>
             </div>
@@ -219,13 +252,14 @@ export function ArticleBody({
             </p>
           </aside>
 
+          <GuideCapture />
           <div className="art-refs">
             <div>
               <h2>Sources</h2>
               <ol className="art-sources">
                 {article.sources.map((source) => (
                   <li key={source.href}>
-                    <a href={source.href} rel="noopener">
+                    <a href={source.href} rel="noopener" data-handoff>
                       {source.label}
                     </a>
                   </li>

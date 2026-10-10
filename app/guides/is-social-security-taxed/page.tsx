@@ -212,7 +212,7 @@ export default function IsSocialSecurityTaxedPage() {
             are measured against.
           </p>
 
-          <h2 className="text-28 mt-12 font-semibold">North Carolina's rule</h2>
+          <h2 className="text-28 mt-12 font-semibold">North Carolina&apos;s rule</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             North Carolina does not tax Social Security benefits. On your NC return you subtract the
             federally taxed amount on Schedule S. Other retirement income, such as 401(k) and IRA

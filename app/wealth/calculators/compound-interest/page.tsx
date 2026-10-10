@@ -5,7 +5,7 @@ import { CompoundCalculator } from "@/app/wealth/calculators/compound-interest/C
 import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";
 import { wealthMetadata, webAppJsonLd } from "@/lib/wealth/seo";
 
-const path = "/wealth/calculators/compound-interest";
+const path = "/tools/compound-interest";
 const description =
   "Free compound interest calculator with live sliders. See your balance grow year by year, and what starting at 22 instead of 32 is worth.";
 
@@ -51,7 +51,7 @@ export default function CompoundInterestPage() {
         }
         lede="Drag the sliders. The curve redraws as you go. Then scroll down to see what waiting costs."
         crumbs={[
-          { name: "Calculators", path: "/wealth/calculators" },
+          { name: "Calculators", path: "/tools" },
           { name: "Compound interest", path },
         ]}
       />
@@ -95,7 +95,7 @@ export default function CompoundInterestPage() {
       <Faq items={FAQ} title="Compound interest, quick answers" />
       <NextUp
         links={[
-          { href: "/wealth/calculators/roth-vs-traditional", label: "Roth vs traditional", kind: "Calculator" },
+          { href: "/tools/roth-vs-traditional", label: "Roth vs traditional", kind: "Calculator" },
           { href: "/wealth/quiz/first-1000", label: "What do I do with my first $1,000?", kind: "Quiz" },
           { href: "/wealth/learn/what-is-a-roth-ira", label: "What a Roth IRA actually is", kind: "Article" },
         ]}

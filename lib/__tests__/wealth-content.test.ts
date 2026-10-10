@@ -48,6 +48,7 @@ const ROUTES = new Set([
   "/",
   "/links",
   "/privacy",
+  "/tools",
   "/wealth",
   "/wealth/calculators",
   "/wealth/quiz",
@@ -132,9 +133,9 @@ describe("tools and navigation", () => {
     const paths = [
       ...ROUTES,
       ...PERSONALITIES.map((type) => `/wealth/quiz/money-personality/${type.id}`),
-    ].filter((route) => route.startsWith("/wealth") || route === "/links");
+    ].filter((route) => (route.startsWith("/wealth") && route !== "/wealth/calculators") || route === "/links");
     for (const route of paths) {
-      expect(urls.has(route), route).toBe(true);
+      expect(urls.has(route), route).toBe(route !== "/links");
       expect(text, route).toContain(`${route})`);
     }
   });

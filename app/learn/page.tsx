@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { GuideCapture } from "@/app/components/GuideCapture";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { LearnLibrary } from "@/components/LearnLibrary";
 import { AGENT } from "@/lib/agent";
@@ -138,6 +139,7 @@ export default function LearnPage() {
         label="Ask me your question"
       />
 
+      <section className="shell py-8"><GuideCapture /></section>
       <div className="shell pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>

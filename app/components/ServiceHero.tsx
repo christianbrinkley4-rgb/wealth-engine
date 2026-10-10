@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { TrackedLink as Link } from "@/components/TrackedLink";
 import { ArrowRight, Check, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -64,7 +64,7 @@ export function ServiceHero({
                 <li key={`${crumb.name}-${index}`}>
                   {index > 0 ? <span aria-hidden> / </span> : null}
                   {crumb.href ? (
-                    <Link href={crumb.href}>{crumb.name}</Link>
+                    <Link ctaLocation="hero" href={crumb.href}>{crumb.name}</Link>
                   ) : (
                     <span aria-current="page">{crumb.name}</span>
                   )}
@@ -79,12 +79,12 @@ export function ServiceHero({
 
           <div className="sh-actions">
             {!hidePhoneCta && (
-              <a href={AGENT.phoneHref} className="btn btn-light">
+              <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light">
                 <Phone size={19} aria-hidden />
                 {AGENT.phone}
               </a>
             )}
-            <Link href={secondaryHref} className="btn btn-ghost-light">
+            <Link ctaLocation="hero" href={secondaryHref} className="btn btn-ghost-light">
               {label} <ArrowRight size={18} className="arrow" aria-hidden />
             </Link>
           </div>

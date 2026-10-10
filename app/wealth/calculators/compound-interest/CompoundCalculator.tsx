@@ -129,7 +129,7 @@ export function CompoundCalculator() {
             <ShareButton
               title="Compound interest calculator"
               text={`${money(state.monthly)} a month for ${state.years} years at ${state.rate}% comes to ${money(end.balance)}. Try your own numbers:`}
-              path={`/wealth/calculators/compound-interest#m=${state.monthly}&y=${state.years}&r=${state.rate}&s=${state.start}`}
+              path={`/tools/compound-interest#m=${state.monthly}&y=${state.years}&r=${state.rate}&s=${state.start}`}
               label="Share these numbers"
             />
           </div>

@@ -1,6 +1,7 @@
+import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
-import { ServiceHero } from "@/app/components/ServiceHero";
+import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { MathSection, ToolClose } from "../_components/tool-footer";
@@ -18,12 +19,6 @@ export const metadata: Metadata = {
   twitter: { ...pageTwitter({ title: "Life insurance needs calculator", description }), images: [`${path}/twitter-image`] },
 };
 
-const PROOF = [
-  "DIME method, explained",
-  "A starting point, not a sales pitch",
-  "Everything runs on your device",
-  "From a licensed NC agent",
-] as const;
 
 export default function LifeInsuranceNeedsPage() {
   return (
@@ -55,20 +50,11 @@ export default function LifeInsuranceNeedsPage() {
         }}
       />
 
-      <ServiceHero
-        variant="compact"
-        crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Life insurance needs" }]}
-        eyebrow="Free tool · your numbers stay on your device"
-        title="How much life insurance is enough?"
-        lede="Nobody wants to do this math, but everyone with people depending on them should. Start with DIME: your debts, the income to replace, the mortgage, and education costs. Add them up and you have a starting-point number. Bring that number to a conversation with an agent. It is the beginning of the discussion, not the answer."
-        secondaryHref="/start"
-        secondaryLabel="Talk it through with me →"
-        proof={PROOF}
-      />
+      <ToolHeader crumbs={[{ name: "Home", href: "/" }, { name: "Free tools", href: "/tools" }, { name: "Life insurance needs" }]} title="How much life insurance is enough?" lede="Nobody wants to do this math, but everyone with people depending on them should. Add it up and you have a starting-point number to bring to a conversation." />
 
-      <section className="bg-white py-14">
+      <section className="bg-white py-6">
         <div className="app-shell max-w-5xl">
-          <LifeInsuranceNeeds />
+          <ToolTracking toolId="life_insurance_needs"><LifeInsuranceNeeds /></ToolTracking>
         </div>
       </section>
 

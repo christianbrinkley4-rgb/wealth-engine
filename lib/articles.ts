@@ -27,7 +27,8 @@ const money = (amount: number): string =>
 
 export type ArticleBlock =
   | { kind: "p"; text: string }
-  | { kind: "ul"; items: string[] };
+  | { kind: "ul"; items: string[] }
+  | { kind: "table"; headers: string[]; rows: string[][] };
 
 export type ArticleSection = {
   h2: string;
@@ -58,6 +59,11 @@ export type Article = {
 
 const p = (text: string): ArticleBlock => ({ kind: "p", text });
 const ul = (...items: string[]): ArticleBlock => ({ kind: "ul", items });
+const table = (headers: string[], rows: string[][]): ArticleBlock => ({
+  kind: "table",
+  headers,
+  rows,
+});
 
 export const ARTICLES: Article[] = [
   {
@@ -218,6 +224,9 @@ export const ARTICLES: Article[] = [
             "How the price is set. Some companies price by the age you were when you bought it, some by your current age, and some charge the same rate at every age. That changes how the premium behaves over time, so it is worth asking.",
             "Extras. Some companies add things outside the standard benefits, like fitness programs or discounts. Those extras are the company’s choice.",
           ),
+          p(
+            "One thing Medigap can help with: the daily coinsurance for skilled nursing facility stays. [Does Medicare cover nursing homes](/answers/does-medicare-cover-nursing-homes) explains the 100-day rule and where Medigap fits in.",
+          ),
         ],
       },
       {
@@ -292,107 +301,124 @@ export const ARTICLES: Article[] = [
     startHref: "/start?topic=medicare&stage=already_on_medicare",
   },
 
-  {
+{
     slug: "does-medicare-cover-nursing-homes",
-    title: "Does Medicare cover nursing homes or in-home care?",
-    metaTitle: "Does Medicare Cover Nursing Homes or In-Home Care?",
+    title: "Does Medicare Cover Nursing Homes?",
+    metaTitle: "Does Medicare Cover Nursing Homes? 2026 Guide",
     description:
-      "Medicare covers limited skilled care, not long-term custodial care. How skilled nursing and home health work, and what pays for the rest. Plain English.",
-    keyword: "does Medicare cover nursing home costs",
+      "Does Medicare cover nursing homes? Mostly no. Up to 100 days of skilled nursing after a hospital stay, but not long-term care.",
+    keyword: "does medicare cover nursing homes",
     eyebrow: "Medicare questions, answered",
-    lede: "Medicare pays for some skilled care for a limited time. It does not pay for long-term care.",
+    lede: "The short answer is mostly no. Medicare covers up to 100 days of skilled nursing after a qualifying hospital stay. It does not pay for long-term custodial care.",
     published: "2026-10-01",
-    updated: "2026-10-01",
+    updated: "2026-10-09",
     intro:
-      "Families usually ask this at a hard moment: a parent is in the hospital, and someone has to figure out what comes next. The short answer surprises many people. Medicare covers limited skilled care, and it does not cover long-term custodial care. This is general education, not advice for your situation.",
+      "If a parent is in the hospital right now, here is the short answer: mostly no. Medicare can pay for up to 100 days of skilled nursing after a qualifying 3-day inpatient stay, but only while daily skilled care is needed. Once the need becomes long-term custodial care (help with bathing, dressing, eating), Medicare stops paying. This page explains each piece. It is general education, not advice.",
     sections: [
+      {
+        h2: "The 100-day rule, explained",
+        blocks: [
+          p(
+            "It is not 100 free days. Here is how the 2026 costs break down per benefit period:",
+          ),
+          ul(
+            "Days 1 to 20: $0 after the $1,736 Part A deductible. Already paid it for the hospital stay? You do not pay it again.",
+            "Days 21 to 100: $217 per day.",
+            "Day 101 and beyond: Medicare pays nothing.",
+          ),
+          p(
+            "Medicare Advantage plans set their own skilled nursing costs and rules. Check with the plan before a move.",
+          ),
+        ],
+      },
+      {
+        h2: "What has to be true to qualify",
+        blocks: [
+          p(
+            "Medicare Part A does not cover a nursing home stay just because someone needs help. All three of these have to be true:",
+          ),
+          ul(
+            "A medically necessary inpatient hospital stay of at least 3 days in a row. Time in the emergency room or under observation status does not count toward the 3 days.",
+            "Admission to the skilled nursing facility within a short window after leaving the hospital, generally 30 days.",
+            "A need for daily skilled care, meaning nursing or therapy that has to be done by trained professionals. A doctor has to order it.",
+          ),
+          p(
+            "Miss any one and Medicare does not cover the stay. Ask the hospital whether the stay counts as inpatient before discharge day. Observation status does not count.",
+          ),
+        ],
+      },
       {
         h2: "Skilled care versus custodial care",
         blocks: [
           p(
-            "Skilled care is nursing or therapy that has to be done by trained professionals, like wound care or physical therapy after a hospital stay. Medicare can pay for some of that.",
+            "This distinction decides everything. Skilled care is nursing or therapy that requires trained professionals, like wound care, IV medication, or physical therapy after surgery. Medicare can pay for skilled care for a limited time.",
           ),
           p(
-            "Custodial care is help with daily living, like bathing, dressing, eating, and getting around. Most long stays in a nursing home are for custodial care. Medicare does not pay for custodial care when it is the only care you need.",
+            "Custodial care is help with daily living: bathing, dressing, eating, using the bathroom, and getting in and out of bed. Most long stays in a nursing home are for custodial care. Medicare does not pay for custodial care when it is the only care needed.",
+          ),
+          p(
+            "Coverage ends when the need becomes custodial only, even if 100 days are not used up.",
           ),
         ],
       },
       {
-        h2: "Skilled nursing facility coverage",
+        h2: "Medicare versus Medicaid for nursing homes",
         blocks: [
           p(
-            "Medicare Part A can cover a stay in a skilled nursing facility, but only if all of these are true:",
-          ),
-          ul(
-            "You had a medically necessary inpatient hospital stay of at least 3 days in a row. Time in the emergency room or under observation does not count.",
-            "You enter the facility within a short time after leaving the hospital, generally 30 days.",
-            "You need daily skilled care from nursing or therapy staff.",
+            "People mix these two up, and the difference matters here. Medicare is federal health insurance, mostly for people 65 and older. It follows the rules above: limited skilled care, no long-term custodial coverage.",
           ),
           p(
-            "If you qualify, the 2026 costs for each benefit period work like this. For days 1 to 20, you pay $0 after your Part A deductible of $1,736. For days 21 to 100, you pay $217 per day. After day 100, Medicare pays nothing toward the stay. The deductible is not charged again if you already paid it for the same hospital stay.",
+            "Medicaid is a joint federal and state program for people with limited income and assets. Unlike Medicare, Medicaid can pay for long-term nursing home care, including custodial care. Each state sets its own income and asset limits and its own application process.",
           ),
           p(
-            "If you have a Medicare Advantage plan, the plan sets its own costs and rules for these stays. Ask the plan before a move, not after.",
-          ),
-        ],
-      },
-      {
-        h2: "Home health care",
-        blocks: [
-          p(
-            "Medicare can pay for home health when a doctor orders it and you are homebound. Homebound means leaving home is hard for you, or needs help from a person or a device like a walker or wheelchair. The care has to come from a Medicare-certified agency.",
-          ),
-          p("What Medicare can cover:"),
-          ul(
-            "Part-time or occasional skilled nursing care.",
-            "Physical, occupational, and speech therapy.",
-            "Medical social services.",
-            "A home health aide, but only alongside skilled nursing or therapy.",
-          ),
-          p("What Medicare does not cover:"),
-          ul(
-            "Care around the clock at home.",
-            "Meal delivery.",
-            "Homemaker help like shopping and cleaning.",
-            "Personal care, when that is the only care you need.",
+            "[NC Medicaid](https://medicaid.nc.gov) explains who qualifies. I do not give advice on qualifying; an elder law attorney is the right person for that.",
           ),
         ],
       },
       {
         h2: "What does pay for long-term care",
         blocks: [
-          p("Families usually rely on a mix of these:"),
+          p("When Medicare does not cover a long stay, families usually rely on a mix of these:"),
           ul(
-            "Personal savings and income.",
-            "Long-term care insurance, if someone bought it before the need. [Here is how that works.](/long-term-care-insurance)",
-            "Medicaid, which has income and asset limits set by the state. [NC Medicaid](https://medicaid.nc.gov) can explain who qualifies. I do not give advice on qualifying.",
+            "Personal savings and income. This is the most common way long nursing home stays get paid.",
+            "Long-term care insurance, if someone bought a policy before the need arose. [Here is how that works.](/long-term-care-insurance)",
+            "Medicaid, for those who meet their state's income and asset limits.",
+            "Veterans benefits, for those who qualify through VA programs.",
+          ),
+          p(
+            "The right mix depends on savings, timing, and family situation. Understand the options before a crisis forces fast decisions.",
           ),
         ],
       },
       {
-        h2: "Why this matters before a crisis",
+        h2: "If a parent needs long-term care",
         blocks: [
           p(
-            "The best time to understand this is while everyone is healthy. Once a parent is in the hospital, decisions come fast and the 3-day and 30-day rules start to matter right away. A calm conversation now gives a family time to ask questions and decide what they want.",
-          ),
-          p(
-            "If you are helping a parent, you may also find our page on [helping a parent with Medicare](/helping-a-parent) useful.",
+            "Plan while everyone is healthy. Once a parent is hospitalized, the 3-day and 30-day rules start counting fast. Ask the discharge planner whether the stay counts as inpatient, get the facility's daily rate after day 100, and talk to an elder law attorney early if long-term care looks likely. [Helping a parent with Medicare](/helping-a-parent) has more on this.",
           ),
         ],
       },
     ],
     faq: [
       {
-        q: "Does Medicare cover nursing homes or in-home care?",
-        a: "Medicare covers limited skilled care in a nursing facility after a qualifying hospital stay, and part-time skilled home health care when a doctor orders it. It does not pay for long-term custodial care.",
+        q: "Does Medicare cover nursing homes?",
+        a: "Mostly no. Medicare Part A can pay for up to 100 days in a skilled nursing facility after a qualifying 3-day inpatient hospital stay, but only while daily skilled nursing or therapy is needed. It does not pay for long-term custodial care.",
       },
       {
-        q: "How many nursing home days does Medicare cover?",
-        a: "Up to 100 days in each benefit period, after a qualifying 3-day hospital stay. In 2026 you pay $0 for days 1 to 20 after the Part A deductible, and $217 per day for days 21 to 100.",
+        q: "How many days will Medicare pay for in a nursing home?",
+        a: "Up to 100 days per benefit period. In 2026, you pay $0 for days 1 to 20 after the $1,736 Part A deductible, then $217 per day for days 21 to 100. After day 100, Medicare pays nothing.",
       },
       {
-        q: "Does Medicare pay for 24-hour home care?",
-        a: "No. Medicare home health is part-time or occasional. Medicare does not cover care around the clock at home.",
+        q: "What is the 100-day Medicare rule for skilled nursing?",
+        a: "After a qualifying 3-day inpatient hospital stay, Medicare covers up to 100 days of skilled nursing facility care per benefit period. Days 1 to 20 cost $0 after the Part A deductible, days 21 to 100 cost $217 per day in 2026, and coverage ends at day 101.",
+      },
+      {
+        q: "Does Medicare pay for long-term care in a nursing home?",
+        a: "No. Medicare does not cover long-term custodial care, which is help with daily living like bathing, dressing, and eating. Long-term nursing home stays are usually paid from savings, long-term care insurance, or Medicaid for those who qualify.",
+      },
+      {
+        q: "What is the difference between Medicare and Medicaid for nursing home care?",
+        a: "Medicare is federal health insurance for people 65 and older. It covers limited skilled nursing after a hospital stay but not long-term custodial care. Medicaid is a federal-state program for people with limited income that can pay for long-term nursing home care, including custodial care.",
       },
     ],
     sources: [
@@ -410,12 +436,12 @@ export const ARTICLES: Article[] = [
       },
     ],
     related: [
-      { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
-      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
-      { label: "Turning 65 in North Carolina: your Medicare checklist", href: "/answers/turning-65-medicare-checklist-north-carolina" },
       { label: "Helping a parent with Medicare", href: "/helping-a-parent" },
       { label: "Care and critical illness coverage", href: "/care-coverage" },
       { label: "Long-term care insurance", href: "/long-term-care-insurance" },
+      { label: "What Medicare costs in 2026", href: "/medicare-costs-2026" },
+      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
+      { label: "Turning 65 in North Carolina: your Medicare checklist", href: "/answers/turning-65-medicare-checklist-north-carolina" },
     ],
     startHref: "/start?topic=care_coverage",
   },
@@ -669,8 +695,26 @@ export const ARTICLES: Article[] = [
     published: "2026-10-02",
     updated: "2026-10-02",
     intro:
-      "This question comes up every fall, usually from someone holding two plan brochures. HMO and PPO are the two most common kinds of Medicare Advantage plans. Both have to cover everything Original Medicare covers. The difference is how they handle your doctors: who you can see, whether you need a referral, and what happens when you go outside the plan’s network. Here is the plain version, so you can match a plan to how you actually get care.",
+      "HMO and PPO are the two most common kinds of Medicare Advantage plans. Both must cover everything Original Medicare covers. The difference is how they handle your doctors: who you can see, whether you need a referral, and what happens outside the network.",
     sections: [
+      {
+        h2: "HMO vs PPO at a glance",
+        blocks: [
+          table(
+            ["", "HMO", "PPO"],
+            [
+              ["Primary care doctor", "Usually required, your first call", "Not required"],
+              ["Specialist referrals", "Usually needed", "Not needed, book directly"],
+              ["Out-of-network care", "Generally not covered (emergencies excepted)", "Covered at a higher cost"],
+              ["Typical premiums", "Often lower", "Often higher"],
+              ["Best for", "People who want coordinated care and lower costs", "People who want freedom to see any doctor"],
+            ],
+          ),
+          p(
+            "Both types must cover everything Original Medicare covers. The difference is how they handle your doctors, and that is what the rest of this page walks through.",
+          ),
+        ],
+      },
       {
         h2: "How an HMO works: one network, one quarterback",
         blocks: [
@@ -1269,7 +1313,10 @@ export function articleText(article: Article): string {
   for (const section of article.sections) {
     parts.push(section.h2);
     for (const block of section.blocks) {
-      parts.push(block.kind === "p" ? block.text : block.items.join(" "));
+      if (block.kind === "p") parts.push(block.text);
+      else if (block.kind === "table")
+        parts.push(block.headers.join(" "), block.rows.map((r) => r.join(" ")).join(" "));
+      else parts.push(block.items.join(" "));
     }
   }
   for (const item of article.faq) parts.push(item.q, item.a);

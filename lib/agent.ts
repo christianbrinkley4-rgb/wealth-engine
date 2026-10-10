@@ -124,7 +124,7 @@ export const AGENT = {
    * license, but its general advertising rules do not require an NPN on a
    * public website. Set this only if the agent wants to publish it.
    */
-  npn: null as string | null,
+  npn: "22217190" as string | null,
 
   /** TODO: states where you hold a resident/non-resident producer license. */
   licensedStates: ["North Carolina"],

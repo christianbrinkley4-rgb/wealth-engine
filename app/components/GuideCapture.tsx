@@ -1,4 +1,6 @@
 "use client";
+import { useDeferredFormCheck } from "@/hooks/useDeferredFormCheck";
+import { trackEvent } from "@/app/components/Analytics";
 
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
@@ -36,12 +38,13 @@ export function GuideCapture({
   const [company, setCompany] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
+  const { formRef, active, activate } = useDeferredFormCheck();
   const [turnstileReady, setTurnstileReady] = useState(false);
   const container = useRef<HTMLDivElement>(null);
   const widget = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!TURNSTILE_SITE_KEY || turnstileReady) return;
+    if (!TURNSTILE_SITE_KEY || !active || turnstileReady) return;
     loadTurnstile();
     const poll = setInterval(() => {
       if (turnstileApi()) {
@@ -54,7 +57,7 @@ export function GuideCapture({
       clearInterval(poll);
       clearTimeout(giveUp);
     };
-  }, [turnstileReady]);
+  }, [turnstileReady, active]);
 
   useEffect(() => {
     const api = turnstileApi();
@@ -77,7 +80,7 @@ export function GuideCapture({
         }
       }
     };
-  }, [turnstileReady]);
+  }, [turnstileReady, active]);
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();
@@ -103,6 +106,7 @@ export function GuideCapture({
         body: JSON.stringify({ email, company, turnstileToken, list: "guides" }),
       });
       if (response.ok) {
+        trackEvent("guide_signup", { list_id: "guides" });
         setStatus("done");
         return;
       }
@@ -136,7 +140,7 @@ export function GuideCapture({
     <div className="card-surface p-6 md:p-8">
       <h2 className="text-24 font-bold text-[var(--color-navy)]">{heading}</h2>
       <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">{body}</p>
-      <form onSubmit={submit} noValidate className="mt-6">
+      <form ref={formRef} onFocusCapture={activate} onSubmit={submit} noValidate className="mt-6">
         <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
           <label>
             Company
