@@ -184,6 +184,23 @@ export function siteIdentityJsonLd() {
         description: "North Carolina Life & Health insurance agent and accounting senior at UNCG, graduating December 2026.",
         ...(sameAs ? { sameAs } : {}),
       },
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#organization`,
+        name: SITE_OWNER,
+        url: SITE_URL,
+        logo: `${SITE_URL}/opengraph-image`,
+        telephone: SITE_OWNER_PHONE,
+        email: SITE_OWNER_EMAIL,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: SITE_LOCALITY,
+          addressRegion: SITE_REGION,
+          addressCountry: "US",
+        },
+        founder: { "@id": `${SITE_URL}/#christian` },
+        ...(sameAs ? { sameAs } : {}),
+      },
     ],
   };
 }
@@ -468,7 +485,11 @@ export function articleJsonLd(input: {
       "@type": "Person",
       "@id": `${SITE_URL}/#christian`,
       name: SITE_OWNER,
+      jobTitle: "Licensed NC Insurance Agent",
       url: `${SITE_URL}/about`,
+      ...(hasPublishableNpn()
+        ? { identifier: { "@type": "PropertyValue", propertyID: "NPN", value: AGENT.npn } }
+        : {}),
       ...(sameAs ? { sameAs } : {}),
     },
     publisher: { "@id": `${SITE_URL}/#service` },
