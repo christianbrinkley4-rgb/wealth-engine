@@ -161,7 +161,7 @@ export const PILLARS: readonly Pillar[] = [
   {
     id: "building-in-public",
     title: "Building in public",
-    line: "I'm 21 and figuring this out with you watching. Wins and misses both.",
+    line: "Figuring this out with you watching. Wins and misses both.",
     href: "/wealth/journey",
     cta: "Read the journey",
   },
@@ -195,7 +195,7 @@ export const JOURNEY: readonly JourneyEntry[] = [
     title: "Day 1: this site exists now",
     tag: "Milestone",
     body: [
-      "I'm 21. I'm a licensed insurance agent in North Carolina and an accounting senior at UNCG. I graduate in December.",
+      "I'm a licensed insurance agent in North Carolina and an accounting senior at UNCG. I graduate in December.",
       "I've reviewed 100+ client files and sat in on dozens of client money appointments. Here, you can work through the math yourself.",
       "The October 6 build has 4 calculators, 2 quizzes, 6 articles and 2 downloads. Open 1 tool and change the numbers.",
       "What I'm not: a financial advisor. I'm not securities licensed, so you won't get stock picks from me. You'll get the math, the tools, and what I'm learning.",
