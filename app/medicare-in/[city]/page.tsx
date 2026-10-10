@@ -60,8 +60,8 @@ export async function generateMetadata({
   const title = `Medicare Agent in ${city.name}, NC | Christian Brinkley`;
   // Kept under the ~160 character cutoff Google truncates at.
   const description =
-    `Medicare plans are sold by county, and ${city.name} is in ${city.county}. ` +
-    `What that means for your plan options and your doctors, from a licensed local agent.`;
+    `Live in ${city.name}? Get free Medicare help from a licensed local agent. ` +
+    `Compare plans, keep your doctors, no cost, no pressure. Call (919) 408-6671.`;
 
   return {
     title: { absolute: title },
@@ -146,7 +146,8 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           <CitySnapshot city={city} />
           <p className="text-18 mt-6 leading-relaxed">
             I’m a licensed Medicare agent serving {city.name}. We can meet at your home, at a
-            convenient public location, or by phone. There is no cost and no obligation to enroll.
+            convenient public location, or by phone at (919) 408-6671. There is no cost and no
+            obligation to enroll.
           </p>
           <h2 className="text-28 mt-10 font-semibold">
             Your doctors, your coverage, your priorities

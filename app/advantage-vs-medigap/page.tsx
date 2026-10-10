@@ -27,10 +27,10 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Advantage vs Medigap | Greensboro Guide",
+    absolute: "Medicare Advantage vs Medigap: Which Is Right for You?",
   },
   description:
-    "Compare Medicare Advantage with Original Medicare and Medigap for Greensboro and the Triad: doctors, costs, prescriptions, enrollment rules, explained plainly.",
+    "Medicare Advantage or Medigap? The honest differences in doctors, costs, and whether you can switch later. A plain-English guide from a licensed Greensboro agent.",
   alternates: { canonical: "/advantage-vs-medigap" },
   openGraph: pageOpenGraph({
     title: "Medicare Advantage vs Medigap | Greensboro Guide",
@@ -144,14 +144,23 @@ export default function AdvantageVsMedigapPage() {
             costs that Original Medicare leaves to you, such as deductibles and coinsurance. What it
             pays depends on the policy. You pay a separate Medigap premium, and you can generally
             see providers nationwide who accept Medicare. Prescription coverage is available through
-            a separate Part D plan.
+            a separate Part D plan. One thing people ask about:{" "}
+            <Link href="/answers/are-medicare-supplement-plans-the-same" className="underline underline-offset-2">
+              are Medigap plans the same no matter which company sells them
+            </Link>
+            ? The letter sets the benefits, the company sets the price.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
             <strong>Medicare Advantage.</strong> A private insurance plan provides your Part A and
             Part B benefits, and most plans include prescription coverage. You continue paying your
             Part B premium and may have an additional plan premium. Review the provider network, any
             approval requirements for care, copayments, and the yearly limit on covered medical
-            costs. Some plans also offer dental, vision, or hearing benefits.
+            costs. Some plans also offer dental, vision, or hearing benefits. If your income is
+            higher, also check{" "}
+            <Link href="/irmaa-appeal" className="underline underline-offset-2">
+              whether an income-related premium surcharge applies to you
+            </Link>
+            , because it affects both options.
           </p>
         </div>
       </section>

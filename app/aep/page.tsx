@@ -329,13 +329,13 @@ export default function AepPage() {
             ))}
           </ol>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-            When you reach out, you talk to me. I&apos;m a licensed insurance agent here in
-            Greensboro and an accounting master&apos;s student at UNCG. I&apos;m one person, not a
-            call center, and I personally answer every inquiry.{" "}
+            When you reach out, you talk to{" "}
             <Link href="/about" className="underline underline-offset-2">
-              More about me
+              Christian Brinkley
             </Link>
-            .
+            , a licensed insurance agent here in Greensboro and an accounting master&apos;s
+            student at UNCG. I&apos;m one person, not a call center, and I personally answer
+            every inquiry.
           </p>
         </div>
       </section>

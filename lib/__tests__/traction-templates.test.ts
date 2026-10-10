@@ -1,6 +1,6 @@
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { AGENT } from "@/lib/agent";
 import { TrustFacts } from "@/app/components/TrustFacts";
 import { siteIdentityJsonLd } from "@/lib/seo";
@@ -12,6 +12,10 @@ vi.mock("@/lib/testimonials", () => ({
     return mocks.reviews;
   },
 }));
+beforeEach(() => {
+  Object.assign(AGENT, { npn: null });
+  mocks.reviews = null;
+});
 afterEach(() => {
   Object.assign(AGENT, { npn: null });
   mocks.reviews = null;

@@ -17,6 +17,35 @@ const nextConfig: NextConfig = {
   },
   experimental: { cpus: 1 },
   /**
+   * Security headers. Added 2026-10-09 per security audit.
+   * These protect against common web vulnerabilities.
+   */
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
+      },
+    ];
+  },
+  /**
    * Short ad / habit URLs. The canonical paid pages live under the longer
    * slugs in lib/landingPages.ts; these keep a mistyped or abbreviated link
    * from 404ing into a dead end.

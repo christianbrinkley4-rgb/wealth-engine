@@ -72,6 +72,10 @@ const FAQ = [
     q: "What does this cost?",
     a: COMPENSATION_DISCLOSURE,
   },
+  {
+    q: "Does Medicare cover a nursing home stay for my parent?",
+    a: "Mostly no. Medicare can pay for up to 100 days of skilled nursing after a qualifying hospital stay, but it does not cover long-term custodial care.",
+  },
 ] as const;
 
 export default function HelpingAParentPage() {

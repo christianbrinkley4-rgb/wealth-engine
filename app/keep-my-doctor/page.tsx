@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     absolute: "Can I Keep My Doctor on Medicare? | Greensboro",
   },
   description:
-    "Whether you keep your doctor depends on the coverage you choose. How to check networks in Greensboro, High Point, and Winston-Salem before you enroll.",
+    "Worried about losing your doctor on Medicare? Learn how to check which plans include your doctors in Greensboro before you enroll. Free help.",
   alternates: { canonical: "/keep-my-doctor" },
   openGraph: pageOpenGraph({
     title: "Can I keep my doctor on Medicare in Greensboro, Winston-Salem & High Point?",

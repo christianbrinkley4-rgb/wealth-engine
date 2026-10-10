@@ -233,7 +233,14 @@ export default function MedicareCostsPage() {
           <Link href="/irmaa-appeal" className="underline underline-offset-2">
             requesting a premium review
           </Link>{" "}
-          may lower your Part B premium.
+          may lower your Part B premium. Wondering what Medicare pays toward a nursing home stay?{" "}
+          <Link
+            href="/answers/does-medicare-cover-nursing-homes"
+            className="underline underline-offset-2"
+          >
+            Does Medicare cover nursing homes
+          </Link>{" "}
+          breaks down the 100-day rule and what it does not cover.
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>

@@ -46,6 +46,7 @@ const MORE = [
   { href: "/roth-window", label: "Roth conversion window" },
   { href: "/about", label: "About Christian" },
   { href: "/privacy", label: "Privacy" },
+  { href: "/disclaimer", label: "Disclaimer" },
 ] as const;
 
 /**

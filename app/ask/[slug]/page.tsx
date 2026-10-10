@@ -114,17 +114,44 @@ export default async function AskAnswerPage({ params }: { params: Promise<{ slug
                   </span>
                   {section.h2}
                 </h2>
-                {section.blocks.map((block, blockIndex) =>
-                  block.kind === "p" ? (
-                    <p key={blockIndex}>{block.text}</p>
-                  ) : (
+                {section.blocks.map((block, blockIndex) => {
+                  if (block.kind === "p") {
+                    return <p key={blockIndex}>{block.text}</p>;
+                  }
+                  if (block.kind === "table") {
+                    return (
+                      <div key={blockIndex} className="art-table-wrap">
+                        <table className="art-table">
+                          <thead>
+                            <tr>
+                              {block.headers.map((h) => (
+                                <th key={h} scope="col">
+                                  {h}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {block.rows.map((row, ri) => (
+                              <tr key={ri}>
+                                {row.map((cell, ci) => (
+                                  <td key={ci}>{cell}</td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    );
+                  }
+                  return (
                     <ul key={blockIndex}>
                       {block.items.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
-                  ),
-                )}
+                  );
+                })}
               </section>
             ))}
 

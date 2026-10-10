@@ -28,7 +28,7 @@ import { SITE_STATS } from "@/lib/siteStats";
 import { hasTestimonials } from "@/lib/testimonials";
 import { featuredPlaces } from "@/lib/triad";
 
-const title = "Medicare Help in Greensboro | Christian Brinkley";
+const title = "Christian Brinkley | Medicare Help in Greensboro, NC";
 const description =
   "Turning 65 in the Triad? Christian Brinkley is a licensed agent, not a call center. Find your Medicare enrollment dates, meet at home or by phone. No cost.";
 export const metadata: Metadata = {
@@ -163,7 +163,7 @@ export default function HomePage() {
                 <span style={{ "--i": 0 } as React.CSSProperties}>Medicare and money,</span>
               </span>{" "}
               <span className="split-line">
-                <span style={{ "--i": 1 } as React.CSSProperties}>explained by someone</span>
+                <span style={{ "--i": 1 } as React.CSSProperties}>explained by Christian Brinkley,</span>
               </span>{" "}
               <span className="split-line">
                 <span style={{ "--i": 2 } as React.CSSProperties}>
@@ -172,7 +172,7 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="hx-lede">
-              I’m Christian Brinkley, a licensed insurance agent in Greensboro. I help people
+              I’m <Link href="/about" ctaLocation="hero">Christian Brinkley</Link>, a licensed insurance agent in Greensboro. I help people
               turning 65, people already on Medicare, and their kids figure out what to do next.
               No call center. When you call, you get me.
             </p>
