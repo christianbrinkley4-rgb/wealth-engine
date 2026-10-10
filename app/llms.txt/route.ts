@@ -14,6 +14,24 @@ import { WEALTH_NAV, WEALTH_TOOLS } from "@/lib/wealth/site";
 import { PERSONALITIES } from "@/lib/wealth/quizzes";
 import { learnEntries } from "@/lib/learn";
 
+/** Towns with dedicated /medicare-{town}-nc pages (Granville County and beyond)
+ * that are not part of the TRIAD_CITIES template set. Listed in llms.txt so
+ * AI assistants see the full service area. */
+const ADDITIONAL_SERVICE_TOWNS = [
+  "Creedmoor",
+  "Oxford",
+  "Butner",
+  "Stem",
+  "Asheboro",
+  "Mebane",
+  "Eden",
+  "Roxboro",
+  "Madison",
+  "Graham",
+  "Liberty",
+  "Ramseur",
+];
+
 /** Public summary kept consistent with the visitor-facing pages. */
 export const dynamic = "force-static";
 
@@ -129,7 +147,7 @@ ${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.stat
 
 - Christian personally reviews inquiries. Contact information is not sold to other agents.
 - Meetings can be at home, at a convenient public location, or by phone. Visitors may include a spouse or family member.
-- Communities served: ${placeNames().join(", ")}.
+- Communities served: ${[...placeNames(), ...ADDITIONAL_SERVICE_TOWNS].join(", ")}.
 - Visitors outside those communities can get in touch to discuss a way to meet. Phone consultations are available in North Carolina.
 - Licensed in: ${AGENT.licensedStates.join(", ")}.
 - Phone: ${AGENT.phone}.

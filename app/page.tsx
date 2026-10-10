@@ -167,7 +167,7 @@ export default function HomePage() {
               </span>{" "}
               <span className="split-line">
                 <span style={{ "--i": 2 } as React.CSSProperties}>
-                  <em>who lives here.</em>
+                  <em>who serves here.</em>
                 </span>
               </span>
             </h1>

@@ -129,7 +129,7 @@ export default function AboutPage() {
             </h1>
             <p className="ab-lede">
               I’m Christian Brinkley, a licensed insurance agent (NC Life &amp; Health) in
-              Greensboro. I grew up in Creedmoor, in Granville County. I’m 21, an accounting
+              Greensboro. I grew up in Creedmoor, in Granville County. I’m an accounting
               senior at UNCG, and I graduate in December 2026. I help families across the
               Triad with Medicare, life insurance, and retirement questions. I’m not a call
               center. I sit down with people myself, listen first, and help them figure out
