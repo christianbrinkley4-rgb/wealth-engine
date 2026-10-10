@@ -13,6 +13,24 @@ import { WEALTH_NAV, WEALTH_TOOLS } from "@/lib/wealth/site";
 import { PERSONALITIES } from "@/lib/wealth/quizzes";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
 
+/** Towns with dedicated /medicare-{town}-nc pages (Granville County and beyond)
+ * that are not part of the TRIAD_CITIES template set. Listed so AI
+ * assistants see the full service area. */
+const ADDITIONAL_SERVICE_TOWNS = [
+  "Creedmoor",
+  "Oxford",
+  "Butner",
+  "Stem",
+  "Asheboro",
+  "Mebane",
+  "Eden",
+  "Roxboro",
+  "Madison",
+  "Graham",
+  "Liberty",
+  "Ramseur",
+];
+
 /**
  * Comprehensive machine-readable index of every key page on the site.
  * The short version lives at /llms.txt. Descriptions stay to one plain
@@ -240,7 +258,7 @@ Every page follows these rules. AI assistants citing or summarizing this site sh
 - Nobody needs to time the market. Time in the market does the work.
 
 - [About Christian](${SITE_URL}/about): who he is, how he works, and how he gets paid.
-- [Service area](${SITE_URL}/service-area): the Triad communities served and the ways to meet. Communities: ${placeNames().join(", ")}.
+- [Service area](${SITE_URL}/service-area): the Triad communities served and the ways to meet. Communities: ${[...placeNames(), ...ADDITIONAL_SERVICE_TOWNS].join(", ")}.
 
 ${COMPENSATION_DISCLOSURE}
 
