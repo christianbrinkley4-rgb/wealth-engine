@@ -441,7 +441,7 @@ export default function Turning65Page() {
 
       <ReadNext>
         <p>
-          Use the <Link href="/turning-65-checklist">turning-65 checklist</Link> to organize each next step. If you live nearby, these guides explain <Link href="/medicare-supplement-plans-greensboro-nc">Medigap in Greensboro</Link> and the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local coverage comparison</Link>.
+          Use the <Link href="/turning-65-checklist">turning-65 checklist</Link> to organize each next step. If you live nearby, these guides explain <Link href="/medicare-supplement-plans-greensboro-nc">Medigap in Greensboro</Link>, the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local coverage comparison</Link>, <Link href="/medicare-advantage-plans-greensboro-nc">Advantage plans in Greensboro</Link>, <Link href="/medicare-part-d-greensboro-nc">Part D drug coverage</Link>, <Link href="/medigap-plans-greensboro-nc">Medigap plan letters</Link>, and <Link href="/medicare-costs-north-carolina">what Medicare costs in North Carolina</Link>.
         </p>
       </ReadNext>
 
