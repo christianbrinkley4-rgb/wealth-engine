@@ -99,6 +99,18 @@ const FAQ = [
     q: "How do I actually compare Medicare plans? What should I look at?",
     a: "Start with three things: your doctors, your prescriptions, and your pharmacy. A plan with the lowest premium can cost you more overall if your drugs are not covered or your doctor is out of network. Compare the full picture: monthly premium, deductible, copays, the drug formulary, and whether your doctors and hospital accept the plan. For Medicare Advantage, check the plan's network for your specific county. I walk through all of this with you using your actual list, not a generic brochure.",
   },
+  {
+    q: "Where can I get free Medicare help in Greensboro?",
+    a: "SHIIP, the Seniors Health Insurance Information Program, offers free unbiased counseling through Senior Resources of Guilford at 1401 Benjamin Parkway. Call (336) 373-4816, extension 253, and ask for Keith Slade, Jr. The Senior Education Network also holds free Medicare seminars at Benjamin Public Library on Benjamin Parkway. Both are good places to learn before you talk to any agent.",
+  },
+  {
+    q: "Where is the Social Security office in Greensboro?",
+    a: "The Greensboro office is at 6005 Landmark Center Blvd, Greensboro, NC 27407, open Monday through Friday, 9am to 4pm. Call 1-877-319-3075 for an appointment before visiting. You can also handle many Medicare enrollment tasks online at ssa.gov.",
+  },
+  {
+    q: "How do I get to Medicare appointments if I do not drive?",
+    a: "Greensboro Transit Authority (GTA) charges seniors 65 and older half fare, $0.75 per ride with free transfers. If you cannot get to a bus stop, SCAT paratransit offers door to door rides within city limits, call (336) 333-6589 to book. Outside the city, Guilford County TAMS covers medical appointment transportation.",
+  },
 ] as const;
 
 export default function Turning65Page() {
@@ -138,7 +150,7 @@ export default function Turning65Page() {
                 "The seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window you generally get once.",
               path: "/turning-65",
               datePublished: "2026-08-31",
-              dateModified: "2026-09-18",
+              dateModified: "2026-10-09",
             }),
           ),
         }}
@@ -259,6 +271,134 @@ export default function Turning65Page() {
             medications you need for the plan year you’re considering.{" "}
           </p>
           <GuideTownLinks />
+        </div>
+      </section>
+
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Greensboro resources for turning 65</h2>
+          <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Medicare is federal, but the help around it is local. These are real places in
+            Greensboro where you can get answers in person.
+          </p>
+
+          <h3 className="text-22 font-semibold mt-10">Social Security office</h3>
+          <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+            The Greensboro Social Security office handles Part A and Part B enrollment. It is at{" "}
+            <strong>6005 Landmark Center Blvd, Greensboro, NC 27407</strong>, open Monday through
+            Friday, 9am to 4pm. Most visits now need an appointment, so call ahead:{" "}
+            <a href="tel:+18773193075" className="font-medium underline underline-offset-2">
+              1-877-319-3075
+            </a>{" "}
+            (local) or{" "}
+            <a href="tel:+18007721213" className="font-medium underline underline-offset-2">
+              1-800-772-1213
+            </a>{" "}
+            (national). Bring a photo ID and your Social Security number. Many tasks, like
+            applying for benefits, can be done online at ssa.gov without a visit.
+          </p>
+
+          <h3 className="text-22 font-semibold mt-10">
+            Free Medicare counseling: SHIIP at Senior Resources of Guilford
+          </h3>
+          <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+            The Seniors Health Insurance Information Program (SHIIP) offers free, unbiased
+            counseling on Medicare, supplements, Advantage plans, and drug coverage. In Guilford
+            County it runs through Senior Resources of Guilford at{" "}
+            <strong>1401 Benjamin Parkway, Greensboro, NC 27408</strong>. Contact Keith Slade, Jr.
+            at{" "}
+            <a href="tel:+13363734816" className="font-medium underline underline-offset-2">
+              (336) 373-4816, extension 253
+            </a>
+            . SHIIP counselors do not sell anything, which makes them a good second opinion
+            alongside any agent you talk to, including me.
+          </p>
+
+          <h3 className="text-22 font-semibold mt-10">Medicare seminars at the library</h3>
+          <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+            The Senior Education Network holds free "Medicare Made Simple" seminars at Benjamin
+            Public Library, <strong>1530 Benjamin Pkwy, Greensboro, NC 27408</strong>. These cover
+            Parts A, B, C, and D, enrollment deadlines, and include Q and A with Medicare
+            educators. Check the{" "}
+            <a
+              href="https://www.greensborolibrary.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium underline underline-offset-2"
+            >
+              Greensboro Public Library events calendar
+            </a>{" "}
+            for the next session.
+          </p>
+
+          <h3 className="text-22 font-semibold mt-10">Getting to appointments: GTA transit</h3>
+          <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+            Greensboro Transit Authority (GTA) offers half fares for riders 65 and older:{" "}
+            <strong>$0.75 per ride</strong> instead of $1.50, with free transfers. Show proof of age
+            when boarding. If getting to a bus stop is hard, SCAT paratransit provides door to door
+            rides within city limits, book at{" "}
+            <a href="tel:+13363336589" className="font-medium underline underline-offset-2">
+              (336) 333-6589
+            </a>
+            . Outside Greensboro city limits, Guilford County TAMS provides transportation for
+            medical appointments and senior services. GTA customer service:{" "}
+            <a href="tel:+13363356499" className="font-medium underline underline-offset-2">
+              (336) 335-6499
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-[var(--color-paper)] py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">What to bring to your first appointment</h2>
+          <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Whether you meet with me, a SHIIP counselor, or anyone else, bring these and the
+            conversation goes twice as fast:
+          </p>
+          <ul className="text-17 mt-6 flex flex-col gap-3 leading-relaxed text-[var(--color-ink-muted)]">
+            <li className="flex gap-3">
+              <span aria-hidden="true">{"\u2713"}</span>
+              <span>
+                <strong>Your doctors list.</strong> Names and practices for every doctor you see
+                regularly, plus your hospital of choice.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span aria-hidden="true">{"\u2713"}</span>
+              <span>
+                <strong>Your prescriptions.</strong> Every drug, dose, and how often you take it.
+                A photo of the bottles works.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span aria-hidden="true">{"\u2713"}</span>
+              <span>
+                <strong>Your pharmacy.</strong> Name and address. Plans can price the same drug
+                differently by pharmacy.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span aria-hidden="true">{"\u2713"}</span>
+              <span>
+                <strong>Current coverage details.</strong> If you have employer coverage, bring the
+                summary of benefits and know whether it is based on current employment.
+              </span>
+            </li>
+            <li className="flex gap-3">
+              <span aria-hidden="true">{"\u2713"}</span>
+              <span>
+                <strong>Your questions.</strong> Write them down beforehand. The most common ones:
+                when to enroll, what it costs, whether you can keep your doctors.
+              </span>
+            </li>
+          </ul>
+          <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
+            Never bring your Social Security card or Medicare number to a first meeting with anyone
+            you have not vetted. A legitimate agent or counselor does not need those to answer your
+            questions.
+          </p>
         </div>
       </section>
 
