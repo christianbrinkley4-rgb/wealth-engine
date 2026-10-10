@@ -18,7 +18,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medigap Plans in Greensboro NC (2027): Letters, Costs, Enrollment",
+    absolute: "Medigap Plans in Greensboro NC: Letters, Costs, Enrollment",
   },
   description:
     "Medigap plans in Greensboro, NC: every plan letter explained, what they cost here, and the enrollment window that protects you. From a licensed local agent.",
@@ -96,7 +96,7 @@ export default function MedigapPlansGreensboroPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Medigap Plans in Greensboro NC (2027): Letters, Costs, Enrollment",
+              headline: "Medigap Plans in Greensboro NC: Letters, Costs, Enrollment",
               description:
                 "Every Medigap plan letter explained, what they cost in the Triad, and the enrollment window that protects you. Educational, no recommendations.",
               path: "/medigap-plans-greensboro-nc",
@@ -225,6 +225,19 @@ export default function MedigapPlansGreensboroPage() {
         </div>
       </section>
 
+      <section className="bg-white py-12">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2>Related Greensboro Medicare guides</h2>
+          <ul>
+            <li><Link href="/greensboro-medicare-cost-calculator" className="underline underline-offset-2">Greensboro Medicare cost calculator</Link> - estimate your yearly costs</li>
+            <li><Link href="/medicare-advantage-plans-greensboro-nc" className="underline underline-offset-2">Advantage plans in Greensboro</Link></li>
+            <li><Link href="/medicare-part-d-greensboro-nc" className="underline underline-offset-2">Part D drug coverage in Greensboro</Link></li>
+            <li><Link href="/medicare-costs-north-carolina" className="underline underline-offset-2">What Medicare costs in North Carolina</Link></li>
+            <li><Link href="/turning-65" className="underline underline-offset-2">Turning 65 in Greensboro</Link> - the full local guide</li>
+          </ul>
+        </div>
+      </section>
+
       <KitchenTableClose
         heading="Let's get your real Medigap numbers"
         body={`I will pull actual quotes for your age and zip code, show you rate histories, and help you decide before your window closes. Free, no obligation. Call or text ${AGENT.phone}.`}
@@ -233,6 +246,12 @@ export default function MedigapPlansGreensboroPage() {
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
+        <p className="text-sm text-gray-600">
+          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated October 2026.
+        </p>
+        <p className="text-sm text-gray-600">
+          Sources: <a href="https://www.medicare.gov" className="underline underline-offset-2" target="_blank" rel="noopener">Medicare.gov</a>, <a href="https://www.cms.gov" className="underline underline-offset-2" target="_blank" rel="noopener">CMS.gov</a>
+        </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
     </main>
