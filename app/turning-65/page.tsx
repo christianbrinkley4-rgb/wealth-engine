@@ -26,7 +26,7 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Turning 65 Medicare Help | Greensboro, NC",
+    absolute: "Turning 65 Greensboro NC: Medicare Help from a Local Licensed Agent",
   },
   description:
     "Turning 65 in the Piedmont Triad? Map employer coverage, Part B, Medigap, and a younger spouse with a local licensed agent in Greensboro.",
@@ -90,6 +90,14 @@ const FAQ = [
   {
     q: "What does this cost?",
     a: "Nothing to sit down and walk through your dates, your doctors, and your options. If you enroll in a plan through me, the insurance company pays a commission. Your premium is not higher for using an agent.",
+  },
+  {
+    q: "What if I cannot afford Medicare premiums? Are there savings programs?",
+    a: "Yes, and many people miss them. Medicare Savings Programs (MSPs) can pay your Part B premium and sometimes Part A, deductibles, and coinsurance if your income and resources are limited. Extra Help, also called the Low Income Subsidy, can cut your Part D prescription drug costs dramatically, sometimes to just a few dollars per prescription. These programs have income limits that change yearly. If money is tight, tell me early in our conversation so we can check whether you qualify before you pick a plan.",
+  },
+  {
+    q: "How do I actually compare Medicare plans? What should I look at?",
+    a: "Start with three things: your doctors, your prescriptions, and your pharmacy. A plan with the lowest premium can cost you more overall if your drugs are not covered or your doctor is out of network. Compare the full picture: monthly premium, deductible, copays, the drug formulary, and whether your doctors and hospital accept the plan. For Medicare Advantage, check the plan's network for your specific county. I walk through all of this with you using your actual list, not a generic brochure.",
   },
 ] as const;
 
