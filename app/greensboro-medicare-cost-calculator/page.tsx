@@ -8,7 +8,7 @@ import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ToolHeader } from "@/app/tools/_components/tool-header";
 import { ToolsDisclaimer } from "@/app/tools/_components/tool-footer";
 import { AGENT } from "@/lib/agent";
-import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 import { GreensboroCostCalculator } from "./CalculatorClient";
 import { FAQS, HOW_TO_STEPS, MA_PLANS_2025, MEDIGAP_G_TABLE, META, PATH } from "./data";
@@ -63,6 +63,20 @@ export default function GreensboroMedicareCostCalculatorPage() {
               { name: "Home", path: "/" },
               { name: "Medicare cost calculator", path: PATH },
             ]),
+          ),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            articleJsonLd({
+              headline: META.title,
+              description: META.description,
+              path: PATH,
+              datePublished: "2026-10-09",
+              dateModified: "2026-10-09",
+            }),
           ),
         }}
       />

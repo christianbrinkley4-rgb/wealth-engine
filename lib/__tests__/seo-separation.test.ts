@@ -13,8 +13,12 @@ describe("search identity and service discovery", () => {
   it("keeps shared authorship without claiming insurance offers on every page", () => {
     const shared = siteIdentityJsonLd();
     const insurance = localBusinessJsonLd();
-    expect(shared["@graph"].map((entity) => entity["@type"])).toEqual(["WebSite", "Person"]);
+    expect(shared["@graph"].map((entity) => entity["@type"])).toEqual(["WebSite", "Person", "Organization"]);
     expect(JSON.stringify(shared)).not.toMatch(/hasOfferCatalog|ProfessionalService|\/#service/);
+    const organization = shared["@graph"].find((entity) => entity["@type"] === "Organization");
+    expect(organization?.name).toBeTruthy();
+    expect(organization?.logo).toBeTruthy();
+    expect(organization?.telephone).toBeTruthy();
     const person = shared["@graph"].find((entity) => entity["@type"] === "Person");
     const insurancePerson = insurance["@graph"].find((entity) => entity["@type"] === "Person");
     expect(person?.["@id"]).toBe(insurancePerson?.["@id"]);

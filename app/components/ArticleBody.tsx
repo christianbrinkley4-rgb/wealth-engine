@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 
 import { GuideCapture } from "@/app/components/GuideCapture";
 import { TrackedLink } from "@/components/TrackedLink";
-import { AGENT } from "@/lib/agent";
+import { AGENT, hasPublishableNpn } from "@/lib/agent";
 import { articleText, type Article } from "@/lib/articles";
 import { featuredPlaces } from "@/lib/triad";
 
@@ -126,7 +126,8 @@ export function ArticleBody({
                 By <Link href="/about">{AGENT.name}</Link>
               </strong>
               <span>
-                Licensed agent, {AGENT.licenseLine} · Updated {formatArticleDate(article.updated)} ·{" "}
+                Licensed NC Insurance Agent
+                {hasPublishableNpn() ? `, NPN ${AGENT.npn}` : ""}, {AGENT.licenseLine} · Updated {formatArticleDate(article.updated)} ·{" "}
                 {minutes} min read
               </span>
             </p>
