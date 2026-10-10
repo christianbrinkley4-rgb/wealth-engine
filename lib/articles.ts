@@ -1301,6 +1301,992 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=medicare&stage=comparing_plans",
   },
+  {
+    slug: "missed-iep-penalties",
+    title: "What happens if I miss my Medicare Initial Enrollment Period?",
+    metaTitle: "Missed Your Medicare Initial Enrollment Period? Next Steps",
+    description:
+      "Missing your Medicare Initial Enrollment Period can mean lifetime penalties and a wait for coverage. How the penalties work and what to do next.",
+    keyword: "what happens if I miss my Medicare initial enrollment period",
+    eyebrow: "Medicare questions, answered",
+    lede: "Two things happen when you miss it: a penalty that follows you for life, and a wait for your next chance to sign up. Here is the full picture.",
+    published: "2026-10-10",
+    updated: "2026-10-10",
+    intro:
+      "Your Initial Enrollment Period runs seven months: the three months before your 65th birthday month, your birthday month, and the three months after. Miss it, and two things happen. First, you pay a late penalty on Part B, and possibly on Part D, and both penalties follow you for as long as you have Medicare. Second, you wait. You generally cannot sign up until the next General Enrollment Period, which runs January 1 to March 31 each year. There is one big exception, and it saves a lot of people: if you had health coverage through active employment, you may qualify for a Special Enrollment Period instead.",
+    sections: [
+      {
+        h2: "The Part B penalty: 10 percent per year, for life",
+        blocks: [
+          p(
+            "Part B charges a late enrollment penalty of 10 percent of the standard premium for each full 12-month period you were eligible but did not sign up. The standard premium is $202.90 a month in 2026. Wait one full year and you add about $20.30 a month to your premium. Wait three years and that is about $60.90 a month extra.",
+          ),
+          p(
+            "It never goes away. It is not a fine you pay once. It is baked into your monthly premium for as long as you have Part B, which for most people means the rest of their life. A short delay of a month or two adds nothing, because the penalty only counts full 12-month periods, but a long delay compounds into real money.",
+          ),
+        ],
+      },
+      {
+        h2: "The Part D penalty: 1 percent per month, for life",
+        blocks: [
+          p(
+            `Drug coverage has its own penalty with different math. If you go 63 days or more without creditable drug coverage after you become eligible, Medicare adds 1 percent of the national base beneficiary premium to your monthly Part D premium for every month you went without. The base premium is ${money(PART_D_2026.baseBeneficiaryPremium)} in ${COSTS_YEAR}, so each month of delay adds about 39 cents.`,
+          ),
+          p(
+            "Twelve months late adds about $4.70 a month to whatever your plan charges. Like the Part B penalty, it has no end date. And because the base premium changes each year, the dollar amount of your penalty can drift upward over time even though the percentage stays fixed.",
+          ),
+        ],
+      },
+      {
+        h2: "When you can actually sign up",
+        blocks: [
+          p(
+            "If you missed your Initial Enrollment Period and do not qualify for a Special Enrollment Period, your next chance is the General Enrollment Period, January 1 to March 31 each year. Since 2023, coverage starts the first day of the month after you enroll, so signing up in February means March 1 coverage. Before that change, everyone waited until July 1.",
+          ),
+          p(
+            "You also get a two-month Special Enrollment Period to join a Part D drug plan once you sign up during the General Enrollment Period. Use it. Going without drug coverage while you wait just grows the Part D penalty.",
+          ),
+        ],
+      },
+      {
+        h2: "The exception: creditable employer coverage",
+        blocks: [
+          p(
+            "This is the part that saves a lot of people. If you were covered by a group health plan through your own or your spouse's current employment, and the employer has 20 or more employees, you get an 8-month Special Enrollment Period when that coverage ends. Enroll during it and there is no penalty at all.",
+          ),
+          p(
+            "But two kinds of coverage do not count: COBRA and marketplace plans. People on COBRA often assume they are protected, and they are not. If your only coverage was COBRA, you owe the penalty and you wait for the General Enrollment Period like everyone else.",
+          ),
+        ],
+      },
+      {
+        h2: "What to do right now",
+        blocks: [
+          p(
+            "First, figure out whether you qualify for a Special Enrollment Period. If you or your spouse worked past 65 with group coverage from an employer with 20 or more employees, call Social Security and ask. If not, mark January 1 on your calendar and use the General Enrollment Period.",
+          ),
+          p(
+            "Second, do not skip Part D while you wait. A low-cost drug plan during the gap keeps the Part D penalty from growing. Third, keep every letter about past coverage. If Medicare questions whether your old coverage was creditable, the proof is on you.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does the Part B late penalty ever go away?",
+        a: "No. It stays in your monthly premium for as long as you have Part B. The only way to avoid it is to enroll on time or qualify for a Special Enrollment Period.",
+      },
+      {
+        q: "What if I only missed it by a month or two?",
+        a: "The Part B penalty only applies per full 12-month period, so a short delay adds nothing. The Part D penalty counts month by month after a 63-day gap, so even a few months can add a small permanent amount.",
+      },
+      {
+        q: "Can I get Part A late without a penalty?",
+        a: "Most people get premium-free Part A based on their work history, and there is no late penalty for it. If you have to buy Part A because of limited work history, a separate penalty can apply.",
+      },
+      {
+        q: "Does COBRA count as creditable coverage for Medicare?",
+        a: "No. COBRA and marketplace plans do not qualify you for a Special Enrollment Period, and they do not protect you from the Part B penalty. Only group coverage from current employment counts.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: When do Medicare Part A and Part B sign-up periods happen?",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/sign-up",
+      },
+      { label: CMS_PARTS_AB_SOURCE.title, href: CMS_PARTS_AB_SOURCE.url },
+    ],
+    related: [
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "What is the Part D late enrollment penalty?", href: "/answers/medicare-part-d-late-penalty" },
+      { label: "Do I have to enroll at 65 if I am still working?", href: "/answers/working-past-65-medicare" },
+      { label: "How do I apply for Medicare?", href: "/answers/how-to-apply-for-medicare" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+    ],
+    startHref: "/start?topic=medicare&stage=turning_65_soon",
+  },
+  {
+    slug: "working-past-65-medicare",
+    title: "Do I have to enroll in Medicare at 65 if I am still working?",
+    metaTitle: "Working Past 65? When to Enroll in Medicare",
+    description:
+      "Still working at 65? You may be able to delay Medicare Part B without a penalty. The 20-employee rule, the 8-month Special Enrollment Period, and the HSA trap.",
+    keyword: "do I have to enroll in Medicare at 65 if still working",
+    eyebrow: "Medicare questions, answered",
+    lede: "You do not always have to enroll at 65. If your employer coverage is creditable, you can wait. Here is how the rules work.",
+    published: "2026-10-10",
+    updated: "2026-10-10",
+    intro:
+      "Turning 65 while you are still working is one of the most common situations I hear about, and the answer surprises people. You do not always have to enroll in Medicare at 65. If you have health coverage through your or your spouse's current job, and the employer has 20 or more employees, you can usually delay Part B with no penalty. When that job coverage ends, you get an 8-month Special Enrollment Period. But the details matter, and one mistake, contributing to a Health Savings Account while on Medicare, costs people real money every year.",
+    sections: [
+      {
+        h2: "The 20-employee rule",
+        blocks: [
+          p(
+            "Everything turns on the size of the employer. If the company has 20 or more employees, its group health plan pays first and Medicare pays second. That arrangement counts as creditable coverage, and it lets you delay Part B without a penalty. If the employer has fewer than 20 employees, Medicare pays first, which means you should enroll in Parts A and B at 65 even while working.",
+          ),
+          p(
+            "Check with your benefits office if you are not sure how many employees count. Large employers sometimes have small subsidiaries, so confirm the number for the actual employing entity, not the parent company.",
+          ),
+        ],
+      },
+      {
+        h2: "Part A: usually take it, with one exception",
+        blocks: [
+          p(
+            "Part A is premium-free for almost everyone based on work history, so most people sign up at 65 even while working. It costs nothing and sits in the background as secondary coverage. The exception: if you are contributing to a Health Savings Account. You cannot contribute to an HSA once you are enrolled in any part of Medicare, including premium-free Part A.",
+          ),
+          p(
+            "People get caught by this every year. If you want to keep funding your HSA, delay all of Medicare, including Part A, until you retire. You can still spend what is already in the HSA, you just cannot add to it.",
+          ),
+        ],
+      },
+      {
+        h2: "The 8-month Special Enrollment Period",
+        blocks: [
+          p(
+            "When your job-based coverage ends, whether you retire or switch jobs, you get an 8-month Special Enrollment Period to sign up for Part B with no late penalty. The clock starts the month after employment or coverage ends, whichever comes first.",
+          ),
+          p(
+            "Eight months sounds generous until life gets busy. Mark the date the day your coverage ends. Miss the window and you wait for the General Enrollment Period like everyone else, penalty included.",
+          ),
+        ],
+      },
+      {
+        h2: "What does not count: COBRA and marketplace plans",
+        blocks: [
+          p(
+            "This is where people get hurt. COBRA continuation coverage does not qualify you for a Special Enrollment Period, even though it feels like employer coverage. Marketplace plans do not count either. If you retire at 66, take COBRA for 18 months, and then try to sign up for Part B, Medicare treats you as if you had no coverage.",
+          ),
+          p(
+            "You owe the penalty and you wait for January. If you are leaving a job, sign up for Medicare during your Special Enrollment Period instead of riding out COBRA.",
+          ),
+        ],
+      },
+      {
+        h2: "Drug coverage while you work",
+        blocks: [
+          p(
+            "Your employer's drug coverage needs to be creditable too, or you face the Part D late penalty later. Each fall your plan must send a notice saying whether its drug coverage counts. Keep that letter. If you ever need to prove you had coverage, it is your proof.",
+          ),
+          p(
+            "If you are unsure, ask your benefits office directly: is our prescription drug coverage creditable for Medicare Part D purposes? Get the answer in writing.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can I keep contributing to my HSA if I enroll in Medicare Part A?",
+        a: "No. Once you enroll in any part of Medicare, including premium-free Part A, you must stop contributing to your HSA. You can still spend what is already in it.",
+      },
+      {
+        q: "Does my spouse's small employer plan let me delay Medicare?",
+        a: "Only if the employer has 20 or more employees. With a smaller employer, Medicare pays first and you should enroll in Parts A and B at 65.",
+      },
+      {
+        q: "What happens to my employer coverage when I turn 65?",
+        a: "Nothing automatic. Your employer plan continues as normal. You choose whether to add Medicare based on the 20-employee rule and your costs.",
+      },
+      {
+        q: "I retired but my spouse still works. Can I use their plan?",
+        a: "Yes, if it comes from your spouse's current employment with 20 or more employees. The same payer-order rules apply as if it were your own job.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: I am turning 65 and still working",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/sign-up",
+      },
+      { label: CMS_PARTS_AB_SOURCE.title, href: CMS_PARTS_AB_SOURCE.url },
+    ],
+    related: [
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Can I stay on my spouse's employer plan at 65?", href: "/answers/spouse-employer-plan-medicare" },
+      { label: "What if I miss my Initial Enrollment Period?", href: "/answers/missed-iep-penalties" },
+      { label: "How do I apply for Medicare?", href: "/answers/how-to-apply-for-medicare" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+    ],
+    startHref: "/start?topic=medicare&stage=turning_65_soon",
+  },
+  {
+    slug: "does-medicare-cover-chiropractic",
+    title: "Does Medicare cover chiropractic care?",
+    metaTitle: "Does Medicare Cover Chiropractic Care? 2026 Rules",
+    description:
+      "Medicare covers one chiropractic service and nothing else. What Part B pays for, what it excludes, and what you will owe at the chiropractor's office.",
+    keyword: "does Medicare cover chiropractic care",
+    eyebrow: "Medicare questions, answered",
+    lede: "Medicare covers one chiropractic service and nothing else. Here is exactly what Part B pays for, and what comes out of your pocket.",
+    published: "2026-10-10",
+    updated: "2026-10-10",
+    intro:
+      "The short answer is yes, but narrowly. Medicare Part B covers manual manipulation of the spine by a chiropractor to correct a vertebral subluxation. That is the entire list. It does not cover X-rays the chiropractor orders, massage therapy, electrical stimulation, or maintenance visits. After the Part B deductible, which is $283 in 2026, you pay 20 percent of the Medicare-approved amount for each covered visit. There is no annual cap on covered visits as long as the treatment stays medically necessary.",
+    sections: [
+      {
+        h2: "The one covered service",
+        blocks: [
+          p(
+            "Medicare covers adjustments of the spine, done by hand or with a device called an activator, to correct a subluxation. Medicare defines that as spinal joints that fail to move properly while the contact between the joints stays intact. Your chiropractor must document the subluxation and show the treatment is active and corrective.",
+          ),
+          p(
+            "Once you reach maximum therapeutic benefit, further visits count as maintenance and Medicare stops paying. The line between active treatment and maintenance is where most coverage disputes happen, so ask your chiropractor how they document it.",
+          ),
+        ],
+      },
+      {
+        h2: "What Medicare does not cover at the chiropractor",
+        blocks: [
+          p(
+            "Everything else on the typical chiropractic menu is on you. The initial evaluation, X-rays ordered at the chiropractic office, massage therapy, acupuncture delivered by the chiropractor, ultrasound, electrical stimulation, ice and heat, exercise instruction, orthotics, and maintenance or wellness adjustments.",
+          ),
+          p(
+            "If your chiropractor thinks Medicare will not cover a service, they must give you an Advance Beneficiary Notice before the visit, so you know the cost is yours. If they do not give you one and Medicare denies the claim, you may not have to pay.",
+          ),
+        ],
+      },
+      {
+        h2: "What you will actually pay",
+        blocks: [
+          p(
+            "After the $283 annual Part B deductible, Medicare pays 80 percent of the approved amount for each covered manipulation and you pay 20 percent. Ask the office whether they accept Medicare assignment before your first visit. If they do, they agree to the Medicare-approved amount. If not, your share can be higher.",
+          ),
+          p(
+            "A Medigap plan pays the 20 percent coinsurance for Medicare-approved manipulation but does not expand what is covered. It will not pay for the excluded services either. Some offices offer a discount for paying at the time of service, so it never hurts to ask.",
+          ),
+        ],
+      },
+      {
+        h2: "Medicare Advantage and chiropractic",
+        blocks: [
+          p(
+            "Advantage plans must cover at least what Original Medicare covers, so the same spinal manipulation benefit applies. Some plans add supplemental chiropractic benefits, like a set number of routine visits or coverage for services Original Medicare excludes.",
+          ),
+          p(
+            "Check your plan's Evidence of Coverage before you book, because these extras vary widely by plan. What one plan covers as a supplemental benefit, another may not cover at all.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How many chiropractic visits does Medicare cover per year?",
+        a: "There is no annual limit on medically necessary manipulation to correct a subluxation. Medicare stops covering when treatment becomes maintenance rather than active correction.",
+      },
+      {
+        q: "Does Medicare cover chiropractic X-rays?",
+        a: "No. X-rays ordered by a chiropractor are not covered under the chiropractic benefit. X-rays ordered by your doctor for a medical reason are covered separately under Part B.",
+      },
+      {
+        q: "Does Medicare cover massage therapy at the chiropractor?",
+        a: "No. Massage therapy is excluded from Medicare coverage when delivered by a chiropractor, even on the same visit as a covered adjustment.",
+      },
+      {
+        q: "Do I need a referral to see a chiropractor on Medicare?",
+        a: "Original Medicare does not require a referral. Some Medicare Advantage plans do, so check your plan first.",
+      },
+      {
+        q: "Does Medicare cover chiropractic maintenance care?",
+        a: "No. Once you reach maximum therapeutic benefit, Medicare considers further adjustments maintenance and stops paying. Your chiropractor should tell you when you cross that line and give you an Advance Beneficiary Notice before any non-covered visit.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: Chiropractic services",
+        href: "https://www.medicare.gov/coverage/chiropractic-services",
+      },
+      { label: CMS_PARTS_AB_SOURCE.title, href: CMS_PARTS_AB_SOURCE.url },
+    ],
+    related: [
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Original Medicare or Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
+    ],
+    startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
+  {
+    slug: "does-medicare-cover-shingles-vaccine",
+    title: "Does Medicare cover the shingles vaccine?",
+    metaTitle: "Does Medicare Cover the Shingles Vaccine? Shingrix Costs",
+    description:
+      "Shingrix costs $0 with Medicare Part D since 2023. How the Inflation Reduction Act changed vaccine coverage, and what you need to get both doses free.",
+    keyword: "does Medicare cover shingles vaccine Shingrix",
+    eyebrow: "Medicare questions, answered",
+    lede: "Shingrix is $0 with Part D drug coverage, both doses. Here is why it is Part D and not Part B, and what to do if you have no drug coverage.",
+    published: "2026-10-10",
+    updated: "2026-10-10",
+    intro:
+      "Yes, and since January 2023 it costs you nothing. The Inflation Reduction Act requires every Medicare Part D plan to cover adult vaccines recommended by the CDC's vaccine advisory committee with no deductible, no copay, and no coinsurance. Shingrix is on that list. Both doses are $0 at an in-network pharmacy, even if you are in your plan's deductible phase. The catch: you need Part D coverage. Without it, Shingrix runs about $200 a dose, and you need two.",
+    sections: [
+      {
+        h2: "Why it is Part D, not Part B",
+        blocks: [
+          p(
+            "Medicare splits vaccines between its two parts, and the shingles shot landed in Part D. Flu, pneumonia, and COVID shots are Part B and have always been free. Shingles, Tdap, and most travel vaccines are Part D. That is why the $0 rule only helps if you have drug coverage, either a standalone Part D plan or a Medicare Advantage plan that includes drugs.",
+          ),
+          p(
+            "If your Advantage plan has no drug coverage, the free-vaccine rule does not reach you. This surprises people who assume all vaccines are treated the same. They are not.",
+          ),
+        ],
+      },
+      {
+        h2: "How to get both doses at $0",
+        blocks: [
+          p(
+            "Go to an in-network pharmacy that can bill Part D vaccine claims. Most national chains can. The pharmacy bills your Part D plan directly and you pay nothing. You do not need a prescription in most states, and you do not need to meet your plan deductible first.",
+          ),
+          p(
+            "The two doses are given two to six months apart. If you switch Part D plans between doses, that is fine. The second dose is still $0 under the new plan. Bring your Medicare card or have your Medicare number ready so the pharmacy can bill Part D directly.",
+          ),
+        ],
+      },
+      {
+        h2: "Who should get Shingrix",
+        blocks: [
+          p(
+            "The CDC recommends Shingrix for adults 50 and older, and for adults 19 and older with weakened immune systems. It is more than 90 percent effective at preventing shingles and the long-term nerve pain that can follow, which is the most common complication.",
+          ),
+          p(
+            "If you got the older Zostavax shot years ago, get Shingrix anyway. Zostavax is no longer used in the US and Shingrix protects better. Having had shingles before does not exempt you either. Shingles can come back.",
+          ),
+        ],
+      },
+      {
+        h2: "If you do not have Part D",
+        blocks: [
+          p(
+            "About one in four Medicare beneficiaries has no drug coverage, and the free-vaccine rule does not help them. Your options: enroll in a Part D plan during the Annual Enrollment Period, October 15 to December 7. Check whether you qualify for Extra Help, which lowers drug costs and can waive penalties. Or ask your State Health Insurance Assistance Program about local options.",
+          ),
+          p(
+            "Paying cash, around $200 a dose, is the most expensive way to get protected. A basic Part D plan often costs less per year than two cash doses of Shingrix.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is Shingrix really free with Medicare?",
+        a: "Yes, if you have Part D or a Medicare Advantage plan with drug coverage. Both doses are $0 at in-network pharmacies with no deductible.",
+      },
+      {
+        q: "Do I need a prescription for the shingles vaccine?",
+        a: "In most states, no. Pharmacies can administer it under standing protocols. Call ahead to confirm your pharmacy stocks it.",
+      },
+      {
+        q: "What if I already had shingles?",
+        a: "Get vaccinated anyway. Shingles can come back, and the CDC recommends Shingrix for adults 50 and older regardless of past shingles.",
+      },
+      {
+        q: "Does Medicare Advantage cover Shingrix?",
+        a: "Only if your Advantage plan includes Part D drug coverage. Advantage plans without drug coverage do not get the $0 vaccine benefit.",
+      },
+      {
+        q: "How effective is Shingrix?",
+        a: "Shingrix is more than 90 percent effective at preventing shingles and postherpetic neuralgia in adults 50 and older with healthy immune systems. Protection stays strong for years after the two-dose series.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: Shots and vaccines",
+        href: "https://www.medicare.gov/coverage/shots",
+      },
+      { label: CMS_PART_D_SOURCE.title, href: CMS_PART_D_SOURCE.url },
+    ],
+    related: [
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Do I need Medicare drug coverage?", href: "/answers/do-i-need-medicare-drug-coverage" },
+      { label: "What is the Part D late enrollment penalty?", href: "/answers/medicare-part-d-late-penalty" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+      { label: "Medicare help near you", href: "/service-area" },
+    ],
+    startHref: "/start?topic=medicare&stage=turning_65_soon",
+  },
+  {
+    slug: "medicare-part-d-late-penalty",
+    title: "What is the Medicare Part D late enrollment penalty?",
+    metaTitle: "Medicare Part D Late Enrollment Penalty: How It Works",
+    description:
+      "The Part D late penalty adds 1% of the base premium for every month you went without drug coverage. How it is calculated, when it applies, and how to avoid it.",
+    keyword: "Medicare Part D late enrollment penalty how calculated",
+    eyebrow: "Medicare questions, answered",
+    lede: "The Part D penalty is small per month and permanent. Here is the math, what counts as creditable coverage, and how to avoid it entirely.",
+    published: "2026-10-10",
+    updated: "2026-10-10",
+    intro:
+      "The Part D late enrollment penalty is small per month and permanent. If you go 63 days or more without creditable drug coverage after becoming eligible for Medicare, Medicare adds 1 percent of the national base beneficiary premium to your monthly Part D premium for every month you went without. It has no end date. In 2026 the base premium is $38.99, so each month of delay adds about 39 cents. Twelve months adds about $4.70 a month, and that amount stays in your premium for as long as you have Part D.",
+    sections: [
+      {
+        h2: "The math, step by step",
+        blocks: [
+          p(
+            "Count the full months you went without creditable drug coverage after your Initial Enrollment Period ended. Multiply by 1 percent of the base beneficiary premium. Round to the nearest dime. In 2026, 12 months late is 12 percent of $38.99, which is $4.68, rounded to $4.70 a month.",
+          ),
+          p(
+            "Thirty months late is about $11.70 a month. The base premium changes each year, and your penalty is recalculated against the new base, so the dollar amount can drift upward over time even though the percentage is fixed.",
+          ),
+        ],
+      },
+      {
+        h2: "What counts as creditable coverage",
+        blocks: [
+          p(
+            "Creditable means your drug coverage is expected to pay at least as much as a standard Part D plan. Coverage from a current employer, a retiree plan, the VA, and TRICARE is often creditable, but not always. Your plan must send you a notice each fall saying whether its drug coverage is creditable.",
+          ),
+          p(
+            "Keep every one of those letters. If Medicare ever questions your gap, that letter is your proof, and without it you are arguing from memory. If you cannot find it, call the plan and ask for it in writing.",
+          ),
+        ],
+      },
+      {
+        h2: "The 63-day grace period",
+        blocks: [
+          p(
+            "Short gaps do not trigger the penalty. You get 63 continuous days without creditable coverage before the clock starts. This covers most transitions between jobs or plans without any consequence.",
+          ),
+          p(
+            "But the months still count once you pass 63 days, so a four-month gap means four months of penalty, not four minus two. The grace period delays the start, it does not subtract from the total.",
+          ),
+        ],
+      },
+      {
+        h2: "How to avoid it entirely",
+        blocks: [
+          p(
+            "Enroll in a Part D plan during your Initial Enrollment Period, even a low-cost one, and the penalty never starts. If you have employer or VA drug coverage, confirm in writing that it is creditable. If your income is limited, Extra Help from Social Security lowers drug costs and wipes out the late penalty.",
+          ),
+          p(
+            "And if you disagree with a penalty Medicare assigned, you can ask for reconsideration, especially if you believe your old coverage was creditable. Bring the creditable-coverage letter if you kept it.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does the Part D penalty ever go away?",
+        a: "No. It is added to your monthly premium for as long as you have Part D. It can be reconsidered if you show your prior coverage was creditable.",
+      },
+      {
+        q: "I have VA drug coverage. Do I need Part D?",
+        a: "VA coverage is creditable, so no penalty applies while you have it. Many veterans still add Part D for pharmacy convenience, which is allowed.",
+      },
+      {
+        q: "What is the base beneficiary premium?",
+        a: "It is the national average Part D premium set by Medicare each year, $38.99 in 2026. The penalty is calculated from it, not from your plan's actual premium.",
+      },
+      {
+        q: "Can Extra Help remove the penalty?",
+        a: "Yes. If you qualify for Extra Help, the late penalty is waived along with reduced premiums and drug costs.",
+      },
+      {
+        q: "I missed my Initial Enrollment Period. What should I do now?",
+        a: "Enroll in a Part D plan during the Annual Enrollment Period, October 15 to December 7. The penalty is based on the months you went without creditable coverage, so enrolling sooner keeps it smaller.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: Drug coverage (Part D)",
+        href: "https://www.medicare.gov/drug-coverage-part-d",
+      },
+      { label: CMS_PART_D_SOURCE.title, href: CMS_PART_D_SOURCE.url },
+    ],
+    related: [
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Do I need Medicare drug coverage?", href: "/answers/do-i-need-medicare-drug-coverage" },
+      { label: "What if I miss my Initial Enrollment Period?", href: "/answers/missed-iep-penalties" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+      { label: "Does Medicare cover the shingles vaccine?", href: "/answers/does-medicare-cover-shingles-vaccine" },
+    ],
+    startHref: "/start?topic=medicare&stage=turning_65_soon",
+  },
+  {
+    slug: "does-medicare-cover-cataract-surgery",
+    title: "Does Medicare cover cataract surgery?",
+    metaTitle: "Does Medicare Cover Cataract Surgery? 2026 Costs",
+    description:
+      "Medicare Part B covers medically necessary cataract surgery, the standard lens, and one pair of glasses after. What you pay and what costs extra.",
+    keyword: "does Medicare cover cataract surgery",
+    eyebrow: "Medicare questions, answered",
+    lede: "Cataract surgery is one of the most common procedures Medicare covers. Here is what Part B pays for, what you owe, and what costs extra.",
+    published: "2026-10-10",
+    updated: "2026-10-10",
+    intro:
+      "Yes. Cataract surgery is one of the most common procedures Medicare covers, with millions performed each year. Part B covers medically necessary cataract surgery: the surgeon, the facility, anesthesia, and a conventional intraocular lens to replace your cloudy natural lens. After the Part B deductible of $283 in 2026, you pay 20 percent of the Medicare-approved amount. Medicare also covers one pair of prescription glasses or contact lenses after each cataract surgery, the one time Original Medicare pays for eyewear.",
+    sections: [
+      {
+        h2: "What is covered, piece by piece",
+        blocks: [
+          p(
+            "The surgeon's fee covers the evaluation, the operation, and the standard post-operative visits. The facility fee covers the outpatient surgery center or hospital department where it happens. Anesthesia during the procedure is covered. The conventional lens implant is covered. Follow-up care for complications is covered.",
+          ),
+          p(
+            "What is not covered: premium lenses that correct astigmatism or presbyopia, and laser upgrades done purely to reduce dependence on glasses. Medicare pays its standard rate and you pay the difference for those extras. The procedure itself usually takes 15 to 30 minutes on an outpatient basis, so most people go home the same day.",
+          ),
+        ],
+      },
+      {
+        h2: "What you will pay",
+        blocks: [
+          p(
+            "After the $283 deductible, Medicare pays 80 percent and you pay 20 percent of the approved amount for the surgery itself. A Medigap plan like Plan G covers that 20 percent, often bringing your cost for the standard procedure close to zero after the deductible.",
+          ),
+          p(
+            "With a Medicare Advantage plan, you pay whatever your plan sets, usually a copay or coinsurance per surgery. Premium lens upgrades typically cost $1,500 to $4,000 per eye out of pocket, and those are never covered by Medigap.",
+          ),
+        ],
+      },
+      {
+        h2: "The glasses benefit after surgery",
+        blocks: [
+          p(
+            "This is the exception people miss. Original Medicare almost never covers glasses, but after each cataract surgery with a lens implant, Part B covers one pair of prescription eyeglasses with standard frames or one set of contact lenses. You pay 20 percent of the cost plus any frame upgrade.",
+          ),
+          p(
+            "The supplier must be enrolled in Medicare. If you have surgery on both eyes, you get the glasses benefit after each one.",
+          ),
+        ],
+      },
+      {
+        h2: "Questions to ask before you schedule",
+        blocks: [
+          p(
+            "Ask your surgeon whether the surgery is coded as medically necessary, because elective or purely refractive procedures are not covered. Ask which lens is the conventional one and what the premium upgrade would cost you out of pocket.",
+          ),
+          p(
+            "Ask the surgery center whether it accepts Medicare assignment. And if you have a Medicare Advantage plan, get the prior authorization in writing before the procedure date. If your surgeon recommends a premium lens, ask for the price difference in writing before surgery day so you can decide without pressure.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does Medicare cover laser cataract surgery?",
+        a: "Medicare covers the cataract removal whether a laser is used for it. If the laser is an add-on for refractive correction, that portion is not covered.",
+      },
+      {
+        q: "Does Medicare cover premium lens implants?",
+        a: "No. Medicare pays the standard monofocal rate. You pay the difference for multifocal or toric lenses, typically $1,500 to $4,000 per eye.",
+      },
+      {
+        q: "How soon can I have surgery on the second eye?",
+        a: "Medicare has no required waiting period between eyes. Your surgeon decides the timing based on healing, often a few weeks apart.",
+      },
+      {
+        q: "Does Medigap cover cataract surgery costs?",
+        a: "Medigap covers the 20 percent coinsurance on the Medicare-approved portion. It does not cover premium lens upgrades or refractive extras.",
+      },
+      {
+        q: "Does Medicare cover a second cataract surgery?",
+        a: "Yes. Each eye is covered separately when medically necessary, and the glasses benefit applies after each surgery. There is no lifetime limit on the number of covered cataract surgeries.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: Cataract surgery",
+        href: "https://www.medicare.gov/coverage/cataract-surgery",
+      },
+      { label: CMS_PARTS_AB_SOURCE.title, href: CMS_PARTS_AB_SOURCE.url },
+    ],
+    related: [
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Does Medicare cover hearing aids and glasses?", href: "/answers/does-medicare-cover-hearing-aids-and-glasses" },
+      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+      { label: "Original Medicare or Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+    ],
+    startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
+  {
+    slug: "spouse-employer-plan-medicare",
+    title: "Can I stay on my spouse's employer plan after I turn 65?",
+    metaTitle: "Turning 65 on a Spouse's Employer Plan: Medicare Rules",
+    description:
+      "You can usually stay on your spouse's employer plan at 65 and delay Medicare. The 20-employee rule, Part D creditability, and when to sign up.",
+    keyword: "can I stay on spouse employer plan after turning 65 Medicare",
+    eyebrow: "Medicare questions, answered",
+    lede: "In most cases, yes. The same 20-employee rule applies as if it were your own job. Here is how it works for spouses.",
+    published: "2026-10-10",
+    updated: "2026-10-10",
+    intro:
+      "Yes, in most cases. If your spouse is still working and you are covered under their employer's group health plan, you can usually stay on that plan at 65 and delay Medicare Part B without a penalty. The same 20-employee rule applies as if it were your own job: the employer needs 20 or more employees for the plan to pay first and count as creditable. When your spouse's employment or the coverage ends, you get an 8-month Special Enrollment Period to sign up for Part B.",
+    sections: [
+      {
+        h2: "How the 20-employee rule works for spouses",
+        blocks: [
+          p(
+            "Medicare looks at the size of the employer, not whose job it is. Twenty or more employees: the group plan pays first, Medicare second, and you can delay Part B penalty-free. Fewer than 20: Medicare pays first, and you should enroll in Parts A and B at 65.",
+          ),
+          p(
+            "Ask your spouse's benefits office for the employee count. Large employers sometimes have small subsidiaries, so confirm the number for the actual employing entity. If the employer is close to the 20-employee line, ask every year, because growing past 20 changes which plan pays first.",
+          ),
+        ],
+      },
+      {
+        h2: "Part A now or later",
+        blocks: [
+          p(
+            "Premium-free Part A costs nothing for most people, so many spouses enroll at 65 even while on the employer plan. It becomes secondary coverage behind the group plan. The one reason to wait: Health Savings Accounts.",
+          ),
+          p(
+            "If either of you contributes to an HSA, enrolling in any part of Medicare ends eligibility to contribute. If the HSA matters to you, delay all of Medicare until the employer coverage ends.",
+          ),
+        ],
+      },
+      {
+        h2: "Do not forget Part D",
+        blocks: [
+          p(
+            "The employer plan's drug coverage must be creditable or you face the Part D late penalty when you eventually enroll. Each fall the plan must send a notice stating whether its drug coverage counts. Keep it.",
+          ),
+          p(
+            "Before your spouse retires, ask the benefits office directly whether the prescription coverage is creditable for Medicare Part D purposes, and get the answer in writing.",
+          ),
+        ],
+      },
+      {
+        h2: "When the job ends: your 8-month window",
+        blocks: [
+          p(
+            "When your spouse retires, changes jobs, or loses the coverage, your 8-month Special Enrollment Period starts. It begins the month after employment or coverage ends, whichever comes first. Use it to enroll in Part B with no penalty.",
+          ),
+          p(
+            "This is also when many couples compare the employer plan against Medicare plus Medigap or Advantage, because retiree coverage is rarely as generous as active-employee coverage. Run the numbers before you default to anything. Compare premiums, deductibles, and drug costs side by side. Sometimes the employer plan wins even after 65, sometimes Medicare plus a supplement wins by a lot.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does my spouse's employer size really decide this?",
+        a: "Yes. The 20-employee threshold determines whether the group plan or Medicare pays first, and only the larger-employer arrangement lets you delay Part B without penalty.",
+      },
+      {
+        q: "What if we are on COBRA from my spouse's old job?",
+        a: "COBRA does not count. It does not qualify you for a Special Enrollment Period and does not protect you from the Part B penalty.",
+      },
+      {
+        q: "Can we both delay Medicare on one spouse's plan?",
+        a: "Yes, as long as the working spouse has current employment with 20 or more employees and both are covered under the plan.",
+      },
+      {
+        q: "Should I take Part A at 65 if I am on my spouse's plan?",
+        a: "Usually yes, since it is free and becomes secondary coverage. Wait only if HSA contributions are in play.",
+      },
+      {
+        q: "What happens to my spouse's plan when they turn 65?",
+        a: "Nothing changes for the working spouse. Their employer coverage continues normally. Only the spouse turning 65 needs to make a Medicare decision, using the same 20-employee rule.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: When do Medicare Part A and Part B sign-up periods happen?",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/sign-up",
+      },
+      { label: CMS_PARTS_AB_SOURCE.title, href: CMS_PARTS_AB_SOURCE.url },
+    ],
+    related: [
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Do I have to enroll at 65 if I am still working?", href: "/answers/working-past-65-medicare" },
+      { label: "What if I miss my Initial Enrollment Period?", href: "/answers/missed-iep-penalties" },
+      { label: "What is the Part D late enrollment penalty?", href: "/answers/medicare-part-d-late-penalty" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+    ],
+    startHref: "/start?topic=medicare&stage=turning_65_soon",
+  },
+  {
+    slug: "how-to-apply-for-medicare",
+    title: "How do I apply for Medicare?",
+    metaTitle: "How to Apply for Medicare: Online, Phone, or In Person",
+    description:
+      "Apply for Medicare online at ssa.gov, by phone, or at your local Social Security office. What you need, when to apply, and what happens next.",
+    keyword: "how do I apply for Medicare",
+    eyebrow: "Medicare questions, answered",
+    lede: "Online at ssa.gov takes about ten minutes. Here is what you need, when to apply, and what happens after you submit.",
+    published: "2026-10-10",
+    updated: "2026-10-10",
+    intro:
+      "The fastest way to apply for Medicare is online at ssa.gov, and it takes about ten minutes. You can also call Social Security at 1-800-772-1213 or visit your local office in person. If you already receive Social Security benefits when you turn 65, you do not need to apply at all. Enrollment in Parts A and B is automatic, and your card arrives in the mail. Everyone else should apply during the seven-month Initial Enrollment Period around their 65th birthday.",
+    sections: [
+      {
+        h2: "Applying online: what you need",
+        blocks: [
+          p(
+            "Go to ssa.gov and find the Medicare application. You will need your Social Security number, your birth certificate or proof of citizenship, and information about any current health coverage. You do not need to visit an office or mail anything in most cases. If you are applying for Social Security retirement at the same time, the systems connect and one application can start both.",
+          ),
+          p(
+            "After you submit, Social Security mails your Medicare card with your Medicare number. Keep an eye out for it and store the card somewhere safe. Never laminate it. Use a protective sleeve instead.",
+          ),
+        ],
+      },
+      {
+        h2: "Applying by phone or in person",
+        blocks: [
+          p(
+            "Call 1-800-772-1213, Monday through Friday. An agent takes the same application over the phone. If you prefer face to face, your local Social Security office takes walk-ins and appointments.",
+          ),
+          p(
+            "In Greensboro the office is at 6005 Landmark Center Boulevard, open Monday through Friday 9 to 4. Appointments are required for most visits now, so call the local number, 1-877-319-3075, before you go.",
+          ),
+        ],
+      },
+      {
+        h2: "When to apply",
+        blocks: [
+          p(
+            "Apply during your Initial Enrollment Period: the three months before your 65th birthday month, your birthday month, and the three months after. Applying early means your coverage starts on time. Since 2023, if you apply in the last three months of the window, coverage starts the first of the next month instead of making you wait.",
+          ),
+          p(
+            "If you are delaying Part B because of employer coverage, you apply later during your Special Enrollment Period instead. The online application handles that path too.",
+          ),
+        ],
+      },
+      {
+        h2: "After you apply: the card and the next steps",
+        blocks: [
+          p(
+            "Your red, white, and blue Medicare card arrives by mail with your Medicare number, which replaced Social Security numbers on cards years ago. Guard that number like you guarded your Social Security number. It is the key to your medical identity.",
+          ),
+          p(
+            "Once you have Parts A and B, you can add drug coverage, compare Medigap or Advantage options, and set up how you pay the Part B premium. If you take Social Security, the premium comes out of your check automatically. While you wait for the card, you can already compare drug plans and Medigap or Advantage options so you are ready to decide the day it arrives.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Do I need to apply if I already get Social Security?",
+        a: "No. If you receive Social Security or Railroad Retirement benefits before 65, Parts A and B start automatically and your card arrives by mail.",
+      },
+      {
+        q: "Can someone apply for me?",
+        a: "A trusted person can help you complete the application, and you can designate a representative to deal with Social Security on your behalf with the proper authorization.",
+      },
+      {
+        q: "How long does the online application take?",
+        a: "About ten minutes for most people. You get a confirmation number, and your card arrives by mail in a few weeks.",
+      },
+      {
+        q: "What if I lose my Medicare card?",
+        a: "Request a free replacement by calling 1-800-MEDICARE or logging into your ssa.gov account. Do not laminate the card; use a protective sleeve.",
+      },
+      {
+        q: "Can I apply for Medicare before I turn 65?",
+        a: "Yes. Your Initial Enrollment Period opens three months before your 65th birthday month, and applying early means your coverage starts right on time.",
+      },
+    ],
+    sources: [
+      {
+        label: "Social Security: Apply for Medicare",
+        href: "https://www.ssa.gov/medicare",
+      },
+      {
+        label: "Medicare.gov: Get started with Medicare",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare",
+      },
+    ],
+    related: [
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "What if I miss my Initial Enrollment Period?", href: "/answers/missed-iep-penalties" },
+      { label: "Do I have to enroll at 65 if I am still working?", href: "/answers/working-past-65-medicare" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+      { label: "Medicare help near you", href: "/service-area" },
+    ],
+    startHref: "/start?topic=medicare&stage=turning_65_soon",
+  },
+  {
+    slug: "does-medicare-cover-ambulance",
+    title: "Does Medicare cover ambulance rides?",
+    metaTitle: "Does Medicare Cover Ambulance Rides? Rules and Costs",
+    description:
+      "Medicare covers ambulance rides only when medically necessary. What counts, what you pay, and why non-emergency rides get denied.",
+    keyword: "does Medicare cover ambulance rides",
+    eyebrow: "Medicare questions, answered",
+    lede: "Medicare covers ambulance rides when other transportation would endanger your health. Here is what counts as medically necessary, and what you pay.",
+    published: "2026-10-10",
+    updated: "2026-10-10",
+    intro:
+      "Yes, but only when it is medically necessary. Medicare Part B covers ground ambulance transportation when other transportation would endanger your health, like emergencies or transfers between hospitals and skilled nursing facilities. After the Part B deductible of $283 in 2026, you pay 20 percent of the Medicare-approved amount. Rides that do not meet the medical-necessity rules are denied, and ambulance bills are large enough that a denial hurts.",
+    sections: [
+      {
+        h2: "What medically necessary means",
+        blocks: [
+          p(
+            "Medicare's test is practical: could you have gotten there any other way without risking your health? A heart attack, stroke, serious injury, or a transfer between facilities when you need monitoring all qualify. A ride to a routine doctor appointment because you do not drive usually does not.",
+          ),
+          p(
+            "For scheduled non-emergency rides, your doctor must certify in writing that ambulance transport is medically required, and even then Medicare reviews the claim. Without that certification, the claim is usually denied. Hospital-to-hospital transfers and discharges to skilled nursing facilities are the most common covered non-emergency scenarios, always with a doctor's order.",
+          ),
+        ],
+      },
+      {
+        h2: "What you will pay",
+        blocks: [
+          p(
+            "After the $283 annual Part B deductible, Medicare pays 80 percent of the approved amount and you pay 20 percent. Ambulance charges vary by distance and level of care, and the approved amount is set by Medicare's fee schedule, not by what the company bills.",
+          ),
+          p(
+            "A Medigap plan covers the 20 percent coinsurance. Medicare Advantage plans must cover ambulance the same way, though your copay structure may differ by plan. If the ambulance company does not accept assignment, you could owe the difference between the billed charge and the Medicare-approved amount, so always ask first.",
+          ),
+        ],
+      },
+      {
+        h2: "Why claims get denied",
+        blocks: [
+          p(
+            "The most common denial is a non-emergency ride without proper certification. Medicare also denies when the destination is not appropriate, like a ride to a facility that could not provide the needed care, or when a closer facility could have handled it.",
+          ),
+          p(
+            "Air ambulance follows the same medical-necessity test with stricter review. If your claim is denied, you have appeal rights, and the denial letter explains each level. Medicare publishes local coverage rules that list exactly which diagnoses and situations qualify, and ambulance companies are supposed to check them before they bill you.",
+          ),
+        ],
+      },
+      {
+        h2: "How to protect yourself",
+        blocks: [
+          p(
+            "In a true emergency, call 911 and do not think about coverage. For anything scheduled, get the doctor's written order first and confirm the ambulance company accepts Medicare assignment. Ask whether the company will bill Medicare directly.",
+          ),
+          p(
+            "Keep every document from the trip. For recurring non-emergency trips like dialysis, a doctor's written order can be set up to cover a series of rides instead of getting one per trip. And know that Medicare never covers ambulance rides outside the United States except in rare border situations.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does Medicare cover air ambulance?",
+        a: "Yes, when medically necessary and ground transport would endanger you, such as remote locations or time-critical emergencies. The same 20 percent coinsurance applies after the deductible.",
+      },
+      {
+        q: "Does Medicare cover non-emergency ambulance rides?",
+        a: "Only with a doctor's written certification that ambulance transport is medically required. Without it, the claim is usually denied.",
+      },
+      {
+        q: "What if my ambulance claim is denied?",
+        a: "You can appeal. Start with redetermination by the Medicare contractor, and the denial notice lists every appeal level and deadline.",
+      },
+      {
+        q: "Does Medicare Advantage cover ambulance differently?",
+        a: "Advantage plans must cover what Original Medicare covers. Your cost sharing may be a flat copay instead of 20 percent, so check your plan.",
+      },
+      {
+        q: "Does Medicare cover wheelchair van or stretcher van rides?",
+        a: "No. Non-ambulance medical transport is not a Medicare benefit. If you need help getting to appointments, ask your State Health Insurance Assistance Program or local Area Agency on Aging about community transportation options.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: Ambulance services",
+        href: "https://www.medicare.gov/coverage/ambulance-services",
+      },
+      { label: CMS_PARTS_AB_SOURCE.title, href: CMS_PARTS_AB_SOURCE.url },
+    ],
+    related: [
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Does Medicare cover cataract surgery?", href: "/answers/does-medicare-cover-cataract-surgery" },
+      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+      { label: "Original Medicare or Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+    ],
+    startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
+  {
+    slug: "medicare-advantage-plan-cancelled",
+    title: "What happens if my Medicare Advantage plan gets canceled?",
+    metaTitle: "Medicare Advantage Plan Canceled? Your Options",
+    description:
+      "If your Medicare Advantage plan is discontinued, coverage ends December 31. Your enrollment options, guaranteed-issue rights, and the December 7 deadline.",
+    keyword: "what happens if my Medicare Advantage plan is canceled discontinued",
+    eyebrow: "Medicare questions, answered",
+    lede: "Your coverage ends December 31 and you must pick a new plan by December 7. The good news: cancellation gives you guaranteed-issue rights most people never get.",
+    published: "2026-10-10",
+    updated: "2026-10-10",
+    intro:
+      "If your insurer discontinues your Medicare Advantage plan, your coverage ends December 31 and you must pick a new plan during the Annual Enrollment Period, which closes December 7. Do nothing and you can land in Original Medicare with no drug coverage and no cap on your costs. The silver lining: an involuntary plan cancellation gives you a Special Enrollment Period and guaranteed-issue rights to buy a Medigap policy without medical underwriting, an option that is normally hard to get.",
+    sections: [
+      {
+        h2: "Why plans get canceled",
+        blocks: [
+          p(
+            "Insurers exit counties, merge plans, or discontinue underperforming ones every year. You will get an Annual Notice of Change each fall and a separate non-renewal notice if your plan is ending. Read both. The non-renewal notice explains your options and deadlines.",
+          ),
+          p(
+            "Plan exits have been a live story in recent years as insurers adjust their county footprints, so this is not rare. It is a business decision, not a reflection on you.",
+          ),
+        ],
+      },
+      {
+        h2: "Your timeline: act before December 7",
+        blocks: [
+          p(
+            "The Annual Enrollment Period runs October 15 to December 7. That is your main window to choose a new Advantage plan or return to Original Medicare with a drug plan. Coverage starts January 1.",
+          ),
+          p(
+            "Because your cancellation is involuntary, you also get a Special Enrollment Period that runs longer, but do not rely on it as your plan A. Choosing early gives you time to check that your doctors and drugs are covered under the new plan. Your new plan's drug formulary matters as much as the premium, so bring your prescription list when you compare.",
+          ),
+        ],
+      },
+      {
+        h2: "The Medigap guaranteed-issue right",
+        blocks: [
+          p(
+            "This is the part most people miss. When your Advantage plan ends through no fault of yours, federal rules give you guaranteed-issue rights for certain Medigap policies. That means insurers cannot deny you or charge more because of your health. No medical underwriting.",
+          ),
+          p(
+            "Outside this situation, buying Medigap after your initial open enrollment usually means underwriting, and insurers can turn you down. If you have wanted Medigap but worried about qualifying, a plan cancellation opens that door. The exact plans available depend on your state and situation.",
+          ),
+        ],
+      },
+      {
+        h2: "What happens if you do nothing",
+        blocks: [
+          p(
+            "If December 7 passes with no new plan chosen, you default to Original Medicare starting January 1, Parts A and B only. No drug coverage, no out-of-pocket cap, and the Part D late penalty clock can start if you go 63 days without creditable drug coverage.",
+          ),
+          p(
+            "You still have your Special Enrollment Period to fix it, but January without drug coverage is a bad month to have a prescription to fill. Pick something before the deadline, even if you refine the choice later.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can my Medicare Advantage plan just cancel on me?",
+        a: "Yes. Insurers can discontinue plans or exit counties each year. They must notify you in advance, and you get special enrollment rights.",
+      },
+      {
+        q: "What is guaranteed issue for Medigap?",
+        a: "It means an insurer must sell you the policy regardless of your health, with no medical underwriting and no higher premium based on health. Plan cancellations trigger this right.",
+      },
+      {
+        q: "Does the Annual Notice of Change mean my plan is canceled?",
+        a: "Not necessarily. It lists changes to your current plan for next year. A separate non-renewal notice means the plan is ending.",
+      },
+      {
+        q: "Can I switch to Original Medicare if my plan is canceled?",
+        a: "Yes. You can return to Original Medicare and add a standalone Part D plan, or use your guaranteed-issue right to add Medigap too.",
+      },
+      {
+        q: "Will I lose my doctors if my plan is canceled?",
+        a: "Not necessarily. If you join a new Advantage plan, check its provider network before enrolling. If you move to Original Medicare, you can see any doctor nationwide who accepts Medicare.",
+      },
+    ],
+    sources: [
+      {
+        label: "Medicare.gov: Joining a health or drug plan",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage",
+      },
+      { label: CMS_PARTS_AB_SOURCE.title, href: CMS_PARTS_AB_SOURCE.url },
+    ],
+    related: [
+      { label: "Build your turning-65 timeline", href: "/turning-65" },
+      { label: "Switching Medicare Advantage plans during AEP", href: "/answers/switching-medicare-advantage-plans-aep" },
+      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
+      { label: "Original Medicare or Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
+      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
+    ],
+    startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {
