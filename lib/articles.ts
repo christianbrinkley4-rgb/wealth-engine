@@ -686,7 +686,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "medicare-advantage-hmo-vs-ppo",
     title: "What is the difference between HMO and PPO Medicare Advantage plans?",
-    metaTitle: "HMO vs PPO Medicare Advantage: Which Fits Your Doctors?",
+    metaTitle: "HMO vs PPO: Which Medicare Plan Keeps Your Doctor?",
     description:
       "HMO or PPO? The real differences are your doctors, referrals, and what out-of-network care costs. A plain-English comparison for Triad neighbors.",
     keyword: "what is the difference between HMO and PPO Medicare Advantage plans",
