@@ -190,7 +190,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "are-medicare-supplement-plans-the-same",
     title: "Are Medicare Supplement plans the same no matter the company?",
-    metaTitle: "Are Medigap Plans the Same Across Companies? Plan Letters",
+    metaTitle: "Are Medigap Plans the Same From Every Company?",
     description:
       "Medigap plans are standardized by letter, so Plan G covers the same core benefits at every company. What really differs, and what to do when a notice arrives.",
     keyword: "are Medigap plans standardized by letter",
