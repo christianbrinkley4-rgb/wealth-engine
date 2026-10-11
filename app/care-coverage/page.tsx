@@ -7,7 +7,7 @@ import { pageOpenGraph } from "@/lib/seo";
 const description =
   "Talk with Christian Brinkley about long-term care, short-term care, and critical illness insurance. A no-cost consultation in the Piedmont Triad.";
 export const metadata: Metadata = {
-  title: "Care and Critical Illness Insurance",
+  title: { absolute: "Long-Term Care & Critical Illness Insurance" },
   description,
   alternates: { canonical: "/care-coverage" },
   openGraph: pageOpenGraph({
