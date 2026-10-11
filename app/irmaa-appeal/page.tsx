@@ -21,7 +21,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 
 export const metadata: Metadata = {
   title: {
-    absolute: "IRMAA Appeal: How to Lower Your Medicare Premiums | Greensboro, NC",
+    absolute: "How to Appeal IRMAA and Lower Your Medicare Premiums",
   },
   description:
     "Paying an IRMAA surcharge on your Medicare premiums? If your income dropped since retirement, Form SSA-44 lets you ask Social Security for a review. Free local help in Greensboro and the Triad.",
