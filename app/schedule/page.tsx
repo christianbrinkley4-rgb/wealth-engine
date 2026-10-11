@@ -15,7 +15,7 @@ import { pageOpenGraph } from "@/lib/seo";
 import { CalEmbedLazy } from "./CalEmbedLazy";
 
 export const metadata: Metadata = {
-  title: "Book a Free Medicare Review | Christian Brinkley",
+  title: "Book a Free Medicare Review",
   description:
     "Request a personal conversation about Medicare, life insurance, or retirement planning questions with Christian Brinkley in the Piedmont Triad.",
   alternates: { canonical: "/schedule" },
