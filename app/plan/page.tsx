@@ -18,7 +18,7 @@ import { AGENT } from "@/lib/agent";
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "Roth Conversion & Medicare Timing Planner | Greensboro" },
+  title: { absolute: "Roth Conversion Timing and Your Medicare Premiums" },
   description:
     "See what converting a retirement account all at once costs you in Medicare surcharges, against spreading it under your bracket ceiling. Official 2026 CMS tiers.",
   alternates: { canonical: "/plan" },
