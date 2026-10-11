@@ -27,7 +27,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Advantage vs Medigap: Which Is Right for You?",
+    absolute: "Medicare Advantage vs Medigap: Which Fits You Best?",
   },
   description:
     "Medicare Advantage or Medigap? The honest differences in doctors, costs, and whether you can switch later. A plain-English guide from a licensed Greensboro agent.",
