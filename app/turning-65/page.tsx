@@ -193,7 +193,7 @@ export default function Turning65Page() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Turning 65" }]}
         eyebrow="Initial Enrollment Period · Piedmont Triad"
-        title="Build your Medicare timeline before 65"
+        title="Turning 65 in Greensboro? Your Medicare Timeline"
         lede="Turning 65 in Greensboro, NC? You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered, in Greensboro, High Point, Winston-Salem, or by phone. I’ll help you understand your next steps."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon&quick=1"
         secondaryLabel="Request a consultation →"

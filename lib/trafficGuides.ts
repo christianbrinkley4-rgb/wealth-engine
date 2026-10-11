@@ -14,6 +14,8 @@ export type TrafficGuide = {
   query: string;
   opportunity: string;
   intent: "informational" | "transactional" | "navigational";
+  datePublished?: string;
+  dateModified?: string;
 };
 
 export const TRAFFIC_GUIDE_DATE = "2026-10-08";
@@ -2070,6 +2072,211 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       {
         title: "Medicare: Health plans that lower costs",
         url: "https://www.medicare.gov/basics/costs/help/medicare-lower-costs",
+      },
+    ],
+    related: [
+      { title: "Medicare Annual Enrollment", href: "/annual-enrollment" },
+      { title: "When your Medicare plan is not renewing", href: "/guides/medicare-plan-not-renewing-triad" },
+      { title: "Medicare help in the Triad", href: "/medicare" },
+    ],
+  },
+  {
+    slug: "medicare-part-b-giveback-plans",
+    title: "Medicare Part B Giveback Plans: Are They Worth It?",
+    description:
+      "Seen the TV ads about getting money back on your Part B premium? Here is what a Part B giveback really is, who qualifies, and what the ads leave out.",
+    query: "medicare part b giveback",
+    opportunity:
+      "Heavy national TV and mailer spend makes this one of the most-searched Medicare questions each fall. A plain-English, Greensboro-framed explainer with no dollar claims captures the local curiosity search without touching carrier ads.",
+    intent: "informational",
+    scope: "medicare",
+    datePublished: "2026-10-10",
+    dateModified: "2026-10-10",
+    answer:
+      "A Part B giveback is a Medicare Advantage plan benefit where the plan pays part of your monthly Part B premium for you. You must have Parts A and B, live in the plan's service area, and join a plan that offers the benefit. The amount varies by plan and county, and it is not a reason to pick a plan on its own.",
+    sections: [
+      {
+        title: "What a Part B giveback actually is",
+        body: "Every person on Medicare pays a monthly premium for Part B. Most people have it taken straight out of their Social Security check. A Part B giveback, sometimes called a Part B premium reduction, is a benefit on certain Medicare Advantage plans where the plan pays part of that Part B premium for you. You notice it as a smaller deduction from your check. It is real. It is also just one feature on one kind of plan.",
+      },
+      {
+        title: "Who qualifies",
+        body: "Three boxes to check. You must have both Medicare Part A and Part B. You must live in the plan's service area. And you must enroll in a Medicare Advantage plan that actually offers the giveback. Not every Advantage plan offers one. Some areas have several giveback plans to pick from. Some have very few. Your zip code decides what is on the table.",
+      },
+      {
+        title: "What the TV ads don't tell you",
+        body: "The ad shows a big number. Your number can be smaller. The giveback amount changes by plan and by county, so the figure on your screen might not match what your address qualifies for. The ad also skips the part that matters most. You still need your doctors in the network. You still need your prescriptions covered at a pharmacy you use. A generous giveback on a plan that does not cover your doctor is not a deal.",
+      },
+      {
+        title: "The trade-off behind the rebate",
+        body: "Plans do not give money away for fun. A plan offering a large giveback may spend less on other benefits, or it may count on lower medical costs in your county. That is fine if the whole plan fits you. It is not fine if the giveback is the only thing that looked good. Compare the full picture: what you pay at the doctor, what your prescriptions cost, which hospitals are in network, and what the yearly cap on your spending is. Then decide if the giveback sweetens the deal or just decorates it.",
+      },
+      {
+        title: "The Greensboro and Guilford County angle",
+        body: "Giveback availability and amounts are set plan by plan, county by county, and they can change every plan year. What a neighbor in Greensboro gets can differ from what someone in High Point or Winston-Salem gets, even on a plan with the same name. Never assume last year's amount carries over. During Annual Enrollment, October 15 through December 7, check what is actually available at your home address before you count on anything.",
+      },
+      {
+        title: "The bottom line, minus the hype",
+        body: "A Part B giveback is worth it when the whole plan is worth it. If your doctors are covered, your drugs are affordable, and the plan is solid for your situation, the giveback is a nice bonus. If the plan fails you anywhere else, the giveback will not make up for it. Christian can walk through the giveback plans at your Greensboro or Triad address and show you the full picture, no cost and no obligation. Or call (919) 408-6671 and bring your medication list.",
+      },
+    ],
+    comparison: {
+      caption: "The ad version vs. the fine print",
+      headers: ["What the ads suggest", "What to actually check"],
+      rows: [
+        ["One big giveback number", "The amount varies by plan and county, and your address sets yours"],
+        ["Available to everyone on Medicare", "Only on Medicare Advantage plans that offer it, with Parts A and B required"],
+        ["The giveback is the headline", "Doctors, drugs, network, and total costs matter more than the rebate"],
+        ["It is free money", "You still pay your Part B premium; the plan covers part of it"],
+      ],
+    },
+    checklist: [
+      "Confirm you have both Medicare Parts A and B.",
+      "Check which plans at your home address actually offer a giveback.",
+      "Verify your doctors and pharmacy are in the plan's network.",
+      "Look up every prescription on the plan's drug list.",
+      "Ask what the giveback amount is for your specific plan and county.",
+      "Compare total yearly costs, not just the giveback.",
+    ],
+    faqs: [
+      {
+        q: "Is the Part B giveback real money or a gimmick?",
+        a: "It is a real benefit. A Medicare Advantage plan that offers a giveback pays part of your Part B premium for you, so less comes out of your Social Security check. It is not a scam, but it is also not free money with no strings.",
+      },
+      {
+        q: "Does every Medicare Advantage plan offer a giveback?",
+        a: "No. Only some plans offer it, and availability depends on your county. Check the plan details for your address rather than assuming the plan on the commercial is available to you.",
+      },
+      {
+        q: "Will I get the amount shown in the commercial?",
+        a: "Not necessarily. The giveback amount varies by plan and by county. The figure in the ad may be the maximum any plan offers anywhere. Your plan's amount for your address is what matters.",
+      },
+      {
+        q: "Do I still have to pay my Part B premium?",
+        a: "Yes. You keep Part B and you are still responsible for the premium. The plan just covers part of it for you through the giveback.",
+      },
+      {
+        q: "Can I get a giveback if I have Original Medicare with a Medigap plan?",
+        a: "No. The giveback is a Medicare Advantage plan benefit. Original Medicare and Medigap plans do not offer Part B premium reductions.",
+      },
+      {
+        q: "Does the giveback amount stay the same every year?",
+        a: "No. Plans set their benefits each plan year, and the giveback can change or go away. Review the new amount every fall during Annual Enrollment, October 15 through December 7.",
+      },
+    ],
+    sources: [
+      {
+        title: "Medicare: Your coverage options",
+        url: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/your-coverage-options",
+      },
+      {
+        title: "Medicare: Help with health care costs",
+        url: "https://www.medicare.gov/basics/costs/help/medicare-lower-costs",
+      },
+      {
+        title: "Medicare: Find health and drug plans",
+        url: "https://www.medicare.gov/plan-compare",
+      },
+    ],
+    related: [
+      { title: "Medicare Annual Enrollment", href: "/annual-enrollment" },
+      { title: "Medicare Advantage vs Medigap in Greensboro", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
+      { title: "Medicare help in the Triad", href: "/medicare" },
+    ],
+  },
+  {
+    slug: "medicare-advantage-open-enrollment-period",
+    title: "Medicare Advantage Open Enrollment: Jan-Mar Guide",
+    description:
+      "Missed the fall deadline? If you are already in a Medicare Advantage plan, the Jan 1 through Mar 31 window gives you one more chance to switch or leave.",
+    query: "medicare advantage open enrollment",
+    opportunity:
+      "The January window drives a fresh wave of switcher intent every year, and most Triad coverage explains it in passing. A dedicated local guide ranks for the post-holiday searches when people are already sitting in a plan they dislike.",
+    intent: "informational",
+    scope: "medicare",
+    datePublished: "2026-10-10",
+    dateModified: "2026-10-10",
+    answer:
+      "The Medicare Advantage Open Enrollment Period runs January 1 through March 31 each year. It is only for people already enrolled in a Medicare Advantage plan. During it you can switch to a different Advantage plan or drop your plan and return to Original Medicare. You get one change, and it takes effect the first of the month after you enroll.",
+    sections: [
+      {
+        title: "What this window actually is",
+        body: "Every year, January 1 through March 31, Medicare gives Advantage members a second chance to fix their coverage. Call it the do-over window. You already picked a plan in the fall. If it turns out to be the wrong one, this is your one clean shot to change it without waiting until next fall.",
+      },
+      {
+        title: "Who can use it",
+        body: "Only people already enrolled in a Medicare Advantage plan when the window opens. That is the whole eligibility test. If you have Original Medicare plus a stand-alone drug plan, this window is not for you. If you are on Original Medicare and want to join an Advantage plan for the first time, you cannot do it here either. You would wait for the fall Annual Enrollment or qualify for a Special Enrollment Period.",
+      },
+      {
+        title: "The changes you are allowed to make",
+        body: "You have two choices. Switch to a different Medicare Advantage plan, with or without drug coverage. Or drop your Advantage plan and go back to Original Medicare. If you go back to Original Medicare, you can also pick up a stand-alone Part D drug plan so your prescriptions stay covered. That is it. That is the full menu.",
+      },
+      {
+        title: "What you cannot do",
+        body: "You cannot join a Medicare Advantage plan from Original Medicare during this window. You cannot change your stand-alone Part D drug plan while keeping Original Medicare. And you cannot make more than one change. The window gives you a single move. Make it count, because once you use it, it is gone until next year.",
+      },
+      {
+        title: "How it differs from fall Annual Enrollment",
+        body: "Annual Enrollment, October 15 through December 7, is for everyone. You can join, switch, or drop Advantage and drug plans freely, change your mind as many times as you want, and everything takes effect January 1. The January window is smaller. It is only for Advantage members, it allows just one change, and your new coverage starts the first of the month after the plan gets your request. Enroll in February and your new plan starts March 1.",
+      },
+      {
+        title: "The Greensboro check before you move",
+        body: "January is a good time to ask what is actually going wrong with your current plan. Did your doctor leave the network? Did a prescription get more expensive? Did the plan change something in its January letter? Triad residents can sit down with Christian and compare what is available at their address, no cost and no obligation. Free help also exists through North Carolina's SHIIP counseling program and at 1-800-MEDICARE. One warning worth knowing: if you leave Advantage for Original Medicare, a Medigap plan is not guaranteed outside your first enrollment. In most cases the insurer can ask health questions and charge you more. Check that before you switch.",
+      },
+    ],
+    comparison: {
+      caption: "Fall Annual Enrollment vs. the January Advantage window",
+      headers: ["Topic", "How they differ"],
+      rows: [
+        ["Dates", "Annual Enrollment: Oct 15 to Dec 7 | Advantage Open Enrollment: Jan 1 to Mar 31"],
+        ["Who can use it", "Annual Enrollment: Everyone on Medicare | Advantage Open Enrollment: Only current Advantage members"],
+        ["Number of changes", "Annual Enrollment: As many as you want | Advantage Open Enrollment: One"],
+        ["Joining Advantage from Original Medicare", "Annual Enrollment: Yes | Advantage Open Enrollment: No"],
+        ["When changes take effect", "Annual Enrollment: January 1 | Advantage Open Enrollment: First of the month after enrollment"],
+      ],
+    },
+    checklist: [
+      "Confirm you are currently enrolled in a Medicare Advantage plan.",
+      "List what is wrong with the current plan: doctors, drugs, costs.",
+      "Compare other Advantage plans at your home address.",
+      "Remember you only get one change, so decide before you act.",
+      "If going back to Original Medicare, line up a Part D drug plan.",
+      "Ask about Medigap underwriting before leaving your Advantage plan.",
+    ],
+    faqs: [
+      {
+        q: "I have Original Medicare. Can I use this window to join an Advantage plan?",
+        a: "No. The Medicare Advantage Open Enrollment Period is only for people already in a Medicare Advantage plan. If you have Original Medicare, you cannot use it to join an Advantage plan.",
+      },
+      {
+        q: "How many times can I change plans between January and March?",
+        a: "Once. You get a single enrollment change during the window. After you make it, you are done until the next opportunity.",
+      },
+      {
+        q: "When does my new plan start?",
+        a: "The first day of the month after the plan receives your enrollment request. If you enroll in February, coverage starts March 1.",
+      },
+      {
+        q: "If I drop my Advantage plan, can I buy a Medigap plan?",
+        a: "Maybe, but it is not guaranteed. Outside your first Medigap enrollment period, insurers in most states can use health questions and charge higher premiums. Check your Medigap options before you give up your Advantage plan.",
+      },
+      {
+        q: "What happens to my drug coverage if I leave my Advantage plan?",
+        a: "If your Advantage plan included drug coverage and you return to Original Medicare, you lose that drug coverage. You can join a stand-alone Part D plan during this same window. Do it promptly so you do not go without coverage.",
+      },
+    ],
+    sources: [
+      {
+        title: "Medicare: Special Enrollment Periods",
+        url: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods",
+      },
+      {
+        title: "Medicare: Your coverage options",
+        url: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/your-coverage-options",
+      },
+      {
+        title: "Medicare: Find health and drug plans",
+        url: "https://www.medicare.gov/plan-compare",
       },
     ],
     related: [

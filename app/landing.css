@@ -72,6 +72,14 @@
     transform: scaleX(0);
   }
 }
+.hx-subhead {
+  margin: 0.9rem 0 0;
+  font-family: var(--home-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--home-muted);
+  animation: rise-in 0.8s var(--ease-out-expo) both 0.35s;
+}
 .hx-lede {
   margin: 1.4rem 0 0;
   max-width: 34rem;

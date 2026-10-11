@@ -56,12 +56,12 @@ export const SOCIAL_PROFILES: readonly SocialProfile[] = [
   {
     network: "instagram",
     label: "Instagram",
-    url: "https://www.instagram.com/christianbrinkleync",
+    url: "https://www.instagram.com/brinkleyc4",
   },
   {
     network: "tiktok",
     label: "TikTok",
-    url: "https://www.tiktok.com/@4ssxsssia9w",
+    url: null,
   },
   {
     network: "threads",

@@ -13,8 +13,7 @@ const FACEBOOK_PROFILE =
   "https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/";
 const LINKEDIN_PROFILE = "https://www.linkedin.com/in/christianbrinkley";
 const NEXTDOOR_PROFILE = "https://nextdoor.com/page/christian-brinkley-greensboro-nc-jd6c10/";
-const INSTAGRAM_PROFILE = "https://www.instagram.com/christianbrinkleync";
-const TIKTOK_PROFILE = "https://www.tiktok.com/@4ssxsssia9w";
+const INSTAGRAM_PROFILE = "https://www.instagram.com/brinkleyc4";
 const THREADS_PROFILE = "https://www.threads.com/@christianbrinkleync";
 const YOUTUBE_PROFILE = "https://www.youtube.com/@christianbrinkleync";
 const GOOGLE_MAPS_PROFILE = "https://www.google.com/maps?cid=12304450181097673337";
@@ -61,7 +60,6 @@ describe("search discovery", () => {
     expect(profiles.map((profile) => profile.network)).toEqual([
       "facebook",
       "instagram",
-      "tiktok",
       "threads",
       "youtube",
       "linkedin",
@@ -73,7 +71,6 @@ describe("search discovery", () => {
     expect(urls).toEqual([
       FACEBOOK_PROFILE,
       INSTAGRAM_PROFILE,
-      TIKTOK_PROFILE,
       THREADS_PROFILE,
       YOUTUBE_PROFILE,
       LINKEDIN_PROFILE,
@@ -104,7 +101,6 @@ describe("search discovery", () => {
     expect(profiles.map((profile) => profile.network)).toEqual([
       "facebook",
       "instagram",
-      "tiktok",
       "threads",
       "youtube",
       "linkedin",
@@ -120,7 +116,6 @@ describe("search discovery", () => {
     }
     expect(body).toContain(FACEBOOK_PROFILE);
     expect(body).toContain(INSTAGRAM_PROFILE);
-    expect(body).toContain(TIKTOK_PROFILE);
     expect(body).toContain(LINKEDIN_PROFILE);
     expect(body).toContain(NEXTDOOR_PROFILE);
     expect(body).toContain(GOOGLE_MAPS_PROFILE);

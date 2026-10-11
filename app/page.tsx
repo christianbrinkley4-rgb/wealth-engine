@@ -160,17 +160,17 @@ export default function HomePage() {
             <p className="eyebrow hx-eyebrow">Greensboro, NC · Medicare, taxes &amp; retirement</p>
             <h1 id="hx-title" className="hx-title">
               <span className="split-line">
-                <span style={{ "--i": 0 } as React.CSSProperties}>Medicare and money,</span>
+                <span style={{ "--i": 0 } as React.CSSProperties}>Medicare Agent in</span>
               </span>{" "}
               <span className="split-line">
-                <span style={{ "--i": 1 } as React.CSSProperties}>explained by Christian Brinkley,</span>
-              </span>{" "}
-              <span className="split-line">
-                <span style={{ "--i": 2 } as React.CSSProperties}>
-                  <em>who serves here.</em>
+                <span style={{ "--i": 1 } as React.CSSProperties}>
+                  <em>Greensboro, NC</em>
                 </span>
               </span>
             </h1>
+            <p className="hx-subhead">
+              Medicare and money, explained by Christian Brinkley, who serves here.
+            </p>
             <p className="hx-lede">
               I’m <Link href="/about" ctaLocation="hero">Christian Brinkley</Link>, a licensed insurance agent in Greensboro. I help people
               turning 65, people already on Medicare, and their kids figure out what to do next.

@@ -39,8 +39,8 @@ export default async function TrafficGuidePage({ params }: Props) {
       alternativeHeadline: [guide.query],
       description: guide.description,
       path,
-      datePublished: TRAFFIC_GUIDE_DATE,
-      dateModified: TRAFFIC_GUIDE_DATE,
+      datePublished: guide.datePublished ?? TRAFFIC_GUIDE_DATE,
+      dateModified: guide.dateModified ?? TRAFFIC_GUIDE_DATE,
     }),
     breadcrumbJsonLd([
       { name: "Home", path: "/" },
