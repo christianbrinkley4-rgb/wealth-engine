@@ -57,7 +57,7 @@ export async function generateMetadata({
   const city = getTriadCity(slug);
   if (!city) return {};
 
-  const title = `Medicare Agent in ${city.name}, NC | Christian Brinkley`;
+  const title = `${city.name} Medicare Agent | Christian Brinkley`;
   // Kept under the ~160 character cutoff Google truncates at.
   const description =
     `Live in ${city.name}? Get free Medicare help from a licensed local agent. ` +
