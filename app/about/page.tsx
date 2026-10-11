@@ -8,7 +8,7 @@ import { LeadCluster } from "@/app/components/LeadCluster";
 import { AGENT, COMPENSATION_DISCLOSURE, hasPublishableNpn, publishedProfiles } from "@/lib/agent";
 import { breadcrumbJsonLd, pageOpenGraph, SITE_URL } from "@/lib/seo";
 
-const title = "Christian Brinkley | Licensed Insurance Agent in Greensboro";
+const title = "About Christian Brinkley: Medicare Agent in Greensboro";
 const description =
   "Meet Christian Brinkley, a licensed NC insurance agent in Greensboro. Real person, real help with Medicare, no call centers. Call or text (919) 408-6671.";
 
