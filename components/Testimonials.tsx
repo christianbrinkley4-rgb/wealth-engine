@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import Link from "next/link";
 
+import { TestimonialCarousel } from "@/components/story/TestimonialCarousel";
 import { GOOGLE_REVIEWS, TESTIMONIALS } from "@/lib/testimonials";
 
 /**
@@ -45,22 +46,7 @@ export function Testimonials() {
           ) : null}
         </div>
 
-        <ul className="home-quotes">
-          {TESTIMONIALS.map((item) => (
-            <li key={`${item.name}-${item.quote.slice(0, 24)}`}>
-              <figure>
-                <span className="home-quote-mark" aria-hidden>
-                  “
-                </span>
-                <blockquote>{item.quote}</blockquote>
-                <figcaption>
-                  <strong>{item.name}</strong> · {item.location}
-                  {item.context ? ` · ${item.context}` : ""}
-                </figcaption>
-              </figure>
-            </li>
-          ))}
-        </ul>
+        <TestimonialCarousel items={TESTIMONIALS} />
         <p className="home-reviews-ask">
           Worked with me?{" "}
           <Link href="/review">Leave a review</Link>

@@ -500,3 +500,18 @@ export function howToJsonLd(input: {
     })),
   };
 }
+
+/**
+ * Speakable selectors must match text that is actually on the page.
+ * The service hero title and lede are the lines a voice assistant can read.
+ */
+export function speakableJsonLd(cssSelector: readonly string[] = [".sh-title", ".sh-lede"]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [...cssSelector],
+    },
+  };
+}

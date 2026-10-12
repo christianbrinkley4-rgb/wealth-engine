@@ -77,7 +77,7 @@ export function ServiceHero({
           <h1 className="sh-title">{title}</h1>
           <p className="sh-lede">{lede}</p>
 
-          <div className="sh-actions">
+          <div className="sh-actions" id="page-hero-actions">
             {!hidePhoneCta && (
               <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light">
                 <Phone size={19} aria-hidden />

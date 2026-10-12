@@ -17,12 +17,22 @@ import { ArrowLeft, CheckCircle2, Phone } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { trackLeadOnce } from "@/app/components/Analytics";
+import { useQuizTracking } from "@/hooks/useQuizTracking";
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
+import {
+  assignQuizVariant,
+  captureButtonLabel,
+  questionsForVariant,
+  quizVariantCookie,
+  readQuizVariantCookie,
+  resultButtonLabel,
+  type QuizVariant,
+} from "@/lib/quizExperiment";
 import {
   aepQuizPayload,
   aepQuizResult,
   aepQuizTier,
-  AEP_QUIZ_QUESTIONS,
   type AepQuizAnswers,
   type AepQuizResult,
 } from "@/lib/aepQuiz";
@@ -145,6 +155,8 @@ export function AepQuiz() {
   const [answers, setAnswers] = useState<AepQuizAnswers>({});
   const [index, setIndex] = useState(0);
   const [result, setResult] = useState<AepQuizResult | null>(null);
+  const [variant, setVariant] = useState<QuizVariant | null>(null);
+  const tracking = useQuizTracking("aep");
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -157,6 +169,14 @@ export function AepQuiz() {
 
   const headingRef = useRef<HTMLHeadingElement>(null);
   const { containerRef, getToken, reset, widgetError } = useTurnstile(phase === "capture");
+  const questions = questionsForVariant(variant ?? "a", answers);
+  const question = questions[index];
+
+  useEffect(() => {
+    const assigned = assignQuizVariant(readQuizVariantCookie(document.cookie));
+    if (assigned.isNew) document.cookie = quizVariantCookie(assigned.variant);
+    setVariant(assigned.variant);
+  }, []);
 
   // Move focus to the new question so screen reader and keyboard users are
   // not stranded after each step.
@@ -164,24 +184,22 @@ export function AepQuiz() {
     headingRef.current?.focus();
   }, [phase, index]);
 
-  const question = AEP_QUIZ_QUESTIONS[index];
-  const isLast = index >= AEP_QUIZ_QUESTIONS.length - 1;
-
   function answer(value: boolean) {
+    if (!question) return;
+    tracking.start();
     const next = { ...answers, [question.id]: value };
     setAnswers(next);
     setError(null);
-    if (isLast) {
-      setPhase("capture");
-    } else {
-      setIndex(index + 1);
-    }
+    tracking.step(index + 1);
+    const upcoming = questionsForVariant(variant ?? "a", next);
+    if (index + 1 >= upcoming.length) setPhase("capture");
+    else setIndex(index + 1);
   }
 
   function goBack() {
     if (phase === "capture") {
       setPhase("questions");
-      setIndex(AEP_QUIZ_QUESTIONS.length - 1);
+      setIndex(Math.max(0, questionsForVariant(variant ?? "a", answers).length - 1));
       return;
     }
     if (phase === "questions" && index > 0) setIndex(index - 1);
@@ -250,6 +268,9 @@ export function AepQuiz() {
         return;
       }
       // The result is revealed only after the lead is captured.
+      // Same event id as the server event, so Meta counts one lead.
+      trackLeadOnce(eventId, "medicare");
+      tracking.complete();
       setResult(aepQuizResult(aepQuizTier(answers)));
       setPhase("result");
     } catch {
@@ -259,7 +280,7 @@ export function AepQuiz() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[640px]">
+    <div className="mx-auto w-full max-w-[640px]" data-quiz-variant={variant}>
       {(phase === "questions" && index > 0) || phase === "capture" ? (
         <button
           type="button"
@@ -271,23 +292,27 @@ export function AepQuiz() {
         </button>
       ) : null}
 
-      {phase === "questions" ? (
+      {variant === null ? (
+        <p className="text-18 text-[var(--color-ink-muted)]">Loading the questions.</p>
+      ) : null}
+
+      {variant !== null && phase === "questions" && question ? (
         <section aria-labelledby="aep-quiz-heading">
           <div
             className="mb-8 h-3 overflow-hidden rounded-full bg-[rgba(21,46,52,0.08)]"
             role="progressbar"
             aria-valuemin={1}
-            aria-valuemax={AEP_QUIZ_QUESTIONS.length}
+            aria-valuemax={questions.length}
             aria-valuenow={index + 1}
-            aria-label={`Question ${index + 1} of ${AEP_QUIZ_QUESTIONS.length}`}
+            aria-label={`Question ${index + 1} of ${questions.length}`}
           >
             <div
               className="h-full rounded-full bg-[var(--color-navy)] transition-all duration-200 ease-out"
-              style={{ width: `${((index + 1) / AEP_QUIZ_QUESTIONS.length) * 100}%` }}
+              style={{ width: `${questions.length ? ((index + 1) / questions.length) * 100 : 0}%` }}
             />
           </div>
           <p className="text-16 font-medium text-[var(--color-ink-muted)]" aria-live="polite">
-            Question {index + 1} of {AEP_QUIZ_QUESTIONS.length}
+            Question {index + 1} of {questions.length}
           </p>
           <h2
             id="aep-quiz-heading"
@@ -452,7 +477,7 @@ export function AepQuiz() {
               disabled={sending}
               className="text-18 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] disabled:cursor-not-allowed disabled:opacity-70 disabled:transform-none"
             >
-              {sending ? "Sending…" : "Show my result"}
+              {sending ? "Sending…" : captureButtonLabel(variant ?? "a")}
             </button>
             <p className="text-15 text-center text-[var(--color-ink-muted)]">
               Or call{" "}
@@ -503,7 +528,7 @@ export function AepQuiz() {
             href={result.ctaHref}
             className="text-18 mt-8 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
           >
-            {result.ctaLabel} →
+            {resultButtonLabel(variant ?? "a", result.ctaLabel)} →
           </Link>
           <p className="text-16 mt-3 text-center text-[var(--color-ink-muted)]">
             Prefer to talk it through?{" "}

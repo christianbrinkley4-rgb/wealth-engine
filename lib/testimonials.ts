@@ -45,6 +45,12 @@ export interface Testimonial {
   location: string;
   /** What they came to you about. Keeps it concrete. */
   context?: string;
+  /** The specific thing that mattered, in their words. Optional. */
+  benefit?: string;
+  /** Whole stars, only when the person actually gave a rating. */
+  rating?: 1 | 2 | 3 | 4 | 5;
+  /** A photo they agreed to publish. Leave unset and the card shows an initial. */
+  photoSrc?: string;
 }
 
 export const TESTIMONIALS: Testimonial[] = [

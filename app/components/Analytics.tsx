@@ -79,7 +79,17 @@ declare global {
   }
 }
 
-/** Fire the Lead conversion. Called from the thank-you page. */
+/** A phone tap. Standard Contact event, with no name or number attached. */
+export function trackMetaContact() {
+  if (typeof window === "undefined") return;
+  try {
+    window.fbq?.("track", "Contact");
+  } catch {
+    // A blocked pixel must never break the page.
+  }
+}
+
+/** Fire the Lead conversion. Called from the thank-you page and a finished quiz. */
 export function trackLead(eventId: string, topic?: string) {
   if (typeof window === "undefined") return;
   if (!META_ADS_ALLOWED && !GA4_ID && !GOOGLE_ADS_ID && !NEXTDOOR_PIXEL_ID) return;
@@ -162,6 +172,7 @@ export function Analytics() {
         trackEvent("phone_click", {
           cta_location: link.getAttribute("data-cta-location") as CtaLocation,
         });
+        trackMetaContact();
       }
       // Plain anchors to the three contact pages. TrackedLink marks its own
       // anchors with a location attribute, so a tap is never counted twice.

@@ -1,3 +1,6 @@
+import { AepCountdown } from "@/components/story/AepCountdown";
+import { PullQuote } from "@/components/story/PullQuote";
+import { ScrollReveal } from "@/components/story/ScrollReveal";
 import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import type { Metadata } from "next";
@@ -178,23 +181,11 @@ export default function AnnualEnrollmentPage() {
         eyebrow="October 15 to December 7 · Piedmont Triad"
         title="Review your Medicare coverage for next year"
         lede="Medicare Annual Enrollment runs October 15 through December 7, 2026. During this window you can join, switch, or drop Medicare Advantage and Part D plans, with changes taking effect January 1, 2027. Your current plan renews automatically, but premiums, drug lists, and doctor networks change every year, so a review is worth your time."
-        secondaryHref="/start?topic=medicare&stage=already_on_medicare&quick=1"
-        secondaryLabel="Review my coverage →"
+        secondaryHref="/aep-quiz"
+        secondaryLabel="Take the 2-minute quiz"
       />
 
-      {/* Seasonal: funnel evergreen readers to the AEP booking page while the window is open. */}
-      <section className="bg-[var(--color-navy)] py-10">
-        <div className="measure-prose app-shell max-w-3xl">
-          <p className="text-17 leading-relaxed text-[var(--color-paper)]">
-            <strong className="font-semibold">Annual Enrollment is open now through December 7.</strong>{" "}
-            If you want a free review of your plan before the deadline,{" "}
-            <Link href="/aep" className="font-semibold underline underline-offset-2">
-              book your fall review here
-            </Link>
-            .
-          </p>
-        </div>
-      </section>
+      <AepCountdown />
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -289,6 +280,7 @@ export default function AnnualEnrollmentPage() {
       </section>
 
       <section className="bg-[var(--color-paper)] py-14">
+        <ScrollReveal>
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The twenty-minute version</h2>
           <ol className="mt-8 flex flex-col gap-6">
@@ -306,7 +298,12 @@ export default function AnnualEnrollmentPage() {
               </li>
             ))}
           </ol>
+          <PullQuote>
+            Your current plan renews automatically, but premiums, drug lists, and doctor networks
+            change every year.
+          </PullQuote>
         </div>
+        </ScrollReveal>
       </section>
 
       <section className="bg-[var(--color-paper)] py-14">

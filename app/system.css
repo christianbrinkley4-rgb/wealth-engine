@@ -641,10 +641,129 @@ p {
   color: var(--cream-50);
   border: 1px solid rgba(251, 248, 241, 0.28);
 }
+.scta-dismiss {
+  position: absolute;
+  top: -0.55rem;
+  right: -0.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--cream-50);
+  color: var(--pine-950);
+  box-shadow: 0 6px 16px -8px rgba(11, 33, 29, 0.6);
+}
 @media (min-width: 768px) {
   .scta {
     display: none;
   }
+}
+
+.aep-countdown {
+  background: var(--pine-950);
+  color: var(--cream-50);
+  padding: 2.25rem 0;
+}
+.aep-countdown-kicker {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.aep-countdown-message {
+  margin: 0.6rem 0 0;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  font-weight: 700;
+  max-width: 28ch;
+}
+.aep-countdown-note,
+.aep-countdown-action {
+  margin: 0.85rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.aep-countdown a {
+  color: inherit;
+  font-weight: 700;
+  text-underline-offset: 0.18em;
+}
+
+.pull-quote {
+  margin: 2rem 0 0;
+  padding: 1.25rem 0 1.25rem 1.25rem;
+  border-left: 4px solid var(--honey-500);
+}
+.pull-quote blockquote {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  font-weight: 650;
+  color: var(--pine-950);
+}
+.pull-quote figcaption {
+  margin-top: 0.6rem;
+  color: var(--ink-muted);
+}
+
+.t-carousel {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.25rem 0 0.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  list-style: none;
+}
+.t-carousel > li {
+  flex: 0 0 min(100%, 22rem);
+  scroll-snap-align: start;
+}
+.t-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  margin: 0;
+  padding: 1.25rem;
+  border: 1px solid rgba(11, 33, 29, 0.12);
+  border-radius: 1.25rem;
+  background: var(--cream-50);
+}
+.t-photo {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 999px;
+  object-fit: cover;
+}
+.t-photo-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--pine-900);
+  color: var(--cream-50);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.t-stars {
+  display: inline-flex;
+  gap: 0.15rem;
+  color: var(--honey-500);
+}
+.t-card blockquote {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+.t-card figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  margin-top: auto;
 }
 
 /* ─── Footer ──────────────────────────────────────────────────────────── */
