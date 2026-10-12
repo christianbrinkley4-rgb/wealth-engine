@@ -169,7 +169,7 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="hx-subhead">
-              Medicare and money, explained by Christian Brinkley, who serves here.
+              Turning 65 or reviewing your coverage? Get help from a local agent who answers his own phone. Free.
             </p>
             <p className="hx-lede">
               I’m <Link href="/about" ctaLocation="hero">Christian Brinkley</Link>, a licensed insurance agent in Greensboro. I help people
