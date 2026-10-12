@@ -177,7 +177,7 @@ export default function AnnualEnrollmentPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment" }]}
         eyebrow="October 15 to December 7 · Piedmont Triad"
         title="Review your Medicare coverage for next year"
-        lede="A yearly review can help you make sure your Medicare coverage still fits. We’ll sit down in Greensboro, High Point, or Winston-Salem, or talk by phone, and look at next year’s costs, prescriptions, and doctors before you decide whether to keep your plan or make a change."
+        lede="Medicare Annual Enrollment runs October 15 through December 7, 2026. During this window you can join, switch, or drop Medicare Advantage and Part D plans, with changes taking effect January 1, 2027. Your current plan renews automatically, but premiums, drug lists, and doctor networks change every year, so a review is worth your time."
         secondaryHref="/start?topic=medicare&stage=already_on_medicare&quick=1"
         secondaryLabel="Review my coverage →"
       />
@@ -197,6 +197,98 @@ export default function AnnualEnrollmentPage() {
       </section>
 
       <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">What is different this year</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Three regulatory changes are worth knowing before you compare plans for 2027.
+          </p>
+          <div className="mt-6 flex flex-col gap-5">
+            <div className="border-t border-gray-300 pt-5">
+              <h3 className="text-19 font-semibold">Star Ratings overhaul from CMS</h3>
+              <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                The Centers for Medicare and Medicaid Services finalized a rule in April 2026 that
+                removes 11 Star Ratings measures for 2027. Star Ratings score plans from 1 to 5 and
+                affect bonus payments to insurers, so this reshuffles which plans look strong on
+                paper. A 4-star plan this year might rate differently next year for reasons that have
+                nothing to do with your care.{" "}
+                <a
+                  href="https://www.cms.gov/newsroom/fact-sheets/final-policies-calendar-year-2027-medicare-advantage-and-part-d-and-medicare-medicaid"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium underline underline-offset-2"
+                >
+                  CMS final rule fact sheet
+                </a>
+                .
+              </p>
+            </div>
+            <div className="border-t border-gray-300 pt-5">
+              <h3 className="text-19 font-semibold">Looser marketing rules starting October 1</h3>
+              <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                CMS relaxed some Medicare marketing rules effective October 1, 2026, which means you
+                may get more calls, mail, and TV ads than in past years. You do not have to respond
+                to any of them. Start with your current plan and your own needs.
+              </p>
+            </div>
+            <div className="border-t border-gray-300 pt-5">
+              <h3 className="text-19 font-semibold">New flexibility if your doctor leaves mid-year</h3>
+              <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
+                If your doctor leaves your plan's network during the year, you now have more options
+                to switch plans outside the fall window. This matters in the Triad, where Cone Health,
+                Novant, and Atrium Health Wake Forest Baptist contracting changes can move a lot of
+                doctors at once.
+              </p>
+            </div>
+          </div>
+          <h2 className="text-28 font-semibold mt-12">Key dates for 2026 to 2027</h2>
+          <table className="mt-6 w-full text-left text-17">
+            <thead>
+              <tr className="border-b border-gray-300">
+                <th className="py-3 pr-4 font-semibold">Milestone</th>
+                <th className="py-3 font-semibold">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-gray-200">
+                <td className="py-3 pr-4">Annual Notice of Change mailed</td>
+                <td className="py-3">By September 30, 2026</td>
+              </tr>
+              <tr className="border-b border-gray-200">
+                <td className="py-3 pr-4">Annual Enrollment opens</td>
+                <td className="py-3">October 15, 2026</td>
+              </tr>
+              <tr className="border-b border-gray-200">
+                <td className="py-3 pr-4">Annual Enrollment closes</td>
+                <td className="py-3">December 7, 2026</td>
+              </tr>
+              <tr className="border-b border-gray-200">
+                <td className="py-3 pr-4">New coverage starts</td>
+                <td className="py-3">January 1, 2027</td>
+              </tr>
+              <tr className="border-b border-gray-200">
+                <td className="py-3 pr-4">Medicare Advantage Open Enrollment</td>
+                <td className="py-3">January 1 to March 31, 2027</td>
+              </tr>
+              <tr>
+                <td className="py-3 pr-4">2027 Part B premium announced</td>
+                <td className="py-3">November 2026 (CMS)</td>
+              </tr>
+            </tbody>
+          </table>
+          <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
+            For 2026, the standard Part B premium is{" "}
+            <strong className="font-semibold">$202.90 per month</strong> with a{" "}
+            <strong className="font-semibold">$283 annual deductible</strong>, per CMS. The 2027
+            figures are announced each fall. See{" "}
+            <Link href="/medicare-costs-2026" className="font-medium underline underline-offset-2">
+              what Medicare costs in 2026
+            </Link>{" "}
+            for the full breakdown.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The twenty-minute version</h2>
           <ol className="mt-8 flex flex-col gap-6">
@@ -301,6 +393,12 @@ export default function AnnualEnrollmentPage() {
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
+        <p className="text-sm text-gray-600">
+          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated October 2026.
+        </p>
+        <p className="text-sm text-gray-600">
+          Sources: <a href="https://www.medicare.gov" className="underline underline-offset-2" target="_blank" rel="noopener">Medicare.gov</a>, <a href="https://www.cms.gov" className="underline underline-offset-2" target="_blank" rel="noopener">CMS.gov</a>
+        </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
     <TrafficGuideLinks slugs={["medicare-plan-not-renewing-triad", "medicare-dual-eligible-snp-triad", "medicare-part-b-giveback-plans", "medicare-advantage-open-enrollment-period"]} />

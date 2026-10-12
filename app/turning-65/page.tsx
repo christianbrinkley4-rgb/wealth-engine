@@ -194,7 +194,7 @@ export default function Turning65Page() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Turning 65" }]}
         eyebrow="Initial Enrollment Period · Piedmont Triad"
         title="Turning 65 in Greensboro? Your Medicare Timeline"
-        lede="Turning 65 in Greensboro, NC? You don’t have to sort out Medicare on your own. We can review when to enroll, how your current coverage fits, and the doctors and prescriptions you want covered, in Greensboro, High Point, Winston-Salem, or by phone. I’ll help you understand your next steps."
+        lede="Your Initial Enrollment Period is 7 months: the 3 months before the month you turn 65, your birthday month, and the 3 months after. Enroll in the first 3 months to avoid coverage gaps. Below is the full timeline, the Part B late penalty explained, and the local resources in Greensboro, High Point, and Winston-Salem that make this easier."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon&quick=1"
         secondaryLabel="Request a consultation →"
         note={
@@ -463,6 +463,12 @@ export default function Turning65Page() {
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
+        <p className="text-sm text-gray-600">
+          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated October 2026.
+        </p>
+        <p className="text-sm text-gray-600">
+          Sources: <a href="https://www.medicare.gov" className="underline underline-offset-2" target="_blank" rel="noopener">Medicare.gov</a>, <a href="https://www.cms.gov" className="underline underline-offset-2" target="_blank" rel="noopener">CMS.gov</a>
+        </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
     </main>
