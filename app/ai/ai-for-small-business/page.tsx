@@ -85,7 +85,7 @@ export default function AiForSmallBusinessPage() {
           { name: "AI for small business" },
         ]}
         eyebrow="AI guides · Small business"
-        title="AI for small business"
+        title="AI for Small Business"
         lede="I run a one-person business on AI help every day, and it is the reason I can do the work of three people. Here is what actually works, and where the limits are."
         secondaryHref="/wealth"
         secondaryLabel="Browse the wealth notes →"

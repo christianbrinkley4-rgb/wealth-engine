@@ -130,7 +130,7 @@ export default function AiToolsComparedPage() {
           { name: "AI tools compared" },
         ]}
         eyebrow="AI guides · Tool comparison"
-        title="AI tools compared honestly"
+        title="AI Tools Compared Honestly"
         lede="You have heard five names and have no idea which one to open. Five chatbots, no single winner. Here is what ChatGPT, Claude, Gemini, Copilot, and Perplexity actually do well, where each falls short, and what each costs. No hype, no affiliate links."
         secondaryHref="/ai/which-ai-for-which-task"
         secondaryLabel="Which AI for which task →"

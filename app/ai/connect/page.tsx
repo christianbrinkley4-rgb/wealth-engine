@@ -101,7 +101,7 @@ export default function AiConnectPage() {
           { name: "Connect your AI assistant" },
         ]}
         eyebrow="AI guides · Connectors"
-        title="Connect your AI assistant"
+        title="Connect Your AI Assistant"
         lede="Your AI app can read this site directly instead of guessing about it. One setup step, then it answers from the actual guides, calculators, and 2027 numbers."
         secondaryHref="/ai"
         secondaryLabel="Back to the AI guides →"

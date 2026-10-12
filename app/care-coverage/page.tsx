@@ -46,7 +46,7 @@ export default function CareCoveragePage() {
       <section className="personal-hero personal-section personal-shell">
         <p className="personal-eyebrow">FOR THE PEOPLE WHO MATTER TO YOU</p>
         <h1>
-          Let’s talk about care,
+          Let's talk about care,
           <br />
           <em>before you have to arrange it.</em>
         </h1>

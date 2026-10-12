@@ -85,7 +85,7 @@ export default function AiForJobSearchPage() {
           { name: "AI for job search" },
         ]}
         eyebrow="AI guides · Job search"
-        title="AI for job search"
+        title="AI for Job Search"
         lede="You are staring at a job posting and a blank resume, wondering where to start. AI can sharpen your resume and your interview answers. It cannot invent experience you do not have. Here is how to use it well."
         secondaryHref="/wealth"
         secondaryLabel="Browse the wealth notes →"

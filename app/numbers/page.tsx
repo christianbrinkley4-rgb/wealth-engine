@@ -101,7 +101,7 @@ export default function NumbersHubPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Money numbers" }]}
         eyebrow={`Updated ${LAST_UPDATED_LABEL} · Sourced from the IRS, SSA, and CMS`}
-        title="The 2026-2027 money numbers"
+        title="2026-2027 Money Numbers at a Glance"
         lede="You have googled the same number three times this year and gotten three different answers. One page with the figures everyone looks up: tax brackets, retirement and HSA limits, Social Security, and Medicare costs. Every number is tied to a named source, and a 2027 cell says &quot;Not yet announced&quot; instead of guessing. Share it, cite it, print it."
         secondaryHref="/start?topic=retirement"
         secondaryLabel="Ask about your numbers →"

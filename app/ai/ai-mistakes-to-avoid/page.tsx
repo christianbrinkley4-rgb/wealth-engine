@@ -85,7 +85,7 @@ export default function AiMistakesToAvoidPage() {
           { name: "AI mistakes to avoid" },
         ]}
         eyebrow="AI guides · Mistakes to avoid"
-        title="AI mistakes to avoid"
+        title="AI Mistakes to Avoid"
         lede="The fastest way to get burned by AI is to trust it like a person. These are the three mistakes that hurt people, and the simple fix for each one."
         secondaryHref="/wealth"
         secondaryLabel="Browse the wealth notes →"

@@ -195,7 +195,7 @@ export default function MedicareTownsHubPage() {
           { name: "Towns we serve" },
         ]}
         eyebrow="Service area · free Medicare reviews"
-        title="Medicare help in your town."
+        title="Medicare Help Across North Carolina Towns"
         lede="I'm Christian Brinkley, a licensed insurance agent based in Greensboro and raised in Creedmoor. I help folks across the Piedmont Triad and the surrounding counties understand their Medicare options. Pick your town below for local notes, or start with the 90-second plan check."
         secondaryHref="/plan-check"
         secondaryLabel="Take the 90-second plan check →"

@@ -88,7 +88,7 @@ export default function AiMoneyTasksPage() {
           { name: "AI for money tasks" },
         ]}
         eyebrow="AI guides · Money tasks"
-        title="AI for money tasks"
+        title="AI for Money Tasks"
         lede="It is tempting to paste your bank statement into a chatbot and ask what to do. AI can help you understand your money better. It cannot give you personal financial advice. Here is where the line is."
         secondaryHref="/wealth"
         secondaryLabel="Browse the wealth notes →"

@@ -102,7 +102,7 @@ export default function AiForSeniorsPage() {
           { name: "AI for seniors" },
         ]}
         eyebrow="AI guides · Seniors"
-        title="AI for seniors"
+        title="AI for Seniors"
         lede="Your grandkids talk about it like it is obvious, and every explanation assumes you already know the basics. You do not need to be technical to use AI. If you can ask a question in plain words, you can use it. Here are the simplest starting points."
         secondaryHref="/wealth"
         secondaryLabel="Browse the wealth notes →"

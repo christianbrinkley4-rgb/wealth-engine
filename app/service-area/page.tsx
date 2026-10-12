@@ -60,7 +60,7 @@ export default function ServiceAreaPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Service area" }]}
         eyebrow={SERVICE_AREA_LABEL}
-        title="Personal help close to home."
+        title="Where I Help: Greensboro, the Triad, and Granville County"
         lede="Whether you’re getting ready to retire or already enjoying retirement, I’m here to help you understand your Medicare and insurance options. I serve Greensboro, High Point, Winston-Salem, and nearby communities, including Kernersville, Summerfield, Jamestown, Oak Ridge, and Archdale."
         secondaryHref="/start"
         secondaryLabel="Request a free consultation →"

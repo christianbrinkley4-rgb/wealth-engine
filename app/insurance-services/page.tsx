@@ -50,7 +50,7 @@ export default function InsuranceServicesPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Insurance services" }]}
         eyebrow="Greensboro, North Carolina"
-        title="Insurance help in Greensboro, NC."
+        title="Insurance Help in Greensboro, NC"
         lede="I'm Christian Brinkley, a licensed NC Life & Health insurance agent in Greensboro. Start with your question, then see what we can review together."
         secondaryHref="#services"
         secondaryLabel="Explore my services"

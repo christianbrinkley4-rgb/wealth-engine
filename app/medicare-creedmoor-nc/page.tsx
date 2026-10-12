@@ -115,7 +115,7 @@ export default function MedicareCreedmoorPage() {
           { name: "Medicare help in Creedmoor, NC" },
         ]}
         eyebrow="Medicare help · Creedmoor and Granville County"
-        title="Your neighbor for Medicare questions."
+        title="Medicare Help in Creedmoor, NC"
         lede="I'm Christian Brinkley, a licensed insurance agent, and I grew up right here in Creedmoor. I help folks in Creedmoor, Oxford, Butner, and Stem understand their Medicare options with free, no-pressure reviews. No call centers, no scripts, just a local who'll sit down with you and explain it straight."
         secondaryHref="/start"
         secondaryLabel="Book my free review →"
