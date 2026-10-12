@@ -50,6 +50,7 @@ const STATIC_ROUTES: Array<{
   { path: "/medicare-liberty-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
   { path: "/medicare-ramseur-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
   { path: "/medicare-agent-high-point-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
+  { path: "/medicare-agent-greensboro-nc", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-12" },
   { path: "/medicare-agent-winston-salem-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
   { path: "/medicare-agent-kernersville-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
   { path: "/medicare-agent-burlington-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
