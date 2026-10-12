@@ -235,72 +235,6 @@ export function localBusinessJsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebSite",
-        "@id": `${SITE_URL}/#website`,
-        url: SITE_URL,
-        name: SITE_NAME,
-        description:
-          "Medicare, life insurance, and retirement help from a licensed insurance agent in Greensboro, North Carolina, serving the Piedmont Triad.",
-        inLanguage: "en-US",
-        about: { "@id": `${SITE_URL}/#christian` },
-        publisher: { "@id": `${SITE_URL}/#christian` },
-      },
-      {
-        "@type": "Person",
-        "@id": `${SITE_URL}/#christian`,
-        name: SITE_OWNER,
-        jobTitle: "Licensed Insurance Agent",
-        ...(hasPublishableNpn() ? { identifier: { "@type": "PropertyValue", propertyID: "NPN", value: AGENT.npn } } : {}),
-        hasOccupation: {
-          "@type": "Occupation",
-          name: "Insurance Agent",
-          occupationLocation: {
-            "@type": "City",
-            name: SITE_LOCALITY,
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: SITE_LOCALITY,
-              addressRegion: SITE_REGION,
-              addressCountry: "US",
-            },
-          },
-        },
-        description:
-          `${SITE_OWNER} is a licensed insurance agent in ${SITE_LOCALITY}, ` +
-          `${SITE_REGION}, and an accounting senior at UNC Greensboro ` +
-          "(graduating December 2026). " +
-          "He helps individuals and families with Medicare, life insurance, care coverage, " +
-          "and annuities, and works with an advisor for financial planning.",
-        image: `${SITE_URL}/christian-brinkley.jpg`,
-        telephone: SITE_OWNER_PHONE,
-        email: SITE_OWNER_EMAIL,
-        ...(sameAs ? { sameAs } : {}),
-        url: `${SITE_URL}/about`,
-        // Topics covered on the site; these do not assert additional credentials.
-        knowsAbout: [
-          "Medicare",
-          "Medicare Part B premiums",
-          "IRMAA income-related monthly adjustment amount",
-          "Medicare Initial Enrollment Period",
-          "Medicare Annual Enrollment Period",
-          "Medicare Advantage open enrollment",
-          "Medigap open enrollment",
-          "Medicare Advantage networks",
-          "Turning 65 Medicare enrollment",
-          "Life insurance",
-          "Term life insurance",
-          "Long-term care insurance",
-          "Short-term care insurance",
-          "Critical illness insurance",
-          "Annuities",
-          "Roth conversions and Medicare premiums",
-          "Social Security Form SSA-44",
-          "Retirement income planning",
-          "401(k) rollover tax timing",
-        ],
-        address,
-      },
-      {
         "@type": "ProfessionalService",
         "@id": `${SITE_URL}/#service`,
         name: SITE_NAME,
@@ -350,6 +284,14 @@ export function localBusinessJsonLd() {
         ],
         knowsLanguage: "en-US",
         telephone: SITE_OWNER_PHONE,
+        // Service-area business: coordinates are Greensboro city center,
+        // honest for where he serves, not a fake storefront address.
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 36.0726,
+          longitude: -79.7920,
+        },
+        priceRange: "Free consultation",
         email: SITE_OWNER_EMAIL,
         ...(sameAs ? { sameAs } : {}),
         ...(googleMap ? { hasMap: googleMap } : {}),

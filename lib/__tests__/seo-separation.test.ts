@@ -20,10 +20,11 @@ describe("search identity and service discovery", () => {
     expect(organization?.logo).toBeTruthy();
     expect(organization?.telephone).toBeTruthy();
     const person = shared["@graph"].find((entity) => entity["@type"] === "Person");
-    const insurancePerson = insurance["@graph"].find((entity) => entity["@type"] === "Person");
-    expect(person?.["@id"]).toBe(insurancePerson?.["@id"]);
-    expect(person?.sameAs).toEqual(insurancePerson?.sameAs);
-    expect(insurance["@graph"].some((entity) => entity["@type"] === "ProfessionalService")).toBe(true);
+    // localBusinessJsonLd carries only the ProfessionalService node now;
+    // Person and WebSite live in siteIdentityJsonLd to avoid duplicate @ids.
+    expect(insurance["@graph"].map((entity) => entity["@type"])).toEqual(["ProfessionalService"]);
+    const service = insurance["@graph"].find((entity) => entity["@type"] === "ProfessionalService");
+    expect(service?.provider?.["@id"]).toBe(person?.["@id"]);
   });
 
   it("connects wealth articles and calculators to education rather than an insurance provider", () => {

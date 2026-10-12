@@ -7,7 +7,7 @@ import { GET as llmsTxt } from "@/app/llms.txt/route";
 import { publishedProfiles } from "@/lib/agent";
 import { CARE_GUIDES } from "@/lib/careGuides";
 import { TOPIC_META } from "@/lib/helpQuiz";
-import { articleJsonLd, localBusinessJsonLd, SITE_URL } from "@/lib/seo";
+import { articleJsonLd, localBusinessJsonLd, siteIdentityJsonLd, SITE_URL } from "@/lib/seo";
 
 const FACEBOOK_PROFILE =
   "https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/";
@@ -47,7 +47,7 @@ describe("search discovery", () => {
       datePublished: "2026-09-10",
       dateModified: "2026-09-10",
     });
-    const person = localBusinessJsonLd()["@graph"].find((entity) => entity["@type"] === "Person");
+    const person = siteIdentityJsonLd()["@graph"].find((entity) => entity["@type"] === "Person");
     expect(article.author["@id"]).toBe(person?.["@id"]);
     expect(article.author.name).toBe(person?.name);
     expect(article.author.url).toBe(`${SITE_URL}/about`);
@@ -80,8 +80,9 @@ describe("search discovery", () => {
       "https://www.manta.com/c/m1hjvy9/christian-brinkley",
     ]);
 
+    const identityGraph = siteIdentityJsonLd()["@graph"];
+    const person = identityGraph.find((entity) => entity["@type"] === "Person");
     const graph = localBusinessJsonLd()["@graph"];
-    const person = graph.find((entity) => entity["@type"] === "Person");
     const service = graph.find((entity) => entity["@type"] === "ProfessionalService");
     const json = JSON.stringify(localBusinessJsonLd()).toLowerCase();
     expect(person?.sameAs).toEqual(urls);
