@@ -1,10 +1,9 @@
 "use client";
 
-import { TrackedLink as Link } from "@/components/TrackedLink";
-import { Phone } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
+import { StickyCTA } from "@/components/story/StickyCTA";
 import { AGENT } from "@/lib/agent";
 
 /**
@@ -31,52 +30,74 @@ const HIDE_PREFIXES = [
   "/ai",
 ];
 
-/** Medicare pages offer the plan check as the second step; elsewhere, a question. */
+const DISMISS_KEY = "we-scta-dismissed";
+
+/** Medicare pages offer a free review; the plan check itself offers a time. */
 function secondStep(pathname: string): { href: string; label: string } {
   if (pathname === "/plan-check") return { href: "/schedule?topic=medicare", label: "Book a time" };
+  if (pathname === "/annual-enrollment" || pathname === "/aep" || pathname.startsWith("/aep/")) {
+    return { href: "/aep-quiz", label: "Free Review" };
+  }
+  if (pathname === "/turning-65" || pathname.startsWith("/turning-65/")) {
+    return {
+      href: "/start?topic=medicare&stage=turning_65_soon&quick=1",
+      label: "Free Review",
+    };
+  }
   if (
     pathname.startsWith("/medicare") ||
-    ["/aep", "/anoc", "/annual-enrollment", "/advantage-vs-medigap", "/answers"].some(
+    ["/anoc", "/advantage-vs-medigap", "/answers"].some(
       (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
     )
   ) {
-    return { href: "/plan-check", label: "Plan check" };
+    return { href: "/plan-check", label: "Free Review" };
   }
-  return { href: "/start", label: "Ask a question" };
+  return { href: "/start", label: "Free Review" };
 }
 
 const FIELD_SELECTOR = "input, select, textarea";
 
 /**
- * Mobile-only sticky bar: call first, one other step second.
+ * Mobile-only sticky bar: the phone number, then a free review.
  *
- * Hidden on the quiz, on tools with their own primary actions, and on screens
- * where another button would compete. On /schedule it used to cover the one tap
- * that books a conversation.
- *
- * It also steps aside in two moments. On the homepage it waits until the
- * hero's own call and date buttons have scrolled away, so the first screen
- * never shows the same two buttons twice. And while someone is typing in a
- * form, it hides so it can't sit on top of the field or its submit button
- * above the phone's keyboard.
+ * It stays tucked until the hero's own buttons have scrolled away, and it
+ * hides while someone is typing so it cannot cover a form field. A visitor
+ * can dismiss it for the rest of the tab.
  */
 export function StickyMobileCta() {
   const pathname = usePathname() ?? "/";
-  const isHome = pathname === "/";
-  const [heroVisible, setHeroVisible] = useState(isHome);
+  const [pastHero, setPastHero] = useState(false);
   const [typing, setTyping] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    if (!isHome) return;
-    const hero = document.getElementById("home-hero-actions");
-    if (!hero || typeof IntersectionObserver === "undefined") {
-      queueMicrotask(() => setHeroVisible(false));
-      return;
+    try {
+      if (sessionStorage.getItem(DISMISS_KEY) === "1") setDismissed(true);
+    } catch {
+      // Private browsing can block storage. The bar still works.
     }
-    const observer = new IntersectionObserver(([entry]) => setHeroVisible(entry.isIntersecting));
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, [isHome]);
+  }, []);
+
+  useEffect(() => {
+    function update() {
+      const hero =
+        document.getElementById("home-hero-actions") ??
+        document.getElementById("page-hero-actions");
+      if (!hero) {
+        setPastHero(true);
+        return;
+      }
+      // Shown once the hero's own buttons have left the top of the screen.
+      setPastHero(hero.getBoundingClientRect().bottom < 8);
+    }
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     function onFocusIn(event: FocusEvent) {
@@ -94,35 +115,30 @@ export function StickyMobileCta() {
     };
   }, []);
 
+  function dismiss() {
+    setDismissed(true);
+    try {
+      sessionStorage.setItem(DISMISS_KEY, "1");
+    } catch {
+      // The bar is already gone for this view.
+    }
+  }
+
   const hidden = HIDE_PREFIXES.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );
-  if (hidden) return null;
-
-  const tucked = typing || (isHome && heroVisible);
+  const tucked = typing || !pastHero;
   const second = secondStep(pathname);
 
   return (
-    <div
-      className="scta"
-      data-tucked={tucked ? "true" : undefined}
-      role="region"
-      aria-label="Call or get started"
-      inert={tucked}
-    >
-      <a data-cta-location="sticky_bar" href={AGENT.phoneHref} className="scta-call">
-        <Phone size={20} aria-hidden />
-        Call Christian
-      </a>
-      {isHome ? (
-        <Link ctaLocation="sticky_bar" href="/plan-check" className="scta-second">
-          Plan check
-        </Link>
-      ) : (
-        <Link ctaLocation="sticky_bar" href={second.href} className="scta-second">
-          {second.label}
-        </Link>
-      )}
-    </div>
+    <StickyCTA
+      hidden={hidden || dismissed}
+      tucked={tucked}
+      callHref={AGENT.phoneHref}
+      callLabel={AGENT.phone}
+      reviewHref={second.href}
+      reviewLabel={second.label}
+      onDismiss={dismiss}
+    />
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { CitySnapshot } from "@/app/components/CitySnapshot";
+import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import { NC_SHIIP, countyCounseling } from "@/lib/localMedicareFacts";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
@@ -89,6 +90,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
   return (
     <main className="text-[var(--color-navy)]">
+      <LocationBusinessMarkup />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

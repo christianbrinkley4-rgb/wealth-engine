@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -133,7 +134,7 @@ export default function MedicareAgentWinstonSalemPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      {/* LocalBusiness markup comes once, site-wide, from app/layout.tsx. */}
+      <LocationBusinessMarkup />
 
       <ServiceHero
         crumbs={[

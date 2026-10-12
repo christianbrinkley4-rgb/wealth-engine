@@ -1,3 +1,6 @@
+import { AepCountdown } from "@/components/story/AepCountdown";
+import { PullQuote } from "@/components/story/PullQuote";
+import { ScrollReveal } from "@/components/story/ScrollReveal";
 import type { Metadata } from "next";
 import { ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
@@ -209,6 +212,8 @@ export default function Turning65Page() {
         }
       />
 
+      <AepCountdown audience="turning65" />
+
       <section
         id="enrollment-dates"
         className="personal-shell py-12"
@@ -217,6 +222,7 @@ export default function Turning65Page() {
         <MedicareTimeline currentYear={new Date().getUTCFullYear()} />
       </section>
       <section className="bg-white py-14">
+        <ScrollReveal>
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The four things to get right when turning 65 in Greensboro, NC</h2>
           <ol className="mt-8 flex flex-col gap-6">
@@ -234,6 +240,11 @@ export default function Turning65Page() {
               </li>
             ))}
           </ol>
+          <PullQuote>
+            Miss the window without coverage that lets you delay, and the penalty is 10% of the
+            standard Part B premium for every full 12 months of delay, charged for as long as you
+            hold Part B.
+          </PullQuote>
           {/* Someone who has already missed the window needs to hear that
               there is another door, not only that this one closed. */}
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
@@ -259,6 +270,7 @@ export default function Turning65Page() {
             .
           </p>
         </div>
+        </ScrollReveal>
       </section>
 
       <section className="bg-[var(--color-paper)] py-14">
