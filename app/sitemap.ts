@@ -17,7 +17,7 @@ const STATIC_ROUTES: Array<{
   { path: "/medicare-plan-checklist", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-09" },
   { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-07" },
   { path: "/insurance-services", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-07" },
-  { path: "/care-coverage", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/care-coverage", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-11" },
   { path: "/long-term-care-insurance", changeFrequency: "monthly", priority: 0.85 },
   { path: "/short-term-care-insurance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/critical-illness-insurance", changeFrequency: "monthly", priority: 0.8 },
@@ -63,18 +63,18 @@ const STATIC_ROUTES: Array<{
   { path: "/plan-check", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-04" },
   { path: "/medicare-annual-enrollment-2026-checklist", changeFrequency: "monthly", priority: 0.9 },
   { path: "/medicare-advantage-doctor-networks", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/advantage-vs-medigap", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/advantage-vs-medigap", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-11" },
   { path: "/social-security-timing", changeFrequency: "monthly", priority: 0.9 },
   { path: "/keep-my-doctor", changeFrequency: "monthly", priority: 0.9 },
   { path: "/helping-a-parent", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/irmaa-appeal", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/irmaa-appeal", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-11" },
   { path: "/service-area", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/about", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-11" },
   { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
   { path: "/part-b-penalty", changeFrequency: "monthly", priority: 0.9 },
   { path: "/medicare-costs-2026", changeFrequency: "monthly", priority: 0.95 },
-  { path: "/plan", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/plan", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-10-11" },
   { path: "/annuities", changeFrequency: "monthly", priority: 0.85 },
   { path: "/life-insurance", changeFrequency: "monthly", priority: 0.85 },
   { path: "/retirement-income", changeFrequency: "monthly", priority: 0.85 },
@@ -235,7 +235,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // One entry per Triad city, generated from the same source the pages use.
   const cityRoutes: MetadataRoute.Sitemap = indexableMedicarePlaces().map(city => ({
-    url: `${SITE_URL}/medicare-in/${city.slug}`, lastModified, changeFrequency: "monthly", priority: 0.9,
+    url: `${SITE_URL}/medicare-in/${city.slug}`, lastModified: "2026-10-11", changeFrequency: "monthly", priority: 0.9,
   }));
 
   return [

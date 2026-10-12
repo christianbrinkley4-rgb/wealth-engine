@@ -197,7 +197,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "The letter tells you what is covered. The company decides the price and the extras.",
     published: "2026-10-01",
-    updated: "2026-10-01",
+    updated: "2026-10-11",
     intro:
       "If you have a Medicare Supplement plan, you may have noticed that a neighbor’s plan looks different from yours. Or a benefit you liked has been dropped. Here is what is standard, what is not, and what to do when your plan changes.",
     sections: [
@@ -693,7 +693,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "HMOs keep costs tight with a network and referrals. PPOs give you more freedom, and you pay for it. Here is how to think about the tradeoff.",
     published: "2026-10-02",
-    updated: "2026-10-02",
+    updated: "2026-10-11",
     intro:
       "HMO and PPO are the two most common kinds of Medicare Advantage plans. Both must cover everything Original Medicare covers. The difference is how they handle your doctors: who you can see, whether you need a referral, and what happens outside the network.",
     sections: [
@@ -2286,6 +2286,137 @@ export const ARTICLES: Article[] = [
       { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
     ],
     startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
+  {
+    slug: "social-security-cola-medicare-part-b",
+    title: "Will my Social Security raise cover my Medicare premium increase?",
+    metaTitle: "Will Your Social Security Raise Cover the 2027 Part B Hike?",
+    description:
+      "The 2027 Social Security raise is announced Oct 14; the Part B premium follows in November. How to figure out what you will actually keep each month.",
+    keyword: "will social security raise cover medicare premium increase",
+    eyebrow: "Medicare questions, answered",
+    lede: "Two announcements, one month apart, decide what lands in your bank account. Here is the math, and the rule that keeps your check from shrinking.",
+    published: "2026-10-12",
+    updated: "2026-10-12",
+    intro:
+      "Every October the same question comes up in Greensboro living rooms: the Social Security raise is coming, so why does the check barely move? The answer is timing. Your raise and your Medicare premium increase are decided by two different agencies, in two different months, and the premium comes out of your check before you see it. Here is how the two numbers interact for 2027, and the rule that keeps a premium hike from shrinking your payment.",
+    sections: [
+      {
+        h2: "Two announcements, one month apart",
+        blocks: [
+          p(
+            "The Social Security Administration announces each year's cost-of-living adjustment, the COLA, in mid-October. The 2027 number is not out yet. Forecasts put it near 3.5 percent, but a forecast is not the number. The agency's announcement is.",
+          ),
+          p(
+            "The Part B premium comes later. The Centers for Medicare and Medicaid Services announces next year's standard premium in November. For 2026 it is $202.90 a month. For 2027 the 2026 Medicare Trustees Report projected about $209.50. A projection, not the final figure.",
+          ),
+          p(
+            "Do not plan off headlines. Until both announcements are out, every 2027 comparison you see is built on at least one guess.",
+          ),
+        ],
+      },
+      {
+        h2: "Do the math on your own check",
+        blocks: [
+          p(
+            "The raise is a percentage of your benefit. The premium increase is a flat dollar amount. That mismatch is the whole story.",
+          ),
+          table(
+            ["Your monthly benefit", "Raise near 3.5% (illustration)", "Part B hike ~$6.60 (projection)", "What you keep"],
+            [
+              ["$1,500", "+$52.50", "-$6.60", "~$45.90"],
+              ["$2,000", "+$70.00", "-$6.60", "~$63.40"],
+              ["$2,500", "+$87.50", "-$6.60", "~$80.90"],
+            ],
+          ),
+          p(
+            "An illustration, not a promise: the 3.5 percent is a forecast, the $6.60 is a projection. Your benefit and the final numbers decide your real result.",
+          ),
+          p(
+            "One more cost for the calendar: the standard Part D deductible rises to a maximum of $700 in 2027, and the out-of-pocket cap rises to $2,400. Both are final per the CMS CY2027 Rate Announcement. The deductible does not come out of your check. It shows up at the pharmacy counter in January.",
+          ),
+        ],
+      },
+      {
+        h2: "The premium comes out before you see the money",
+        blocks: [
+          p(
+            "For most people, the Part B premium is deducted automatically from the Social Security payment. You never get a bill. The deposit in your bank account is already net of the premium.",
+          ),
+          p(
+            "That is why the gross raise can mislead. A $70 raise with a $6.60 premium increase is a $63.40 raise in real life. The check that matters is the one after the deduction.",
+          ),
+        ],
+      },
+      {
+        h2: "The rule that keeps your check from shrinking",
+        blocks: [
+          p(
+            "Federal law includes a provision people call hold harmless (42 U.S.C. 1395r(f)). If the Part B premium increase is bigger than your COLA, your premium increase is limited so your net Social Security payment does not go down.",
+          ),
+          p(
+            "It does not cover everyone. It does not apply to IRMAA surcharges for higher incomes, to people who pay Part B directly instead of through deduction, to premiums paid by Medicaid, or to first-year Part B enrollees.",
+          ),
+          p(
+            "It stops your check from shrinking. It does not guarantee you keep the whole raise.",
+          ),
+        ],
+      },
+      {
+        h2: "What to do with this before January",
+        blocks: [
+          p(
+            "The lever you control opens October 15. The Annual Enrollment Period runs October 15 to December 7, the one time of year you can change drug plans and Medicare Advantage plans for January 1. Premiums get the headlines, but drug deductibles and tiers move every year, and that is where the bigger surprises hide.",
+          ),
+          p(
+            "Then read your December notice. Social Security mails a letter showing your exact 2027 amount, also visible in your my Social Security account. Compare that number to your January deposit, not to the COLA headline.",
+          ),
+          p(
+            "If the math worries you, talk to someone local before December 7. A ten-minute review of your drug list against next year's plans beats a hundred COLA headlines.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "When will the 2027 numbers be final?",
+        a: "SSA announces the 2027 COLA in mid-October. CMS announces the 2027 Part B premium and deductible in November. Your exact new amount arrives in a Social Security notice in December, and higher payments start with January 2027 benefits.",
+      },
+      {
+        q: "Can a Part B increase make my Social Security check go down?",
+        a: "For most people with premiums deducted from Social Security, no. Hold harmless limits the premium increase so the net payment does not fall. Exceptions: IRMAA surcharges, direct Part B payers, new enrollees, and Medicaid-paid premiums.",
+      },
+      {
+        q: "Does the Part D deductible come out of my check too?",
+        a: "No. The Part D deductible is paid at the pharmacy, not deducted from your check. For 2027 the standard deductible maxes out at $700, per the CMS CY2027 Rate Announcement. Once you hit the $2,400 out-of-pocket cap, covered drugs cost $0 the rest of the year.",
+      },
+      {
+        q: "I pay extra for Medicare because of my income. Does hold harmless protect me?",
+        a: "No. IRMAA, the income-related monthly adjustment amount, sits outside hold harmless protection. If your income dropped since the tax year Social Security used, you can ask for reconsideration with a life-changing event form.",
+      },
+      {
+        q: "Where do I see my exact new amount?",
+        a: "Your December notice shows your exact 2027 benefit, also visible in your my Social Security account. That number minus your Part B premium is the January deposit to expect.",
+      },
+    ],
+    sources: [
+      {
+        label: "CMS: 2026 Medicare Parts A & B premiums and deductibles",
+        href: "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+      },
+      {
+        label: "Medicare.gov: When you can join, switch, or drop a plan",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan",
+      },
+    ],
+    related: [
+      { label: "Do I owe extra for Medicare because of my income?", href: "/answers/medicare-irmaa-income-premiums" },
+      { label: "Switching Medicare Advantage plans during AEP", href: "/answers/switching-medicare-advantage-plans-aep" },
+      { label: "Do I need Medicare drug coverage?", href: "/answers/do-i-need-medicare-drug-coverage" },
+      { label: "Every 2027 Medicare number, final vs projected", href: "/medicare-numbers-2027" },
+      { label: "Medicare help near you", href: "/service-area" },
+    ],
+    startHref: "/start?topic=medicare&stage=already_on_medicare",
   },
 ];
 
