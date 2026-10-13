@@ -14,7 +14,7 @@ const START = [
   { href: "/anoc", label: "Your Annual Notice of Change" },
   { href: "/turning-65#enrollment-dates", label: "Find my Medicare dates" },
   { href: "/start", label: "Ask a question" },
-  { href: "/schedule", label: "Book a time" },
+  { href: "/schedule?topic=medicare#booking-calendar", label: "Book a time" },
 ] as const;
 
 const LEARN = [

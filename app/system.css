@@ -540,15 +540,16 @@ p {
   display: none;
 }
 @media (max-width: 639px) {
-  /* The call pill carries the full phone number on mobile, so the brand
-     text steps aside for it; the photo mark remains the brand identifier. */
+  /* Mobile header: the call pill carries the full phone number as text and
+     comes first; the header Book button hides (the hero and menu both carry
+     it) so the Menu button is never pushed past the viewport edge. */
   .nav-brand-text {
     display: none;
   }
-  .nav-call-number { display: none; }
-  .nav-cta { padding-inline: 0.75rem; font-size: 1rem; min-height: 48px; max-width: 156px; white-space: normal; text-align: center; }
+  .nav-cta { display: none; }
   .nav-actions { gap: 0.5rem; }
-  .nav-call { padding-inline: 0; width: 44px; justify-content: center; }
+  .nav-call { padding-inline: 0.85rem; width: auto; }
+  .nav-call-number { display: inline; font-size: 0.92rem; letter-spacing: 0.01em; }
   .nav-bar {
     gap: 0.75rem;
   }

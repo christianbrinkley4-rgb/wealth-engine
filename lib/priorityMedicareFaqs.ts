@@ -37,7 +37,7 @@ export const PRIORITY_MEDICARE_FAQS = {
     },
     {
       q: "Does it cost anything to talk with you?",
-      a: "Initial insurance consultations and comparisons of plans Christian represents are free. Enrollment is optional; separate advisor services and fees are explained before agreement.",
+      a: "Initial insurance consultations and comparisons of plans Christian represents are free, with no obligation to enroll. You decide what happens next.",
     },
     {
       q: "I’m still working. Should I enroll at 65?",

@@ -81,22 +81,7 @@ export default async function SchedulePage({
       />
 
       <div className="shell sched-grid">
-        <div className="sched-intro">
-          <div className="sched-who">
-            <Image
-              src="/christian-brinkley-square.jpg"
-              alt="Christian Brinkley, licensed insurance agent in Greensboro"
-              width={128}
-              height={128}
-              sizes="64px"
-            />
-            <p>
-              <strong>{AGENT.name}</strong>
-              <span>
-                Licensed agent · {AGENT.licenseLine} · {AGENT.city}, {AGENT.state}
-              </span>
-            </p>
-          </div>
+        <div className="sched-head">
           <p className="eyebrow">A conversation, at your pace</p>
           <h1>
             {topic === "medicare"
@@ -106,44 +91,14 @@ export default async function SchedulePage({
                 : "Book a free consultation"}
           </h1>
           <p className="sched-lede">
-            {topic
-              ? TOPIC_DESCRIPTIONS[topic]
-              : "Choose what you’d like to talk about so we set aside time for the right conversation. Your booking comes straight to me, Christian Brinkley."}
+            Your booking comes straight to me, Christian Brinkley. No call center, no pressure.
           </p>
-          <ul className="sched-points">
-            {[
-              "Free initial insurance consultation. No obligation to enroll.",
-              "At your home, a convenient public place, by phone, or by video. A family member is welcome.",
-              "Your information is not sold or passed to other agents.",
-            ].map((text) => (
-              <li key={text}>
-                <Check size={18} aria-hidden />
-                {text}
-              </li>
-            ))}
-          </ul>
-          <p className="sched-small">
-            Allow 60 minutes for our conversation. The calendar shows current availability.
-            {topic === null || topic === "medicare"
-              ? " For a Medicare conversation, I’ll also confirm with you personally before we meet."
-              : ""}{" "}
-            {topic === "financial_planning"
-              ? "Any separate financial planning services and fees would be explained by the advisor before you agree to them."
-              : ""}
-          </p>
-          <div className="sched-contact">
-            {topic && bookingUrl ? (
-              <a href="#booking-calendar" className="btn">
-                Choose a date and time <ArrowRight size={18} aria-hidden />
-              </a>
-            ) : null}
+          <p className="sched-callnow">
+            Rather talk now?{" "}
             <a href={AGENT.phoneHref}>
-              <Phone size={17} aria-hidden /> {AGENT.phone}
+              Call {AGENT.phone}, I usually pick up.
             </a>
-            <a href={`mailto:${AGENT.email}`}>
-              <Mail size={17} aria-hidden /> Email Christian
-            </a>
-          </div>
+          </p>
         </div>
 
         <div className="sched-panel" id="booking-calendar">
@@ -201,6 +156,61 @@ export default async function SchedulePage({
             arranged before the meeting. Please keep Medicare numbers, Social Security numbers, and
             medical records out of the booking form.
           </p>
+        </div>
+
+        <div className="sched-details">
+          <div className="sched-who">
+            <Image
+              src="/christian-brinkley-square.jpg"
+              alt="Christian Brinkley, licensed insurance agent in Greensboro"
+              width={128}
+              height={128}
+              sizes="64px"
+            />
+            <p>
+              <strong>{AGENT.name}</strong>
+              <span>
+                Licensed agent · {AGENT.licenseLine} · {AGENT.city}, {AGENT.state}
+              </span>
+            </p>
+          </div>
+          {topic ? (
+            <p className="sched-lede sched-topic-desc">{TOPIC_DESCRIPTIONS[topic]}</p>
+          ) : null}
+          <ul className="sched-points">
+            {[
+              "Free initial insurance consultation. No obligation to enroll.",
+              "At your home, a convenient public place, by phone, or by video. A family member is welcome.",
+              "Your information is not sold or passed to other agents.",
+            ].map((text) => (
+              <li key={text}>
+                <Check size={18} aria-hidden />
+                {text}
+              </li>
+            ))}
+          </ul>
+          <p className="sched-small">
+            Allow 60 minutes for our conversation. The calendar shows current availability.
+            {topic === null || topic === "medicare"
+              ? " For a Medicare conversation, I’ll also confirm with you personally before we meet."
+              : ""}{" "}
+            {topic === "financial_planning"
+              ? "Any separate financial planning services and fees would be explained by the advisor before you agree to them."
+              : ""}
+          </p>
+          <div className="sched-contact">
+            {topic && bookingUrl ? (
+              <a href="#booking-calendar" className="btn">
+                Choose a date and time <ArrowRight size={18} aria-hidden />
+              </a>
+            ) : null}
+            <a href={AGENT.phoneHref}>
+              <Phone size={17} aria-hidden /> {AGENT.phone}
+            </a>
+            <a href={`mailto:${AGENT.email}`}>
+              <Mail size={17} aria-hidden /> Email Christian
+            </a>
+          </div>
         </div>
       </div>
     </main>

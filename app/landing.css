@@ -140,6 +140,11 @@
 .hx-micro svg {
   color: var(--pine-700);
 }
+.hx-rating a {
+  font-weight: 700;
+  color: var(--pine-700);
+  text-underline-offset: 3px;
+}
 
 .hx-visual {
   position: relative;
@@ -1440,5 +1445,61 @@ html:not(.js-reveal) .steps-list li::before {
 @media (max-width: 899px) {
   .meet-photo {
     max-width: 460px;
+  }
+  /* Mobile hero: compact single column with the real photo above the fold
+     and the Call button first. The copy wrapper flattens so the photo can
+     sit between the headline and the subhead. */
+  .hx {
+    padding: 2.25rem 0 2.5rem;
+  }
+  .hx-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .hx-copy {
+    display: contents;
+  }
+  .hx-copy > * {
+    order: 10;
+  }
+  .hx-eyebrow {
+    order: 1;
+  }
+  .hx-title {
+    order: 2;
+    font-size: clamp(2.1rem, 9.5vw, 2.75rem);
+  }
+  .hx-visual {
+    order: 3;
+    width: 148px;
+    margin: 1.15rem auto 1.3rem;
+  }
+  .hx-chip {
+    display: none;
+  }
+  .hx-subhead {
+    order: 4;
+    text-align: center;
+  }
+  .hx-actions {
+    order: 5;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.35rem;
+  }
+  .hx-actions .btn-outline {
+    order: -1;
+  }
+  .hx-lede {
+    order: 6;
+    margin-top: 1.35rem;
+    font-size: 1.02rem;
+  }
+  .hx-sublink {
+    order: 7;
+  }
+  .hx-micro {
+    order: 8;
   }
 }

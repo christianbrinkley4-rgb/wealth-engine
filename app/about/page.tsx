@@ -144,7 +144,7 @@ export default function AboutPage() {
               <a href={AGENT.phoneHref} className="btn">
                 <Phone size={18} aria-hidden /> {AGENT.phone}
               </a>
-              <Link href="/schedule" className="btn btn-outline">
+              <Link href="/schedule?topic=medicare#booking-calendar" className="btn btn-outline">
                 <CalendarDays size={18} aria-hidden /> Book a time
               </Link>
               <a href={`mailto:${AGENT.email}`} className="link-draw">

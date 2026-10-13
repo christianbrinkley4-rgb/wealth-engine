@@ -10,7 +10,28 @@
 }
 .sched-grid {
   display: grid;
-  gap: 2.5rem;
+  gap: 2rem;
+}
+/* Compact header above the calendar: headline, one reassuring line, call-now. */
+.sched-head h1 {
+  margin: 0.6rem 0 0;
+}
+.sched-callnow {
+  margin: 1rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.sched-callnow a {
+  color: var(--pine-700);
+  text-underline-offset: 3px;
+}
+/* Supporting details live below the calendar panel. */
+.sched-details {
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+}
+.sched-topic-desc {
+  margin-bottom: 1.25rem;
 }
 .sched-who {
   display: flex;
@@ -186,9 +207,17 @@
     gap: 4rem;
     align-items: start;
   }
-  .sched-intro {
+  .sched-head {
+    grid-column: 1;
     position: sticky;
     top: 6rem;
+  }
+  .sched-panel {
+    grid-column: 2;
+  }
+  .sched-details {
+    grid-column: 1 / -1;
+    max-width: 720px;
   }
 }
 

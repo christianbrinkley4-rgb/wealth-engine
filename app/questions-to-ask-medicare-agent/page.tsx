@@ -78,7 +78,7 @@ export default function QuestionsToAskPage() {
           </section>
         ))}
         <p>
-          <Link href="/schedule">Book a free consultation</Link> or call{" "}
+          <Link href="/schedule?topic=medicare#booking-calendar">Book a free consultation</Link> or call{" "}
           <a href="tel:+19194086671">(919) 408-6671</a>.
         </p>
       </article>

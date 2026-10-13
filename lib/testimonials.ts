@@ -56,6 +56,8 @@ export interface Testimonial {
   datePublished?: string;
 }
 
+import { GOOGLE_MAPS_PROFILE_URL } from "@/lib/agent";
+
 export const TESTIMONIALS: Testimonial[] = [
   // Example of the shape, delete this comment and add real entries:
   // {
@@ -68,11 +70,14 @@ export const TESTIMONIALS: Testimonial[] = [
 ];
 
 /**
- * The Google Business Profile summary shown beside the reviews. Leave null
- * until the profile exists; copy the rating and count exactly as Google shows
- * them and update them when they change.
+ * The Google Business Profile summary shown beside the reviews. Rating and
+ * count copied exactly as Google shows them; update when they change.
  */
-export const GOOGLE_REVIEWS: { rating: number; count: number; url: string } | null = null;
+export const GOOGLE_REVIEWS: { rating: number; count: number; url: string } | null = {
+  rating: 5.0,
+  count: 2,
+  url: GOOGLE_MAPS_PROFILE_URL,
+};
 
 export function hasTestimonials(): boolean {
   return TESTIMONIALS.length > 0;

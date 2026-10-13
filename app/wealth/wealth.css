@@ -1999,7 +1999,7 @@ body:has(.w-root) {
   }
 }
 
-/* The highlighter draws itself in. Scroll-linked where the browser can. */
+/* The highlighter draws itself in on entrance. */
 .w-mark {
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -2008,13 +2008,6 @@ body:has(.w-root) {
 @keyframes w-mark {
   from {
     background-size: 0% 100%;
-  }
-}
-@supports (animation-timeline: view()) {
-  .w-h2 .w-mark {
-    animation: w-mark linear both;
-    animation-timeline: view();
-    animation-range: entry 10% cover 38%;
   }
 }
 

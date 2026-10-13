@@ -17,6 +17,7 @@ import {
   Landmark,
   Phone,
   ShieldCheck,
+  Star,
 } from "lucide-react";
 
 import { EnrollmentWindow } from "@/components/home/EnrollmentWindow";
@@ -25,7 +26,6 @@ import { Testimonials } from "@/components/Testimonials";
 import { AGENT, GOOGLE_MAPS_PROFILE_URL } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
 import { faqJsonLd, localBusinessJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
-import { SITE_STATS } from "@/lib/siteStats";
 import { hasTestimonials, visibleRatedReviews } from "@/lib/testimonials";
 import { featuredPlaces } from "@/lib/triad";
 
@@ -131,7 +131,7 @@ export default function HomePage() {
         <div className="hx-bg" aria-hidden />
         <div className="shell hx-grid">
           <div className="hx-copy">
-            <p className="eyebrow hx-eyebrow">Greensboro, NC · Medicare, taxes &amp; retirement</p>
+            <p className="eyebrow hx-eyebrow">Medicare help - Greensboro &amp; the Triad</p>
             <h1 id="hx-title" className="hx-title">
               <span className="split-line">
                 <span style={{ "--i": 0 } as React.CSSProperties}>Medicare questions?</span>
@@ -168,6 +168,13 @@ export default function HomePage() {
             <p className="hx-micro">
               <ShieldCheck size={17} aria-hidden /> Free. No obligation. Your info is never sold.
             </p>
+            <p className="hx-micro hx-rating">
+              <Star size={16} aria-hidden fill="currentColor" />{" "}
+              <a href={GOOGLE_MAPS_PROFILE_URL} target="_blank" rel="noopener">
+                5.0 on Google
+              </a>{" "}
+              from local clients
+            </p>
           </div>
 
           <div className="hx-visual">
@@ -203,39 +210,6 @@ export default function HomePage() {
               </span>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── Trust by numbers ───────────────────────────────────────────── */}
-      <section className="tband" aria-label="What this site offers">
-        <div className="shell tband-inner">
-          <dl className="tband-stats">
-            <div className="tband-stat">
-              <dt>
-                <Link href="/tools">Free calculators</Link>
-              </dt>
-              <dd>{SITE_STATS.calculators}</dd>
-            </div>
-            <div className="tband-stat">
-              <dt>
-                <Link href="/tools">Decision quizzes</Link>
-              </dt>
-              <dd>{SITE_STATS.quizzes}</dd>
-            </div>
-            <div className="tband-stat">
-              <dt>
-                <Link href="/guides">Plain-English guides</Link>
-              </dt>
-              <dd>{SITE_STATS.guides}</dd>
-            </div>
-            <div className="tband-stat">
-              <dt>
-                <Link href="/wealth">Money articles</Link>
-              </dt>
-              <dd>{SITE_STATS.articles}</dd>
-            </div>
-          </dl>
-          <p className="tband-note">Counted from the pages on this site. All free, no account.</p>
         </div>
       </section>
 
@@ -393,17 +367,23 @@ export default function HomePage() {
               Hey, I’m Christian.
             </h2>
             <p data-reveal style={{ "--i": 2 } as React.CSSProperties}>
-              I’m based in Greensboro and licensed for Life &amp; Health insurance in North
-              Carolina. I’m an accounting senior at UNCG, graduating in December 2026. I’ve been a
-              licensed agent since June 2026 and have written 12 policies so far.
+              When you call, you get me. I answer my own phone, and during our meeting I check
+              your doctors and your prescriptions against the plans live, so you see exactly what
+              is covered before anything is signed. I represent 8 insurance companies, which means
+              I compare options instead of selling you the only one I have.
             </p>
             <p data-reveal style={{ "--i": 3 } as React.CSSProperties}>
+              I am based in Greensboro and have been a licensed agent ({AGENT.licenseLine}) since
+              June 2026, with 12 policies written so far. I am also an accounting senior at UNCG,
+              graduating in December 2026.
+            </p>
+            <p data-reveal style={{ "--i": 4 } as React.CSSProperties}>
               Down the road, I want to run a planning practice right here, helping families with
-              Medicare, taxes, retirement, and insurance in one place. For now, here’s what I
-              promise: plain answers, no pressure, and if your coverage is already fine, I’ll tell
+              Medicare, taxes, retirement, and insurance in one place. For now, here is what I
+              promise: plain answers, no pressure, and if your coverage is already fine, I will tell
               you.
             </p>
-            <ul className="meet-facts" data-reveal style={{ "--i": 4 } as React.CSSProperties}>
+            <ul className="meet-facts" data-reveal style={{ "--i": 5 } as React.CSSProperties}>
               <li>
                 <Check size={18} aria-hidden /> Licensed agent · {AGENT.licenseLine}
               </li>
@@ -536,7 +516,7 @@ export default function HomePage() {
             <Link href="/start?topic=medicare&quick=1" className="btn">
               Ask me a question <ArrowRight size={19} className="arrow" aria-hidden />
             </Link>
-            <Link href="/schedule" className="link-draw">
+            <Link href="/schedule?topic=medicare#booking-calendar" className="link-draw">
               <span>Or book a time on my calendar</span> <ArrowRight size={17} aria-hidden />
             </Link>
           </div>

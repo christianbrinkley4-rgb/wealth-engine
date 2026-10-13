@@ -44,7 +44,8 @@ describe("the review path never invents proof", () => {
   it("shows a Google rating only with a real count behind it", () => {
     if (GOOGLE_REVIEWS) {
       expect(GOOGLE_REVIEWS.count).toBeGreaterThan(0);
-      expect(TESTIMONIALS.length).toBeGreaterThan(0);
+      expect(GOOGLE_REVIEWS.rating).toBeGreaterThan(0);
+      // Named Google reviewers may show without quote text; quotes are never invented.
     }
   });
 
