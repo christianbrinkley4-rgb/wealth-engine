@@ -211,7 +211,7 @@ ${TPMO_DISCLAIMER}
 
 - [Insurance services](${SITE_URL}/insurance-services): Medicare, life insurance, care coverage, annuity consultations and retirement education. See what each service covers and what to bring.
 - [Learning Hub](${SITE_URL}/learn): every guide, answer, explainer, and tool on the site, organized by situation (turning 65, already on Medicare, costs, taxes, retirement income, insurance, helping a parent).
-- [Medicare words in plain English](${SITE_URL}/medicare-words): short definitions of Part A, Part B, Medicare Advantage, Part D, Medigap, IRMAA, the enrollment periods, and other common terms, each with a link to the official Medicare.gov, CMS, or Social Security page.
+- [Medicare glossary](${SITE_URL}/medicare-glossary): 28 Medicare terms explained in plain English, A to Z, each with a link to the official Medicare.gov, CMS, or Social Security page.
 - [Taxes and retirement](${SITE_URL}/taxes-and-retirement): plain-English explainers on Social Security taxes, required minimum distributions, and Roth conversions, and how retirement income affects Medicare premiums. Educational, not tax advice.
 - [Plan check](${SITE_URL}/plan-check): a seven-question quiz on whether a current Medicare plan deserves a second look before December 7. Answers stay on the device unless the visitor asks for results by email.
 - [Turning 65](${SITE_URL}/turning-65): Medicare enrollment timing, current coverage, and questions to consider before choosing a plan.
@@ -229,6 +229,10 @@ ${TPMO_DISCLAIMER}
 - [Retirement income](${SITE_URL}/retirement-income): general education about retirement accounts and potential Medicare premium effects.
 - [Social Security timing](${SITE_URL}/social-security-timing): consider income needs, family circumstances, and personal benefit estimates.
 - [Medicare premium review](${SITE_URL}/irmaa-appeal): learn about requesting a review through Social Security after a qualifying life change.
+- [AEP checklist](${SITE_URL}/aep-checklist): 10 things to review before December 7, each with what to check, where to find it, and why it matters.
+- [Free Medicare help directory](${SITE_URL}/medicare-help-directory): verified free resources in the Triad, including NC SHIIP, the Area Agency on Aging, 1-800-MEDICARE, and the Senior Medicare Patrol.
+- [Medicare scam alert](${SITE_URL}/medicare-scam-alert): current scams targeting seniors, what Medicare will never do, and where to report fraud.
+- [Turning 65 timeline](${SITE_URL}/turning-65-timeline): large-print month-by-month timeline for the Initial Enrollment Period, designed to print and keep.
 
 ## Question-led articles and retirement explainers
 
@@ -241,7 +245,7 @@ ${articleLines}
 ## 2027 figures
 
 - [The 2026-2027 money numbers](${SITE_URL}/numbers): tax brackets and standard deductions, 401(k) and IRA limits, HSA limits, Social Security wage base and COLA, and Medicare premiums, deductibles, and caps, each tied to a named IRS, SSA, or CMS source.
-- [2027 Medicare numbers at a glance](${SITE_URL}/medicare-numbers-2027): Part B standard premium about $209.50 a month (projected), Part D standard deductible $700 and out-of-pocket cap $2,400 (final), Medicare Advantage average premium about $12 a month. Each figure tied to a named source.
+- [2027 Medicare costs](${SITE_URL}/medicare-costs-2027): verified 2027 Medicare figures from CMS. Part D maximum deductible $700 and out-of-pocket cap $2,400 (final, from the CMS 2027 Rate Announcement). Part A, Part B, and IRMAA figures not yet published by CMS; shown as "not announced yet" next to 2026 amounts.
 - [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.
 - [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the $2,400 Part D out-of-pocket cap works in 2027.
 

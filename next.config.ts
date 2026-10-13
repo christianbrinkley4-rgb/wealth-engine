@@ -104,6 +104,28 @@ const nextConfig: NextConfig = {
         destination: "/medigap-plans-greensboro-nc",
         permanent: true,
       },
+      // Linkable asset consolidation (2026-10-13): new verified pages replace
+      // older versions with projections or fewer terms.
+      {
+        source: "/medicare-numbers-2027",
+        destination: "/medicare-costs-2027",
+        permanent: true,
+      },
+      {
+        source: "/medicare-words",
+        destination: "/medicare-glossary",
+        permanent: true,
+      },
+      {
+        source: "/medicare-annual-enrollment-2026-checklist",
+        destination: "/aep-checklist",
+        permanent: true,
+      },
+      {
+        source: "/medicare-plan-checklist",
+        destination: "/aep-checklist",
+        permanent: true,
+      },
     ];
   },
 };
