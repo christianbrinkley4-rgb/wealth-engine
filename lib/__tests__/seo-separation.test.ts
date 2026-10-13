@@ -13,17 +13,18 @@ describe("search identity and service discovery", () => {
   it("keeps shared authorship without claiming insurance offers on every page", () => {
     const shared = siteIdentityJsonLd();
     const insurance = localBusinessJsonLd();
-    expect(shared["@graph"].map((entity) => entity["@type"])).toEqual(["WebSite", "Person", "Organization"]);
-    expect(JSON.stringify(shared)).not.toMatch(/hasOfferCatalog|InsuranceAgency|\/#service/);
-    const organization = shared["@graph"].find((entity) => entity["@type"] === "Organization");
-    expect(organization?.name).toBeTruthy();
-    expect(organization?.logo).toBeTruthy();
-    expect(organization?.telephone).toBeTruthy();
+    expect(shared["@graph"].map((entity) => entity["@type"])).toEqual(["WebSite", "Person", "InsuranceAgency"]);
+    expect(JSON.stringify(shared)).not.toMatch(/hasOfferCatalog|\/#service/);
+    const agency = shared["@graph"].find((entity) => entity["@type"] === "InsuranceAgency");
+    expect(agency?.name).toBeTruthy();
+    expect(agency?.logo).toBeTruthy();
+    expect(agency?.telephone).toBeTruthy();
     const person = shared["@graph"].find((entity) => entity["@type"] === "Person");
     // localBusinessJsonLd carries only the InsuranceAgency node now;
     // Person and WebSite live in siteIdentityJsonLd to avoid duplicate @ids.
     expect(insurance["@graph"].map((entity) => entity["@type"])).toEqual(["InsuranceAgency"]);
     const service = insurance["@graph"].find((entity) => entity["@type"] === "InsuranceAgency");
+    expect(service?.["@id"]).toBe(agency?.["@id"]);
     expect(service?.founder?.["@id"]).toBe(person?.["@id"]);
   });
 

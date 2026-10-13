@@ -29,35 +29,11 @@ export const PRIORITY_MEDICARE_FAQS = {
   home: [
     {
       q: "Are you a Medicare agent in Greensboro?",
-      a: "Christian Brinkley is a licensed North Carolina insurance agent based in Greensboro, offering free Medicare consultations throughout the Piedmont Triad and nearby communities.",
-    },
-    {
-      q: "Is this a call center?",
-      a: "Calls and requests go directly to Christian Brinkley, a local agent. Your information is never sold or passed to other insurance agents.",
-    },
-    {
-      q: "Does it cost anything to talk with you?",
-      a: "Initial insurance consultations and comparisons of plans Christian represents are free, with no obligation to enroll. You decide what happens next.",
-    },
-    {
-      q: "I’m still working. Should I enroll at 65?",
-      a: "Current employer coverage may let you delay Part B. Confirm employer size, Medicare coordination, and HSA contributions with your benefits administrator before changing coverage.",
-    },
-    {
-      q: "Can you help me keep my doctors?",
-      a: "A Medicare review checks your doctors, hospitals, prescriptions, and pharmacy against specific plans. Provider participation must be confirmed for the coverage year you choose.",
-    },
-    {
-      q: "Can we meet in person?",
-      a: "Medicare consultations are available at your home in the Piedmont Triad, at a convenient public place, or by phone. Family members are welcome.",
-    },
-    {
-      q: "What do I need for our first conversation?",
-      a: "Bring your questions, doctor names, prescriptions, and preferred pharmacy to a Medicare consultation. Keep Social Security numbers and Medicare numbers out of contact forms.",
+      a: "Yes. I'm Christian Brinkley, a licensed North Carolina insurance agent (NC Life & Health, NPN 22217190) based in Greensboro. I offer free Medicare consultations throughout the Piedmont Triad, at your home, a public place, or by phone.",
     },
     {
       q: "How are you paid?",
-      a: "Insurance companies pay Christian a commission when you enroll through him. He represents a limited selection of companies and explains options he cannot offer.",
+      a: "Insurance companies pay me a commission if you enroll in a plan through me. The consultation is free, and there's no obligation to enroll. I represent a limited number of companies and will tell you about options I can't offer.",
     },
   ],
   annual: [

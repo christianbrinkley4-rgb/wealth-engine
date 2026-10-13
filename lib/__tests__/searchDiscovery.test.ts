@@ -82,11 +82,14 @@ describe("search discovery", () => {
 
     const identityGraph = siteIdentityJsonLd()["@graph"];
     const person = identityGraph.find((entity) => entity["@type"] === "Person");
+    const agency = identityGraph.find((entity) => entity["@type"] === "InsuranceAgency");
     const graph = localBusinessJsonLd()["@graph"];
     const service = graph.find((entity) => entity["@type"] === "InsuranceAgency");
     const json = JSON.stringify(localBusinessJsonLd()).toLowerCase();
-    expect(person?.sameAs).toEqual(urls);
-    expect(service?.sameAs).toEqual(urls);
+    // Person carries personal profiles; InsuranceAgency carries business listings.
+    expect(person?.sameAs).toEqual([LINKEDIN_PROFILE, INSTAGRAM_PROFILE, THREADS_PROFILE, YOUTUBE_PROFILE]);
+    expect(agency?.sameAs).toEqual([GOOGLE_MAPS_PROFILE, FACEBOOK_PROFILE, NEXTDOOR_PROFILE, "https://www.manta.com/c/m1hjvy9/christian-brinkley", "https://www.brownbook.net/business/55524532/christian-brinkley"]);
+    expect(service?.sameAs).toEqual(agency?.sameAs);
     expect(service?.hasMap).toBe(GOOGLE_MAPS_PROFILE);
     expect(json).toContain(GOOGLE_MAPS_PROFILE.toLowerCase());
     expect(json).toContain(NEXTDOOR_PROFILE.toLowerCase());

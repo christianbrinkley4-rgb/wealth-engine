@@ -160,9 +160,44 @@ export function publishedSameAs(): string[] | undefined {
   return AGENT.profiles.length > 0 ? [...AGENT.profiles] : undefined;
 }
 
-/** Shared identity only. Insurance offers belong on insurance pages, not the money hub. */
+/** Personal profiles for the Person entity (not business listings). */
+export function personSameAs(): string[] {
+  const profiles = publishedProfiles();
+  return ["linkedin", "instagram", "threads", "youtube"]
+    .map((network) => profiles.find((p) => p.network === network)?.url)
+    .filter((url): url is string => Boolean(url));
+}
+
+/** Business listings for the InsuranceAgency entity (not personal profiles). */
+export function agencySameAs(): string[] {
+  const profiles = publishedProfiles();
+  return ["google", "facebook", "nextdoor", "manta", "brownbook"]
+    .map((network) => profiles.find((p) => p.network === network)?.url)
+    .filter((url): url is string => Boolean(url));
+}
+
+/** Corrected sitewide entity graph: one Person, one InsuranceAgency, linked by @id. */
 export function siteIdentityJsonLd() {
-  const sameAs = publishedSameAs();
+  const personProfiles = personSameAs();
+  const agencyProfiles = agencySameAs();
+
+  // The 13-town service area, aligned with the Google Business Profile.
+  const areaServed = [
+    "Greensboro, NC",
+    "High Point, NC",
+    "Winston-Salem, NC",
+    "Kernersville, NC",
+    "Summerfield, NC",
+    "Jamestown, NC",
+    "Oak Ridge, NC",
+    "Archdale, NC",
+    "Thomasville, NC",
+    "Creedmoor, NC",
+    "Oxford, NC",
+    "Butner, NC",
+    "Stem, NC",
+  ].map((name) => ({ "@type": "City" as const, name }));
+
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -170,40 +205,86 @@ export function siteIdentityJsonLd() {
         "@type": "WebSite",
         "@id": `${SITE_URL}/#website`,
         url: SITE_URL,
-        name: SITE_NAME,
+        name: "Christian Brinkley",
         inLanguage: "en-US",
-        publisher: { "@id": `${SITE_URL}/#christian` },
+        publisher: { "@id": `${SITE_URL}/#agency` },
       },
       {
         "@type": "Person",
         "@id": `${SITE_URL}/#christian`,
-        name: SITE_OWNER,
+        name: "Christian Brinkley",
         url: `${SITE_URL}/about`,
         image: `${SITE_URL}/christian-brinkley.jpg`,
         jobTitle: "Licensed Insurance Agent",
-        ...(hasPublishableNpn()
-          ? { identifier: { "@type": "PropertyValue", propertyID: "NPN", value: AGENT.npn } }
-          : {}),
         description:
-          "North Carolina Life & Health insurance agent and accounting senior at UNCG, graduating December 2026.",
-        ...(sameAs ? { sameAs } : {}),
+          "Licensed North Carolina Life & Health insurance agent who helps people in Greensboro and the Piedmont Triad with Medicare.",
+        telephone: "+1-919-408-6671",
+        worksFor: { "@id": `${SITE_URL}/#agency` },
+        ...(hasPublishableNpn()
+          ? {
+              identifier: {
+                "@type": "PropertyValue",
+                propertyID: "NPN",
+                name: "National Producer Number",
+                value: AGENT.npn,
+              },
+            }
+          : {}),
+        hasCredential: {
+          "@type": "EducationalOccupationalCredential",
+          name: "North Carolina Life & Health Insurance License",
+          credentialCategory: "license",
+          recognizedBy: {
+            "@type": "GovernmentOrganization",
+            name: "North Carolina Department of Insurance",
+            url: "https://www.ncdoi.gov",
+          },
+        },
+        knowsAbout: [
+          "Medicare",
+          "Medicare Advantage",
+          "Medicare Supplement Insurance",
+          "Medicare Part D",
+          "Medicare enrollment periods",
+        ],
+        ...(personProfiles.length > 0 ? { sameAs: personProfiles } : {}),
       },
       {
-        "@type": "Organization",
-        "@id": `${SITE_URL}/#organization`,
-        name: SITE_OWNER,
+        "@type": "InsuranceAgency",
+        "@id": `${SITE_URL}/#agency`,
+        name: "Christian Brinkley",
         url: SITE_URL,
         logo: `${SITE_URL}/opengraph-image`,
-        telephone: SITE_OWNER_PHONE,
-        email: SITE_OWNER_EMAIL,
+        image: `${SITE_URL}/christian-brinkley.jpg`,
+        description:
+          "Free Medicare help from a licensed local agent in Greensboro, NC. Meetings at your home, a public place, or by phone.",
+        telephone: "+1-919-408-6671",
+        founder: { "@id": `${SITE_URL}/#christian` },
+        employee: { "@id": `${SITE_URL}/#christian` },
         address: {
           "@type": "PostalAddress",
-          addressLocality: SITE_LOCALITY,
-          addressRegion: SITE_REGION,
+          addressLocality: "Greensboro",
+          addressRegion: "NC",
           addressCountry: "US",
         },
-        founder: { "@id": `${SITE_URL}/#christian` },
-        ...(sameAs ? { sameAs } : {}),
+        areaServed,
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            opens: "09:00",
+            closes: "17:00",
+          },
+        ],
+        knowsAbout: [
+          "Medicare",
+          "Medicare Advantage",
+          "Medicare Supplement Insurance",
+          "Medicare Part D",
+          "Turning 65 Medicare enrollment",
+          "Medicare Annual Enrollment Period",
+        ],
+        ...(agencyProfiles.length > 0 ? { sameAs: agencyProfiles } : {}),
       },
     ],
   };
@@ -232,7 +313,7 @@ export function localBusinessJsonLd(visibleReviews: readonly VerifiedReview[] = 
     addressCountry: "US",
   };
 
-  const sameAs = publishedSameAs();
+  const sameAs = agencySameAs();
   const googleMap = publishedProfiles().find((profile) => profile.network === "google")?.url;
 
   return {
@@ -240,7 +321,7 @@ export function localBusinessJsonLd(visibleReviews: readonly VerifiedReview[] = 
     "@graph": [
       {
         "@type": "InsuranceAgency",
-        "@id": `${SITE_URL}/#service`,
+        "@id": `${SITE_URL}/#agency`,
         name: SITE_NAME,
         description:
           "Medicare initial enrollment, annual enrollment, life insurance, and " +
@@ -280,7 +361,7 @@ export function localBusinessJsonLd(visibleReviews: readonly VerifiedReview[] = 
         },
         priceRange: "Free consultation",
         email: SITE_OWNER_EMAIL,
-        ...(sameAs ? { sameAs } : {}),
+        ...(sameAs.length > 0 ? { sameAs } : {}),
         ...(googleMap ? { hasMap: googleMap } : {}),
         url: SITE_URL,
         image: `${SITE_URL}/christian-brinkley.jpg`,
@@ -414,7 +495,7 @@ export function articleJsonLd(input: {
   /** Alternative phrasings of the headline, helps AI models match varied queries. */
   alternativeHeadline?: string[];
 }) {
-  const sameAs = publishedSameAs();
+  const sameAs = personSameAs();
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -433,9 +514,9 @@ export function articleJsonLd(input: {
       ...(hasPublishableNpn()
         ? { identifier: { "@type": "PropertyValue", propertyID: "NPN", value: AGENT.npn } }
         : {}),
-      ...(sameAs ? { sameAs } : {}),
+      ...(sameAs.length > 0 ? { sameAs } : {}),
     },
-    publisher: { "@id": `${SITE_URL}/#service` },
+    publisher: { "@id": `${SITE_URL}/#agency` },
     image: `${SITE_URL}/opengraph-image`,
     datePublished: input.datePublished,
     dateModified: input.dateModified,
@@ -529,7 +610,7 @@ export function eventJsonLd(event: {
       "@type": event.attendance === "online" ? "VirtualLocation" : "Place",
       ...event.location,
     },
-    organizer: { "@id": `${SITE_URL}/#service` },
+    organizer: { "@id": `${SITE_URL}/#agency` },
     offers: {
       "@type": "Offer",
       price: 0,
