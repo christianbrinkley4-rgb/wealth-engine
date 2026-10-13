@@ -10,7 +10,7 @@ import { indexableMedicarePlaces } from "@/lib/triad";
 const START = [
   { href: "/plan-check", label: "Plan check quiz" },
   { href: "/turning-65", label: "Turning 65" },
-  { href: "/annual-enrollment", label: "Already on Medicare" },
+  { href: "/aep", label: "Already on Medicare" },
   { href: "/anoc", label: "Your Annual Notice of Change" },
   { href: "/turning-65#enrollment-dates", label: "Find my Medicare dates" },
   { href: "/start", label: "Ask a question" },
@@ -28,7 +28,7 @@ const LEARN = [
   { href: "/ask", label: "Questions people asked" },
   { href: "/medicare-words", label: "Medicare words, in plain English" },
   { href: "/taxes-and-retirement", label: "Taxes & retirement" },
-  { href: "/advantage-vs-medigap", label: "Advantage or Medigap" },
+  { href: "/medicare-advantage-vs-medigap-greensboro-nc", label: "Advantage or Medigap" },
   { href: "/keep-my-doctor", label: "Keeping your doctors" },
   { href: "/social-security-timing", label: "Social Security timing" },
   { href: "/irmaa-appeal", label: "IRMAA appeals" },

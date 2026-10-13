@@ -186,7 +186,7 @@ export default function MedicareTravelPage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Choosing between plan types with travel in mind?{" "}
-            <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+            <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
               Here is Medicare Advantage vs. Medigap in plain English
             </Link>
             . Moving soon?{" "}

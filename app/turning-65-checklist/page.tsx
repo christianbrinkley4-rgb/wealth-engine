@@ -211,7 +211,7 @@ export default function Turning65ChecklistPage() {
           </ol>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             Step 5 is the big fork in the road. If you want the full comparison,{" "}
-            <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+            <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
               here is Advantage versus Medigap in plain English
             </Link>
             . And for the real dollar picture,{" "}

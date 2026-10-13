@@ -205,7 +205,7 @@ export default function MedicareAdvantagePlansWinstonSalemPage() {
             </p>
             <p>
               If you ever wonder how this compares to the no-network route, my{" "}
-              <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+              <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
                 Advantage vs. Medigap comparison
               </Link>{" "}
               lays out both sides honestly.

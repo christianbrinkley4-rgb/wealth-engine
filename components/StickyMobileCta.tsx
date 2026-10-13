@@ -34,11 +34,11 @@ const DISMISS_KEY = "we-scta-dismissed";
 
 /** Medicare pages offer a free review; the plan check itself offers a time. */
 function secondStep(pathname: string): { href: string; label: string } {
-  if (pathname === "/" || pathname === "/turning-65" || pathname.startsWith("/medicare") || pathname === "/annual-enrollment" || pathname === "/aep" || pathname === "/anoc" || pathname.startsWith("/answers/")) {
+  if (pathname === "/" || pathname === "/turning-65" || pathname.startsWith("/medicare") || pathname === "/aep" || pathname === "/aep" || pathname === "/anoc" || pathname.startsWith("/answers/")) {
     return { href: "/schedule?topic=medicare#booking-calendar", label: "Book free consultation" };
   }
   if (pathname === "/plan-check") return { href: "/schedule?topic=medicare#booking-calendar", label: "Book a time" };
-  if (pathname === "/annual-enrollment" || pathname === "/aep" || pathname.startsWith("/aep/")) {
+  if (pathname === "/aep" || pathname === "/aep" || pathname.startsWith("/aep/")) {
     return { href: "/aep-quiz", label: "Free Review" };
   }
   if (pathname === "/turning-65" || pathname.startsWith("/turning-65/")) {
@@ -49,7 +49,7 @@ function secondStep(pathname: string): { href: string; label: string } {
   }
   if (
     pathname.startsWith("/medicare") ||
-    ["/anoc", "/advantage-vs-medigap", "/answers"].some(
+    ["/anoc", "/medicare-advantage-vs-medigap-greensboro-nc", "/answers"].some(
       (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
     )
   ) {

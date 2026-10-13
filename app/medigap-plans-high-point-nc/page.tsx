@@ -256,7 +256,7 @@ export default function MedigapPlansHighPointPage() {
           </ul>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Phone, video, or in person. Want the side-by-side first? Here&apos;s my{" "}
-            <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+            <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
               Advantage vs. Medigap comparison
             </Link>
             . And if you&apos;d rather talk general Medicare in High Point, start on my{" "}

@@ -88,6 +88,22 @@ const nextConfig: NextConfig = {
         destination: "/tools/budget",
         permanent: true,
       },
+      // Page consolidation (2026-10-13): merge duplicate/cannibalizing pages.
+      // /annual-enrollment (evergreen) merged into /aep (seasonal campaign page).
+      { source: "/annual-enrollment", destination: "/aep", permanent: true },
+      // /advantage-vs-medigap (generic) merged into the Greensboro-localized version.
+      {
+        source: "/advantage-vs-medigap",
+        destination: "/medicare-advantage-vs-medigap-greensboro-nc",
+        permanent: true,
+      },
+      // /medicare-supplement-plans-greensboro-nc merged into /medigap-plans-greensboro-nc
+      // ("Medigap" is the higher-volume search term).
+      {
+        source: "/medicare-supplement-plans-greensboro-nc",
+        destination: "/medigap-plans-greensboro-nc",
+        permanent: true,
+      },
     ];
   },
 };

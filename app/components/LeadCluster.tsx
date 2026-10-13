@@ -7,7 +7,7 @@ const LEADS = [
     blurb: "When to enroll and how to get started",
   },
   {
-    href: "/annual-enrollment",
+    href: "/aep",
     label: "Annual enrollment",
     blurb: "Review your coverage for the coming year",
   },

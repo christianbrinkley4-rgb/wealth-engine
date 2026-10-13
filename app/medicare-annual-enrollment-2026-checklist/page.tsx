@@ -159,7 +159,7 @@ export default function AepChecklistPage() {
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             I&apos;m Christian Brinkley, a licensed Medicare agent here in Greensboro. If you want
             the full picture on the fall window first,{" "}
-            <Link href="/annual-enrollment" className="underline underline-offset-2">
+            <Link href="/aep" className="underline underline-offset-2">
               read the annual enrollment guide
             </Link>,
             or{" "}

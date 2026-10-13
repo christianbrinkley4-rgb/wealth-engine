@@ -80,7 +80,7 @@ const GUIDES: LearnEntry[] = [
     kind: "Checklist",
   },
   {
-    href: "/medicare-supplement-plans-greensboro-nc",
+    href: "/medigap-plans-greensboro-nc",
     title: "Medigap in Greensboro",
     blurb: "What to check about supplement coverage and enrollment.",
     situation: "turning-65",
@@ -130,7 +130,7 @@ const GUIDES: LearnEntry[] = [
     kind: "Checklist",
   },
   {
-    href: "/advantage-vs-medigap",
+    href: "/medicare-advantage-vs-medigap-greensboro-nc",
     title: "Medicare Advantage or a Medigap plan?",
     blurb: "How the two paths differ on doctors, costs, and travel.",
     situation: "turning-65",
@@ -153,7 +153,7 @@ const GUIDES: LearnEntry[] = [
     featured: true,
   },
   {
-    href: "/annual-enrollment",
+    href: "/aep",
     title: "Reviewing your plan each fall",
     blurb: "What changes every year and what to check before December 7.",
     situation: "on-medicare",

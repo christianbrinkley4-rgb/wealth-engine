@@ -93,7 +93,7 @@ export default function MedigapQuizPage() {
       </section>
 
       <WealthLinkCard
-        href="/advantage-vs-medigap"
+        href="/medicare-advantage-vs-medigap-greensboro-nc"
         eyebrow="Go deeper"
         title="Medicare Advantage vs Medigap, side by side"
         body="The full comparison: how each path handles doctors, drugs, travel, and costs, in plain English."
@@ -112,7 +112,7 @@ export default function MedigapQuizPage() {
             </Link>
           </li>
           <li>
-            <Link href="/annual-enrollment" className="underline underline-offset-4">
+            <Link href="/aep" className="underline underline-offset-4">
               Annual enrollment, Oct 15 to Dec 7
             </Link>
           </li>

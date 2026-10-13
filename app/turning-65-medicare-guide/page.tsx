@@ -323,7 +323,7 @@ export default function Turning65GuidePage() {
 
       <ReadNext>
         <p>
-          Already on Medicare? Read the <Link href="/annual-enrollment">annual enrollment guide</Link>. Comparing coverage types? See <Link href="/advantage-vs-medigap">Advantage vs. Medigap</Link>. In the Piedmont Triad, the <Link href="/turning-65">local turning-65 page</Link> has Greensboro-specific resources.
+          Already on Medicare? Read the <Link href="/aep">annual enrollment guide</Link>. Comparing coverage types? See <Link href="/medicare-advantage-vs-medigap-greensboro-nc">Advantage vs. Medigap</Link>. In the Piedmont Triad, the <Link href="/turning-65">local turning-65 page</Link> has Greensboro-specific resources.
         </p>
         <ChecklistPointer />
       </ReadNext>

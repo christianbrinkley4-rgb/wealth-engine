@@ -369,7 +369,7 @@ export default function MedicareAdvantageNCPage() {
 
       <ReadNext>
         <p>
-          Compare <Link href="/medicare-advantage-plans-greensboro-nc">Advantage plans in Guilford County</Link> or read <Link href="/medicare-advantage-vs-medigap-greensboro-nc">Advantage vs. Medigap</Link>. During the fall window, see the <Link href="/annual-enrollment">annual enrollment guide</Link>.
+          Compare <Link href="/medicare-advantage-plans-greensboro-nc">Advantage plans in Guilford County</Link> or read <Link href="/medicare-advantage-vs-medigap-greensboro-nc">Advantage vs. Medigap</Link>. During the fall window, see the <Link href="/aep">annual enrollment guide</Link>.
         </p>
         <ChecklistPointer />
       </ReadNext>

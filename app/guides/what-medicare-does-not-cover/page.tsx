@@ -271,7 +271,7 @@ export default function WhatMedicareDoesNotCoverPage() {
           </ol>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Comparing your options side by side?{" "}
-            <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+            <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
               Here is Medicare Advantage vs. Medigap in plain English
             </Link>
             . For the full cost picture,{" "}

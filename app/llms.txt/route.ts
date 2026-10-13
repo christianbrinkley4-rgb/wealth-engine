@@ -215,9 +215,9 @@ ${TPMO_DISCLAIMER}
 - [Taxes and retirement](${SITE_URL}/taxes-and-retirement): plain-English explainers on Social Security taxes, required minimum distributions, and Roth conversions, and how retirement income affects Medicare premiums. Educational, not tax advice.
 - [Plan check](${SITE_URL}/plan-check): a seven-question quiz on whether a current Medicare plan deserves a second look before December 7. Answers stay on the device unless the visitor asks for results by email.
 - [Turning 65](${SITE_URL}/turning-65): Medicare enrollment timing, current coverage, and questions to consider before choosing a plan.
-- [Annual enrollment](${SITE_URL}/annual-enrollment): review next year’s costs, doctors, and prescriptions before deciding whether to keep or change coverage. Medicare Advantage and Part D changes for the next year can be made from October 15 through December 7.
+- [Annual enrollment](${SITE_URL}/aep): review next year’s costs, doctors, and prescriptions before deciding whether to keep or change coverage. Medicare Advantage and Part D changes for the next year can be made from October 15 through December 7.
 - [Do I need to act during Annual Enrollment?](${SITE_URL}/aep-quiz): five questions about the current plan, doctors, and prescriptions. The result says whether a free review is worth the time. It does not recommend a plan.
-- [Medicare Advantage and Medigap](${SITE_URL}/advantage-vs-medigap): differences in coverage, costs, provider access, and enrollment rules.
+- [Medicare Advantage and Medigap](${SITE_URL}/medicare-advantage-vs-medigap-greensboro-nc): differences in coverage, costs, provider access, and enrollment rules.
 - [Keeping your doctors](${SITE_URL}/keep-my-doctor): steps to confirm a provider’s participation before enrolling.
 - [Helping a parent](${SITE_URL}/helping-a-parent): organize questions, check dates, and understand permission requirements while respecting a parent’s wishes.
 - [Life insurance](${SITE_URL}/life-insurance): review existing policies, beneficiaries, budget, and family needs.

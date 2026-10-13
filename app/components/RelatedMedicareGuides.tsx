@@ -16,7 +16,7 @@ export function RelatedMedicareGuides() {
           </Link>
         </li>
         <li>
-          <Link className="underline" href="/annual-enrollment">
+          <Link className="underline" href="/aep">
             Reviewing your coverage during Annual Enrollment
           </Link>
         </li>

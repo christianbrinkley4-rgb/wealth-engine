@@ -9,7 +9,7 @@ export const CAMPAIGN_CHANNELS = {
 /** Campaign destinations are explicit so an AEP or life ad never lands on a turning-65 guide. */
 export const CAMPAIGN_AUDIENCES = {
   turning_65: { page: "/lp/turning-65", guide: "/turning-65" },
-  aep: { page: "/lp/annual-enrollment", guide: "/annual-enrollment" },
+  aep: { page: "/lp/annual-enrollment", guide: "/aep" },
   life_insurance: { page: "/lp/life-insurance", guide: "/life-insurance" },
   retirement: { page: "/lp/retirement-income", guide: "/retirement-income" },
 } as const;

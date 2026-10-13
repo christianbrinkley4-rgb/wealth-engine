@@ -294,7 +294,7 @@ export default function IrmaaAppealPage() {
             what Medicare costs in 2026
           </Link>
           . For help reviewing changes to your plan, read{" "}
-          <Link href="/annual-enrollment" className="underline underline-offset-2">
+          <Link href="/aep" className="underline underline-offset-2">
             our annual enrollment guide
           </Link>
           .

@@ -182,7 +182,7 @@ export default function MedicareCosts2026Page() {
           </div>
           <p className="ref-note">
             That 20% has no ceiling of its own, which is the whole reason supplemental coverage
-            exists. <Link href="/advantage-vs-medigap">How Advantage and Medigap handle it</Link>{" "}
+            exists. <Link href="/medicare-advantage-vs-medigap-greensboro-nc">How Advantage and Medigap handle it</Link>{" "}
             differs more than the premiums suggest.
           </p>
           <p className="ref-note">

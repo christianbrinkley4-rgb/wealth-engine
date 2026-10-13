@@ -9,7 +9,7 @@ export const INSURANCE_SERVICES = [
   },
   {
     name: "Medicare plan review",
-    href: "/annual-enrollment",
+    href: "/aep",
     question: "Want to check your current Medicare plan?",
     description: "Review plan changes, doctors, prescriptions and costs before deciding whether to keep or change coverage.",
     prepare: "Bring your Annual Notice of Change, plan details and pharmacy information.",

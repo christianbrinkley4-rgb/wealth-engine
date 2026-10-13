@@ -13,7 +13,7 @@ export const STANDALONE_GUIDES: Array<{
     related: [
       { title: "Medicare while traveling", href: "/guides/medicare-travel" },
       { title: "2026 IRMAA brackets", href: "/guides/irmaa-brackets-2026" },
-      { title: "Medicare Advantage vs Medigap", href: "/advantage-vs-medigap" },
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
       { title: "Questions about Medigap or Advantage", href: "/tools/medigap-or-advantage-quiz" },
     ],
   },
@@ -68,7 +68,7 @@ export const STANDALONE_GUIDES: Array<{
       "Medicare renews automatically each year. No forms, no re-enrollment. When you actually need to act, and why your card has no expiration date.",
     related: [
       { title: "Missed Medicare enrollment", href: "/guides/missed-medicare-enrollment" },
-      { title: "Annual enrollment", href: "/annual-enrollment" },
+      { title: "Annual enrollment", href: "/aep" },
       { title: "What Medicare doesn't cover", href: "/guides/what-medicare-does-not-cover" },
     ],
   },

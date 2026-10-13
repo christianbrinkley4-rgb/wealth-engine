@@ -146,12 +146,12 @@ export default function PlanCheckPage() {
         <h2 className="text-24 font-semibold">Related reads</h2>
         <ul className="text-18 mt-4 space-y-3">
           <li>
-            <Link href="/annual-enrollment" className="underline underline-offset-4">
+            <Link href="/aep" className="underline underline-offset-4">
               Annual enrollment, Oct 15 to Dec 7
             </Link>
           </li>
           <li>
-            <Link href="/advantage-vs-medigap" className="underline underline-offset-4">
+            <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-4">
               Medicare Advantage vs Medigap, side by side
             </Link>
           </li>

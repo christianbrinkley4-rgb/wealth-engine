@@ -106,7 +106,7 @@ export default async function StartPage({
                 </Link>
               </li>
               <li>
-                <Link href="/annual-enrollment" className="underline underline-offset-4">
+                <Link href="/aep" className="underline underline-offset-4">
                   Annual enrollment, Oct 15 to Dec 7
                 </Link>
               </li>

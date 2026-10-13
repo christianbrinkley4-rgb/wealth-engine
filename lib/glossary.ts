@@ -139,7 +139,7 @@ export const GLOSSARY: GlossaryGroup[] = [
         definition:
           "A plan from a private insurance company that Medicare approves. It replaces Original Medicare as the way you get your Part A and Part B benefits, and most plans include drug coverage. Plans have a yearly limit on what you pay for covered care, and most use a network of doctors and hospitals. You still pay your Part B premium.",
         source: SOURCES.compare,
-        more: { label: "Medicare Advantage or a Medigap plan?", href: "/advantage-vs-medigap" },
+        more: { label: "Medicare Advantage or a Medigap plan?", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
       },
       {
         id: "part-d",
@@ -246,7 +246,7 @@ export const GLOSSARY: GlossaryGroup[] = [
         definition:
           "October 15 to December 7, every year. You can switch between Original Medicare and Medicare Advantage, change Advantage plans, or change drug plans. Changes start January 1.",
         source: SOURCES.joining,
-        more: { label: "Reviewing your plan each fall", href: "/annual-enrollment" },
+        more: { label: "Reviewing your plan each fall", href: "/aep" },
       },
       {
         id: "medicare-advantage-open-enrollment",

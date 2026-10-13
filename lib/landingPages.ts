@@ -107,7 +107,7 @@ export const LANDING_PAGES: LandingPage[] = [
     subhead:
       "Review next year’s costs, prescriptions, and doctors before deciding whether your current plan still fits.",
     primaryHref: "/start?topic=medicare&stage=already_on_medicare&quick=1",
-    guideHref: "/annual-enrollment",
+    guideHref: "/aep",
     consultationTopics: [
       "Changes in your plan’s premiums, copays, and other costs for next year.",
       "Whether your doctors, prescriptions, and pharmacy are covered by the plans you’re considering.",
@@ -124,7 +124,7 @@ export const LANDING_PAGES: LandingPage[] = [
         href: "/start?topic=medicare&stage=already_on_medicare",
       },
       { label: "I want to keep my doctor", href: "/keep-my-doctor" },
-      { label: "Explain annual enrollment", href: "/annual-enrollment" },
+      { label: "Explain annual enrollment", href: "/aep" },
     ],
     promises: [
       ...UNIVERSAL_PROMISES,

@@ -686,7 +686,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     related: [
       { title: "Medicare automatic renewal", href: "/guides/medicare-automatic-renewal" },
       { title: "Special enrollment", href: "/special-enrollment" },
-      { title: "Annual enrollment", href: "/annual-enrollment" },
+      { title: "Annual enrollment", href: "/aep" },
     ],
   },
   {
@@ -2075,7 +2075,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
     ],
     related: [
-      { title: "Medicare Annual Enrollment", href: "/annual-enrollment" },
+      { title: "Medicare Annual Enrollment", href: "/aep" },
       { title: "When your Medicare plan is not renewing", href: "/guides/medicare-plan-not-renewing-triad" },
       { title: "Medicare help in the Triad", href: "/medicare" },
     ],
@@ -2179,7 +2179,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
     ],
     related: [
-      { title: "Medicare Annual Enrollment", href: "/annual-enrollment" },
+      { title: "Medicare Annual Enrollment", href: "/aep" },
       { title: "Medicare Advantage vs Medigap in Greensboro", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
       { title: "Medicare help in the Triad", href: "/medicare" },
     ],
@@ -2280,7 +2280,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
     ],
     related: [
-      { title: "Medicare Annual Enrollment", href: "/annual-enrollment" },
+      { title: "Medicare Annual Enrollment", href: "/aep" },
       { title: "When your Medicare plan is not renewing", href: "/guides/medicare-plan-not-renewing-triad" },
       { title: "Medicare help in the Triad", href: "/medicare" },
     ],

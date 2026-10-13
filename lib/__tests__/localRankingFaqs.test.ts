@@ -29,12 +29,12 @@ describe("local ranking FAQs stay on the page and in FAQ schema", () => {
     expect(src).toContain("faqJsonLd(FAQ)");
   });
 
-  it("annual-enrollment keeps a county FAQ in the shared FAQ array", () => {
-    const src = page("../../app/annual-enrollment/page.tsx") + JSON.stringify(PRIORITY_MEDICARE_FAQS.annual);
+  it("aep keeps a county FAQ in the shared FAQ array", () => {
+    const src = page("../../app/aep/page.tsx") + JSON.stringify(PRIORITY_MEDICARE_FAQS.annual);
     expect(src).toContain(
       "Do Medicare Advantage plans differ across Greensboro, High Point, and Winston-Salem?",
     );
-    expect(src).toContain("faqJsonLd(FAQ)");
+    expect(src).toContain("faqJsonLd(ALL_FAQ)");
   });
 
   it("keep-my-doctor keeps a cross-city specialist FAQ in the shared FAQ array", () => {

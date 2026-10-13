@@ -215,7 +215,7 @@ export default function SpecialEnrollmentPage() {
             Your enrollment dates
           </Link>{" "}
           covers the standard windows. And every fall,{" "}
-          <Link href="/annual-enrollment" className="underline underline-offset-2">
+          <Link href="/aep" className="underline underline-offset-2">
             Annual Enrollment
           </Link>{" "}
           (October 15 to December 7) is open to everyone.

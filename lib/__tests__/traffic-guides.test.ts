@@ -91,7 +91,7 @@ describe("traffic guide publishing contract", () => {
       "wealth/401k-explained",
       "wealth/hsa-explained",
       "wealth/broke-money-reset-plan",
-      "annual-enrollment",
+      "aep",
     ];
     const incoming = files
       .map((file) => readFileSync(resolve(`app/${file}/page.tsx`), "utf8"))

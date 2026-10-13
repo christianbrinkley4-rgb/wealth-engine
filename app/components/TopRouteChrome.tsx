@@ -10,7 +10,7 @@ import { AGENT } from "@/lib/agent";
 
 export const NAV = [
   { href: "/turning-65", label: "Turning 65" },
-  { href: "/annual-enrollment", label: "Already on Medicare" },
+  { href: "/aep", label: "Already on Medicare" },
   { href: "/learn", label: "Medicare guides" },
   { href: "/service-area", label: "Towns I serve" },
   { href: "/about", label: "About" },

@@ -170,7 +170,7 @@ describe("reusable campaign links", () => {
   );
   it("keeps AEP mail links educational and defaults paid traffic to the turning-65 pilot", () => {
     expect(campaignPath("mail", new URLSearchParams("audience=aep"))).toMatch(
-      /^\/annual-enrollment\?/,
+      /^\/aep\?/,
     );
     expect(campaignPath("nextdoor", new URLSearchParams())).toMatch(/^\/lp\/turning-65\?/);
   });

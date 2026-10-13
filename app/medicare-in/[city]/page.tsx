@@ -300,12 +300,12 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             <p className="text-18 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
               If you are comparing Medicare Supplement (Medigap) with Medicare Advantage, we can
               review both against your doctors and prescriptions. Start with the{" "}
-              <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+              <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
                 Advantage vs Medigap guide
               </Link>
               , then read how{" "}
               <Link
-                href="/medicare-supplement-plans-greensboro-nc"
+                href="/medigap-plans-greensboro-nc"
                 className="underline underline-offset-2"
               >
                 Medigap works in Greensboro
@@ -339,7 +339,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
               </Link>
             </li>
             <li>
-              <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+              <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
                 Medicare Advantage vs Medigap
               </Link>
             </li>

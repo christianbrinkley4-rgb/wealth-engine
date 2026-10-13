@@ -1,5 +1,6 @@
 import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -251,7 +252,7 @@ export default function AepPage() {
             </p>
             <p>
               New to how the fall window works?{" "}
-              <Link href="/annual-enrollment" className="underline underline-offset-2">
+              <Link href="/aep" className="underline underline-offset-2">
                 Read the full annual enrollment guide
               </Link>
               .
@@ -435,7 +436,8 @@ export default function AepPage() {
           <Link href="/medicare-part-d-donut-hole-2027">Part D cap explanation</Link>, then work
           through the{" "}
           <Link href="/medicare-annual-enrollment-2026-checklist">Annual Enrollment checklist</Link>
-          .
+          . If your plan is not renewing, see the{" "}
+          <Link href="/guides/medicare-plan-not-renewing-triad">Triad checklist</Link>.
         </p>
         <ChecklistPointer />
       </ReadNext>
@@ -451,6 +453,7 @@ export default function AepPage() {
         <ComplianceDisclosure variant="medicare" />
       </div>
       <MedicareByline reviewed="2026-10-12" />
+      <TrafficGuideLinks slugs={["medicare-plan-not-renewing-triad", "medicare-dual-eligible-snp-triad", "medicare-part-b-giveback-plans", "medicare-advantage-open-enrollment-period"]} />
       <RelatedMedicareGuides />
     </main>
   );

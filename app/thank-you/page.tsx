@@ -30,7 +30,7 @@ const NEXT_READS: Record<InterestTopic, Array<{ href: string; label: string; blu
       blurb: "Medicare enrollment dates and when to review Medigap options",
     },
     {
-      href: "/annual-enrollment",
+      href: "/aep",
       label: "Annual enrollment",
       blurb: "What the fall letter means, and when nothing should change",
     },

@@ -138,7 +138,7 @@ export default function AdvantageVsMedigapGreensboroPage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             For the full national comparison, see{" "}
-            <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+            <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
               Medicare Advantage vs Medigap across the Triad
             </Link>
             .

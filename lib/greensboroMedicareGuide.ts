@@ -44,7 +44,7 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
         href: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/your-coverage-options",
       },
     ],
-    related: { label: "Compare Medicare Advantage and Medigap", href: "/advantage-vs-medigap" },
+    related: { label: "Compare Medicare Advantage and Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
   },
   {
     id: "doctors",
@@ -109,7 +109,7 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
         href: "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-can-i-sign-up-for-medicare",
       },
     ],
-    related: { label: "Read the Annual Enrollment guide", href: "/annual-enrollment" },
+    related: { label: "Read the Annual Enrollment guide", href: "/aep" },
   },
   {
     id: "working",

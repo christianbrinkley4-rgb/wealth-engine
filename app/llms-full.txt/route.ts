@@ -122,7 +122,7 @@ export function GET() {
     `- [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.`,
     `- [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the Part D out-of-pocket cap works in 2027.`,
     `- [Medicare Advantage vs. Medigap in Greensboro, NC](${SITE_URL}/medicare-advantage-vs-medigap-greensboro-nc): the two paths compared with Greensboro-area specifics.`,
-    `- [Medicare Supplement plans in Greensboro, NC](${SITE_URL}/medicare-supplement-plans-greensboro-nc): how Medigap plans work for Greensboro-area residents.`,
+    `- [Medicare Supplement plans in Greensboro, NC](${SITE_URL}/medigap-plans-greensboro-nc): how Medigap plans work for Greensboro-area residents.`,
     `- [Annual Enrollment Period](${SITE_URL}/aep): the fall enrollment window, October 15 to December 7, and what to review.`,
     `- [Insurance services](${SITE_URL}/insurance-services): Medicare, life insurance, care coverage, and annuity consultations, plus what to bring.`,
     `- [Care and critical illness coverage](${SITE_URL}/care-coverage): coverage options, limits, and the questions worth asking.`,

@@ -194,7 +194,7 @@ export default function DoctorNetworksPage() {
               With Original Medicare plus a supplement, the picture is simpler: any doctor that
               accepts Medicare assignment takes it, anywhere in the country. That&apos;s one of the
               genuine tradeoffs between the two paths,{" "}
-              <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+              <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
                 here&apos;s how Advantage and Medigap compare
               </Link>{" "},
              and it&apos;s worth understanding before you choose.
@@ -270,7 +270,7 @@ export default function DoctorNetworksPage() {
               </Link>{" "},
              we check their doctors together. It&apos;s free, and it&apos;s one of the
               highest-value 30 minutes in the whole process. You can also{" "}
-              <Link href="/annual-enrollment" className="underline underline-offset-2">
+              <Link href="/aep" className="underline underline-offset-2">
                 review the full annual enrollment guide
               </Link>{" "}
               for everything else the fall window covers.

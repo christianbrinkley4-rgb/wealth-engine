@@ -249,7 +249,7 @@ export default function AboutPage() {
                 text: "Premiums, deductibles, and the numbers behind them.",
               },
               {
-                href: "/advantage-vs-medigap",
+                href: "/medicare-advantage-vs-medigap-greensboro-nc",
                 label: "Advantage vs Medigap",
                 text: "The honest comparison, side by side.",
               },

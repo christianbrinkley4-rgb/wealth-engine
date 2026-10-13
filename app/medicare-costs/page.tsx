@@ -205,7 +205,7 @@ export default function MedicareCostsPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">
           Wondering how the two main paths compare on cost?{" "}
-          <Link href="/advantage-vs-medigap" className="underline underline-offset-2">
+          <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
             Medicare Advantage compared with Medigap
           </Link>{" "}
           explains the trade-offs. And if your income recently changed,{" "}

@@ -449,7 +449,7 @@ describe("paid landing pages", () => {
     const knownPaths = new Set([
       "/remind-me",
       "/keep-my-doctor",
-      "/annual-enrollment",
+      "/aep",
       "/life-insurance",
       "/annuities",
       "/plan",
