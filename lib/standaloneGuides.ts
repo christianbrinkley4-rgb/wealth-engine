@@ -182,5 +182,49 @@ export const STANDALONE_GUIDES: Array<{
       { title: "Annual Enrollment review", href: "/aep" },
     ],
   },
+  {
+    slug: "zero-premium-medicare-advantage-free",
+    title: "Is a $0 premium plan really free?",
+    description:
+      "The premium is only one line item. Deductibles, copays, networks, and drug costs are where the real bill lives.",
+    related: [
+      { title: "Annual Enrollment review", href: "/aep" },
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
+      { title: "Missed Medicare enrollment", href: "/guides/missed-medicare-enrollment" },
+    ],
+  },
+  {
+    slug: "cobra-vs-medicare-at-65",
+    title: "COBRA vs. Medicare at 65",
+    description:
+      "COBRA does not count as creditable coverage for Part B. The 8-month rule that trips people up, and the permanent penalty.",
+    related: [
+      { title: "Turning 65 checklist", href: "/turning-65" },
+      { title: "Missed Medicare enrollment", href: "/guides/missed-medicare-enrollment" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "medicare-in-home-care",
+    title: "Does Medicare pay for in-home care?",
+    description:
+      "Medicare covers skilled, short-term home health. It does not cover long-term custodial care. Where the line falls.",
+    related: [
+      { title: "Free Medicare help in the Triad", href: "/medicare-help-directory" },
+      { title: "Medicare scams to watch for", href: "/medicare-scam-alert" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "extra-help-medicare-savings-programs-nc",
+    title: "Extra Help and Medicare Savings Programs in NC",
+    description:
+      "Two programs that lower Medicare costs for people with limited income. Who qualifies and how to apply in North Carolina.",
+    related: [
+      { title: "Free Medicare help in the Triad", href: "/medicare-help-directory" },
+      { title: "Annual Enrollment review", href: "/aep" },
+      { title: "Turning 65 checklist", href: "/turning-65" },
+    ],
+  },
 ];
 

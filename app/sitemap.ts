@@ -193,6 +193,10 @@ const STATIC_ROUTES: Array<{
     "/guides/medicare-advantage-plans-leaving-nc-2027",
     "/guides/medigap-plan-g-vs-plan-n-nc",
     "/guides/turning-65-aca-marketplace-plan",
+    "/guides/zero-premium-medicare-advantage-free",
+    "/guides/cobra-vs-medicare-at-65",
+    "/guides/medicare-in-home-care",
+    "/guides/extra-help-medicare-savings-programs-nc",
   ].map((path) => ({
     path,
     changeFrequency: "weekly" as const,
