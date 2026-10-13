@@ -137,7 +137,7 @@ export default function MedicareInHomeCarePage() {
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             <strong className="text-[var(--color-navy)]">Custodial care</strong> is help with daily
             living. Bathing, getting dressed, cooking, cleaning, companionship, someone nearby in
-            case of a fall. This is what families mean when they say "Mom needs help at home."
+            case of a fall. This is what families mean when they say &ldquo;Mom needs help at home.&rdquo;
             Medicare does not cover it. Not under Part A, not under Part B, not under any
             Medicare Advantage plan as a standard benefit. The exclusion is written into the law.
           </p>

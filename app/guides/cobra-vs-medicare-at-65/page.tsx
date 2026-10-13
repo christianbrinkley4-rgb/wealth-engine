@@ -133,7 +133,7 @@ export default function CobraVsMedicareAt65Page() {
             Medicare later.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            The problem is that "later" has a price. Federal rules do not treat COBRA as active
+            The problem is that &ldquo;later&rdquo; has a price. Federal rules do not treat COBRA as active
             employer coverage for Medicare purposes. The special protections that let working
             people delay Part B past 65 do not apply to COBRA. Every month you are on COBRA past
             65 without Part B is a month the late enrollment penalty can grow.

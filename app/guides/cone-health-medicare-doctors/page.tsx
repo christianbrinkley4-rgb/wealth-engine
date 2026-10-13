@@ -138,8 +138,8 @@ export default function ConeHealthMedicareDoctorsPage() {
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Medicare Advantage plans each negotiate their own contracts with health systems. A plan
             that included Cone Health last year might not include it next year, or it might include
-            the hospitals but not every specialist. That is why "my neighbor has this plan and sees
-            a Cone Health doctor" is not enough. You need to check your plan, your doctor, for the
+            the hospitals but not every specialist. That is why &ldquo;my neighbor has this plan and sees
+            a Cone Health doctor&rdquo; is not enough. You need to check your plan, your doctor, for the
             plan year you are enrolling in.
           </p>
 
@@ -183,7 +183,7 @@ export default function ConeHealthMedicareDoctorsPage() {
             </li>
           </ul>
 
-          <h2 className="text-28 mt-12 font-semibold">What "in network" actually costs you</h2>
+          <h2 className="text-28 mt-12 font-semibold">What &ldquo;in network&rdquo; actually costs you</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Being out of network is not a minor inconvenience. On most Medicare Advantage plans,
             seeing an out-of-network doctor for routine care means you pay the full bill yourself,

@@ -189,7 +189,7 @@ export default function NcStateHealthPlanMedicarePage() {
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             If your Medicare Part B was set up in alignment with your retirement, you default into
             the base Medicare Advantage plan automatically. That is by design: the state wants you
-            covered. But "default" is not the same as "best for you." The enhanced plan or the
+            covered. But &ldquo;default&rdquo; is not the same as &ldquo;best for you.&rdquo; The enhanced plan or the
             70/30 plan might fit your situation better, especially if you take expensive
             prescriptions or see specialists often. Use your first open enrollment to compare all
             three with your actual health needs in mind, not just the default.
