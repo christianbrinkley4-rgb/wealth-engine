@@ -165,11 +165,11 @@ export function TopRouteChrome() {
               <a
                 data-cta-location="header"
                 className="nav-call"
-                href={AGENT.phoneHref}
-                aria-label={`Call ${AGENT.phone}`}
+                href={AGENT.phoneHref || "tel:+19194086671"}
+                aria-label={`Call ${AGENT.phone || "(919) 408-6671"}`}
               >
                 <Phone size={17} aria-hidden />
-                <span className="nav-call-number">{AGENT.phone}</span>
+                <span className="nav-call-number">{AGENT.phone || "(919) 408-6671"}</span>
               </a>
             )}
             <button
@@ -207,8 +207,8 @@ export function TopRouteChrome() {
         </ul>
         <div className="nav-sheet-actions">
           {!isAiRoute(pathname) && (
-            <a data-cta-location="menu" href={AGENT.phoneHref} className="btn btn-block">
-              <Phone size={19} aria-hidden /> {AGENT.phone}
+            <a data-cta-location="menu" href={AGENT.phoneHref || "tel:+19194086671"} className="btn btn-block">
+              <Phone size={19} aria-hidden /> {AGENT.phone || "(919) 408-6671"}
             </a>
           )}
           <Link
