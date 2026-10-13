@@ -259,6 +259,22 @@ export default function ServiceAreaPage() {
               Medicare in Liberty
             </Link>
           </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-agent-stem-nc"
+            >
+              Medicare agent in Stem
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-agent-lexington-nc"
+            >
+              Medicare agent in Lexington
+            </Link>
+          </li>
         </ul>
       </section>
       <KitchenTableClose

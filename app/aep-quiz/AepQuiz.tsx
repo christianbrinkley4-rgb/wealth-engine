@@ -168,6 +168,7 @@ export function AepQuiz() {
   const [sending, setSending] = useState(false);
 
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const stepRef = useRef<HTMLDivElement>(null);
   const { containerRef, getToken, reset, widgetError } = useTurnstile(phase === "capture");
   const questions = questionsForVariant(variant ?? "a", answers);
   const question = questions[index];
@@ -179,9 +180,17 @@ export function AepQuiz() {
   }, []);
 
   // Move focus to the new question so screen reader and keyboard users are
-  // not stranded after each step.
+  // not stranded after each step. Focus scrolling ignores the sticky header,
+  // so the step itself is scrolled with scroll-margin-top clearing .nav.
   useEffect(() => {
-    headingRef.current?.focus();
+    const heading = headingRef.current;
+    if (!heading) return;
+    heading.focus({ preventScroll: true });
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    stepRef.current?.scrollIntoView({
+      behavior: reduceMotion ? "auto" : "smooth",
+      block: "start",
+    });
   }, [phase, index]);
 
   function answer(value: boolean) {
@@ -280,7 +289,11 @@ export function AepQuiz() {
   }
 
   return (
-    <div className="mx-auto w-full max-w-[640px]" data-quiz-variant={variant}>
+    <div
+      ref={stepRef}
+      className="mx-auto w-full max-w-[640px] scroll-mt-28"
+      data-quiz-variant={variant}
+    >
       {(phase === "questions" && index > 0) || phase === "capture" ? (
         <button
           type="button"

@@ -4,6 +4,7 @@ import {
   AGENT,
   COMPENSATION_DISCLOSURE,
   GOVERNMENT_DISCLAIMER,
+  hasPublishableNpn,
   publishedProfiles,
   TPMO_DISCLAIMER,
 } from "@/lib/agent";
@@ -17,6 +18,34 @@ import { learnEntries } from "@/lib/learn";
 /** Towns with dedicated /medicare-{town}-nc pages (Granville County and beyond)
  * that are not part of the TRIAD_CITIES template set. Listed in llms.txt so
  * AI assistants see the full service area. */
+/** Indexable town URLs. The /medicare-in template is noindex except Greensboro. */
+const DEDICATED_TOWN_PAGES = [
+  { path: "/medicare-agent-greensboro-nc", title: "Medicare agent in Greensboro, NC", blurb: "Licensed agent for Guilford County Medicare questions. Phone (919) 408-6671." },
+  { path: "/medicare-agent-high-point-nc", title: "Medicare agent in High Point, NC", blurb: "Medicare help for High Point and Guilford County." },
+  { path: "/medicare-agent-winston-salem-nc", title: "Medicare agent in Winston-Salem, NC", blurb: "Medicare help for Winston-Salem and Forsyth County." },
+  { path: "/medicare-agent-kernersville-nc", title: "Medicare agent in Kernersville, NC", blurb: "Medicare help in Kernersville." },
+  { path: "/medicare-agent-burlington-nc", title: "Medicare agent in Burlington, NC", blurb: "Medicare help in Burlington and Alamance County." },
+  { path: "/medicare-agent-reidsville-nc", title: "Medicare agent in Reidsville, NC", blurb: "Medicare help in Reidsville and Rockingham County." },
+  { path: "/medicare-agent-thomasville-nc", title: "Medicare agent in Thomasville, NC", blurb: "Medicare help in Thomasville." },
+  { path: "/medicare-agent-lexington-nc", title: "Medicare agent in Lexington, NC", blurb: "Medicare help in Lexington and Davidson County." },
+  { path: "/medicare-agent-stem-nc", title: "Medicare agent in Stem, NC", blurb: "Medicare help in Stem and Granville County." },
+  { path: "/medicare-agent-creedmoor-nc", title: "Medicare agent in Creedmoor, NC", blurb: "Medicare help in Creedmoor, Christian's hometown." },
+  { path: "/medicare-agent-oxford-nc", title: "Medicare agent in Oxford, NC", blurb: "Medicare help in Oxford and Granville County." },
+  { path: "/medicare-creedmoor-nc", title: "Medicare in Creedmoor, NC", blurb: "Local notes for Creedmoor." },
+  { path: "/medicare-oxford-nc", title: "Medicare in Oxford, NC", blurb: "Local notes for Oxford." },
+  { path: "/medicare-butner-nc", title: "Medicare in Butner, NC", blurb: "Local notes for Butner." },
+  { path: "/medicare-asheboro-nc", title: "Medicare in Asheboro, NC", blurb: "Local notes for Asheboro and Randolph County." },
+  { path: "/medicare-mebane-nc", title: "Medicare in Mebane, NC", blurb: "Local notes for Mebane." },
+  { path: "/medicare-eden-nc", title: "Medicare in Eden, NC", blurb: "Local notes for Eden." },
+  { path: "/medicare-roxboro-nc", title: "Medicare in Roxboro, NC", blurb: "Local notes for Roxboro and Person County." },
+  { path: "/medicare-madison-nc", title: "Medicare in Madison, NC", blurb: "Local notes for Madison." },
+  { path: "/medicare-graham-nc", title: "Medicare in Graham, NC", blurb: "Local notes for Graham." },
+  { path: "/medicare-liberty-nc", title: "Medicare in Liberty, NC", blurb: "Local notes for Liberty." },
+  { path: "/medicare-ramseur-nc", title: "Medicare in Ramseur, NC", blurb: "Local notes for Ramseur." },
+  { path: "/medigap-plans-high-point-nc", title: "Medigap plans in High Point, NC", blurb: "How Medicare Supplement plans work for High Point." },
+  { path: "/medicare-advantage-plans-winston-salem-nc", title: "Medicare Advantage plans in Winston-Salem, NC", blurb: "What to check before choosing a Winston-Salem Advantage plan." },
+] as const;
+
 const ADDITIONAL_SERVICE_TOWNS = [
   "Creedmoor",
   "Oxford",
@@ -150,8 +179,10 @@ ${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.stat
 - Communities served: ${[...placeNames(), ...ADDITIONAL_SERVICE_TOWNS].join(", ")}.
 - Visitors outside those communities can get in touch to discuss a way to meet. Phone consultations are available in North Carolina.
 - Licensed in: ${AGENT.licensedStates.join(", ")}.
-- Phone: ${AGENT.phone}.
+- License line: ${AGENT.licenseLine}.
+${hasPublishableNpn() ? `- National Producer Number (NPN): ${AGENT.npn}.\n` : ""}- Phone: ${AGENT.phone}.
 - Hours: ${AGENT.hours} ${AGENT.afterHoursPromise}
+- There is no public storefront. Meetings are at the visitor's home, a convenient public place, or by phone.
 - [About Christian](${SITE_URL}/about)
 - [Service area](${SITE_URL}/service-area)
 - [Request a consultation](${SITE_URL}/start)
@@ -182,7 +213,8 @@ ${TPMO_DISCLAIMER}
 - [Taxes and retirement](${SITE_URL}/taxes-and-retirement): plain-English explainers on Social Security taxes, required minimum distributions, and Roth conversions, and how retirement income affects Medicare premiums. Educational, not tax advice.
 - [Plan check](${SITE_URL}/plan-check): a seven-question quiz on whether a current Medicare plan deserves a second look before December 7. Answers stay on the device unless the visitor asks for results by email.
 - [Turning 65](${SITE_URL}/turning-65): Medicare enrollment timing, current coverage, and questions to consider before choosing a plan.
-- [Annual enrollment](${SITE_URL}/annual-enrollment): review next year’s costs, doctors, and prescriptions before deciding whether to keep or change coverage.
+- [Annual enrollment](${SITE_URL}/annual-enrollment): review next year’s costs, doctors, and prescriptions before deciding whether to keep or change coverage. Medicare Advantage and Part D changes for the next year can be made from October 15 through December 7.
+- [Do I need to act during Annual Enrollment?](${SITE_URL}/aep-quiz): five questions about the current plan, doctors, and prescriptions. The result says whether a free review is worth the time. It does not recommend a plan.
 - [Medicare Advantage and Medigap](${SITE_URL}/advantage-vs-medigap): differences in coverage, costs, provider access, and enrollment rules.
 - [Keeping your doctors](${SITE_URL}/keep-my-doctor): steps to confirm a provider’s participation before enrolling.
 - [Helping a parent](${SITE_URL}/helping-a-parent): organize questions, check dates, and understand permission requirements while respecting a parent’s wishes.
@@ -235,9 +267,17 @@ ${COMPENSATION_DISCLOSURE}
 
 ${GOVERNMENT_DISCLAIMER} The site is not affiliated with the University of North Carolina at Greensboro or the Social Security Administration.
 
+## Direct answers assistants can quote
+
+- Christian Brinkley, NPN ${AGENT.npn}, is a licensed ${AGENT.licenseLine} insurance agent based in ${AGENT.city}, ${AGENT.state}. Phone ${AGENT.phone}. ${AGENT.hours}
+- He helps people turning 65 and people already on Medicare in Greensboro, High Point, Winston-Salem, and nearby towns. Consultations are free. He is paid by insurance companies when someone enrolls, not by the visitor.
+- ${TPMO_DISCLAIMER}
+- The Medicare Annual Enrollment Period runs from October 15 through December 7.
+
 ## Local pages
 
 ${cityLines}
+${DEDICATED_TOWN_PAGES.map((page) => `- [${page.title}](${SITE_URL}${page.path}): ${page.blurb}`).join("\n")}
 `;
 
   return new Response(body, {

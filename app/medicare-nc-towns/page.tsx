@@ -32,6 +32,8 @@ interface TownLink {
   name: string;
   href: string;
   blurb: string;
+  /** Indexable /medicare-agent page when the card's main link is a different URL. */
+  agentHref?: string;
 }
 
 interface CountyGroup {
@@ -45,7 +47,7 @@ const COUNTIES: CountyGroup[] = [
     towns: [
       {
         name: "Burlington",
-        href: "/medicare-in/burlington",
+        href: "/medicare-agent-burlington-nc",
         blurb: "The county hub. How plan networks treat a town your doctors may span.",
       },
       {
@@ -76,11 +78,18 @@ const COUNTIES: CountyGroup[] = [
       {
         name: "Creedmoor",
         href: "/medicare-creedmoor-nc",
+        agentHref: "/medicare-agent-creedmoor-nc",
         blurb: "My hometown. Medicare help from someone who grew up here.",
+      },
+      {
+        name: "Stem",
+        href: "/medicare-agent-stem-nc",
+        blurb: "Small Granville town between Creedmoor and Oxford.",
       },
       {
         name: "Oxford",
         href: "/medicare-oxford-nc",
+        agentHref: "/medicare-agent-oxford-nc",
         blurb: "The county seat. Durham-direction specialists and SHIIP counseling at Senior Services.",
       },
     ],
@@ -91,8 +100,8 @@ const COUNTIES: CountyGroup[] = [
       { name: "Browns Summit", href: "/medicare-in/browns-summit", blurb: "Medicare help in Browns Summit." },
       { name: "Colfax", href: "/medicare-in/colfax", blurb: "Medicare help in Colfax." },
       { name: "Gibsonville", href: "/medicare-in/gibsonville", blurb: "Medicare help in Gibsonville." },
-      { name: "Greensboro", href: "/medicare-in/greensboro", blurb: "My base. The full Triad network picture." },
-      { name: "High Point", href: "/medicare-in/high-point", blurb: "Why High Point buys Guilford plans but sees Winston-Salem doctors." },
+      { name: "Greensboro", href: "/medicare-in/greensboro", agentHref: "/medicare-agent-greensboro-nc", blurb: "My base. The full Triad network picture." },
+      { name: "High Point", href: "/medicare-agent-high-point-nc", blurb: "Why High Point buys Guilford plans but sees Winston-Salem doctors." },
       { name: "Jamestown", href: "/medicare-in/jamestown", blurb: "Medicare help in Jamestown." },
       { name: "McLeansville", href: "/medicare-in/mcleansville", blurb: "Medicare help in McLeansville." },
       { name: "Oak Ridge", href: "/medicare-in/oak-ridge", blurb: "Medicare help in Oak Ridge." },
@@ -157,7 +166,7 @@ const COUNTIES: CountyGroup[] = [
       },
       {
         name: "Reidsville",
-        href: "/medicare-in/reidsville",
+        href: "/medicare-agent-reidsville-nc",
         blurb: "Rockingham's largest town, and why its plan market stands apart.",
       },
     ],
@@ -165,9 +174,10 @@ const COUNTIES: CountyGroup[] = [
   {
     county: "Forsyth & Davidson Counties",
     towns: [
-      { name: "Kernersville", href: "/medicare-in/kernersville", blurb: "Medicare help in Kernersville." },
-      { name: "Thomasville", href: "/medicare-in/thomasville", blurb: "Medicare help in Thomasville." },
-      { name: "Winston-Salem", href: "/medicare-in/winston-salem", blurb: "A different county list, twenty-five minutes away." },
+      { name: "Kernersville", href: "/medicare-agent-kernersville-nc", blurb: "Medicare help in Kernersville." },
+      { name: "Lexington", href: "/medicare-agent-lexington-nc", blurb: "Davidson County seat, between Thomasville and Winston-Salem." },
+      { name: "Thomasville", href: "/medicare-agent-thomasville-nc", blurb: "Medicare help in Thomasville." },
+      { name: "Winston-Salem", href: "/medicare-agent-winston-salem-nc", blurb: "A different county list, twenty-five minutes away." },
     ],
   },
 ];
@@ -233,6 +243,14 @@ export default function MedicareTownsHubPage() {
                       <p className="text-16 mt-1 leading-relaxed text-[var(--color-ink-muted)]">
                         {town.blurb}
                       </p>
+                      {town.agentHref ? (
+                        <Link
+                          href={town.agentHref}
+                          className="text-16 mt-2 inline-flex min-h-11 items-center underline underline-offset-2"
+                        >
+                          Medicare agent in {town.name}
+                        </Link>
+                      ) : null}
                     </li>
                   ))}
                 </ul>

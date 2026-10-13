@@ -37,6 +37,7 @@ const STATIC_ROUTES: Array<{
   { path: "/special-enrollment", changeFrequency: "monthly", priority: 0.85 },
   { path: "/annual-enrollment", changeFrequency: "weekly", priority: 0.95 },
   { path: "/aep", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/aep-quiz", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-10-12" },
   { path: "/anoc", changeFrequency: "weekly", priority: 0.9 },
   { path: "/medicare-creedmoor-nc", changeFrequency: "weekly", priority: 0.9 },
   { path: "/medicare-asheboro-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
