@@ -554,7 +554,23 @@ export default function HomePage() {
               Questions people ask me first.
             </h2>
             <p data-reveal style={{ "--i": 2 } as React.CSSProperties}>
-              I meet people all over the Triad and back home in Granville County.
+              I meet people all over the Triad and back home in Granville County. Folks in{" "}
+              <Link href="/medicare-agent-winston-salem-nc" className="underline underline-offset-2">
+                Winston-Salem
+              </Link>
+              ,{" "}
+              <Link href="/medicare-agent-high-point-nc" className="underline underline-offset-2">
+                High Point
+              </Link>
+              ,{" "}
+              <Link href="/medicare-agent-kernersville-nc" className="underline underline-offset-2">
+                Kernersville
+              </Link>
+              , and{" "}
+              <Link href="/medicare-agent-burlington-nc" className="underline underline-offset-2">
+                Burlington
+              </Link>{" "}
+              get the same free, no-pressure help as everyone in Greensboro.
             </p>
             <ul className="faqx-towns" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               {towns.map((town) => (

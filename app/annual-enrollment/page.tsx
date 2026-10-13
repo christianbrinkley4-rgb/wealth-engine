@@ -306,9 +306,19 @@ export default function AnnualEnrollmentPage() {
             </div>
           </dl>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            Medicare Advantage options can vary by county. Greensboro and most of High Point are in
-            Guilford County; Winston-Salem is in Forsyth County. We’ll check the plans available at
-            your home address and review the doctors, hospitals, and pharmacies you use.{" "}
+            Medicare Advantage options can vary by county. Greensboro and most of{" "}
+            <Link href="/medicare-agent-high-point-nc" className="underline underline-offset-2">
+              High Point
+            </Link>{" "}
+            are in Guilford County;{" "}
+            <Link
+              href="/medicare-agent-winston-salem-nc"
+              className="underline underline-offset-2"
+            >
+              Winston-Salem
+            </Link>{" "}
+            is in Forsyth County. We’ll check the plans available at your home address and review
+            the doctors, hospitals, and pharmacies you use.{" "}
             <Link href="/service-area" className="underline underline-offset-2">
               What that means where you live
             </Link>

@@ -77,6 +77,34 @@ export default function AnswersIndexPage() {
         label="Request a consultation →"
       />
 
+      <section className="bg-[var(--color-paper)] py-10">
+        <div className="measure-prose app-shell max-w-3xl">
+          <p className="text-17 leading-relaxed text-[var(--color-ink-muted)]">
+            Looking for help in your town? I have local Medicare guides for{" "}
+            <Link href="/medicare-agent-winston-salem-nc" className="underline underline-offset-2">
+              Winston-Salem
+            </Link>
+            ,{" "}
+            <Link href="/medicare-agent-high-point-nc" className="underline underline-offset-2">
+              High Point
+            </Link>
+            ,{" "}
+            <Link href="/medicare-agent-kernersville-nc" className="underline underline-offset-2">
+              Kernersville
+            </Link>
+            , and{" "}
+            <Link href="/medicare-agent-burlington-nc" className="underline underline-offset-2">
+              Burlington
+            </Link>
+            , plus{" "}
+            <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
+              Greensboro
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>

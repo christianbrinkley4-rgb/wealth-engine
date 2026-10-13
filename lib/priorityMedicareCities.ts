@@ -167,6 +167,51 @@ export const PRIORITY_MEDICARE_CITIES = {
       },
     ],
   },
+  "granville-county": {
+    name: "Granville County",
+    county: "Granville County",
+    title: "Medicare Agent in Granville County, NC | Christian Brinkley",
+    heading: "Medicare help in Granville County, from someone who grew up here",
+    description:
+      "Free Medicare help in Granville County, NC: Oxford, Creedmoor, Butner, and Stem. Licensed local agent Christian Brinkley grew up here. No call center, no obligation.",
+    localHeading: "Granville County is home, not a sales territory",
+    paragraphs: [
+      "I grew up in Creedmoor, right here in Granville County. These are my roads, my neighbors, my home. When I sit down with you to talk through Medicare, I am not working a territory. I am helping the people I grew up around. That is a different kind of conversation than you get from a 1-800 number.",
+      "Granville County folks often split their care between local doctors and specialists in Durham. Granville Medical Center in Oxford handles a lot close to home, but plenty of us see doctors at Duke or UNC. Your Medicare plan has to cover the doctors you actually use, wherever they are. That is the first thing we check in a review: every doctor, every specialist, matched against the plan for your Granville County address.",
+      "Plan availability follows your county, not your mailing address habits. If you live in Oxford, Creedmoor, Butner, or Stem, we compare plans offered in Granville County. A plan a relative in Raleigh has may not be offered here, or may cost something different. We check what is real for your address before we talk about anything else.",
+      "For those turning 65 in Granville County, your mailbox is about to fill with Medicare ads from companies you have never heard of. Most of them are not local and will never sit at your table. Your enrollment window is seven months around your 65th birthday, and signing up in the first three months usually means coverage starts on time. We can map out your exact dates together.",
+      "During Annual Enrollment, October 15 through December 7, bring your plan's Annual Notice of Change and your prescription list. We go through the letter line by line: what changed, what it costs you, whether your doctors are still covered. I come to your home anywhere in the county, or we talk by phone. There is no charge and no obligation to enroll. If your plan still looks good, I will tell you so.",
+    ],
+    sources: [
+      {
+        label: "Granville County government",
+        href: "https://www.granvillecounty.org/",
+      },
+      {
+        label: "Medicare.gov: compare plans at your address",
+        href: "https://www.medicare.gov/plan-compare/",
+      },
+    ],
+    provider: "Granville Medical Center, Oxford, NC",
+    faq: [
+      {
+        q: "Are you really from Granville County?",
+        a: "Yes, I grew up in Creedmoor. I will meet you at your kitchen table or wherever works in Oxford, Creedmoor, Butner, or Stem.",
+      },
+      {
+        q: "My specialists are at Duke or UNC in Durham. Does that matter for my plan?",
+        a: "Yes. Many Granville County residents see Durham specialists. We check every doctor you use against the plan for your home address.",
+      },
+      {
+        q: "Do I have the same Medicare options here as in Raleigh or Durham?",
+        a: "Not always. Plan availability and costs differ by county. A review checks what is actually offered at your Granville County address.",
+      },
+      {
+        q: "What does it cost to talk with you?",
+        a: "Nothing. The consultation is free with no obligation to enroll. Insurance companies pay me a commission if you enroll through me.",
+      },
+    ],
+  },
 } as const;
 
 export type PriorityMedicareCity = keyof typeof PRIORITY_MEDICARE_CITIES;

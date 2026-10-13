@@ -101,12 +101,29 @@ const STEPS = [
 
 const FAQ = PRIORITY_MEDICARE_FAQS.aep;
 
+const LOCAL_FAQ = [
+  {
+    q: "Where do we meet for a review in Greensboro?",
+    a: "Wherever is easiest for you: your home in Greensboro or Guilford County, a public place like a coffee shop, or by phone. Many folks prefer their kitchen table so their plan letter and prescriptions are right there.",
+  },
+  {
+    q: "Do you help people outside Greensboro?",
+    a: "Yes. I meet with folks across the Piedmont Triad, including High Point, Winston-Salem, and Kernersville, plus Granville County towns like Oxford and Creedmoor. Phone reviews work the same wherever you are in North Carolina.",
+  },
+  {
+    q: "Are Medicare Advantage plans the same in Guilford County as in Forsyth County?",
+    a: "Not always. Plan availability and costs can differ by county, so a plan your friend in Winston-Salem has may not be offered at your Greensboro address. A review checks what is actually available where you live.",
+  },
+] as const;
+
+const ALL_FAQ = [...FAQ, ...LOCAL_FAQ];
+
 /**
  * Renders an FAQ answer, upgrading the turning-65 answer's guide mention to a
  * real link. The JSON-LD keeps the plain-text version, which is what the
  * schema expects.
  */
-function FaqAnswer({ item }: { item: (typeof FAQ)[number] }) {
+function FaqAnswer({ item }: { item: (typeof ALL_FAQ)[number] }) {
   return <>{item.a}</>;
 }
 
@@ -311,6 +328,56 @@ export default function AepPage() {
         </div>
       </section>
 
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Open enrollment in Greensboro and Guilford County</h2>
+          <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
+            <p>
+              I am based in Greensboro, so most of my fall reviews happen right here in Guilford
+              County: at kitchen tables across the city, from Irving Park to Adams Farm, or by
+              phone when that is easier. If you are in{" "}
+              <Link href="/medicare-agent-high-point-nc" className="underline underline-offset-2">
+                High Point
+              </Link>
+              ,{" "}
+              <Link
+                href="/medicare-agent-winston-salem-nc"
+                className="underline underline-offset-2"
+              >
+                Winston-Salem
+              </Link>
+              , or{" "}
+              <Link
+                href="/medicare-agent-kernersville-nc"
+                className="underline underline-offset-2"
+              >
+                Kernersville
+              </Link>
+              , I come to you too. Folks in{" "}
+              <Link
+                href="/medicare-agent-burlington-nc"
+                className="underline underline-offset-2"
+              >
+                Burlington
+              </Link>{" "}
+              get the same help by phone or in person. The review works the same everywhere in
+              the Triad.
+            </p>
+            <p>
+              One local detail worth knowing: Medicare Advantage plan lineups can differ between
+              Guilford County and neighboring Forsyth County. A plan your friend in Winston-Salem
+              mentions may not be available at your Greensboro address, or may cost something
+              different. We check availability at your home address, not someone else&apos;s.
+            </p>
+            <p>
+              If your doctors are at Cone Health, Novant, or a private practice in town, bring
+              their names. We will confirm each one against next year&apos;s plan documents
+              together, so there are no surprises in January.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">What happens after December 7</h2>
@@ -343,7 +410,7 @@ export default function AepPage() {
 
           <h2 className="text-28 mt-12 font-semibold">Questions I get every fall</h2>
           <dl className="mt-8 flex flex-col gap-7">
-            {FAQ.map((item) => (
+            {ALL_FAQ.map((item) => (
               <div key={item.q} className="border-t border-gray-300 pt-6">
                 <dt className="text-19 font-semibold">{item.q}</dt>
                 <dd className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
@@ -354,7 +421,7 @@ export default function AepPage() {
           </dl>
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(ALL_FAQ)) }}
           />
           <GuideTownLinks />
           <LeadCluster current="/aep" heading="Turning 65, or a different Medicare question?" />

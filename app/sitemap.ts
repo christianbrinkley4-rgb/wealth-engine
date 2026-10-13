@@ -64,6 +64,7 @@ const STATIC_ROUTES: Array<{
   { path: "/medicare-agent-stem-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
   { path: "/medicare-agent-creedmoor-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-12" },
   { path: "/medicare-agent-oxford-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-12" },
+  { path: "/medicare-agent-granville-county-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-13" },
   { path: "/final-expense-insurance", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-12" },
   { path: "/medigap-plans-high-point-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
   { path: "/medicare-advantage-plans-winston-salem-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },

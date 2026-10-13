@@ -32,6 +32,7 @@ const DEDICATED_TOWN_PAGES = [
   { path: "/medicare-agent-stem-nc", title: "Medicare agent in Stem, NC", blurb: "Medicare help in Stem and Granville County." },
   { path: "/medicare-agent-creedmoor-nc", title: "Medicare agent in Creedmoor, NC", blurb: "Medicare help in Creedmoor, Christian's hometown." },
   { path: "/medicare-agent-oxford-nc", title: "Medicare agent in Oxford, NC", blurb: "Medicare help in Oxford and Granville County." },
+  { path: "/medicare-agent-granville-county-nc", title: "Medicare agent in Granville County, NC", blurb: "Medicare help across Granville County: Oxford, Creedmoor, Butner, and Stem." },
   { path: "/medicare-creedmoor-nc", title: "Medicare in Creedmoor, NC", blurb: "Local notes for Creedmoor." },
   { path: "/medicare-oxford-nc", title: "Medicare in Oxford, NC", blurb: "Local notes for Oxford." },
   { path: "/medicare-butner-nc", title: "Medicare in Butner, NC", blurb: "Local notes for Butner." },
