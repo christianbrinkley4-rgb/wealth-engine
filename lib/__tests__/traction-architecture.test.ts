@@ -47,7 +47,8 @@ describe("traction discovery policy", () => {
         .filter((path) => path.startsWith("/medicare-in/"))
         .map((path) => path.split("/").at(-1))
         .sort(),
-    ).toEqual([...INDEXABLE_MEDICARE_SLUGS].sort());
+    ).toEqual([]);
+    expect(paths).toContain("/medicare-agent-greensboro-nc");
     expect(paths).not.toContain("/wealth/calculators");
     expect(paths).not.toContain("/links");
     expect(paths).toContain("/medicare-plan-checklist");

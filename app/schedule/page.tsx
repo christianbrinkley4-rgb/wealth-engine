@@ -1,3 +1,5 @@
+import { serviceJsonLd } from "@/lib/seo";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,11 +28,17 @@ export const metadata: Metadata = {
       "One local point of contact. A free initial insurance consultation with Christian Brinkley.",
     path: "/schedule",
   }),
+  twitter: pageTwitter({
+    title: "Let’s talk through your questions",
+    description:
+      "One local point of contact. A free initial insurance consultation with Christian Brinkley.",
+    path: "/schedule",
+  }),
 };
 
 const TOPIC_DESCRIPTIONS: Record<SchedulingTopic, string> = {
   medicare:
-    "Let’s talk about when to enroll, the coverage you have, your doctors and prescriptions, and the Medicare options I represent. This conversation stays focused on Medicare and the health coverage topics we agree to discuss.",
+    "Choose a date and time below, then enter your contact details. We can talk by phone, by video, or at your home. This introductory conversation is free, with no obligation to enroll.",
   life_insurance:
     "Let’s go over the coverage you already have, the people who matter to you, and your questions, at a comfortable pace. We can meet by phone, by video, or at your home in the Triad, and I’ll confirm the location with you. You are welcome to invite a family member. When you book, please leave out medical details, policy numbers, and account numbers.",
   care_coverage:
@@ -58,6 +66,20 @@ export default async function SchedulePage({
 
   return (
     <main className="sched">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            serviceJsonLd({
+              name: "Free initial insurance consultation",
+              description:
+                "By appointment with Christian Brinkley. Medicare, life insurance, or retirement insurance topics, based on your selected conversation.",
+              path: "/schedule",
+            }),
+          ).replace(/</g, "\\u003c"),
+        }}
+      />
+
       <div className="shell sched-grid">
         <div className="sched-intro">
           <div className="sched-who">
@@ -77,7 +99,11 @@ export default async function SchedulePage({
           </div>
           <p className="eyebrow">A conversation, at your pace</p>
           <h1>
-            {topic ? SCHEDULING_LABELS[topic] : "Pick a time that works for you."}
+            {topic === "medicare"
+              ? "Book your free Medicare consultation"
+              : topic
+                ? SCHEDULING_LABELS[topic]
+                : "Book a free consultation"}
           </h1>
           <p className="sched-lede">
             {topic
@@ -97,14 +123,20 @@ export default async function SchedulePage({
             ))}
           </ul>
           <p className="sched-small">
-            We set aside 60 minutes. I ask for at least 24 hours’ notice.
+            Allow 60 minutes for our conversation. The calendar shows current availability.
             {topic === null || topic === "medicare"
               ? " For a Medicare conversation, I’ll also confirm with you personally before we meet."
               : ""}{" "}
-            Any separate financial planning services and fees would be explained by the advisor
-            before you agree to them.
+            {topic === "financial_planning"
+              ? "Any separate financial planning services and fees would be explained by the advisor before you agree to them."
+              : ""}
           </p>
           <div className="sched-contact">
+            {topic && bookingUrl ? (
+              <a href="#booking-calendar" className="btn">
+                Choose a date and time <ArrowRight size={18} aria-hidden />
+              </a>
+            ) : null}
             <a href={AGENT.phoneHref}>
               <Phone size={17} aria-hidden /> {AGENT.phone}
             </a>
@@ -114,12 +146,16 @@ export default async function SchedulePage({
           </div>
         </div>
 
-        <div className="sched-panel">
+        <div className="sched-panel" id="booking-calendar">
           {!topic ? (
             <nav aria-label="Choose your consultation topic" className="sched-topics">
               <p className="sched-step">Step 1 · What would you like to talk about?</p>
               {SCHEDULING_TOPICS.map((service) => (
-                <Link key={service} href={`/schedule?topic=${service}`} className="card sched-topic">
+                <Link
+                  key={service}
+                  href={`/schedule?topic=${service}`}
+                  className="card sched-topic"
+                >
                   <span>
                     <span className="sched-topic-title">{SCHEDULING_LABELS[service]}</span>
                     <span className="sched-topic-note">{TOPIC_NOTES[service]}</span>
@@ -131,25 +167,31 @@ export default async function SchedulePage({
           ) : (
             <div className="sched-book">
               <div className="sched-book-head">
-                <p className="sched-step">Step 2 · Choose a time</p>
+                <p className="sched-step">Choose a date and time</p>
                 <Link href="/schedule" className="sched-change">
                   <ArrowLeft size={16} aria-hidden /> Change topic
                 </Link>
               </div>
               {bookingUrl ? (
-                <CalEmbedLazy bookingUrl={bookingUrl} title={`${SCHEDULING_LABELS[topic]} calendar`} />
+                <CalEmbedLazy
+                  bookingUrl={bookingUrl}
+                  title={`${SCHEDULING_LABELS[topic]} calendar`}
+                />
               ) : (
                 <div className="sched-request">
-                  <h2>Tell me a little about what you need.</h2>
+                  <h2>Request a time with Christian</h2>
                   <p>
                     Answer a few short questions, then tell me how you’d like to meet and a
                     convenient time. I’ll follow up to arrange our conversation. Your request goes
                     directly to me.
                   </p>
-                  <Link href={requestHref} className="btn">
-                    Request a conversation <ArrowRight size={18} className="arrow" aria-hidden />
+                  <Link href={`${requestHref}&quick=1`} className="btn">
+                    Request a free consultation{" "}
+                    <ArrowRight size={18} className="arrow" aria-hidden />
                   </Link>
-                  <p className="sched-small">An appointment is confirmed once we agree on a time.</p>
+                  <p className="sched-small">
+                    An appointment is confirmed once we agree on a time.
+                  </p>
                 </div>
               )}
             </div>

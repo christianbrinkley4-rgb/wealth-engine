@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/learn" },
   openGraph: pageOpenGraph({ title: "The Learning Hub", description, path: "/learn" }),
+  twitter: pageTwitter({ title: "The Learning Hub", description, path: "/learn" }),
 };
 
 const RULES = [

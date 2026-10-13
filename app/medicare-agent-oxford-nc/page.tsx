@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import Link from "next/link";
@@ -22,6 +25,12 @@ export const metadata: Metadata = {
     "A Medicare agent serving Oxford, NC and Granville County. Free, no-pressure help from Christian Brinkley, a licensed North Carolina agent from nearby Creedmoor. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-agent-oxford-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare help in Oxford from a nearby local agent.",
+    description:
+      "Free Medicare plan reviews in Oxford and Granville County. A licensed agent from Creedmoor, not a call center.",
+    path: "/medicare-agent-oxford-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare help in Oxford from a nearby local agent.",
     description:
       "Free Medicare plan reviews in Oxford and Granville County. A licensed agent from Creedmoor, not a call center.",
@@ -134,7 +143,7 @@ export default function MedicareAgentOxfordPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-agent-oxford-nc" />
 
       <ServiceHero
         crumbs={[
@@ -277,6 +286,8 @@ export default function MedicareAgentOxfordPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-12" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

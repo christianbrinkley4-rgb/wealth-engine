@@ -1,3 +1,4 @@
+import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 import Link from "next/link";
 
 import { featuredPlaces, highIntentPlaces, TRIAD_CITIES } from "@/lib/triad";
@@ -32,7 +33,7 @@ export function GuideTownLinks({
       <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
         {places.map((place) => (
           <li key={place.slug}>
-            <Link href={`${prefix}/${place.slug}`} className="tap text-17 underline underline-offset-2">
+            <Link href={kind === "medicare" ? canonicalMedicareLocation(`${prefix}/${place.slug}`) : `${prefix}/${place.slug}`} className="tap text-17 underline underline-offset-2">
               {place.name}
             </Link>
           </li>

@@ -1,3 +1,5 @@
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -27,6 +29,12 @@ export const metadata: Metadata = {
     "2026 standard deduction plus the extra amount for 65 and older: $18,150 single, $35,500 joint with both spouses 65+. Plus the new $6,000 senior deduction.",
   alternates: { canonical: "/guides/standard-deduction-seniors-2026" },
   openGraph: pageOpenGraph({
+    title: "2026 standard deduction for seniors",
+    description:
+      "Base amounts, the extra $2,050 and $1,650 for age 65+, worked examples, and the new $6,000 senior bonus deduction.",
+    path: "/guides/standard-deduction-seniors-2026",
+  }),
+  twitter: pageTwitter({
     title: "2026 standard deduction for seniors",
     description:
       "Base amounts, the extra $2,050 and $1,650 for age 65+, worked examples, and the new $6,000 senior bonus deduction.",
@@ -254,6 +262,7 @@ export default function StandardDeductionSeniors2026Page() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="general" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
     </main>
   );
 }

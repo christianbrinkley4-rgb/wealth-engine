@@ -1,3 +1,5 @@
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -26,6 +28,12 @@ export const metadata: Metadata = {
     "Up to 85% of Social Security can be taxed federally, based on combined income. The 2026 thresholds, the math, the new $6,000 senior deduction, and NC's rule.",
   alternates: { canonical: "/guides/is-social-security-taxed" },
   openGraph: pageOpenGraph({
+    title: "Is Social Security taxed? The 2026 rules",
+    description:
+      "Federal tax depends on your combined income, not your benefit amount. Thresholds, the 85% cap, the senior deduction, and North Carolina's rule.",
+    path: "/guides/is-social-security-taxed",
+  }),
+  twitter: pageTwitter({
     title: "Is Social Security taxed? The 2026 rules",
     description:
       "Federal tax depends on your combined income, not your benefit amount. Thresholds, the 85% cap, the senior deduction, and North Carolina's rule.",
@@ -264,6 +272,7 @@ export default function IsSocialSecurityTaxedPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="general" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
     </main>
   );
 }

@@ -41,7 +41,6 @@ const bodyFont = Atkinson_Hyperlegible_Next({
 const displayFont = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  axes: ["opsz", "SOFT"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -49,8 +48,8 @@ const displayFont = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_OWNER} | Medicare, Life Insurance & Retirement in Greensboro`,
-    template: `%s | ${SITE_NAME}`,
+    default: "Medicare Help in Greensboro | Christian Brinkley",
+    template: "%s",
   },
   description:
     "Licensed Greensboro agent Christian Brinkley helps Piedmont Triad families with Medicare, life insurance, and retirement questions. Meet in person or by phone. No cost or obligation.",

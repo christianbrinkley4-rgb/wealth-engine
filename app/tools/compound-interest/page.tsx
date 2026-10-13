@@ -1,3 +1,5 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
 import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
@@ -9,7 +11,7 @@ import { CompoundInterest } from "./CompoundInterest";
 
 const path = "/tools/compound-interest";
 const description =
-  "Free compound interest calculator. Watch monthly deposits grow year by year at a rate you pick, with the full table underneath.";
+  "Free compound interest calculator. Watch monthly deposits grow year by year at a rate you pick, with the full table underneath. Read the details here.";
 
 export const metadata: Metadata = {
   title: { absolute: "Compound Interest Calculator | Christian Brinkley" },
@@ -107,6 +109,8 @@ export default function CompoundInterestPage() {
           { href: "/wealth/401k-explained", label: "Your 401(k), explained" },
         ]}
       />
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -16,9 +17,15 @@ export const metadata: Metadata = {
     absolute: "AI for Job Search | Christian Brinkley",
   },
   description:
-    "Use AI to sharpen your resume and practice interviews. Drafting help, mock questions, and realistic expectations. No invented experience, ever.",
+    "Use AI to sharpen your resume and practice interviews. Drafting help, mock questions, and realistic expectations. No invented experience, ever. Read on.",
   alternates: { canonical: "/ai/ai-for-job-search" },
   openGraph: pageOpenGraph({
+    title: "AI for job search",
+    description:
+      "Sharper resumes, better interview prep, realistic expectations. How to use AI without letting it invent your work history.",
+    path: "/ai/ai-for-job-search",
+  }),
+  twitter: pageTwitter({
     title: "AI for job search",
     description:
       "Sharper resumes, better interview prep, realistic expectations. How to use AI without letting it invent your work history.",
@@ -67,7 +74,7 @@ export default function AiForJobSearchPage() {
             articleJsonLd({
               headline: "AI for Job Search: Resumes and Interview Prep",
               description:
-                "Use AI to sharpen your resume and practice interviews. Drafting help, mock questions, and realistic expectations. No invented experience, ever.",
+                "Use AI to sharpen your resume and practice interviews. Drafting help, mock questions, and realistic expectations. No invented experience, ever. Read on.",
               path: "/ai/ai-for-job-search",
               datePublished: "2026-10-08",
               dateModified: "2026-10-08",

@@ -9,7 +9,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const path = "/wealth/rent-vs-buy-math";
 const title = "Rent vs. Buy: The Math, Minus the Opinions";
 const description =
-  "The real inputs behind the rent-or-buy decision: PITI, maintenance, closing costs, and how long you stay.";
+  "The real inputs behind the rent-or-buy decision: PITI, maintenance, closing costs, and how long you stay. Explore the steps in Christian Brinkley's guide.";
 
 export const metadata: Metadata = wealthMetadata({ title, description, path });
 

@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -19,6 +20,12 @@ export const metadata: Metadata = {
     "Write better, research faster, sort your inbox: which AI should you use? A plain-English guide matching tasks to ChatGPT, Claude, Gemini, and Copilot.",
   alternates: { canonical: "/ai/which-ai-for-which-task" },
   openGraph: pageOpenGraph({
+    title: "Which AI for which task",
+    description:
+      "Match the task to the tool: writing, research, email, learning, and everyday questions.",
+    path: "/ai/which-ai-for-which-task",
+  }),
+  twitter: pageTwitter({
     title: "Which AI for which task",
     description:
       "Match the task to the tool: writing, research, email, learning, and everyday questions.",

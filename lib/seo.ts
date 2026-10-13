@@ -140,6 +140,7 @@ export function pageOpenGraph(input: {
 export function pageTwitter(input: {
   title: string;
   description: string;
+  path?: string;
 }): NonNullable<Metadata["twitter"]> {
   return {
     card: "summary_large_image",
@@ -180,8 +181,11 @@ export function siteIdentityJsonLd() {
         url: `${SITE_URL}/about`,
         image: `${SITE_URL}/christian-brinkley.jpg`,
         jobTitle: "Licensed Insurance Agent",
-        ...(hasPublishableNpn() ? { identifier: { "@type": "PropertyValue", propertyID: "NPN", value: AGENT.npn } } : {}),
-        description: "North Carolina Life & Health insurance agent and accounting senior at UNCG, graduating December 2026.",
+        ...(hasPublishableNpn()
+          ? { identifier: { "@type": "PropertyValue", propertyID: "NPN", value: AGENT.npn } }
+          : {}),
+        description:
+          "North Carolina Life & Health insurance agent and accounting senior at UNCG, graduating December 2026.",
         ...(sameAs ? { sameAs } : {}),
       },
       {
@@ -214,7 +218,7 @@ export function siteIdentityJsonLd() {
  * inventing a place. The explicit city list is more honest than converting
  * "about 30 minutes" into a circular mileage claim.
  */
-export function localBusinessJsonLd() {
+export function localBusinessJsonLd(visibleReviews: readonly VerifiedReview[] = []) {
   const areaServed = placeNames().map((name) => ({
     "@type": "City" as const,
     name,
@@ -235,7 +239,7 @@ export function localBusinessJsonLd() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "ProfessionalService",
+        "@type": "InsuranceAgency",
         "@id": `${SITE_URL}/#service`,
         name: SITE_NAME,
         description:
@@ -243,8 +247,8 @@ export function localBusinessJsonLd() {
           "retirement income questions answered in person by one licensed agent " +
           `in ${SITE_LOCALITY}, ${SITE_REGION}. ${SERVICE_AREA_LEDE} ` +
           "Free consultation with no obligation to enroll.",
-        provider: { "@id": `${SITE_URL}/#christian` },
-        serviceType: [
+        founder: { "@id": `${SITE_URL}/#christian` },
+        knowsAbout: [
           "Medicare Initial Enrollment counseling",
           "Medicare Annual Enrollment review",
           "Life insurance review",
@@ -253,23 +257,6 @@ export function localBusinessJsonLd() {
           "Critical illness insurance consultation",
           "Annuity consultation",
           "Retirement income and Medicare timing education",
-        ],
-        availableChannel: [
-          {
-            "@type": "ServiceChannel",
-            serviceType: "In-person meeting at the client's home",
-            availableLanguage: "English",
-          },
-          {
-            "@type": "ServiceChannel",
-            serviceType: "Telephone consultation",
-            availableLanguage: "English",
-          },
-          {
-            "@type": "ServiceChannel",
-            serviceType: "Video consultation",
-            availableLanguage: "English",
-          },
         ],
         areaServed,
         // Kept identical to the Google Business Profile hours. Structured
@@ -289,14 +276,28 @@ export function localBusinessJsonLd() {
         geo: {
           "@type": "GeoCoordinates",
           latitude: 36.0726,
-          longitude: -79.7920,
+          longitude: -79.792,
         },
         priceRange: "Free consultation",
         email: SITE_OWNER_EMAIL,
         ...(sameAs ? { sameAs } : {}),
         ...(googleMap ? { hasMap: googleMap } : {}),
         url: SITE_URL,
-        image: `${SITE_URL}/opengraph-image`,
+        image: `${SITE_URL}/christian-brinkley.jpg`,
+        ...(visibleReviews.length
+          ? {
+              review: visibleReviews.map(reviewJsonLd),
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue:
+                  visibleReviews.reduce((sum, review) => sum + review.rating, 0) /
+                  visibleReviews.length,
+                reviewCount: visibleReviews.length,
+                bestRating: 5,
+                worstRating: 1,
+              },
+            }
+          : {}),
         // By appointment; the connected calendar supplies actual available slots.
         address,
         hasOfferCatalog: {
@@ -455,6 +456,90 @@ export function faqJsonLd(items: ReadonlyArray<{ q: string; a: string }>) {
   };
 }
 
+/** Supply verified, permissioned text that is also visible on this page. */
+export type VerifiedReview = {
+  author: string;
+  text: string;
+  rating: 1 | 2 | 3 | 4 | 5;
+  sourceUrl: string;
+  datePublished?: string;
+};
+
+export function reviewJsonLd(review: VerifiedReview) {
+  return {
+    "@type": "Review",
+    author: { "@type": "Person", name: review.author },
+    reviewBody: review.text,
+    reviewRating: { "@type": "Rating", ratingValue: review.rating, bestRating: 5, worstRating: 1 },
+    url: review.sourceUrl,
+    ...(review.datePublished ? { datePublished: review.datePublished } : {}),
+  };
+}
+
+/** Each embedded video needs its own verified upload date and duration. */
+export function videoJsonLd(video: {
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  uploadDate: string;
+  duration: string;
+  contentUrl: string;
+  embedUrl: string;
+}) {
+  return { "@context": "https://schema.org", "@type": "VideoObject", ...video };
+}
+
+/** For an actual public session, never an arbitrary calendar booking slot. */
+export function eventJsonLd(event: {
+  name: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  url: string;
+  attendance: "online" | "in-person";
+  location: { name: string; url: string } | { name: string; address: string };
+}) {
+  const datedTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}.*(?:Z|[+-]\d{2}:\d{2})$/;
+  if (
+    !datedTime.test(event.startDate) ||
+    !datedTime.test(event.endDate) ||
+    !Number.isFinite(Date.parse(event.startDate)) ||
+    !Number.isFinite(Date.parse(event.endDate)) ||
+    Date.parse(event.endDate) <= Date.parse(event.startDate)
+  ) {
+    throw new Error("A public event needs real start and end times with a timezone.");
+  }
+  if ((event.attendance === "online") !== "url" in event.location) {
+    throw new Error("Event attendance and location must match.");
+  }
+  return {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: event.name,
+    description: event.description,
+    startDate: event.startDate,
+    endDate: event.endDate,
+    url: event.url,
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode:
+      event.attendance === "online"
+        ? "https://schema.org/OnlineEventAttendanceMode"
+        : "https://schema.org/OfflineEventAttendanceMode",
+    location: {
+      "@type": event.attendance === "online" ? "VirtualLocation" : "Place",
+      ...event.location,
+    },
+    organizer: { "@id": `${SITE_URL}/#service` },
+    offers: {
+      "@type": "Offer",
+      price: 0,
+      priceCurrency: "USD",
+      name: "Free consultation",
+      url: event.url,
+    },
+  };
+}
+
 /** Per-page Service markup so the four lead URLs name the offer, not only the article. */
 export function serviceJsonLd(input: { name: string; description: string; path: string }) {
   return {
@@ -504,13 +589,24 @@ export function howToJsonLd(input: {
 /**
  * Speakable selectors must match text that is actually on the page.
  * The service hero title and lede are the lines a voice assistant can read.
+ *
+ * Pass the page path so this node uses the same @id as articleJsonLd's
+ * mainEntityOfPage. A WebPage that only has @type and speakable is a second,
+ * nameless page.
  */
-export function speakableJsonLd(cssSelector: readonly string[] = [".sh-title", ".sh-lede"]) {
+export function speakableJsonLd(
+  cssSelector: readonly string[] = [".sh-title", ".sh-lede"],
+  pagePath?: string,
+) {
+  const pageId = pagePath
+    ? `${SITE_URL}${pagePath.startsWith("/") ? pagePath : `/${pagePath}`}`
+    : undefined;
   return {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "WebPage" as const,
+    ...(pageId ? { "@id": pageId } : {}),
     speakable: {
-      "@type": "SpeakableSpecification",
+      "@type": "SpeakableSpecification" as const,
       cssSelector: [...cssSelector],
     },
   };

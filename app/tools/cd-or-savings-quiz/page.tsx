@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 
 import { ToolHeader } from "../_components/tool-header";
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
   description: META.description,
   alternates: { canonical: path },
   openGraph: pageOpenGraph({ title: "CD or savings quiz", description: META.description, path }),
+  twitter: pageTwitter({ title: "CD or savings quiz", description: META.description, path }),
 };
 
 

@@ -1,3 +1,5 @@
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -22,9 +24,15 @@ export const metadata: Metadata = {
     absolute: "HSA and Medicare: When Contributions Must Stop",
   },
   description:
-    "You cannot contribute to an HSA once you enroll in any part of Medicare. The 6-month retroactive Part A trap, what stays yours, and 2026 limits.",
+    "You cannot contribute to an HSA once you enroll in any part of Medicare. The 6-month retroactive Part A trap, what stays yours, and 2026 limits. Read on.",
   alternates: { canonical: "/guides/medicare-hsa-contributions" },
   openGraph: pageOpenGraph({
+    title: "HSA and Medicare: when contributions must stop",
+    description:
+      "The rules for HSAs at 65: when contributions must stop, the retroactive Part A trap, and how to use your HSA funds on Medicare costs.",
+    path: "/guides/medicare-hsa-contributions",
+  }),
+  twitter: pageTwitter({
     title: "HSA and Medicare: when contributions must stop",
     description:
       "The rules for HSAs at 65: when contributions must stop, the retroactive Part A trap, and how to use your HSA funds on Medicare costs.",
@@ -254,6 +262,7 @@ export default function MedicareHsaContributionsPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="general" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
     </main>
   );
 }

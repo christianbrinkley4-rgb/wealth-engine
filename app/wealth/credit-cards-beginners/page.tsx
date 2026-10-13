@@ -9,7 +9,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const path = "/wealth/credit-cards-beginners";
 const title = "Credit Cards for Beginners";
 const description =
-  "How credit cards work, how interest adds up, and why paying the full balance changes everything.";
+  "How credit cards work, how interest adds up, and why paying the full balance changes everything. Read this plain-English guide from Christian Brinkley.";
 
 export const metadata: Metadata = wealthMetadata({ title, description, path });
 

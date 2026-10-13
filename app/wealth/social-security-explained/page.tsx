@@ -9,7 +9,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const path = "/wealth/social-security-explained";
 const title = "Social Security, Explained in Plain English";
 const description =
-  "How Social Security works: where the money comes from, how your benefit is set, and what full retirement age really means.";
+  "How Social Security works: where the money comes from, how your benefit is set, and what full retirement age really means. Read the plain-English guide.";
 
 export const metadata: Metadata = wealthMetadata({ title, description, path });
 

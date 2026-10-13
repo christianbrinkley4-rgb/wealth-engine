@@ -298,10 +298,10 @@ describe("service area honesty", () => {
     );
     expect(JSON.stringify(localBusinessJsonLd())).not.toContain("GeoCircle");
     const graph = localBusinessJsonLd()["@graph"];
-    const service = graph.find((entity) => entity["@type"] === "ProfessionalService");
+      const service = graph.find((entity) => entity["@type"] === "InsuranceAgency");
     expect(service).toBeTruthy();
-    expect(JSON.stringify(graph)).not.toContain("InsuranceAgency");
-    expect(JSON.stringify(graph)).not.toContain("founder");
+      expect(service?.founder?.["@id"]).toBe(`${SITE_URL}/#christian`);
+      expect(JSON.stringify(graph)).not.toContain("ProfessionalService");
     expect(JSON.stringify(graph)).not.toContain("worksFor");
   });
 

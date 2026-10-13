@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -15,12 +18,18 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Final Expense Insurance in Greensboro, NC | Christian Brinkley",
+    absolute: "Final Expense Insurance Help in Greensboro, NC",
   },
   description:
-    "Final expense and burial insurance in Greensboro, NC. Help your family cover funeral costs without leaving them a bill. Free consultation with Christian Brinkley, licensed NC agent. Call (919) 408-6671.",
+    "Final expense and burial insurance in Greensboro, NC. Talk through costs and coverage with Christian Brinkley, a licensed local agent. Free consultation.",
   alternates: { canonical: "/final-expense-insurance" },
   openGraph: pageOpenGraph({
+    title: "Final expense insurance in Greensboro and the Triad.",
+    description:
+      "Small whole life policies that cover funeral and burial costs. No medical exam options. Free consultation, no obligation.",
+    path: "/final-expense-insurance",
+  }),
+  twitter: pageTwitter({
     title: "Final expense insurance in Greensboro and the Triad.",
     description:
       "Small whole life policies that cover funeral and burial costs. No medical exam options. Free consultation, no obligation.",
@@ -250,6 +259,8 @@ export default function FinalExpenseInsurancePage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="general" />
       </div>
+      <MedicareByline reviewed="2026-10-12" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

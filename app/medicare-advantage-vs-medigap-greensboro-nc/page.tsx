@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -22,9 +25,15 @@ export const metadata: Metadata = {
     absolute: "Medicare Advantage vs Medigap in Greensboro NC (2027)",
   },
   description:
-    "Medicare Advantage or Medigap in Greensboro? Compare costs, doctor choice, and switching rules, explained by a licensed local agent.",
+    "Medicare Advantage or Medigap in Greensboro? Compare costs, doctor choice, and switching rules, explained by a licensed local agent. Explore the guide.",
   alternates: { canonical: "/medicare-advantage-vs-medigap-greensboro-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare Advantage vs. Medigap in Greensboro, NC",
+    description:
+      "The honest framework for choosing: your doctors, your budget, and whether you can switch later.",
+    path: "/medicare-advantage-vs-medigap-greensboro-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Advantage vs. Medigap in Greensboro, NC",
     description:
       "The honest framework for choosing: your doctors, your budget, and whether you can switch later.",
@@ -217,6 +226,8 @@ export default function AdvantageVsMedigapGreensboroPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

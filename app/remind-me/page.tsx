@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/remind-me" },
   robots: { index: false, follow: true },
   openGraph: pageOpenGraph({
+    title: "Keep your Medicare dates handy",
+    description:
+      "A free tool to help you find your enrollment dates and save them to your calendar.",
+    path: "/remind-me",
+  }),
+  twitter: pageTwitter({
     title: "Keep your Medicare dates handy",
     description:
       "A free tool to help you find your enrollment dates and save them to your calendar.",

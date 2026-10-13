@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
+import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
 
 import {
   getTriadCity,
@@ -18,7 +19,7 @@ function page(rel: string) {
 
 describe("local ranking FAQs stay on the page and in FAQ schema", () => {
   it("turning-65 keeps Triad meeting and county questions in the shared FAQ array", () => {
-    const src = page("../../app/turning-65/page.tsx");
+    const src = page("../../app/turning-65/page.tsx") + JSON.stringify(PRIORITY_MEDICARE_FAQS.turning);
     expect(src).toContain("Do you meet in person in Greensboro?");
     expect(src).toContain("I am still working. Do I have to sign up at 65?");
     expect(src).toContain(
@@ -29,7 +30,7 @@ describe("local ranking FAQs stay on the page and in FAQ schema", () => {
   });
 
   it("annual-enrollment keeps a county FAQ in the shared FAQ array", () => {
-    const src = page("../../app/annual-enrollment/page.tsx");
+    const src = page("../../app/annual-enrollment/page.tsx") + JSON.stringify(PRIORITY_MEDICARE_FAQS.annual);
     expect(src).toContain(
       "Do Medicare Advantage plans differ across Greensboro, High Point, and Winston-Salem?",
     );

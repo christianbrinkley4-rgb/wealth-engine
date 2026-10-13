@@ -10,7 +10,7 @@ import { WEALTH_FACTS, getTool } from "@/lib/wealth/site";
 const PATH = "/wealth/student-loans-payoff-plan";
 const TITLE = "Student Loan Payoff Plan";
 const DESCRIPTION =
-  "Avalanche or snowball: two plain-English ways to attack student loans. List the loans, pick a method, automate the payments.";
+  "Avalanche or snowball: two plain-English ways to attack student loans. List the loans, pick a method, automate the payments. Read the plain-English guide.";
 const MINUTES = 5;
 const UPDATED = "October 8, 2026";
 

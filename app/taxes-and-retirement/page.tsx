@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Calculator, LineChart, Percent } from "lucide-react";
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/taxes-and-retirement" },
   openGraph: pageOpenGraph({ title: "Taxes & retirement, in plain English", description, path: "/taxes-and-retirement" }),
+  twitter: pageTwitter({ title: "Taxes & retirement, in plain English", description, path: "/taxes-and-retirement" }),
 };
 
 const TOOLS = [

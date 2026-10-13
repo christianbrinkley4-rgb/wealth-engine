@@ -1,3 +1,5 @@
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -24,9 +26,15 @@ export const metadata: Metadata = {
     absolute: "Does Medicare Renew Automatically? 2026 Answer",
   },
   description:
-    "Medicare renews automatically each year. No forms, no re-enrollment. Here is when you actually need to act, and why your card has no expiration date.",
+    "Medicare renews automatically each year. No forms, no re-enrollment. Here is when you actually need to act, and why your card has no expiration date. Read on.",
   alternates: { canonical: "/guides/medicare-automatic-renewal" },
   openGraph: pageOpenGraph({
+    title: "Do you have to renew Medicare every year?",
+    description:
+      "No. Medicare coverage renews on its own. The exceptions, the ANOC letter to watch for, and why your Medicare card never expires.",
+    path: "/guides/medicare-automatic-renewal",
+  }),
+  twitter: pageTwitter({
     title: "Do you have to renew Medicare every year?",
     description:
       "No. Medicare coverage renews on its own. The exceptions, the ANOC letter to watch for, and why your Medicare card never expires.",
@@ -256,6 +264,7 @@ export default function MedicareAutomaticRenewalPage() {
         <ComplianceDisclosure variant="medicare" />
       </div>
     <TrafficGuideLinks slugs={["medicare-plan-not-renewing-triad"]} />
+      <MedicareByline reviewed="2026-10-08" />
     </main>
   );
 }

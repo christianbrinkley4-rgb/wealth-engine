@@ -12,7 +12,7 @@ import { getTool } from "@/lib/wealth/site";
 const PATH = "/wealth/building-in-public";
 const TITLE = "Building in public: the manifesto";
 const DESCRIPTION =
-  "Why I document my money journey in the open: dated entries, real wins and misses, and a record that beats a highlight reel.";
+  "Why I document my money journey in the open: dated entries, real wins and misses, and a record that beats a highlight reel. Read the plain-English guide.";
 
 export function generateMetadata(): Metadata {
   return wealthMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });

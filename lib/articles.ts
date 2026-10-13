@@ -69,7 +69,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "original-medicare-or-medicare-advantage",
     title: "Should I stay on Original Medicare or switch to Medicare Advantage?",
-    metaTitle: "Original Medicare or Medicare Advantage? What to Check First",
+    metaTitle: "Original Medicare or Medicare Advantage? Compare Options",
     description:
       "Thinking about switching from Original Medicare to Medicare Advantage? What each covers, what to check first, and when you can change. From a Greensboro agent.",
     keyword: "should I switch from Original Medicare to Medicare Advantage",
@@ -306,7 +306,7 @@ export const ARTICLES: Article[] = [
     title: "Does Medicare Cover Nursing Homes?",
     metaTitle: "Does Medicare Cover Nursing Homes? 2026 Guide",
     description:
-      "Does Medicare cover nursing homes? Mostly no. Up to 100 days of skilled nursing after a hospital stay, but not long-term care.",
+      "Does Medicare cover nursing homes? Mostly no. Up to 100 days of skilled nursing after a hospital stay, but not long-term care. Read the plain-English guide.",
     keyword: "does medicare cover nursing homes",
     eyebrow: "Medicare questions, answered",
     lede: "The short answer is mostly no. Medicare covers up to 100 days of skilled nursing after a qualifying hospital stay. It does not pay for long-term custodial care.",
@@ -578,7 +578,7 @@ export const ARTICLES: Article[] = [
     title: "Does Medicare Advantage cover dental?",
     metaTitle: "Does Medicare Advantage Cover Dental? What to Check",
     description:
-      "Original Medicare skips routine dental. Many Medicare Advantage plans add some dental, but the details vary. What to check before you count on it.",
+      "Original Medicare skips routine dental. Many Medicare Advantage plans add some dental, but the details vary. What to check before you count on it. Read on.",
     keyword: "does Medicare Advantage cover dental",
     eyebrow: "Medicare questions, answered",
     lede: "Original Medicare does not cover routine dental. Many Advantage plans add some. Here is what the benefit usually includes, and where people get surprised.",
@@ -688,7 +688,7 @@ export const ARTICLES: Article[] = [
     title: "What is the difference between HMO and PPO Medicare Advantage plans?",
     metaTitle: "HMO vs PPO: Which Medicare Plan Keeps Your Doctor?",
     description:
-      "HMO or PPO? The real differences are your doctors, referrals, and what out-of-network care costs. A plain-English comparison for Triad neighbors.",
+      "HMO or PPO? The real differences are your doctors, referrals, and what out-of-network care costs. A plain-English comparison for Triad neighbors. Read on.",
     keyword: "what is the difference between HMO and PPO Medicare Advantage plans",
     eyebrow: "Medicare questions, answered",
     lede: "HMOs keep costs tight with a network and referrals. PPOs give you more freedom, and you pay for it. Here is how to think about the tradeoff.",
@@ -818,7 +818,7 @@ export const ARTICLES: Article[] = [
     title: "What should I check before switching Medicare Advantage plans?",
     metaTitle: "Switching Medicare Advantage Plans? Check These First",
     description:
-      "Switching Medicare Advantage plans during open enrollment? The six checks that matter: timing, doctors, drugs, costs, pharmacy, and ratings.",
+      "Switching Medicare Advantage plans during open enrollment? The six checks that matter: timing, doctors, drugs, costs, pharmacy, and ratings. Learn more.",
     keyword: "what should I check before switching medicare advantage plans",
     eyebrow: "Medicare questions, answered",
     lede: "October 15 to December 7 is your yearly window to switch. Six checks, in order, so January never surprises you.",
@@ -952,7 +952,7 @@ export const ARTICLES: Article[] = [
     title: "Will Medicare cost me more because of my income?",
     metaTitle: "IRMAA Explained: When Income Raises Medicare Costs",
     description:
-      "Earn over $109K single or $218K joint? IRMAA adds surcharges to Medicare Part B and Part D. How the two-year lookback works, and how to appeal.",
+      "Earn over $109K single or $218K joint? IRMAA adds surcharges to Medicare Part B and Part D. How the two-year lookback works, and how to appeal. Read on.",
     keyword: "what is irmaa medicare income related monthly adjustment amount",
     eyebrow: "Medicare questions, answered",
     lede: "Your 2024 tax return sets your 2026 Medicare premiums. Here is how the income surcharge works, and what to do if your income has dropped since.",
@@ -1085,7 +1085,7 @@ export const ARTICLES: Article[] = [
     title: "Do I need Medicare drug coverage if I don't take many prescriptions?",
     metaTitle: "Do I Need Medicare Part D If I Take Few Prescriptions?",
     description:
-      "Taking few or no prescriptions at 65? What Medicare Part D costs, how the late penalty works, and what to check before you skip drug coverage.",
+      "Taking few or no prescriptions at 65? What Medicare Part D costs, how the late penalty works, and what to check before you skip drug coverage. Read on.",
     keyword: "do I need Part D if I don't take prescriptions",
     eyebrow: "Medicare questions, answered",
     lede: "Part D is optional, but skipping it can cost you for years. Here is how the penalty works, and the one thing to check first.",
@@ -1306,7 +1306,7 @@ export const ARTICLES: Article[] = [
     title: "What happens if I miss my Medicare Initial Enrollment Period?",
     metaTitle: "Missed Your Medicare Initial Enrollment Period? Next Steps",
     description:
-      "Missing your Medicare Initial Enrollment Period can mean lifetime penalties and a wait for coverage. How the penalties work and what to do next.",
+      "Missing your Medicare Initial Enrollment Period can mean lifetime penalties and a wait for coverage. How the penalties work and what to do next. Read on.",
     keyword: "what happens if I miss my Medicare initial enrollment period",
     eyebrow: "Medicare questions, answered",
     lede: "Two things happen when you miss it: a penalty that follows you for life, and a wait for your next chance to sign up. Here is the full picture.",
@@ -1804,7 +1804,7 @@ export const ARTICLES: Article[] = [
     title: "Does Medicare cover cataract surgery?",
     metaTitle: "Does Medicare Cover Cataract Surgery? 2026 Costs",
     description:
-      "Medicare Part B covers medically necessary cataract surgery, the standard lens, and one pair of glasses after. What you pay and what costs extra.",
+      "Medicare Part B covers medically necessary cataract surgery, the standard lens, and one pair of glasses after. What you pay and what costs extra. Read on.",
     keyword: "does Medicare cover cataract surgery",
     eyebrow: "Medicare questions, answered",
     lede: "Cataract surgery is one of the most common procedures Medicare covers. Here is what Part B pays for, what you owe, and what costs extra.",
@@ -1901,7 +1901,7 @@ export const ARTICLES: Article[] = [
     title: "Can I stay on my spouse's employer plan after I turn 65?",
     metaTitle: "Turning 65 on a Spouse's Employer Plan: Medicare Rules",
     description:
-      "You can usually stay on your spouse's employer plan at 65 and delay Medicare. The 20-employee rule, Part D creditability, and when to sign up.",
+      "You can usually stay on your spouse's employer plan at 65 and delay Medicare. The 20-employee rule, Part D creditability, and when to sign up. Read on.",
     keyword: "can I stay on spouse employer plan after turning 65 Medicare",
     eyebrow: "Medicare questions, answered",
     lede: "In most cases, yes. The same 20-employee rule applies as if it were your own job. Here is how it works for spouses.",
@@ -1998,7 +1998,7 @@ export const ARTICLES: Article[] = [
     title: "How do I apply for Medicare?",
     metaTitle: "How to Apply for Medicare: Online, Phone, or In Person",
     description:
-      "Apply for Medicare online at ssa.gov, by phone, or at your local Social Security office. What you need, when to apply, and what happens next.",
+      "Apply for Medicare online at ssa.gov, by phone, or at your local Social Security office. What you need, when to apply, and what happens next. Read on.",
     keyword: "how do I apply for Medicare",
     eyebrow: "Medicare questions, answered",
     lede: "Online at ssa.gov takes about ten minutes. Here is what you need, when to apply, and what happens after you submit.",
@@ -2098,7 +2098,7 @@ export const ARTICLES: Article[] = [
     title: "Does Medicare cover ambulance rides?",
     metaTitle: "Does Medicare Cover Ambulance Rides? Rules and Costs",
     description:
-      "Medicare covers ambulance rides only when medically necessary. What counts, what you pay, and why non-emergency rides get denied.",
+      "Medicare covers ambulance rides only when medically necessary. What counts, what you pay, and why non-emergency rides get denied. Read the details here.",
     keyword: "does Medicare cover ambulance rides",
     eyebrow: "Medicare questions, answered",
     lede: "Medicare covers ambulance rides when other transportation would endanger your health. Here is what counts as medically necessary, and what you pay.",

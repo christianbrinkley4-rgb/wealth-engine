@@ -24,7 +24,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "overtime-tax-deduction-2026",
     title: "Overtime Tax Deduction 2026: What Actually Qualifies",
     description:
-      "Not every overtime dollar qualifies. Check the federal overtime deduction, filing rules, payroll records, and what still gets taxed in 2026.",
+      "Not every overtime dollar qualifies. Check the federal overtime deduction, filing rules, payroll records, and what still gets taxed in 2026. Learn more.",
     query: "does all overtime qualify for no tax on overtime 2026",
     opportunity:
       "Fresh deduction confusion. Narrow the broad headline to qualifying pay and records; national publisher and IRS competition remains strong.",
@@ -90,7 +90,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "tips-tax-deduction-2026",
     title: "No Tax on Tips 2026: Tips vs. Service Charges",
     description:
-      "See which tips may qualify for the federal deduction, why service charges differ, and which records tipped workers need for 2026 taxes.",
+      "See which tips may qualify for the federal deduction, why service charges differ, and which records tipped workers need for 2026 taxes. Read the guide.",
     query: "no tax on tips 2026 service charges qualify",
     opportunity:
       "Separate voluntary tips from automatic charges. The new rules create a records-focused long-tail opening beyond generic deduction explainers.",
@@ -156,7 +156,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "teen-tax-return-dependent",
     title: "Does My Teen Need to File a Tax Return?",
     description:
-      "A dependent teen may still need a tax return. Separate wages, side-job profit, and interest, then check filing rules and possible refunds.",
+      "A dependent teen may still need a tax return. Separate wages, side-job profit, and interest, then check filing rules and possible refunds. Learn more.",
     query: "does my teenager need to file taxes if I claim them",
     opportunity:
       "Existing teen first-job content covers paychecks. This page addresses the parent-dependent filing decision and self-employment exception.",
@@ -223,7 +223,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "1099-k-personal-items-sold-at-loss",
     title: "1099-K for Personal Items Sold at a Loss",
     description:
-      "A 1099-K doesn't mean every dollar is profit. Learn how personal sales, business sales, gifts, and reporting errors differ.",
+      "A 1099-K doesn't mean every dollar is profit. Learn how personal sales, business sales, gifts, and reporting errors differ. Read the plain-English guide.",
     query: "1099 k personal items sold at a loss what to do",
     opportunity:
       "Records and classification are more useful than another reporting-threshold headline. Connect the existing side-hustle guide to a specific filing problem.",
@@ -290,7 +290,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "tax-extension-cannot-pay",
     title: "Filed a Tax Extension but Can't Pay?",
     description:
-      "A filing extension doesn't extend payment time. See how filing, partial payments, IRS payment options, and hardship requests differ.",
+      "A filing extension doesn't extend payment time. See how filing, partial payments, IRS payment options, and hardship requests differ. Explore the guide.",
     query: "tax extension deadline cannot pay taxes what happens",
     opportunity:
       "Timely before the October filing-extension deadline. Answer the unpaid-balance problem without debt-relief sales pressure.",
@@ -357,7 +357,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "unemployment-tax-withholding",
     title: "Is Unemployment Taxable? Withholding Explained",
     description:
-      "Unemployment benefits generally count as federal taxable income. Learn about Form 1099-G, 10% withholding, and checking your full-year tax.",
+      "Unemployment benefits generally count as federal taxable income. Learn about Form 1099-G, 10% withholding, and checking your full-year tax. Learn more.",
     query: "is unemployment taxable should I withhold 10 percent",
     opportunity:
       "Bridge the gap between a yes/no tax answer and the specific withholding form. Useful alongside the existing money-trouble content.",
@@ -420,7 +420,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "inherited-ira-ten-year-rule",
     title: "Inherited IRA: Does the 10-Year Rule Mean Wait?",
     description:
-      "Some inherited IRAs require annual withdrawals before year ten. Check beneficiary status, the owner's required beginning date, and account type.",
+      "Some inherited IRAs require annual withdrawals before year ten. Check beneficiary status, the owner's required beginning date, and account type. Read on.",
     query: "inherited IRA 10 year rule annual withdrawals required",
     opportunity:
       "Competitive query with consequential oversimplifications. Use a tightly scoped decision table and records checklist, without withdrawal recommendations.",
@@ -488,7 +488,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "401k-rollover-after-leaving-job",
     title: "401(k) After Leaving a Job: Rollover Rules",
     description:
-      "Compare leaving a 401(k), a direct rollover, and a payment to you. Understand the 60-day rule and withholding before requesting a check.",
+      "Compare leaving a 401(k), a direct rollover, and a payment to you. Understand the 60-day rule and withholding before requesting a check. Read the guide.",
     query: "401k rollover after leaving job check 20 percent withholding",
     opportunity:
       "Broad rollover results are crowded. Focus on payment mechanics and the avoidable check-payee confusion, linked from the existing 401(k) explainer.",
@@ -555,7 +555,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "hsa-fsa-after-leaving-job",
     title: "HSA vs. FSA After Leaving a Job: What Stays?",
     description:
-      "Your HSA stays yours after a job change. A health FSA follows different rules. Check contribution eligibility and claim deadlines before leaving.",
+      "Your HSA stays yours after a job change. A health FSA follows different rules. Check contribution eligibility and claim deadlines before leaving. Read on.",
     query: "what happens to HSA FSA when you leave your job",
     opportunity:
       "Existing HSA content explains tax benefits. A side-by-side departure checklist answers a different, time-sensitive question.",
@@ -623,7 +623,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "medicare-plan-not-renewing-triad",
     title: "Medicare Plan Not Renewing? Triad NC Checklist",
     description:
-      "A nonrenewal letter needs a different response from a benefit-change notice. A Medicare checklist for Greensboro and the surrounding Triad.",
+      "A nonrenewal letter needs a different response from a benefit-change notice. A Medicare checklist for Greensboro and the surrounding Triad. Learn more.",
     query: "Medicare plan not renewing Greensboro 2027 what to do",
     opportunity:
       "Local seasonal intent distinct from the existing automatic-renewal guide. Explain the notice workflow without naming carriers or asserting local exits.",
@@ -692,7 +692,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "401k-loan-vs-withdrawal",
     title: "401(k) Loan vs Withdrawal: Taxes Explained",
-    description: "A 401(k) loan avoids taxes when repaid on schedule; a withdrawal is taxed and usually penalized. Learn the real cost of each.",
+    description: "A 401(k) loan avoids taxes when repaid on schedule; a withdrawal is taxed and usually penalized. Learn the real cost of each. Read the plain-English guide.",
     answer: "A loan lets you borrow from your 401(k) and pay yourself back, usually within five years, with no income tax if repaid. A withdrawal is taxable income and usually adds a 10% early-distribution penalty if you are under 59 1/2. The loan avoids the penalty when you repay on schedule.",
     sections: [
       { title: "How a 401(k) loan works", body: "IRS rules let you borrow up to the lesser of $50,000 or half your vested balance. You repay it within five years through payroll deductions with interest to yourself. Repay it late or leave your job and the balance may become a taxable distribution. Plans can refuse loans, so check your plan documents first." },
@@ -741,7 +741,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "roth-conversion-ladder-explained",
     title: "Roth Conversion Ladder: How It Works",
-    description: "Convert traditional retirement money to Roth, wait five years per conversion, then withdraw penalty-free. Here is how the ladder works.",
+    description: "Convert traditional retirement money to Roth, wait five years per conversion, then withdraw penalty-free. Here is how the ladder works. Read the guide.",
     answer: "You convert traditional retirement money to a Roth IRA and pay income tax on the amount. Each conversion starts a five-year clock, and when it finishes you can withdraw that principal without the 10% early penalty. Repeat yearly and you build a ladder of penalty-free withdrawals.",
     sections: [
       { title: "The ladder in three steps", body: "First, convert money from a traditional IRA or 401(k) into a Roth IRA. You pay ordinary income tax on the converted amount that year. Second, wait five tax years for that conversion's clock to run out. Third, withdraw the converted principal penalty-free, even before age 59 1/2." },
@@ -791,7 +791,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "hsa-triple-tax-advantage",
     title: "HSA Triple Tax Advantage Explained",
-    description: "Deductible contributions, tax-free growth, tax-free medical withdrawals. The HSA's triple tax advantage and 2026 limits, explained.",
+    description: "Deductible contributions, tax-free growth, tax-free medical withdrawals. The HSA's triple tax advantage and 2026 limits, explained. Explore the guide.",
     answer: "An HSA gives you three tax breaks in a single account. Contributions are deductible, growth is tax-free, and withdrawals for qualified medical expenses are tax-free. No other common account offers all three at once.",
     sections: [
       { title: "The three tax breaks", body: "First, contributions lower your taxable income for the year you make them. Second, interest and investment growth inside the account are never taxed. Third, withdrawals for qualified medical expenses come out tax-free at any age." },
@@ -833,7 +833,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "estimated-quarterly-taxes-guide",
     title: "Estimated Quarterly Taxes, Plainly Explained",
-    description: "Freelancers and side earners pay income tax four times a year. Due dates, safe harbor rules, and how to skip the penalty.",
+    description: "Freelancers and side earners pay income tax four times a year. Due dates, safe harbor rules, and how to skip the penalty. Read the plain-English guide.",
     answer: "You pay estimated taxes four times a year when your income has little or no withholding. That usually means freelancers, gig workers, landlords, and investors. Pay enough on time and you avoid the underpayment penalty.",
     sections: [
       { title: "Who has to pay", body: "The IRS expects estimated payments when you will owe at least $1,000 after withholding and credits. Self-employed workers pay because no employer withholds for them. People with rental or investment income may owe them too. W-2 employees with side income can fall in as well." },
@@ -882,7 +882,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "1099-vs-w2-classification",
     title: "1099 vs W-2: How Worker Status Changes Taxes",
-    description: "W-2 employees split payroll taxes with their boss. 1099 contractors pay the full 15.3% themselves. What your worker status costs you.",
+    description: "W-2 employees split payroll taxes with their boss. 1099 contractors pay the full 15.3% themselves. What your worker status costs you. Explore the guide.",
     answer: "W-2 workers are employees with tax withheld and half their payroll taxes paid by the employer. Workers paid on a 1099 are independent contractors who handle their own taxes. The trade is flexibility and deductions against self-employment tax and quarterly payments.",
     sections: [
       { title: "How the taxes differ", body: "Employees split Social Security and Medicare taxes with their employer each paycheck. Contractors pay the full 15.3% self-employment tax on 92.35% of net earnings themselves. Contractors make quarterly estimated payments instead of relying on withholding. A wider menu of business deductions offsets some of the difference." },
@@ -933,7 +933,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "fsa-vs-hsa-which-is-better",
     title: "FSA vs HSA: Which Health Account Wins?",
-    description: "HSAs roll over and travel with you; FSAs expire with your job. Compare eligibility, 2026 limits, and which fits your health plan.",
+    description: "HSAs roll over and travel with you; FSAs expire with your job. Compare eligibility, 2026 limits, and which fits your health plan. Read the details here.",
     answer: "An HSA pairs with a high-deductible health plan, rolls over every year, and follows you between jobs. An FSA works with most plans but is tied to your employer and mostly use-it-or-lose-it. The HSA also carries the triple tax advantage the FSA cannot match.",
     sections: [
       { title: "Eligibility and ownership", body: "You need a qualifying high-deductible health plan to open or fund an HSA. An FSA only needs an employer that offers one, and it works with most health plans. The HSA is your account forever, even after you leave the job. The FSA ends with the job, though a grace period can give you a little extra time." },
@@ -982,7 +982,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "tax-loss-harvesting-wash-sale",
     title: "Tax-Loss Harvesting and the Wash Sale Rule",
-    description: "Sell losing investments to offset gains, use $3,000 a year against income, and dodge the 30-day wash sale rule.",
+    description: "Sell losing investments to offset gains, use $3,000 a year against income, and dodge the 30-day wash sale rule. Explore the steps in Christian Brinkley's guide.",
     answer: "You sell investments at a loss to offset gains, which lowers your tax bill. You can apply up to $3,000 of net losses per year against ordinary income. Unused losses carry forward to future years.",
     sections: [
       { title: "How the strategy works", body: "Sell a losing investment and use the loss to cancel out gains from winners. Short-term losses first offset short-term gains, which are taxed at higher rates. Net losses beyond your gains can offset up to $3,000 of ordinary income per year. Leftover losses carry forward to future tax years." },
@@ -1030,7 +1030,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "tip-income-reporting-rules",
     title: "How Tipped Workers Report Income to the IRS",
-    description: "All tips are taxable, including cash. Daily records, the $20 monthly rule, and Form 4137, explained for tipped workers.",
+    description: "All tips are taxable, including cash. Daily records, the $20 monthly rule, and Form 4137, explained for tipped workers. Explore the plain-English guide.",
     answer: "All tips are taxable income, including cash tips and credit card tips. You must keep a daily record and report tips to your employer once they reach $20 in a month. Your employer then withholds income, Social Security, and Medicare taxes on them.",
     sections: [
       { title: "What counts as reportable income", body: "Cash tips, card tips, and tips from tip pools are all taxable. Non-cash tips like tickets or passes count too, at fair market value. Service charges your employer adds to bills are wages, not tips. Report all of it, not just what your employer already sees." },
@@ -1072,7 +1072,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "backdoor-roth-ira-steps",
     title: "Backdoor Roth IRA: Step-by-Step Guide",
-    description: "How the backdoor Roth IRA works, who needs it, and the pro-rata rule to watch. Plain steps for high earners.",
+    description: "How the backdoor Roth IRA works, who needs it, and the pro-rata rule to watch. Plain steps for high earners. Explore the steps in Christian Brinkley's guide.",
     answer: "A backdoor Roth IRA is a two-step move: contribute to a traditional IRA, then convert it to a Roth. It exists because high earners lose the ability to contribute to a Roth directly once their income passes the IRS phaseout limits. It works best when you have no pre-tax IRA balance, because of the pro-rata rule.",
     sections: [
       { title: "Who actually needs this", body: "For 2026, the IRS phases out direct Roth IRA contributions for higher earners. If your income is above that range, direct contributions are off the table. The backdoor route still lets you get money into a Roth through a conversion. Check the current IRS figures to see where the phaseouts start." },
@@ -1121,7 +1121,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "mega-backdoor-roth-explained",
     title: "Mega Backdoor Roth: How It Works",
-    description: "How the mega backdoor Roth uses after-tax 401(k) contributions and an in-service rollover to fund a Roth beyond normal limits.",
+    description: "How the mega backdoor Roth uses after-tax 401(k) contributions and an in-service rollover to fund a Roth beyond normal limits. Read the plain-English guide.",
     answer: "The mega backdoor Roth lets you move far more than the normal Roth IRA limit into a Roth each year. You make after-tax contributions to your 401(k), then roll them into a Roth through an in-service distribution or rollover. For 2026, the total 401(k) contribution limit is $72,000 for savers under 50. After-tax contributions fill the gap above your $24,500 elective deferral and any employer match.",
     sections: [
       { title: "What it actually is", body: "It is a strategy inside your 401(k), not an IRA trick. Your plan must allow after-tax contributions and in-service rollovers or distributions. Without both features, the mega backdoor is not available. Check your plan's summary description or ask your administrator." },
@@ -1169,7 +1169,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "i-bonds-vs-tips",
     title: "I Bonds vs TIPS: Which Protects More?",
-    description: "Series I bonds vs TIPS: how each tracks inflation, purchase limits, and tax treatment, explained in plain English.",
+    description: "Series I bonds vs TIPS: how each tracks inflation, purchase limits, and tax treatment, explained in plain English. Learn more in this practical guide.",
     answer: "Series I bonds and TIPS both protect against inflation, but they work differently. I bonds pay a combined rate with a fixed component plus inflation, and you can buy up to $10,000 per year electronically. TIPS adjust their principal with inflation and are usually bought at Treasury auctions or through funds, with taxes owed each year on the inflation adjustment.",
     sections: [
       { title: "How I bonds work", body: "You buy them directly from TreasuryDirect and hold them at least 12 months. Cashing out before five years costs the last three months of interest. Interest is exempt from state and local tax, and federal tax can wait until you redeem. The rate resets every six months based on inflation." },
@@ -1219,7 +1219,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "hysa-vs-money-market-account",
     title: "HYSA vs Money Market Account",
-    description: "High-yield savings vs money market accounts: FDIC insurance, liquidity, and how rates work, compared side by side.",
+    description: "High-yield savings vs money market accounts: FDIC insurance, liquidity, and how rates work, compared side by side. Learn more in this practical guide.",
     answer: "Both are safe, liquid places to park cash, and both carry FDIC insurance up to $250,000 per depositor per bank. A high-yield savings account is built for saving, with a variable rate and easy transfers. A money market account often adds check-writing and a debit card, which suits cash you touch more often.",
     sections: [
       { title: "What they share", body: "Each is offered by a bank or credit union and pays a variable interest rate. Each is insured up to $250,000 per depositor per insured bank when held at an FDIC member bank. Rates on both tend to move with the broader interest-rate environment. Neither is an investment account, and neither buys stocks." },
@@ -1267,7 +1267,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "credit-utilization-explained",
     title: "Credit Utilization Ratio Explained",
-    description: "What your credit utilization ratio is, why the 30% guideline matters, and how fast it changes your score.",
+    description: "What your credit utilization ratio is, why the 30% guideline matters, and how fast it changes your score. Explore the steps in Christian Brinkley's guide.",
     answer: "Your credit utilization ratio is the share of your available credit that you are using. It is your total card balances divided by your total credit limits, and scoring models weigh it heavily. Keeping it under 30% is the common guideline, with lower generally scoring better.",
     sections: [
       { title: "How it is calculated", body: "Add up the balances reported on all your cards, then divide by the sum of their credit limits. A $2,000 balance on $10,000 of total limits is 20%. Both the overall ratio and each card's individual ratio matter. Maxing out one card can hurt even if your total stays low." },
@@ -1310,7 +1310,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "401k-early-withdrawal-exceptions",
     title: "401(k) Early Withdrawal Exceptions",
-    description: "The 10% early withdrawal penalty on 401(k) plans, and the exceptions that waive it: rule of 55, SEPP, hardship, and more.",
+    description: "The 10% early withdrawal penalty on 401(k) plans, and the exceptions that waive it: rule of 55, SEPP, hardship, and more. Read the plain-English guide.",
     answer: "Withdrawals from a 401(k) before age 59 and a half usually face income tax plus a 10% early withdrawal penalty. Congress created exceptions that waive the penalty in specific situations, though the income tax usually still applies. Knowing them can save you thousands if you must tap the account early.",
     sections: [
       { title: "The penalty in plain English", body: "The IRS adds a 10% penalty on top of ordinary income tax for most withdrawals before 59 and a half. It applies to both pre-tax and Roth earnings taken early. Your own Roth contributions are the main exception, since you already paid tax on them. The penalty exists to discourage raiding retirement savings." },
@@ -1358,7 +1358,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "roth-ira-five-year-rule",
     title: "Roth IRA 5-Year Rule Explained",
-    description: "How the Roth IRA 5-year rules work: the contributions clock, the conversion clock, and when earnings come out tax-free.",
+    description: "How the Roth IRA 5-year rules work: the contributions clock, the conversion clock, and when earnings come out tax-free. Explore the plain-English guide.",
     answer: "The Roth IRA 5-year rule decides when your money comes out tax-free and penalty-free. Your own contributions can be withdrawn anytime with no tax or penalty. Earnings need two things: an account open for five years, and a qualifying reason like turning 59 and a half.",
     sections: [
       { title: "Clock one: contributions", body: "Every Roth IRA has a five-year clock that starts with your first contribution to any Roth IRA. Once it is satisfied and you are 59 and a half, earnings come out tax-free. Disability and a first-home purchase also count as qualifying reasons. This clock never resets, no matter how many accounts you open." },
@@ -1400,7 +1400,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "social-security-62-vs-70",
     title: "Social Security: Claim at 62 or 70?",
-    description: "Claiming Social Security at 62 vs 70: how benefits shrink or grow, and how to think about the break-even point.",
+    description: "Claiming Social Security at 62 vs 70: how benefits shrink or grow, and how to think about the break-even point. Explore the steps in Christian Brinkley's guide.",
     answer: "Claiming at 62 locks in a permanently reduced benefit, roughly 70 to 77 percent of your full amount depending on your full retirement age. Waiting until 70 grows it to roughly 124 to 132 percent through delayed retirement credits. There is no bonus for waiting past 70, so the choice is really about timing and longevity.",
     sections: [
       { title: "What claiming at 62 costs", body: "Your full retirement age is 66 or 67 depending on your birth year. Claiming at 62 means up to five years of early-claiming reductions. The reduction is permanent and also lowers survivor benefits for a spouse. Filing early can still make sense if you need the income or expect a shorter life." },
@@ -1442,7 +1442,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "roth-ira-mistakes-to-avoid",
     title: "7 Roth IRA Mistakes That Cost Real Money",
-    description: "The seven Roth IRA mistakes that drain your retirement money, from income limits to the 5-year rule.",
+    description: "The seven Roth IRA mistakes that drain your retirement money, from income limits to the 5-year rule. Read this plain-English guide from Christian Brinkley.",
     answer: "Roth IRA mistakes usually come down to contributing when you are not eligible, breaking the 5-year rule, or withdrawing earnings too early. Each one can trigger taxes or penalties you never needed to pay. A few minutes of checking the rules saves real money.",
     sections: [
       { title: "Mistake 1: Contributing over the income limit", body: "Roth IRA eligibility phases out above certain income levels set by the IRS. If you earn too much and contribute directly anyway, that contribution counts as excess. It faces a 6% penalty tax each year it stays in the account. Check the current limit before you contribute, or use a backdoor Roth through a traditional IRA if you qualify." },
@@ -1492,7 +1492,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "hsa-mistakes-to-avoid",
     title: "5 HSA Mistakes That Drain Your Savings",
-    description: "Five common HSA mistakes, from contributing on Medicare to overfunding, and how to fix each one.",
+    description: "Five common HSA mistakes, from contributing on Medicare to overfunding, and how to fix each one. Read this plain-English guide from Christian Brinkley.",
     answer: "The most expensive HSA mistakes are contributing while on Medicare and overfunding the account, since both trigger penalty taxes. Others are quieter, like leaving the balance in cash instead of investing it. A few checks each year keep the triple tax advantage intact.",
     sections: [
       { title: "Mistake 1: Contributing while on Medicare", body: "Once you enroll in any part of Medicare, you can no longer contribute to an HSA, even if you still work. Contributions made after Medicare enrollment are excess and get taxed plus penalized. If you work past 65 and delay Medicare, you can keep contributing. Stop six months before you file for Social Security because of retroactive Part A." },
@@ -1538,7 +1538,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "tax-deductions-side-hustlers-miss",
     title: "6 Tax Deductions Side Hustlers Miss",
-    description: "Six deductions side hustlers leave on the table every year, from the home office to retirement savings.",
+    description: "Six deductions side hustlers leave on the table every year, from the home office to retirement savings. Explore the steps in Christian Brinkley's guide.",
     answer: "Side hustlers routinely miss the home office deduction, mileage, the business share of phone and internet, self-employed health insurance, retirement contributions, and ordinary supplies. Each one lowers your taxable profit. Tracking them as you go is easier than reconstructing them in April.",
     sections: [
       { title: "Mistake 1: Skipping the home office simplified method", body: "If you work from a dedicated space at home, the simplified method is built for you. It lets you deduct $5 per square foot up to $1,500 with no receipts to track. Many people skip it because they assume the regular method is too much paperwork. The simplified option takes about a minute on the tax return." },
@@ -1586,7 +1586,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "401k-mistakes-to-avoid",
     title: "5 401(k) Mistakes That Shrink Retirement",
-    description: "Five 401(k) mistakes that quietly shrink your retirement, from skipping the match to cashing out.",
+    description: "Five 401(k) mistakes that quietly shrink your retirement, from skipping the match to cashing out. Read this plain-English guide from Christian Brinkley.",
     answer: "The costliest 401(k) mistakes are leaving the employer match on the table and cashing out when you change jobs. Add borrowing without a repayment plan, ignoring fees, and never rebalancing. None of them feel like mistakes in the moment, but all of them compound for decades.",
     sections: [
       { title: "Mistake 1: Not capturing the full employer match", body: "Many employers match a percentage of your contributions, and it is free money with no catch. Contributing less than the match threshold leaves part of your compensation unclaimed. At minimum, contribute enough to get every matching dollar before funding anything else." },
@@ -1632,7 +1632,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   {
     slug: "tax-filing-mistakes-first-timers",
     title: "7 Tax Filing Mistakes First-Timers Make",
-    description: "Seven first-time tax filing mistakes that delay refunds or cost money, and the simple fix for each.",
+    description: "Seven first-time tax filing mistakes that delay refunds or cost money, and the simple fix for each. Read this plain-English guide from Christian Brinkley.",
     answer: "First-time filers most often pick the wrong filing status, skip income they forgot about, and make math errors that slow refunds. Missing the deadline and filing on paper add more delays. Every one of these has a simple fix that takes minutes.",
     sections: [
       { title: "Mistake 1: Picking the wrong filing status", body: "Your filing status changes your standard deduction and your tax brackets. Single people sometimes file as head of household without qualifying, or married couples file separately and lose credits. For 2026 the standard deduction is $16,100 for single filers and $32,200 for joint filers, so the status you pick moves real money." },
@@ -1683,7 +1683,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "child-tax-credit-2026",
     title: "Child Tax Credit 2026: The $2,200 Rules, Explained",
     description:
-      "What the 2026 Child Tax Credit is worth, who counts as a qualifying child, the income limits, and how the refundable part works.",
+      "What the 2026 Child Tax Credit is worth, who counts as a qualifying child, the income limits, and how the refundable part works. Read the details here.",
     query: "child tax credit 2026 how much per child who qualifies",
     opportunity:
       "NerdWallet, Bankrate, and IRS pages dominate this high-volume family-tax query. No site coverage exists. A plain-English 2026 guide built around the $2,200 amount, the new parent-SSN rule, and the refund math fills the gap.",
@@ -1849,7 +1849,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "social-security-survivor-benefits",
     title: "Survivor Benefits: Who Qualifies and What You Get",
     description:
-      "Widow and widower benefits, surviving children, and dependent parents: the eligibility rules, benefit percentages, and the $255 lump-sum payment.",
+      "Widow and widower benefits, surviving children, and dependent parents: the eligibility rules, benefit percentages, and the $255 lump-sum payment. Read on.",
     query: "social security survivor benefits widow how much age 60",
     opportunity:
       "High-volume SSA query dominated by federal and publisher pages. The site's retirement cluster covers claiming age and taxation but not survivors. A plain-English who-qualifies guide closes the gap.",
@@ -2004,7 +2004,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "medicare-dual-eligible-snp-triad",
     title: "Dual Eligible in the Triad? What a D-SNP Does for You",
     description:
-      "Have both Medicare and Medicaid in Greensboro, High Point, or Winston-Salem? See what Dual Special Needs Plans cover and when you can enroll.",
+      "Have both Medicare and Medicaid in Greensboro, High Point, or Winston-Salem? See what Dual Special Needs Plans cover and when you can enroll. Read on.",
     scope: "medicare",
     query: "dual eligible special needs plan greensboro nc medicare medicaid",
     opportunity:
@@ -2084,7 +2084,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "medicare-part-b-giveback-plans",
     title: "Medicare Part B Giveback Plans: Are They Worth It?",
     description:
-      "Seen the TV ads about getting money back on your Part B premium? Here is what a Part B giveback really is, who qualifies, and what the ads leave out.",
+      "Seen the TV ads about getting money back on your Part B premium? Here is what a Part B giveback really is, who qualifies, and what the ads leave out. Read on.",
     query: "medicare part b giveback",
     opportunity:
       "Heavy national TV and mailer spend makes this one of the most-searched Medicare questions each fall. A plain-English, Greensboro-framed explainer with no dollar claims captures the local curiosity search without touching carrier ads.",

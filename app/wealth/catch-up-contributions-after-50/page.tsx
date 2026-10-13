@@ -7,7 +7,7 @@ const ARTICLE: ArticleData = {
   path: "/wealth/catch-up-contributions-after-50",
   title: "Catch-Up Contributions After 50",
   description:
-    "2026 catch-up limits for 401(k)s, IRAs, and HSAs, plus the new Roth rule for high earners.",
+    "2026 catch-up limits for 401(k)s, IRAs, and HSAs, plus the new Roth rule for high earners. Read Christian Brinkley's practical guide in plain English.",
   eyebrow: "Retirement saving after 50",
   readMinutes: 5,
   answer:

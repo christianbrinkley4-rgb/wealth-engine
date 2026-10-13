@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -16,9 +17,15 @@ export const metadata: Metadata = {
     absolute: "AI for Regular People | Christian Brinkley",
   },
   description:
-    "What AI can actually do for a normal person, in plain English, from someone who uses it daily. Five things it does well, three it does badly.",
+    "What AI can actually do for a normal person, in plain English, from someone who uses it daily. Five things it does well, three it does badly. Read on.",
   alternates: { canonical: "/ai" },
   openGraph: pageOpenGraph({
+    title: "AI for regular people",
+    description:
+      "What AI can actually do for a normal person, in plain English. Five things it does well, three it does badly, and how I use it every day.",
+    path: "/ai",
+  }),
+  twitter: pageTwitter({
     title: "AI for regular people",
     description:
       "What AI can actually do for a normal person, in plain English. Five things it does well, three it does badly, and how I use it every day.",

@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -16,9 +17,15 @@ export const metadata: Metadata = {
     absolute: "AI for Small Business | Christian Brinkley",
   },
   description:
-    "What a one-person business can automate with AI: follow-ups, scheduling, bookkeeping drafts, content ideas. From real daily use, with honest limits.",
+    "What a one-person business can automate with AI: follow-ups, scheduling, bookkeeping drafts, content ideas. From real daily use, with honest limits. Read on.",
   alternates: { canonical: "/ai/ai-for-small-business" },
   openGraph: pageOpenGraph({
+    title: "AI for small business",
+    description:
+      "What a one-person business can automate: follow-ups, scheduling, bookkeeping drafts, content ideas. From my own playbook, with honest limits.",
+    path: "/ai/ai-for-small-business",
+  }),
+  twitter: pageTwitter({
     title: "AI for small business",
     description:
       "What a one-person business can automate: follow-ups, scheduling, bookkeeping drafts, content ideas. From my own playbook, with honest limits.",
@@ -67,7 +74,7 @@ export default function AiForSmallBusinessPage() {
             articleJsonLd({
               headline: "AI for Small Business: What One Person Can Automate",
               description:
-                "What a one-person business can automate with AI: follow-ups, scheduling, bookkeeping drafts, content ideas. From real daily use, with honest limits.",
+                "What a one-person business can automate with AI: follow-ups, scheduling, bookkeeping drafts, content ideas. From real daily use, with honest limits. Read on.",
               path: "/ai/ai-for-small-business",
               datePublished: "2026-10-08",
               dateModified: "2026-10-08",

@@ -40,7 +40,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     title: "Budgeting on your first job",
     metaTitle: "First Job Budget: 10 Minutes",
     description:
-      "Your first paycheck is smaller than your salary says. Here's how to read it and build a first budget in ten minutes.",
+      "Your first paycheck is smaller than your salary says. Here's how to read it and build a first budget in ten minutes. Learn more in this practical guide.",
     answer:
       "Budget from your take-home pay, not your salary. List the bills that don't wait, pick a savings amount, and let the rest be spending money you don't have to feel bad about.",
     minutes: 4,
@@ -112,7 +112,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     title: "What a Roth IRA actually is",
     metaTitle: "Roth IRA Guide for Your 20s",
     description:
-      "A Roth IRA is an account, not an investment. You pay tax now so qualified withdrawals later are tax-free. 2026 limits inside.",
+      "A Roth IRA is an account, not an investment. You pay tax now so qualified withdrawals later are tax-free. 2026 limits inside. Read the plain-English guide.",
     answer:
       "A Roth IRA is a retirement account you open yourself. You put in money you've already paid tax on, and qualified withdrawals in retirement come out tax-free. For 2026 the contribution limit is $7,500 if you're under 50.",
     minutes: 5,
@@ -186,7 +186,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     title: "Credit scores, explained",
     metaTitle: "Credit Scores Explained",
     description:
-      "A credit score runs from 300 to 850. Five things move it, and two of them do most of the work. Here's the breakdown.",
+      "A credit score runs from 300 to 850. Five things move it, and two of them do most of the work. Here's the breakdown. Learn more in this practical guide.",
     answer:
       "A FICO score runs from 300 to 850 and is built from five things: payment history (35%), amounts owed (30%), length of credit history (15%), new credit (10%) and credit mix (10%). Paying on time and keeping balances low do most of the work.",
     minutes: 4,
@@ -265,7 +265,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     title: "What accountants actually do",
     metaTitle: "What Do Accountants Actually Do?",
     description:
-      "Accounting isn't just taxes. It's how a business keeps score. Here's what the work looks like, from an accounting senior.",
+      "Accounting isn't just taxes. It's how a business keeps score. Here's what the work looks like, from an accounting senior. Read the plain-English guide.",
     answer:
       "Accountants record what a business earns, owns and owes, then turn that into statements people can trust and use to make decisions. Tax is one branch. Audit, bookkeeping, and internal finance are others.",
     minutes: 4,
@@ -338,7 +338,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     title: "Emergency funds: how much, and where",
     metaTitle: "Emergency Fund: How Much You Need",
     description:
-      "An emergency fund is cash for surprises, not for plans. The standard target is three to six months of expenses. Start with one.",
+      "An emergency fund is cash for surprises, not for plans. The standard target is three to six months of expenses. Start with one. Read the details here.",
     answer:
       "An emergency fund is cash set aside for surprise costs or a loss of income. The standard target is three to six months of essential expenses, kept in an insured savings account you can reach quickly. Starting with $500 or one month still counts.",
     minutes: 3,
@@ -410,7 +410,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     title: "The 50/30/20 rule",
     metaTitle: "The 50/30/20 Rule Explained",
     description:
-      "50% needs, 30% wants, 20% savings and debt, all from take-home pay. A starting point, not a law. Here's how to use it.",
+      "50% needs, 30% wants, 20% savings and debt, all from take-home pay. A starting point, not a law. Here's how to use it. Explore the plain-English guide.",
     answer:
       "The 50/30/20 rule splits take-home pay three ways: 50% to needs, 30% to wants, and 20% to savings and extra debt payments. It's a starting point. High rent or debt means you adjust the split, and that's normal.",
     minutes: 3,

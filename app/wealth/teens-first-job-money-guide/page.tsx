@@ -10,7 +10,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const PATH = "/wealth/teens-first-job-money-guide";
 const TITLE = "Your First Job: A Teen Money Guide";
 const DESCRIPTION =
-  "Your first paycheck is smaller than your hours times your rate. Here is where the money goes and how to split what is left.";
+  "Your first paycheck is smaller than your hours times your rate. Here is where the money goes and how to split what is left. Read the plain-English guide.";
 const MINUTES = 5;
 const UPDATED = "October 8, 2026";
 

@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -31,12 +34,18 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Advantage in North Carolina: What to Compare (2027)",
+    absolute: "Medicare Advantage in North Carolina: Compare 2027",
   },
   description:
     "Comparing Medicare Advantage plans in North Carolina for 2027? See how carriers score, what to look for by county, and which questions actually decide it. From a licensed NC agent.",
   alternates: { canonical: "/medicare-advantage-north-carolina" },
   openGraph: pageOpenGraph({
+    title: "Medicare Advantage in North Carolina: what to compare for 2027",
+    description:
+      "Carrier scores, county-level differences, and the local detail national rankings miss. From a licensed agent in the Piedmont Triad.",
+    path: "/medicare-advantage-north-carolina",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Advantage in North Carolina: what to compare for 2027",
     description:
       "Carrier scores, county-level differences, and the local detail national rankings miss. From a licensed agent in the Piedmont Triad.",
@@ -258,7 +267,7 @@ export default function MedicareAdvantageNCPage() {
             systems are Cone Health (headquartered in Greensboro), Novant Health, and Atrium
             Health Wake Forest Baptist. Carrier contracts with these systems change, and a plan
             that included your Cone Health cardiologist last year might not this year. Verify
-            your specific doctors in each plan's provider directory for the year your coverage
+            your specific doctors in each plan&apos;s provider directory for the year your coverage
             starts.
           </p>
           <h3 className="text-22 font-semibold mt-10">What the ratings do not tell you</h3>
@@ -381,6 +390,8 @@ export default function MedicareAdvantageNCPage() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-12" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

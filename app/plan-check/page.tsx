@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -25,12 +26,18 @@ import { PlanCheckQuiz } from "./PlanCheckQuiz";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Does Your Medicare Plan Still Fit? Free 90-Second Plan Check",
+    absolute: "Medicare Plan Check: Free 90-Second Quiz",
   },
   description:
     "Seven questions about your doctors, prescriptions, and costs. See whether your Medicare plan deserves a second look before December 7. Free, no obligation.",
   alternates: { canonical: "/plan-check" },
   openGraph: pageOpenGraph({
+    title: "Does your Medicare plan still fit?",
+    description:
+      "A free 90-second plan check from Christian Brinkley, licensed NC agent. Seven questions, honest results, no obligation.",
+    path: "/plan-check",
+  }),
+  twitter: pageTwitter({
     title: "Does your Medicare plan still fit?",
     description:
       "A free 90-second plan check from Christian Brinkley, licensed NC agent. Seven questions, honest results, no obligation.",

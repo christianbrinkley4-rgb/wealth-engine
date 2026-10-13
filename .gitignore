@@ -50,3 +50,6 @@ next-env.d.ts
 # Design canvas working files (kept outside the app)
 /design/
 *.dc.html
+
+# Local SEO and browser verification evidence.
+/docs/seo-evidence/

@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -24,6 +27,12 @@ export const metadata: Metadata = {
     "Medicare Part D in Greensboro, NC for 2027: the $700 deductible, the $2,400 out-of-pocket cap, and how to pick a drug plan. From a licensed local agent.",
   alternates: { canonical: "/medicare-part-d-greensboro-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare Part D Plans in Greensboro, NC",
+    description:
+      "Drug coverage explained for 2027: costs, the cap, the penalty, and how to compare plans with your prescriptions.",
+    path: "/medicare-part-d-greensboro-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Part D Plans in Greensboro, NC",
     description:
       "Drug coverage explained for 2027: costs, the cap, the penalty, and how to compare plans with your prescriptions.",
@@ -273,6 +282,8 @@ export default function MedicarePartDGreensboroPage() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-09" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

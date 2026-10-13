@@ -3,6 +3,7 @@ import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles";
 import { ASK_QUESTIONS } from "@/lib/askWall";
 import { SITE_URL } from "@/lib/seo";
+import { LOCATION_CONSOLIDATIONS } from "@/lib/locationConsolidation";
 import { TAX_ARTICLES } from "@/lib/taxArticles";
 import { indexableMedicarePlaces } from "@/lib/triad";
 import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
@@ -14,6 +15,7 @@ const STATIC_ROUTES: Array<{
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   priority: number;
 }> = [
+  { path: "/north-carolina-medicare-programs", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-12" },
   { path: "/medicare-plan-checklist", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-09" },
   { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-07" },
   { path: "/insurance-services", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-07" },
@@ -37,6 +39,8 @@ const STATIC_ROUTES: Array<{
   { path: "/special-enrollment", changeFrequency: "monthly", priority: 0.85 },
   { path: "/annual-enrollment", changeFrequency: "weekly", priority: 0.95 },
   { path: "/aep", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/aep-quiz", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-10-12" },
+  { path: "/questions-to-ask-medicare-agent", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-13" },
   { path: "/anoc", changeFrequency: "weekly", priority: 0.9 },
   { path: "/medicare-creedmoor-nc", changeFrequency: "weekly", priority: 0.9 },
   { path: "/medicare-asheboro-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
@@ -243,12 +247,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [
-    ...STATIC_ROUTES.map(({ path, changeFrequency, priority, lastModified: own }) => ({
-      url: `${SITE_URL}${path}`,
+    ...STATIC_ROUTES.filter(route => !LOCATION_CONSOLIDATIONS[route.path]).map(({ path, changeFrequency, priority, lastModified: own }) => ({
+      // Next emits the homepage canonical as the origin with no trailing slash.
+      // Every other path already matches its canonical.
+      url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
       lastModified: own ?? lastModified,
       changeFrequency,
       priority,
     })),
-    ...cityRoutes,
+    ...cityRoutes.filter(route => !LOCATION_CONSOLIDATIONS[new URL(route.url).pathname]),
   ];
 }

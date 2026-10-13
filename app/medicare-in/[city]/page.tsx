@@ -90,7 +90,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
   return (
     <main className="text-[var(--color-navy)]">
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path={`/medicare-in/${city.slug}`} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

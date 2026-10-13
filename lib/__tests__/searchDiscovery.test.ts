@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 
@@ -54,7 +54,7 @@ describe("search discovery", () => {
     expect(article.author.sameAs).toEqual(person?.sameAs);
   });
 
-  it("connects Person and ProfessionalService sameAs to published profiles", () => {
+  it("connects Person and InsuranceAgency sameAs to published profiles", () => {
     const profiles = publishedProfiles();
     const urls = profiles.map((profile) => profile.url);
     expect(profiles.map((profile) => profile.network)).toEqual([
@@ -83,7 +83,7 @@ describe("search discovery", () => {
     const identityGraph = siteIdentityJsonLd()["@graph"];
     const person = identityGraph.find((entity) => entity["@type"] === "Person");
     const graph = localBusinessJsonLd()["@graph"];
-    const service = graph.find((entity) => entity["@type"] === "ProfessionalService");
+    const service = graph.find((entity) => entity["@type"] === "InsuranceAgency");
     const json = JSON.stringify(localBusinessJsonLd()).toLowerCase();
     expect(person?.sameAs).toEqual(urls);
     expect(service?.sameAs).toEqual(urls);
@@ -123,6 +123,16 @@ describe("search discovery", () => {
     expect(body.toLowerCase()).not.toContain("bankerslife");
     expect(body).not.toContain(BANKERS_MAPS_CID);
     expect(body).not.toContain("CID ");
+  });
+
+  it("serves the App Router llms index, not a thin public file", async () => {
+    const staticFile = fileURLToPath(new URL("../../public/llms.txt", import.meta.url));
+    expect(existsSync(staticFile)).toBe(false);
+    const paths = sitemap().map((entry) => new URL(entry.url).pathname);
+    expect(paths).toContain("/aep-quiz");
+    const body = await llmsTxt().text();
+    expect(body).toContain("NPN 22217190");
+    expect(body).toContain("/medicare-agent-greensboro-nc");
   });
 
   it("keeps Bankers-branded listings off visitor-facing pages", () => {

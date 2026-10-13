@@ -7,7 +7,7 @@ const ARTICLE: ArticleData = {
   path: "/wealth/pre-retirement-5-year-checklist",
   title: "Your 5-Year Pre-Retirement Checklist",
   description:
-    "Six moves for the five years before retirement: spending, health coverage, Social Security, catch-ups, debt, and estate basics.",
+    "Six moves for the five years before retirement: spending, health coverage, Social Security, catch-ups, debt, and estate basics. Read the details here.",
   eyebrow: "Pre-retirement planning",
   readMinutes: 6,
   answer:

@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -18,9 +19,15 @@ export const metadata: Metadata = {
     absolute: "AI for Seniors | Christian Brinkley",
   },
   description:
-    "The simplest ways for seniors to use AI: plain-language questions, letter help, reading help. Plus safety warnings on scams and private info.",
+    "The simplest ways for seniors to use AI: plain-language questions, letter help, reading help. Plus safety warnings on scams and private info. Read on.",
   alternates: { canonical: "/ai/ai-for-seniors" },
   openGraph: pageOpenGraph({
+    title: "AI for seniors",
+    description:
+      "The simplest useful starting points for 65 and up: ask questions in plain language, get help with letters, read confusing mail. Plus the scams to watch for.",
+    path: "/ai/ai-for-seniors",
+  }),
+  twitter: pageTwitter({
     title: "AI for seniors",
     description:
       "The simplest useful starting points for 65 and up: ask questions in plain language, get help with letters, read confusing mail. Plus the scams to watch for.",
@@ -84,7 +91,7 @@ export default function AiForSeniorsPage() {
             articleJsonLd({
               headline: "AI for Seniors: Simple Starting Points and Safety",
               description:
-                "The simplest ways for seniors to use AI: plain-language questions, letter help, reading help. Plus safety warnings on scams and private info.",
+                "The simplest ways for seniors to use AI: plain-language questions, letter help, reading help. Plus safety warnings on scams and private info. Read on.",
               path: "/ai/ai-for-seniors",
               datePublished: "2026-10-08",
               dateModified: "2026-10-08",

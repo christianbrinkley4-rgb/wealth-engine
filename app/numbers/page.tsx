@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -20,6 +21,12 @@ import { NUMBERS_METADATA } from "./meta";
 export const metadata = {
   ...NUMBERS_METADATA,
   openGraph: pageOpenGraph({
+    title: "2026-2027 money numbers at a glance",
+    description:
+      "Tax brackets, retirement and HSA limits, Social Security, and Medicare costs, each tied to a named source.",
+    path: "/numbers",
+  }),
+  twitter: pageTwitter({
     title: "2026-2027 money numbers at a glance",
     description:
       "Tax brackets, retirement and HSA limits, Social Security, and Medicare costs, each tied to a named source.",
@@ -69,7 +76,7 @@ export default function NumbersHubPage() {
             articleJsonLd({
               headline: "2026-2027 Money Numbers: Taxes, Medicare, Retirement",
               description:
-                "Every 2026 and 2027 money number in one place: tax brackets, 401(k) and IRA limits, HSA, Social Security, and Medicare costs. All sourced.",
+                "Every 2026 and 2027 money number in one place: tax brackets, 401(k) and IRA limits, HSA, Social Security, and Medicare costs. All sourced. Learn more.",
               path: "/numbers",
               datePublished: "2026-10-08",
               dateModified: LAST_UPDATED_ISO,

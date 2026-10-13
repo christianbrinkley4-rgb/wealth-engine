@@ -1,3 +1,5 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
 import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
@@ -9,7 +11,7 @@ import { EmergencyFund } from "./EmergencyFund";
 
 const path = "/tools/emergency-fund";
 const description =
-  "Free emergency fund calculator. Turn your monthly spending into a savings target and a month-by-month plan to reach it.";
+  "Free emergency fund calculator. Turn your monthly spending into a savings target and a month-by-month plan to reach it. Explore the plain-English guide.";
 
 export const metadata: Metadata = {
   title: { absolute: "Emergency Fund Calculator | Christian Brinkley" },
@@ -100,6 +102,8 @@ export default function EmergencyFundPage() {
           { href: "/wealth/budgeting-that-actually-works", label: "Budgeting that actually works" },
         ]}
       />
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

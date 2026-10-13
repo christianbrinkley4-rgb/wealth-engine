@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import Link from "next/link";
@@ -22,6 +25,12 @@ export const metadata: Metadata = {
     "A Medicare agent from Creedmoor, NC. Free, no-pressure help from Christian Brinkley, a licensed North Carolina agent who grew up here. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-agent-creedmoor-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare help in Creedmoor from someone who grew up here.",
+    description:
+      "Free Medicare plan reviews in Creedmoor and Granville County. A local licensed agent, not a call center.",
+    path: "/medicare-agent-creedmoor-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare help in Creedmoor from someone who grew up here.",
     description:
       "Free Medicare plan reviews in Creedmoor and Granville County. A local licensed agent, not a call center.",
@@ -134,7 +143,7 @@ export default function MedicareAgentCreedmoorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-agent-creedmoor-nc" />
 
       <ServiceHero
         crumbs={[
@@ -277,6 +286,8 @@ export default function MedicareAgentCreedmoorPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-12" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

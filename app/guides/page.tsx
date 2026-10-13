@@ -9,7 +9,7 @@ import { articleJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: { absolute: "Money, Tax, and Medicare Guides | Christian Brinkley" },
   description:
-    "Find practical tax and money guides for U.S. readers, plus Medicare enrollment guides for Greensboro and the Triad.",
+    "Find practical tax and money guides for U.S. readers, plus Medicare enrollment guides for Greensboro and the Triad. Learn more in this practical guide.",
   alternates: { canonical: "/guides" },
 };
 

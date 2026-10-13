@@ -9,7 +9,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const path = "/wealth/529-vs-roth-for-college";
 const title = "529 vs. Roth IRA for College";
 const description =
-  "Two ways to fund education compared plainly: the 529 plan and the Roth IRA, plus the SECURE 2.0 rollover.";
+  "Two ways to fund education compared plainly: the 529 plan and the Roth IRA, plus the SECURE 2.0 rollover. Explore the steps in Christian Brinkley's guide.";
 
 export const metadata: Metadata = wealthMetadata({ title, description, path });
 

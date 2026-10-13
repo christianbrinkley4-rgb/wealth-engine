@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -14,6 +15,12 @@ export const metadata: Metadata = {
     "Estimate how much you can convert to a Roth this year without pushing into a higher Medicare IRMAA surcharge later. Uses official 2026 CMS IRMAA brackets.",
   alternates: { canonical: "/roth-window" },
   openGraph: pageOpenGraph({
+    title: "Roth conversion window against 2026 IRMAA",
+    description:
+      "How much you can convert before it shows up on your Medicare premium two years later.",
+    path: "/roth-window",
+  }),
+  twitter: pageTwitter({
     title: "Roth conversion window against 2026 IRMAA",
     description:
       "How much you can convert before it shows up on your Medicare premium two years later.",

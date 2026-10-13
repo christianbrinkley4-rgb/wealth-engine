@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -21,9 +24,15 @@ export const metadata: Metadata = {
     absolute: "Medicare Supplement (Medigap) Plans: Greensboro NC 2027",
   },
   description:
-    "Medigap Plan G vs Plan N in Greensboro, NC: what each covers, what they tend to cost, when to buy, and how to compare. From a licensed local agent.",
+    "Medigap Plan G vs Plan N in Greensboro, NC: what each covers, what they tend to cost, when to buy, and how to compare. From a licensed local agent. Read on.",
   alternates: { canonical: "/medicare-supplement-plans-greensboro-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare Supplement Plans in Greensboro, NC",
+    description:
+      "Plan G vs Plan N, what they cost here, and the enrollment window that protects you.",
+    path: "/medicare-supplement-plans-greensboro-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Supplement Plans in Greensboro, NC",
     description:
       "Plan G vs Plan N, what they cost here, and the enrollment window that protects you.",
@@ -216,6 +225,8 @@ export default function MedigapGreensboroPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

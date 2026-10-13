@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -13,13 +14,14 @@ import { breadcrumbJsonLd, pageOpenGraph, SITE_URL } from "@/lib/seo";
 const PATH = "/medicare-words";
 const title = "Medicare Words in Plain English: Parts A, B, C, D and More";
 const description =
-  "Part A, Part B, Medigap, IRMAA, ANOC: what the Medicare words mean, in a sentence or two each, with the official source. From a Greensboro agent.";
+  "Part A, Part B, Medigap, IRMAA, ANOC: what the Medicare words mean, in a sentence or two each, with the official source. From a Greensboro agent. Read on.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
   alternates: { canonical: PATH },
   openGraph: pageOpenGraph({ title: "Medicare words, in plain English", description, path: PATH }),
+  twitter: pageTwitter({ title: "Medicare words, in plain English", description, path: PATH }),
 };
 
 function definedTermSetJsonLd() {

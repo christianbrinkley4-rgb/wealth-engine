@@ -7,7 +7,7 @@ const ARTICLE: ArticleData = {
   path: "/wealth/roth-vs-traditional-taxes",
   title: "Roth vs Traditional: The Tax Trade",
   description:
-    "Pay tax now or pay later. How Roth and traditional accounts differ, and the one question that decides between them.",
+    "Pay tax now or pay later. How Roth and traditional accounts differ, and the one question that decides between them. Learn more in this practical guide.",
   eyebrow: "Tax basics",
   readMinutes: 6,
   answer:

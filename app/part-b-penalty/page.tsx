@@ -1,11 +1,12 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { PartBPenaltyCalculator } from "@/app/part-b-penalty/PartBPenaltyCalculator";
 import { AGENT } from "@/lib/agent";
-import { STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
-import { formatMoney } from "@/lib/partBPenalty";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 const title =
@@ -29,28 +30,7 @@ export const metadata: Metadata = {
   }),
 };
 
-const FAQ = [
-  {
-    q: "How is the Part B late enrollment penalty calculated?",
-    a: `Medicare adds 10% to the standard Part B premium for each full 12-month period you could have had Part B and didn't. Only complete years count: eleven months late is no penalty, and thirteen months is one period rather than one and a bit. The 2026 standard premium is ${formatMoney(STANDARD_BASE_PREMIUM_2026)}, so one full year late works out to about ${formatMoney(Math.round(STANDARD_BASE_PREMIUM_2026 * 0.1 * 10) / 10)} a month.`,
-  },
-  {
-    q: "How long does the penalty last?",
-    a: "For as long as you have Part B. It is not a one-time charge and it does not fall off after a few years, which is what makes a short delay expensive over a retirement.",
-  },
-  {
-    q: "I kept working past 65. Do I owe a penalty?",
-    a: "Usually not. Health coverage through a job you or your spouse currently work at generally gives you a Special Enrollment Period, and no penalty, as long as you enroll within eight months of that employment or coverage ending. Retiree coverage, COBRA, and marketplace plans do not work the same way, which is where people get caught.",
-  },
-  {
-    q: "Does the penalty go up if I pay IRMAA?",
-    a: "No. The percentage is applied to the standard premium, not to an income-adjusted one, so someone paying an income-related surcharge does not also pay a surcharged penalty.",
-  },
-  {
-    q: "Can a penalty be appealed?",
-    a: "Yes, in some situations, for example if you were given the wrong information by a federal employee, or if your employer coverage was miscounted. There is a formal process, and it is worth reviewing the specifics with someone before you accept the charge.",
-  },
-] as const;
+const FAQ = PRIORITY_MEDICARE_FAQS.penalty;
 
 export default function PartBPenaltyPage() {
   return (
@@ -132,6 +112,8 @@ export default function PartBPenaltyPage() {
       </section>
 
       <ComplianceDisclosure variant="medicare" showEstimateNote />
+      <MedicareByline reviewed="2026-10-12" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

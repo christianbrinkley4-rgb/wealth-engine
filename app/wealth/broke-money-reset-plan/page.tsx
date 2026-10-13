@@ -7,7 +7,7 @@ const ARTICLE: ArticleData = {
   path: "/wealth/broke-money-reset-plan",
   title: "The Broke Money Reset Plan",
   description:
-    "Money gone to zero is a math problem, not a character verdict. A calm triage plan for the worst month.",
+    "Money gone to zero is a math problem, not a character verdict. A calm triage plan for the worst month. Explore the steps in Christian Brinkley's guide.",
   eyebrow: "Money basics",
   readMinutes: 5,
   answer:

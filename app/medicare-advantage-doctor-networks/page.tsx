@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
@@ -27,9 +30,16 @@ export const metadata: Metadata = {
       "Keep Your Doctor on Medicare Advantage | Greensboro",
   },
   description:
-    '"My doctor takes Medicare" isn\'t the same as "in my plan\'s network." How to verify your doctors for a Medicare Advantage plan in Greensboro, High Point, and Winston-Salem.',
+    "Check whether your doctors are in a Medicare Advantage network before enrolling. Get practical steps from Christian Brinkley, a licensed Greensboro agent.",
   alternates: { canonical: "/medicare-advantage-doctor-networks" },
   openGraph: pageOpenGraph({
+    title:
+      "Can I keep my doctor? Checking Medicare Advantage networks in Guilford & Forsyth counties",
+    description:
+      "The trap that catches people every fall, and the five steps that make sure your doctors are actually in your plan's network.",
+    path: "/medicare-advantage-doctor-networks",
+  }),
+  twitter: pageTwitter({
     title:
       "Can I keep my doctor? Checking Medicare Advantage networks in Guilford & Forsyth counties",
     description:
@@ -321,6 +331,8 @@ export default function DoctorNetworksPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-09-19" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

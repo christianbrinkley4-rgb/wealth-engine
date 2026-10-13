@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -18,9 +21,15 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 export const metadata: Metadata = {
   title: { absolute: "Special Enrollment Periods for Medicare | Greensboro, NC" },
   description:
-    "Lost job coverage, moving, or another big change? A Special Enrollment Period may let you enroll in or change Medicare outside the usual dates.",
+    "Lost job coverage, moving, or another big change? A Special Enrollment Period may let you enroll in or change Medicare outside the usual dates. Read on.",
   alternates: { canonical: "/special-enrollment" },
   openGraph: pageOpenGraph({
+    title: "Special Enrollment Periods for Medicare",
+    description:
+      "Life changes that open a Medicare enrollment window outside the usual dates, and how to use one before it closes.",
+    path: "/special-enrollment",
+  }),
+  twitter: pageTwitter({
     title: "Special Enrollment Periods for Medicare",
     description:
       "Life changes that open a Medicare enrollment window outside the usual dates, and how to use one before it closes.",
@@ -213,6 +222,8 @@ export default function SpecialEnrollmentPage() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-09-19" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

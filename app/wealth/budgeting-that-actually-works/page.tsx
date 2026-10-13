@@ -10,7 +10,7 @@ import { WEALTH_FACTS, getTool } from "@/lib/wealth/site";
 const PATH = "/wealth/budgeting-that-actually-works";
 const TITLE = "Budgeting That Actually Works";
 const DESCRIPTION =
-  "Budgets fail when they are wish lists. This is an ongoing system: take-home pay, a starting split, one payday move, and a weekly check.";
+  "Budgets fail when they are wish lists. This is an ongoing system: take-home pay, a starting split, one payday move, and a weekly check. Read the guide.";
 const MINUTES = 6;
 const UPDATED = "October 8, 2026";
 

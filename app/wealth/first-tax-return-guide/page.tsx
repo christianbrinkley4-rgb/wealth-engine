@@ -7,7 +7,7 @@ const ARTICLE: ArticleData = {
   path: "/wealth/first-tax-return-guide",
   title: "Your First Tax Return, Explained",
   description:
-    "W-2s, 1099s, the standard deduction, and when filing gets you money back. Plain English, no jargon.",
+    "W-2s, 1099s, the standard deduction, and when filing gets you money back. Plain English, no jargon. Read this plain-English guide from Christian Brinkley.",
   eyebrow: "Tax basics",
   readMinutes: 5,
   answer:

@@ -9,7 +9,7 @@ import { JOURNEY, WEALTH_FACTS } from "@/lib/wealth/site";
 
 const path = "/wealth/journey";
 const description =
-  "Building in public: a 21-year-old licensed agent and accounting senior documenting what he learns about money, one dated entry at a time.";
+  "Building in public: a 21-year-old licensed agent and accounting senior documenting what he learns about money, one dated entry at a time. Read the guide.";
 
 export const metadata: Metadata = wealthMetadata({
   title: "Building in Public at 21",

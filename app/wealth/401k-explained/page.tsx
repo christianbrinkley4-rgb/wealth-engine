@@ -11,7 +11,7 @@ import { WEALTH_FACTS, getTool } from "@/lib/wealth/site";
 const PATH = "/wealth/401k-explained";
 const TITLE = "Your 401(k), Explained";
 const DESCRIPTION =
-  "A 401(k) is a retirement account through your employer. How contributions, the match, and vesting work, with the 2026 limits.";
+  "A 401(k) is a retirement account through your employer. How contributions, the match, and vesting work, with the 2026 limits. Read the plain-English guide.";
 const MINUTES = 6;
 const UPDATED = "October 8, 2026";
 

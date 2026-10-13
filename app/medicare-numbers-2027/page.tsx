@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -24,12 +27,18 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "2027 Medicare Costs at a Glance: Premiums, Deductibles, Caps",
+    absolute: "2027 Medicare Costs: Premiums, Deductibles and Caps",
   },
   description:
-    "2027 Medicare numbers in one place: Part D $700 deductible and $2,400 cap (final), Part B projections, key dates. Sourced from CMS.",
+    "2027 Medicare numbers in one place: Part D $700 deductible and $2,400 cap (final), Part B projections, key dates. Sourced from CMS. Explore the guide.",
   alternates: { canonical: "/medicare-numbers-2027" },
   openGraph: pageOpenGraph({
+    title: "2027 Medicare numbers at a glance",
+    description:
+      "Part D deductible, the drug cost cap, Part B projections, and the key dates, with every figure sourced from CMS.",
+    path: "/medicare-numbers-2027",
+  }),
+  twitter: pageTwitter({
     title: "2027 Medicare numbers at a glance",
     description:
       "Part D deductible, the drug cost cap, Part B projections, and the key dates, with every figure sourced from CMS.",
@@ -190,6 +199,8 @@ export default function MedicareNumbers2027Page() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

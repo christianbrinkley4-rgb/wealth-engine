@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -23,6 +24,12 @@ export const metadata: Metadata = {
     "See what converting a retirement account all at once costs you in Medicare surcharges, against spreading it under your bracket ceiling. Official 2026 CMS tiers.",
   alternates: { canonical: "/plan" },
   openGraph: pageOpenGraph({
+    title: "What the timing of a Roth conversion costs in Medicare",
+    description:
+      "Move the sliders and see the surcharge a lump conversion triggers, against spreading it under your ceiling.",
+    path: "/plan",
+  }),
+  twitter: pageTwitter({
     title: "What the timing of a Roth conversion costs in Medicare",
     description:
       "Move the sliders and see the surcharge a lump conversion triggers, against spreading it under your ceiling.",

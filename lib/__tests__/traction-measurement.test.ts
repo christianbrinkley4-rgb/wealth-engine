@@ -176,12 +176,12 @@ describe("CTA surfaces and official handoffs", () => {
     const recorder = vi.fn();
     window.gtag = recorder;
     render(createElement("div", {}, createElement(Analytics), createElement(TopRouteChrome)));
-    fireEvent.click(screen.getByRole("link", { name: "Plan check", exact: true }));
+    fireEvent.click(screen.getByRole("link", { name: "Book a free consultation", exact: true }));
     expect(recorder.mock.calls.filter((call) => call[1] === "cta_click")).toEqual([
       [
         "event",
         "cta_click",
-        { page_path: window.location.pathname, cta_id: "plan_check", cta_location: "header" },
+        { page_path: window.location.pathname, cta_id: "book_time", cta_location: "header" },
       ],
     ]);
     const plain = document.createElement("a");

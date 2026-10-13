@@ -99,10 +99,16 @@ export function CalEmbed({ bookingUrl, title }: { bookingUrl: string; title: str
     api("inline", {
       elementOrSelector: `#${containerId}`,
       calLink,
-      config: { layout: "month_view" },
+      config: {
+        layout: "month_view",
+        theme: "light",
+        "cal.tz": "America/New_York",
+        useSlotsViewOnSmallScreen: "true",
+      },
     });
     api("ui", {
       theme: "light",
+      useSlotsViewOnSmallScreen: true,
       cssVarsPerTheme: { light: { "cal-brand": "#10302a" } },
       layout: "month_view",
     });
@@ -131,10 +137,29 @@ export function CalEmbed({ bookingUrl, title }: { bookingUrl: string; title: str
 
   return (
     <div className="cal">
+      <p className="cal-instructions">
+        Choose a date, then an available time. All times are Eastern time (North Carolina). Allow 60
+        minutes. Add your contact details and press Confirm to send your booking request.
+      </p>
+      <details className="cal-instructions">
+        <summary>How to choose phone, video, or a home visit</summary>
+        <p>
+          For a phone call, choose &quot;Attendee phone number&quot; and enter the number you want
+          Christian to call. &quot;Cal Video&quot; means a video meeting. For a home visit, choose
+          &quot;In Person&quot;.
+        </p>
+      </details>
+      <p className="cal-fallback">
+        If the calendar does not load,{" "}
+        <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+          open the booking calendar in a new tab
+        </a>{" "}
+        or call <a href="tel:+19194086671">(919) 408-6671</a>.
+      </p>
       {booked ? (
         <p className="cal-booked" role="status">
-          <CheckCircle2 size={20} aria-hidden /> You’re booked. Look for the confirmation email from
-          Cal.com, and I’ll see you then.
+          <CheckCircle2 size={20} aria-hidden /> Your booking request was received. Look for the
+          email from Cal.com. Christian will personally confirm Medicare appointments before you meet.
         </p>
       ) : null}
       <div id={containerId} className="cal-frame" aria-label={title}>

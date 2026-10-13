@@ -7,7 +7,7 @@ const ARTICLE: ArticleData = {
   path: "/wealth/tax-brackets-explained-plainly",
   title: "Tax Brackets, Explained Plainly",
   description:
-    "How 2026 federal tax brackets really work, with a worked example. Only your last dollars face the top rate.",
+    "How 2026 federal tax brackets really work, with a worked example. Only your last dollars face the top rate. Explore the steps in Christian Brinkley's guide.",
   eyebrow: "Tax basics",
   readMinutes: 6,
   answer:

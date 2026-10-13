@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import Link from "next/link";
@@ -30,6 +33,12 @@ export const metadata: Metadata = {
     "Free Medicare plan reviews in Roxboro, NC from Christian Brinkley, licensed NC agent. Plain-English help for Person County. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-roxboro-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare help for Roxboro and Person County.",
+    description:
+      "Free, no-pressure Medicare plan reviews for Roxboro and Person County from Christian Brinkley, a licensed NC agent. Call (919) 408-6671.",
+    path: "/medicare-roxboro-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare help for Roxboro and Person County.",
     description:
       "Free, no-pressure Medicare plan reviews for Roxboro and Person County from Christian Brinkley, a licensed NC agent. Call (919) 408-6671.",
@@ -140,7 +149,7 @@ export default function MedicareRoxboroPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-roxboro-nc" />
 
       <ServiceHero
         crumbs={[
@@ -312,6 +321,8 @@ export default function MedicareRoxboroPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-04" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

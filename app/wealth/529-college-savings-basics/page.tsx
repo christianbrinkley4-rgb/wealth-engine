@@ -10,7 +10,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const PATH = "/wealth/529-college-savings-basics";
 const TITLE = "529 College Savings Plans, Explained";
 const DESCRIPTION =
-  "A 529 is a tax-advantaged account for education costs. How the tax treatment works, plus the North Carolina detail that surprises people.";
+  "A 529 is a tax-advantaged account for education costs. How the tax treatment works, plus the North Carolina detail that surprises people. Read the guide.";
 const MINUTES = 5;
 const UPDATED = "October 8, 2026";
 

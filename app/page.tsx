@@ -1,3 +1,8 @@
+import { speakableJsonLd } from "@/lib/seo";
+import { ShiipAndAgent } from "@/app/components/ShiipAndAgent";
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
 import type { Metadata } from "next";
 import { TrustFacts } from "@/app/components/TrustFacts";
 import Image from "next/image";
@@ -17,20 +22,16 @@ import {
 import { EnrollmentWindow } from "@/components/home/EnrollmentWindow";
 import { WaitingCost } from "@/components/home/WaitingCost";
 import { Testimonials } from "@/components/Testimonials";
-import {
-  AGENT,
-  COMPENSATION_DISCLOSURE,
-  GOOGLE_MAPS_PROFILE_URL,
-} from "@/lib/agent";
+import { AGENT, GOOGLE_MAPS_PROFILE_URL } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
 import { faqJsonLd, localBusinessJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { SITE_STATS } from "@/lib/siteStats";
-import { hasTestimonials } from "@/lib/testimonials";
+import { hasTestimonials, visibleRatedReviews } from "@/lib/testimonials";
 import { featuredPlaces } from "@/lib/triad";
 
-const title = "Christian Brinkley | Medicare Help in Greensboro, NC";
+const title = "Medicare and Retirement Help | Christian Brinkley NC";
 const description =
-  "Turning 65 in the Triad? Christian Brinkley is a licensed agent, not a call center. Find your Medicare enrollment dates, meet at home or by phone. No cost.";
+  "Medicare, life insurance, and retirement questions with a licensed agent in Greensboro and the Piedmont Triad. Free, no obligation. Call (919) 408-6671.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -39,37 +40,7 @@ export const metadata: Metadata = {
   twitter: pageTwitter({ title, description }),
 };
 
-const QUESTIONS = [
-  {
-    q: "Are you a Medicare agent in Greensboro?",
-    a: "Yes. I’m a licensed insurance agent based in Greensboro. I help with Medicare and related coverage across Greensboro, High Point, Winston-Salem, nearby Triad towns, and Granville County.",
-  },
-  {
-    q: "Is this a call center?",
-    a: `No. It’s just me, Christian Brinkley. When you call ${AGENT.phone}, you reach me, not a queue. ${AGENT.afterHoursPromise} Your information is never sold or passed to other agents.`,
-  },
-  {
-    q: "Does it cost anything to talk with you?",
-    a: "There is no charge for an initial insurance consultation or for help comparing the plans I represent. You do not have to enroll or buy a policy. Any separate financial planning services and fees would be explained by the advisor before you agree to them.",
-  },
-  {
-    q: "I’m still working. Should I enroll at 65?",
-    a: "It depends on your current employer coverage, the employer’s size, and other details such as HSA contributions. Coverage through your or your spouse’s current job may let you delay Part B. Check with the benefits administrator before changing anything. COBRA and retiree coverage work differently.",
-  },
-  {
-    q: "Can you help me keep my doctors?",
-    a: "We can review the doctors and hospitals you want to keep, your prescriptions, and your pharmacy against the specific plans I represent. Participation and coverage need to be confirmed for the plan and year you are considering.",
-  },
-  {
-    q: "Can we meet in person?",
-    a: "Yes. We can meet at your home in the Piedmont Triad, at a convenient public place, or talk by phone or video. You’re welcome to include your spouse or another family member.",
-  },
-  {
-    q: "What do I need for our first conversation?",
-    a: "Start with the questions on your mind. For Medicare, a list of your doctors, prescriptions, and pharmacy helps. You don’t need to have everything organized before we talk. The request form never asks for your Social Security number, Medicare number, or payment details.",
-  },
-  { q: "How are you paid?", a: COMPENSATION_DISCLOSURE },
-] as const;
+const QUESTIONS = PRIORITY_MEDICARE_FAQS.home;
 
 const SITUATION_CARDS = [
   {
@@ -125,26 +96,29 @@ const PLAN_CHECK_PREVIEW = [
 ] as const;
 
 export default function HomePage() {
-  const featured = learnEntries().filter((entry) => entry.featured).slice(0, 6);
+  const featured = learnEntries()
+    .filter((entry) => entry.featured)
+    .slice(0, 6);
   const towns = featuredPlaces();
 
   return (
     <main className="hp">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()).replace(/</g, "\\u003c") }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessJsonLd(visibleRatedReviews())).replace(
+            /</g,
+            "\\u003c",
+          ),
+        }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            speakable: {
-              "@type": "SpeakableSpecification",
-              cssSelector: [".hx-title", ".hx-lede"],
-            },
-          }),
+          __html: JSON.stringify(speakableJsonLd([".hx-title", ".hx-lede"], "/")).replace(
+            /</g,
+            "\\u003c",
+          ),
         }}
       />
       <script
@@ -160,25 +134,29 @@ export default function HomePage() {
             <p className="eyebrow hx-eyebrow">Greensboro, NC · Medicare, taxes &amp; retirement</p>
             <h1 id="hx-title" className="hx-title">
               <span className="split-line">
-                <span style={{ "--i": 0 } as React.CSSProperties}>Medicare Agent in</span>
+                <span style={{ "--i": 0 } as React.CSSProperties}>Medicare questions?</span>
               </span>{" "}
               <span className="split-line">
                 <span style={{ "--i": 1 } as React.CSSProperties}>
-                  <em>Greensboro, NC</em>
+                  <em>Let&apos;s talk them through.</em>
                 </span>
               </span>
             </h1>
             <p className="hx-subhead">
-              Turning 65 or reviewing your coverage? Get help from a local agent who answers his own phone. Free.
+              Turning 65 or reviewing your coverage? Get help from a local agent who answers his own
+              phone. Free.
             </p>
             <p className="hx-lede">
-              I’m <Link href="/about" ctaLocation="hero">Christian Brinkley</Link>, a licensed insurance agent in Greensboro. I help people
-              turning 65, people already on Medicare, and their kids figure out what to do next.
-              No call center. When you call, you get me.
+              I’m{" "}
+              <Link href="/about" ctaLocation="hero">
+                Christian Brinkley
+              </Link>
+              , a licensed insurance agent in Greensboro. Meet at home or talk by phone. No cost, no
+              pressure, no call center.
             </p>
             <div className="hx-actions" id="home-hero-actions">
-              <Link ctaLocation="hero" href="/plan-check" className="btn btn-accent">
-                Take the 90-second plan check <ArrowRight size={19} className="arrow" aria-hidden />
+              <Link ctaLocation="hero" href="/schedule?topic=medicare#booking-calendar" className="btn btn-accent">
+                Book a free consultation <ArrowRight size={19} className="arrow" aria-hidden />
               </Link>
               <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-outline">
                 <Phone size={18} aria-hidden /> Call {AGENT.phone}
@@ -293,7 +271,9 @@ export default function HomePage() {
             })}
           </ul>
           <div className="mt-6">
-            <Link href="/insurance-services" className="btn btn-outline">Explore all insurance services</Link>
+            <Link href="/insurance-services" className="btn btn-outline">
+              Explore all insurance services
+            </Link>
           </div>
         </div>
       </section>
@@ -413,8 +393,8 @@ export default function HomePage() {
               Hey, I’m Christian.
             </h2>
             <p data-reveal style={{ "--i": 2 } as React.CSSProperties}>
-              I’m based in Greensboro and licensed for Life &amp; Health insurance in North Carolina.
-              I’m an accounting senior at UNCG, graduating in December 2026. I’ve been a
+              I’m based in Greensboro and licensed for Life &amp; Health insurance in North
+              Carolina. I’m an accounting senior at UNCG, graduating in December 2026. I’ve been a
               licensed agent since June 2026 and have written 12 policies so far.
             </p>
             <p data-reveal style={{ "--i": 3 } as React.CSSProperties}>
@@ -583,13 +563,13 @@ export default function HomePage() {
                 </li>
               ))}
               <li>
-                <Link href="/medicare-creedmoor-nc">Creedmoor</Link>
+                <Link href="/medicare-nc-towns#granville-county">Creedmoor</Link>
               </li>
               <li>
-                <Link href="/medicare-oxford-nc">Oxford</Link>
+                <Link href="/medicare-nc-towns#granville-county">Oxford</Link>
               </li>
               <li>
-                <Link href="/medicare-butner-nc">Butner</Link>
+                <Link href="/medicare-nc-towns#granville-county">Butner</Link>
               </li>
             </ul>
             <Link href="/service-area" className="link-draw">
@@ -609,7 +589,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <div className="shell py-8"><TrustFacts /></div>
+      <div className="shell py-8">
+        <TrustFacts />
+      </div>
+      <MedicareByline reviewed="2026-10-12" />
+      <ShiipAndAgent />
+      <RelatedMedicareGuides />
     </main>
   );
 }

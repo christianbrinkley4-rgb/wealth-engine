@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -21,6 +22,12 @@ export const metadata: Metadata = {
     "ChatGPT, Claude, Gemini, Copilot, and Perplexity compared in plain English: what each is good at, honest limits, and what the free and paid tiers cost.",
   alternates: { canonical: "/ai/ai-tools-compared" },
   openGraph: pageOpenGraph({
+    title: "AI tools compared honestly",
+    description:
+      "ChatGPT, Claude, Gemini, Copilot, Perplexity: what each is good at, where each falls short, and what it costs.",
+    path: "/ai/ai-tools-compared",
+  }),
+  twitter: pageTwitter({
     title: "AI tools compared honestly",
     description:
       "ChatGPT, Claude, Gemini, Copilot, Perplexity: what each is good at, where each falls short, and what it costs.",

@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -24,6 +27,12 @@ export const metadata: Metadata = {
     "Medigap plans in Greensboro, NC: every plan letter explained, what they cost here, and the enrollment window that protects you. From a licensed local agent.",
   alternates: { canonical: "/medigap-plans-greensboro-nc" },
   openGraph: pageOpenGraph({
+    title: "Medigap Plans in Greensboro, NC",
+    description:
+      "The plan letters, what they cover, what they cost in the Triad, and the six-month window you cannot afford to miss.",
+    path: "/medigap-plans-greensboro-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medigap Plans in Greensboro, NC",
     description:
       "The plan letters, what they cover, what they cost in the Triad, and the six-month window you cannot afford to miss.",
@@ -254,6 +263,8 @@ export default function MedigapPlansGreensboroPage() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-09" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

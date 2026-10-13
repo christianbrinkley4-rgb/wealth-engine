@@ -1,3 +1,8 @@
+import { speakableJsonLd } from "@/lib/seo";
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -18,7 +23,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 export const metadata: Metadata = {
   title: { absolute: "What Does Medicare Cost in 2026? | Greensboro, NC" },
   description:
-    "2026 Medicare costs: the $202.90 Part B premium, the $283 deductible, hospital costs, and how income and late enrollment change what you pay.",
+    "Check 2026 Medicare costs: the $202.90 Part B premium, $283 deductible, and income surcharges. Talk through your budget with a Greensboro agent. Free help.",
   alternates: { canonical: "/medicare-costs" },
   openGraph: pageOpenGraph({
     title: "What does Medicare cost in 2026?",
@@ -26,34 +31,15 @@ export const metadata: Metadata = {
       "The 2026 premiums, deductibles, and penalties that decide what Medicare actually costs you, in plain English.",
     path: "/medicare-costs",
   }),
+  twitter: pageTwitter({
+    title: "What does Medicare cost in 2026?",
+    description:
+      "The 2026 premiums, deductibles, and penalties that decide what Medicare actually costs you, in plain English.",
+    path: "/medicare-costs",
+  }),
 };
 
-const FAQ = [
-  {
-    q: "How much is the Medicare Part B premium in 2026?",
-    a: "The standard premium is $202.90 a month in 2026. Most people have it deducted from their Social Security check. Higher-income households pay more, see the income section below.",
-  },
-  {
-    q: "What is the Part B deductible in 2026?",
-    a: "$283 for the year. After you meet it, Part B generally pays 80% of the approved amount for covered services and you pay 20%, though some services work differently.",
-  },
-  {
-    q: "Do I pay a premium for Part A?",
-    a: "Most people don't. If you or your spouse paid Medicare taxes for at least 40 quarters (about 10 years), Part A has no premium. If you have to buy it, the full 2026 premium is $565 a month, or $311 with 30 to 39 quarters. The hospital deductible is $1,736 per benefit period in 2026.",
-  },
-  {
-    q: "What about drug coverage and Medigap, what do those cost?",
-    a: "Those have their own monthly premiums, and they vary by plan and by county, Greensboro and Winston-Salem can have different options. That's exactly the kind of comparison a personal review is for: we look at your prescriptions and budget against the actual plans available where you live.",
-  },
-  {
-    q: "Can my Part B premium be higher because of my income?",
-    a: "Yes. If your income from two years ago was above certain thresholds, Social Security adds an income-related monthly adjustment (IRMAA) to your Part B, and Part D, premium. But if your income has dropped since then, for example because you retired, you can ask Social Security to review it. There's more on that on the premium review page.",
-  },
-  {
-    q: "What happens if I sign up for Part B late?",
-    a: "If you delay Part B without coverage that lets you wait, generally a group health plan based on current employment, the premium usually goes up 10% for each full year you waited, and that increase is permanent. Going without drug coverage for 63 days or more after your window can add a separate monthly penalty too.",
-  },
-] as const;
+const FAQ = PRIORITY_MEDICARE_FAQS.costs;
 
 export default function MedicareCostsPage() {
   return (
@@ -72,14 +58,7 @@ export default function MedicareCostsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            speakable: {
-              "@type": "SpeakableSpecification",
-              cssSelector: [".sh-title", ".sh-lede"],
-            },
-          }),
+          __html: JSON.stringify(speakableJsonLd([".sh-title",".sh-lede"], "/medicare-costs")).replace(/</g, "\\u003c"),
         }}
       />
       <script
@@ -92,7 +71,7 @@ export default function MedicareCostsPage() {
                 "The 2026 Part B premium and deductible, Part A hospital costs, income-related adjustments, and the penalties that raise what you pay.",
               path: "/medicare-costs",
               datePublished: "2026-09-19",
-              dateModified: "2026-09-19",
+              dateModified: "2026-10-12",
             }),
           ),
         }}
@@ -244,6 +223,8 @@ export default function MedicareCostsPage() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-12" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

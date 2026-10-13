@@ -1,3 +1,7 @@
+import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
@@ -45,6 +49,12 @@ export const metadata: Metadata = {
       "Oct 15 to Dec 7: review your 2027 Medicare coverage with a licensed local agent. Free, no pressure, no call center.",
     path: "/aep",
   }),
+  twitter: pageTwitter({
+    title: "Medicare Annual Enrollment for 2027 coverage | Free fall review in Greensboro NC",
+    description:
+      "Oct 15 to Dec 7: review your 2027 Medicare coverage with a licensed local agent. Free, no pressure, no call center.",
+    path: "/aep",
+  }),
 };
 
 const CHECKS = [
@@ -54,7 +64,7 @@ const CHECKS = [
   },
   {
     t: "Your prescriptions",
-    b: "Whether your drugs are still covered, and what they'd cost you next year. Drug coverage changes more than anything else, year to year.",
+    b: "Check each medicine, its dose, your pharmacy, and any coverage requirements against the coming year's plan documents.",
   },
   {
     t: "Your doctors",
@@ -66,7 +76,7 @@ const CHECKS = [
   },
   {
     t: "Your drug plan",
-    b: "If you have a standalone Part D plan, we check it too. Part D plans change premiums and drug lists aggressively from year to year.",
+    b: "If you have a standalone Part D plan, review its coming-year premium, covered medicines, pharmacy options, and expected costs.",
   },
 ] as const;
 
@@ -89,32 +99,7 @@ const STEPS = [
   },
 ] as const;
 
-const FAQ = [
-  {
-    q: "What is Medicare Annual Enrollment?",
-    a: "It's the fall window, October 15 through December 7 every year, when anyone with Medicare can change their coverage for the coming year. Changes take effect January 1.",
-  },
-  {
-    q: "Do I have to change my plan?",
-    a: "No. You're never required to change. But your plan's costs, drug coverage, and doctor network can change each year, so it's worth checking whether it still fits before the window closes.",
-  },
-  {
-    q: "What can I change during Annual Enrollment?",
-    a: "You can switch from one Medicare Advantage plan to another, switch from Original Medicare to a Medicare Advantage plan (or back), join a Part D drug plan, switch Part D plans, or drop Part D. Note: if you leave a Medicare Advantage plan to go back to Original Medicare and want a Medigap supplement, you may need to pass medical underwriting outside your initial enrollment period. We'll talk through that honestly if it applies to you.",
-  },
-  {
-    q: "Does it cost anything to meet with you?",
-    a: "No. The consultation is free with no obligation. If you enroll through me, I'm paid a commission by the insurance company, and your premium is the same as enrolling on your own.",
-  },
-  {
-    q: "What should I bring to our review?",
-    a: "Your plan's Annual Notice of Change letter (mailed in September), a list of your current prescriptions, and the names of your doctors. If you don't have all of it, come anyway. We'll work with what you've got.",
-  },
-  {
-    q: "I'm turning 65 soon. Is Annual Enrollment for me?",
-    a: "If you're already enrolled in Medicare, yes. If you're turning 65 and new to Medicare, you have your own 7-month Initial Enrollment Period instead. Start with the turning-65 guide to find your exact dates. Either way, I'm happy to help you sort out which window applies.",
-  },
-] as const;
+const FAQ = PRIORITY_MEDICARE_FAQS.aep;
 
 /**
  * Renders an FAQ answer, upgrading the turning-65 answer's guide mention to a
@@ -122,19 +107,6 @@ const FAQ = [
  * schema expects.
  */
 function FaqAnswer({ item }: { item: (typeof FAQ)[number] }) {
-  if (item.q.startsWith("I'm turning 65 soon")) {
-    return (
-      <>
-        If you&apos;re already enrolled in Medicare, yes. If you&apos;re turning 65 and new to
-        Medicare, you have your own 7-month Initial Enrollment Period instead,{" "}
-        <Link href="/turning-65" className="underline underline-offset-2">
-          start with the turning-65 guide
-        </Link>{" "}
-        to find your exact dates. Either way, I&apos;m happy to help you sort out which window
-        applies.
-      </>
-    );
-  }
   return <>{item.a}</>;
 }
 
@@ -163,7 +135,7 @@ export default function AepPage() {
                 "What a free fall review covers: your plan's 2027 changes, prescriptions, doctors, and total costs, with a licensed local agent.",
               path: "/aep",
               datePublished: "2026-09-19",
-              dateModified: "2026-10-08",
+              dateModified: "2026-10-12",
             }),
           ),
         }}
@@ -186,9 +158,9 @@ export default function AepPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment for 2027" }]}
         eyebrow="October 15 to December 7, 2026 · Piedmont Triad"
         title={AEP_HERO_TITLES[aepPhase()]}
-        lede="From October 15 through December 7, you can change your Medicare coverage for next year. I'll sit down with you, in person or by phone, and walk through what's changing with your plan, your drugs, and your doctors. Free, no pressure, no call center."
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book my free review →"
+        lede="Annual Enrollment runs October 15 through December 7. Talk with Christian Brinkley about your 2027 doctors, prescriptions, and costs. Free, in person or by phone."
+        secondaryHref="/schedule?topic=medicare#booking-calendar"
+        secondaryLabel="Book a free consultation"
       />
 
       {/* ANOC campaign, the September letter, translated into plain English. */}
@@ -208,8 +180,8 @@ export default function AepPage() {
               you find out.
             </p>
             <p>
-              Most people never read it. Honestly, who can blame them? It&apos;s long, it&apos;s
-              dense, and it doesn&apos;t tell you what to <em>do</em>.
+              Honestly, who can blame them? It&apos;s long, it&apos;s dense, and it doesn&apos;t
+              tell you what to <em>do</em>.
             </p>
             <p>
               Here&apos;s what to do: bring it to me. I&apos;ll sit down with you, in person or by
@@ -253,7 +225,7 @@ export default function AepPage() {
               this year. Every fall, plans update their premiums, deductibles, copays, drug lists,
               and doctor networks for the coming year. Your plan sent you a letter in September
               (called an &ldquo;Annual Notice of Change&rdquo;) spelling out exactly what&apos;s
-              different for 2027. Most people never read it.
+              different for 2027. Bring it with you so we can go through it together.
             </p>
             <p>
               That&apos;s what a fall review is for. We go through that letter together, line by
@@ -275,8 +247,8 @@ export default function AepPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">What we check together</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Bring your current plan information and a list of your prescriptions. In about 30 to 45
-            minutes, we&apos;ll check:
+            Bring your current plan information and a list of your prescriptions. We&apos;ll discuss
+            what needs checking and arrange any required paperwork before reviewing specific plans:
           </p>
           <ol className="mt-8 flex flex-col gap-6">
             {CHECKS.map((item, index) => (
@@ -333,9 +305,8 @@ export default function AepPage() {
             <Link href="/about" className="underline underline-offset-2">
               Christian Brinkley
             </Link>
-            , a licensed insurance agent here in Greensboro and an accounting master&apos;s
-            student at UNCG. I&apos;m one person, not a call center, and I personally answer
-            every inquiry.
+            , a licensed insurance agent here in Greensboro and an accounting student at UNCG.
+            I&apos;m one person, not a call center, and I personally answer every inquiry.
           </p>
         </div>
       </section>
@@ -404,14 +375,16 @@ export default function AepPage() {
 
       <KitchenTableClose
         heading="Book your free fall review"
-        body="Annual Enrollment closes December 7, and my calendar fills up fast in November. Pick a time that works for you, or call me and you'll reach me, not a call center."
-        href="/schedule?topic=medicare"
-        label="Book my free review →"
+        body="Choose a date and time for a free conversation about your Medicare questions. I'll arrange any required appointment paperwork before we discuss specific plans. No obligation to enroll."
+        href="/schedule?topic=medicare#booking-calendar"
+        label="Book a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-12" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

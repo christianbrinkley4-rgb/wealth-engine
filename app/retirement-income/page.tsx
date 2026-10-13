@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -41,9 +44,15 @@ export const metadata: Metadata = {
       "Retirement Planning Help in Greensboro & the Triad",
   },
   description:
-    "Learn how 401(k) options, required distributions, and retirement income can affect Medicare premiums. Local education in Greensboro and the Triad.",
+    "Learn how 401(k) options, required distributions, and retirement income can affect Medicare premiums. Local education in Greensboro and the Triad. Read on.",
   alternates: { canonical: "/retirement-income" },
   openGraph: pageOpenGraph({
+    title: "Retirement questions in Greensboro, Winston-Salem & High Point",
+    description:
+      "Educational guidance on 401(k) options, retirement-income timing, and potential Medicare premium effects, for Triad households.",
+    path: "/retirement-income",
+  }),
+  twitter: pageTwitter({
     title: "Retirement questions in Greensboro, Winston-Salem & High Point",
     description:
       "Educational guidance on 401(k) options, retirement-income timing, and potential Medicare premium effects, for Triad households.",
@@ -310,6 +319,8 @@ export default function RetirementIncomePage() {
         </p>
         <ComplianceDisclosure />
       </div>
+      <MedicareByline reviewed="2026-09-18" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import Link from "next/link";
@@ -32,6 +35,12 @@ export const metadata: Metadata = {
     "Turning 65 in Butner, NC? Free Medicare help from Christian Brinkley, licensed NC agent and your neighbor in Creedmoor. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-butner-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare help from a neighbor, not a call center.",
+    description:
+      "Free, no-pressure Medicare plan reviews for Butner and Granville County, from a licensed agent who lives just up the road in Creedmoor.",
+    path: "/medicare-butner-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare help from a neighbor, not a call center.",
     description:
       "Free, no-pressure Medicare plan reviews for Butner and Granville County, from a licensed agent who lives just up the road in Creedmoor.",
@@ -144,7 +153,7 @@ export default function MedicareButnerPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-butner-nc" />
 
       <ServiceHero
         crumbs={[
@@ -308,6 +317,8 @@ export default function MedicareButnerPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-04" />
+      <RelatedMedicareGuides />
     </main>
   );
 }
