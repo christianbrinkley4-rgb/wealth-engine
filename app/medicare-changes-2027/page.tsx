@@ -164,8 +164,8 @@ export default function MedicareChanges2027Page() {
           </ol>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             Want the figures without the explanation?{" "}
-            <Link href="/medicare-numbers-2027" className="underline underline-offset-2">
-              Here are the 2027 Medicare numbers at a glance
+            <Link href="/medicare-costs-2027" className="underline underline-offset-2">
+              Here are the official 2027 Medicare costs so far
             </Link>
             . Wondering what the drug changes mean for your prescriptions?{" "}
             <Link href="/medicare-part-d-donut-hole-2027" className="underline underline-offset-2">

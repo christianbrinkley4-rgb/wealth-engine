@@ -2,13 +2,7 @@
 import { createElement } from "react";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { PlanChecklist } from "@/app/medicare-plan-checklist/PlanChecklist";
-import {
-  CHECKLIST_COUNTIES,
-  isChecklistCounty,
-  PLAN_COMPARE_URL,
-  SHIIP_CONTACT_URL,
-} from "@/lib/planChecklist";
+import { CHECKLIST_COUNTIES, isChecklistCounty } from "@/lib/planChecklist";
 import { TRIAD_CITIES } from "@/lib/triad";
 import { QuizRunner } from "@/app/tools/medigap-or-advantage-quiz/quiz-engine/quiz-engine";
 import { DATA } from "@/app/tools/medigap-or-advantage-quiz/data";
@@ -36,49 +30,6 @@ describe("on-device plan research", () => {
     for (const county of CHECKLIST_COUNTIES) expect(isChecklistCounty(county)).toBe(true);
     expect(isChecklistCounty("Another county")).toBe(false);
     expect(isChecklistCounty("27401")).toBe(false);
-  });
-  it("completes without network or storage, with only synthetic event names", () => {
-    const fetch = vi.fn();
-    vi.stubGlobal("fetch", fetch);
-    const storage = vi.spyOn(Storage.prototype, "setItem");
-    render(createElement(PlanChecklist));
-    fireEvent.change(screen.getByLabelText("ZIP code"), { target: { value: "00000" } });
-    fireEvent.change(screen.getByLabelText("County"), { target: { value: "Another county" } });
-    expect(screen.getByRole("status").textContent).toContain("works the same anywhere");
-    fireEvent.click(screen.getByRole("button", { name: "Continue" }));
-    fireEvent.change(screen.getByLabelText("Doctors"), { target: { value: "Synthetic Doctor" } });
-    fireEvent.click(screen.getByRole("button", { name: "Continue" }));
-    fireEvent.change(screen.getByLabelText("Prescriptions"), {
-      target: { value: "Synthetic medicine, 1 unit" },
-    });
-    fireEvent.click(screen.getByRole("button", { name: "Continue" }));
-    fireEvent.click(screen.getByRole("checkbox", { name: "Coverage when I travel" }));
-    fireEvent.click(screen.getByRole("button", { name: "Make my sheet" }));
-    expect(screen.getByRole("article").textContent).toContain("Synthetic Doctor");
-    expect(screen.getByRole("article").textContent).toContain("Synthetic medicine");
-    expect(
-      screen.getByRole("link", { name: "Open Medicare.gov Plan Compare" }).getAttribute("href"),
-    ).toBe(PLAN_COMPARE_URL);
-    expect(
-      screen.getByRole("link", { name: "Find your county SHIIP counselor" }).getAttribute("href"),
-    ).toBe(SHIIP_CONTACT_URL);
-    expect(fetch).not.toHaveBeenCalled();
-    expect(storage).not.toHaveBeenCalled();
-    expect(mocks.event.mock.calls).toEqual([["checklist_start"], ["checklist_complete"]]);
-    fireEvent.click(screen.getByRole("button", { name: "Clear everything" }));
-    expect((screen.getByLabelText("ZIP code") as HTMLInputElement).value).toBe("");
-  });
-  it("accepts empty optional steps and deduplicates summary completion", () => {
-    render(createElement(PlanChecklist));
-    for (let i = 0; i < 3; i++) fireEvent.click(screen.getByRole("button", { name: "Continue" }));
-    fireEvent.click(screen.getByRole("button", { name: "Make my sheet" }));
-    expect(screen.getByRole("article").textContent).toContain("Not added");
-    fireEvent.click(screen.getByRole("button", { name: "Change something" }));
-    for (let i = 0; i < 3; i++) fireEvent.click(screen.getByRole("button", { name: "Continue" }));
-    fireEvent.click(screen.getByRole("button", { name: "Make my sheet" }));
-    expect(mocks.event.mock.calls.filter((call) => call[0] === "checklist_complete")).toHaveLength(
-      1,
-    );
   });
 });
 

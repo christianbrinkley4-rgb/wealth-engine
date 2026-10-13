@@ -15,8 +15,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  *
  * One or two short sentences per term, in the words Christian would use out
  * loud. No dollar figures here on purpose, so nothing on this page goes stale
- * when CMS updates the yearly amounts. The sourced, figure-by-figure version
- * lives at /medicare-words.
+ * when CMS updates the yearly amounts.
  */
 
 const PATH = "/medicare-glossary";
@@ -374,11 +373,7 @@ export default function MedicareGlossaryPage() {
           </dl>
 
           <p className="text-17 mt-10 leading-relaxed text-[var(--color-ink-muted)]">
-            Want the official source and this year&apos;s dollar amounts next to each word? See{" "}
-            <Link href="/medicare-words" className="underline underline-offset-2">
-              Medicare words, in plain English
-            </Link>
-            . For the yearly numbers by themselves, see{" "}
+            Want the yearly dollar amounts that go with these words? See{" "}
             <Link href="/medicare-costs-2027" className="underline underline-offset-2">
               Medicare costs 2027
             </Link>

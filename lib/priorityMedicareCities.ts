@@ -204,55 +204,87 @@ export const PRIORITY_MEDICARE_CITIES = {
   kernersville: {
     name: "Kernersville",
     county: "Forsyth and Guilford counties",
-    title: "Kernersville Medicare Help: Doctors Across the Triad",
-    heading: "Kernersville Medicare help between Greensboro and Winston-Salem",
+    title: "Medicare Agent in Kernersville, NC | Christian Brinkley",
+    heading: "A Medicare agent for Kernersville and eastern Forsyth County",
     description:
-      "Get free Medicare help in Kernersville, NC. Check your county, Novant coverage, Triad specialists, prescriptions, and enrollment dates with a local agent.",
-    localHeading: "A Kernersville review should follow where you receive care",
+      "Free Medicare help in Kernersville, NC. A licensed local agent who checks your Novant, Greensboro, and Winston-Salem doctors and your county before you pick a plan.",
+    localHeading: "In Kernersville, your doctors can be in two directions",
     paragraphs: [
-      "Novant Health Kernersville Medical Center describes itself as the local hospital serving the eastern Triad. Its location gives you a specific provider to include when comparing coverage. It does not establish that every Medicare Advantage plan available near Kernersville includes it. Write down the hospital, your primary care office, and each specialist separately. Confirm participation with both the insurer and provider for the plan and coverage year you are considering.",
-      "Kernersville sits between Greensboro and Winston-Salem, and a Medicare conversation should include appointments in either direction. If you use a Greensboro specialist and a Winston-Salem clinic, keep those offices on the same list. A comparison that checks only the nearest hospital leaves unanswered questions. Ask about any referrals or approval requirements for the care you expect to receive, and keep the plan's answer with the rest of the paperwork.",
-      "Start availability checks with the Kernersville residential address and county. Do not use the county where a doctor practices as the county for your plan search. The nearby Guilford and Forsyth county names can make two insurance comparisons look alike when they serve different addresses. If a mailing label or ZIP code leaves you uncertain, confirm the county before comparing plan documents. A move across the county boundary should be discussed with your current insurer.",
-      "For someone turning 65 in Kernersville, the birthday window is different from the fall Annual Enrollment Period. Bring any employer coverage notice and the date that coverage is expected to end. If the job is in Greensboro or Winston-Salem, the benefits administrator still needs to explain how the employer plan coordinates with Medicare. The location of the job does not answer that question. Avoid cancelling employer benefits before confirming the sequence.",
-      "For an existing Medicare plan, bring the Annual Notice of Change and your prescription list. Add your Kernersville pharmacy preference, including whether a family member collects medication or you use mail order. We can review costs alongside provider access. I offer phone consultations and can arrange an in-person meeting; the hospital below is a local provider reference, not my office. A spouse or adult child can join the conversation. Use the quiz or date finder first if you like, then bring the questions it raises. There is no charge and no obligation to enroll.",
+      "Kernersville sits right between Greensboro and Winston-Salem, and a lot of people here get care in both. Your primary care doctor might be in town. Your cardiologist might be in Winston-Salem, and your eye doctor in Greensboro. That's the first thing to sort out for Medicare, because a plan that works well for doctors to the west doesn't always work for doctors to the east.",
+      "The second thing is your county. Most of Kernersville is in Forsyth County, and a small part of town is in Guilford County. Medicare Advantage and Part D plans are offered by county, so the plan list for your address depends on which side of the line you live on. Your mailing address won't tell you. Your property tax bill will.",
+      "I'm Christian Brinkley, a licensed insurance agent in the Triad. I help people in Kernersville, Walkertown, Belews Creek, Colfax, and Oak Ridge sort this out at home or over the phone. You talk to me, not a call center. It's free, and there's no obligation to enroll.",
+      "What a meeting looks like in Kernersville: bring a list of every doctor you see and where you see them, plus your prescriptions and the pharmacy you use. We look each one up together for next year, so you see what I see. If a plan you're considering leaves out your Greensboro specialist or your Winston-Salem clinic, you know before you sign anything, not after.",
+      "If you get care at the Kernersville VA Health Care Center, bring that up too. VA health care and Medicare are separate programs, and they don't pay each other's bills. Plenty of veterans keep both so they can use doctors outside the VA when they want to. We can talk through what Medicare would add for you and what it would cost.",
+      "If you'd like a second opinion from someone who doesn't sell insurance, North Carolina's SHIIP program offers free, unbiased Medicare counseling. Call SHIIP statewide at 1-855-408-1212, Monday through Friday, and they can connect you with a counselor for your county. In Forsyth County, the Shepherd's Center of Greater Winston-Salem has hosted SHIIP counseling during open enrollment. I'm glad to help before or after you talk with them.",
+      "For a fall review, bring your current plan's Annual Notice of Change, the letter that lists what changes on January 1. If you're turning 65 and still working in Greensboro or Winston-Salem, bring your employer coverage notice and ask your benefits office how that plan works with Medicare before you cancel anything. We can map out your enrollment dates together.",
     ],
     hospitalsHeading: "Novant Health Kernersville Medical Center and your Medicare plan",
     hospitals: [
       {
         name: "Novant Health Kernersville Medical Center",
-        note: "The local hospital serving the eastern Triad, between Greensboro and Winston-Salem. Include it with every office where you receive care.",
+        note: "The hospital in town, part of Novant Health. If it's where you'd want to go, put it on your list along with each doctor you see there.",
         url: "https://www.novanthealth.org/locations/medical-centers/kernersville-medical-center",
+      },
+      {
+        name: "Cone Health MedCenter Kernersville",
+        note: "An outpatient center, not a hospital. If you see a Cone Health doctor here or in Greensboro, list that office separately.",
+      },
+      {
+        name: "Kernersville VA Health Care Center",
+        note: "An outpatient center for veterans, part of the Salisbury VA Health Care System. VA care doesn't run through Medicare plan networks.",
+        url: "https://www.va.gov/salisbury-health-care/locations/kernersville-va-clinic",
       },
     ],
     hospitalTakeaway:
-      "Original Medicare, alone or with a Medicare Supplement, works with any doctor or hospital that accepts Medicare. Medicare Advantage plans use networks, so check the hospital and each of your doctors by name for next year.",
-    hospitalNote: "Not affiliated with or endorsed by Novant Health.",
+      "Here's why the list matters: Original Medicare, alone or with a Medicare Supplement, works with any doctor or hospital that accepts Medicare. Medicare Advantage plans use networks. A plan might include Novant, Cone Health, and Atrium Health Wake Forest Baptist doctors, or only some of them, and networks can change every year.",
+    hospitalNote:
+      "Not affiliated with or endorsed by Novant Health, Cone Health, Atrium Health Wake Forest Baptist, or the U.S. Department of Veterans Affairs.",
     sources: [
       {
         label: "Novant Health: Kernersville Medical Center",
         href: "https://www.novanthealth.org/locations/medical-centers/kernersville-medical-center",
       },
       {
-        label: "Medicare.gov: coverage start dates",
-        href: "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start",
+        label: "Town of Kernersville: Forsyth and Guilford county tax information",
+        href: "https://toknc.com/finance/tax-info/",
+      },
+      {
+        label: "VA Salisbury health care: Kernersville VA Clinic",
+        href: "https://www.va.gov/salisbury-health-care/locations/kernersville-va-clinic",
+      },
+      {
+        label: "NC Department of Insurance: SHIIP",
+        href: "https://www.ncdoi.gov/consumers/medicare-and-shiip",
+      },
+      {
+        label: "The Shepherd's Center: SHIIP counseling",
+        href: "https://www.shepherdscenter.org/shiip-medicare-counseling",
       },
     ],
     provider: "Novant Health Kernersville Medical Center, Kernersville, NC",
-    ctaHeading: "Sort out your Triad doctors before December 7",
+    ctaHeading: "Sort out your Greensboro and Winston-Salem doctors before December 7",
     ctaLine:
       "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
     faq: [
       {
-        q: "Does Kernersville Medical Center participate in my Medicare Advantage plan?",
-        a: "Verify Kernersville Medical Center and your treating clinicians with the insurer and provider for the exact Medicare Advantage plan and coverage year you choose.",
+        q: "Is Kernersville in Forsyth County or Guilford County for Medicare plans?",
+        a: "Most Kernersville addresses are in Forsyth County, and a small part of town is in Guilford County. Plan lists follow your home county.",
       },
       {
-        q: "Should my Kernersville Medicare review include Greensboro and Winston-Salem specialists?",
-        a: "A Kernersville Medicare review should include every Greensboro and Winston-Salem office you use. Check each practice separately rather than relying on one hospital listing.",
+        q: "Does Novant Health Kernersville Medical Center take my Medicare Advantage plan?",
+        a: "It depends on the plan and the year. Check the hospital and each of your doctors by name with the plan before enrolling.",
       },
       {
-        q: "Does my Kernersville doctor's county decide which Medicare plans I can buy?",
-        a: "Medicare Advantage eligibility follows your residential service area, not your Kernersville doctor's county. Start with your home address before checking doctors across the Triad.",
+        q: "I see doctors in both Greensboro and Winston-Salem. Can one plan cover them all?",
+        a: "Sometimes. Original Medicare works with any doctor who accepts Medicare. Medicare Advantage networks vary, so we check every office on your list for next year.",
+      },
+      {
+        q: "I use the Kernersville VA Health Care Center. Do I still need Medicare?",
+        a: "VA care and Medicare are separate programs. Medicare covers care outside the VA, and delaying Part B can mean a late penalty later on.",
+      },
+      {
+        q: "Where can I get free Medicare counseling near Kernersville?",
+        a: "NC SHIIP offers free, unbiased Medicare counseling at 1-855-408-1212, Monday through Friday. Counselors don't sell insurance, and I'm glad to help before or after.",
       },
     ],
   },

@@ -205,10 +205,10 @@ export default function NumbersHubPage() {
             These are national reference figures. Your plan&apos;s premiums and your own tax
             situation are what matter, so treat this page as the starting point, not the
             answer.{" "}
-            <Link href="/medicare-numbers-2027" className="underline underline-offset-2">
-              The 2027 Medicare numbers get their own page
+            <Link href="/medicare-costs-2027" className="underline underline-offset-2">
+              The 2027 Medicare costs get their own page
             </Link>{" "}
-            with more detail on each figure.
+            showing which figures CMS has made official.
           </p>
           <GuideTownLinks />
         </div>

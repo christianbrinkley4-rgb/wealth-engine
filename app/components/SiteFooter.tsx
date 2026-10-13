@@ -26,7 +26,7 @@ const LEARN = [
   { href: "/numbers", label: "2026-2027 money numbers" },
   { href: "/answers", label: "Medicare questions, answered" },
   { href: "/ask", label: "Questions people asked" },
-  { href: "/medicare-words", label: "Medicare words, in plain English" },
+  { href: "/medicare-glossary", label: "Medicare terms, explained simply" },
   { href: "/taxes-and-retirement", label: "Taxes & retirement" },
   { href: "/medicare-advantage-vs-medigap-greensboro-nc", label: "Advantage or Medigap" },
   { href: "/keep-my-doctor", label: "Keeping your doctors" },

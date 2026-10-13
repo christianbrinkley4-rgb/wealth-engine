@@ -3,7 +3,7 @@ const pages = JSON.parse(fs.readFileSync(".cache/traction/release-crawl.json", "
 const changed = new Set([
   "/",
   "/about",
-  "/medicare-plan-checklist",
+  "/aep-checklist",
   "/medicare-butner-nc",
   "/medicare-graham-nc",
   "/medicare-ramseur-nc",

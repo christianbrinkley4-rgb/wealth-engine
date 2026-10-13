@@ -16,7 +16,6 @@ const STATIC_ROUTES: Array<{
   priority: number;
 }> = [
   { path: "/north-carolina-medicare-programs", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-12" },
-  { path: "/medicare-plan-checklist", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-09" },
   { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-07" },
   { path: "/insurance-services", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-07" },
   { path: "/care-coverage", changeFrequency: "monthly", priority: 0.85 },
@@ -25,7 +24,6 @@ const STATIC_ROUTES: Array<{
   { path: "/critical-illness-insurance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/turning-65", changeFrequency: "weekly", priority: 0.95 },
   { path: "/medicare-costs", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/medicare-numbers-2027", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
   { path: "/numbers", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
   { path: "/medicare-changes-2027", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
   { path: "/medicare-part-d-donut-hole-2027", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-08" },
@@ -54,7 +52,7 @@ const STATIC_ROUTES: Array<{
   { path: "/medicare-agent-high-point-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
   { path: "/medicare-agent-greensboro-nc", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-12" },
   { path: "/medicare-agent-winston-salem-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
-  { path: "/medicare-agent-kernersville-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
+  { path: "/medicare-agent-kernersville-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-13" },
   { path: "/medicare-agent-burlington-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
   { path: "/medicare-agent-reidsville-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
   { path: "/medicare-agent-thomasville-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
@@ -68,7 +66,6 @@ const STATIC_ROUTES: Array<{
   { path: "/medicare-advantage-plans-winston-salem-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-10" },
   { path: "/medicare-nc-towns", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
   { path: "/plan-check", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-04" },
-  { path: "/medicare-annual-enrollment-2026-checklist", changeFrequency: "monthly", priority: 0.9 },
   { path: "/medicare-advantage-doctor-networks", changeFrequency: "monthly", priority: 0.9 },
   { path: "/social-security-timing", changeFrequency: "monthly", priority: 0.9 },
   { path: "/keep-my-doctor", changeFrequency: "monthly", priority: 0.9 },
@@ -94,7 +91,6 @@ const STATIC_ROUTES: Array<{
   { path: "/answers", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-10-01" },
   { path: "/learn", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-05" },
   { path: "/taxes-and-retirement", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-05" },
-  { path: "/medicare-words", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-05" },
   // The christianbuildswealth hub.
   ...[
     "/wealth",
@@ -200,6 +196,16 @@ const STATIC_ROUTES: Array<{
     "/guides/cobra-vs-medicare-at-65",
     "/guides/medicare-in-home-care",
     "/guides/extra-help-medicare-savings-programs-nc",
+    "/guides/medicare-flex-card",
+    "/guides/medicare-spouse-younger-than-65",
+    "/guides/observation-status-three-day-rule",
+    "/guides/medigap-premium-increase",
+    "/guides/medicare-prescription-payment-plan",
+    "/guides/medicare-and-va-benefits",
+    "/guides/chronic-condition-special-needs-plans",
+    "/guides/medicare-advantage-prior-authorization",
+    "/guides/switching-medicare-advantage-to-medigap-nc",
+    "/guides/medicare-under-65-disability-nc",
   ].map((path) => ({
     path,
     changeFrequency: "weekly" as const,

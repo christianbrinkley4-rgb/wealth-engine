@@ -219,8 +219,8 @@ export default function Turning65ChecklistPage() {
               here is what Medicare costs
             </Link>
             , and{" "}
-            <Link href="/medicare-numbers-2027" className="underline underline-offset-2">
-              here are the 2027 numbers at a glance
+            <Link href="/medicare-costs-2027" className="underline underline-offset-2">
+              here are the official 2027 costs so far
             </Link>
             .
           </p>

@@ -251,8 +251,6 @@ ${articleLines}
 
 ## Free tools
 
-- [Plan research checklist](${SITE_URL}/medicare-plan-checklist): organize doctors, prescriptions, pharmacies, travel, budget, and priorities in temporary browser state, then print and carry the sheet to Medicare.gov. Does not compare plans or check coverage.
-
 - [Medicare enrollment dates](${SITE_URL}/turning-65#enrollment-dates): find estimated enrollment dates, print them, or save them to a personal calendar without providing contact information. Includes the first-of-month birthday adjustment.
 - [Save Medicare dates](${SITE_URL}/remind-me): the same calendar tool; this page does not offer automatic reminder emails.
 - [2026 Medicare Part B estimate](${SITE_URL}/medicare): an estimate using published 2026 rates.

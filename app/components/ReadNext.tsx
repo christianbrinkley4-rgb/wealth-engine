@@ -15,13 +15,13 @@ export function ReadNext({ children }: { children: ReactNode }) {
   );
 }
 
-/** The pointer to the plan research checklist, worded once. */
+/** The pointer to the Annual Enrollment checklist, worded once. */
 export function ChecklistPointer() {
   return (
     <p>
       Before you compare plans, get your doctors, prescriptions and pharmacy onto one page.{" "}
-      <Link href="/medicare-plan-checklist">The research checklist</Link> makes a sheet you can
-      print, and nothing you type leaves your device.
+      <Link href="/aep-checklist">The Annual Enrollment checklist</Link> lists ten things to
+      review and where to find each one.
     </p>
   );
 }

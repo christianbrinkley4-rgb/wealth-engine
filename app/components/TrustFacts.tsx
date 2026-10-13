@@ -47,7 +47,7 @@ export function TrustFacts({ compact = false }: { compact?: boolean }) {
           )}
         </li>
         <li>
-          <Link href="/medicare-words">Where my numbers come from</Link>
+          <Link href="/medicare-costs-2027">Where my numbers come from</Link>
         </li>
       </ul>
     </aside>

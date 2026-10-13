@@ -118,7 +118,7 @@ export function GET() {
 
   const medicareExtraLines = [
     `- [The 2026-2027 money numbers](${SITE_URL}/numbers): tax brackets, retirement and HSA limits, Social Security, and Medicare figures, each tied to a named IRS, SSA, or CMS source.`,
-    `- [2027 Medicare numbers at a glance](${SITE_URL}/medicare-numbers-2027): the 2027 Medicare premiums, deductibles, and caps, each tied to a named source.`,
+    `- [2027 Medicare costs](${SITE_URL}/medicare-costs-2027): the 2027 Medicare figures CMS has made official, next to the final 2026 amounts.`,
     `- [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.`,
     `- [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the Part D out-of-pocket cap works in 2027.`,
     `- [Medicare Advantage vs. Medigap in Greensboro, NC](${SITE_URL}/medicare-advantage-vs-medigap-greensboro-nc): the two paths compared with Greensboro-area specifics.`,
@@ -194,7 +194,7 @@ ${AGENT.name} is a licensed insurance agent in ${AGENT.city}, ${AGENT.state}, an
 
 ## Medicare help
 
-- [Plan research checklist](${SITE_URL}/medicare-plan-checklist): an on-device printable research sheet with an official Medicare.gov handoff, no coverage lookup.
+- [AEP checklist](${SITE_URL}/aep-checklist): ten things to review before December 7, with where to find each one and why it matters.
 
 ${medicareLines}
 
@@ -230,7 +230,7 @@ Plain-language AI guides for regular people, written from Christian's experience
 - [AI mistakes to avoid](${SITE_URL}/ai/ai-mistakes-to-avoid): hallucinations, sensitive data, and blind trust.
 - [Connect your AI assistant](${SITE_URL}/ai/connect): add the site as an MCP connector in Claude or any MCP app, setup steps and example prompts.
 - [The Learning Hub](${SITE_URL}/learn): every guide, answer, explainer, and tool on the site, organized by situation.
-- [Medicare words in plain English](${SITE_URL}/medicare-words): short definitions of Part A, Part B, Medicare Advantage, Part D, Medigap, IRMAA, and the enrollment periods.
+- [Medicare terms explained simply](${SITE_URL}/medicare-glossary): short plain-English definitions of 28 Medicare terms, A to Z.
 - [Short machine summary](${SITE_URL}/llms.txt): the compact version of this index.
 
 ## About

@@ -435,7 +435,7 @@ export default function AepPage() {
           <Link href="/medicare-changes-2027">2027 changes</Link> and the{" "}
           <Link href="/medicare-part-d-donut-hole-2027">Part D cap explanation</Link>, then work
           through the{" "}
-          <Link href="/medicare-annual-enrollment-2026-checklist">Annual Enrollment checklist</Link>
+          <Link href="/aep-checklist">Annual Enrollment checklist</Link>
           . If your plan is not renewing, see the{" "}
           <Link href="/guides/medicare-plan-not-renewing-triad">Triad checklist</Link>.
         </p>

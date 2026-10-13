@@ -1,4 +1,4 @@
-/** The thirteen standalone /guides pages, with their card-grid descriptions. */
+/** The standalone /guides pages, with their card-grid descriptions. */
 export const STANDALONE_GUIDES: Array<{
   slug: string;
   title: string;
@@ -224,6 +224,116 @@ export const STANDALONE_GUIDES: Array<{
       { title: "Free Medicare help in the Triad", href: "/medicare-help-directory" },
       { title: "Annual Enrollment review", href: "/aep" },
       { title: "Turning 65 checklist", href: "/turning-65" },
+    ],
+  },
+  {
+    slug: "medicare-flex-card",
+    title: "Is the Medicare flex card real?",
+    description:
+      "Some private plans include a prepaid card. Medicare doesn't issue one. What's a real benefit, what's marketing, and what's a scam.",
+    related: [
+      { title: "Medicare scams to watch for", href: "/medicare-scam-alert" },
+      { title: "Is a $0 premium plan really free?", href: "/guides/zero-premium-medicare-advantage-free" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "medicare-spouse-younger-than-65",
+    title: "Medicare when your spouse is under 65",
+    description:
+      "Medicare doesn't cover spouses. How a younger spouse stays insured, and what to check before you leave your employer plan.",
+    related: [
+      { title: "Part B and employer coverage", href: "/guides/medicare-part-b-employer-coverage" },
+      { title: "COBRA vs. Medicare at 65", href: "/guides/cobra-vs-medicare-at-65" },
+      { title: "Turning 65 checklist", href: "/turning-65" },
+    ],
+  },
+  {
+    slug: "observation-status-three-day-rule",
+    title: "Observation status and the 3-day rule",
+    description:
+      "Nights in a hospital bed don't always count as inpatient days. How that affects your bill and skilled nursing coverage.",
+    related: [
+      { title: "Does Medicare pay for in-home care?", href: "/guides/medicare-in-home-care" },
+      { title: "What Medicare doesn't cover", href: "/guides/what-medicare-does-not-cover" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "medigap-premium-increase",
+    title: "Why did my Medigap premium go up?",
+    description:
+      "Age-based pricing, rising costs, and ending discounts. What you can do in North Carolina, and why you never cancel first.",
+    related: [
+      { title: "Medigap Plan G vs Plan N", href: "/guides/medigap-plan-g-vs-plan-n-nc" },
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "medicare-prescription-payment-plan",
+    title: "The Medicare Prescription Payment Plan",
+    description:
+      "Pay Part D drug costs in monthly bills instead of at the pharmacy. It doesn't lower costs. Who it helps and who it doesn't.",
+    related: [
+      { title: "Medicare costs 2027", href: "/medicare-costs-2027" },
+      { title: "Extra Help and Medicare Savings Programs in NC", href: "/guides/extra-help-medicare-savings-programs-nc" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "medicare-and-va-benefits",
+    title: "Medicare and VA benefits",
+    description:
+      "VA care and Medicare don't pay each other's bills. What Medicare adds, and why VA coverage doesn't protect you from the Part B penalty.",
+    related: [
+      { title: "Estimate a Part B late penalty", href: "/part-b-penalty" },
+      { title: "Turning 65 checklist", href: "/turning-65" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "chronic-condition-special-needs-plans",
+    title: "C-SNPs: who qualifies",
+    description:
+      "Medicare Advantage plans built around one chronic condition. Who qualifies, when you can join, and what to check first.",
+    related: [
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
+      { title: "Special enrollment periods", href: "/special-enrollment" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "medicare-advantage-prior-authorization",
+    title: "Prior authorization in Medicare Advantage",
+    description:
+      "What needs approval, how to avoid surprises, and the appeal steps and deadlines if your plan says no.",
+    related: [
+      { title: "Medicare Advantage doctor networks", href: "/medicare-advantage-doctor-networks" },
+      { title: "AEP checklist", href: "/aep-checklist" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "switching-medicare-advantage-to-medigap-nc",
+    title: "Switching from Advantage to Medigap in NC",
+    description:
+      "Leaving Medicare Advantage is guaranteed. Getting a Medigap policy in North Carolina usually isn't. When you have a guaranteed right, and the safe order of steps.",
+    related: [
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
+      { title: "Medigap Plan G vs Plan N", href: "/guides/medigap-plan-g-vs-plan-n-nc" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "medicare-under-65-disability-nc",
+    title: "Medicare under 65 on disability in NC",
+    description:
+      "Medicare usually starts 24 months into SSDI. North Carolina gives you six months to buy a Medigap Plan A, D, or G, and a fresh window at 65.",
+    related: [
+      { title: "Extra Help and Medicare Savings Programs in NC", href: "/guides/extra-help-medicare-savings-programs-nc" },
+      { title: "Switching from Advantage to Medigap in NC", href: "/guides/switching-medicare-advantage-to-medigap-nc" },
+      { title: "Annual Enrollment review", href: "/aep" },
     ],
   },
 ];

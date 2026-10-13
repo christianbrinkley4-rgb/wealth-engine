@@ -1182,7 +1182,7 @@ export const ARTICLES: Article[] = [
     related: [
       { label: "What should I check before switching Medicare Advantage plans?", href: "/answers/switching-medicare-advantage-plans-aep" },
       { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
-      { label: "Medicare words, in plain English", href: "/medicare-words" },
+      { label: "Medicare terms, explained simply", href: "/medicare-glossary" },
       { label: "Build your turning-65 timeline", href: "/turning-65" },
       { label: "Medicare help near you", href: "/service-area" },
     ],

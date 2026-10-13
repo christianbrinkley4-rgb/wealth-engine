@@ -51,7 +51,7 @@ describe("traction discovery policy", () => {
     expect(paths).toContain("/medicare-agent-greensboro-nc");
     expect(paths).not.toContain("/wealth/calculators");
     expect(paths).not.toContain("/links");
-    expect(paths).toContain("/medicare-plan-checklist");
+    expect(paths).toContain("/aep-checklist");
     for (const index of [await shortIndex().text(), await fullIndex().text()]) {
       expect(index).not.toMatch(/\/(retirement|life-insurance)-in\//);
       for (const city of TRIAD_CITIES)

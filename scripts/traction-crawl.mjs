@@ -124,7 +124,7 @@ const summary = {
       "/medicare-changes-2027",
       "/medicare-part-d-donut-hole-2027",
       "/turning-65-checklist",
-      "/medicare-annual-enrollment-2026-checklist",
+      "/aep-checklist",
     ].map((path) => [path, inbound[path] ?? []]),
   ),
 };
