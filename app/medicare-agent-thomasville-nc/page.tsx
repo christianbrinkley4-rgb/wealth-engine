@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import Link from "next/link";
@@ -22,6 +25,12 @@ export const metadata: Metadata = {
     "A Medicare agent for Thomasville, NC and Davidson County. Free, no-pressure help from Christian Brinkley, a licensed North Carolina agent. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-agent-thomasville-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare help for Thomasville and Davidson County.",
+    description:
+      "Free Medicare plan reviews in the Chair City. A local licensed agent, not a call center.",
+    path: "/medicare-agent-thomasville-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare help for Thomasville and Davidson County.",
     description:
       "Free Medicare plan reviews in the Chair City. A local licensed agent, not a call center.",
@@ -281,6 +290,8 @@ export default function MedicareAgentThomasvillePage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-10" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

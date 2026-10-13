@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -22,9 +25,15 @@ export const metadata: Metadata = {
     absolute: "Medicare Changes 2027: What to Know Before Open Enrollment",
   },
   description:
-    "Medicare changes for 2027: Part D costs, the drug cap, Advantage premiums, and what to check before December 7. From a licensed Greensboro agent.",
+    "Medicare changes for 2027: Part D costs, the drug cap, Advantage premiums, and what to check before December 7. From a licensed Greensboro agent. Read on.",
   alternates: { canonical: "/medicare-changes-2027" },
   openGraph: pageOpenGraph({
+    title: "Medicare Changes for 2027",
+    description:
+      "Part D deductible, the drug cost cap, Advantage premiums, and the dates that matter, explained plainly before open enrollment.",
+    path: "/medicare-changes-2027",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Changes for 2027",
     description:
       "Part D deductible, the drug cost cap, Advantage premiums, and the dates that matter, explained plainly before open enrollment.",
@@ -228,6 +237,8 @@ export default function MedicareChanges2027Page() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

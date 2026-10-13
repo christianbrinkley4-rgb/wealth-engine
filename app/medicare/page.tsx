@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -13,9 +14,15 @@ import { AGENT } from "@/lib/agent";
 export const metadata: Metadata = {
   title: { absolute: "2026 Medicare Part B & IRMAA Calculator | Greensboro" },
   description:
-    "Estimate your 2026 Medicare Part B premium and IRMAA bracket in four questions. Official CMS tiers, no account, no Social Security number, no cost.",
+    "Estimate your 2026 Medicare Part B premium and IRMAA bracket in four questions. Official CMS tiers, no account, no Social Security number, no cost. Read on.",
   alternates: { canonical: "/medicare" },
   openGraph: pageOpenGraph({
+    title: "2026 Medicare Part B & IRMAA Calculator",
+    description:
+      "Four questions and you will see your 2026 Part B premium and where you sit on the IRMAA schedule.",
+    path: "/medicare",
+  }),
+  twitter: pageTwitter({
     title: "2026 Medicare Part B & IRMAA Calculator",
     description:
       "Four questions and you will see your 2026 Part B premium and where you sit on the IRMAA schedule.",

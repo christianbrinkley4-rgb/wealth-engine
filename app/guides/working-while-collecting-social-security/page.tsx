@@ -1,3 +1,5 @@
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -26,6 +28,12 @@ export const metadata: Metadata = {
     "How much can you earn in 2026 while collecting Social Security? The exact limits: $24,480 before full retirement age, $65,160 in the year you reach it.",
   alternates: { canonical: "/guides/working-while-collecting-social-security" },
   openGraph: pageOpenGraph({
+    title: "Working while collecting Social Security: 2026 limits",
+    description:
+      "The 2026 earnings test in plain English: how much you can earn, what gets withheld, and what counts as earnings.",
+    path: "/guides/working-while-collecting-social-security",
+  }),
+  twitter: pageTwitter({
     title: "Working while collecting Social Security: 2026 limits",
     description:
       "The 2026 earnings test in plain English: how much you can earn, what gets withheld, and what counts as earnings.",
@@ -254,6 +262,7 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="general" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
     </main>
   );
 }

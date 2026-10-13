@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -8,13 +9,18 @@ import { ARTICLES } from "@/lib/articles";
 import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 
 const description =
-  "Plain answers to the Medicare questions Triad neighbors ask me most. Original Medicare, Medigap, nursing home costs, and turning 65.";
+  "Plain answers to the Medicare questions Triad neighbors ask me most. Original Medicare, Medigap, nursing home costs, and turning 65. Explore the guide.";
 
 export const metadata: Metadata = {
   title: { absolute: "Medicare Questions, Answered | Christian Brinkley" },
   description,
   alternates: { canonical: "/answers" },
   openGraph: pageOpenGraph({
+    title: "Medicare Questions, Answered",
+    description,
+    path: "/answers",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Questions, Answered",
     description,
     path: "/answers",

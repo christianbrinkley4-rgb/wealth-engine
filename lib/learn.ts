@@ -66,6 +66,13 @@ export type LearnEntry = {
 
 const GUIDES: LearnEntry[] = [
   {
+    href: "/north-carolina-medicare-programs",
+    title: "North Carolina programs that help with Medicare",
+    blurb: "SHIIP, Extra Help, Medicare Savings Programs, PACE, and county DSS application paths.",
+    situation: "medicare-costs",
+    kind: "Guide",
+  },
+  {
     href: "/medicare-plan-checklist",
     title: "Make your plan research sheet",
     blurb: "Organize doctors, prescriptions, pharmacies, travel, and priorities on your device.",

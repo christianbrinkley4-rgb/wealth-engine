@@ -6,7 +6,7 @@ import { wealthMetadata, webAppJsonLd } from "@/lib/wealth/seo";
 
 const path = "/wealth/quiz/first-1000";
 const description =
-  "What should you do with your first $1,000? Answer a few quick questions about debt, savings and your job, and get a short plan to think over.";
+  "What should you do with your first $1,000? Answer a few quick questions about debt, savings and your job, and get a short plan to think over. Read on.";
 
 export const metadata: Metadata = wealthMetadata({
   title: "First $1,000 Quiz",

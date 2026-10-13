@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -17,12 +20,18 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Annual Enrollment 2026: Your Triad Review Checklist",
+    absolute: "Medicare Annual Enrollment 2026: Review Checklist",
   },
   description:
     "Oct 15 to Dec 7: the 5-step fall review checklist a licensed Greensboro Medicare agent walks through with Triad clients: prescriptions, doctors, costs, Part D.",
   alternates: { canonical: "/medicare-annual-enrollment-2026-checklist" },
   openGraph: pageOpenGraph({
+    title: "Medicare Annual Enrollment 2026: your Triad review checklist",
+    description:
+      "Five checks worth making between Oct 15 and Dec 7, starting with the Annual Notice of Change most people never open.",
+    path: "/medicare-annual-enrollment-2026-checklist",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Annual Enrollment 2026: your Triad review checklist",
     description:
       "Five checks worth making between Oct 15 and Dec 7, starting with the Annual Notice of Change most people never open.",
@@ -273,6 +282,8 @@ export default function AepChecklistPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-09-19" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

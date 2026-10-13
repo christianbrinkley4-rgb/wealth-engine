@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -25,12 +28,18 @@ import { AepQuiz } from "./AepQuiz";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Do I Need to Act During AEP? Free 60-Second Quiz | Greensboro NC",
+    absolute: "Medicare AEP Quiz: Do I Need to Act? | Greensboro NC",
   },
   description:
-    "Five quick questions about your Medicare plan, doctors, and prescriptions. Get an honest read on whether a free fall review is worth your time before December 7.",
+    "Five quick questions about your Medicare plan, doctors, and prescriptions. See whether a free fall review with Christian Brinkley could help before December 7.",
   alternates: { canonical: "/aep-quiz" },
   openGraph: pageOpenGraph({
+    title: "Do I need to act during Annual Enrollment?",
+    description:
+      "A free 60-second quiz from Christian Brinkley, licensed NC agent. Five questions, honest results, no obligation.",
+    path: "/aep-quiz",
+  }),
+  twitter: pageTwitter({
     title: "Do I need to act during Annual Enrollment?",
     description:
       "A free 60-second quiz from Christian Brinkley, licensed NC agent. Five questions, honest results, no obligation.",
@@ -155,6 +164,8 @@ export default function AepQuizPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-10" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

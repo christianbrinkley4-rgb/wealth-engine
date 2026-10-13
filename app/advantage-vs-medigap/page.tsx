@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
@@ -30,9 +33,15 @@ export const metadata: Metadata = {
     absolute: "Medicare Advantage vs Medigap: Which Fits You Best?",
   },
   description:
-    "Medicare Advantage or Medigap? The honest differences in doctors, costs, and whether you can switch later. A plain-English guide from a licensed Greensboro agent.",
+    "Compare Medicare Advantage and Medigap: doctors, costs, and switching rules. Read this guide from Christian Brinkley, a licensed insurance agent in Greensboro.",
   alternates: { canonical: "/advantage-vs-medigap" },
   openGraph: pageOpenGraph({
+    title: "Medicare Advantage vs Medigap | Greensboro Guide",
+    description:
+      "Understand the differences in coverage, costs, and enrollment rules before you decide, with a local agent who meets across the Triad.",
+    path: "/advantage-vs-medigap",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Advantage vs Medigap | Greensboro Guide",
     description:
       "Understand the differences in coverage, costs, and enrollment rules before you decide, with a local agent who meets across the Triad.",
@@ -259,6 +268,8 @@ export default function AdvantageVsMedigapPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-09-18" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

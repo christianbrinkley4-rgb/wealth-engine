@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import Link from "next/link";
@@ -33,6 +36,12 @@ export const metadata: Metadata = {
     "Turning 65 in Ramseur, NC? Free Medicare help from Christian Brinkley, a licensed NC insurance agent. Call or text (919) 408-6671.",
   alternates: { canonical: "/medicare-ramseur-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare help close to home in Ramseur.",
+    description:
+      "Free, no-pressure Medicare plan reviews for Ramseur and Randolph County, from a licensed agent who'll check your doctors and prescriptions first.",
+    path: "/medicare-ramseur-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare help close to home in Ramseur.",
     description:
       "Free, no-pressure Medicare plan reviews for Ramseur and Randolph County, from a licensed agent who'll check your doctors and prescriptions first.",
@@ -303,6 +312,8 @@ export default function MedicareRamseurPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-04" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

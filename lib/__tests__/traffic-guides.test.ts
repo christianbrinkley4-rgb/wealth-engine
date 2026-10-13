@@ -39,7 +39,8 @@ describe("traffic guide publishing contract", () => {
       const props = { params: Promise.resolve({ slug: guide.slug }) };
       const meta = await generateMetadata(props);
       expect(guide.title.length).toBeLessThan(60);
-      expect(guide.description.length).toBeLessThan(155);
+      expect(guide.description.length).toBeGreaterThanOrEqual(150);
+      expect(guide.description.length).toBeLessThanOrEqual(160);
       expect(meta.alternates?.canonical).toBe(`/guides/${guide.slug}`);
       const html = renderToStaticMarkup(await Page(props));
       expect(html).toContain("Educational information only");

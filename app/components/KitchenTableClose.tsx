@@ -39,13 +39,16 @@ export function KitchenTableClose({
           <h2>{heading}</h2>
           <p>{body}</p>
           <div className="ktc-actions">
+            {href.startsWith("/schedule") && <Link ctaLocation="page_close" href={href} className="btn">
+              {cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
+            </Link>}
             <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn">
               <Phone size={19} aria-hidden />
               {AGENT.phone}
             </a>
-            <Link ctaLocation="page_close" href={href} className="btn btn-outline">
+            {!href.startsWith("/schedule") && <Link ctaLocation="page_close" href={href} className="btn btn-outline">
               {cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
-            </Link>
+            </Link>}
           </div>
           <TrustFacts compact />
           <p className="ktc-note">

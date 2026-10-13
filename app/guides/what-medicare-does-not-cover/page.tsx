@@ -1,3 +1,5 @@
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -22,9 +24,15 @@ export const metadata: Metadata = {
     absolute: "What Medicare Does Not Cover: The Full List of Gaps",
   },
   description:
-    "Original Medicare leaves real gaps: dental, vision, hearing aids, long-term care, and more. The full list, plus how people fill each gap.",
+    "Original Medicare leaves real gaps: dental, vision, hearing aids, long-term care, and more. The full list, plus how people fill each gap. Read the guide.",
   alternates: { canonical: "/guides/what-medicare-does-not-cover" },
   openGraph: pageOpenGraph({
+    title: "What Medicare does not cover",
+    description:
+      "The full list of Medicare gaps: dental, vision, hearing aids, long-term care, foreign travel, and the cost-sharing with no cap.",
+    path: "/guides/what-medicare-does-not-cover",
+  }),
+  twitter: pageTwitter({
     title: "What Medicare does not cover",
     description:
       "The full list of Medicare gaps: dental, vision, hearing aids, long-term care, foreign travel, and the cost-sharing with no cap.",
@@ -313,6 +321,7 @@ export default function WhatMedicareDoesNotCoverPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
     </main>
   );
 }

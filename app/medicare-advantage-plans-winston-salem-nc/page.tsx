@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import Link from "next/link";
@@ -16,12 +19,18 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Advantage Plans in Winston-Salem, NC | Christian Brinkley",
+    absolute: "Medicare Advantage in Winston-Salem: Compare Plans",
   },
   description:
     "Medicare Advantage plans in Winston-Salem, NC, explained by a local licensed agent. Networks, drug coverage, yearly changes. Free help. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-advantage-plans-winston-salem-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare Advantage in Winston-Salem, explained in plain English.",
+    description:
+      "How Advantage plans work in the Twin City, the two-system network question, and what changes every year. Free local help.",
+    path: "/medicare-advantage-plans-winston-salem-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Advantage in Winston-Salem, explained in plain English.",
     description:
       "How Advantage plans work in the Twin City, the two-system network question, and what changes every year. Free local help.",
@@ -298,6 +307,8 @@ export default function MedicareAdvantagePlansWinstonSalemPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-10" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

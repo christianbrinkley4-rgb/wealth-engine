@@ -14,17 +14,17 @@ describe("search identity and service discovery", () => {
     const shared = siteIdentityJsonLd();
     const insurance = localBusinessJsonLd();
     expect(shared["@graph"].map((entity) => entity["@type"])).toEqual(["WebSite", "Person", "Organization"]);
-    expect(JSON.stringify(shared)).not.toMatch(/hasOfferCatalog|ProfessionalService|\/#service/);
+    expect(JSON.stringify(shared)).not.toMatch(/hasOfferCatalog|InsuranceAgency|\/#service/);
     const organization = shared["@graph"].find((entity) => entity["@type"] === "Organization");
     expect(organization?.name).toBeTruthy();
     expect(organization?.logo).toBeTruthy();
     expect(organization?.telephone).toBeTruthy();
     const person = shared["@graph"].find((entity) => entity["@type"] === "Person");
-    // localBusinessJsonLd carries only the ProfessionalService node now;
+    // localBusinessJsonLd carries only the InsuranceAgency node now;
     // Person and WebSite live in siteIdentityJsonLd to avoid duplicate @ids.
-    expect(insurance["@graph"].map((entity) => entity["@type"])).toEqual(["ProfessionalService"]);
-    const service = insurance["@graph"].find((entity) => entity["@type"] === "ProfessionalService");
-    expect(service?.provider?.["@id"]).toBe(person?.["@id"]);
+    expect(insurance["@graph"].map((entity) => entity["@type"])).toEqual(["InsuranceAgency"]);
+    const service = insurance["@graph"].find((entity) => entity["@type"] === "InsuranceAgency");
+    expect(service?.founder?.["@id"]).toBe(person?.["@id"]);
   });
 
   it("connects wealth articles and calculators to education rather than an insurance provider", () => {

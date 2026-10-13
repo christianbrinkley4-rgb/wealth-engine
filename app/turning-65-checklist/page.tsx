@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
@@ -22,9 +25,15 @@ export const metadata: Metadata = {
     absolute: "Turning 65 Checklist: 8 Steps Before Your 65th Birthday",
   },
   description:
-    "Turning 65? The 8-step Medicare checklist a licensed Greensboro agent walks through with every new client. Free, no call center.",
+    "Turning 65? The 8-step Medicare checklist a licensed Greensboro agent walks through with every new client. Free, no call center. Read the details here.",
   alternates: { canonical: "/turning-65-checklist" },
   openGraph: pageOpenGraph({
+    title: "The Turning-65 Checklist: 8 steps before your 65th birthday",
+    description:
+      "Your Initial Enrollment Period, the Part B decision, the one-time Medigap window, and the penalty traps. From a licensed agent in Greensboro.",
+    path: "/turning-65-checklist",
+  }),
+  twitter: pageTwitter({
     title: "The Turning-65 Checklist: 8 steps before your 65th birthday",
     description:
       "Your Initial Enrollment Period, the Part B decision, the one-time Medigap window, and the penalty traps. From a licensed agent in Greensboro.",
@@ -297,6 +306,8 @@ export default function Turning65ChecklistPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

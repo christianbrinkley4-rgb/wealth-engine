@@ -1,3 +1,5 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
 import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
@@ -9,7 +11,7 @@ import { DebtPayoff } from "./DebtPayoff";
 
 const path = "/tools/debt-payoff";
 const description =
-  "Free debt payoff calculator. List your real debts and compare avalanche vs snowball: months to zero and total interest, side by side.";
+  "Free debt payoff calculator. List your real debts and compare avalanche vs snowball: months to zero and total interest, side by side. Explore the guide.";
 
 export const metadata: Metadata = {
   title: { absolute: "Debt Payoff Calculator | Christian Brinkley" },
@@ -102,6 +104,8 @@ export default function DebtPayoffPage() {
           { href: "/tools/take-home-pay", label: "Take-home pay calculator" },
         ]}
       />
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

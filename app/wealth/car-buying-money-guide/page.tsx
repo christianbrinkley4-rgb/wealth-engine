@@ -9,7 +9,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const path = "/wealth/car-buying-money-guide";
 const title = "The Real Cost of Buying a Car";
 const description =
-  "Total-cost thinking for a car purchase: price, interest, insurance, and how long you keep it.";
+  "Total-cost thinking for a car purchase: price, interest, insurance, and how long you keep it. Read Christian Brinkley's practical guide in plain English.";
 
 export const metadata: Metadata = wealthMetadata({ title, description, path });
 

@@ -39,14 +39,18 @@
   gap: 2.5rem;
 }
 .hx-eyebrow {
-  animation: rise-in 0.8s var(--ease-out-expo) both;
 }
 .hx-title {
+  text-wrap: balance;
   margin: 1rem 0 0;
   font-size: clamp(2.45rem, 10.5vw, 3.9rem);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.035em;
+}
+.hx-title .split-line > span,
+.hx-title .split-line > span > em {
+  animation: none;
 }
 .hx-title em {
   color: var(--pine-700);
@@ -78,7 +82,6 @@
   font-size: 1.25rem;
   font-style: italic;
   color: var(--home-muted);
-  animation: rise-in 0.8s var(--ease-out-expo) both 0.35s;
 }
 .hx-lede {
   margin: 1.4rem 0 0;
@@ -86,13 +89,11 @@
   font-size: 1.08rem;
   line-height: 1.7;
   color: #34413c;
-  animation: rise-in 0.9s var(--ease-out-expo) both 0.35s;
 }
 .hx-actions {
   display: grid;
   gap: 0.7rem;
   margin-top: 1.75rem;
-  animation: rise-in 0.9s var(--ease-out-expo) both 0.45s;
 }
 .hx-actions .btn {
   white-space: normal;

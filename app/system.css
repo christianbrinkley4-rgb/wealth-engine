@@ -460,7 +460,7 @@ p {
   font-variant-numeric: tabular-nums;
 }
 .nav-cta {
-  display: none;
+  display: inline-flex;
 }
 .nav-menu-button {
   display: grid;
@@ -545,6 +545,10 @@ p {
   .nav-brand-text {
     display: none;
   }
+  .nav-call-number { display: none; }
+  .nav-cta { padding-inline: 0.75rem; font-size: 1rem; min-height: 48px; max-width: 156px; white-space: normal; text-align: center; }
+  .nav-actions { gap: 0.5rem; }
+  .nav-call { padding-inline: 0; width: 44px; justify-content: center; }
   .nav-bar {
     gap: 0.75rem;
   }
@@ -1204,11 +1208,13 @@ details[open]::details-content {
   animation: rise-in 0.9s var(--ease-out-expo) both 0.08s;
 }
 .sh-actions {
+  scroll-margin-top: 6rem;
   display: grid;
   gap: 0.75rem;
   margin-top: 1.9rem;
   animation: rise-in 0.9s var(--ease-out-expo) both 0.16s;
 }
+.sh-title, .sh-lede, .sh-eyebrow, .sh-actions { animation: none; }
 .sh-actions .btn {
   white-space: normal;
   text-align: center;

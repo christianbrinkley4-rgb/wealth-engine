@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -24,9 +27,15 @@ export const metadata: Metadata = {
     absolute: "How to Appeal IRMAA and Lower Your Medicare Premiums",
   },
   description:
-    "Paying an IRMAA surcharge on your Medicare premiums? If your income dropped since retirement, Form SSA-44 lets you ask Social Security for a review. Free local help in Greensboro and the Triad.",
+    "Paying an IRMAA Medicare surcharge after your income dropped? Learn how Form SSA-44 requests a review. Free local help from Christian Brinkley in Greensboro.",
   alternates: { canonical: "/irmaa-appeal" },
   openGraph: pageOpenGraph({
+    title: "Appealing a high Medicare premium in Greensboro, Winston-Salem & High Point",
+    description:
+      "Retired since the tax year Medicare is using? You may not have to pay the higher premium. Here’s what qualifies, and how a Triad agent can help you prepare the request.",
+    path: "/irmaa-appeal",
+  }),
+  twitter: pageTwitter({
     title: "Appealing a high Medicare premium in Greensboro, Winston-Salem & High Point",
     description:
       "Retired since the tax year Medicare is using? You may not have to pay the higher premium. Here’s what qualifies, and how a Triad agent can help you prepare the request.",
@@ -292,6 +301,8 @@ export default function IrmaaAppealPage() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-09-18" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

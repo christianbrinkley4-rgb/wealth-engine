@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
@@ -24,9 +27,15 @@ export const metadata: Metadata = {
     absolute: "Can I Keep My Doctor on Medicare? | Greensboro",
   },
   description:
-    "Worried about losing your doctor on Medicare? Learn how to check which plans include your doctors in Greensboro before you enroll. Free help.",
+    "Worried about losing your doctor on Medicare? Learn how to check which plans include your doctors in Greensboro before you enroll. Free help. Read on.",
   alternates: { canonical: "/keep-my-doctor" },
   openGraph: pageOpenGraph({
+    title: "Can I keep my doctor on Medicare in Greensboro, Winston-Salem & High Point?",
+    description:
+      "The first question everyone asks, answered for Greensboro, High Point, and Winston-Salem, including how to check properly before you sign up.",
+    path: "/keep-my-doctor",
+  }),
+  twitter: pageTwitter({
     title: "Can I keep my doctor on Medicare in Greensboro, Winston-Salem & High Point?",
     description:
       "The first question everyone asks, answered for Greensboro, High Point, and Winston-Salem, including how to check properly before you sign up.",
@@ -253,6 +262,8 @@ export default function KeepMyDoctorPage() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-09-18" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

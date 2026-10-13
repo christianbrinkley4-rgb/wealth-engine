@@ -1,3 +1,5 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -10,7 +12,7 @@ import "./checklist.css";
 const path = "/medicare-plan-checklist";
 const title = "Medicare Plan Research Checklist | Christian Brinkley";
 const description =
-  "List your doctors, prescriptions, pharmacy and priorities on your own device. Print one sheet to take to Medicare.gov or to a no-cost conversation.";
+  "List your doctors, prescriptions, pharmacy and priorities on your own device. Print one sheet to take to Medicare.gov or to a no-cost conversation. Read on.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -70,6 +72,8 @@ export default function ChecklistPage() {
       <div className="app-shell max-w-3xl pb-10">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-09" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

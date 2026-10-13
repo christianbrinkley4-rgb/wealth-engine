@@ -1,3 +1,5 @@
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -24,9 +26,15 @@ export const metadata: Metadata = {
     absolute: "2026 IRMAA Brackets: Medicare Income Limits and Surcharges",
   },
   description:
-    "The full 2026 IRMAA table: income thresholds, Part B premiums, and Part D surcharges by bracket, plus the 2-year lookback and how to appeal.",
+    "The full 2026 IRMAA table: income thresholds, Part B premiums, and Part D surcharges by bracket, plus the 2-year lookback and how to appeal. Learn more.",
   alternates: { canonical: "/guides/irmaa-brackets-2026" },
   openGraph: pageOpenGraph({
+    title: "2026 IRMAA brackets: the complete table",
+    description:
+      "Every 2026 IRMAA income threshold, Part B premium, and Part D surcharge in one table. How the lookback works and when you can appeal.",
+    path: "/guides/irmaa-brackets-2026",
+  }),
+  twitter: pageTwitter({
     title: "2026 IRMAA brackets: the complete table",
     description:
       "Every 2026 IRMAA income threshold, Part B premium, and Part D surcharge in one table. How the lookback works and when you can appeal.",
@@ -263,6 +271,7 @@ export default function IrmaaBrackets2026Page() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="general" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
     </main>
   );
 }

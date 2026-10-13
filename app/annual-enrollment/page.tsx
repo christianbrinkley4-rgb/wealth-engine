@@ -1,3 +1,8 @@
+import { speakableJsonLd } from "@/lib/seo";
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
+import { pageTwitter } from "@/lib/seo";
 import { AepCountdown } from "@/components/story/AepCountdown";
 import { PullQuote } from "@/components/story/PullQuote";
 import { ScrollReveal } from "@/components/story/ScrollReveal";
@@ -41,9 +46,15 @@ export const metadata: Metadata = {
     absolute: "Medicare Annual Enrollment Help | Greensboro",
   },
   description:
-    "AEP is Oct 15-Dec 7. Review your 2027 Medicare costs, drugs, and doctors with a local licensed agent before the deadline. Free, no pressure.",
+    "Medicare Annual Enrollment is October 15 to December 7. Review 2027 doctors, prescriptions, and costs with a local Greensboro agent. Free, no-pressure help.",
   alternates: { canonical: "/annual-enrollment" },
   openGraph: pageOpenGraph({
+    title: "Medicare annual enrollment help in Greensboro, Winston-Salem & High Point",
+    description:
+      "A personal review in Greensboro, High Point, or Winston-Salem of next year’s costs, doctors, and prescriptions, including when keeping your plan is the right move.",
+    path: "/annual-enrollment",
+  }),
+  twitter: pageTwitter({
     title: "Medicare annual enrollment help in Greensboro, Winston-Salem & High Point",
     description:
       "A personal review in Greensboro, High Point, or Winston-Salem of next year’s costs, doctors, and prescriptions, including when keeping your plan is the right move.",
@@ -70,40 +81,7 @@ const STEPS = [
   },
 ] as const;
 
-const FAQ = [
-  {
-    q: "When is Medicare annual enrollment?",
-    a: "October 15 through December 7 every year, and anything you change starts January 1. If you’re already on a Medicare Advantage plan there’s a second window from January 1 to March 31, but it allows one change: to a different Advantage plan, or back to Original Medicare with a drug plan. It is not a second fall shopping season. On Original Medicare, it does not let you join an Advantage plan, pick up a standalone drug plan, or switch the drug plan you have. Your change starts the first of the month after the plan receives it.",
-  },
-  {
-    q: "Do I have to do anything?",
-    a: "Your plan generally renews automatically. A review can confirm whether the costs, prescription coverage, and choice of doctors still fit your needs before you decide whether to make a change.",
-  },
-  {
-    q: "How do I know if I should switch?",
-    a: "Consider whether your doctors, prescription coverage, expected costs, or personal needs have changed. We can compare those details before you decide whether a different plan would suit you.",
-  },
-  {
-    q: "Why do I get so much mail and so many calls this time of year?",
-    a: "Annual enrollment brings a lot of advertising. You don’t have to respond to every letter or call. Start with your current plan and your own needs, and ask for help if something is unclear.",
-  },
-  {
-    q: "Can I change my Medigap policy during this window?",
-    a: "Annual enrollment applies to Medicare Advantage and Part D plans. Medigap has different rules. Outside your Medigap open enrollment period or another protected situation, an insurer may review your health when you apply.",
-  },
-  {
-    q: "Will you sit down with me and look at the letter?",
-    a: "Yes. We can meet in Greensboro, High Point, Winston-Salem, or nearby, or talk by phone. Bring the Annual Notice of Change and a list of your prescriptions. The review is free, and keeping your current coverage may be the right outcome.",
-  },
-  {
-    q: "Do Medicare Advantage plans differ across Greensboro, High Point, and Winston-Salem?",
-    a: "They can. Medicare Advantage and Part D plans are sold by county. Greensboro and most of High Point are in Guilford County. Winston-Salem is in Forsyth County, which may have a different list. We’ll check the plans available at your home address, then look at next year’s costs, doctors, and prescriptions together.",
-  },
-  {
-    q: "My premium went up and I didn’t change anything. Why?",
-    a: "A premium increase can come from a plan change or from an income-related Medicare charge called IRMAA. Bring the notice so we can identify the reason and discuss what you can do next.",
-  },
-] as const;
+const FAQ = PRIORITY_MEDICARE_FAQS.annual;
 
 export default function AnnualEnrollmentPage() {
   return (
@@ -122,14 +100,7 @@ export default function AnnualEnrollmentPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            speakable: {
-              "@type": "SpeakableSpecification",
-              cssSelector: [".sh-title", ".sh-lede"],
-            },
-          }),
+          __html: JSON.stringify(speakableJsonLd([".sh-title",".sh-lede"], "/annual-enrollment")).replace(/</g, "\\u003c"),
         }}
       />
       <script
@@ -143,7 +114,7 @@ export default function AnnualEnrollmentPage() {
                 "How to review your plan’s changes, prescription coverage, doctors, and costs before the annual enrollment deadline.",
               path: "/annual-enrollment",
               datePublished: "2026-08-31",
-              dateModified: "2026-10-08",
+              dateModified: "2026-10-12",
             }),
           ),
         }}
@@ -224,7 +195,7 @@ export default function AnnualEnrollmentPage() {
             <div className="border-t border-gray-300 pt-5">
               <h3 className="text-19 font-semibold">New flexibility if your doctor leaves mid-year</h3>
               <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                If your doctor leaves your plan's network during the year, you now have more options
+                If your doctor leaves your plan&apos;s network during the year, you now have more options
                 to switch plans outside the fall window. This matters in the Triad, where Cone Health,
                 Novant, and Atrium Health Wake Forest Baptist contracting changes can move a lot of
                 doctors at once.
@@ -399,6 +370,8 @@ export default function AnnualEnrollmentPage() {
         <ComplianceDisclosure variant="medicare" />
       </div>
     <TrafficGuideLinks slugs={["medicare-plan-not-renewing-triad", "medicare-dual-eligible-snp-triad", "medicare-part-b-giveback-plans", "medicare-advantage-open-enrollment-period"]} />
+      <MedicareByline reviewed="2026-10-12" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -19,9 +20,15 @@ export const metadata: Metadata = {
     absolute: "AI for Money Tasks | Christian Brinkley",
   },
   description:
-    "Use AI for budgeting help, bill negotiation scripts, subscription audits, and reading statements. Educational only, never personal advice.",
+    "Use AI for budgeting help, bill negotiation scripts, subscription audits, and reading statements. Educational only, never personal advice. Learn more.",
   alternates: { canonical: "/ai/ai-money-tasks" },
   openGraph: pageOpenGraph({
+    title: "AI for money tasks",
+    description:
+      "Budgeting help, bill negotiation scripts, subscription audits, and reading statements. Educational only, never personal financial advice.",
+    path: "/ai/ai-money-tasks",
+  }),
+  twitter: pageTwitter({
     title: "AI for money tasks",
     description:
       "Budgeting help, bill negotiation scripts, subscription audits, and reading statements. Educational only, never personal financial advice.",
@@ -70,7 +77,7 @@ export default function AiMoneyTasksPage() {
             articleJsonLd({
               headline: "AI for Money Tasks: Budgets, Bills, Subscriptions",
               description:
-                "Use AI for budgeting help, bill negotiation scripts, subscription audits, and reading statements. Educational only, never personal advice.",
+                "Use AI for budgeting help, bill negotiation scripts, subscription audits, and reading statements. Educational only, never personal advice. Learn more.",
               path: "/ai/ai-money-tasks",
               datePublished: "2026-10-08",
               dateModified: "2026-10-08",

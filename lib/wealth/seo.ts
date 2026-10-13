@@ -27,7 +27,8 @@ export function wealthArticleJsonLd(input: Parameters<typeof articleJsonLd>[0]) 
  * instead of the Medicare site's title template.
  */
 export function wealthMetadata(input: { title: string; description: string; path: string }): Metadata {
-  const title = `${input.title} | ${WEALTH_BRAND}`;
+  const brandedTitle = `${input.title} | ${WEALTH_BRAND}`;
+  const title = brandedTitle.length < 60 ? brandedTitle : input.title;
   return {
     title: { absolute: title },
     description: input.description,

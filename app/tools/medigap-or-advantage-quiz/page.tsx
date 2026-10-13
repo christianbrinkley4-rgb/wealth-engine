@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   description: META.description,
   alternates: { canonical: path },
   openGraph: pageOpenGraph({ title: "Medigap or Medicare Advantage quiz", description: META.description, path }),
+  twitter: pageTwitter({ title: "Medigap or Medicare Advantage quiz", description: META.description, path }),
 };
 
 

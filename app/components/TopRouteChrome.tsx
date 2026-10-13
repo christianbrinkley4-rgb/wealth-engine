@@ -61,7 +61,22 @@ export function TopRouteChrome() {
     if (!menuOpen) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    const onKey = (event: KeyboardEvent) => event.key === "Escape" && setMenuOpenOn(null);
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpenOn(null);
+      if (event.key !== "Tab") return;
+      const controls = Array.from(
+        document.querySelectorAll<HTMLElement>("#site-menu a, .nav-menu-button"),
+      );
+      const first = controls[0];
+      const last = controls.at(-1);
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
+    };
     window.addEventListener("keydown", onKey);
     // Move focus into the menu on open
     const firstLink = document.querySelector("#site-menu a") as HTMLElement | null;
@@ -85,78 +100,102 @@ export function TopRouteChrome() {
   // close button remains tappable.
   return (
     <>
-    <header className="nav" data-scrolled={scrolled || menuOpen ? "true" : undefined}>
-      <a href="#main-content" className="skip-link">
-        Skip to the main content
-      </a>
-      <div className="shell nav-bar">
-        <Link ctaLocation="header" href="/" className="nav-brand" aria-label={`${AGENT.name} ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state}, home`}>
-          <Image
-            src="/christian-brinkley-square.jpg"
-            alt=""
-            width={96}
-            height={96}
-            sizes="44px"
-            loading="eager"
-            className="nav-face"
-          />
-          <span className="nav-brand-text">
-            <span className="nav-name">{AGENT.name}</span>{" "}
-            <span className="nav-license">
-              {AGENT.licenseLine}
-              <span className="nav-license-place">
-                {" "}
-                · {AGENT.city}, {AGENT.state}
+      <header className="nav" data-scrolled={scrolled || menuOpen ? "true" : undefined}>
+        <a href="#main-content" className="skip-link">
+          Skip to the main content
+        </a>
+        <div className="shell nav-bar">
+          <Link
+            ctaLocation="header"
+            href="/"
+            className="nav-brand"
+            aria-label={`${AGENT.name} ${AGENT.licenseLine} · ${AGENT.city}, ${AGENT.state}, home`}
+          >
+            <Image
+              src="/christian-brinkley-square.jpg"
+              alt=""
+              width={96}
+              height={96}
+              sizes="44px"
+              loading="eager"
+              className="nav-face"
+            />
+            <span className="nav-brand-text">
+              <span className="nav-name">{AGENT.name}</span>{" "}
+              <span className="nav-license">
+                {AGENT.licenseLine}
+                <span className="nav-license-place">
+                  {" "}
+                  · {AGENT.city}, {AGENT.state}
+                </span>
               </span>
             </span>
-          </span>
-        </Link>
-
-        <nav aria-label="Main" className="nav-links">
-          <ul>
-            {NAV.map((item) => (
-              <li key={item.href}>
-                <Link ctaLocation="header"
-                  href={item.href}
-                  aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="nav-actions">
-          <Link href="/wealth" className="nav-money">Money guides</Link>
-          <Link ctaLocation="header" href="/plan-check" className="btn btn-accent btn-sm nav-cta">
-            Plan check
           </Link>
-          {!isAiRoute(pathname) && (
-            <a data-cta-location="header" className="nav-call" href={AGENT.phoneHref} aria-label={`Call ${AGENT.phone}`}>
-              <Phone size={17} aria-hidden />
-              <span className="nav-call-number">{AGENT.phone}</span>
-            </a>
-          )}
-          <button
-            type="button"
-            className="nav-menu-button"
-            aria-expanded={menuOpen}
-            aria-controls="site-menu"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMenuOpenOn(menuOpen ? null : pathname)}
-          >
-            {menuOpen ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
-          </button>
+
+          <nav aria-label="Main" className="nav-links">
+            <ul>
+              {NAV.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    ctaLocation="header"
+                    href={item.href}
+                    aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="nav-actions">
+            <Link href="/wealth" className="nav-money">
+              Money guides
+            </Link>
+            {!isAiRoute(pathname) && pathname !== "/schedule" && (
+              <Link
+                ctaLocation="header"
+                href="/schedule?topic=medicare#booking-calendar"
+                className="btn btn-accent btn-sm nav-cta"
+              >
+                Book a free consultation
+              </Link>
+            )}
+            {!isAiRoute(pathname) && (
+              <a
+                data-cta-location="header"
+                className="nav-call"
+                href={AGENT.phoneHref}
+                aria-label={`Call ${AGENT.phone}`}
+              >
+                <Phone size={17} aria-hidden />
+                <span className="nav-call-number">{AGENT.phone}</span>
+              </a>
+            )}
+            <button
+              type="button"
+              className="nav-menu-button"
+              aria-expanded={menuOpen}
+              aria-controls="site-menu"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              onClick={() => setMenuOpenOn(menuOpen ? null : pathname)}
+            >
+              {menuOpen ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
+            </button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
       <nav id="site-menu" aria-label="Menu" className="nav-sheet" hidden={!menuOpen}>
         <ul>
-          {[...NAV, ...SHEET_EXTRA].map((item, index) => (
+          {[
+            { href: "/schedule?topic=medicare#booking-calendar", label: "Book a free consultation" },
+            ...NAV,
+            ...SHEET_EXTRA,
+          ].map((item, index) => (
             <li key={item.href} style={{ "--i": index } as React.CSSProperties}>
-              <Link ctaLocation="menu"
+              <Link
+                ctaLocation="menu"
                 href={item.href}
                 aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
               >
@@ -172,8 +211,12 @@ export function TopRouteChrome() {
               <Phone size={19} aria-hidden /> {AGENT.phone}
             </a>
           )}
-          <Link ctaLocation="menu" href="/plan-check" className="btn btn-accent btn-block">
-            90-second plan check
+          <Link
+            ctaLocation="menu"
+            href="/schedule?topic=medicare#booking-calendar"
+            className="btn btn-accent btn-block"
+          >
+            Book a free consultation
           </Link>
         </div>
         <p className="nav-sheet-note">

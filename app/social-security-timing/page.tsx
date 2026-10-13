@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -32,6 +35,12 @@ export const metadata: Metadata = {
     "Understand how your Social Security start date can affect monthly income, benefits for a spouse, and retirement planning. Personal education in Greensboro.",
   alternates: { canonical: "/social-security-timing" },
   openGraph: pageOpenGraph({
+    title: "When to take Social Security",
+    description:
+      "Your income needs, family circumstances, and other savings all matter when choosing when to start Social Security.",
+    path: "/social-security-timing",
+  }),
+  twitter: pageTwitter({
     title: "When to take Social Security",
     description:
       "Your income needs, family circumstances, and other savings all matter when choosing when to start Social Security.",
@@ -269,6 +278,8 @@ export default function SocialSecurityTimingPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure />
       </div>
+      <MedicareByline reviewed="2026-09-10" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

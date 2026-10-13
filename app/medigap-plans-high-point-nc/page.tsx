@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import Link from "next/link";
@@ -22,6 +25,12 @@ export const metadata: Metadata = {
     "Confused by Medicare Supplement (Medigap) plans in High Point, NC? Plain-English help from Christian Brinkley, a licensed NC agent. Free. Call (919) 408-6671.",
   alternates: { canonical: "/medigap-plans-high-point-nc" },
   openGraph: pageOpenGraph({
+    title: "Medigap plans in High Point, explained in plain English.",
+    description:
+      "What Medicare Supplement plans cover, who they suit, and the turning-65 window that matters. Free local help in High Point and Guilford County.",
+    path: "/medigap-plans-high-point-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medigap plans in High Point, explained in plain English.",
     description:
       "What Medicare Supplement plans cover, who they suit, and the turning-65 window that matters. Free local help in High Point and Guilford County.",
@@ -303,6 +312,8 @@ export default function MedigapPlansHighPointPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-10" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

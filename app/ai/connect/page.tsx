@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -16,9 +17,15 @@ export const metadata: Metadata = {
     absolute: "Connect Your AI Assistant | Christian Brinkley",
   },
   description:
-    "Add Christian's site as a connector in Claude or any MCP app. Plain-English setup steps, what it answers, and example prompts.",
+    "Add Christian's site as a connector in Claude or any MCP app. Plain-English setup steps, what it answers, and example prompts. Read the plain-English guide.",
   alternates: { canonical: "/ai/connect" },
   openGraph: pageOpenGraph({
+    title: "Connect your AI assistant",
+    description:
+      "Let Claude or another AI app read the site's guides, calculators, and 2027 numbers directly. Setup steps, what it answers, example prompts.",
+    path: "/ai/connect",
+  }),
+  twitter: pageTwitter({
     title: "Connect your AI assistant",
     description:
       "Let Claude or another AI app read the site's guides, calculators, and 2027 numbers directly. Setup steps, what it answers, example prompts.",

@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
@@ -27,12 +30,18 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "What Is the Medicare Annual Notice of Change (ANOC)? | 2026 Guide",
+    absolute: "Medicare Annual Notice of Change: ANOC Guide 2026",
   },
   description:
-    "Your ANOC letter arrived in September. It lists what changes January 1. Annual Enrollment runs October 15 to December 7. Get a free plain-English review with licensed local agent Christian Brinkley. Call (919) 408-6671.",
+    "Read your Medicare ANOC before December 7. Compare 2027 changes to costs, doctors, and prescriptions with a local Greensboro agent. Free, no-pressure review.",
   alternates: { canonical: "/anoc" },
   openGraph: pageOpenGraph({
+    title: "Got your ANOC letter? Don't just file it away.",
+    description:
+      "Your plan's September letter, translated into plain English, free. What's changing, what it costs you, whether your doctors are still in.",
+    path: "/anoc",
+  }),
+  twitter: pageTwitter({
     title: "Got your ANOC letter? Don't just file it away.",
     description:
       "Your plan's September letter, translated into plain English, free. What's changing, what it costs you, whether your doctors are still in.",
@@ -270,6 +279,8 @@ export default function AnocPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-06" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

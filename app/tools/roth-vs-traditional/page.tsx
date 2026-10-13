@@ -1,3 +1,5 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
 import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
@@ -11,7 +13,7 @@ import { RothVsTraditional } from "./RothVsTraditional";
 
 const path = "/tools/roth-vs-traditional";
 const description =
-  "Free Roth vs traditional calculator. Put the same paycheck dollars in both, using the real 2026 IRA limits, and see which leaves more after tax.";
+  "Free Roth vs traditional calculator. Put the same paycheck dollars in both, using the real 2026 IRA limits, and see which leaves more after tax. Read on.";
 
 export const metadata: Metadata = {
   title: { absolute: "Roth vs Traditional Calculator | Christian Brinkley" },
@@ -109,6 +111,8 @@ export default function RothVsTraditionalPage() {
           { href: "/wealth/roth-vs-traditional-taxes", label: "Roth vs traditional taxes" },
         ]}
       />
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

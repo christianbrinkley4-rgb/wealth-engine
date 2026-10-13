@@ -176,6 +176,8 @@ export function AepQuiz() {
   useEffect(() => {
     const assigned = assignQuizVariant(readQuizVariantCookie(document.cookie));
     if (assigned.isNew) document.cookie = quizVariantCookie(assigned.variant);
+    // Browser-cookie assignment must be synchronized after hydration.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setVariant(assigned.variant);
   }, []);
 

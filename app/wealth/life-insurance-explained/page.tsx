@@ -10,7 +10,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const PATH = "/wealth/life-insurance-explained";
 const TITLE = "Life Insurance Explained";
 const DESCRIPTION =
-  "Term and whole life do different jobs. What each one is, how agents get paid, and the questions to ask before you sign.";
+  "Term and whole life do different jobs. What each one is, how agents get paid, and the questions to ask before you sign. Explore the plain-English guide.";
 const MINUTES = 6;
 const UPDATED = "October 8, 2026";
 

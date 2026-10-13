@@ -1,3 +1,8 @@
+import { speakableJsonLd } from "@/lib/seo";
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
+import { pageTwitter } from "@/lib/seo";
 import { AepCountdown } from "@/components/story/AepCountdown";
 import { PullQuote } from "@/components/story/PullQuote";
 import { ScrollReveal } from "@/components/story/ScrollReveal";
@@ -33,9 +38,15 @@ export const metadata: Metadata = {
     absolute: "Turning 65 Greensboro NC: Local Licensed Medicare Help",
   },
   description:
-    "Turning 65 in the Piedmont Triad? Map employer coverage, Part B, Medigap, and a younger spouse with a local licensed agent in Greensboro.",
+    "Turning 65 in Greensboro or the Triad? Find your Medicare dates, check employer coverage, and compare options with a local licensed agent. Free consultation.",
   alternates: { canonical: "/turning-65" },
   openGraph: pageOpenGraph({
+    title: "Turning 65 Medicare help in Greensboro, Winston-Salem & High Point",
+    description:
+      "The seven-month Initial Enrollment Period around your 65th birthday, with a licensed agent serving the Piedmont Triad.",
+    path: "/turning-65",
+  }),
+  twitter: pageTwitter({
     title: "Turning 65 Medicare help in Greensboro, Winston-Salem & High Point",
     description:
       "The seven-month Initial Enrollment Period around your 65th birthday, with a licensed agent serving the Piedmont Triad.",
@@ -62,60 +73,7 @@ const STEPS = [
   },
 ] as const;
 
-const FAQ = [
-  {
-    q: "When does my Medicare Initial Enrollment Period start?",
-    a: "Three months before the month you turn 65. It includes that birthday month and the three months after, for seven months total. Coverage starts on time only if you enroll in the first three months of that window.",
-  },
-  {
-    q: "I am still working. Do I have to sign up at 65?",
-    a: "Not always. If you have a group health plan based on current employment, yours or your spouse’s, you can usually delay Part B without the late penalty, and you get a special enrollment period when that job-based coverage ends. Retiree coverage and COBRA do not count the same way: Medicare does not treat COBRA as coverage based on current employment. This is worth checking against your actual plan, not a rule of thumb.",
-  },
-  {
-    q: "What is the difference between turning 65 and annual enrollment?",
-    a: "Your Initial Enrollment Period is based on your 65th birthday. Annual enrollment, from October 15 to December 7, is a separate opportunity to review or change Medicare Advantage and Part D coverage. We can help you identify the dates that apply to you.",
-  },
-  {
-    q: "Can I keep my doctor?",
-    a: "Original Medicare lets you see providers who accept Medicare. Medicare Advantage plans generally use networks. We can check your doctors and hospitals for the specific plan and year you’re considering.",
-  },
-  {
-    q: "Do you meet in person in Greensboro?",
-    a: "We can meet at your home, at a convenient public location, or by phone. Your consultation is no cost, with no obligation to enroll. You’ll work directly with me.",
-  },
-  {
-    q: "I live in High Point or Winston-Salem. Can we still meet before I turn 65?",
-    a: "Yes. I serve Greensboro, High Point, Winston-Salem, and nearby communities. We can meet at your home, at a convenient public location, or by phone. Starting a few months before your birthday gives us time for your dates, doctors, and questions.",
-  },
-  {
-    q: "Does it matter whether I live in Guilford County or Forsyth County?",
-    a: "For Medicare Advantage and Part D, yes, those plans are sold by county. Greensboro and most of High Point are in Guilford County. Winston-Salem is in Forsyth County, which can have a different list. Original Medicare and Medigap work differently. We’ll check your home address rather than assuming the city name is enough.",
-  },
-  {
-    q: "What does this cost?",
-    a: "Nothing to sit down and walk through your dates, your doctors, and your options. If you enroll in a plan through me, the insurance company pays a commission. Your premium is not higher for using an agent.",
-  },
-  {
-    q: "What if I cannot afford Medicare premiums? Are there savings programs?",
-    a: "Yes, and many people miss them. Medicare Savings Programs (MSPs) can pay your Part B premium and sometimes Part A, deductibles, and coinsurance if your income and resources are limited. Extra Help, also called the Low Income Subsidy, can cut your Part D prescription drug costs dramatically, sometimes to just a few dollars per prescription. These programs have income limits that change yearly. If money is tight, tell me early in our conversation so we can check whether you qualify before you pick a plan.",
-  },
-  {
-    q: "How do I actually compare Medicare plans? What should I look at?",
-    a: "Start with three things: your doctors, your prescriptions, and your pharmacy. A plan with the lowest premium can cost you more overall if your drugs are not covered or your doctor is out of network. Compare the full picture: monthly premium, deductible, copays, the drug formulary, and whether your doctors and hospital accept the plan. For Medicare Advantage, check the plan's network for your specific county. I walk through all of this with you using your actual list, not a generic brochure.",
-  },
-  {
-    q: "Where can I get free Medicare help in Greensboro?",
-    a: "SHIIP, the Seniors Health Insurance Information Program, offers free unbiased counseling through Senior Resources of Guilford at 1401 Benjamin Parkway. Call (336) 373-4816, extension 253, and ask for Keith Slade, Jr. The Senior Education Network also holds free Medicare seminars at Benjamin Public Library on Benjamin Parkway. Both are good places to learn before you talk to any agent.",
-  },
-  {
-    q: "Where is the Social Security office in Greensboro?",
-    a: "The Greensboro office is at 6005 Landmark Center Blvd, Greensboro, NC 27407, open Monday through Friday, 9am to 4pm. Call 1-877-319-3075 for an appointment before visiting. You can also handle many Medicare enrollment tasks online at ssa.gov.",
-  },
-  {
-    q: "How do I get to Medicare appointments if I do not drive?",
-    a: "Greensboro Transit Authority (GTA) charges seniors 65 and older half fare, $0.75 per ride with free transfers. If you cannot get to a bus stop, SCAT paratransit offers door to door rides within city limits, call (336) 333-6589 to book. Outside the city, Guilford County TAMS covers medical appointment transportation.",
-  },
-] as const;
+const FAQ = PRIORITY_MEDICARE_FAQS.turning;
 
 export default function Turning65Page() {
   return (
@@ -140,14 +98,7 @@ export default function Turning65Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            speakable: {
-              "@type": "SpeakableSpecification",
-              cssSelector: [".sh-title", ".sh-lede"],
-            },
-          }),
+          __html: JSON.stringify(speakableJsonLd([".sh-title",".sh-lede"], "/turning-65")).replace(/</g, "\\u003c"),
         }}
       />
       <script
@@ -160,7 +111,7 @@ export default function Turning65Page() {
                 "The seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window you generally get once.",
               path: "/turning-65",
               datePublished: "2026-08-31",
-              dateModified: "2026-10-09",
+              dateModified: "2026-10-12",
             }),
           ),
         }}
@@ -483,6 +434,8 @@ export default function Turning65Page() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-12" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

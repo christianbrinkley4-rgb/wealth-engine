@@ -7,7 +7,7 @@ const ARTICLE: ArticleData = {
   path: "/wealth/disability-insurance-explained",
   title: "Disability Insurance, Explained",
   description:
-    "What disability insurance pays, short-term vs long-term, and the two time periods that shape every policy.",
+    "What disability insurance pays, short-term vs long-term, and the two time periods that shape every policy. Explore the steps in Christian Brinkley's guide.",
   eyebrow: "Insurance basics",
   readMinutes: 5,
   answer:

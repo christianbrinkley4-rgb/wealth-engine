@@ -10,7 +10,7 @@ import type { QuizData, QuizFaq, QuizMeta } from "../medigap-or-advantage-quiz/q
 export const META: QuizMeta = {
   title: "CD or Savings Quiz | Christian Brinkley",
   description:
-    "Six questions: should your cash sit in a CD or a high-yield savings account? Timing, access, and rates in plain English. Educational only.",
+    "Six questions: should your cash sit in a CD or a high-yield savings account? Timing, access, and rates in plain English. Educational only. Learn more.",
 };
 
 export const DATA: QuizData = {

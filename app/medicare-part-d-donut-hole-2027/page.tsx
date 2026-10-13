@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -20,9 +23,14 @@ export const metadata: Metadata = {
     absolute: "Is There Still a Medicare Donut Hole in 2027?",
   },
   description:
-    "The Medicare donut hole ended January 1, 2025. How Part D works now: the $700 deductible, $2,400 cap, and picking a 2027 drug plan.",
+    "The Medicare donut hole ended January 1, 2025. How Part D works now: the $700 deductible, $2,400 cap, and picking a 2027 drug plan. Explore the guide.",
   alternates: { canonical: "/medicare-part-d-donut-hole-2027" },
   openGraph: pageOpenGraph({
+    title: "Is There Still a Medicare Donut Hole in 2027?",
+    description: "No, and here is what replaced it: three simple stages and a cap on what you pay.",
+    path: "/medicare-part-d-donut-hole-2027",
+  }),
+  twitter: pageTwitter({
     title: "Is There Still a Medicare Donut Hole in 2027?",
     description: "No, and here is what replaced it: three simple stages and a cap on what you pay.",
     path: "/medicare-part-d-donut-hole-2027",
@@ -198,6 +206,8 @@ export default function DonutHole2027Page() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, HeartHandshake } from "lucide-react";
@@ -5,12 +6,17 @@ import { AGENT } from "@/lib/agent";
 import { pageOpenGraph } from "@/lib/seo";
 
 const description =
-  "Talk with Christian Brinkley about long-term care, short-term care, and critical illness insurance. A no-cost consultation in the Piedmont Triad.";
+  "Talk with Christian Brinkley about long-term care, short-term care, and critical illness insurance. A no-cost consultation in the Piedmont Triad. Read on.";
 export const metadata: Metadata = {
   title: { absolute: "Long-Term Care & Critical Illness Insurance" },
   description,
   alternates: { canonical: "/care-coverage" },
   openGraph: pageOpenGraph({
+    title: "A conversation about your family’s care",
+    description,
+    path: "/care-coverage",
+  }),
+  twitter: pageTwitter({
     title: "A conversation about your family’s care",
     description,
     path: "/care-coverage",
@@ -46,7 +52,7 @@ export default function CareCoveragePage() {
       <section className="personal-hero personal-section personal-shell">
         <p className="personal-eyebrow">FOR THE PEOPLE WHO MATTER TO YOU</p>
         <h1>
-          Let's talk about care,
+          Let&apos;s talk about care,
           <br />
           <em>before you have to arrange it.</em>
         </h1>

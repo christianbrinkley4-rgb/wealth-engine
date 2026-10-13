@@ -10,7 +10,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const path = "/wealth/side-hustle-taxes";
 const title = "Side-Hustle Taxes, Explained in Plain English";
 const description =
-  "Self-employment tax at 15.3%, tracking income and expenses, and the quarterly estimated payment system.";
+  "Self-employment tax at 15.3%, tracking income and expenses, and the quarterly estimated payment system. Explore the steps in Christian Brinkley's guide.";
 
 export const metadata: Metadata = wealthMetadata({ title, description, path });
 

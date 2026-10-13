@@ -54,7 +54,7 @@ describe("search discovery", () => {
     expect(article.author.sameAs).toEqual(person?.sameAs);
   });
 
-  it("connects Person and ProfessionalService sameAs to published profiles", () => {
+  it("connects Person and InsuranceAgency sameAs to published profiles", () => {
     const profiles = publishedProfiles();
     const urls = profiles.map((profile) => profile.url);
     expect(profiles.map((profile) => profile.network)).toEqual([
@@ -83,7 +83,7 @@ describe("search discovery", () => {
     const identityGraph = siteIdentityJsonLd()["@graph"];
     const person = identityGraph.find((entity) => entity["@type"] === "Person");
     const graph = localBusinessJsonLd()["@graph"];
-    const service = graph.find((entity) => entity["@type"] === "ProfessionalService");
+    const service = graph.find((entity) => entity["@type"] === "InsuranceAgency");
     const json = JSON.stringify(localBusinessJsonLd()).toLowerCase();
     expect(person?.sameAs).toEqual(urls);
     expect(service?.sameAs).toEqual(urls);

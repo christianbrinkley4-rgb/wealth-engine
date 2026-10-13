@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -5,6 +6,7 @@ import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
+import { REGIONAL_MEDICARE_NOTES } from "@/lib/regionalMedicareNotes";
 
 /**
  * Crawl hub for every town-specific Medicare page: the /medicare-[town]-nc
@@ -21,6 +23,12 @@ export const metadata: Metadata = {
     "Free local Medicare help across the Piedmont Triad: Greensboro, High Point, Burlington, Asheboro, Oxford, Roxboro. Find your town with a licensed NC agent.",
   alternates: { canonical: "/medicare-nc-towns" },
   openGraph: pageOpenGraph({
+    title: "Medicare help in your town",
+    description:
+      "Free local Medicare reviews across Guilford, Alamance, Randolph, Rockingham, Granville, Person, and nearby counties.",
+    path: "/medicare-nc-towns",
+  }),
+  twitter: pageTwitter({
     title: "Medicare help in your town",
     description:
       "Free local Medicare reviews across Guilford, Alamance, Randolph, Rockingham, Granville, Person, and nearby counties.",
@@ -52,17 +60,17 @@ const COUNTIES: CountyGroup[] = [
       },
       {
         name: "Elon",
-        href: "/medicare-in/elon",
+        href: "/medicare-nc-towns#alamance-county",
         blurb: "College town dynamics and what they mean for local plan availability.",
       },
       {
         name: "Graham",
-        href: "/medicare-graham-nc",
+        href: "/medicare-nc-towns#alamance-county",
         blurb: "The county seat. Historic downtown, mill-town roots, and Medicare basics.",
       },
       {
         name: "Mebane",
-        href: "/medicare-mebane-nc",
+        href: "/medicare-nc-towns#alamance-county",
         blurb: "The commuter town between the Triad and the Triangle, and why that matters for networks.",
       },
     ],
@@ -72,23 +80,23 @@ const COUNTIES: CountyGroup[] = [
     towns: [
       {
         name: "Butner",
-        href: "/medicare-butner-nc",
+        href: "/medicare-nc-towns#granville-county",
         blurb: "Just down the road from Creedmoor. Same neighborly service, in person or by phone.",
       },
       {
         name: "Creedmoor",
-        href: "/medicare-creedmoor-nc",
+        href: "/medicare-nc-towns#granville-county",
         agentHref: "/medicare-agent-creedmoor-nc",
         blurb: "My hometown. Medicare help from someone who grew up here.",
       },
       {
         name: "Stem",
-        href: "/medicare-agent-stem-nc",
+        href: "/medicare-nc-towns#granville-county",
         blurb: "Small Granville town between Creedmoor and Oxford.",
       },
       {
         name: "Oxford",
-        href: "/medicare-oxford-nc",
+        href: "/medicare-nc-towns#granville-county",
         agentHref: "/medicare-agent-oxford-nc",
         blurb: "The county seat. Durham-direction specialists and SHIIP counseling at Senior Services.",
       },
@@ -97,18 +105,18 @@ const COUNTIES: CountyGroup[] = [
   {
     county: "Guilford County",
     towns: [
-      { name: "Browns Summit", href: "/medicare-in/browns-summit", blurb: "Medicare help in Browns Summit." },
-      { name: "Colfax", href: "/medicare-in/colfax", blurb: "Medicare help in Colfax." },
-      { name: "Gibsonville", href: "/medicare-in/gibsonville", blurb: "Medicare help in Gibsonville." },
-      { name: "Greensboro", href: "/medicare-in/greensboro", agentHref: "/medicare-agent-greensboro-nc", blurb: "My base. The full Triad network picture." },
+      { name: "Browns Summit", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Browns Summit." },
+      { name: "Colfax", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Colfax." },
+      { name: "Gibsonville", href: "/medicare-nc-towns#alamance-county", blurb: "Medicare help in Gibsonville." },
+      { name: "Greensboro", href: "/medicare-agent-greensboro-nc", agentHref: "/medicare-agent-greensboro-nc", blurb: "My base. The full Triad network picture." },
       { name: "High Point", href: "/medicare-agent-high-point-nc", blurb: "Why High Point buys Guilford plans but sees Winston-Salem doctors." },
-      { name: "Jamestown", href: "/medicare-in/jamestown", blurb: "Medicare help in Jamestown." },
-      { name: "McLeansville", href: "/medicare-in/mcleansville", blurb: "Medicare help in McLeansville." },
-      { name: "Oak Ridge", href: "/medicare-in/oak-ridge", blurb: "Medicare help in Oak Ridge." },
-      { name: "Pleasant Garden", href: "/medicare-in/pleasant-garden", blurb: "Medicare help in Pleasant Garden." },
-      { name: "Stokesdale", href: "/medicare-in/stokesdale", blurb: "Medicare help in Stokesdale." },
-      { name: "Summerfield", href: "/medicare-in/summerfield", blurb: "Medicare help in Summerfield." },
-      { name: "Whitsett", href: "/medicare-in/whitsett", blurb: "Medicare help in Whitsett." },
+      { name: "Jamestown", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Jamestown." },
+      { name: "McLeansville", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in McLeansville." },
+      { name: "Oak Ridge", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Oak Ridge." },
+      { name: "Pleasant Garden", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Pleasant Garden." },
+      { name: "Stokesdale", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Stokesdale." },
+      { name: "Summerfield", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Summerfield." },
+      { name: "Whitsett", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Whitsett." },
     ],
   },
   {
@@ -116,7 +124,7 @@ const COUNTIES: CountyGroup[] = [
     towns: [
       {
         name: "Roxboro",
-        href: "/medicare-roxboro-nc",
+        href: "/medicare-nc-towns#person-county",
         blurb: "The county seat. Rural-county Medicare notes and local resources.",
       },
     ],
@@ -126,27 +134,27 @@ const COUNTIES: CountyGroup[] = [
     towns: [
       {
         name: "Archdale",
-        href: "/medicare-in/archdale",
+        href: "/medicare-nc-towns#randolph-county",
         blurb: "Between Asheboro and High Point, and what that means for your network.",
       },
       {
         name: "Asheboro",
-        href: "/medicare-asheboro-nc",
+        href: "/medicare-nc-towns#randolph-county",
         blurb: "The county seat and medical hub. Zoo town, and where most Randolph County care happens.",
       },
       {
         name: "Liberty",
-        href: "/medicare-liberty-nc",
+        href: "/medicare-nc-towns#randolph-county",
         blurb: "Small-town Randolph County. Same free review, by phone or in person.",
       },
       {
         name: "Ramseur",
-        href: "/medicare-ramseur-nc",
+        href: "/medicare-nc-towns#randolph-county",
         blurb: "Mill-town roots near Asheboro. Local resources and Medicare basics.",
       },
       {
         name: "Randleman",
-        href: "/medicare-in/randleman",
+        href: "/medicare-nc-towns#randolph-county",
         blurb: "Medicare help in Randleman.",
       },
     ],
@@ -156,28 +164,33 @@ const COUNTIES: CountyGroup[] = [
     towns: [
       {
         name: "Eden",
-        href: "/medicare-eden-nc",
+        href: "/medicare-nc-towns#rockingham-county",
         blurb: "Former mill town on the northern corridor. Smith River country.",
       },
       {
         name: "Madison",
-        href: "/medicare-madison-nc",
+        href: "/medicare-nc-towns#rockingham-county",
         blurb: "Small Rockingham town near the Dan River. Local help, plain English.",
       },
       {
         name: "Reidsville",
-        href: "/medicare-agent-reidsville-nc",
+        href: "/medicare-nc-towns#rockingham-county",
         blurb: "Rockingham's largest town, and why its plan market stands apart.",
       },
     ],
   },
   {
-    county: "Forsyth & Davidson Counties",
+    county: "Forsyth County",
     towns: [
       { name: "Kernersville", href: "/medicare-agent-kernersville-nc", blurb: "Medicare help in Kernersville." },
-      { name: "Lexington", href: "/medicare-agent-lexington-nc", blurb: "Davidson County seat, between Thomasville and Winston-Salem." },
-      { name: "Thomasville", href: "/medicare-agent-thomasville-nc", blurb: "Medicare help in Thomasville." },
       { name: "Winston-Salem", href: "/medicare-agent-winston-salem-nc", blurb: "A different county list, twenty-five minutes away." },
+    ],
+  },
+  {
+    county: "Davidson County",
+    towns: [
+      { name: "Lexington", href: "/medicare-nc-towns#davidson-county", blurb: "Phone consultations for Lexington residents." },
+      { name: "Thomasville", href: "/medicare-nc-towns#davidson-county", blurb: "Phone consultations for Thomasville residents." },
     ],
   },
 ];
@@ -226,12 +239,13 @@ export default function MedicareTownsHubPage() {
 
           <div className="mt-10 space-y-10">
             {COUNTIES.map((group) => (
-              <div key={group.county}>
+              <div key={group.county} id={group.county.toLowerCase().replaceAll(" ", "-")}>
                 <h2 className="text-22 font-semibold">{group.county}</h2>
+                <p className="text-17 mt-4 leading-relaxed">{REGIONAL_MEDICARE_NOTES[group.county]}</p>
                 <ul className="mt-4 grid gap-4 sm:grid-cols-2">
                   {group.towns.map((town) => (
                     <li
-                      key={town.href}
+                      key={town.name}
                       className="rounded-xl border border-gray-200 bg-[var(--color-paper)] p-5"
                     >
                       <Link
@@ -275,7 +289,7 @@ export default function MedicareTownsHubPage() {
 
       <KitchenTableClose
         heading="Start with your town, or start with the quiz"
-        body="Every town page ends at the same free review. Twenty minutes, plain English, no obligation."
+        body="Choose a phone conversation or an agreed meeting. Free, with no obligation to enroll."
         href="/plan-check"
         label="Take the 90-second plan check →"
       />

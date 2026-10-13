@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -22,9 +25,15 @@ export const metadata: Metadata = {
     absolute: "Medicare Costs in North Carolina (2027)",
   },
   description:
-    "What Medicare costs in North Carolina: Part B premiums, deductibles, Part D caps, and what changes in 2027. From a licensed local agent.",
+    "What Medicare costs in North Carolina: Part B premiums, deductibles, Part D caps, and what changes in 2027. From a licensed local agent. Read the guide.",
   alternates: { canonical: "/medicare-costs-north-carolina" },
   openGraph: pageOpenGraph({
+    title: "Medicare Costs in North Carolina",
+    description:
+      "Every major Medicare cost for NC residents, what changes in 2027, and what actually drives your yearly total.",
+    path: "/medicare-costs-north-carolina",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Costs in North Carolina",
     description:
       "Every major Medicare cost for NC residents, what changes in 2027, and what actually drives your yearly total.",
@@ -319,6 +328,8 @@ export default function MedicareCostsNorthCarolinaPage() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-09" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

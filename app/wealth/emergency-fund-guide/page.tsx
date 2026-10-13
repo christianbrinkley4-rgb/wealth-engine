@@ -7,7 +7,7 @@ const ARTICLE: ArticleData = {
   path: "/wealth/emergency-fund-guide",
   title: "The Emergency Fund Guide",
   description:
-    "What an emergency fund is, where to keep it, and how to build it on autopay without thinking about it.",
+    "What an emergency fund is, where to keep it, and how to build it on autopay without thinking about it. Explore the steps in Christian Brinkley's guide.",
   eyebrow: "Money basics",
   readMinutes: 5,
   answer:

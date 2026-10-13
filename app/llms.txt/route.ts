@@ -8,6 +8,7 @@ import {
   publishedProfiles,
   TPMO_DISCLAIMER,
 } from "@/lib/agent";
+import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { placeNames, indexableMedicarePlaces } from "@/lib/triad";
 import { WEALTH_ARTICLES } from "@/lib/wealth/articles";
@@ -138,7 +139,7 @@ export function GET() {
     .join("\n");
   const cityLines = indexableMedicarePlaces().map((city) =>
     [
-      `- [Medicare in ${city.name}](${SITE_URL}/medicare-in/${city.slug}): personal help with enrollment, doctors, prescriptions, and coverage choices. Confirm Medicare Advantage availability for the visitor’s home address.`,
+      `- [Medicare in ${city.name}](${SITE_URL}${canonicalMedicareLocation(`/medicare-in/${city.slug}`)}): personal help with enrollment, doctors, prescriptions, and coverage choices. Confirm Medicare Advantage availability for the visitor’s home address.`,
     ].join("\n"),
   ).join("\n");
 
@@ -155,7 +156,7 @@ export function GET() {
       (article) => `- [${article.title}](${SITE_URL}/wealth/learn/${article.slug}): ${article.answer}`,
     ),
     ...NEW_GUIDE_PAGES.map(
-      (page) => `- [${page.title}](${SITE_URL}${page.path}): ${page.blurb}`,
+      (page) => `- [${page.title}](${SITE_URL}${canonicalMedicareLocation(page.path)}): ${page.blurb}`,
     ),
   ].join("\n");
 
@@ -277,7 +278,7 @@ ${GOVERNMENT_DISCLAIMER} The site is not affiliated with the University of North
 ## Local pages
 
 ${cityLines}
-${DEDICATED_TOWN_PAGES.map((page) => `- [${page.title}](${SITE_URL}${page.path}): ${page.blurb}`).join("\n")}
+${DEDICATED_TOWN_PAGES.map((page) => `- [${page.title}](${SITE_URL}${canonicalMedicareLocation(page.path)}): ${page.blurb}`).join("\n")}
 `;
 
   return new Response(body, {

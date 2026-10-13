@@ -127,8 +127,8 @@ export function ArticleBody({
               </strong>
               <span>
                 Licensed NC Insurance Agent
-                {hasPublishableNpn() ? `, NPN ${AGENT.npn}` : ""}, {AGENT.licenseLine} · Updated {formatArticleDate(article.updated)} ·{" "}
-                {minutes} min read
+                {hasPublishableNpn() ? `, NPN ${AGENT.npn}` : ""}, {AGENT.licenseLine} · Updated{" "}
+                {formatArticleDate(article.updated)} · {minutes} min read
               </span>
             </p>
           </div>
@@ -230,6 +230,8 @@ export function ArticleBody({
                 <strong>{AGENT.name}</strong>
                 <span>
                   {AGENT.licenseLine} · {AGENT.city}, {AGENT.state}
+                  <br />
+                  Last reviewed {formatArticleDate(article.updated)}
                 </span>
               </p>
             </div>
@@ -268,15 +270,27 @@ export function ArticleBody({
               </ol>
             </div>
             <div>
-              <h2>Keep reading</h2>
+              <h2>Related Medicare guides</h2>
               <ul className="art-related">
-                {article.related.map((item) => (
-                  <li key={item.href}>
-                    <Link href={item.href}>
-                      {item.label} <ArrowRight size={16} aria-hidden />
-                    </Link>
-                  </li>
-                ))}
+                {[
+                  ...article.related,
+                  { href: "/medicare-agent-greensboro-nc", label: "Medicare help in Greensboro" },
+                  {
+                    href: "/north-carolina-medicare-programs",
+                    label: "North Carolina Medicare assistance programs",
+                  },
+                ]
+                  .filter(
+                    (item, index, items) =>
+                      items.findIndex((other) => other.href === item.href) === index,
+                  )
+                  .map((item) => (
+                    <li key={item.href}>
+                      <Link href={item.href}>
+                        {item.label} <ArrowRight size={16} aria-hidden />
+                      </Link>
+                    </li>
+                  ))}
               </ul>
             </div>
           </div>

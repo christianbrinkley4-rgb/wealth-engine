@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
@@ -10,13 +13,14 @@ import { RothConversionLadder } from "./RothConversionLadder";
 
 const path = "/tools/roth-conversion-ladder";
 const description =
-  "Fill your tax bracket with Roth conversions year by year until RMD age. Uses the real 2026 federal brackets, with a lifetime tax comparison.";
+  "Fill your tax bracket with Roth conversions year by year until RMD age. Uses the real 2026 federal brackets, with a lifetime tax comparison. Learn more.";
 
 export const metadata: Metadata = {
   title: { absolute: "Roth Conversion Planner | Christian Brinkley" },
   description,
   alternates: { canonical: path },
   openGraph: pageOpenGraph({ title: "Roth conversion multi-year planner", description, path }),
+  twitter: pageTwitter({ title: "Roth conversion multi-year planner", description, path }),
 };
 
 
@@ -115,6 +119,8 @@ export default function RothConversionLadderPage() {
           { href: "/wealth/401k-explained", label: "Your 401(k), explained" },
         ]}
       />
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

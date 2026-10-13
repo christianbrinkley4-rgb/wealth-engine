@@ -51,6 +51,9 @@ export interface Testimonial {
   rating?: 1 | 2 | 3 | 4 | 5;
   /** A photo they agreed to publish. Leave unset and the card shows an initial. */
   photoSrc?: string;
+  /** Verified public review permalink. Required before emitting review markup. */
+  sourceUrl?: string;
+  datePublished?: string;
 }
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -73,4 +76,21 @@ export const GOOGLE_REVIEWS: { rating: number; count: number; url: string } | nu
 
 export function hasTestimonials(): boolean {
   return TESTIMONIALS.length > 0;
+}
+
+/** Same permissioned reviews the homepage renders, never a guessed Google total. */
+export function visibleRatedReviews() {
+  return TESTIMONIALS.flatMap((item) =>
+    item.rating && item.sourceUrl && item.quote.trim() && item.name.trim()
+      ? [
+          {
+            author: item.name,
+            text: item.quote,
+            rating: item.rating,
+            sourceUrl: item.sourceUrl,
+            datePublished: item.datePublished,
+          },
+        ]
+      : [],
+  );
 }

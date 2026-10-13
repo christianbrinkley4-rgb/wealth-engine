@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -20,13 +23,18 @@ import { ToolsDisclaimer } from "./_components/tool-footer";
 
 const path = "/tools";
 const description =
-  "Eight free calculators and three guided quizzes: Roth vs traditional, emergency fund, debt payoff, Medigap vs Advantage, Roth conversions, and more.";
+  "Eight free calculators and three guided quizzes: Roth vs traditional, emergency fund, debt payoff, Medigap vs Advantage, Roth conversions, and more. Read on.";
 
 export const metadata: Metadata = {
   title: { absolute: "Free Money Calculators | Christian Brinkley" },
   description,
   alternates: { canonical: path },
   openGraph: pageOpenGraph({
+    title: "Free money calculators",
+    description,
+    path,
+  }),
+  twitter: pageTwitter({
     title: "Free money calculators",
     description,
     path,
@@ -214,6 +222,8 @@ export default function ToolsHubPage() {
           "tax-extension-cannot-pay",
         ]}
       />
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

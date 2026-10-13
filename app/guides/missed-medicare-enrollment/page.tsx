@@ -1,3 +1,5 @@
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -23,9 +25,15 @@ export const metadata: Metadata = {
     absolute: "Missed Medicare Enrollment? What Happens Next",
   },
   description:
-    "Missed a Medicare enrollment deadline? Check renewal notices, special enrollment rights, and when coverage can start after signing up.",
+    "Missed a Medicare enrollment deadline? Check renewal notices, special enrollment rights, and when coverage can start after signing up. Read the guide.",
   alternates: { canonical: "/guides/missed-medicare-enrollment" },
   openGraph: pageOpenGraph({
+    title: "Missed Medicare enrollment? What happens next",
+    description:
+      "The December 7 deadline passed. What changes, what stays the same, your next enrollment windows, and how the late penalties work.",
+    path: "/guides/missed-medicare-enrollment",
+  }),
+  twitter: pageTwitter({
     title: "Missed Medicare enrollment? What happens next",
     description:
       "The December 7 deadline passed. What changes, what stays the same, your next enrollment windows, and how the late penalties work.",
@@ -263,6 +271,7 @@ export default function MissedMedicareEnrollmentPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
     </main>
   );
 }

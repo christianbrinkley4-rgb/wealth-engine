@@ -155,7 +155,7 @@ export const TAX_ARTICLES: Article[] = [
     title: "What are required minimum distributions, and when do they start?",
     metaTitle: "RMDs Explained: When They Start and How They're Taxed",
     description:
-      "When required minimum distributions start (73 or 75), how the amount is figured, what happens if you miss one, and how RMDs touch Medicare costs.",
+      "When required minimum distributions start (73 or 75), how the amount is figured, what happens if you miss one, and how RMDs touch Medicare costs. Read on.",
     keyword: "when do required minimum distributions start",
     eyebrow: "Taxes & retirement",
     lede: "The IRS let your retirement savings grow without tax for years. RMDs are when it starts asking for its share.",
@@ -277,7 +277,7 @@ export const TAX_ARTICLES: Article[] = [
     title: "What is a Roth conversion, and who looks at one?",
     metaTitle: "Roth Conversions Explained: How They Work and the Catches",
     description:
-      "What a Roth conversion is, how it's taxed, the five-year rules, and how converting can affect Medicare premiums and Social Security taxes.",
+      "What a Roth conversion is, how it's taxed, the five-year rules, and how converting can affect Medicare premiums and Social Security taxes. Learn more.",
     keyword: "roth conversion explained",
     eyebrow: "Taxes & retirement",
     lede: "Pay tax now so you don't pay it later. Sometimes that's smart, sometimes it isn't. Here's how it works.",

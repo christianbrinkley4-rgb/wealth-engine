@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -27,6 +30,12 @@ export const metadata: Metadata = {
     "Medicare Advantage plans in Greensboro, NC for 2027: how many plans Guilford County has, what they cost, and how to compare them. From a licensed local agent.",
   alternates: { canonical: "/medicare-advantage-plans-greensboro-nc" },
   openGraph: pageOpenGraph({
+    title: "Medicare Advantage Plans in Greensboro, NC",
+    description:
+      "55 plans in Guilford County for 2027. What they cost, how they work, and how to compare them without guessing.",
+    path: "/medicare-advantage-plans-greensboro-nc",
+  }),
+  twitter: pageTwitter({
     title: "Medicare Advantage Plans in Greensboro, NC",
     description:
       "55 plans in Guilford County for 2027. What they cost, how they work, and how to compare them without guessing.",
@@ -312,7 +321,7 @@ export default function MedicareAdvantagePlansGreensboroPage() {
           </dl>
           <script
             type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ.map(({ q, a }) => ({ q, a: q === "Should I pick Medicare Advantage or Medigap?" ? "Neither is better in general. Advantage tends to suit people who want a low monthly cost and are comfortable with networks. Medigap tends to suit people who want predictable costs and open access to doctors. See the full Greensboro comparison of the two paths." : a })))) }}
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
           />
         </div>
       </section>
@@ -346,6 +355,8 @@ export default function MedicareAdvantagePlansGreensboroPage() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-09" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

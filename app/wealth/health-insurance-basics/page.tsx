@@ -7,7 +7,7 @@ const ARTICLE: ArticleData = {
   path: "/wealth/health-insurance-basics",
   title: "Health Insurance Basics",
   description:
-    "Premiums, deductibles, copays, coinsurance, and out-of-pocket max, explained in plain English with a worked example.",
+    "Premiums, deductibles, copays, coinsurance, and out-of-pocket max, explained in plain English with a worked example. Learn more in this practical guide.",
   eyebrow: "Insurance basics",
   readMinutes: 6,
   answer:

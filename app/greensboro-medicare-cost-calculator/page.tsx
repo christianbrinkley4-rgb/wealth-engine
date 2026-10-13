@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import "../tools/tools.css";
 
 import type { Metadata } from "next";
@@ -18,6 +21,11 @@ export const metadata: Metadata = {
   description: META.description,
   alternates: { canonical: PATH },
   openGraph: pageOpenGraph({
+    title: "Greensboro Medicare Cost Calculator",
+    description: META.description,
+    path: PATH,
+  }),
+  twitter: pageTwitter({
     title: "Greensboro Medicare Cost Calculator",
     description: META.description,
     path: PATH,
@@ -217,6 +225,8 @@ export default function GreensboroMedicareCostCalculatorPage() {
         </p>
         <ComplianceDisclosure variant="medicare" showEstimateNote />
       </div>
+      <MedicareByline reviewed="2026-10-10" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

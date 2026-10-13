@@ -10,7 +10,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const path = "/wealth/hsa-explained";
 const title = "The HSA, Explained in Plain English";
 const description =
-  "What a Health Savings Account is, how the triple tax break works, and the 2026 contribution limits.";
+  "What a Health Savings Account is, how the triple tax break works, and the 2026 contribution limits. Read this plain-English guide from Christian Brinkley.";
 
 export const metadata: Metadata = wealthMetadata({ title, description, path });
 

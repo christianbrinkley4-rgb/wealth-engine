@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -29,6 +32,12 @@ export const metadata: Metadata = {
     "What a fixed or indexed annuity does, when it’s the wrong answer, and what to ask before you sign. From a licensed agent in Greensboro. No cost to talk.",
   alternates: { canonical: "/annuities" },
   openGraph: pageOpenGraph({
+    title: "Understanding annuities and retirement income",
+    description:
+      "When a fixed or indexed annuity makes sense, when it does not, and the questions worth asking first.",
+    path: "/annuities",
+  }),
+  twitter: pageTwitter({
     title: "Understanding annuities and retirement income",
     description:
       "When a fixed or indexed annuity makes sense, when it does not, and the questions worth asking first.",
@@ -226,6 +235,8 @@ export default function AnnuitiesPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure />
       </div>
+      <MedicareByline reviewed="2026-09-10" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

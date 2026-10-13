@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -31,6 +34,12 @@ export const metadata: Metadata = {
     "Turning 65? Here is exactly what to do: your 7-month enrollment window, the Part B penalty, Medigap timing, and what changes if you are still working. Step by step.",
   alternates: { canonical: "/turning-65-medicare-guide" },
   openGraph: pageOpenGraph({
+    title: "Turning 65? Your Medicare enrollment guide",
+    description:
+      "The 7-month window, the Part B penalty, Medigap timing, and every scenario: still working, on Medicaid, self-employed. Step by step.",
+    path: "/turning-65-medicare-guide",
+  }),
+  twitter: pageTwitter({
     title: "Turning 65? Your Medicare enrollment guide",
     description:
       "The 7-month window, the Part B penalty, Medigap timing, and every scenario: still working, on Medicaid, self-employed. Step by step.",
@@ -335,6 +344,8 @@ export default function Turning65GuidePage() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-12" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

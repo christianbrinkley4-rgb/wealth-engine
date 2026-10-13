@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -24,9 +27,15 @@ export const metadata: Metadata = {
     absolute: "Helping a Parent With Medicare | Greensboro Guide",
   },
   description:
-    "Researching Medicare for Mom or Dad in the Piedmont Triad? The deadlines that matter, what you can do on their behalf, and what to ask.",
+    "Researching Medicare for Mom or Dad in the Piedmont Triad? The deadlines that matter, what you can do on their behalf, and what to ask. Read the guide.",
   alternates: { canonical: "/helping-a-parent" },
   openGraph: pageOpenGraph({
+    title: "Helping a parent with Medicare in Greensboro, Winston-Salem & High Point",
+    description:
+      "The deadlines, the paperwork you need before Social Security will talk to you, and what to ask, for Triad families. No cost.",
+    path: "/helping-a-parent",
+  }),
+  twitter: pageTwitter({
     title: "Helping a parent with Medicare in Greensboro, Winston-Salem & High Point",
     description:
       "The deadlines, the paperwork you need before Social Security will talk to you, and what to ask, for Triad families. No cost.",
@@ -205,6 +214,8 @@ export default function HelpingAParentPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-09-18" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

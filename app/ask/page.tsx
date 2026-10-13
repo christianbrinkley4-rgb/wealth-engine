@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -10,13 +11,18 @@ import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import { AskQuestionForm } from "./AskQuestionForm";
 
 const description =
-  "A public wall of real money, tax, and retirement questions, answered in plain English. Read the answers, or ask your own. Educational only.";
+  "A public wall of real money, tax, and retirement questions, answered in plain English. Read the answers, or ask your own. Educational only. Learn more.";
 
 export const metadata: Metadata = {
   title: { absolute: "Ask Christian: Real Questions, Plain Answers" },
   description,
   alternates: { canonical: "/ask" },
   openGraph: pageOpenGraph({
+    title: "Ask Christian: Real Questions, Plain Answers",
+    description,
+    path: "/ask",
+  }),
+  twitter: pageTwitter({
     title: "Ask Christian: Real Questions, Plain Answers",
     description,
     path: "/ask",

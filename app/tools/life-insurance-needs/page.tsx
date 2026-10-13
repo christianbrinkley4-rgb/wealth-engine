@@ -1,3 +1,5 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
 import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
@@ -9,7 +11,7 @@ import { LifeInsuranceNeeds } from "./LifeInsuranceNeeds";
 
 const path = "/tools/life-insurance-needs";
 const description =
-  "Free life insurance needs calculator. The DIME method (debt, income, mortgage, education) as a starting point for a conversation with an agent.";
+  "Free life insurance needs calculator. The DIME method (debt, income, mortgage, education) as a starting point for a conversation with an agent. Read on.";
 
 export const metadata: Metadata = {
   title: { absolute: "How Much Life Insurance Do I Need? | Christian Brinkley" },
@@ -103,6 +105,8 @@ export default function LifeInsuranceNeedsPage() {
           { href: "/wealth/emergency-fund-guide", label: "The emergency fund guide" },
         ]}
       />
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

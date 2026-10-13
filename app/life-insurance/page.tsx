@@ -1,3 +1,6 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -33,6 +36,12 @@ export const metadata: Metadata = {
     "Review life insurance with Christian Brinkley in Greensboro, High Point, or Winston-Salem. Understand your coverage and what may change at retirement.",
   alternates: { canonical: "/life-insurance" },
   openGraph: pageOpenGraph({
+    title: "Life insurance help in Greensboro, Winston-Salem & High Point",
+    description:
+      "Personal help reviewing your life insurance, beneficiaries, and coverage needs as you approach retirement, with a local licensed agent across the Triad.",
+    path: "/life-insurance",
+  }),
+  twitter: pageTwitter({
     title: "Life insurance help in Greensboro, Winston-Salem & High Point",
     description:
       "Personal help reviewing your life insurance, beneficiaries, and coverage needs as you approach retirement, with a local licensed agent across the Triad.",
@@ -241,6 +250,8 @@ export default function LifeInsurancePage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure />
       </div>
+      <MedicareByline reviewed="2026-09-18" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

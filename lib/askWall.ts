@@ -192,7 +192,7 @@ export const ASK_QUESTIONS: Article[] = [
     title: "My old employer sent me a 401(k) check. What do I do before the clock runs out?",
     metaTitle: "Old 401(k) Check in Hand: The 60-Day Rule Explained",
     description:
-      "A 401(k) check made out to you usually has 20% withheld and a 60-day rollover deadline. What the payee line changes and how to move the full amount.",
+      "A 401(k) check made out to you usually has 20% withheld and a 60-day rollover deadline. What the payee line changes and how to move the full amount. Read on.",
     keyword: "401k check made out to me 60 day rollover",
     eyebrow: "Ask Christian",
     lede: "Who the check is made out to decides whether tax gets withheld.",
@@ -334,7 +334,7 @@ export const ASK_QUESTIONS: Article[] = [
     title: "When do required minimum distributions start, and how much?",
     metaTitle: "RMDs at 73: When They Start and How Much to Take",
     description:
-      "RMDs start at 73 under SECURE 2.0. The amount comes from your balance and IRS life-expectancy tables, and it counts as ordinary income.",
+      "RMDs start at 73 under SECURE 2.0. The amount comes from your balance and IRS life-expectancy tables, and it counts as ordinary income. Read the guide.",
     keyword: "required minimum distributions age 73 how much",
     eyebrow: "Ask Christian",
     lede: "Age 73 is the trigger. Your balance and an IRS table set the amount.",

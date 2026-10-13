@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -15,6 +16,11 @@ export const metadata: Metadata = {
   description,
   alternates: { canonical: "/service-area" },
   openGraph: pageOpenGraph({
+    title,
+    description: SERVICE_AREA_LEDE,
+    path: "/service-area",
+  }),
+  twitter: pageTwitter({
     title,
     description: SERVICE_AREA_LEDE,
     path: "/service-area",
@@ -177,7 +183,7 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-creedmoor-nc"
+              href="/medicare-nc-towns#granville-county"
             >
               Medicare in Creedmoor
             </Link>
@@ -185,7 +191,7 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-asheboro-nc"
+              href="/medicare-nc-towns#randolph-county"
             >
               Medicare in Asheboro
             </Link>
@@ -193,7 +199,7 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-oxford-nc"
+              href="/medicare-nc-towns#granville-county"
             >
               Medicare in Oxford
             </Link>
@@ -201,7 +207,7 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-mebane-nc"
+              href="/medicare-nc-towns#alamance-county"
             >
               Medicare in Mebane
             </Link>
@@ -209,20 +215,20 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-madison-nc"
+              href="/medicare-nc-towns#rockingham-county"
             >
               Medicare in Madison
             </Link>
           </li>
           <li>
-            <Link className="inline-flex min-h-11 items-center underline" href="/medicare-eden-nc">
+            <Link className="inline-flex min-h-11 items-center underline" href="/medicare-nc-towns#rockingham-county">
               Medicare in Eden
             </Link>
           </li>
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-roxboro-nc"
+              href="/medicare-nc-towns#person-county"
             >
               Medicare in Roxboro
             </Link>
@@ -230,7 +236,7 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-butner-nc"
+              href="/medicare-nc-towns#granville-county"
             >
               Medicare in Butner
             </Link>
@@ -238,7 +244,7 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-graham-nc"
+              href="/medicare-nc-towns#alamance-county"
             >
               Medicare in Graham
             </Link>
@@ -246,7 +252,7 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-ramseur-nc"
+              href="/medicare-nc-towns#randolph-county"
             >
               Medicare in Ramseur
             </Link>
@@ -254,7 +260,7 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-liberty-nc"
+              href="/medicare-nc-towns#randolph-county"
             >
               Medicare in Liberty
             </Link>
@@ -262,7 +268,7 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-agent-stem-nc"
+              href="/medicare-nc-towns#granville-county"
             >
               Medicare agent in Stem
             </Link>
@@ -270,7 +276,7 @@ export default function ServiceAreaPage() {
           <li>
             <Link
               className="inline-flex min-h-11 items-center underline"
-              href="/medicare-agent-lexington-nc"
+              href="/medicare-nc-towns#davidson-county"
             >
               Medicare agent in Lexington
             </Link>

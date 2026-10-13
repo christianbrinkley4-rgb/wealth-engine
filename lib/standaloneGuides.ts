@@ -9,7 +9,7 @@ export const STANDALONE_GUIDES: Array<{
     slug: "what-medicare-does-not-cover",
     title: "What Medicare doesn't cover",
     description:
-      "Original Medicare leaves real gaps: dental, vision, hearing aids, long-term care, and more. The full list, plus how people fill each gap.",
+      "Original Medicare leaves real gaps: dental, vision, hearing aids, long-term care, and more. The full list, plus how people fill each gap. Read the guide.",
     related: [
       { title: "Medicare while traveling", href: "/guides/medicare-travel" },
       { title: "2026 IRMAA brackets", href: "/guides/irmaa-brackets-2026" },

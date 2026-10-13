@@ -10,7 +10,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const path = "/wealth/rmd-explained-73";
 const title = "RMDs at 73, Explained in Plain English";
 const description =
-  "What required minimum distributions are, why the IRS requires them, and how the yearly math works.";
+  "What required minimum distributions are, why the IRS requires them, and how the yearly math works. Read this plain-English guide from Christian Brinkley.";
 
 export const metadata: Metadata = wealthMetadata({ title, description, path });
 

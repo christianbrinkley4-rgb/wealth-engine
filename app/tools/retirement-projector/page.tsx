@@ -1,3 +1,5 @@
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { MedicareByline } from "@/app/components/MedicareByline";
 import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
@@ -106,6 +108,8 @@ export default function RetirementProjectorPage() {
           { href: "/wealth/roth-ira-explained", label: "Roth IRA, explained" },
         ]}
       />
+      <MedicareByline reviewed="2026-10-08" />
+      <RelatedMedicareGuides />
     </main>
   );
 }

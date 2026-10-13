@@ -1,3 +1,4 @@
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -16,9 +17,15 @@ export const metadata: Metadata = {
     absolute: "AI Mistakes to Avoid | Christian Brinkley",
   },
   description:
-    "The three big AI mistakes: trusting invented facts, sharing sensitive data, and trusting it blindly on money, health, or legal. The fix for each.",
+    "The three big AI mistakes: trusting invented facts, sharing sensitive data, and trusting it blindly on money, health, or legal. The fix for each. Read on.",
   alternates: { canonical: "/ai/ai-mistakes-to-avoid" },
   openGraph: pageOpenGraph({
+    title: "AI mistakes to avoid",
+    description:
+      "Hallucinations, sensitive data, and blind trust on money, health, or legal. The three traps, and the fix for each one.",
+    path: "/ai/ai-mistakes-to-avoid",
+  }),
+  twitter: pageTwitter({
     title: "AI mistakes to avoid",
     description:
       "Hallucinations, sensitive data, and blind trust on money, health, or legal. The three traps, and the fix for each one.",
@@ -67,7 +74,7 @@ export default function AiMistakesToAvoidPage() {
             articleJsonLd({
               headline: "AI Mistakes to Avoid: Hallucinations, Privacy, Blind Trust",
               description:
-                "The three big AI mistakes: trusting invented facts, sharing sensitive data, and trusting it blindly on money, health, or legal. The fix for each.",
+                "The three big AI mistakes: trusting invented facts, sharing sensitive data, and trusting it blindly on money, health, or legal. The fix for each. Read on.",
               path: "/ai/ai-mistakes-to-avoid",
               datePublished: "2026-10-08",
               dateModified: "2026-10-08",

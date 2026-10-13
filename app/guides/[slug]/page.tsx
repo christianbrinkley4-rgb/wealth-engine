@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { GuideCapture } from "@/app/components/GuideCapture";
 import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
@@ -71,6 +73,7 @@ export default async function TrafficGuidePage({ params }: Props) {
             : "Federal rules for readers across the U.S."}
         </p>
         <h1 className="text-40 mt-3 font-semibold">{guide.title}</h1>
+        <MedicareByline reviewed={guide.dateModified ?? TRAFFIC_GUIDE_DATE} />
         <p className="text-15 mt-4">
           By{" "}
           <Link href="/about" className="underline">
@@ -207,6 +210,7 @@ export default async function TrafficGuidePage({ params }: Props) {
           <ComplianceDisclosure variant={guide.scope === "medicare" ? "medicare" : "general"} />
         </div>
       </article>
+      {guide.scope === "medicare" ? <RelatedMedicareGuides /> : null}
     </main>
   );
 }

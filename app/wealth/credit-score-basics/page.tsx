@@ -10,7 +10,7 @@ import { WEALTH_FACTS, getTool } from "@/lib/wealth/site";
 const PATH = "/wealth/credit-score-basics";
 const TITLE = "Credit Scores, Explained Plainly";
 const DESCRIPTION =
-  "A credit score is a three-digit number lenders check before lending. Here is what it measures, what builds it, and what hurts it.";
+  "A credit score is a three-digit number lenders check before lending. Here is what it measures, what builds it, and what hurts it. Read the details here.";
 const MINUTES = 5;
 const UPDATED = "October 8, 2026";
 

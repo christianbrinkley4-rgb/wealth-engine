@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { LOCATION_CONSOLIDATIONS } from "./lib/locationConsolidation";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
+  images: { formats: ["image/avif", "image/webp"] },
   // Separate output lets an isolated preview coexist with another local session.
   distDir:
     process.env.WEALTH_PREVIEW === "1"
@@ -52,6 +54,11 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
+      ...Object.entries(LOCATION_CONSOLIDATIONS).map(([source, destination]) => ({
+        source,
+        destination,
+        permanent: true,
+      })),
       { source: "/wealth/calculators", destination: "/tools", permanent: true },
       {
         source: "/lp/retirement",

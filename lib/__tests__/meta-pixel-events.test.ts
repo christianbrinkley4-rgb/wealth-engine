@@ -19,17 +19,17 @@ describe("pixel events the ad campaign needs", () => {
 });
 
 describe("location pages share one business record", () => {
-  it("uses the same phone in ProfessionalService schema and speakable hero selectors", () => {
+  it("uses the same phone in InsuranceAgency schema and speakable hero selectors", () => {
     const graph = JSON.stringify(localBusinessJsonLd());
     expect(graph).toContain(SITE_OWNER_PHONE);
-    expect(graph).toContain("ProfessionalService");
+    expect(graph).toContain("InsuranceAgency");
     expect(graph).toContain('"price":"0"');
     expect(speakableJsonLd().speakable.cssSelector).toEqual([".sh-title", ".sh-lede"]);
     const pointed = speakableJsonLd([".sh-title", ".sh-lede"], "/medicare-agent-greensboro-nc");
     expect(pointed["@id"]).toBe(`${SITE_URL}/medicare-agent-greensboro-nc`);
     expect(pointed["@type"]).toBe("WebPage");
     expect(src("app/medicare-agent-greensboro-nc/page.tsx")).toContain(
-      '<LocationBusinessMarkup path="/medicare-agent-greensboro-nc" />',
+      '<LocationBusinessMarkup path={path} />',
     );
     expect(src("app/medicare-in/[city]/page.tsx")).toContain("<LocationBusinessMarkup");
   });

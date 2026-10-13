@@ -18,6 +18,8 @@ const START = [
 ] as const;
 
 const LEARN = [
+  { href: "/medicare-agent-greensboro-nc", label: "Medicare help in Greensboro" },
+  { href: "/north-carolina-medicare-programs", label: "NC Medicare assistance programs" },
   { href: "/learn", label: "Medicare guides" },
   { href: "/guides", label: "Money & tax guides" },
   { href: "/wealth/learn", label: "Money guides" },
@@ -60,12 +62,44 @@ export function SiteFooter() {
   const pathname = usePathname() ?? "/";
   if (pathname.startsWith("/lp/")) return null;
   // The /wealth hub and /links carry their own footer.
-  if (pathname === "/links" || pathname === "/wealth" || pathname.startsWith("/wealth/")) return null;
+  if (pathname === "/links" || pathname === "/wealth" || pathname.startsWith("/wealth/"))
+    return null;
   // The /ai guides are purely informational; no phone number on them.
   const isAiRoute = pathname === "/ai" || pathname.startsWith("/ai/");
 
   const year = new Date().getFullYear();
   const profiles = publishedProfiles();
+  if (pathname === "/schedule" || pathname === "/start" || pathname === "/thank-you") {
+    return (
+      <footer className="ft">
+        <div className="shell">
+          <p>
+            {AGENT.name} · {AGENT.city}, {AGENT.state} ·{" "}
+            <a className="underline" href={AGENT.phoneHref}>
+              {AGENT.phone}
+            </a>
+          </p>
+          <p className="mt-4">
+            <Link className="underline" href="/">
+              Back to the homepage
+            </Link>
+            {" · "}
+            <Link className="underline" href="/privacy">
+              Privacy
+            </Link>
+            {" · "}
+            <Link className="underline" href="/disclaimer">
+              Disclosures
+            </Link>
+          </p>
+          <div className="mt-4">
+            <TpmoDisclaimer />
+          </div>
+          <p className="mt-4">{GOVERNMENT_DISCLAIMER}</p>
+        </div>
+      </footer>
+    );
+  }
 
   return (
     <footer className="ft">
@@ -148,10 +182,10 @@ export function SiteFooter() {
                 </li>
               ))}
               <li>
-                <Link href="/medicare-creedmoor-nc">Medicare in Creedmoor</Link>
+                <Link href="/medicare-nc-towns#granville-county">Medicare in Creedmoor</Link>
               </li>
               <li>
-                <Link href="/medicare-oxford-nc">Medicare in Oxford</Link>
+                <Link href="/medicare-nc-towns#granville-county">Medicare in Oxford</Link>
               </li>
               <li>
                 <Link href="/service-area">All the towns I serve</Link>

@@ -1,3 +1,5 @@
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -23,9 +25,15 @@ export const metadata: Metadata = {
     absolute: "Does Medicare Work Out of State? Travel Rules Explained",
   },
   description:
-    "Original Medicare works in every state. Medicare Advantage depends on your plan type. Emergency care is covered nationwide; routine care is not.",
+    "Original Medicare works in every state. Medicare Advantage depends on your plan type. Emergency care is covered nationwide; routine care is not. Read on.",
   alternates: { canonical: "/guides/medicare-travel" },
   openGraph: pageOpenGraph({
+    title: "Does Medicare work out of state?",
+    description:
+      "Traveling or moving with Medicare: what works in every state, the emergency rule every Advantage plan must follow, and what changes when you move.",
+    path: "/guides/medicare-travel",
+  }),
+  twitter: pageTwitter({
     title: "Does Medicare work out of state?",
     description:
       "Traveling or moving with Medicare: what works in every state, the emergency rule every Advantage plan must follow, and what changes when you move.",
@@ -228,6 +236,7 @@ export default function MedicareTravelPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
     </main>
   );
 }

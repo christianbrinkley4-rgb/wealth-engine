@@ -1,3 +1,5 @@
+import { MedicareByline } from "@/app/components/MedicareByline";
+import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -25,6 +27,12 @@ export const metadata: Metadata = {
     "Working past 65? Whether you need Medicare Part B depends on your employer's size. The 20-employee rule, the 8-month special enrollment period, the COBRA trap.",
   alternates: { canonical: "/guides/medicare-part-b-employer-coverage" },
   openGraph: pageOpenGraph({
+    title: "Do I need Part B if I have employer insurance at 65?",
+    description:
+      "The 20-employee rule decides whether you can delay Part B. How the special enrollment period works and why COBRA does not count.",
+    path: "/guides/medicare-part-b-employer-coverage",
+  }),
+  twitter: pageTwitter({
     title: "Do I need Part B if I have employer insurance at 65?",
     description:
       "The 20-employee rule decides whether you can delay Part B. How the special enrollment period works and why COBRA does not count.",
@@ -245,6 +253,7 @@ export default function MedicarePartBEmployerCoveragePage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
+      <MedicareByline reviewed="2026-10-08" />
     </main>
   );
 }

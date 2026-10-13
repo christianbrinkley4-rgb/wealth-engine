@@ -12,7 +12,7 @@ import { getTool } from "@/lib/wealth/site";
 const PATH = "/wealth/money-moves-in-your-20s";
 const TITLE = "Five money moves for your 20s";
 const DESCRIPTION =
-  "Five money moves for your 20s: budget from take-home pay, build an emergency fund, kill high-interest debt, grab the 401(k) match, open a Roth IRA.";
+  "Five money moves for your 20s: budget from take-home pay, build an emergency fund, kill high-interest debt, grab the 401(k) match, open a Roth IRA. Read on.";
 
 export function generateMetadata(): Metadata {
   return wealthMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });

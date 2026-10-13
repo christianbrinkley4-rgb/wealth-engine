@@ -12,7 +12,7 @@ import { getTool } from "@/lib/wealth/site";
 const PATH = "/wealth/roth-ira-explained";
 const TITLE = "Roth IRA, explained";
 const DESCRIPTION =
-  "What a Roth IRA is, how the taxes work, the 2026 limits, and when early-career savers look at it first.";
+  "What a Roth IRA is, how the taxes work, the 2026 limits, and when early-career savers look at it first. Explore the steps in Christian Brinkley's guide.";
 
 export function generateMetadata(): Metadata {
   return wealthMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
