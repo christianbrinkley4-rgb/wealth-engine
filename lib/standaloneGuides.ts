@@ -1,4 +1,4 @@
-/** The ten standalone /guides pages, with their card-grid descriptions. */
+/** The thirteen standalone /guides pages, with their card-grid descriptions. */
 export const STANDALONE_GUIDES: Array<{
   slug: string;
   title: string;
@@ -114,6 +114,39 @@ export const STANDALONE_GUIDES: Array<{
       { title: "Is Social Security taxed?", href: "/guides/is-social-security-taxed" },
       { title: "Working while collecting Social Security", href: "/guides/working-while-collecting-social-security" },
       { title: "Tax brackets, explained plainly", href: "/wealth/tax-brackets-explained-plainly" },
+    ],
+  },
+  {
+    slug: "cone-health-medicare-doctors",
+    title: "Cone Health doctors and Medicare",
+    description:
+      "Which Medicare plans work with Cone Health doctors? Networks change every fall. The two-step check that makes sure your doctors are in your plan.",
+    related: [
+      { title: "Medicare Advantage doctor networks", href: "/medicare-advantage-doctor-networks" },
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "nc-state-health-plan-medicare",
+    title: "NC State Health Plan retirees and Medicare",
+    description:
+      "Turning 65 as an NC state retiree? The Part A and B requirement, your three retiree options, and the deadlines that matter.",
+    related: [
+      { title: "Turning 65 checklist", href: "/turning-65" },
+      { title: "Annual Enrollment review", href: "/aep" },
+      { title: "Missed Medicare enrollment", href: "/guides/missed-medicare-enrollment" },
+    ],
+  },
+  {
+    slug: "moving-to-north-carolina-medicare",
+    title: "Moving to North Carolina on Medicare",
+    description:
+      "Retiring to the Triad? Your move opens a special enrollment period. What follows you, what needs checking, and the before-and-after checklist.",
+    related: [
+      { title: "Special enrollment periods", href: "/special-enrollment" },
+      { title: "Medicare while traveling", href: "/guides/medicare-travel" },
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
     ],
   },
 ];

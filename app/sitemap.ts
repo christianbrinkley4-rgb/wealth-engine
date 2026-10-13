@@ -75,6 +75,8 @@ const STATIC_ROUTES: Array<{
   { path: "/helping-a-parent", changeFrequency: "monthly", priority: 0.9 },
   { path: "/irmaa-appeal", changeFrequency: "monthly", priority: 0.85 },
   { path: "/service-area", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/medicare-help-directory", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-13" },
+  { path: "/medicare-scam-alert", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-13" },
   { path: "/about", changeFrequency: "monthly", priority: 0.85 },
   { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
@@ -184,6 +186,9 @@ const STATIC_ROUTES: Array<{
     "/guides/medicare-travel",
     "/guides/irmaa-brackets-2026",
     "/guides/standard-deduction-seniors-2026",
+    "/guides/cone-health-medicare-doctors",
+    "/guides/nc-state-health-plan-medicare",
+    "/guides/moving-to-north-carolina-medicare",
   ].map((path) => ({
     path,
     changeFrequency: "weekly" as const,
