@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { localBusinessJsonLd, SITE_OWNER_PHONE, speakableJsonLd } from "@/lib/seo";
+import { localBusinessJsonLd, SITE_OWNER_PHONE, SITE_URL, speakableJsonLd } from "@/lib/seo";
 
 const root = join(__dirname, "..", "..");
 
@@ -25,7 +25,12 @@ describe("location pages share one business record", () => {
     expect(graph).toContain("ProfessionalService");
     expect(graph).toContain('"price":"0"');
     expect(speakableJsonLd().speakable.cssSelector).toEqual([".sh-title", ".sh-lede"]);
-    expect(src("app/medicare-agent-greensboro-nc/page.tsx")).toContain("<LocationBusinessMarkup />");
-    expect(src("app/medicare-in/[city]/page.tsx")).toContain("<LocationBusinessMarkup />");
+    const pointed = speakableJsonLd([".sh-title", ".sh-lede"], "/medicare-agent-greensboro-nc");
+    expect(pointed["@id"]).toBe(`${SITE_URL}/medicare-agent-greensboro-nc`);
+    expect(pointed["@type"]).toBe("WebPage");
+    expect(src("app/medicare-agent-greensboro-nc/page.tsx")).toContain(
+      '<LocationBusinessMarkup path="/medicare-agent-greensboro-nc" />',
+    );
+    expect(src("app/medicare-in/[city]/page.tsx")).toContain("<LocationBusinessMarkup");
   });
 });

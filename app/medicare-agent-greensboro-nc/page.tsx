@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     absolute: "Medicare Agent in Greensboro, NC | Christian Brinkley",
   },
   description:
-    "A local Medicare agent in Greensboro, NC. Free, no-pressure help from Christian Brinkley, a licensed North Carolina agent who answers his own phone. Call (919) 408-6671.",
+    "Local Medicare agent in Greensboro, NC. Free, no-pressure help from Christian Brinkley, a licensed agent who answers his own phone. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-agent-greensboro-nc" },
   openGraph: pageOpenGraph({
     title: "Medicare help in Greensboro from a local licensed agent.",
@@ -134,7 +134,7 @@ export default function MedicareAgentGreensboroPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-agent-greensboro-nc" />
 
       <ServiceHero
         crumbs={[

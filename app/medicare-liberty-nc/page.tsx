@@ -144,7 +144,7 @@ export default function MedicareLibertyPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-liberty-nc" />
 
       <ServiceHero
         crumbs={[

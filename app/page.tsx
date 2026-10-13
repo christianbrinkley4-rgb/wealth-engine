@@ -30,7 +30,7 @@ import { featuredPlaces } from "@/lib/triad";
 
 const title = "Christian Brinkley | Medicare Help in Greensboro, NC";
 const description =
-  "Turning 65 in the Triad? Christian Brinkley is a licensed agent, not a call center. Find your Medicare enrollment dates, meet at home or by phone. No cost.";
+  "Medicare, life insurance, and retirement questions with a licensed agent in Greensboro and the Piedmont Triad. Free, no obligation. Call (919) 408-6671.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -160,11 +160,11 @@ export default function HomePage() {
             <p className="eyebrow hx-eyebrow">Greensboro, NC · Medicare, taxes &amp; retirement</p>
             <h1 id="hx-title" className="hx-title">
               <span className="split-line">
-                <span style={{ "--i": 0 } as React.CSSProperties}>Medicare Agent in</span>
+                <span style={{ "--i": 0 } as React.CSSProperties}>I help with turning 65,</span>
               </span>{" "}
               <span className="split-line">
                 <span style={{ "--i": 1 } as React.CSSProperties}>
-                  <em>Greensboro, NC</em>
+                  <em>already on Medicare, and life insurance.</em>
                 </span>
               </span>
             </h1>

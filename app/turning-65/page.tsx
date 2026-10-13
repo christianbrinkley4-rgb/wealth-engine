@@ -30,7 +30,7 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Turning 65 Greensboro NC: Medicare Help from a Local Licensed Agent",
+    absolute: "Turning 65 Greensboro NC: Local Licensed Medicare Help",
   },
   description:
     "Turning 65 in the Piedmont Triad? Map employer coverage, Part B, Medigap, and a younger spouse with a local licensed agent in Greensboro.",

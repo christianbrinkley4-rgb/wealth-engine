@@ -145,7 +145,7 @@ export default function MedicareRamseurPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-ramseur-nc" />
 
       <ServiceHero
         crumbs={[

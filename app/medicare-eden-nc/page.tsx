@@ -141,7 +141,7 @@ export default function MedicareEdenPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-eden-nc" />
 
       <ServiceHero
         crumbs={[

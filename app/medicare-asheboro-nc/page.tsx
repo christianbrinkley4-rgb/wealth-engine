@@ -135,7 +135,7 @@ export default function MedicareAsheboroPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-asheboro-nc" />
 
       <ServiceHero
         crumbs={[

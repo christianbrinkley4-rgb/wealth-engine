@@ -504,13 +504,24 @@ export function howToJsonLd(input: {
 /**
  * Speakable selectors must match text that is actually on the page.
  * The service hero title and lede are the lines a voice assistant can read.
+ *
+ * Pass the page path so this node uses the same @id as articleJsonLd's
+ * mainEntityOfPage. A WebPage that only has @type and speakable is a second,
+ * nameless page.
  */
-export function speakableJsonLd(cssSelector: readonly string[] = [".sh-title", ".sh-lede"]) {
+export function speakableJsonLd(
+  cssSelector: readonly string[] = [".sh-title", ".sh-lede"],
+  pagePath?: string,
+) {
+  const pageId = pagePath
+    ? `${SITE_URL}${pagePath.startsWith("/") ? pagePath : `/${pagePath}`}`
+    : undefined;
   return {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "WebPage" as const,
+    ...(pageId ? { "@id": pageId } : {}),
     speakable: {
-      "@type": "SpeakableSpecification",
+      "@type": "SpeakableSpecification" as const,
       cssSelector: [...cssSelector],
     },
   };

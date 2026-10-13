@@ -245,7 +245,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...STATIC_ROUTES.map(({ path, changeFrequency, priority, lastModified: own }) => ({
-      url: `${SITE_URL}${path}`,
+      // Next emits the homepage canonical as the origin with no trailing slash.
+      // Every other path already matches its canonical.
+      url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
       lastModified: own ?? lastModified,
       changeFrequency,
       priority,

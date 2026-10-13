@@ -144,7 +144,7 @@ export default function MedicareGrahamPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-graham-nc" />
 
       <ServiceHero
         crumbs={[

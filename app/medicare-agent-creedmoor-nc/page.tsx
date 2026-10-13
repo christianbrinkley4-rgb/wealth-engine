@@ -134,7 +134,7 @@ export default function MedicareAgentCreedmoorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-agent-creedmoor-nc" />
 
       <ServiceHero
         crumbs={[

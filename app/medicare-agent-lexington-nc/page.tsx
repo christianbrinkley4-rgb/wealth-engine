@@ -134,7 +134,7 @@ export default function MedicareAgentLexingtonPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-agent-lexington-nc" />
 
       <ServiceHero
         crumbs={[

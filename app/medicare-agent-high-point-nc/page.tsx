@@ -134,7 +134,7 @@ export default function MedicareAgentHighPointPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-agent-high-point-nc" />
 
       <ServiceHero
         crumbs={[

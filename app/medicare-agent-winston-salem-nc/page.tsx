@@ -134,7 +134,7 @@ export default function MedicareAgentWinstonSalemPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-agent-winston-salem-nc" />
 
       <ServiceHero
         crumbs={[

@@ -134,7 +134,7 @@ export default function MedicareAgentOxfordPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
-      <LocationBusinessMarkup />
+      <LocationBusinessMarkup path="/medicare-agent-oxford-nc" />
 
       <ServiceHero
         crumbs={[
