@@ -149,5 +149,38 @@ export const STANDALONE_GUIDES: Array<{
       { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
     ],
   },
+  {
+    slug: "medicare-advantage-plans-leaving-nc-2027",
+    title: "Medicare Advantage plans leaving NC in 2027",
+    description:
+      "Verified 2027 plan exits, how to read your ANOC or non-renewal letter, and what to do before December 7.",
+    related: [
+      { title: "Annual Enrollment review", href: "/aep" },
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
+      { title: "Missed Medicare enrollment", href: "/guides/missed-medicare-enrollment" },
+    ],
+  },
+  {
+    slug: "medigap-plan-g-vs-plan-n-nc",
+    title: "Medigap Plan G vs Plan N",
+    description:
+      "The real differences between the two most popular Medigap plans: excess charges, copays, and the cost tradeoff.",
+    related: [
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
+      { title: "Medicare and HSA contributions", href: "/guides/medicare-hsa-contributions" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
+    slug: "turning-65-aca-marketplace-plan",
+    title: "Turning 65 on a Marketplace plan",
+    description:
+      "Your subsidies end at 65. The enrollment timing, the cancellation step people forget, and the HSA trap.",
+    related: [
+      { title: "Turning 65 checklist", href: "/turning-65" },
+      { title: "Medicare and HSA contributions", href: "/guides/medicare-hsa-contributions" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
 ];
 
