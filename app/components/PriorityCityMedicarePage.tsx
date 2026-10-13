@@ -32,7 +32,7 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
           description: city.description,
           path,
           datePublished: "2026-10-10",
-          dateModified: "2026-10-12",
+          dateModified: "2026-10-13",
         }),
         breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -56,7 +56,7 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
         secondaryHref="/schedule?topic=medicare#booking-calendar"
         secondaryLabel="Book a free conversation"
       />
-      <MedicareByline reviewed="2026-10-12" />
+      <MedicareByline reviewed="2026-10-13" />
       <section className="measure-prose app-shell max-w-3xl py-10">
         <h2 className="text-28 font-semibold">{city.localHeading}</h2>
         {city.paragraphs.map((p) => (
@@ -86,6 +86,25 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
           </a>
           .
         </p>
+      </section>
+      <section className="measure-prose app-shell max-w-3xl py-10">
+        <h2 className="text-28 font-semibold">{city.hospitalsHeading}</h2>
+        {city.hospitals.map((h) => (
+          <div key={h.name} className="mt-6">
+            <h3 className="text-20 font-semibold">
+              {"url" in h && h.url ? (
+                <a className="underline" href={h.url}>
+                  {h.name}
+                </a>
+              ) : (
+                h.name
+              )}
+            </h3>
+            <p className="text-17 mt-2">{h.note}</p>
+          </div>
+        ))}
+        <p className="text-17 mt-6">{city.hospitalTakeaway}</p>
+        <p className="text-14 mt-4">{city.hospitalNote}</p>
       </section>
       <section className="measure-prose app-shell max-w-3xl py-10">
         <h2 className="text-28 font-semibold">Questions about Medicare in {city.name}</h2>
@@ -118,8 +137,8 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
       </nav>
       <RelatedMedicareGuides />
       <KitchenTableClose
-        heading={`Talk through your Medicare questions in ${city.name}`}
-        body="Bring your doctors, prescription list, and coverage notices. We'll take your questions one at a time. The initial consultation is free."
+        heading={city.ctaHeading}
+        body={city.ctaLine}
         href="/schedule?topic=medicare#booking-calendar"
         label="Book a free Medicare conversation"
       />
