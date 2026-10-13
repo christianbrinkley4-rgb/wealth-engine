@@ -294,6 +294,19 @@ ${GOVERNMENT_DISCLAIMER} The site is not affiliated with the University of North
 - "What should I bring to a Medicare appointment?" Your Annual Notice of Change letter, a list of prescriptions, and your doctors' names.
 - [More questions to ask a Medicare agent](${SITE_URL}/questions-to-ask-medicare-agent)
 
+## Common Medicare questions (full answers)
+
+- "How much does Medicare cost?" It depends on how you set it up. Most people do not pay a premium for Part A if they or a spouse worked about 10 years. Part B has a monthly premium that changes every year, and it is higher if your income is above a certain level. On top of that, you may pay for a Medicare Advantage, Medigap, or Part D plan, plus deductibles and copays. The total varies a lot from person to person.
+- "When should I sign up for Medicare if I am turning 65?" Your Initial Enrollment Period is 7 months long: the 3 months before your 65th birthday month, the birthday month itself, and the 3 months after. Signing up in the months before your birthday month usually means coverage starts on time. Waiting can delay coverage and sometimes leads to late penalties.
+- "I am still working at 65. Do I have to sign up for Part B?" Not always. If you have health coverage through your own or your spouse's current job, and the employer has 20 or more employees, you can usually delay Part B without a penalty. Smaller employers follow different rules, and COBRA or retiree coverage does not count the same way. When the job or coverage ends, you generally have 8 months to sign up.
+- "What is the difference between Medicare Advantage and Medigap?" Medicare Advantage is another way to get your Part A and Part B coverage, through a private insurance company. Most plans use a network, and you pay copays as you go. Many include drug coverage. Medigap works alongside Original Medicare and helps pay costs Medicare leaves behind. You would usually add a separate Part D plan.
+- "Can I keep my doctors?" With Original Medicare, alone or with a Medigap plan, you can see any doctor in the country who accepts Medicare. With Medicare Advantage, it depends on the plan's network, and networks can change every year. Before choosing a plan, check every doctor, specialist, and hospital you use.
+- "When can I change my Medicare plan?" The main window is Open Enrollment, October 15 to December 7, with changes starting January 1. If you are in a Medicare Advantage plan, you also get one change between January 1 and March 31. Outside those times, life events like moving or losing other coverage can open a Special Enrollment Period.
+- "If I pick Medicare Advantage, can I switch to Medigap later?" You can return to Original Medicare during certain windows, but getting a Medigap plan later is not guaranteed. Outside your initial Medigap window and a few special situations, insurance companies can ask health questions and may charge more or turn you down.
+- "What happens if I miss my enrollment deadline?" It depends on what you missed. If you do not sign up for Part B when first eligible and do not have qualifying coverage, you may have to wait for the General Enrollment Period, January 1 to March 31, and pay a late penalty for as long as you have Part B. Part D has its own late penalty.
+- "Do I need a Part D plan if I do not take any medications?" It is optional, but think it through. If you go 63 days or more in a row without Part D or other creditable drug coverage after you are first eligible, you may owe a late penalty when you do sign up.
+- "Does it cost anything to work with you?" No. Consultations are free, with no obligation. Christian is paid by the insurance company if you enroll in a plan through him. The plan's premium is the same whether you enroll through him or on your own.
+
 ## Local pages
 
 ${cityLines}
