@@ -77,6 +77,7 @@ const STATIC_ROUTES: Array<{
   { path: "/service-area", changeFrequency: "monthly", priority: 0.9 },
   { path: "/medicare-help-directory", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-13" },
   { path: "/medicare-scam-alert", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-13" },
+  { path: "/turning-65-timeline", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-13" },
   { path: "/about", changeFrequency: "monthly", priority: 0.85 },
   { path: "/privacy", changeFrequency: "monthly", priority: 0.5 },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
@@ -189,6 +190,9 @@ const STATIC_ROUTES: Array<{
     "/guides/cone-health-medicare-doctors",
     "/guides/nc-state-health-plan-medicare",
     "/guides/moving-to-north-carolina-medicare",
+    "/guides/medicare-advantage-plans-leaving-nc-2027",
+    "/guides/medigap-plan-g-vs-plan-n-nc",
+    "/guides/turning-65-aca-marketplace-plan",
   ].map((path) => ({
     path,
     changeFrequency: "weekly" as const,
