@@ -1,4 +1,4 @@
-import { speakableJsonLd } from "@/lib/seo";
+import { speakableJsonLd, SITE_URL } from "@/lib/seo";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
@@ -171,6 +171,42 @@ export default function Turning65Page() {
         aria-label="Find your Medicare enrollment dates"
       >
         <MedicareTimeline currentYear={new Date().getUTCFullYear()} />
+        <figure className="mx-auto mt-8 max-w-2xl">
+          <svg
+            viewBox="0 0 600 120"
+            role="img"
+            aria-label="Your 7-month Initial Enrollment Period: 3 months before, your birthday month, 3 months after"
+          >
+            <line x1="30" y1="60" x2="570" y2="60" stroke="currentColor" strokeWidth="3" />
+            {[30, 120, 210, 300, 390, 480, 570].map((x, i) => (
+              <g key={i}>
+                <circle cx={x} cy="60" r="10" fill={i === 3 ? "#b91c1c" : "currentColor"} />
+                <text x={x} y="95" textAnchor="middle" fontSize="12" fill="currentColor">
+                  {i < 3 ? `-${3 - i} mo` : i === 3 ? "65th birthday" : `+${i - 3} mo`}
+                </text>
+              </g>
+            ))}
+            <text x="300" y="25" textAnchor="middle" fontSize="14" fontWeight="bold" fill="currentColor">
+              Your 7-month Initial Enrollment Period
+            </text>
+          </svg>
+          <figcaption className="mt-2 text-center text-sm">
+            Enroll in the first 3 months to avoid coverage gaps.
+          </figcaption>
+        </figure>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ImageObject",
+              name: "Medicare Initial Enrollment Period timeline",
+              description:
+                "Your 7-month Initial Enrollment Period: the 3 months before the month you turn 65, your birthday month, and the 3 months after.",
+              contentUrl: `${SITE_URL}/turning-65#enrollment-dates`,
+            }),
+          }}
+        />
       </section>
       <section className="bg-white py-14">
         <ScrollReveal>

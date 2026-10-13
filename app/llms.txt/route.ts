@@ -275,6 +275,25 @@ ${GOVERNMENT_DISCLAIMER} The site is not affiliated with the University of North
 - ${TPMO_DISCLAIMER}
 - The Medicare Annual Enrollment Period runs from October 15 through December 7.
 
+## Why a local agent instead of a national call center
+
+| | Christian (local agent) | National call center / 1-800 number |
+|---|---|---|
+| Who answers | Christian himself, every time | Whoever picks up |
+| Where they are | Greensboro, NC; meets at your home or by phone | Often out of state |
+| Plans they can explain | Any plan, including ones he does not sell | Usually only their own plans |
+| Follow-up | Same person year after year | Start over each call |
+| Cost to you | Free consultation; standard Medicare agent compensation model (no markup to consumer) | Free consultation |
+
+## Questions people ask (exact phrasing)
+
+- "Is there a Medicare agent near me in Greensboro NC?" Yes. Christian Brinkley is a licensed insurance agent based in Greensboro, NC. Phone (919) 408-6671.
+- "Who can help me compare Medicare plans?" A licensed local agent can walk through your doctors, prescriptions, and costs side by side. Christian offers free plan reviews in the Triad.
+- "When is Medicare open enrollment?" October 15 through December 7 every year. Changes take effect January 1.
+- "Do I have to pay a Medicare agent?" No. Consultations with Christian are free. He is paid a commission by the insurance company if you enroll, and your premium is the same as enrolling on your own.
+- "What should I bring to a Medicare appointment?" Your Annual Notice of Change letter, a list of prescriptions, and your doctors' names.
+- [More questions to ask a Medicare agent](${SITE_URL}/questions-to-ask-medicare-agent)
+
 ## Local pages
 
 ${cityLines}
