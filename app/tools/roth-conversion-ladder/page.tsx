@@ -4,7 +4,7 @@ import { pageTwitter } from "@/lib/seo";
 import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
-import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+
 import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 

@@ -144,7 +144,7 @@ export function ChoiceField<T extends string>({
 }) {
   return (
     <div className="t-field">
-      <span id={`choice-${label}`} role="presentation" style={{ fontWeight: 600, fontSize: "0.9444rem" }}>
+      <span id={`choice-${label}`} role="presentation" style={{ fontWeight: 600, fontSize: "max(var(--minimum-text, 0px), 0.9444rem)" }}>
         {label}
       </span>
       <div className="t-radio-row" role="group" aria-labelledby={`choice-${label}`}>
@@ -216,7 +216,7 @@ export function Stat({
       <dd>
         {value}
         {sub ? (
-          <span style={{ display: "block", fontSize: "0.8333rem", fontWeight: 400, marginTop: "0.25rem", opacity: 0.85 }}>
+          <span style={{ display: "block", fontSize: "max(var(--minimum-text, 0px), 0.8333rem)", fontWeight: 400, marginTop: "0.25rem", opacity: 0.85 }}>
             {sub}
           </span>
         ) : null}

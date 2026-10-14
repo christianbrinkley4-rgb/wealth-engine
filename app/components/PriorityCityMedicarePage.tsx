@@ -52,9 +52,9 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
         crumbs={[{ name: "Home", href: "/" }, { name: city.name }]}
         eyebrow={city.county}
         title={city.heading}
-        lede={`Free Medicare help in ${city.name} from Christian Brinkley, a licensed NC insurance agent. We can review your county, doctors, prescriptions, and enrollment dates by phone or at an agreed meeting. No obligation to enroll.`}
+        lede={`Free Medicare help in ${city.name} from Christian Brinkley, a licensed NC insurance agent. I can review your county, doctors, prescriptions, and enrollment dates by phone or at an agreed meeting. No obligation to enroll.`}
         secondaryHref="/start?topic=medicare&quick=1"
-        secondaryLabel="Book a free conversation"
+        secondaryLabel="Request a free conversation"
       />
       <MedicareByline reviewed="2026-10-13" />
       <section className="measure-prose app-shell max-w-3xl py-10">
@@ -140,7 +140,7 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
         heading={city.ctaHeading}
         body={city.ctaLine}
         href="/start?topic=medicare&quick=1"
-        label="Book a free Medicare conversation"
+        label="Request a free Medicare conversation"
       />
       <div className="app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />

@@ -234,7 +234,7 @@ export default function PlanGVsPlanNPage() {
           </dl>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             Comparing Medigap quotes? Call or text Christian Brinkley in Greensboro, NC at{" "}
-            {AGENT.phone}. We will run the real numbers for your situation. The review is free,
+            {AGENT.phone}. I will run the real numbers for your situation. The review is free,
             with no obligation.
           </p>
         </div>
@@ -249,9 +249,9 @@ export default function PlanGVsPlanNPage() {
 
       <KitchenTableClose
         heading="Plan G or Plan N? Let's do the math together"
-        body={`Tell me about your doctors and how often you see them. We will figure out which plan actually costs less for you. Call or text ${AGENT.phone}.`}
+        body={`Tell me about your doctors and how often you see them. I will figure out which plan actually costs less for you. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
-        label="Book a free review"
+        label="Request a free review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

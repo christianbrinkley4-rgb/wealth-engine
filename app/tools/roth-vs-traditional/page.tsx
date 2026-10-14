@@ -3,7 +3,7 @@ import { MedicareByline } from "@/app/components/MedicareByline";
 import { ToolTracking } from "../_components/tool-tracking";
 import type { Metadata } from "next";
 
-import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
+
 import { DataFreshness } from "@/app/components/DataFreshness";
 import { ToolHeader } from "../_components/tool-header";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";

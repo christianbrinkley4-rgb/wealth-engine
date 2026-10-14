@@ -4,7 +4,7 @@ import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import Link from "next/link";
-import { Phone } from "lucide-react";
+
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
@@ -57,15 +57,15 @@ const FAQ = [
   },
   {
     q: "Does where I live affect my Medicare choices?",
-    a: "Yes. Medicare Advantage plan availability can vary by county, so what's offered in Granville County isn't identical to what's offered in Guilford. We'll check the options for your home address, along with your doctors, prescriptions, and coverage needs.",
+    a: "Yes. Medicare Advantage plan availability can vary by county, so what's offered in Granville County isn't identical to what's offered in Guilford. I’ll check the options for your home address, along with your doctors, prescriptions, and coverage needs.",
   },
   {
-    q: "Can we meet in person?",
-    a: "Yes. We can meet at a convenient public place around Creedmoor, Oxford, or Butner, or talk by phone. You're welcome to include your spouse or another family member. The consultation is free, with no obligation to enroll in anything.",
+    q: "Can I meet you in person?",
+    a: "Yes. I can meet at a convenient public place around Creedmoor, Oxford, or Butner, or talk by phone. You're welcome to include your spouse or another family member. The consultation is free, with no obligation to enroll in anything.",
   },
   {
     q: "What does the free review cover?",
-    a: "We'll go over your current coverage, your doctors and prescriptions, and what's changing for next year, including your Annual Notice of Change letter if you got one. If your plan still looks good, I'll tell you so. If something changed that matters to you, we'll talk through your options before Medicare Open Enrollment ends December 7.",
+    a: "I’ll go over your current coverage, your doctors and prescriptions, and what's changing for next year, including your Annual Notice of Change letter if you got one. If your plan still looks good, I'll tell you so. If something changed that matters to you, I’ll talk through your options before Medicare Open Enrollment ends December 7.",
   },
 ] as const;
 
@@ -128,7 +128,7 @@ export default function MedicareCreedmoorPage() {
         title="Medicare Help in Creedmoor, NC"
         lede="I'm Christian Brinkley, a licensed insurance agent, and I grew up right here in Creedmoor. I help folks in Creedmoor, Oxford, Butner, and Stem understand their Medicare options with free, no-pressure reviews. No call centers, no scripts, just a local who'll sit down with you and explain it straight."
         secondaryHref="/start"
-        secondaryLabel="Book my free review →"
+        secondaryLabel="Request a free review →"
       />
 
       <section className="bg-white py-14">
@@ -146,13 +146,12 @@ export default function MedicareCreedmoorPage() {
             <p>
               Which one fits depends on your doctors, your prescriptions, your health, and your
               budget. There&apos;s no universal right answer, and anyone who tells you there is
-              hasn&apos;t looked at your situation. That&apos;s what the free review is for: we
-              look at your actual situation and figure out what makes sense.
+              hasn&apos;t looked at your situation. That&apos;s what the free review is for: I look at your actual situation and figure out what makes sense.
             </p>
             <p>
               One local note: Medicare Advantage plan availability can vary by county. The plans
               offered here in Granville County aren&apos;t identical to what&apos;s offered over
-              in Guilford. When we talk, we&apos;ll check what&apos;s available at your address,
+              in Guilford. When you and I talk, I&apos;ll check what&apos;s available at your address,
               not somebody else&apos;s.
             </p>
           </div>
@@ -258,26 +257,11 @@ export default function MedicareCreedmoorPage() {
           <h2 className="text-28 font-semibold">Talk to a neighbor first</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             You don&apos;t have to figure Medicare out from mailers and 1-800 numbers. Call or
-            text me, and we&apos;ll go through your situation together. Free consultation, no
+            text me, and I&apos;ll go through your situation with you. Free consultation, no
             obligation to enroll in anything, no pressure. If your plan is already fine,
             I&apos;ll say so.
           </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-            <a
-              href={AGENT.phoneHref}
-              aria-label={`Call ${AGENT.name} at ${AGENT.phone} for free Medicare help in Creedmoor`}
-              className="btn"
-            >
-              <Phone className="size-5 shrink-0" aria-hidden />
-              {AGENT.phone}
-            </a>
-            <Link
-              href="/start"
-              className="btn btn-outline"
-            >
-              Book my free review →
-            </Link>
-          </div>
+
           <p className="text-16 mt-4 text-[var(--color-ink-muted)]">
             Free consultation. No obligation to enroll. No call centers, just me.
           </p>
@@ -288,7 +272,7 @@ export default function MedicareCreedmoorPage() {
         heading="From Creedmoor, for Creedmoor"
         body="I'd rather you hear it from a neighbor than a call center. About fifteen minutes, free, and you'll actually understand your options."
         href="/start?topic=medicare&quick=1"
-        label="Book my free review →"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

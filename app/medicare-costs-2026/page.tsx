@@ -1,8 +1,10 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { AGENT } from "@/lib/agent";
+
+import { ConsultationActions } from "@/app/components/ConsultationActions";
 import { getBrackets, STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
 import {
   CMS_PART_D_SOURCE,
@@ -122,6 +124,7 @@ export default function MedicareCosts2026Page() {
             </p>
           </div>
 
+          <ConsultationActions />
           <div className="ref-summary">
             <div>
               <dt>{formatMoney(STANDARD_BASE_PREMIUM_2026)}</dt>
@@ -151,7 +154,7 @@ export default function MedicareCosts2026Page() {
             out of a Social Security payment, so it is the number people see first.
           </p>
           <div className="ref-table-wrap">
-            <table className="ref-table">
+            <ResponsiveTable className="ref-table">
               <caption>Part B, {COSTS_YEAR}</caption>
               <tbody>
                 <tr>
@@ -178,7 +181,7 @@ export default function MedicareCosts2026Page() {
                   <td>{formatMoney(PART_B_2026.immunosuppressiveDrugPremium)}</td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="ref-note">
             That 20% has no ceiling of its own, which is the whole reason supplemental coverage
@@ -200,7 +203,7 @@ export default function MedicareCosts2026Page() {
             quarters. The costs below start when you are admitted to a hospital.
           </p>
           <div className="ref-table-wrap">
-            <table className="ref-table">
+            <ResponsiveTable className="ref-table">
               <caption>Part A, {COSTS_YEAR}</caption>
               <tbody>
                 <tr>
@@ -232,7 +235,7 @@ export default function MedicareCosts2026Page() {
                   <td>{whole(PART_A_2026.premiumFull)} a month</td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="ref-note">
             <strong>Per benefit period, not per year.</strong> A benefit period ends after you have
@@ -250,7 +253,7 @@ export default function MedicareCosts2026Page() {
             nationally is how far your own spending can go.
           </p>
           <div className="ref-table-wrap">
-            <table className="ref-table">
+            <ResponsiveTable className="ref-table">
               <caption>Part D, {COSTS_YEAR}</caption>
               <tbody>
                 <tr>
@@ -277,7 +280,7 @@ export default function MedicareCosts2026Page() {
                   <td>{PART_D_2026.creditableCoverageGapDays} days or more in a row</td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="ref-note">
             Reaching the cap means you pay nothing further for covered drugs that year. It does not
@@ -298,7 +301,7 @@ export default function MedicareCosts2026Page() {
           </p>
 
           <div className="ref-table-wrap">
-            <table className="ref-table ref-table-wide">
+            <ResponsiveTable className="ref-table ref-table-wide">
               <caption>
                 {COSTS_YEAR} monthly cost by {IRMAA_LOOKBACK_YEAR} income
               </caption>
@@ -330,7 +333,7 @@ export default function MedicareCosts2026Page() {
                   );
                 })}
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
 
           <p className="ref-note">
@@ -357,12 +360,7 @@ export default function MedicareCosts2026Page() {
               these numbers land for them, and point them to whoever can help with the parts I
               don&rsquo;t handle myself. No cost, and no obligation.
             </p>
-            <Link href="/start?topic=medicare" className="home-link">
-              Go through it with me
-            </Link>
-            <p style={{ marginTop: "0.5rem" }}>
-              or call <a href={AGENT.phoneHref}>{AGENT.phone}</a>
-            </p>
+            <ConsultationActions location="page_close" />
           </div>
           <div className="home-faq-list">
             {FAQ.map((item) => (

@@ -106,7 +106,7 @@ function ThankYouInner() {
         ? "Got it, your estimate is saved."
         : isReminder
           ? "You’re on the list."
-          : "You’re all set.";
+          : "Your next steps with Christian";
 
   const lede = emailUnavailable ? (
     <>
@@ -140,7 +140,7 @@ function ThankYouInner() {
   const reads = topicKey ? NEXT_READS[topicKey] : null;
 
   return (
-    <div className="bg-[var(--color-paper)] px-4 py-14 md:py-20">
+    <main className="bg-[var(--color-paper)] px-4 py-14 md:py-20">
       <div className="mx-auto max-w-2xl">
         <div className="text-center">
           <CheckCircle2 className="mx-auto size-12 text-[var(--color-success)]" aria-hidden />
@@ -148,6 +148,11 @@ function ThankYouInner() {
             {headline}
           </h1>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-navy)]">{lede}</p>
+          <div id="page-hero-actions" className="mt-6">
+            <a data-cta-location="hero" href={AGENT.phoneHref} className="btn">
+              <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+            </a>
+          </div>
         </div>
 
         <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
@@ -193,13 +198,6 @@ function ThankYouInner() {
 
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <a
-            href={AGENT.phoneHref}
-            className="text-18 flex min-h-16 items-center justify-center gap-3 rounded-xl border-2 border-[var(--color-navy)] bg-white px-4 font-semibold text-[var(--color-navy)]"
-          >
-            <Phone className="size-5" aria-hidden />
-            {AGENT.phone}
-          </a>
-          <a
             href={`mailto:${AGENT.email}`}
             className="text-17 flex min-h-16 items-center justify-center gap-3 rounded-xl border-2 border-[var(--color-navy)] bg-white px-4 font-semibold break-all text-[var(--color-navy)]"
           >
@@ -244,7 +242,7 @@ function ThankYouInner() {
           </Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

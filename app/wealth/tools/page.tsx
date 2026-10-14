@@ -171,7 +171,7 @@ export default function WealthToolsPage() {
                 {"\n"}
                 {SAMPLE_REPORT}
               </div>
-              <p style={{ margin: "8px 0 0", fontSize: "0.86rem", color: "var(--w-muted)" }}>
+              <p style={{ margin: "8px 0 0", fontSize: "max(var(--minimum-text, 0px), 0.86rem)", color: "var(--w-muted)" }}>
                 Part of the sample report. The company is made up.
               </p>
             </div>

@@ -4,12 +4,12 @@ import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
-import { Phone } from "lucide-react";
+
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -125,7 +125,7 @@ export default function AnocPage() {
         title="What is the Annual Notice of Change?"
         lede="The Annual Notice of Change, usually called an ANOC, is the letter your Medicare Advantage or Part D plan sends every September. It lists what changes on January 1: your premium, your drug costs, your coverage rules. Annual Enrollment runs October 15 to December 7, and that is your window to act on it. Bring the letter to me, in person or by phone, and I will walk you through it in plain English. Free. No pressure to switch plans."
         secondaryHref={START_HREF}
-        secondaryLabel="Book my free review →"
+        secondaryLabel="Request a free review →"
       />
 
       <section className="bg-white py-14">
@@ -158,7 +158,7 @@ export default function AnocPage() {
             </p>
             <p>
               If your plan still looks good, I&apos;ll tell you so. If something changed that
-              matters to you, we&apos;ll talk through your options before Annual Enrollment ends
+              matters to you, I&apos;ll talk through your options before Annual Enrollment ends
               December 7.
             </p>
           </div>
@@ -215,27 +215,12 @@ export default function AnocPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Bring me the letter</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            A photo of it works fine. We&apos;ll go through it together, in person around
+            A photo of it works fine. I&apos;ll go through it with you, in person around
             Greensboro or by phone, and you&apos;ll understand what changed and what to check
             before the December 7 deadline. The changes in the letter take effect January 1
             whether you read it or not, so sooner beats later.
           </p>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-            <a
-              href={AGENT.phoneHref}
-              aria-label={`Call ${AGENT.name} at ${AGENT.phone}, let's go through your letter together`}
-              className="btn"
-            >
-              <Phone className="size-5 shrink-0" aria-hidden />
-              {AGENT.phone}
-            </a>
-            <Link
-              href={START_HREF}
-              className="btn btn-outline"
-            >
-              Book my free review →
-            </Link>
-          </div>
+
           <p className="text-16 mt-4 text-[var(--color-ink-muted)]">
             Free consultation. No obligation to enroll. No call centers, just me.
           </p>
@@ -273,7 +258,7 @@ export default function AnocPage() {
         heading="That letter won't read itself"
         body="The changes take effect January 1 either way. About fifteen minutes with me now beats a surprise in January. Free, no pressure."
         href="/start?topic=medicare&quick=1"
-        label="Book my free review →"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

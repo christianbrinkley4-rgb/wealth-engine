@@ -57,7 +57,7 @@ const COPY: Record<
     headline: (city) => `Personal life insurance review in ${city}`,
     closeHeading: "Would you like to review your coverage together?",
     closeBody: (city) =>
-      `We can meet at your home in ${city} or talk by phone. Bring your current policy and your questions. The consultation is no cost, with no obligation to buy anything.`,
+      `I can meet at your home in ${city} or talk by phone. Bring your current policy and your questions. The consultation is no cost, with no obligation to buy anything.`,
     closeLabel: "Request a free consultation →",
   },
   retirement: {
@@ -78,7 +78,7 @@ const COPY: Record<
     headline: (city) => `Coordinate retirement income and Medicare in ${city}`,
     closeHeading: "Let’s talk about your retirement questions.",
     closeBody: (city) =>
-      `We can meet in ${city} to discuss your Medicare and insurance needs. For financial planning, I work with an advisor so you have the right support.`,
+      `I can meet in ${city} to discuss your Medicare and insurance needs. For financial planning, I work with an advisor so you have the right support.`,
     closeLabel: "Ask a question →",
   },
 };
@@ -175,7 +175,7 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <CitySnapshot city={city} topic={kind} />
-          <h2 className="text-28 mt-10 font-semibold">What we can review together</h2>
+          <h2 className="text-28 mt-10 font-semibold">What I can help you review</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {content.detail}
           </p>

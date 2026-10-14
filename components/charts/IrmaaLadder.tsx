@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { getBrackets, type FilingStatus, type IrmaaBracket } from "@/lib/irmaa";
 
 /**
@@ -77,7 +78,7 @@ export function IrmaaLadder({
         Every tier of the 2026 Part B schedule, and where this income lands.
       </figcaption>
 
-      <table className="mt-4 w-full border-collapse text-left">
+      <ResponsiveTable className="mt-4 w-full border-collapse text-left">
         <caption className="sr-only">
           2026 Medicare Part B premium by income tier,{" "}
           {filingStatus === "individual" ? "individual filer" : "married filing jointly"}. Your tier
@@ -158,7 +159,7 @@ export function IrmaaLadder({
             );
           })}
         </tbody>
-      </table>
+      </ResponsiveTable>
 
       {next && headroom !== null ? (
         <p

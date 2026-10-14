@@ -244,7 +244,7 @@ export default function MedicareScamAlertPage() {
         <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">
           For free, unbiased counseling with no sales angle, see{" "}
           <Link href="/medicare-help-directory" className="underline underline-offset-2">
-            our free Medicare help directory
+            the free Medicare help directory
           </Link>
           . For what is changing this year, read{" "}
           <Link href="/medicare-changes-2027" className="underline underline-offset-2">

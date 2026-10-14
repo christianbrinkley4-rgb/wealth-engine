@@ -63,7 +63,7 @@ export default function WealthLearnPage() {
                     <span>{article.minutes} min read</span>
                     <strong style={{ fontFamily: "var(--w-serif)", fontSize: "1.3rem" }}>{article.title}</strong>
                     <ArrowUpRight size={20} aria-hidden />
-                    <span style={{ color: "var(--w-muted)", textTransform: "none", letterSpacing: 0, fontFamily: "inherit", fontSize: "0.92rem" }}>
+                    <span style={{ color: "var(--w-muted)", textTransform: "none", letterSpacing: 0, fontFamily: "inherit", fontSize: "max(var(--minimum-text, 0px), 0.92rem)" }}>
                       {article.description}
                     </span>
                   </Link>

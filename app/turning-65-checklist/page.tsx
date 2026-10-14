@@ -95,7 +95,7 @@ const FAQ = [
   },
   {
     q: "Do I need a local agent, or can I just do this myself?",
-    a: "You can absolutely enroll yourself through Medicare.gov or Social Security. A licensed local agent does not charge you anything (we are paid by the insurance companies) and can walk through the tradeoffs with you in person. I do this for folks across the Triad every week. Either way, do not make the decision from a commercial alone.",
+    a: "You can absolutely enroll yourself through Medicare.gov or Social Security. A licensed local agent does not charge you anything (I am paid by the insurance companies) and can walk through the tradeoffs with you in person. I do this for folks across the Triad every week. Either way, do not make the decision from a commercial alone.",
   },
 ] as const;
 
@@ -240,7 +240,7 @@ export default function Turning65ChecklistPage() {
               through Social Security.
             </li>
             <li className="text-17 leading-relaxed">
-              Your current health insurance card and a summary of the plan, so we can confirm
+              Your current health insurance card and a summary of the plan, so I can confirm
               whether it counts as creditable coverage if you are delaying Part B.
             </li>
             <li className="text-17 leading-relaxed">
@@ -298,9 +298,9 @@ export default function Turning65ChecklistPage() {
       </ReadNext>
       <KitchenTableClose
         heading="Work the checklist with me"
-        body="Bring your 65th birthday month and your current insurance card. We will walk all eight steps together, free, no obligation, about 30 minutes."
+        body="Bring your 65th birthday month and your current insurance card. I will walk you through all eight steps, free, no obligation, about 30 minutes."
         href="/start?topic=medicare&quick=1"
-        label="Book my free walkthrough →"
+        label="Request a free walkthrough →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

@@ -50,10 +50,22 @@ export function ServiceHero({
   variant?: "default" | "compact" | "info";
 }) {
   // Older pages put an arrow character in the label; the button draws its own.
-  const label = (secondaryLabel || "").replace(/\s*→\s*$/, "");
+  const label = (secondaryLabel ?? "Request a free consultation").replace(/\s*→\s*$/, "");
+  const actionHref =
+    secondaryHref ??
+    (!hidePhoneCta && variant !== "info"
+      ? eyebrow.toLowerCase().includes("medicare") ||
+        crumbs.some((crumb) => /medicare|annual|turning 65|anoc/i.test(crumb.name))
+        ? "/start?topic=medicare&quick=1"
+        : "/start"
+      : undefined);
   const variantClass = variant === "compact" ? " sh-compact" : variant === "info" ? " sh-info" : "";
   return (
-    <section className={["sh", variant === "info" ? "" : "on-dark", variantClass.trim()].filter(Boolean).join(" ")}>
+    <section
+      className={["sh", variant === "info" ? "" : "on-dark", variantClass.trim()]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div className="sh-glow" aria-hidden />
       <div className="shell sh-grid">
         <div className="sh-copy">
@@ -74,41 +86,26 @@ export function ServiceHero({
             </ol>
           </nav>
 
-          <p className="eyebrow on-dark sh-eyebrow">{eyebrow}</p>
+          <p className={`eyebrow ${variant === "info" ? "" : "on-dark "}sh-eyebrow`}>{eyebrow}</p>
           <h1 className="sh-title">{title}</h1>
           <p className="sh-lede">{lede}</p>
 
           <div className="sh-actions" id="page-hero-actions">
-            {!hidePhoneCta && (
-              <a
-                data-cta-location="hero"
-                href={AGENT.phoneHref}
-                className="btn btn-light"
-                aria-label={`Call Christian's direct line at ${AGENT.phone}`}
-              >
+            {!hidePhoneCta && variant !== "info" && (
+              <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light">
                 <Phone size={19} aria-hidden />
                 Call Christian&apos;s direct line: {AGENT.phone}
               </a>
             )}
-            {!hidePhoneCta && variant !== "info" && (
+            {actionHref && actionHref !== AGENT.phoneHref && (
               <Link
                 ctaLocation="hero"
-                href={
-                  eyebrow.toLowerCase().includes("medicare") ||
-                  crumbs.some((crumb) => /medicare|annual|turning 65|anoc/i.test(crumb.name))
-                    ? "/start?topic=medicare&quick=1"
-                    : "/start"
-                }
-                className="btn btn-ghost-light"
+                href={actionHref}
+                className={`btn ${hidePhoneCta || variant === "info" ? "btn-outline" : "btn-ghost-light"}`}
               >
-                Request a free consultation <ArrowRight size={18} aria-hidden />
+                {label} <ArrowRight size={18} className="arrow" aria-hidden />
               </Link>
             )}
-            {secondaryHref ? (
-              <Link ctaLocation="hero" href={secondaryHref} className="btn btn-ghost-light">
-                  {label} <ArrowRight size={18} className="arrow" aria-hidden />
-                </Link>
-            ) : null}
           </div>
           {note ? (
             <div className="sh-note">{note}</div>

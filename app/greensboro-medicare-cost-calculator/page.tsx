@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
@@ -10,7 +11,7 @@ import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ToolHeader } from "@/app/tools/_components/tool-header";
 import { ToolsDisclaimer } from "@/app/tools/_components/tool-footer";
-import { AGENT } from "@/lib/agent";
+
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 import { GreensboroCostCalculator } from "./CalculatorClient";
@@ -128,7 +129,7 @@ export default function GreensboroMedicareCostCalculatorPage() {
         </div>
         <div className="app-shell max-w-5xl">
           <div className="t-table-wrap">
-            <table className="t-table">
+            <ResponsiveTable className="t-table">
               <thead>
                 <tr>
                   <th>Figure</th>
@@ -147,7 +148,7 @@ export default function GreensboroMedicareCostCalculatorPage() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
         </div>
       </section>
@@ -164,7 +165,7 @@ export default function GreensboroMedicareCostCalculatorPage() {
         </div>
         <div className="app-shell max-w-3xl">
           <div className="t-table-wrap">
-            <table className="t-table">
+            <ResponsiveTable className="t-table">
               <thead>
                 <tr>
                   <th>Age</th>
@@ -181,7 +182,7 @@ export default function GreensboroMedicareCostCalculatorPage() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="t-hint" style={{ marginTop: "0.75rem" }}>
             Source: BCBS NC Blue Medicare Supplement rate outline, nchealthplans.com. Showing
@@ -212,7 +213,7 @@ export default function GreensboroMedicareCostCalculatorPage() {
 
       <KitchenTableClose
         heading="Want help running your real numbers?"
-        body="Bring your doctors, your prescriptions, and your pharmacy. We will compare actual plans available in Guilford County, not estimates."
+        body="Bring your doctors, your prescriptions, and your pharmacy. I will compare actual plans available in Guilford County, not estimates."
         href="/start"
         label="Start with Christian"
       />

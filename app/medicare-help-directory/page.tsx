@@ -132,7 +132,7 @@ export default function MedicareHelpDirectoryPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Free Medicare help directory" }]}
         eyebrow="Greensboro, Winston-Salem & High Point · No cost, no catch"
         title="Free Medicare help in the Triad"
-        lede="You do not have to figure Medicare out alone, and you do not have to pay for help. These are real, verified programs that answer Medicare questions for free in our area. I put this list together because I send people to these resources all the time. Every entry below was verified before I published it."
+        lede="You do not have to figure Medicare out alone, and you do not have to pay for help. These are real, verified programs that answer Medicare questions for free in this area. I put this list together because I send people to these resources all the time. Every entry below was verified before I published it."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free consultation with me →"
       />
@@ -224,7 +224,7 @@ export default function MedicareHelpDirectoryPage() {
 
       <KitchenTableClose
         heading="Want to talk it through with a local agent?"
-        body="Free consultation, no obligation. We can meet at your home, talk by phone, or meet somewhere convenient. Bring your questions and we will take them one at a time."
+        body="Free consultation, no obligation. I can meet at your home, talk by phone, or meet somewhere convenient. Bring your questions and I will take them one at a time."
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation →"
       />
@@ -233,7 +233,7 @@ export default function MedicareHelpDirectoryPage() {
         <p className="text-17 mb-8 leading-relaxed text-[var(--color-ink-muted)]">
           If you are worried about a suspicious call or letter, read{" "}
           <Link href="/medicare-scam-alert" className="underline underline-offset-2">
-            our Medicare scam alert
+            the Medicare scam alert
           </Link>
           . For what is changing this year, see{" "}
           <Link href="/medicare-changes-2027" className="underline underline-offset-2">

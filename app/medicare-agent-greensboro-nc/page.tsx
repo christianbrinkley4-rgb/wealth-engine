@@ -63,9 +63,9 @@ export default function MedicareAgentGreensboroPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare help in Greensboro" }]}
         eyebrow="Greensboro and Guilford County"
         title="Medicare help in Greensboro, NC"
-        lede="Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. We can review your doctors, prescriptions, enrollment dates, and the plans I represent. Meet at home or talk by phone. There's no obligation to enroll."
+        lede="Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. I can review your doctors, prescriptions, enrollment dates, and the plans I represent. Meet at home or talk by phone. There's no obligation to enroll."
         secondaryHref="/start?topic=medicare&quick=1"
-        secondaryLabel="Book a free Medicare conversation"
+        secondaryLabel="Request a free Medicare conversation"
       />
       <MedicareByline reviewed="2026-10-12" />
       <nav className="app-shell max-w-3xl py-6" aria-label="In this Greensboro guide">
@@ -167,9 +167,9 @@ export default function MedicareAgentGreensboroPage() {
       <RelatedMedicareGuides />
       <KitchenTableClose
         heading="Bring your Medicare questions"
-        body="We'll go through your doctors, prescriptions, and coverage options together. Free, with no obligation to enroll."
+        body="I’ll go through your doctors, prescriptions, and coverage options with you. Free, with no obligation to enroll."
         href="/start?topic=medicare&quick=1"
-        label="Book a free conversation"
+        label="Request a free conversation"
       />
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />

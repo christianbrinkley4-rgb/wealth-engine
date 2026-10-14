@@ -258,9 +258,9 @@ export default function NcStateHealthPlanMedicarePage() {
 
       <KitchenTableClose
         heading="State retiree? Let's walk through your three options"
-        body={`Tell me where you are in the process. We will make sure your Medicare enrollment lines up with your retiree coverage. Call or text ${AGENT.phone}.`}
+        body={`Tell me where you are in the process. I will make sure your Medicare enrollment lines up with your retiree coverage. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
-        label="Book a free review"
+        label="Request a free review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

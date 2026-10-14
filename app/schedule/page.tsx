@@ -38,11 +38,11 @@ export const metadata: Metadata = {
 
 const TOPIC_DESCRIPTIONS: Record<SchedulingTopic, string> = {
   medicare:
-    "Tell me about your situation and when works for you. We can talk by phone, by video, or at your home. This introductory conversation is free, with no obligation to enroll.",
+    "Tell me about your situation and when works for you. I can talk by phone, by video, or at your home. This introductory conversation is free, with no obligation to enroll.",
   life_insurance:
-    "Let’s go over the coverage you already have, the people who matter to you, and your questions, at a comfortable pace. We can meet by phone, by video, or at your home in the Triad, and I’ll confirm the location with you. You are welcome to invite a family member. When you reach out, please leave out medical details, policy numbers, and account numbers.",
+    "Let’s go over the coverage you already have, the people who matter to you, and your questions, at a comfortable pace. I can meet by phone, by video, or at your home in the Triad, and I’ll confirm the location with you. You are welcome to invite a family member. When you reach out, please leave out medical details, policy numbers, and account numbers.",
   care_coverage:
-    "Let’s talk about long-term care, short-term care, or critical illness insurance. We can review the help you might need, the support your family has, and the benefits and limits of coverage you’re considering.",
+    "Let’s talk about long-term care, short-term care, or critical illness insurance. I can review the help you might need, the support your family has, and the benefits and limits of coverage you’re considering.",
   financial_planning:
     "Let’s start with your retirement insurance needs and the questions on your mind. I can explain insurance options, including annuities, and arrange an introduction to an advisor for financial planning if you would like one.",
 };
@@ -91,12 +91,12 @@ export default async function SchedulePage({
                 : "Request a free consultation"}
           </h1>
           <p className="sched-lede">
-            Your booking comes straight to me, Christian Brinkley. No call center, no pressure.
+            Your request comes straight to me, Christian Brinkley. No call center, no pressure.
           </p>
           <p className="sched-callnow">
             Rather talk now?{" "}
-            <a href={AGENT.phoneHref}>
-              Call my direct line {AGENT.phone}, I usually pick up.
+            <a data-cta-location="hero" href={AGENT.phoneHref} className="btn">
+              Call Christian&apos;s direct line: {AGENT.phone}
             </a>
           </p>
         </div>
@@ -137,15 +137,15 @@ export default async function SchedulePage({
                   <h2>Request a time with Christian</h2>
                   <p>
                     Answer a few short questions, then tell me how you’d like to meet and a
-                    convenient time. I’ll follow up to arrange our conversation. Your request goes
+                    convenient time. I’ll follow up to arrange your conversation. Your request goes
                     directly to me.
                   </p>
-                  <Link href={`${requestHref}&quick=1`} className="btn">
+                  <Link href={`${requestHref}${topic ? "&" : "?"}quick=1`} className="btn btn-outline">
                     Request a free consultation{" "}
                     <ArrowRight size={18} className="arrow" aria-hidden />
                   </Link>
                   <p className="sched-small">
-                    An appointment is confirmed once we agree on a time.
+                    An appointment is confirmed once you and I agree on a time.
                   </p>
                 </div>
               )}
@@ -154,7 +154,7 @@ export default async function SchedulePage({
           <p className="sched-small sched-soa">
             For a Medicare plan discussion, any required permission and scope of appointment will be
             arranged before the meeting. Please keep Medicare numbers, Social Security numbers, and
-            medical records out of the booking form.
+            medical records out of the request form.
           </p>
         </div>
 
@@ -190,9 +190,9 @@ export default async function SchedulePage({
             ))}
           </ul>
           <p className="sched-small">
-            Allow 60 minutes for our conversation. Tell me what times work for you and I will confirm personally.
+            Allow 60 minutes for your conversation. Tell me what times work for you and I will confirm personally.
             {topic === null || topic === "medicare"
-              ? " For a Medicare conversation, I’ll also confirm with you personally before we meet."
+              ? " For a Medicare conversation, I’ll also confirm with you personally before your visit."
               : ""}{" "}
             {topic === "financial_planning"
               ? "Any separate financial planning services and fees would be explained by the advisor before you agree to them."
@@ -200,7 +200,7 @@ export default async function SchedulePage({
           </p>
           <div className="sched-contact">
             {topic && bookingUrl ? (
-              <a href="#booking-calendar" className="btn">
+              <a href="#booking-calendar" className="btn btn-outline">
                 Choose a date and time <ArrowRight size={18} aria-hidden />
               </a>
             ) : null}

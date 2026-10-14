@@ -59,7 +59,7 @@ const STEPS = [
   },
   {
     t: "You hear from me",
-    b: "I’ll get in touch so we can arrange a time and place that work for you, including a visit at home or a phone conversation.",
+    b: "I’ll get in touch so I can arrange a time and place that work for you, including a visit at home or a phone conversation.",
   },
 ] as const;
 
@@ -140,12 +140,12 @@ export default function AboutPage() {
               Licensed agent · {AGENT.licenseLine}
               {hasPublishableNpn() ? ` · NPN ${AGENT.npn}` : ""}
             </p>
-            <div className="ab-actions">
+            <div className="ab-actions" id="page-hero-actions">
               <a href={AGENT.phoneHref} className="btn">
-                <Phone size={18} aria-hidden /> {AGENT.phone}
+                <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
               </a>
               <Link href="/start?topic=medicare&quick=1" className="btn btn-outline">
-                <CalendarDays size={18} aria-hidden /> Book a time
+                <CalendarDays size={18} aria-hidden /> Request a free consultation
               </Link>
               <a href={`mailto:${AGENT.email}`} className="link-draw">
                 <Mail size={17} aria-hidden /> <span>Email me</span>
@@ -203,14 +203,14 @@ export default function AboutPage() {
               when your health, family, work, and priorities change.
             </p>
             <p data-reveal>
-              We can start with Medicare, life insurance, long-term or short-term care, critical
-              illness coverage, or annuities. We’ll look at what you already have, talk through your
+              I can start with Medicare, life insurance, long-term or short-term care, critical
+              illness coverage, or annuities. I’ll look at what you already have, talk through your
               needs and budget, and work toward a clear next step. You’re welcome to include your
               spouse or another family member.
             </p>
             <p data-reveal>
               My approach is to listen first, explain the options I offer in plain language, and
-              give you room to decide. We can meet at your home, at a convenient public place, or by
+              give you room to decide. I can meet at your home, at a convenient public place, or by
               phone. If your current coverage still fits, that is a useful answer too.
             </p>
             <p data-reveal>
@@ -411,7 +411,7 @@ export default function AboutPage() {
 
       <KitchenTableClose
         heading="What are you trying to figure out?"
-        body="Tell me what’s on your mind. We can set up a no-cost conversation about your coverage and next steps."
+        body="Tell me what’s on your mind. I can set up a no-cost conversation about your coverage and next steps."
         href="/start"
         label="Ask your question"
       />

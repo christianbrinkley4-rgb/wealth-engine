@@ -278,7 +278,7 @@ export default function MedicareUnder65DisabilityNcPage() {
 
       <KitchenTableClose
         heading={"Don't let the six-month window pass by accident"}
-        body={`${"Tell me your Part B start date. We'll mark your North Carolina window, check your doctors and prescriptions, and see whether you qualify for help with costs."} Call or text ${AGENT.phone}.`}
+        body={`${"Tell me your Part B start date. I’ll mark your North Carolina window, check your doctors and prescriptions, and see whether you qualify for help with costs."} Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

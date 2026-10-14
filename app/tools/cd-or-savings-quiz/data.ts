@@ -89,7 +89,7 @@ export const DATA: QuizData = {
     },
     {
       id: "amount",
-      text: "How much are we talking about?",
+      text: "How much are you and I talking about?",
       sub: "Many CDs have minimum deposits. Savings accounts usually do not.",
       options: [
         { label: "Under $1,000.", scores: { savings: 2 } },

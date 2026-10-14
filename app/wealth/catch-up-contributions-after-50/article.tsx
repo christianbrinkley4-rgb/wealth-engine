@@ -1,3 +1,5 @@
+import { AGENT } from "@/lib/agent";
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -91,7 +93,7 @@ export function WealthArticlePage({ article }: { article: ArticleData }) {
                 ) : null}
                 {section.table ? (
                   <div style={{ overflowX: "auto", marginTop: 20 }}>
-                    <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 15, lineHeight: 1.5 }}>
+                    <ResponsiveTable style={{ width: "100%", borderCollapse: "collapse", fontSize: "max(var(--minimum-text, 0px), 15px)", lineHeight: 1.5 }}>
                       <caption style={{ textAlign: "left", fontWeight: 700, marginBottom: 10 }}>
                         {section.table.caption}
                       </caption>
@@ -118,7 +120,7 @@ export function WealthArticlePage({ article }: { article: ArticleData }) {
                           </tr>
                         ))}
                       </tbody>
-                    </table>
+                    </ResponsiveTable>
                   </div>
                 ) : null}
                 {section.linkRow ? (
@@ -175,9 +177,12 @@ export function WealthArticlePage({ article }: { article: ArticleData }) {
               {"Free consultation, no obligation. Meet at home, in a public spot, or by phone."}
             </p>
             <div className="w-btn-row">
-              <Link href="/start" className="w-btn">
-                {"Start here"} <ArrowRight size={18} aria-hidden />
-              </Link>
+              <a href={AGENT.phoneHref} className="w-btn w-btn-ink">
+                  Call Christian&apos;s direct line: {AGENT.phone}
+                </a>
+                <Link href="/start" className="w-btn w-btn-ghost">
+                  Request a free consultation <ArrowRight size={18} aria-hidden />
+                </Link>
             </div>
           </aside>
           <p style={{ marginTop: 24, color: "var(--w-on-ink-muted)" }}>

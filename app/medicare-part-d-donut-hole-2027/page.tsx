@@ -164,7 +164,7 @@ export default function DonutHole2027Page() {
             tiers, and its own prices, and every one of those can change on January 1.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Bring a list of your prescriptions, with dosages, and the pharmacy you prefer. We will
+            Bring a list of your prescriptions, with dosages, and the pharmacy you prefer. I will
             check each drug against the 2027 plans and find the one where your actual yearly cost is
             lowest. It takes about twenty minutes and it is free.{" "}
             <Link href="/medicare-changes-2027" className="underline underline-offset-2">
@@ -198,7 +198,7 @@ export default function DonutHole2027Page() {
 
       <KitchenTableClose
         heading="Let's check your drugs for 2027"
-        body={`Bring your prescription list. We will compare what your drugs cost across the 2027 Part D options and find the lowest total for you. Free, no obligation. Call or text ${AGENT.phone}.`}
+        body={`Bring your prescription list. I will compare what your drugs cost across the 2027 Part D options and find the lowest total for you. Free, no obligation. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&stage=already_on_medicare"
         label="Request a free review →"
       />

@@ -261,7 +261,7 @@ export default function PlansLeavingNc2027Page() {
           </dl>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             Got a letter from your plan and not sure what it means? Call or text Christian
-            Brinkley in Greensboro, NC at {AGENT.phone}. We will read it together. The review is
+            Brinkley in Greensboro, NC at {AGENT.phone}. I will read it with you. The review is
             free, with no obligation.
           </p>
         </div>
@@ -276,9 +276,9 @@ export default function PlansLeavingNc2027Page() {
 
       <KitchenTableClose
         heading="Plan ending? Let's find your next one"
-        body={`Bring your letter and your prescription list. We will compare your options side by side before December 7. Call or text ${AGENT.phone}.`}
+        body={`Bring your letter and your prescription list. I will compare your options side by side before December 7. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
-        label="Book a free review"
+        label="Request a free review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

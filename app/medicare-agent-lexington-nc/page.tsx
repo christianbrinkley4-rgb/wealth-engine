@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -48,7 +48,7 @@ const FAQ = [
     a: "Only in a practical sense. The county offices and senior programs are here, which makes Lexington a good home base for paperwork and questions. Your Medicare options are set by your county and plan choices, the same as anywhere in Davidson County. The seat just means the resources are close.",
   },
   {
-    q: "Can we still do a review during Barbecue Festival season?",
+    q: "Can I still do a review during Barbecue Festival season?",
     a: "Absolutely. The festival is one weekend; Annual Enrollment is eight weeks. But it is a good reminder that October and November fill up fast on both sides. Book early and you will not be thinking about Medicare while you are thinking about barbecue.",
   },
   {
@@ -56,45 +56,6 @@ const FAQ = [
     a: "All of it. Thomasville, Denton, Midway, Welcome, Arcadia, Wallburg, and everywhere in between. If you are in Davidson County, you are in my area.",
   },
 ] as const;
-
-function CtaBlock() {
-  return (
-    <section className="bg-white py-14">
-      <div className="measure-prose app-shell max-w-3xl">
-        <h2 className="text-28 font-semibold">Get your free Medicare review</h2>
-        <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-          for you.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link
-            href="/plan-check"
-            className="btn"
-          >
-            Take the plan-fit quiz →
-          </Link>
-          <a
-            href="/start?topic=medicare&quick=1"
-            className="btn btn-outline"
-          >
-            Book a free call
-          </a>
-        </div>
-        <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-          Prefer to talk? Call or text{" "}
-          <a href={AGENT.phoneHref} className="underline underline-offset-2">
-            {AGENT.phone}
-          </a>
-          .
-        </p>
-        <p className="text-16 mt-4 italic text-[var(--color-ink-muted)]">
-          Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-          obligation.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 export default function MedicareAgentLexingtonPage() {
   return (
@@ -189,7 +150,7 @@ export default function MedicareAgentLexingtonPage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Where We Can Meet</h2>
+          <h2 className="text-28 font-semibold">Where I can Meet</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
               <strong>The Lexington library.</strong> A quiet public spot to sit down
@@ -199,7 +160,7 @@ export default function MedicareAgentLexingtonPage() {
             <p>
               <strong>Senior programs in Davidson County.</strong> The county runs
               programs for older adults, and as the county seat, Lexington is where a
-              lot of them are based. Worth knowing about whether or not we ever meet.
+              lot of them are based. Worth knowing about whether or not you ever meet with me.
             </p>
           </div>
         </div>
@@ -241,7 +202,7 @@ export default function MedicareAgentLexingtonPage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -257,7 +218,7 @@ export default function MedicareAgentLexingtonPage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">

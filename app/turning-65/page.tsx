@@ -153,7 +153,7 @@ export default function Turning65Page() {
         secondaryLabel="Request a consultation →"
         note={
           <>
-            Turning 65? We’ll spend at least one hour reviewing your enrollment timing, current
+            Turning 65? I’ll spend at least one hour reviewing your enrollment timing, current
             coverage, doctors, and questions. No cost. No obligation. Or{" "}
             <Link href="#enrollment-dates" className="font-medium underline underline-offset-2">
               see your estimated enrollment dates without sharing contact details
@@ -279,7 +279,7 @@ export default function Turning65Page() {
               Winston-Salem
             </Link>{" "}
             is in Forsyth County, which can have a different list. A personal review starts with
-            where you live, the doctors you see, and the care you need. We’ll check prescription
+            where you live, the doctors you see, and the care you need. I’ll check prescription
             coverage too.{" "}
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -466,7 +466,7 @@ export default function Turning65Page() {
 
       <KitchenTableClose
         heading="Ready to review your Medicare timeline?"
-        body="Request a consultation and we’ll spend at least one hour on your enrollment timing, current coverage, doctors, and questions. Meet in person or by phone. No cost. No obligation. A request needs confirmation and is not a reserved appointment."
+        body="Request a consultation and I’ll spend at least one hour on your enrollment timing, current coverage, doctors, and questions. Meet in person or by phone. No cost. No obligation. A request needs confirmation and is not a reserved appointment."
         href="/start?topic=medicare&stage=turning_65_soon&quick=1"
         label="Request a consultation →"
       />

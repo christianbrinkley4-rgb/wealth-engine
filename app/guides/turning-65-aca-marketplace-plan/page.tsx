@@ -255,7 +255,7 @@ export default function MarketplaceToMedicarePage() {
           </dl>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             On a Marketplace plan and turning 65 soon? Call or text Christian Brinkley in
-            Greensboro, NC at {AGENT.phone}. We will time the transition so nothing overlaps
+            Greensboro, NC at {AGENT.phone}. I will time the transition so nothing overlaps
             and nothing gets missed. The review is free, with no obligation.
           </p>
         </div>
@@ -270,9 +270,9 @@ export default function MarketplaceToMedicarePage() {
 
       <KitchenTableClose
         heading="Turning 65 on a Marketplace plan? Let's time it right"
-        body={`Tell me when you turn 65 and what coverage you have now. We will map out the enrollment, the cancellation, and the HSA timing. Call or text ${AGENT.phone}.`}
+        body={`Tell me when you turn 65 and what coverage you have now. I will map out the enrollment, the cancellation, and the HSA timing. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
-        label="Book a free review"
+        label="Request a free review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

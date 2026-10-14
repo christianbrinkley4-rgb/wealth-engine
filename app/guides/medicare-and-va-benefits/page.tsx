@@ -244,7 +244,7 @@ export default function MedicareAndVaBenefitsPage() {
 
       <KitchenTableClose
         heading={"See what Medicare would add to your VA care"}
-        body={`${"Tell me where you get care now and what you'd want covered outside the VA. We'll look at what each Medicare option would cost and cover."} Call or text ${AGENT.phone}.`}
+        body={`${"Tell me where you get care now and what you'd want covered outside the VA. I’ll look at what each Medicare option would cost and cover."} Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

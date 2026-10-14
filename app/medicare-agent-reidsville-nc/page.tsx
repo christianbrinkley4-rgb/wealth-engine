@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -56,45 +56,6 @@ const FAQ = [
     a: "You are exactly who the review is for. Plans change their drug lists and costs every year, and 'no problems yet' just means the changes haven't hit your drugs or your doctors so far. Twenty minutes, free, and if your plan is already fine I will tell you so.",
   },
 ] as const;
-
-function CtaBlock() {
-  return (
-    <section className="bg-white py-14">
-      <div className="measure-prose app-shell max-w-3xl">
-        <h2 className="text-28 font-semibold">Get your free Medicare review</h2>
-        <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-          for you.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link
-            href="/plan-check"
-            className="btn"
-          >
-            Take the plan-fit quiz →
-          </Link>
-          <a
-            href="/start?topic=medicare&quick=1"
-            className="btn btn-outline"
-          >
-            Book a free call
-          </a>
-        </div>
-        <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-          Prefer to talk? Call or text{" "}
-          <a href={AGENT.phoneHref} className="underline underline-offset-2">
-            {AGENT.phone}
-          </a>
-          .
-        </p>
-        <p className="text-16 mt-4 italic text-[var(--color-ink-muted)]">
-          Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-          obligation.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 export default function MedicareAgentReidsvillePage() {
   return (
@@ -189,7 +150,7 @@ export default function MedicareAgentReidsvillePage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Where We Can Meet</h2>
+          <h2 className="text-28 font-semibold">Where I can Meet</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
               <strong>The Reidsville library.</strong> A quiet public spot to go through
@@ -199,7 +160,7 @@ export default function MedicareAgentReidsvillePage() {
             <p>
               <strong>Senior programs in Rockingham County.</strong> The county has
               programs and gathering spots for older adults in Reidsville and the
-              surrounding towns. Worth knowing about whether or not we ever meet.
+              surrounding towns. Worth knowing about whether or not you ever meet with me.
             </p>
           </div>
         </div>
@@ -246,7 +207,7 @@ export default function MedicareAgentReidsvillePage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -262,7 +223,7 @@ export default function MedicareAgentReidsvillePage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">

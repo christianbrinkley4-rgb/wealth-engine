@@ -544,7 +544,7 @@ export function MedicareWizard() {
                 </CardHeader>
                 <CardContent className="p-6 pt-2">
                   <p className="text-18">
-                    Pick a time and we’ll go through what this means for you, by phone or video,
+                    Pick a time and I’ll go through what this means for you, by phone or video,
                     whichever you prefer. There’s no charge, and no obligation to buy anything
                     afterwards.
                   </p>
@@ -554,7 +554,7 @@ export function MedicareWizard() {
                   >
                     {/* Same tab, carrying the Medicare topic through. */}
                     <Link href={`${AGENT.schedulingUrl}?topic=medicare`}>
-                      Book a time to talk →
+                      Request a time to talk →
                     </Link>
                   </Button>
                 </CardContent>

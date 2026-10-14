@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+import { ConsultationActions } from "@/app/components/ConsultationActions";
+
 import { INSURANCE_SERVICES } from "@/lib/insuranceServices";
 import { breadcrumbJsonLd, localBusinessJsonLd, pageOpenGraph, pageTwitter, SITE_URL } from "@/lib/seo";
 
@@ -51,7 +52,7 @@ export default function InsuranceServicesPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Insurance services" }]}
         eyebrow="Greensboro, North Carolina"
         title="Insurance Help in Greensboro, NC"
-        lede="I'm Christian Brinkley, a licensed NC Life & Health insurance agent in Greensboro. Start with your question, then see what we can review together."
+        lede="I'm Christian Brinkley, a licensed NC Life & Health insurance agent in Greensboro. Start with your question, then see what I can review with you."
         secondaryHref="#services"
         secondaryLabel="Explore my services"
       />
@@ -78,8 +79,7 @@ export default function InsuranceServicesPage() {
           <p>I&apos;m based in Greensboro. Check my <Link className="underline" href="/service-area">service area</Link> for nearby communities and meeting options.</p>
           <p className="mt-3">I&apos;m licensed for insurance, not securities. I&apos;m not a CPA or a registered investment adviser. Personal tax and investment advice needs the right professional.</p>
           <p className="mt-3">Use the request form to tell me what you want to discuss. It does not reserve an appointment.</p>
-          <Link href="/start" className="btn mt-5">Ask Christian a question</Link>
-          <p className="mt-3">Prefer to call? <a className="underline" href={AGENT.phoneHref}>{AGENT.phone}</a>.</p>
+          <ConsultationActions href="/start" label="Ask me a question" location="page_close" />
         </div>
       </section>
       <div className="shell"><ComplianceDisclosure variant="medicare" /></div>

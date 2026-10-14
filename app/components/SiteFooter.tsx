@@ -13,7 +13,6 @@ const START = [
   { href: "/aep", label: "Already on Medicare" },
   { href: "/anoc", label: "Your Annual Notice of Change" },
   { href: "/turning-65#enrollment-dates", label: "Find my Medicare dates" },
-  { href: "/start", label: "Ask a question" },
   { href: "/start?topic=medicare&quick=1", label: "Request a consultation" },
 ] as const;
 

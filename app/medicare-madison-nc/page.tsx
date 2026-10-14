@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -50,14 +50,14 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Do you also help folks in Mayodan?",
-    a: "Yes. Madison and Mayodan are right next to each other, and I help people in both, plus Stoneville and the rest of western Rockingham County. Phone reviews work great here, or we can meet in person.",
+    a: "Yes. Madison and Mayodan are right next to each other, and I help people in both, plus Stoneville and the rest of western Rockingham County. Phone reviews work great here, or I can meet in person.",
   },
   {
     q: "When is the Annual Enrollment Period?",
     a: "October 15 through December 7, every year. Any changes you make take effect January 1.",
   },
   {
-    q: "I am turning 65 soon. When should we talk?",
+    q: "I am turning 65 soon. When should you and I talk?",
     a: "A month or two before your 65th birthday is a good time. That gives us room to go over your options without rushing, and to make sure you do not miss your initial enrollment window.",
   },
   {
@@ -65,43 +65,6 @@ const FAQ = [
     a: "Nothing. It is free, with no obligation to enroll in anything. If your current setup still looks good, I will tell you that.",
   },
 ] as const;
-
-function ReviewCta() {
-  return (
-    <div>
-      <h2 className="text-28 font-semibold">Get your free Medicare review</h2>
-      <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-        Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-        for you.
-      </p>
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-        <Link
-          href="/plan-check"
-          className="btn"
-        >
-          Take the plan-fit quiz →
-        </Link>
-        <a
-          href="/start?topic=medicare&quick=1"
-          className="btn btn-outline"
-        >
-          Book a free call
-        </a>
-      </div>
-      <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-        Prefer to talk?{" "}
-        <a href={AGENT.phoneHref} className="underline underline-offset-2">
-          Call or text {AGENT.phone}
-        </a>
-        .
-      </p>
-      <p className="text-16 mt-4 text-[var(--color-ink-muted)] italic">
-        Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-        obligation.
-      </p>
-    </div>
-  );
-}
 
 export default function MedicareMadisonPage() {
   return (
@@ -185,7 +148,7 @@ export default function MedicareMadisonPage() {
               Turning 65 in Madison comes with the usual mail avalanche. Most of it is
               marketing. I will help you sort the real deadlines from the noise. The
               trick is knowing which letters are real deadlines and which ones are sales
-              pitches. We will also check what is available at your address, since
+              pitches. I will also check what is available at your address, since
               Medicare Advantage options can vary by county.
             </p>
             <p>
@@ -214,7 +177,7 @@ export default function MedicareMadisonPage() {
               County</strong>, 105 Lawsonville Ave, Reidsville, NC 27320. The county&apos;s
               senior services department, based in Reidsville. They run senior nutrition
               programs, activities, home care, and public transit for older adults. Worth
-              knowing about whether or not we ever talk.
+              knowing about whether or not you ever call me.
             </p>
           </div>
         </div>
@@ -251,7 +214,7 @@ export default function MedicareMadisonPage() {
             <p>
               A free review with me is a conversation, not a sales pitch. In a town like
               Madison, where folks have had the same family doctor for twenty years, the
-              review is mostly about making sure the plan still fits the life. We go through:
+              review is mostly about making sure the plan still fits the life. I go through:
             </p>
             <ul className="list-disc space-y-2 pl-6">
               <li>What you have now and what you pay for it</li>
@@ -267,11 +230,7 @@ export default function MedicareMadisonPage() {
         </div>
       </section>
 
-      <section className="bg-white py-14">
-        <div className="measure-prose app-shell max-w-3xl">
-          <ReviewCta />
-        </div>
-      </section>
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -312,9 +271,7 @@ export default function MedicareMadisonPage() {
             </Link>
             .
           </p>
-          <div className="mt-10">
-            <ReviewCta />
-          </div>
+
         </div>
       </section>
 

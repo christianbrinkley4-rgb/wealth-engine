@@ -78,7 +78,7 @@ export default function PlanPage() {
 
       <KitchenTableClose
         heading="Would you like help understanding your estimate?"
-        body="We can discuss how retirement income may affect Medicare and identify questions to take to your CPA or financial advisor."
+        body="I can discuss how retirement income may affect Medicare and identify questions to take to your CPA or financial advisor."
         href="/start?topic=financial_planning"
         label="Ask a retirement question →"
       />

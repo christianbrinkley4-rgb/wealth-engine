@@ -43,9 +43,11 @@ export function KitchenTableClose({
               <Phone size={19} aria-hidden />
               Call Christian&apos;s direct line: {AGENT.phone}
             </a>
-            <Link ctaLocation="page_close" href={href} className="btn btn-outline">
-              {cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
-            </Link>
+            {href !== AGENT.phoneHref && (
+              <Link ctaLocation="page_close" href={href} className="btn btn-outline">
+                {cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
+              </Link>
+            )}
           </div>
           <TrustFacts compact />
           <p className="ktc-note">

@@ -502,7 +502,7 @@ export const ARTICLES: Article[] = [
         h2: "Late penalties, in plain English",
         blocks: [
           p(
-            "If you go without Part B when you should have signed up, you pay an extra 10% of the standard premium for each full 12-month period you waited. The standard Part B premium is $202.90 in 2026. You keep paying that extra amount for as long as you have Part B. You can [estimate yours with our penalty calculator](/part-b-penalty).",
+            "If you go without Part B when you should have signed up, you pay an extra 10% of the standard premium for each full 12-month period you waited. The standard Part B premium is $202.90 in 2026. You keep paying that extra amount for as long as you have Part B. You can [estimate yours with my penalty calculator](/part-b-penalty).",
           ),
           p(
             "If you go without Part D or other creditable drug coverage, you pay 1% of the national base premium for each full month you waited. That base premium is $38.99 in 2026. You pay it for as long as you have drug coverage. You can avoid both by signing up on time or by having coverage that counts.",
@@ -530,7 +530,7 @@ export const ARTICLES: Article[] = [
             "Mark your calendar for October 15 to December 7, the yearly window to review your plan.",
           ),
           p(
-            "If you want to see your own dates laid out, our [timeline tool](/turning-65) builds them from your birthday.",
+            "If you want to see your own dates laid out, my [timeline tool](/turning-65) builds them from your birthday.",
           ),
         ],
       },
@@ -1145,7 +1145,7 @@ export const ARTICLES: Article[] = [
             "Few prescriptions today doesn't mean few prescriptions at 72. Look at it two ways: what a low-cost plan would cost you this year, and what the penalty would add if you needed coverage later. Then decide with both numbers in front of you.",
           ),
           p(
-            "If you're not sure whether you have creditable coverage, or what a plan would cost with your actual prescriptions, bring the list and we'll check it together. No cost, and no pressure to enroll.",
+            "If you're not sure whether you have creditable coverage, or what a plan would cost with your actual prescriptions, bring the list and I’ll check it with you. No cost, and no pressure to enroll.",
           ),
         ],
       },
@@ -1470,7 +1470,7 @@ export const ARTICLES: Article[] = [
             "Your employer's drug coverage needs to be creditable too, or you face the Part D late penalty later. Each fall your plan must send a notice saying whether its drug coverage counts. Keep that letter. If you ever need to prove you had coverage, it is your proof.",
           ),
           p(
-            "If you are unsure, ask your benefits office directly: is our prescription drug coverage creditable for Medicare Part D purposes? Get the answer in writing.",
+            "If you are unsure, ask your benefits office directly: is my prescription drug coverage creditable for Medicare Part D purposes? Get the answer in writing.",
           ),
         ],
       },
@@ -1961,11 +1961,11 @@ export const ARTICLES: Article[] = [
         a: "Yes. The 20-employee threshold determines whether the group plan or Medicare pays first, and only the larger-employer arrangement lets you delay Part B without penalty.",
       },
       {
-        q: "What if we are on COBRA from my spouse's old job?",
+        q: "What if my spouse and I are on COBRA from my spouse's old job?",
         a: "COBRA does not count. It does not qualify you for a Special Enrollment Period and does not protect you from the Part B penalty.",
       },
       {
-        q: "Can we both delay Medicare on one spouse's plan?",
+        q: "Can both spouses delay Medicare on one spouse's plan?",
         a: "Yes, as long as the working spouse has current employment with 20 or more employees and both are covered under the plan.",
       },
       {

@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
@@ -198,7 +199,7 @@ export default function MedicareAdvantageNCPage() {
             </a>
             .
           </p>
-          <table className="mt-6 w-full text-left text-17">
+          <ResponsiveTable className="mt-6 w-full text-left text-17">
             <thead>
               <tr className="border-b border-gray-300">
                 <th className="py-3 pr-4 font-semibold">Carrier</th>
@@ -215,7 +216,7 @@ export default function MedicareAdvantageNCPage() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </ResponsiveTable>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             These scores measure member satisfaction, not whether a plan fits you. A carrier can
             score well nationally and still have a thin network in your county. Use scores as a
@@ -284,7 +285,7 @@ export default function MedicareAdvantageNCPage() {
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Key dates and numbers</h2>
-          <table className="mt-6 w-full text-left text-17">
+          <ResponsiveTable className="mt-6 w-full text-left text-17">
             <thead>
               <tr className="border-b border-gray-300">
                 <th className="py-3 pr-4 font-semibold">Milestone</th>
@@ -309,7 +310,7 @@ export default function MedicareAdvantageNCPage() {
                 <td className="py-3">$202.90 / month (CMS)</td>
               </tr>
             </tbody>
-          </table>
+          </ResponsiveTable>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Sources:{" "}
             <a
@@ -376,7 +377,7 @@ export default function MedicareAdvantageNCPage() {
 
       <KitchenTableClose
         heading="Want help comparing plans for your address?"
-        body="Bring your doctor list and prescriptions. We will check what is actually available at your address and compare the details that matter for you. Free, no pressure."
+        body="Bring your doctor list and prescriptions. I will check what is actually available at your address and compare the details that matter for you. Free, no pressure."
         href="/start?topic=medicare&stage=already_on_medicare&quick=1"
         label="Compare plans →"
       />

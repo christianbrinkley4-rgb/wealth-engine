@@ -8,7 +8,7 @@ import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT, COMPENSATION_DISCLOSURE } from "@/lib/agent";
+import { COMPENSATION_DISCLOSURE } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
@@ -71,7 +71,7 @@ const FAQ = [
   },
   {
     q: "My parent is overwhelmed and doesn’t want to talk about it. What do I do?",
-    a: "Start by asking what concerns them most. You can work through one question at a time, beginning with any upcoming dates. If they would like help, we can have a conversation together at their pace.",
+    a: "Start by asking what concerns them most. You can work through one question at a time, beginning with any upcoming dates. If they would like help, I can talk with them at their pace.",
   },
   {
     q: "They live in the Triad but I don’t. Can you still help?",
@@ -166,7 +166,7 @@ export default function HelpingAParentPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-26 font-semibold">Keep their enrollment dates somewhere handy </h2>
           <p className="text-18 mt-4 leading-relaxed" style={{ color: "rgba(245,240,232,0.9)" }}>
-            Our Medicare date tool can help you find their estimated enrollment window and save it
+            My Medicare date tool can help you find their estimated enrollment window and save it
             to a calendar. You can use it without sharing a name, email, or phone number.{" "}
           </p>
           <Link

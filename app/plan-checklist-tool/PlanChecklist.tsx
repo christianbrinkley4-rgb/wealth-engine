@@ -280,7 +280,7 @@ export function PlanChecklist() {
 
           <h3>Or bring it to me</h3>
           <p>
-            Print it, or keep this page open while we talk. No cost, and no obligation to enroll in
+            Print it, or keep this page open while you and I talk. No cost, and no obligation to enroll in
             anything.
           </p>
           <div className="checklist-actions">
@@ -288,7 +288,7 @@ export function PlanChecklist() {
               Call {AGENT.phone}
             </a>
             <TrackedLink href="/start?topic=medicare&quick=1" ctaLocation="tool_result" className="btn btn-outline">
-              Book a time
+              Request a time
             </TrackedLink>
           </div>
         </>

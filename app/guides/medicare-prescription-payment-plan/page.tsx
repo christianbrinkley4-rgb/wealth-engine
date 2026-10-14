@@ -269,7 +269,7 @@ export default function MedicarePrescriptionPaymentPlanPage() {
 
       <KitchenTableClose
         heading={"See what your prescriptions cost next year"}
-        body={`${"Bring your medication list with doses and the pharmacy you use. We'll look at your drug costs for next year and whether spreading them out would help."} Call or text ${AGENT.phone}.`}
+        body={`${"Bring your medication list with doses and the pharmacy you use. I’ll look at your drug costs for next year and whether spreading them out would help."} Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

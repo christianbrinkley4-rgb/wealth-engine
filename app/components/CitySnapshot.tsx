@@ -78,8 +78,8 @@ export function CitySnapshot({
       ) : null}
       {isLife ? (
         <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          We can meet in {city.name} or talk by phone. Bring questions about what you already have
-          before we talk about anything new.
+          I can meet in {city.name} or talk by phone. Bring questions about what you already have
+          before I talk about anything new.
         </p>
       ) : contrasts.length > 0 ? (
         <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -93,11 +93,11 @@ export function CitySnapshot({
               ({place.county})
             </span>
           ))}
-          . Medicare Advantage plan availability may differ, so we’ll check your home address.
+          . Medicare Advantage plan availability may differ, so I’ll check your home address.
         </p>
       ) : deep ? (
         <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          When comparing Medicare Advantage plans in {city.county}, we’ll check your doctors and
+          When comparing Medicare Advantage plans in {city.county}, I’ll check your doctors and
           hospitals for the year your coverage will begin.
         </p>
       ) : null}

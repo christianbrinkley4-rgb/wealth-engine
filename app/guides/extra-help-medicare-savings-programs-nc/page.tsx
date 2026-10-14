@@ -227,9 +227,9 @@ export default function ExtraHelpMedicareSavingsProgramsNcPage() {
 
       <KitchenTableClose
         heading="Pay less for Medicare if you qualify"
-        body={`Bring your income details and your current plan. We will check whether Extra Help or a Medicare Savings Program fits, and help you apply. Call or text ${AGENT.phone}.`}
+        body={`Bring your income details and your current plan. I will check whether Extra Help or a Medicare Savings Program fits, and help you apply. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
-        label="Book a free review"
+        label="Request a free review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

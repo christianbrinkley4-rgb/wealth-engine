@@ -156,9 +156,9 @@ export default function AepQuizPage() {
 
       <KitchenTableClose
         heading="Not sure the quiz fits your situation?"
-        body="Call me and we'll figure it out together in a few minutes. You'll reach me, not a call center."
+        body="Call me and I’ll help you figure it out in a few minutes. You'll reach me, not a call center."
         href="/start?topic=medicare&quick=1"
-        label="Book my free review →"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

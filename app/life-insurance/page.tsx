@@ -52,15 +52,15 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Term or whole life?",
-    a: "Term insurance covers a set period. Permanent insurance is designed to last longer when the policy’s requirements are met. We can discuss how long you need coverage, what you want it to help pay for, and what fits your budget.",
+    a: "Term insurance covers a set period. Permanent insurance is designed to last longer when the policy’s requirements are met. I can discuss how long you need coverage, what you want it to help pay for, and what fits your budget.",
   },
   {
     q: "I have coverage through work. Is that enough?",
-    a: "Your coverage may change or end when you retire. Ask your employer what you can keep and what it would cost. Bring that information so we can review it alongside any personal policies.",
+    a: "Your coverage may change or end when you retire. Ask your employer what you can keep and what it would cost. Bring that information so I can review it alongside any personal policies.",
   },
   {
     q: "How much do I need?",
-    a: "Think about the expenses your family would need help with, such as a mortgage, everyday bills, or final expenses. We can look at those needs alongside your savings, other income, and existing coverage.",
+    a: "Think about the expenses your family would need help with, such as a mortgage, everyday bills, or final expenses. I can look at those needs alongside your savings, other income, and existing coverage.",
   },
   {
     q: "I am in my sixties. Is it too late?",
@@ -68,7 +68,7 @@ const FAQ = [
   },
   {
     q: "What should I check on the policy I already have?",
-    a: "Check the coverage amount, premiums, beneficiary information, and how long the policy lasts. We can review any future changes to the cost or benefits and discuss questions to ask your insurer.",
+    a: "Check the coverage amount, premiums, beneficiary information, and how long the policy lasts. I can review any future changes to the cost or benefits and discuss questions to ask your insurer.",
   },
   {
     q: "Do you charge for a review?",
@@ -76,7 +76,7 @@ const FAQ = [
   },
   {
     q: "Do you meet in Greensboro, High Point, and Winston-Salem?",
-    a: "Yes. I serve Greensboro, High Point, Winston-Salem, and nearby communities, including Kernersville, Summerfield, Jamestown, Oak Ridge, and Archdale. We can arrange a home visit or talk by phone.",
+    a: "Yes. I serve Greensboro, High Point, Winston-Salem, and nearby communities, including Kernersville, Summerfield, Jamestown, Oak Ridge, and Archdale. I can arrange a home visit or talk by phone.",
   },
 ] as const;
 
@@ -138,7 +138,7 @@ export default function LifeInsurancePage() {
           <p className="text-18 mt-4 leading-relaxed">
             Some needs change over time, such as paying off a mortgage or helping a family member
             until another source of income begins. Term life insurance provides coverage for a set
-            period. We can review the length of coverage and what happens when that period ends.
+            period. I can review the length of coverage and what happens when that period ends.
           </p>
           <h2 className="text-28 mt-10 font-semibold">Coverage for longer-term needs</h2>
           <p className="text-18 mt-4 leading-relaxed">
@@ -149,7 +149,7 @@ export default function LifeInsurancePage() {
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The right fit depends on your needs, your budget, and the coverage you already have.
-            We’ll talk through those details before considering a new policy.
+            I’ll talk through those details before considering a new policy.
           </p>
         </div>
       </section>
@@ -170,7 +170,7 @@ export default function LifeInsurancePage() {
             </li>
           </ol>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            You can review these details yourself or bring your policy to our consultation. I’m
+            You can review these details yourself or bring your policy to your consultation. I’m
             happy to explain the wording and help you identify questions to ask.
           </p>
         </div>
@@ -178,7 +178,7 @@ export default function LifeInsurancePage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">What our first conversation covers</h2>
+          <h2 className="text-28 font-semibold">What my first conversation covers</h2>
           <p className="text-18 mt-4 leading-relaxed">
             I use the first conversation to understand what matters to you, the people you care
             about, and any life insurance coverage you already have. You can ask me questions,
@@ -217,7 +217,7 @@ export default function LifeInsurancePage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Personal help across the Triad</h2>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            {SERVICE_AREA_LEDE} You’re welcome to include a spouse or family member in our
+            {SERVICE_AREA_LEDE} You’re welcome to include a spouse or family member in my
             conversation.
           </p>
           <FeaturedPlaceCards

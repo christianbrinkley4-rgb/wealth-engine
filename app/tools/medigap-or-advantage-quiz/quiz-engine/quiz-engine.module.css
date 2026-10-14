@@ -7,7 +7,7 @@
 }
 
 .intro {
-  font-size: 1.0625rem;
+  font-size: max(var(--minimum-text, 0px), 1.0625rem);
   line-height: 1.6;
   color: var(--color-ink-muted);
   margin: 0 0 1.75rem;
@@ -29,7 +29,7 @@
 }
 
 .counter {
-  font-size: 0.875rem;
+  font-size: max(var(--minimum-text, 0px), 0.875rem);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -38,7 +38,7 @@
 }
 
 .question {
-  font-size: 1.5rem;
+  font-size: max(var(--minimum-text, 0px), 1.5rem);
   line-height: 1.3;
   font-weight: 700;
   color: var(--color-navy);
@@ -47,7 +47,7 @@
 }
 
 .sub {
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   line-height: 1.55;
   color: var(--color-ink-muted);
   margin: 0 0 1.25rem;
@@ -65,7 +65,7 @@
   border-radius: 0.75rem;
   background: #fff;
   color: var(--color-navy);
-  font-size: 1.0625rem;
+  font-size: max(var(--minimum-text, 0px), 1.0625rem);
   line-height: 1.45;
   font-weight: 600;
   text-align: left;
@@ -101,7 +101,7 @@
   border: none;
   background: none;
   color: var(--color-navy);
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   font-weight: 700;
   padding: 0.5rem 0;
   cursor: pointer;
@@ -116,7 +116,7 @@
 }
 
 .privacy {
-  font-size: 0.875rem;
+  font-size: max(var(--minimum-text, 0px), 0.875rem);
   color: var(--color-ink-muted);
   margin: 0;
 }
@@ -124,7 +124,7 @@
 /* Result screen */
 
 .eyebrow {
-  font-size: 0.875rem;
+  font-size: max(var(--minimum-text, 0px), 0.875rem);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -133,7 +133,7 @@
 }
 
 .headline {
-  font-size: 1.75rem;
+  font-size: max(var(--minimum-text, 0px), 1.75rem);
   line-height: 1.25;
   font-weight: 800;
   color: var(--color-navy);
@@ -141,7 +141,7 @@
 }
 
 .lede {
-  font-size: 1.0625rem;
+  font-size: max(var(--minimum-text, 0px), 1.0625rem);
   line-height: 1.6;
   color: var(--color-ink-muted);
   margin: 0 0 1.25rem;
@@ -161,7 +161,7 @@
 .bullets li {
   position: relative;
   padding-left: 1.75rem;
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   line-height: 1.55;
   color: var(--color-navy);
 }
@@ -175,7 +175,7 @@
 }
 
 .takeHeading {
-  font-size: 1.25rem;
+  font-size: max(var(--minimum-text, 0px), 1.25rem);
   font-weight: 700;
   color: var(--color-navy);
   margin: 0 0 0.75rem;
@@ -187,13 +187,13 @@
   padding-left: 1.5rem;
   display: grid;
   gap: 0.625rem;
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   line-height: 1.55;
   color: var(--color-ink-muted);
 }
 
 .closing {
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   line-height: 1.6;
   font-weight: 600;
   color: var(--color-navy);
@@ -213,7 +213,7 @@
 }
 
 .shareNote {
-  font-size: 0.875rem;
+  font-size: max(var(--minimum-text, 0px), 0.875rem);
   color: var(--color-ink-muted);
   margin: 0.75rem 0 0;
   line-height: 1.5;
@@ -224,7 +224,7 @@
   border: 2px solid var(--color-navy);
   background: #fff;
   color: var(--color-navy);
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   font-weight: 700;
   padding: 0.75rem 1.5rem;
   border-radius: 999px;

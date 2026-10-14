@@ -201,7 +201,7 @@ export default function ToolsHubPage() {
         heading="A number raised a question? Bring it to me"
         body="The tools give you the estimate. A free 20-minute call gives you the context: your situation, your timeline, and what the number actually means for you."
         href="/start"
-        label="Book my free review →"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

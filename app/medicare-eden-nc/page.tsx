@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -49,12 +49,12 @@ export const metadata: Metadata = {
 
 const FAQ = [
   {
-    q: "I live in Eden. Can we actually meet in person?",
-    a: "Yes. We can sit down at the Eden Library or another public spot in town, or just talk by phone. You are welcome to bring your spouse or a family member. The review is free either way, with no obligation to enroll in anything.",
+    q: "I live in Eden. Can I meet you in person?",
+    a: "Yes. I can sit down at the Eden Library or another public spot in town, or just talk by phone. You are welcome to bring your spouse or a family member. The review is free either way, with no obligation to enroll in anything.",
   },
   {
     q: "Does living in Rockingham County change my Medicare options?",
-    a: "It can. Medicare Advantage plan availability varies by county, so what is offered here is not identical to what is offered over in Guilford or Forsyth. When we review your situation, we check what is available at your home address, along with your doctors, your pharmacy, and your prescriptions.",
+    a: "It can. Medicare Advantage plan availability varies by county, so what is offered here is not identical to what is offered over in Guilford or Forsyth. when I review your situation, I check what is available at your home address, along with your doctors, your pharmacy, and your prescriptions.",
   },
   {
     q: "When is the Annual Enrollment Period?",
@@ -62,46 +62,9 @@ const FAQ = [
   },
   {
     q: "What should I bring to a review?",
-    a: "Your Annual Notice of Change letter if you got one, a list of your current prescriptions, and the names of your doctors. If you do not have all of that, come anyway. We will work with what you have.",
+    a: "Your Annual Notice of Change letter if you got one, a list of your current prescriptions, and the names of your doctors. If you do not have all of that, come anyway. I will work with what you have.",
   },
 ] as const;
-
-function ReviewCta() {
-  return (
-    <div>
-      <h2 className="text-28 font-semibold">Get your free Medicare review</h2>
-      <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-        Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-        for you.
-      </p>
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-        <Link
-          href="/plan-check"
-          className="btn"
-        >
-          Take the plan-fit quiz →
-        </Link>
-        <a
-          href="/start?topic=medicare&quick=1"
-          className="btn btn-outline"
-        >
-          Book a free call
-        </a>
-      </div>
-      <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-        Prefer to talk?{" "}
-        <a href={AGENT.phoneHref} className="underline underline-offset-2">
-          Call or text {AGENT.phone}
-        </a>
-        .
-      </p>
-      <p className="text-16 mt-4 text-[var(--color-ink-muted)] italic">
-        Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-        obligation.
-      </p>
-    </div>
-  );
-}
 
 export default function MedicareEdenPage() {
   return (
@@ -184,14 +147,13 @@ export default function MedicareEdenPage() {
             </p>
             <p>
               One more local note. Medicare Advantage availability can vary by county, and
-              Rockingham County has its own set of options. When we talk, we check what is
+              Rockingham County has its own set of options. When you and I talk, I check what is
               available at your address, not somebody else&apos;s.
             </p>
             <p>
               And if you are turning 65 in Eden, brace for the mail avalanche. Your
               mailbox will fill up fast, and most of it is marketing dressed up to look
-              official. I will help you sort the real deadlines from the noise, and we
-              will check the options for your street address, not somebody else&apos;s.
+              official. I will help you sort the real deadlines from the noise, and I will check the options for your street address, not somebody else&apos;s.
             </p>
           </div>
         </div>
@@ -212,7 +174,7 @@ export default function MedicareEdenPage() {
               County</strong>, 105 Lawsonville Ave, Reidsville, NC 27320. The county&apos;s
               senior services department. They run senior nutrition programs, activities,
               home care, and public transit for older adults. Worth knowing about whether or
-              not we ever talk.
+              not you ever call me.
             </p>
           </div>
         </div>
@@ -248,7 +210,7 @@ export default function MedicareEdenPage() {
             <p>
               A free review with me is a conversation, not a sales pitch. Since plans
               re-file their details every fall, the review is really about catching what
-              changed on paper before it hits you in real life. Here&apos;s what we check:
+              changed on paper before it hits you in real life. Here&apos;s what I check:
             </p>
             <ul className="list-disc space-y-2 pl-6">
               <li>What you have now and what it costs you</li>
@@ -264,11 +226,7 @@ export default function MedicareEdenPage() {
         </div>
       </section>
 
-      <section className="bg-white py-14">
-        <div className="measure-prose app-shell max-w-3xl">
-          <ReviewCta />
-        </div>
-      </section>
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -309,9 +267,7 @@ export default function MedicareEdenPage() {
             </Link>
             .
           </p>
-          <div className="mt-10">
-            <ReviewCta />
-          </div>
+
         </div>
       </section>
 

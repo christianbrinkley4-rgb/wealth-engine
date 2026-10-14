@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -130,7 +131,7 @@ export default function StandardDeductionSeniors2026Page() {
 
           <h2 className="text-28 mt-12 font-semibold">The 2026 amounts</h2>
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[560px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[560px] border-collapse text-left">
               <caption className="sr-only">
                 2026 standard deduction amounts including the age 65 addition
               </caption>
@@ -178,7 +179,7 @@ export default function StandardDeductionSeniors2026Page() {
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Blindness adds the same extra amount, and it stacks. A single filer who is both 65 or
@@ -254,7 +255,7 @@ export default function StandardDeductionSeniors2026Page() {
 
       <KitchenTableClose
         heading="Get your retirement tax picture straight"
-        body={`We will look at your income sources and deductions together and map what 2026 looks like for you. Educational only, no obligation. Call or text ${AGENT.phone}.`}
+        body={`I will review your income sources and deductions with you and map what 2026 looks like for you. Educational only, no obligation. Call or text ${AGENT.phone}.`}
         href="/start?topic=retirement"
         label="Talk through your tax picture"
       />

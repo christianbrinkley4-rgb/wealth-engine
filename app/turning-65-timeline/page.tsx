@@ -240,7 +240,7 @@ export default function Turning65TimelinePage() {
       <div className="print:hidden">
         <KitchenTableClose
           heading="Turning 65 soon? Let's walk through it together."
-          body="Bring your questions and your current coverage details. We will go through your timeline one step at a time. Free consultation, no obligation, and your family is welcome."
+          body="Bring your questions and your current coverage details. I will go through your timeline one step at a time. Free consultation, no obligation, and your family is welcome."
           href="/start?topic=medicare&quick=1"
           label="Request a free consultation →"
         />
@@ -250,11 +250,11 @@ export default function Turning65TimelinePage() {
         <p className="mb-8 text-[22px] leading-relaxed">
           For a deeper walkthrough of your options, see{" "}
           <Link href="/turning-65" className="underline underline-offset-2">
-            our turning 65 guide
+            my turning 65 guide
           </Link>
           . For free, unbiased counseling, see{" "}
           <Link href="/medicare-help-directory" className="underline underline-offset-2">
-            our free Medicare help directory
+            the free Medicare help directory
           </Link>
           .
         </p>

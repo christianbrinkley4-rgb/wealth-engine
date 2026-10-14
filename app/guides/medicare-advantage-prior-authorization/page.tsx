@@ -256,7 +256,7 @@ export default function MedicareAdvantagePriorAuthorizationPage() {
 
       <KitchenTableClose
         heading={"Read the denial letter with someone"}
-        body={`${"Bring the letter and your plan card. We'll go through what it says, what your deadline is, and whether your plan still fits the care you need."} Call or text ${AGENT.phone}.`}
+        body={`${"Bring the letter and your plan card. I’ll go through what it says, what your deadline is, and whether your plan still fits the care you need."} Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

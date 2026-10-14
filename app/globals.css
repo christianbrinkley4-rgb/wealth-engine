@@ -292,7 +292,7 @@
     color-scheme: light;
     /* 112.5% of the reader's own default (18px when that default is 16px)
        rather than a flat 18px, which silently discarded their preference. */
-    font-size: 112.5%;
+    font-size: max(var(--minimum-text, 0px), 112.5%);
   }
 
   html,

@@ -12,7 +12,7 @@ import { AGENT } from "@/lib/agent";
 export const metadata: Metadata = {
   title: "Get a Personal Medicare and Coverage Review",
   description:
-    "Tell us about your situation and get a personal review from Christian Brinkley, a licensed local agent. Free, no call center, no pressure.",
+    "Tell me about your situation and get a personal review from Christian Brinkley, a licensed local agent. Free, no call center, no pressure.",
   alternates: { canonical: "/start" },
   robots: { index: false, follow: true },
   openGraph: pageOpenGraph({
@@ -70,9 +70,14 @@ export default async function StartPage({
           </h1>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-paper)]/90">
             {quickMedicare
-              ? "Ask a question or request a coverage review. Your note goes directly to Christian. No cost, no obligation."
-              : "Tell me what matters to you. We can meet at home, nearby, by phone, or by video. No cost and no obligation."}
+              ? "Ask a question or request a coverage review. Your note comes straight to me. No cost, no obligation."
+              : "Tell me what matters to you. I can meet at home, nearby, by phone, or by video. No cost and no obligation."}
           </p>
+          <div id="page-hero-actions" className="mt-5">
+            <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light">
+              Call Christian&apos;s direct line: {AGENT.phone}
+            </a>
+          </div>
           {!quickMedicare ? (
             <p className="text-16 mt-3 text-[var(--color-paper)]/80">
               Licensed agent · {AGENT.licenseLine} · One local agent, not a call center
@@ -94,7 +99,7 @@ export default async function StartPage({
             <h2 className="text-20 font-semibold text-[var(--color-ink-muted)]">
               Reading while you wait
             </h2>
-            <ul className="mt-3 space-y-2 text-16 text-[var(--color-ink-muted)]">
+            <ul className="text-16 mt-3 space-y-2 text-[var(--color-ink-muted)]">
               <li>
                 <Link href="/turning-65" className="underline underline-offset-4">
                   Turning 65: the checklist

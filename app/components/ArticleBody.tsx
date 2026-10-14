@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
@@ -161,7 +162,7 @@ export function ArticleBody({
                 if (block.kind === "table") {
                   return (
                     <div key={blockIndex} className="art-table-wrap">
-                      <table className="art-table">
+                      <ResponsiveTable className="art-table">
                         <thead>
                           <tr>
                             {block.headers.map((h) => (
@@ -180,7 +181,7 @@ export function ArticleBody({
                             </tr>
                           ))}
                         </tbody>
-                      </table>
+                      </ResponsiveTable>
                     </div>
                   );
                 }
@@ -238,20 +239,20 @@ export function ArticleBody({
             <h2>{nextStep.heading}</h2>
             <p>{nextStep.body}</p>
             <div className="art-next-actions">
+              <a data-cta-location="article_end" href={AGENT.phoneHref} className="btn">
+                <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+              </a>
               <TrackedLink
                 href={article.startHref}
-                className="btn"
+                className="btn btn-outline"
                 event="article_cta_click"
                 ctaLocation="article_end"
               >
                 {nextStep.label} <ArrowRight size={18} className="arrow" aria-hidden />
               </TrackedLink>
-              <a data-cta-location="article_end" href={AGENT.phoneHref} className="btn btn-outline">
-                <Phone size={18} aria-hidden /> {AGENT.phone}
-              </a>
             </div>
             <p className="art-next-towns">
-              I meet people in {towns}, and the towns around them. Or we can talk by phone.
+              I meet people in {towns}, and the towns around them. Or I can talk by phone.
             </p>
           </aside>
 

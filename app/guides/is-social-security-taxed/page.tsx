@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -130,7 +131,7 @@ export default function IsSocialSecurityTaxedPage() {
 
           <h2 className="text-28 mt-12 font-semibold">The 2026 thresholds</h2>
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[560px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[560px] border-collapse text-left">
               <caption className="sr-only">
                 Federal Social Security taxation thresholds for 2026
               </caption>
@@ -195,7 +196,7 @@ export default function IsSocialSecurityTaxedPage() {
                   <td className="text-16 py-4 text-[var(--color-ink-muted)]">Up to 85 percent</td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Example: a single retiree with $20,000 of pension income and $18,000 of Social Security
@@ -264,7 +265,7 @@ export default function IsSocialSecurityTaxedPage() {
 
       <KitchenTableClose
         heading="Understand what your retirement income really costs"
-        body={`We will look at your Social Security, pensions, and withdrawals together and map the tax picture. Educational only, no obligation. Call or text ${AGENT.phone}.`}
+        body={`I will look at your Social Security, pensions, and withdrawals together and map the tax picture. Educational only, no obligation. Call or text ${AGENT.phone}.`}
         href="/start?topic=retirement"
         label="Talk through your tax picture"
       />

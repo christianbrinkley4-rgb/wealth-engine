@@ -218,7 +218,7 @@ export default function IrmaaAppealPage() {
             <p className="text-18 leading-relaxed">
               Before a large withdrawal or Roth conversion, ask your tax professional or financial
               advisor how the additional income could affect your taxes and future Medicare
-              premiums. Our calculator can help you explore an estimate using 2026 rates.
+              premiums. My calculator can help you explore an estimate using 2026 rates.
             </p>
             <Link
               href="/roth-window"
@@ -281,7 +281,7 @@ export default function IrmaaAppealPage() {
 
       <KitchenTableClose
         heading="Would you like help understanding your notice?"
-        body="We can look at your notice, discuss what has changed, and identify questions to take to Social Security. Your consultation is no cost, with no obligation."
+        body="I can look at your notice, discuss what has changed, and identify questions to take to Social Security. Your consultation is no cost, with no obligation."
         href="/start?topic=medicare&stage=already_on_medicare&ask=premium"
         label="Tell me what changed →"
       />
@@ -295,7 +295,7 @@ export default function IrmaaAppealPage() {
           </Link>
           . For help reviewing changes to your plan, read{" "}
           <Link href="/aep" className="underline underline-offset-2">
-            our annual enrollment guide
+            my annual enrollment guide
           </Link>
           .
         </p>

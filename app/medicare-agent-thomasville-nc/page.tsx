@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "I spent my career in the furniture industry. Does retiree coverage change my Medicare decisions?",
-    a: "It can, and this comes up a lot in the Chair City. Retiree coverage from a former employer can work alongside Medicare, but the order matters: which pays first, what you can drop, and what you can never get back. Bring the paperwork from your old employer and we will figure out the right combination.",
+    a: "It can, and this comes up a lot in the Chair City. Retiree coverage from a former employer can work alongside Medicare, but the order matters: which pays first, what you can drop, and what you can never get back. Bring the paperwork from your old employer and I will figure out the right combination.",
   },
   {
     q: "Novant Health Thomasville Medical Center is my hospital. Are there plans that don't include it?",
@@ -52,49 +52,10 @@ const FAQ = [
     a: "Very normal in Davidson County. People follow the doctor they trust, not the town line. It only becomes a problem if your plan's network does not follow the same doctors. That is a twenty-minute check, and it is the most useful twenty minutes of the Medicare year.",
   },
   {
-    q: "Can we meet in person in Thomasville?",
+    q: "Can I meet you in person in Thomasville?",
     a: "Of course. Phone or video works fine, but I am happy to meet at a public spot like the Thomasville library. Bring your spouse and your paperwork. That is how most folks prefer to do it.",
   },
 ] as const;
-
-function CtaBlock() {
-  return (
-    <section className="bg-white py-14">
-      <div className="measure-prose app-shell max-w-3xl">
-        <h2 className="text-28 font-semibold">Get your free Medicare review</h2>
-        <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-          for you.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link
-            href="/plan-check"
-            className="btn"
-          >
-            Take the plan-fit quiz →
-          </Link>
-          <a
-            href="/start?topic=medicare&quick=1"
-            className="btn btn-outline"
-          >
-            Book a free call
-          </a>
-        </div>
-        <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-          Prefer to talk? Call or text{" "}
-          <a href={AGENT.phoneHref} className="underline underline-offset-2">
-            {AGENT.phone}
-          </a>
-          .
-        </p>
-        <p className="text-16 mt-4 italic text-[var(--color-ink-muted)]">
-          Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-          obligation.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 export default function MedicareAgentThomasvillePage() {
   return (
@@ -189,7 +150,7 @@ export default function MedicareAgentThomasvillePage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Where We Can Meet</h2>
+          <h2 className="text-28 font-semibold">Where I can Meet</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
               <strong>The Thomasville library.</strong> A comfortable public spot to sit
@@ -199,7 +160,7 @@ export default function MedicareAgentThomasvillePage() {
             <p>
               <strong>Senior programs in Davidson County.</strong> The county has
               programs and gathering spots for older adults in Thomasville and
-              Lexington. Worth a visit whether or not we ever meet. Community counts.
+              Lexington. Worth a visit whether or not you ever meet with me. Community counts.
             </p>
           </div>
         </div>
@@ -242,7 +203,7 @@ export default function MedicareAgentThomasvillePage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -258,7 +219,7 @@ export default function MedicareAgentThomasvillePage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">

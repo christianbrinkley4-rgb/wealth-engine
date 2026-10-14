@@ -9,7 +9,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -50,52 +50,13 @@ const FAQ = [
   },
   {
     q: "Do you meet people in person?",
-    a: "Yes. Phone and video work fine, but if you'd rather sit down face to face, we can meet at the library in Oxford or somewhere else convenient in Granville County.",
+    a: "Yes. Phone and video work fine, but if you'd rather sit down face to face, I can meet at the library in Oxford or somewhere else convenient in Granville County.",
   },
   {
     q: "I live in Stovall (or Stem, or Butner). Do you help there too?",
     a: "Absolutely. I cover all of Granville County. Stovall, Stem, Butner, Creedmoor, Oxford, all of it.",
   },
 ] as const;
-
-function CtaBlock() {
-  return (
-    <section className="bg-white py-14">
-      <div className="measure-prose app-shell max-w-3xl">
-        <h2 className="text-28 font-semibold">Get your free Medicare review</h2>
-        <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-          for you.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link
-            href="/plan-check"
-            className="btn"
-          >
-            Take the plan-fit quiz →
-          </Link>
-          <a
-            href="/start?topic=medicare&quick=1"
-            className="btn btn-outline"
-          >
-            Book a free call
-          </a>
-        </div>
-        <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-          Prefer to talk? Call or text{" "}
-          <a href={AGENT.phoneHref} className="underline underline-offset-2">
-            {AGENT.phone}
-          </a>
-          .
-        </p>
-        <p className="text-16 mt-4 italic text-[var(--color-ink-muted)]">
-          Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-          obligation.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 export default function MedicareOxfordPage() {
   return (
@@ -218,7 +179,7 @@ export default function MedicareOxfordPage() {
               the junk mail. Don&apos;t.
             </p>
             <p>
-              The review takes twenty minutes. We look at what changed, check your doctors
+              The review takes twenty minutes. I look at what changed, check your doctors
               and your prescriptions against the new details, and you go into January
               knowing where you stand. If your plan is still the right fit, I&apos;ll tell
               you that. I explain the ANOC letter in plain English on my{" "}
@@ -243,7 +204,7 @@ export default function MedicareOxfordPage() {
             </li>
           </ul>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            You can do it by phone or video, or we can meet somewhere local like the Thornton
+            You can do it by phone or video, or I can meet somewhere local like the Thornton
             Library. Folks from{" "}
             <Link href="/medicare-butner-nc" className="underline underline-offset-2">
               Butner
@@ -257,7 +218,7 @@ export default function MedicareOxfordPage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -273,7 +234,7 @@ export default function MedicareOxfordPage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">

@@ -244,9 +244,9 @@ export default function MedicareInHomeCarePage() {
 
       <KitchenTableClose
         heading="Get clear answers about home care coverage"
-        body={`Tell me what kind of help your family needs. We will sort out what Medicare covers and what your options are for the rest. Call or text ${AGENT.phone}.`}
+        body={`Tell me what kind of help your family needs. I will sort out what Medicare covers and what your options are for the rest. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
-        label="Book a free review"
+        label="Request a free review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

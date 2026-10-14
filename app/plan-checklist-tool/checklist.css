@@ -3,7 +3,7 @@
 }
 .checklist h2,
 .checklist h3 {
-  font-size: 1.4rem;
+  font-size: max(var(--minimum-text, 0px), 1.4rem);
   margin-block: 20px 12px;
   font-weight: 650;
 }
@@ -19,7 +19,7 @@
   line-height: 1.65;
 }
 .checklist-progress {
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   font-weight: 650;
   color: var(--color-ink-muted);
 }
@@ -28,7 +28,7 @@
 }
 .checklist-field label,
 .checklist legend {
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   font-weight: 650;
 }
 .checklist-field input,
@@ -41,7 +41,7 @@
   padding: 12px;
   min-height: 48px;
   font: inherit;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   background: white;
   color: inherit;
 }
@@ -55,11 +55,11 @@
 }
 .checklist-field p {
   margin-block: 4px 8px;
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   color: var(--color-ink-muted);
 }
 .checklist-privacy {
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   color: var(--color-ink-muted);
 }
 .checklist fieldset {
@@ -72,7 +72,7 @@
   gap: 12px;
   align-items: center;
   min-height: 48px;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
 }
 .checklist-choice input {
   width: 24px;
@@ -146,7 +146,7 @@
       sans-serif;
   }
   .plan-sheet h3 {
-    font-size: 16pt;
+    font-size: max(var(--minimum-text, 0px), 16pt);
     margin: 0 0 8pt;
   }
   .plan-sheet dl {

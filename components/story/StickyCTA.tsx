@@ -35,7 +35,12 @@ export function StickyCTA({
       aria-label="Call or get a free review"
       inert={tucked}
     >
-      <a data-cta-location="sticky_bar" href={callHref} className="scta-call">
+      <a
+        data-cta-location="sticky_bar"
+        href={callHref}
+        className="scta-call"
+        aria-label={`Call Christian's direct line: ${callLabel}`}
+      >
         <Phone size={20} aria-hidden />
         {callLabel}
       </a>

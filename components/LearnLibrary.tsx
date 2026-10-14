@@ -107,7 +107,7 @@ export function LearnLibrary({
         )}
         {needle && total === 0 ? (
           <div className="ll-empty">
-            <Link href="/start" className="btn">
+            <Link href="/start" className="btn btn-outline">
               Ask me your question <ArrowRight size={18} className="arrow" aria-hidden />
             </Link>
           </div>

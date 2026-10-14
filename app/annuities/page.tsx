@@ -52,7 +52,7 @@ const FAQ = [
   },
   {
     q: "Is an annuity a good investment?",
-    a: "An annuity may be one part of a retirement income plan. Different types have different risks and features. We can discuss the insurance products I offer and involve a financial advisor when reviewing how they fit with your investments.",
+    a: "An annuity may be one part of a retirement income plan. Different types have different risks and features. I can discuss the insurance products I offer and involve a financial advisor when reviewing how they fit with your investments.",
   },
   {
     q: "What is the catch?",
@@ -139,7 +139,7 @@ export default function AnnuitiesPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Annuities" }]}
         eyebrow={`${AGENT.city} · ${AGENT.region}`}
         title="Could an annuity fit your retirement plans?"
-        lede="If you’re considering an annuity, you deserve time to understand it. We can discuss how it works, what it costs, when you can access your money, and whether it fits your retirement needs."
+        lede="If you’re considering an annuity, you deserve time to understand it. I can discuss how it works, what it costs, when you can access your money, and whether it fits your retirement needs."
         secondaryHref="/start?topic=financial_planning"
         secondaryLabel="Ask a question first →"
         note="Meet at home or by phone. Your consultation is no cost, with no obligation to buy anything."
@@ -155,7 +155,7 @@ export default function AnnuitiesPage() {
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Before considering a contract, think about the income you already have, what you need
-            for everyday expenses, and the savings you want to keep available. We can review those
+            for everyday expenses, and the savings you want to keep available. I can review those
             questions together.{" "}
           </p>
         </div>
@@ -190,7 +190,7 @@ export default function AnnuitiesPage() {
             surrender period and what it costs to reach your own money early.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
-            We start by reviewing your situation together, because an annuity only makes sense next
+            I start by reviewing your situation with you, because an annuity only makes sense next
             to everything else you have. If what you actually need is an investment adviser or a tax
             professional, I introduce you to one: a name and a conversation, not a brush-off.
           </p>
@@ -227,7 +227,7 @@ export default function AnnuitiesPage() {
 
       <KitchenTableClose
         heading="Have a proposal in front of you?"
-        body="Bring the proposal or a statement from a contract you already own. We can review the guarantees, fees, withdrawal rules, and your questions together. There’s no obligation to make a change."
+        body="Bring the proposal or a statement from a contract you already own. I can review the guarantees, fees, withdrawal rules, and your questions together. There’s no obligation to make a change."
         href="/start?topic=financial_planning"
         label="Ask a question first →"
       />

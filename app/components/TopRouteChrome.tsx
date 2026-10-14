@@ -152,25 +152,25 @@ export function TopRouteChrome() {
             <Link href="/wealth" className="nav-money">
               Money guides
             </Link>
-            {!isAiRoute(pathname) && (
-              <a
-                data-cta-location="header"
-                className="btn btn-accent btn-sm nav-cta nav-cta-phone"
-                href={AGENT.phoneHref || "tel:+19194086671"}
-                aria-label={`Call Christian's direct line at ${AGENT.phone || "(919) 408-6671"}`}
-              >
-                <Phone size={17} aria-hidden />
-                <span>Call {AGENT.phone || "(919) 408-6671"}</span>
-              </a>
-            )}
-            {!isAiRoute(pathname) && pathname !== "/schedule" && (
+            {!isAiRoute(pathname) && pathname !== "/schedule" && pathname !== "/start" && (
               <Link
                 ctaLocation="header"
                 href="/start?topic=medicare&quick=1"
-                className="nav-money"
+                className="btn btn-outline btn-sm nav-cta"
               >
                 Request a free consultation
               </Link>
+            )}
+            {!isAiRoute(pathname) && (
+              <a
+                data-cta-location="header"
+                className="nav-call"
+                href={AGENT.phoneHref}
+                aria-label={`Call Christian's direct line: ${AGENT.phone}`}
+              >
+                <Phone size={17} aria-hidden />
+                <span className="nav-call-number">{AGENT.phone}</span>
+              </a>
             )}
             <button
               type="button"
@@ -188,11 +188,7 @@ export function TopRouteChrome() {
 
       <nav id="site-menu" aria-label="Menu" className="nav-sheet" hidden={!menuOpen}>
         <ul>
-          {[
-            { href: "/start?topic=medicare&quick=1", label: "Request a free consultation" },
-            ...NAV,
-            ...SHEET_EXTRA,
-          ].map((item, index) => (
+          {[...NAV, ...SHEET_EXTRA].map((item, index) => (
             <li key={item.href} style={{ "--i": index } as React.CSSProperties}>
               <Link
                 ctaLocation="menu"
@@ -207,17 +203,19 @@ export function TopRouteChrome() {
         </ul>
         <div className="nav-sheet-actions">
           {!isAiRoute(pathname) && (
-            <a data-cta-location="menu" href={AGENT.phoneHref || "tel:+19194086671"} className="btn btn-accent btn-block">
-              <Phone size={19} aria-hidden /> Call {AGENT.phone || "(919) 408-6671"}
+            <a data-cta-location="menu" href={AGENT.phoneHref} className="btn btn-block">
+              <Phone size={19} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
             </a>
           )}
-          <Link
-            ctaLocation="menu"
-            href="/start?topic=medicare&quick=1"
-            className="btn btn-block"
-          >
-            Request a free consultation
-          </Link>
+          {!isAiRoute(pathname) && pathname !== "/start" && (
+            <Link
+              ctaLocation="menu"
+              href="/start?topic=medicare&quick=1"
+              className="btn btn-outline btn-block"
+            >
+              Request a free consultation
+            </Link>
+          )}
         </div>
         <p className="nav-sheet-note">
           It&apos;s just me answering. If I&apos;m with someone, leave a message and I&apos;ll call

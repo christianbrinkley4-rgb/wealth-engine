@@ -51,7 +51,7 @@ export default async function ReviewPage({
 
           <h1>{heading}</h1>
           <p className="rvp-lede">
-            If we’ve worked together, a Google review helps your neighbors find an agent they can
+            If you’ve worked with me, a Google review helps your neighbors find an agent they can
             actually call. It takes a couple of minutes. Say what’s true, good or not so good. A few
             sentences is plenty.
           </p>

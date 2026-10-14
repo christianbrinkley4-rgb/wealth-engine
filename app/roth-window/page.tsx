@@ -71,7 +71,7 @@ export default function RothWindowPage() {
 
       <KitchenTableClose
         heading="Would you like to discuss your estimate?"
-        body="We can review how retirement income may affect Medicare and discuss which questions need a CPA or financial advisor. Your consultation is no cost."
+        body="I can review how retirement income may affect Medicare and discuss which questions need a CPA or financial advisor. Your consultation is no cost."
         href="/start?topic=financial_planning"
         label="Ask a retirement question →"
       />

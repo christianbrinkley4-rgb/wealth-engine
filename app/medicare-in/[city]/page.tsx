@@ -147,7 +147,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         <div className="measure-prose app-shell max-w-3xl">
           <CitySnapshot city={city} />
           <p className="text-18 mt-6 leading-relaxed">
-            I’m a licensed Medicare agent serving {city.name}. We can meet at your home, at a
+            I’m a licensed Medicare agent serving {city.name}. I can meet at your home, at a
             convenient public location, or by phone at (919) 408-6671. There is no cost and no
             obligation to enroll.
           </p>
@@ -170,7 +170,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             ))}
           </ul>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            If you receive care through one of these health systems, we can check the specific
+            If you receive care through one of these health systems, I can check the specific
             doctors and hospitals you use. Provider participation can change, so it’s worth
             confirming the details before you enroll. I’m not affiliated with these health systems.{" "}
             <Link href="/keep-my-doctor" className="underline underline-offset-2">
@@ -249,7 +249,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
           <h2 className="text-28 font-semibold">Also serving</h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
             Nearby communities include {city.nearby.join(", ")}. If you’d like a home visit, get in
-            touch and we can arrange a convenient time and location. Phone consultations are also
+            touch and I can arrange a convenient time and location. Phone consultations are also
             available throughout North Carolina.
           </p>
 
@@ -298,7 +298,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
           {city.slug === "greensboro" ? (
             <p className="text-18 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-              If you are comparing Medicare Supplement (Medigap) with Medicare Advantage, we can
+              If you are comparing Medicare Supplement (Medigap) with Medicare Advantage, I can
               review both against your doctors and prescriptions. Start with the{" "}
               <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
                 Advantage vs Medigap guide
@@ -354,7 +354,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
       <KitchenTableClose
         heading={`Request a consultation in ${city.name}`}
-        body={`We can meet at home in ${city.name} when travel works, or talk by phone. Bring your doctors, prescriptions, and questions. No cost. No obligation.`}
+        body={`I can meet at home in ${city.name} when travel works, or talk by phone. Bring your doctors, prescriptions, and questions. No cost. No obligation.`}
         href={startHref}
         label="Request a consultation →"
       />

@@ -228,7 +228,7 @@ export default function MedicareTravelPage() {
 
       <KitchenTableClose
         heading="Make sure your plan fits your life on the road"
-        body={`Tell me where you travel and where you might move. We will check that your coverage travels with you. Call or text ${AGENT.phone}.`}
+        body={`Tell me where you travel and where you might move. I will check that your coverage travels with you. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&stage=already_on_medicare"
         label="Request a free review"
       />

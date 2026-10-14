@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -49,52 +49,13 @@ const FAQ = [
   },
   {
     q: "I see doctors at Granville Health System. Will my plan cover them?",
-    a: "That is one of the first things we check. Your plan needs to include the doctors and facilities you actually use. Bring your doctor list to our review and we will verify each one.",
+    a: "That is one of the first things I check. Your plan needs to include the doctors and facilities you actually use. Bring your doctor list to your review and I will verify each one.",
   },
   {
     q: "What does it cost to talk with you?",
     a: "Nothing. The consultation is free and there is no obligation to enroll in anything. I am paid by the insurance companies if you choose a plan, not by you.",
   },
 ] as const;
-
-function CtaBlock() {
-  return (
-    <section className="bg-white py-14">
-      <div className="measure-prose app-shell max-w-3xl">
-        <h2 className="text-28 font-semibold">Get your free Medicare review</h2>
-        <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-          for you.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link
-            href="/plan-check"
-            className="btn"
-          >
-            Take the plan-fit quiz →
-          </Link>
-          <a
-            href="/start?topic=medicare&quick=1"
-            className="btn btn-outline"
-          >
-            Book a free call
-          </a>
-        </div>
-        <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-          Prefer to talk? Call or text{" "}
-          <a href={AGENT.phoneHref} className="underline underline-offset-2">
-            {AGENT.phone}
-          </a>
-          .
-        </p>
-        <p className="text-16 mt-4 italic text-[var(--color-ink-muted)]">
-          Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-          obligation.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 export default function MedicareAgentOxfordPage() {
   return (
@@ -186,7 +147,7 @@ export default function MedicareAgentOxfordPage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Where We Can Meet</h2>
+          <h2 className="text-28 font-semibold">Where I can Meet</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
               <strong>Your home, anywhere in Granville County.</strong> I am in
@@ -208,7 +169,7 @@ export default function MedicareAgentOxfordPage() {
             <p>
               October 15 through December 7, every year. Your plan mails its Annual Notice
               of Change by September 30. That letter is where the doctor-list and
-              prescription changes hide, so bring it to our review. I explain how to read
+              prescription changes hide, so bring it to your review. I explain how to read
               the ANOC on my{" "}
               <Link href="/anoc" className="underline underline-offset-2">
                 ANOC page
@@ -238,7 +199,7 @@ export default function MedicareAgentOxfordPage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -254,7 +215,7 @@ export default function MedicareAgentOxfordPage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">

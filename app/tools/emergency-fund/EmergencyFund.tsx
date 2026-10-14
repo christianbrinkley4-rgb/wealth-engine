@@ -1,5 +1,5 @@
 "use client";
-
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { useState } from "react";
 
 import { money, monthsLabel } from "@/lib/wealth/math";
@@ -82,7 +82,7 @@ export function EmergencyFund() {
         </div>
 
         <div className="t-table-wrap">
-          <table className="t-table">
+          <ResponsiveTable className="t-table">
             <caption className="t-hint" style={{ textAlign: "left", marginBottom: "0.5rem" }}>
               Fund balance by month, at {money(savePerMonth)} a month.
             </caption>
@@ -105,7 +105,7 @@ export function EmergencyFund() {
                 );
               })}
             </tbody>
-          </table>
+          </ResponsiveTable>
           {monthsToTarget > 60 ? (
             <p className="t-hint">Table shows the first 60 months. The full plan takes longer.</p>
           ) : null}

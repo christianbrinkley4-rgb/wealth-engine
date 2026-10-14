@@ -1,5 +1,5 @@
 "use client";
-
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { useState } from "react";
 
 import { money } from "@/lib/wealth/math";
@@ -137,7 +137,7 @@ export function TakeHomePay() {
         <div>
           <h3 className="text-19 font-semibold">Where the paycheck goes</h3>
           <div className="t-table-wrap">
-            <table className="t-table">
+            <ResponsiveTable className="t-table">
               <thead>
                 <tr>
                   <th scope="col">Line item</th>
@@ -190,7 +190,7 @@ export function TakeHomePay() {
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
         </div>
 

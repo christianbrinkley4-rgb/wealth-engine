@@ -197,7 +197,7 @@ export default function MedicareCostsPage() {
 
       <KitchenTableClose
         heading="Let's put real numbers on your situation"
-        body="Premiums, prescriptions, and doctors: we'll look at what Medicare would actually cost you, during a no-cost, no-obligation consultation."
+        body="Premiums, prescriptions, and doctors: I’ll look at what Medicare would actually cost you, during a no-cost, no-obligation consultation."
         href="/start?topic=medicare&ask=costs"
         label="Request a consultation →"
       />

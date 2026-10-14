@@ -43,7 +43,7 @@
 .hx-title {
   text-wrap: balance;
   margin: 1rem 0 0;
-  font-size: clamp(2.45rem, 10.5vw, 3.9rem);
+  font-size: max(var(--minimum-text, 0px), clamp(2.45rem, 10.5vw, 3.9rem));
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.035em;
@@ -79,14 +79,14 @@
 .hx-subhead {
   margin: 0.9rem 0 0;
   font-family: var(--home-serif);
-  font-size: 1.25rem;
+  font-size: max(var(--minimum-text, 0px), 1.25rem);
   font-style: italic;
   color: var(--home-muted);
 }
 .hx-lede {
   margin: 1.4rem 0 0;
   max-width: 34rem;
-  font-size: 1.08rem;
+  font-size: max(var(--minimum-text, 0px), 1.08rem);
   line-height: 1.7;
   color: #34413c;
 }
@@ -105,7 +105,7 @@
   gap: 0.4rem;
   min-height: 44px;
   margin-top: 0.75rem;
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   font-weight: 700;
   color: var(--pine-700);
   text-decoration: underline;
@@ -133,7 +133,7 @@
   align-items: center;
   gap: 0.45rem;
   margin: 0.4rem 0 0;
-  font-size: 0.86rem;
+  font-size: max(var(--minimum-text, 0px), 0.86rem);
   color: var(--ink-muted);
   animation: rise-in 0.9s var(--ease-out-expo) both 0.6s;
 }
@@ -180,14 +180,14 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-shadow: var(--shadow-soft);
-  font-size: 0.78rem;
+  font-size: max(var(--minimum-text, 0px), 0.78rem);
   line-height: 1.3;
   white-space: nowrap;
   animation: chip-in 1s var(--ease-out-expo) both;
 }
 .hx-chip strong {
   display: block;
-  font-size: 0.8rem;
+  font-size: max(var(--minimum-text, 0px), 0.8rem);
   color: var(--pine-900);
 }
 .hx-chip span span {
@@ -288,7 +288,7 @@
     gap: 3rem;
   }
   .hx-lede {
-    font-size: 1.18rem;
+    font-size: max(var(--minimum-text, 0px), 1.18rem);
   }
   .hx-visual {
     width: 100%;
@@ -296,7 +296,7 @@
     margin: 0 0 0 auto;
   }
   .hx-chip {
-    font-size: 0.82rem;
+    font-size: max(var(--minimum-text, 0px), 0.82rem);
     padding: 0.75rem 1rem;
   }
 }
@@ -314,7 +314,7 @@
 .faqx h2,
 .meet h2,
 .pc h2 {
-  font-size: clamp(2rem, 6vw, 3.4rem);
+  font-size: max(var(--minimum-text, 0px), clamp(2rem, 6vw, 3.4rem));
   font-weight: 500;
   line-height: 1.04;
 }
@@ -359,14 +359,14 @@
 .sit-title {
   margin-top: 1.1rem;
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.35rem;
+  font-size: max(var(--minimum-text, 0px), 1.35rem);
   font-weight: 500;
   letter-spacing: -0.015em;
   line-height: 1.2;
 }
 .sit-text {
   margin-top: 0.5rem;
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -376,7 +376,7 @@
   gap: 0.4rem;
   margin-top: auto;
   padding-top: 1.1rem;
-  font-size: 0.92rem;
+  font-size: max(var(--minimum-text, 0px), 0.92rem);
   font-weight: 700;
   color: var(--pine-700);
 }
@@ -412,7 +412,7 @@
 }
 .ew-label {
   margin: 0 0 0.75rem;
-  font-size: 0.78rem;
+  font-size: max(var(--minimum-text, 0px), 0.78rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -430,7 +430,7 @@
   border-radius: 10px;
   background: var(--cream-50);
   color: var(--pine-900);
-  font-size: 0.9rem;
+  font-size: max(var(--minimum-text, 0px), 0.9rem);
   font-weight: 700;
   cursor: pointer;
   transition:
@@ -506,7 +506,7 @@
   background: var(--pine-200);
 }
 .ew-seg-month {
-  font-size: 0.8rem;
+  font-size: max(var(--minimum-text, 0px), 0.8rem);
   font-weight: 700;
 }
 .ew-seg-flag {
@@ -520,7 +520,7 @@
   border-radius: 6px;
   background: var(--pine-900);
   color: var(--honey-300);
-  font-size: 0.68rem;
+  font-size: max(var(--minimum-text, 0px), 0.68rem);
   font-weight: 700;
   transform: translateX(-50%);
   animation: rise-in 0.6s var(--ease-out-expo) both 0.5s;
@@ -555,7 +555,7 @@
 .ew-medigap-label {
   display: block;
   margin-top: 0.4rem;
-  font-size: 0.78rem;
+  font-size: max(var(--minimum-text, 0px), 0.78rem);
   line-height: 1.4;
   color: var(--ink-muted);
 }
@@ -564,7 +564,7 @@
   padding: 1rem 1.1rem;
   border-radius: var(--radius-sm);
   background: var(--cream-100);
-  font-size: 0.98rem;
+  font-size: max(var(--minimum-text, 0px), 0.98rem);
   line-height: 1.6;
 }
 .ew-readout p {
@@ -575,7 +575,7 @@
   flex-wrap: wrap;
   gap: 0.5rem 1.25rem;
   margin-top: 1rem;
-  font-size: 0.8rem;
+  font-size: max(var(--minimum-text, 0px), 0.8rem);
   color: var(--ink-muted);
 }
 .ew-legend span {
@@ -601,7 +601,7 @@
   margin: 1.25rem 0 0;
   padding-top: 1.1rem;
   border-top: 1px solid var(--line);
-  font-size: 0.92rem;
+  font-size: max(var(--minimum-text, 0px), 0.92rem);
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -619,7 +619,7 @@
     height: 5rem;
   }
   .ew-seg-month {
-    font-size: 0.9rem;
+    font-size: max(var(--minimum-text, 0px), 0.9rem);
   }
 }
 @media (min-width: 1000px) {
@@ -630,7 +630,7 @@
     height: 6.5rem;
   }
   .ew-readout {
-    font-size: 1.05rem;
+    font-size: max(var(--minimum-text, 0px), 1.05rem);
   }
 }
 
@@ -665,7 +665,7 @@
 .pc-lede {
   margin: 1.25rem 0 0;
   max-width: 50ch;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   line-height: 1.7;
   color: rgba(251, 248, 241, 0.8);
 }
@@ -677,7 +677,7 @@
   margin-top: 1.75rem;
 }
 .pc-meta {
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   color: rgba(251, 248, 241, 0.7);
 }
 .pc-preview {
@@ -700,7 +700,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.8rem;
+  font-size: max(var(--minimum-text, 0px), 0.8rem);
   font-weight: 700;
   color: var(--ink-muted);
 }
@@ -720,7 +720,7 @@
 .pc-q {
   margin: 1rem 0 1rem;
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.3rem;
+  font-size: max(var(--minimum-text, 0px), 1.3rem);
   font-weight: 500;
   line-height: 1.25;
 }
@@ -736,7 +736,7 @@
   border: 1.5px solid var(--line);
   border-radius: 12px;
   background: var(--white);
-  font-size: 0.92rem;
+  font-size: max(var(--minimum-text, 0px), 0.92rem);
   font-weight: 600;
 }
 .pc-card li.is-picked {
@@ -776,7 +776,7 @@
 .wcs-copy p:not(.eyebrow) {
   margin: 1.1rem 0 0;
   max-width: 46ch;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   line-height: 1.7;
   color: var(--ink-muted);
 }
@@ -797,7 +797,7 @@
   gap: 0.35rem 1rem;
 }
 .wc-label {
-  font-size: 0.78rem;
+  font-size: max(var(--minimum-text, 0px), 0.78rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -805,7 +805,7 @@
 }
 .wc-months {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.35rem;
+  font-size: max(var(--minimum-text, 0px), 1.35rem);
   font-weight: 600;
 }
 .wc-range {
@@ -862,7 +862,7 @@
   grid-column: 1 / -1;
   display: flex;
   justify-content: space-between;
-  font-size: 0.72rem;
+  font-size: max(var(--minimum-text, 0px), 0.72rem);
   color: var(--ink-muted);
 }
 .wc-result {
@@ -874,7 +874,7 @@
 }
 .wc-figure-num {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: clamp(3rem, 12vw, 4.5rem);
+  font-size: max(var(--minimum-text, 0px), clamp(3rem, 12vw, 4.5rem));
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -882,7 +882,7 @@
   font-variant-numeric: tabular-nums;
 }
 .wc-figure-note {
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   line-height: 1.5;
   color: var(--ink-muted);
 }
@@ -917,12 +917,12 @@
   border-top: 1px solid var(--line);
 }
 .wc-stats dt {
-  font-size: 0.78rem;
+  font-size: max(var(--minimum-text, 0px), 0.78rem);
   color: var(--ink-muted);
 }
 .wc-stats dd {
   margin: 0.2rem 0 0;
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
@@ -933,7 +933,7 @@
   margin: 1.25rem 0 0;
   padding-top: 1rem;
   border-top: 1px solid var(--line);
-  font-size: 0.86rem;
+  font-size: max(var(--minimum-text, 0px), 0.86rem);
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -996,11 +996,11 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: rgba(251, 248, 241, 0.8);
-  font-size: 0.8rem;
+  font-size: max(var(--minimum-text, 0px), 0.8rem);
 }
 .meet-sign {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.25rem;
+  font-size: max(var(--minimum-text, 0px), 1.25rem);
   font-style: italic;
   color: var(--cream-50);
 }
@@ -1010,7 +1010,7 @@
 .meet-copy > p:not(.eyebrow) {
   margin: 1.1rem 0 0;
   max-width: 54ch;
-  font-size: 1.06rem;
+  font-size: max(var(--minimum-text, 0px), 1.06rem);
   line-height: 1.75;
   color: #34413c;
 }
@@ -1025,7 +1025,7 @@
 .meet-facts li {
   display: flex;
   gap: 0.6rem;
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   line-height: 1.5;
 }
 .meet-facts svg {
@@ -1063,7 +1063,7 @@
   border: 1px solid var(--line-strong);
   border-radius: 999px;
   background: var(--white);
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   font-weight: 600;
   white-space: nowrap;
   text-decoration: none;
@@ -1092,7 +1092,7 @@
   padding: 1.4rem 1.4rem 3.25rem;
 }
 .lib-kind {
-  font-size: 0.72rem;
+  font-size: max(var(--minimum-text, 0px), 0.72rem);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1101,14 +1101,14 @@
 .lib-title {
   margin-top: 0.75rem;
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.3rem;
+  font-size: max(var(--minimum-text, 0px), 1.3rem);
   font-weight: 500;
   line-height: 1.22;
   letter-spacing: -0.015em;
 }
 .lib-blurb {
   margin-top: 0.5rem;
-  font-size: 0.93rem;
+  font-size: max(var(--minimum-text, 0px), 0.93rem);
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -1162,13 +1162,13 @@
   order: -1;
   margin: 0;
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 2rem;
+  font-size: max(var(--minimum-text, 0px), 2rem);
   font-weight: 600;
   color: var(--ink);
   line-height: 1;
 }
 .tband-stat dt {
-  font-size: 0.92rem;
+  font-size: max(var(--minimum-text, 0px), 0.92rem);
   color: var(--ink-muted);
 }
 .tband-stat dt a {
@@ -1178,7 +1178,7 @@
 }
 .tband-note {
   margin: 0.9rem 0 0;
-  font-size: 0.82rem;
+  font-size: max(var(--minimum-text, 0px), 0.82rem);
   color: var(--ink-muted);
 }
 
@@ -1217,7 +1217,7 @@
   border: 1px solid var(--line);
   background: #ffffff;
   color: #1a73e8;
-  font-size: 1.5rem;
+  font-size: max(var(--minimum-text, 0px), 1.5rem);
   font-weight: 800;
   font-family: var(--font-body), system-ui, sans-serif;
 }
@@ -1228,10 +1228,10 @@
 }
 .rv-gtext strong {
   color: var(--ink);
-  font-size: 1.02rem;
+  font-size: max(var(--minimum-text, 0px), 1.02rem);
 }
 .rv-gtext span {
-  font-size: 0.85rem;
+  font-size: max(var(--minimum-text, 0px), 0.85rem);
   color: var(--ink-muted);
 }
 .rv-gcard .rv-go {
@@ -1240,7 +1240,7 @@
 }
 .rv-card h2 {
   margin: 1rem 0 0;
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.6rem, 4vw, 2.2rem));
   font-weight: 500;
   line-height: 1.15;
 }
@@ -1293,7 +1293,7 @@
   background: var(--pine-900);
   color: var(--honey-300);
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   font-weight: 600;
 }
 .steps-list li:not(:last-child)::before {
@@ -1315,7 +1315,7 @@ html:not(.js-reveal) .steps-list li::before {
 }
 .steps-list h3 {
   margin: 0.4rem 0 0;
-  font-size: 1.35rem;
+  font-size: max(var(--minimum-text, 0px), 1.35rem);
   font-weight: 500;
   letter-spacing: -0.015em;
 }
@@ -1366,7 +1366,7 @@ html:not(.js-reveal) .steps-list li::before {
 }
 .faqx h2 {
   margin-top: 1rem;
-  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-size: max(var(--minimum-text, 0px), clamp(2rem, 5vw, 2.9rem));
 }
 .faqx-intro > p:not(.eyebrow) {
   margin: 1rem 0 0;
@@ -1388,7 +1388,7 @@ html:not(.js-reveal) .steps-list li::before {
   padding: 0 0.9rem;
   border-radius: 999px;
   background: var(--cream-100);
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   font-weight: 600;
   text-decoration: none;
   color: var(--pine-900);
@@ -1411,7 +1411,7 @@ html:not(.js-reveal) .steps-list li::before {
 
 @media (min-width: 1000px) {
   .wcs h2 {
-    font-size: clamp(2.2rem, 3.4vw, 3rem);
+    font-size: max(var(--minimum-text, 0px), clamp(2.2rem, 3.4vw, 3rem));
   }
 }
 
@@ -1429,11 +1429,11 @@ html:not(.js-reveal) .steps-list li::before {
   }
   .sit-title {
     margin-top: 0.1rem;
-    font-size: 1.2rem;
+    font-size: max(var(--minimum-text, 0px), 1.2rem);
   }
   .sit-text {
     margin-top: 0.3rem;
-    font-size: 0.92rem;
+    font-size: max(var(--minimum-text, 0px), 0.92rem);
   }
   .sit-cta {
     padding-top: 0.6rem;
@@ -1468,7 +1468,7 @@ html:not(.js-reveal) .steps-list li::before {
   }
   .hx-title {
     order: 2;
-    font-size: clamp(2.1rem, 9.5vw, 2.75rem);
+    font-size: max(var(--minimum-text, 0px), clamp(2.1rem, 9.5vw, 2.75rem));
   }
   .hx-visual {
     order: 3;
@@ -1494,7 +1494,7 @@ html:not(.js-reveal) .steps-list li::before {
   .hx-lede {
     order: 6;
     margin-top: 1.35rem;
-    font-size: 1.02rem;
+    font-size: max(var(--minimum-text, 0px), 1.02rem);
   }
   .hx-sublink {
     order: 7;

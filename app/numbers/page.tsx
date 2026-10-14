@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { pageTwitter } from "@/lib/seo";
 import Link from "next/link";
 
@@ -126,7 +127,7 @@ export default function NumbersHubPage() {
               {section.intro}
             </p>
             <div className="mt-8 overflow-x-auto">
-              <table className="w-full min-w-[560px] border-collapse text-left">
+              <ResponsiveTable className="w-full min-w-[560px] border-collapse text-left">
                 <caption className="sr-only">{section.heading}, 2026 and 2027 figures</caption>
                 <thead>
                   <tr className="border-b-2 border-[var(--color-navy)]">
@@ -160,7 +161,7 @@ export default function NumbersHubPage() {
                     </tr>
                   ))}
                 </tbody>
-              </table>
+              </ResponsiveTable>
             </div>
             <p className="text-16 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
               Source:{" "}
@@ -217,7 +218,7 @@ export default function NumbersHubPage() {
 
       <KitchenTableClose
         heading="Want these numbers applied to your situation?"
-        body={`Bring your latest tax return, your plan's Annual Notice of Change, or just your questions. We will run the numbers for your household before December 7. The review is free, no obligation. Call or text ${AGENT.phone}.`}
+        body={`Bring your latest tax return, your plan's Annual Notice of Change, or just your questions. I will run the numbers for your household before December 7. The review is free, no obligation. Call or text ${AGENT.phone}.`}
         href="/start?topic=retirement"
         label="Request a free review →"
       />

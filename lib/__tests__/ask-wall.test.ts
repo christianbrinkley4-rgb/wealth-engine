@@ -262,7 +262,7 @@ describe("ask wall publishing contract", () => {
   it.each([0, 1, 2, 3, 4])(
     "renders answer page %i with schema, metadata, and disclosures",
     async (index) => {
-      const { ASK_QUESTIONS, getAskQuestion } = await import("@/lib/askWall");
+      const { ASK_QUESTIONS } = await import("@/lib/askWall");
       const question = ASK_QUESTIONS[index];
       const { default: AnswerPage, generateMetadata, generateStaticParams } = await import(
         "@/app/ask/[slug]/page"

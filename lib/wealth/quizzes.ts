@@ -151,7 +151,7 @@ export const FIRST_1000_RESULTS: readonly PlanResult[] = [
     summary:
       "This costs nothing and takes ten minutes. If your employer matches and you're not contributing, that's pay you're not collecting.",
     steps: [
-      "Log in to your benefits portal or email HR: do we have a retirement match, and what's the formula?",
+      "Log in to your benefits portal or email HR: do I have a retirement match, and what's the formula?",
       "Keep the $1,000 in savings until you know the answer.",
       "If there's a match, see what it takes per paycheck to get all of it.",
       "Come back and take this quiz again with the answer.",

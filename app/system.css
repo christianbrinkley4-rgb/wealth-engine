@@ -146,7 +146,7 @@ p {
   gap: 0.6rem;
   margin: 0;
   font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 0.72rem;
+  font-size: max(var(--minimum-text, 0px), 0.72rem);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -184,12 +184,14 @@ p {
   background: var(--btn-bg);
   color: var(--btn-fg, #fbf8f1);
   font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.005em;
   text-decoration: none;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
   cursor: pointer;
   overflow: hidden;
   transition:
@@ -198,7 +200,9 @@ p {
     background-color 0.25s ease,
     border-color 0.25s ease,
     color 0.25s ease;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 6px 16px -8px rgba(11, 33, 29, 0.45);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 6px 16px -8px rgba(11, 33, 29, 0.45);
 }
 /* A soft sheen sweeps across on hover: the "this is pressable" cue. */
 .btn::after {
@@ -217,7 +221,9 @@ p {
 }
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 14px 28px -12px rgba(11, 33, 29, 0.5);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 14px 28px -12px rgba(11, 33, 29, 0.5);
 }
 .btn:hover::after {
   transform: translateX(110%);
@@ -236,7 +242,9 @@ p {
 .btn-accent {
   --btn-bg: var(--honey-500);
   --btn-fg: var(--pine-950);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset, 0 8px 20px -10px rgba(138, 90, 16, 0.6);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 8px 20px -10px rgba(138, 90, 16, 0.6);
 }
 .btn-accent:hover {
   --btn-bg: var(--honey-400);
@@ -268,7 +276,7 @@ p {
 .btn-sm {
   min-height: 2.75rem;
   padding: 0.55rem 1.1rem;
-  font-size: 0.9rem;
+  font-size: max(var(--minimum-text, 0px), 0.9rem);
 }
 .btn-block {
   width: 100%;
@@ -351,7 +359,7 @@ p {
   background: var(--pine-900);
   color: var(--honey-300);
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   font-weight: 600;
   font-style: italic;
   letter-spacing: -0.04em;
@@ -378,13 +386,13 @@ p {
 }
 .nav-name {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   font-weight: 600;
   letter-spacing: -0.02em;
 }
 .nav-license {
   white-space: nowrap;
-  font-size: 0.7rem;
+  font-size: max(var(--minimum-text, 0px), 0.7rem);
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--ink-muted);
@@ -407,7 +415,7 @@ p {
   min-height: 44px;
   padding: 0 0.8rem;
   border-radius: 999px;
-  font-size: 0.86rem;
+  font-size: max(var(--minimum-text, 0px), 0.86rem);
   font-weight: 600;
   color: var(--pine-900);
   text-decoration: none;
@@ -443,7 +451,7 @@ p {
   border-radius: 999px;
   background: var(--pine-900);
   color: var(--cream-50);
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
@@ -498,13 +506,13 @@ p {
   animation: rise-in 0.55s var(--ease-out-expo) both;
   animation-delay: calc(var(--i, 0) * 45ms + 60ms);
 }
-.nav-sheet a {
+.nav-sheet ul a {
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 3.75rem;
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.45rem;
+  font-size: max(var(--minimum-text, 0px), 1.45rem);
   font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--pine-900);
@@ -521,7 +529,7 @@ p {
 }
 .nav-sheet-note {
   margin-top: 1rem;
-  font-size: 0.85rem;
+  font-size: max(var(--minimum-text, 0px), 0.85rem);
   color: var(--ink-muted);
 }
 @keyframes sheet-in {
@@ -540,16 +548,27 @@ p {
   display: none;
 }
 @media (max-width: 639px) {
-  /* Mobile header: the call button is primary and stays visible; the form
-     button hides (the hero and menu both carry it) so the Menu button is
-     never pushed past the viewport edge. */
+  /* Mobile header: the call pill carries the full phone number as text and
+     comes first; the header Book button hides (the hero and menu both carry
+     it) so the Menu button is never pushed past the viewport edge. */
   .nav-brand-text {
     display: none;
   }
-  .nav-cta:not(.nav-cta-phone) { display: none; }
-  .nav-actions { gap: 0.5rem; }
-  .nav-call { padding-inline: 0.85rem; width: auto; }
-  .nav-call-number { display: inline; font-size: 0.92rem; letter-spacing: 0.01em; }
+  .nav-cta {
+    display: none;
+  }
+  .nav-actions {
+    gap: 0.5rem;
+  }
+  .nav-call {
+    padding-inline: 0.85rem;
+    width: auto;
+  }
+  .nav-call-number {
+    display: inline;
+    font-size: max(var(--minimum-text, 0px), 0.92rem);
+    letter-spacing: 0.01em;
+  }
   .nav-bar {
     gap: 0.75rem;
   }
@@ -573,12 +592,17 @@ p {
     display: none;
   }
   /* Compact the 8-item nav so it fits the 1360px header shell. */
-  .nav-license-place,
-  .nav-call-number {
+  .nav-license-place {
     display: none;
   }
   .nav-links a {
     padding: 0 0.55rem;
+  }
+  .nav-money {
+    display: none;
+  }
+  .nav-call-number {
+    display: inline;
   }
 }
 
@@ -635,7 +659,7 @@ p {
   min-height: 3.1rem;
   border-radius: 999px;
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: max(var(--minimum-text, 0px), 0.98rem);
   text-decoration: none;
 }
 .scta-call {
@@ -674,14 +698,14 @@ p {
 }
 .aep-countdown-kicker {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 .aep-countdown-message {
   margin: 0.6rem 0 0;
-  font-size: 1.35rem;
+  font-size: max(var(--minimum-text, 0px), 1.35rem);
   line-height: 1.35;
   font-weight: 700;
   max-width: 28ch;
@@ -689,7 +713,7 @@ p {
 .aep-countdown-note,
 .aep-countdown-action {
   margin: 0.85rem 0 0;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   line-height: 1.5;
 }
 .aep-countdown a {
@@ -705,7 +729,7 @@ p {
 }
 .pull-quote blockquote {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: max(var(--minimum-text, 0px), 1.35rem);
   line-height: 1.4;
   font-weight: 650;
   color: var(--pine-950);
@@ -752,7 +776,7 @@ p {
   background: var(--pine-900);
   color: var(--cream-50);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: max(var(--minimum-text, 0px), 1.25rem);
 }
 .t-stars {
   display: inline-flex;
@@ -761,7 +785,7 @@ p {
 }
 .t-card blockquote {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: max(var(--minimum-text, 0px), 1.125rem);
   line-height: 1.5;
 }
 .t-card figcaption {
@@ -792,7 +816,7 @@ p {
   margin: 0;
   max-width: 16ch;
   color: var(--cream-50);
-  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-size: max(var(--minimum-text, 0px), clamp(2rem, 5vw, 3.4rem));
   font-weight: 500;
   line-height: 1.05;
 }
@@ -802,7 +826,7 @@ p {
 .ft-phone {
   display: inline-block;
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.9rem, 4.5vw, 2.8rem));
   font-weight: 500;
   letter-spacing: -0.02em;
   color: var(--cream-50);
@@ -815,7 +839,7 @@ p {
 }
 .ft-hero-side p {
   margin: 0.6rem 0 0;
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   color: rgba(251, 248, 241, 0.72);
 }
 .ft-grid {
@@ -827,7 +851,7 @@ p {
 .ft-col h3 {
   margin: 0 0 0.9rem;
   font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 0.72rem;
+  font-size: max(var(--minimum-text, 0px), 0.72rem);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -844,7 +868,7 @@ p {
   display: inline-flex;
   align-items: center;
   min-height: 40px;
-  font-size: 0.92rem;
+  font-size: max(var(--minimum-text, 0px), 0.92rem);
   text-decoration: none;
   color: rgba(251, 248, 241, 0.82);
   transition: color 0.2s ease;
@@ -857,7 +881,7 @@ p {
   gap: 0.75rem;
   padding: 2rem 0 7rem;
   border-top: 1px solid rgba(251, 248, 241, 0.12);
-  font-size: 0.78rem;
+  font-size: max(var(--minimum-text, 0px), 0.78rem);
   line-height: 1.65;
   color: rgba(251, 248, 241, 0.68);
 }
@@ -875,7 +899,7 @@ p {
   right: -0.06em;
   bottom: -0.32em;
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: clamp(6rem, 22vw, 18rem);
+  font-size: max(var(--minimum-text, 0px), clamp(6rem, 22vw, 18rem));
   font-weight: 600;
   font-style: italic;
   line-height: 1;
@@ -912,14 +936,14 @@ p {
 }
 .section-head h2 {
   margin: 0;
-  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  font-size: max(var(--minimum-text, 0px), clamp(2rem, 4.6vw, 3.4rem));
   font-weight: 500;
   line-height: 1.05;
 }
 .section-head p {
   margin: 0;
   max-width: 56ch;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   line-height: 1.7;
   color: var(--ink-muted);
 }
@@ -988,7 +1012,7 @@ details[open]::details-content {
   min-height: 4.25rem;
   padding: 1rem 0;
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.1rem, 2.2vw, 1.3rem));
   font-weight: 500;
   letter-spacing: -0.01em;
   list-style: none;
@@ -1130,7 +1154,7 @@ details[open]::details-content {
 
 .ft-col-text {
   display: block;
-  font-size: 0.92rem;
+  font-size: max(var(--minimum-text, 0px), 0.92rem);
   line-height: 1.6;
   color: rgba(251, 248, 241, 0.75);
 }
@@ -1176,7 +1200,7 @@ details[open]::details-content {
   gap: 1.75rem;
 }
 .sh-crumbs {
-  font-size: 0.82rem;
+  font-size: max(var(--minimum-text, 0px), 0.82rem);
   color: rgba(251, 248, 241, 0.62);
 }
 .sh-crumbs a {
@@ -1195,7 +1219,7 @@ details[open]::details-content {
   margin: 0.9rem 0 0;
   max-width: 20ch;
   color: var(--cream-50);
-  font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+  font-size: max(var(--minimum-text, 0px), clamp(2.1rem, 5.2vw, 3.6rem));
   font-weight: 500;
   line-height: 1.04;
   animation: rise-in 0.9s var(--ease-out-expo) both;
@@ -1203,7 +1227,7 @@ details[open]::details-content {
 .sh-lede {
   margin: 1.2rem 0 0;
   max-width: 54ch;
-  font-size: clamp(1.02rem, 1.6vw, 1.15rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.02rem, 1.6vw, 1.15rem));
   line-height: 1.7;
   color: rgba(251, 248, 241, 0.82);
   animation: rise-in 0.9s var(--ease-out-expo) both 0.08s;
@@ -1215,7 +1239,12 @@ details[open]::details-content {
   margin-top: 1.9rem;
   animation: rise-in 0.9s var(--ease-out-expo) both 0.16s;
 }
-.sh-title, .sh-lede, .sh-eyebrow, .sh-actions { animation: none; }
+.sh-title,
+.sh-lede,
+.sh-eyebrow,
+.sh-actions {
+  animation: none;
+}
 .sh-actions .btn {
   white-space: normal;
   text-align: center;
@@ -1228,7 +1257,7 @@ details[open]::details-content {
 }
 .sh-note {
   margin: 0.9rem 0 0;
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   color: rgba(251, 248, 241, 0.66);
 }
 .sh-note a {
@@ -1264,12 +1293,12 @@ details[open]::details-content {
 }
 .sh-name {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.15rem;
+  font-size: max(var(--minimum-text, 0px), 1.15rem);
   font-weight: 600;
   color: var(--cream-50);
 }
 .sh-role {
-  font-size: 0.82rem;
+  font-size: max(var(--minimum-text, 0px), 0.82rem);
   color: rgba(251, 248, 241, 0.7);
 }
 .sh-proof {
@@ -1312,7 +1341,7 @@ details[open]::details-content {
   .sh-proof li {
     display: flex;
     gap: 0.6rem;
-    font-size: 0.9rem;
+    font-size: max(var(--minimum-text, 0px), 0.9rem);
     line-height: 1.45;
     color: rgba(251, 248, 241, 0.85);
   }
@@ -1335,7 +1364,7 @@ details[open]::details-content {
   margin-top: 0.75rem;
 }
 .sh-compact .sh-title {
-  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.7rem, 4vw, 2.4rem));
 }
 .sh-compact .sh-lede {
   margin-top: 0.8rem;
@@ -1422,7 +1451,7 @@ details[open]::details-content {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: #ffffff;
-  font-size: 0.85rem;
+  font-size: max(var(--minimum-text, 0px), 0.85rem);
   font-weight: 600;
   color: var(--color-navy);
 }
@@ -1451,14 +1480,14 @@ details[open]::details-content {
 .hub-card h2,
 .hub-card h3 {
   margin: 0 0 0.5rem;
-  font-size: 1.15rem;
+  font-size: max(var(--minimum-text, 0px), 1.15rem);
   color: var(--color-navy);
 }
 .hub-card p {
   margin: 0;
   color: var(--color-ink-muted);
   line-height: 1.6;
-  font-size: 0.9444rem;
+  font-size: max(var(--minimum-text, 0px), 0.9444rem);
 }
 .hub-card .hub-go {
   display: inline-block;
@@ -1469,7 +1498,7 @@ details[open]::details-content {
 
 /* Date-stamped data line: "Figures current as of October 2026." */
 .data-fresh {
-  font-size: 0.85rem;
+  font-size: max(var(--minimum-text, 0px), 0.85rem);
   color: var(--color-ink-muted);
   margin: 0;
 }
@@ -1496,31 +1525,33 @@ details[open]::details-content {
   height: 5.5rem;
   margin: 0 auto 0.85rem;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--white), 0 0 0 5.5px var(--honey-500);
+  box-shadow:
+    0 0 0 4px var(--white),
+    0 0 0 5.5px var(--honey-500);
 }
 .ktc-card > .ktc-who {
   display: grid;
   gap: 0.1rem;
   margin: 0 auto 1.25rem;
-  font-size: 0.82rem;
+  font-size: max(var(--minimum-text, 0px), 0.82rem);
   line-height: 1.4;
 }
 .ktc-who strong {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   font-weight: 600;
   color: var(--pine-900);
 }
 .ktc h2 {
   margin: 0;
-  font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.7rem, 3.6vw, 2.4rem));
   font-weight: 500;
   line-height: 1.12;
 }
 .ktc-card > p {
   margin: 0.9rem auto 0;
   max-width: 48ch;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   line-height: 1.7;
   color: var(--ink-muted);
 }
@@ -1536,7 +1567,7 @@ details[open]::details-content {
 }
 .ktc-card .ktc-note {
   margin-top: 1.25rem;
-  font-size: 0.86rem;
+  font-size: max(var(--minimum-text, 0px), 0.86rem);
 }
 
 /* ─── Required disclosures ────────────────────────────────────────────── */
@@ -1548,14 +1579,14 @@ details[open]::details-content {
   border-left: 3px solid var(--honey-500);
   border-radius: var(--radius-sm);
   background: var(--white);
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   line-height: 1.65;
   color: var(--ink-muted);
 }
 .disclosure h2 {
   margin: 0 0 0.75rem;
   font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 0.72rem;
+  font-size: max(var(--minimum-text, 0px), 0.72rem);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1574,4 +1605,148 @@ details[open]::details-content {
 .disclosure-strong {
   font-weight: 600;
   color: var(--pine-900);
+}
+/* Keep body copy readable and controls usable at phone widths. */
+@media (max-width: 767px) {
+  :root {
+    --minimum-text: 18px;
+    --text-13: 1rem;
+    --text-14: 1rem;
+    --text-15: 1rem;
+    --text-16: 1rem;
+    --text-17: 1rem;
+    --text-xs: 1rem;
+    --text-sm: 1rem;
+  }
+  button,
+  [role="button"],
+  a.btn,
+  .nav-call,
+  .nav-menu-button {
+    min-height: 48px;
+  }
+  button,
+  [role="button"],
+  .nav-menu-button {
+    min-width: 48px;
+  }
+  #main-content
+    :is(
+      button,
+      [role="button"],
+      input:not([type="checkbox"]):not([type="radio"]),
+      select,
+      textarea,
+      summary,
+      [role="slider"]
+    ) {
+    min-height: 48px;
+  }
+  #main-content :is(button, [role="button"], [role="slider"]) {
+    min-width: 48px;
+  }
+  .scta {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) 48px;
+    border-radius: 1.5rem;
+  }
+  .scta-dismiss {
+    position: static;
+    width: 48px;
+    height: 48px;
+  }
+  .scta a {
+    min-width: 0;
+    white-space: normal;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  .scta-call svg {
+    display: none;
+  }
+  .sh-grid > *,
+  .hx-grid > *,
+  .sched-grid > * {
+    min-width: 0;
+  }
+  .lib-chips {
+    flex-wrap: wrap;
+    overflow: visible;
+    white-space: normal;
+  }
+  .lib-chips a {
+    min-height: 48px;
+    white-space: normal;
+  }
+  #main-content table {
+    min-width: 0;
+    max-width: 100%;
+    table-layout: fixed;
+  }
+  #main-content :is(th, td) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  #main-content .w-btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+  #main-content .w-btn svg {
+    flex-shrink: 0;
+  }
+}
+/* Wide reference tables become labeled rows on phones. Headers remain in the
+   accessibility tree; amounts wrap only at spaces, never between their digits. */
+.readable-cell-label {
+  display: none;
+}
+@media (max-width: 767px) {
+  #main-content table.readable-table {
+    display: block;
+    width: 100%;
+  }
+  #main-content .readable-table caption:not(.sr-only) {
+    display: block;
+    width: 100%;
+  }
+  #main-content .readable-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  #main-content .readable-table :is(tbody, tfoot) {
+    display: block;
+    width: 100%;
+  }
+  #main-content .readable-table :is(tbody, tfoot) tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-bottom: 1px solid var(--line);
+    padding-block: 0.5rem;
+  }
+  #main-content .readable-table :is(td, th) {
+    display: block;
+    min-width: 0;
+    padding: 0.65rem;
+    border: 0;
+    white-space: normal;
+    overflow-wrap: normal;
+  }
+  #main-content .readable-table [colspan] {
+    grid-column: 1 / -1;
+  }
+  #main-content .readable-table .readable-cell-label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 1rem;
+    line-height: 1.35;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
 }

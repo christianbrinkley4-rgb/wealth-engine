@@ -274,7 +274,7 @@ export default function MedigapPremiumIncreasePage() {
 
       <KitchenTableClose
         heading={"Compare before you cancel anything"}
-        body={`${"Bring the letter and your policy. We'll look at how your plan is priced, what the same letter costs at other companies, and whether switching makes sense."} Call or text ${AGENT.phone}.`}
+        body={`${"Bring the letter and your policy. I’ll look at how your plan is priced, what the same letter costs at other companies, and whether switching makes sense."} Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

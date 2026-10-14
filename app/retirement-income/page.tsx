@@ -90,7 +90,7 @@ const FAQ = [
   },
   {
     q: "How can retirement income affect Medicare costs?",
-    a: "Medicare generally uses income from two years earlier to determine whether an income-related charge applies. A large taxable withdrawal or Roth conversion may affect future premiums. We can identify the questions to discuss with your tax professional or advisor.",
+    a: "Medicare generally uses income from two years earlier to determine whether an income-related charge applies. A large taxable withdrawal or Roth conversion may affect future premiums. I can identify the questions to discuss with your tax professional or advisor.",
   },
   {
     q: "Is a rollover taxable?",
@@ -102,7 +102,7 @@ const FAQ = [
   },
   {
     q: "How can you help with my retirement questions?",
-    a: "I help you understand your Medicare and insurance options and how they relate to retirement. For financial planning, I work with an advisor. We can discuss your priorities and identify the right next steps.",
+    a: "I help you understand your Medicare and insurance options and how they relate to retirement. For financial planning, I work with an advisor. I can discuss your priorities and identify the right next steps.",
   },
   {
     q: "Are you a financial advisor?",
@@ -213,7 +213,7 @@ export default function RetirementIncomePage() {
           </p>
           <div className="card-surface mt-8 p-6">
             <p className="text-18 leading-relaxed">
-              Our calculator compares the estimated Medicare premium effect of two Roth conversion
+              My calculator compares the estimated Medicare premium effect of two Roth conversion
               timing examples using 2026 rates. You can review the results with your tax
               professional or financial advisor.{" "}
             </p>
@@ -237,12 +237,12 @@ export default function RetirementIncomePage() {
             pay.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
-            We look at how the pieces line up, when your coverage starts, what a withdrawal does to
+            I look at how the pieces line up, when your coverage starts, what a withdrawal does to
             your Medicare premium two years later, and where a guarantee is worth its cost. My
             accounting training at UNC Greensboro is why those connections interest me.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
-            We sit down and go through your whole situation first, what you have, what you are
+            I sit down with you and go through your whole situation first, what you have, what you are
             worried about, and what is coming up. Some of it I handle myself. The rest I hand to
             someone who can: an investment adviser, a tax professional, an elder law attorney. You
             get an introduction to a specific person, not a suggestion to go find one.

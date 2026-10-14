@@ -20,7 +20,7 @@ export const CARE_GUIDES: CareGuide[] = [
       "Discuss long-term care insurance, home care, policy limits, and family needs with Christian Brinkley in Greensboro. No-cost, no-obligation consultation.",
     headline: "Planning for care starts with your family.",
     introduction:
-      "If you needed help with everyday activities, who would you want involved, and where would you prefer to receive care? We can talk through those questions, review any coverage you have, and consider the long-term care insurance options I offer.",
+      "If you needed help with everyday activities, who would you want involved, and where would you prefer to receive care? I can talk through those questions, review any coverage you have, and consider the long-term care insurance options I offer.",
     focus: "long_term",
     sections: [
       {
@@ -29,11 +29,11 @@ export const CARE_GUIDES: CareGuide[] = [
       },
       {
         heading: "Start with how you would want care arranged",
-        text: "A useful conversation begins with your preferences. Would you want help at home? Could a spouse or family member assist, and what would that ask of them? Bring those questions before choosing a benefit amount. We can review the types of care a proposed policy includes and the providers it allows.",
+        text: "A useful conversation begins with your preferences. Would you want help at home? Could a spouse or family member assist, and what would that ask of them? Bring those questions before choosing a benefit amount. I can review the types of care a proposed policy includes and the providers it allows.",
       },
       {
         heading: "Read the benefit requirements together",
-        text: "A policy explains when benefits can begin, what evidence is needed, and whether there is a waiting period. It also sets limits on what can be paid and for how long. We can go through the wording and identify what your family could still need to cover.",
+        text: "A policy explains when benefits can begin, what evidence is needed, and whether there is a waiting period. It also sets limits on what can be paid and for how long. I can go through the wording and identify what your family could still need to cover.",
       },
       {
         heading: "Consider the premium over time",
@@ -54,11 +54,11 @@ export const CARE_GUIDES: CareGuide[] = [
       },
       {
         q: "Can a policy cover care at home?",
-        a: "Some policies include home care, but the covered services, provider requirements, and benefit limits vary. We can review the exact policy language and the questions you want answered.",
+        a: "Some policies include home care, but the covered services, provider requirements, and benefit limits vary. I can review the exact policy language and the questions you want answered.",
       },
       {
         q: "Should I bring a policy I already have?",
-        a: "Yes. Bring the policy, a recent statement, and any notices about premium changes. We can review what you have before discussing other options. There is no obligation to replace it.",
+        a: "Yes. Bring the policy, a recent statement, and any notices about premium changes. I can review what you have before discussing other options. There is no obligation to replace it.",
       },
       {
         q: "Can my family join the consultation?",
@@ -97,11 +97,11 @@ export const CARE_GUIDES: CareGuide[] = [
     sections: [
       {
         heading: "Begin with the help you have in mind",
-        text: "You may be thinking about help at home, a period in a care facility, or support for a spouse. Describe what you would want help paying for. We can then check whether a policy addresses that need instead of relying on the product name alone.",
+        text: "You may be thinking about help at home, a period in a care facility, or support for a spouse. Describe what you would want help paying for. I can then check whether a policy addresses that need instead of relying on the product name alone.",
       },
       {
         heading: "Know how long benefits could last",
-        text: "A limited benefit period is an important part of this review. Ask how covered days are counted, whether there is a daily or total payment limit, and what happens if care continues after benefits end. We can discuss those questions alongside any existing coverage.",
+        text: "A limited benefit period is an important part of this review. Ask how covered days are counted, whether there is a daily or total payment limit, and what happens if care continues after benefits end. I can discuss those questions alongside any existing coverage.",
       },
       {
         heading: "Check the conditions for payment",
@@ -109,7 +109,7 @@ export const CARE_GUIDES: CareGuide[] = [
       },
       {
         heading: "Plan for any remaining expenses",
-        text: "Bring your current insurance information and the questions you have about care costs. We can identify possible overlap, limits, and expenses the proposed policy would leave to you. Compare the premiums with your budget and consider what you would do if you needed care for longer than expected.",
+        text: "Bring your current insurance information and the questions you have about care costs. I can identify possible overlap, limits, and expenses the proposed policy would leave to you. Compare the premiums with your budget and consider what you would do if you needed care for longer than expected.",
       },
     ],
     questions: [
@@ -117,7 +117,7 @@ export const CARE_GUIDES: CareGuide[] = [
       "What qualifies me to receive a benefit?",
       "How long is the waiting period?",
       "What happens when the benefit period ends?",
-      "What existing coverage should we review before I decide?",
+      "What existing coverage should I review before I decide?",
     ],
     faq: [
       {
@@ -126,15 +126,15 @@ export const CARE_GUIDES: CareGuide[] = [
       },
       {
         q: "Does it pay for every period of recovery?",
-        a: "No. A claim must meet the policy’s definitions and requirements. We can review the covered situations and exclusions before you decide whether a policy would be useful.",
+        a: "No. A claim must meet the policy’s definitions and requirements. I can review the covered situations and exclusions before you decide whether a policy would be useful.",
       },
       {
         q: "Can I review this alongside my current coverage?",
-        a: "Yes. Bring your existing policy information. We can discuss what each policy does, where coverage may overlap, and which expenses could still remain.",
+        a: "Yes. Bring your existing policy information. I can discuss what each policy does, where coverage may overlap, and which expenses could still remain.",
       },
       {
         q: "Is the consultation free?",
-        a: "Yes. There is no cost and no obligation to buy. We can meet in Greensboro or a nearby Triad community, or talk by phone. A family member is welcome to join.",
+        a: "Yes. There is no cost and no obligation to buy. I can meet in Greensboro or a nearby Triad community, or talk by phone. A family member is welcome to join.",
       },
     ],
     sources: [
@@ -160,12 +160,12 @@ export const CARE_GUIDES: CareGuide[] = [
       "Understand critical illness insurance, covered conditions, exclusions, and benefit limits with Christian Brinkley in Greensboro. No-cost consultation.",
     headline: "Understand what critical illness coverage would provide.",
     introduction:
-      "A serious illness can bring questions about expenses as well as care. Critical illness policies cover specific situations defined in the contract. We can review those definitions, the benefits offered, and how coverage might fit with what you already have.",
+      "A serious illness can bring questions about expenses as well as care. Critical illness policies cover specific situations defined in the contract. I can review those definitions, the benefits offered, and how coverage might fit with what you already have.",
     focus: "critical_illness",
     sections: [
       {
         heading: "Read the list of covered illnesses",
-        text: "The name of a condition is only a starting point. Check the policy’s definition, any severity requirements, exclusions, and waiting periods. Do not assume every diagnosis or every stage of an illness qualifies. We can review the wording and note questions to confirm with the insurer.",
+        text: "The name of a condition is only a starting point. Check the policy’s definition, any severity requirements, exclusions, and waiting periods. Do not assume every diagnosis or every stage of an illness qualifies. I can review the wording and note questions to confirm with the insurer.",
       },
       {
         heading: "Understand how a benefit is paid",
@@ -173,7 +173,7 @@ export const CARE_GUIDES: CareGuide[] = [
       },
       {
         heading: "Look at the coverage you already have",
-        text: "Bring your current insurance information so we can consider what you have before discussing another policy. Think about the expenses that would concern your family and any savings available to help. A focused review can make the decision easier to understand.",
+        text: "Bring your current insurance information so I can consider what you have before discussing another policy. Think about the expenses that would concern your family and any savings available to help. A focused review can make the decision easier to understand.",
       },
       {
         heading: "Consider costs and limits together",
@@ -194,15 +194,15 @@ export const CARE_GUIDES: CareGuide[] = [
       },
       {
         q: "Is every critical illness policy the same?",
-        a: "No. Covered conditions, benefit amounts, payment rules, exclusions, and eligibility can differ. We can review the options I offer and explain the details that matter to you.",
+        a: "No. Covered conditions, benefit amounts, payment rules, exclusions, and eligibility can differ. I can review the options I offer and explain the details that matter to you.",
       },
       {
-        q: "Can we review a policy I already own?",
-        a: "Yes. Bring the policy and a recent statement. We can discuss its benefits, limitations, and premiums, along with any questions you have about keeping the coverage.",
+        q: "Can you review a policy I already own?",
+        a: "Yes. Bring the policy and a recent statement. I can discuss its benefits, limitations, and premiums, along with any questions you have about keeping the coverage.",
       },
       {
-        q: "Can we meet in person in the Triad?",
-        a: "Yes. I serve Greensboro, High Point, Winston-Salem, and nearby communities. We can arrange a home visit, meet at a convenient public location, or talk by phone. The consultation is no cost, with no obligation.",
+        q: "Can I meet you in person in the Triad?",
+        a: "Yes. I serve Greensboro, High Point, Winston-Salem, and nearby communities. I can arrange a home visit, meet at a convenient public location, or talk by phone. The consultation is no cost, with no obligation.",
       },
     ],
     sources: [

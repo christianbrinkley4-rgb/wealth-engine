@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -134,7 +135,7 @@ export default function IrmaaBrackets2026Page() {
             these figures on November 14, 2025:
           </p>
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[640px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[640px] border-collapse text-left">
               <caption className="sr-only">
                 2026 IRMAA brackets with Part B premiums and Part D surcharges
               </caption>
@@ -192,7 +193,7 @@ export default function IrmaaBrackets2026Page() {
                   <td className="text-16 whitespace-nowrap py-4">+$91.00</td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             The brackets are cliffs, not slopes. One dollar over a threshold moves you to the next
@@ -263,7 +264,7 @@ export default function IrmaaBrackets2026Page() {
 
       <KitchenTableClose
         heading="Got an IRMAA surcharge letter?"
-        body={`Bring the letter and your recent tax return. We will check whether an appeal applies and what your options are. Call or text ${AGENT.phone}.`}
+        body={`Bring the letter and your recent tax return. I will check whether an appeal applies and what your options are. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&stage=already_on_medicare"
         label="Get a free premium review"
       />

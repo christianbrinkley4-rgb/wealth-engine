@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 import { REVIEW_SOURCES } from "@/lib/analytics";
 import { GOOGLE_WRITE_REVIEW_URL } from "@/lib/agent";
 import { parseReviewSource, REVIEW_ORIGIN, REVIEW_PROMPTS, reviewLink } from "@/lib/review";
-import { GOOGLE_REVIEWS, TESTIMONIALS } from "@/lib/testimonials";
+import { GOOGLE_REVIEWS } from "@/lib/testimonials";
 
 describe("review links", () => {
   it("reads only the link kinds Christian hands out", () => {

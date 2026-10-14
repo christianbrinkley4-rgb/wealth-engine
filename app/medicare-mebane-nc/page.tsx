@@ -9,7 +9,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "My doctors are in different cities. Does that matter for my plan?",
-    a: "It can matter a lot. Some plans have tight local networks and some are broader. If your care spans Burlington and Durham, say, we need to check both against the plan's network before you commit for the year.",
+    a: "It can matter a lot. Some plans have tight local networks and some are broader. If your care spans Burlington and Durham, say, I need to check both against the plan's network before you commit for the year.",
   },
   {
     q: "When is the Annual Enrollment Period?",
@@ -57,45 +57,6 @@ const FAQ = [
     a: "Yes. I'm paid by the insurance companies when someone enrolls through me, not by you. The review costs you nothing either way, even if you change nothing.",
   },
 ] as const;
-
-function CtaBlock() {
-  return (
-    <section className="bg-white py-14">
-      <div className="measure-prose app-shell max-w-3xl">
-        <h2 className="text-28 font-semibold">Get your free Medicare review</h2>
-        <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-          for you.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link
-            href="/plan-check"
-            className="btn"
-          >
-            Take the plan-fit quiz →
-          </Link>
-          <a
-            href="/start?topic=medicare&quick=1"
-            className="btn btn-outline"
-          >
-            Book a free call
-          </a>
-        </div>
-        <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-          Prefer to talk? Call or text{" "}
-          <a href={AGENT.phoneHref} className="underline underline-offset-2">
-            {AGENT.phone}
-          </a>
-          .
-        </p>
-        <p className="text-16 mt-4 italic text-[var(--color-ink-muted)]">
-          Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-          obligation.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 export default function MedicareMebanePage() {
   return (
@@ -201,7 +162,7 @@ export default function MedicareMebanePage() {
               runs senior programming here: gym walking, cornhole, ping pong, board and card
               games, social hours. It&apos;s built for connection, and it&apos;s the kind of
               place where Medicare questions come up naturally. Worth knowing about whether
-              or not we ever talk.
+              or not you ever call me.
             </p>
             <p>
               Folks in Mebane also have the{" "}
@@ -221,7 +182,7 @@ export default function MedicareMebanePage() {
               Every fall, Medicare Advantage and Part D plans can change what they charge,
               which drugs they cover, and which doctors are in network. Your plan mails an
               Annual Notice of Change by the end of September. Read it, or bring it to me
-              and we&apos;ll read it together. My{" "}
+              and I&apos;ll read it with you. My{" "}
               <Link href="/anoc" className="underline underline-offset-2">
                 ANOC page
               </Link>{" "}
@@ -262,7 +223,7 @@ export default function MedicareMebanePage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -278,7 +239,7 @@ export default function MedicareMebanePage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">

@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
@@ -130,7 +131,7 @@ export default function MedicareAutomaticRenewalPage() {
 
           <h2 className="text-28 mt-12 font-semibold">How each type renews</h2>
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[520px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[520px] border-collapse text-left">
               <caption className="sr-only">Automatic renewal by Medicare coverage type</caption>
               <thead>
                 <tr className="border-b-2 border-[var(--color-navy)]">
@@ -185,7 +186,7 @@ export default function MedicareAutomaticRenewalPage() {
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
 
           <h2 className="text-28 mt-12 font-semibold">The letter that confuses everyone</h2>
@@ -255,7 +256,7 @@ export default function MedicareAutomaticRenewalPage() {
 
       <KitchenTableClose
         heading="Get your free yearly plan review"
-        body={`Bring your Annual Notice of Change and your prescription list. We will check whether your renewing plan still fits, before December 7. Call or text ${AGENT.phone}.`}
+        body={`Bring your Annual Notice of Change and your prescription list. I will check whether your renewing plan still fits, before December 7. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&stage=already_on_medicare"
         label="Request a free review"
       />

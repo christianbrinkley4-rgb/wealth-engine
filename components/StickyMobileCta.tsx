@@ -22,7 +22,15 @@ const HIDE_PREFIXES = [
   "/schedule",
   "/thank-you",
   "/privacy",
+  "/disclaimer",
   "/unsubscribe",
+  // Keep contact bars clear of print cards, reviews, and interactive tool fields.
+  "/review",
+  "/tools",
+  "/medicare-plan-checklist",
+  "/plan-checklist-tool",
+  "/greensboro-medicare-cost-calculator",
+  "/part-b-penalty",
   // The money hub for younger visitors has its own calls to action.
   "/wealth",
   "/links",
@@ -32,28 +40,16 @@ const HIDE_PREFIXES = [
 
 const DISMISS_KEY = "we-scta-dismissed";
 
-/** Medicare pages offer a free review; the inquiry form captures the request. */
+/** Medicare pages offer a free review; the plan check itself offers a time. */
 function secondStep(pathname: string): { href: string; label: string } {
-  if (pathname === "/" || pathname === "/turning-65" || pathname.startsWith("/medicare") || pathname === "/aep" || pathname === "/aep" || pathname === "/anoc" || pathname.startsWith("/answers/")) {
-    return { href: "/start?topic=medicare&quick=1", label: "Free Review" };
-  }
-  if (pathname === "/plan-check") return { href: "/start?topic=medicare&quick=1", label: "Free Review" };
-  if (pathname === "/aep" || pathname === "/aep" || pathname.startsWith("/aep/")) {
-    return { href: "/aep-quiz", label: "Free Review" };
-  }
-  if (pathname === "/turning-65" || pathname.startsWith("/turning-65/")) {
-    return {
-      href: "/start?topic=medicare&stage=turning_65_soon&quick=1",
-      label: "Free Review",
-    };
-  }
   if (
+    ["/", "/turning-65", "/plan-check", "/aep", "/anoc", "/answers"].some(
+      (route) => pathname === route || pathname.startsWith(`${route}/`),
+    ) ||
     pathname.startsWith("/medicare") ||
-    ["/anoc", "/medicare-advantage-vs-medigap-greensboro-nc", "/answers"].some(
-      (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
-    )
+    pathname.startsWith("/guides")
   ) {
-    return { href: "/plan-check", label: "Free Review" };
+    return { href: "/start?topic=medicare&quick=1", label: "Ask me a question" };
   }
   return { href: "/start", label: "Free Review" };
 }
@@ -70,6 +66,9 @@ const FIELD_SELECTOR = "input, select, textarea";
  */
 export function StickyMobileCta() {
   const pathname = usePathname() ?? "/";
+  const hidden = HIDE_PREFIXES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  );
   const [pastHero, setPastHero] = useState(false);
   const [typing, setTyping] = useState(false);
   const [dismissed, setDismissed] = useState(false);
@@ -86,16 +85,25 @@ export function StickyMobileCta() {
 
   useEffect(() => {
     function update() {
+      const closeVisible = Array.from(
+        document.querySelectorAll(
+          ".ktc-actions, .art-next-actions, .steps-actions, .consultation-actions:not(#page-hero-actions), .ft",
+        ),
+      ).some((element) => {
+        const rect = element.getBoundingClientRect();
+        return rect.height > 0 && rect.top < window.innerHeight && rect.bottom > 0;
+      });
       const hero =
         document.getElementById("home-hero-actions") ??
         document.getElementById("page-hero-actions");
       if (!hero) {
-        setPastHero(true);
+        setPastHero(!closeVisible);
         return;
       }
       // Shown once the hero's own buttons have left the top of the screen.
-      setPastHero(hero.getBoundingClientRect().bottom < 8);
+      setPastHero(!closeVisible && hero.getBoundingClientRect().bottom < 8);
     }
+    if (hidden) return;
     update();
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
@@ -103,7 +111,7 @@ export function StickyMobileCta() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
-  }, [pathname]);
+  }, [hidden, pathname]);
 
   useEffect(() => {
     function onFocusIn(event: FocusEvent) {
@@ -130,9 +138,6 @@ export function StickyMobileCta() {
     }
   }
 
-  const hidden = HIDE_PREFIXES.some(
-    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
-  );
   const tucked = typing || !pastHero;
   const second = secondStep(pathname);
 

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -48,11 +48,11 @@ const FAQ = [
   },
   {
     q: "Do I need a medical exam?",
-    a: "Many final expense policies do not require a medical exam. You answer health questions on the application instead. Some options exist for people with health concerns, though the cost and waiting periods vary by policy. We can talk through what fits your situation.",
+    a: "Many final expense policies do not require a medical exam. You answer health questions on the application instead. Some options exist for people with health concerns, though the cost and waiting periods vary by policy. I can talk through what fits your situation.",
   },
   {
     q: "How much does a funeral cost in North Carolina?",
-    a: "Costs vary widely by choices like burial versus cremation, casket, service type, and cemetery. The policy amount should reflect what you want covered. Bring your preferences to our conversation and we can talk through a realistic number.",
+    a: "Costs vary widely by choices like burial versus cremation, casket, service type, and cemetery. The policy amount should reflect what you want covered. Bring your preferences to your conversation and I can talk through a realistic number.",
   },
   {
     q: "Can I get this if I am already in my 70s or 80s?",
@@ -63,35 +63,6 @@ const FAQ = [
     a: "Nothing. The consultation is free and there is no obligation to buy anything. I am paid by the insurance companies if you choose a policy, not by you.",
   },
 ] as const;
-
-function CtaBlock() {
-  return (
-    <section className="bg-white py-14">
-      <div className="measure-prose app-shell max-w-3xl">
-        <h2 className="text-28 font-semibold">Talk through your options, free</h2>
-        <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Tell me what you want covered and I will walk you through the policies
-          that fit. No pressure, no obligation.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link href="/start?topic=life_insurance" className="btn">
-            Start the conversation →
-          </Link>
-          <a href="/start?topic=life_insurance&quick=1" className="btn btn-outline">
-            Book a free call
-          </a>
-        </div>
-        <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-          Prefer to talk? Call or text{" "}
-          <a href={AGENT.phoneHref} className="underline underline-offset-2">
-            {AGENT.phone}
-          </a>
-          .
-        </p>
-      </div>
-    </section>
-  );
-}
 
 export default function FinalExpenseInsurancePage() {
   return (
@@ -149,7 +120,7 @@ export default function FinalExpenseInsurancePage() {
         ]}
         eyebrow="Greensboro and the Piedmont Triad"
         title="Final Expense Insurance in Greensboro, NC"
-        lede="A small policy with one job: making sure your family does not get a funeral bill at the hardest moment. I am Christian Brinkley, a licensed insurance agent in Greensboro. We will talk through what you want covered, what it costs, and whether a policy makes sense for you. Free, no pressure."
+        lede="A small policy with one job: making sure your family does not get a funeral bill at the hardest moment. I am Christian Brinkley, a licensed insurance agent in Greensboro. I will talk through what you want covered, what it costs, and whether a policy makes sense for you. Free, no pressure."
         secondaryHref="/start?topic=life_insurance"
         secondaryLabel="Start the conversation →"
       />
@@ -203,15 +174,15 @@ export default function FinalExpenseInsurancePage() {
             <li>What happens if you stop paying premiums?</li>
           </ul>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            Bring these questions to our conversation. I will walk through each one
+            Bring these questions to your conversation. I will walk through each one
             with the actual policy language, not a brochure summary. If you already
-            have a policy, bring it and we will review what you have before
+            have a policy, bring it and I will review what you have before
             discussing anything new.
           </p>
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -227,7 +198,7 @@ export default function FinalExpenseInsurancePage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">

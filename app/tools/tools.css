@@ -7,25 +7,27 @@
 .t-hero-eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.78rem;
+  font-size: max(var(--minimum-text, 0px), 0.78rem);
   font-weight: 600;
-  color: var(--color-gold);
+  color: var(--color-gold-ink);
 }
 
 .t-calc {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.75rem;
 }
 
 @media (min-width: 960px) {
   .t-calc {
-    grid-template-columns: 5fr 7fr;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
     align-items: start;
   }
 }
 
 .t-controls {
   display: grid;
+  min-width: 0;
   gap: 1.25rem;
   background: #ffffff;
   border: 1px solid #d9ded8;
@@ -37,12 +39,12 @@
 .t-field label {
   display: block;
   font-weight: 600;
-  font-size: 0.9444rem;
+  font-size: max(var(--minimum-text, 0px), 0.9444rem);
   color: var(--color-navy);
 }
 
 .t-field .t-display {
-  font-size: 1.15rem;
+  font-size: max(var(--minimum-text, 0px), 1.15rem);
   font-weight: 700;
   margin-top: 0.25rem;
 }
@@ -54,7 +56,7 @@
 }
 
 .t-hint {
-  font-size: 0.8333rem;
+  font-size: max(var(--minimum-text, 0px), 0.8333rem);
   color: var(--color-ink-muted);
   margin-top: 0.35rem;
   line-height: 1.5;
@@ -103,7 +105,7 @@
   border-radius: 999px;
   padding: 0.45rem 1rem;
   min-height: 44px;
-  font-size: 0.9444rem;
+  font-size: max(var(--minimum-text, 0px), 0.9444rem);
   font-weight: 600;
   background: #fff;
   color: var(--color-navy);
@@ -117,6 +119,7 @@
 }
 
 .t-panel {
+  min-width: 0;
   background: #ffffff;
   border: 1px solid #d9ded8;
   border-radius: var(--border-radius-card);
@@ -141,7 +144,7 @@
 }
 
 .t-stat dt {
-  font-size: 0.8333rem;
+  font-size: max(var(--minimum-text, 0px), 0.8333rem);
   font-weight: 600;
   color: var(--color-ink-muted);
   text-transform: uppercase;
@@ -150,7 +153,7 @@
 
 .t-stat dd {
   margin: 0.3rem 0 0;
-  font-size: 1.5rem;
+  font-size: max(var(--minimum-text, 0px), 1.5rem);
   font-weight: 700;
   color: var(--color-navy);
 }
@@ -176,11 +179,12 @@
 
 @media (min-width: 640px) {
   .t-compare {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 .t-compare-card {
+  min-width: 0;
   border: 1px solid #e4e8e1;
   border-radius: 10px;
   padding: 1rem 1.1rem;
@@ -189,7 +193,7 @@
 
 .t-compare-card h3 {
   margin: 0;
-  font-size: 1.0556rem;
+  font-size: max(var(--minimum-text, 0px), 1.0556rem);
 }
 
 .t-compare-card[data-winner="true"] {
@@ -199,7 +203,7 @@
 
 .t-winner-tag {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: max(var(--minimum-text, 0px), 0.78rem);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -220,15 +224,29 @@
 }
 
 .t-kv li {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
   gap: 1rem;
-  font-size: 0.9444rem;
+  font-size: max(var(--minimum-text, 0px), 0.9444rem);
 }
 
 .t-kv li strong {
   color: var(--color-navy);
-  white-space: nowrap;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+@media (max-width: 639px) {
+  .t-kv li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
+
+  .t-kv li strong {
+    text-align: left;
+  }
 }
 
 .t-table-wrap {
@@ -238,7 +256,7 @@
 table.t-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9444rem;
+  font-size: max(var(--minimum-text, 0px), 0.9444rem);
 }
 
 .t-table th,
@@ -255,7 +273,7 @@ table.t-table {
 }
 
 .t-table thead th {
-  font-size: 0.8333rem;
+  font-size: max(var(--minimum-text, 0px), 0.8333rem);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-ink-muted);
@@ -279,7 +297,7 @@ table.t-table {
   display: flex;
   gap: 1.25rem;
   flex-wrap: wrap;
-  font-size: 0.8333rem;
+  font-size: max(var(--minimum-text, 0px), 0.8333rem);
   color: var(--color-ink-muted);
 }
 
@@ -297,7 +315,7 @@ table.t-table {
   background: var(--color-paper);
   border-radius: 0 10px 10px 0;
   padding: 0.9rem 1.1rem;
-  font-size: 0.9444rem;
+  font-size: max(var(--minimum-text, 0px), 0.9444rem);
   line-height: 1.6;
   color: var(--color-ink-muted);
 }
@@ -311,7 +329,7 @@ table.t-table {
   border-radius: 10px;
   background: #fff;
   padding: 1rem 1.15rem;
-  font-size: 0.8333rem;
+  font-size: max(var(--minimum-text, 0px), 0.8333rem);
   line-height: 1.6;
   color: var(--color-ink-muted);
 }
@@ -323,22 +341,35 @@ table.t-table {
 .t-debt-row {
   display: grid;
   gap: 0.6rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   border: 1px solid #e4e8e1;
   border-radius: 10px;
   padding: 0.9rem;
   background: var(--color-paper);
 }
 
+.t-debt-row .t-field {
+  min-width: 0;
+}
+.t-debt-row input {
+  min-width: 0;
+  max-width: 100%;
+}
+@media (max-width: 639px) {
+  .t-debt-row .t-field:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (min-width: 640px) {
   .t-debt-row {
-    grid-template-columns: 2fr 1.4fr 1fr 1.4fr auto;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.4fr) auto;
     align-items: end;
   }
 }
 
 .t-debt-row .t-field label {
-  font-size: 0.8333rem;
+  font-size: max(var(--minimum-text, 0px), 0.8333rem);
 }
 
 .t-link-btn {
@@ -375,7 +406,7 @@ table.t-table {
 
 .t-hub-card h2 {
   margin: 0 0 0.5rem;
-  font-size: 1.15rem;
+  font-size: max(var(--minimum-text, 0px), 1.15rem);
   color: var(--color-navy);
 }
 
@@ -383,7 +414,7 @@ table.t-table {
   margin: 0;
   color: var(--color-ink-muted);
   line-height: 1.6;
-  font-size: 0.9444rem;
+  font-size: max(var(--minimum-text, 0px), 0.9444rem);
 }
 
 .t-hub-card .t-go {
@@ -403,7 +434,7 @@ table.t-table {
 .t-formula-expr {
   margin: 0.6rem 0 0;
   font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   line-height: 1.7;
   color: var(--color-navy);
   overflow-x: auto;
@@ -422,12 +453,12 @@ table.t-table {
 }
 .t-risk h3 {
   margin: 0;
-  font-size: 1.0556rem;
+  font-size: max(var(--minimum-text, 0px), 1.0556rem);
   color: var(--color-navy);
 }
 .t-risk-intro {
   margin: 0.35rem 0 0;
-  font-size: 0.9444rem;
+  font-size: max(var(--minimum-text, 0px), 0.9444rem);
   color: var(--color-ink-muted);
 }
 .t-risk-row {
@@ -437,18 +468,18 @@ table.t-table {
 }
 .t-risk-row h4 {
   margin: 0 0 0.25rem;
-  font-size: 0.9444rem;
+  font-size: max(var(--minimum-text, 0px), 0.9444rem);
   color: var(--color-navy);
 }
 .t-risk-row p {
   margin: 0;
-  font-size: 0.9444rem;
+  font-size: max(var(--minimum-text, 0px), 0.9444rem);
   line-height: 1.6;
   color: var(--color-ink-muted);
 }
 .t-risk-src {
   margin-top: 0.35rem !important;
-  font-size: 0.8333rem !important;
+  font-size: max(var(--minimum-text, 0px), 0.8333rem !important);
 }
 .t-risk-src a {
   color: var(--color-navy);
@@ -456,7 +487,9 @@ table.t-table {
   text-underline-offset: 2px;
 }
 
-.tool-header { padding-block: 24px 0; }
+.tool-header {
+  padding-block: 24px 0;
+}
 
 /* Greensboro Medicare cost calculator (also used outside /tools). */
 .t-grid {
@@ -472,7 +505,7 @@ table.t-table {
   margin: 1.5rem 0;
 }
 .t-verdict {
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   line-height: 1.6;
   color: var(--color-navy);
   background: #f7f3ea;
@@ -480,7 +513,9 @@ table.t-table {
   padding: 1rem 1.25rem;
   margin: 1.25rem 0;
 }
-.t-breakdowns { margin: 1rem 0; }
+.t-breakdowns {
+  margin: 1rem 0;
+}
 .t-toggle {
   display: block;
   width: 100%;
@@ -488,7 +523,7 @@ table.t-table {
   background: none;
   border: none;
   padding: 0.6rem 0;
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   font-weight: 600;
   color: var(--color-navy);
   cursor: pointer;
@@ -508,10 +543,12 @@ table.t-table {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.4rem 0;
-  font-size: 0.92rem;
+  font-size: max(var(--minimum-text, 0px), 0.92rem);
   border-bottom: 1px dashed #ece1c9;
 }
-.t-lines li:last-child { border-bottom: none; }
+.t-lines li:last-child {
+  border-bottom: none;
+}
 .t-cta {
   margin-top: 1.75rem;
   text-align: center;
@@ -520,15 +557,22 @@ table.t-table {
   color: #fff;
   border-radius: 14px;
 }
-.t-cta p { margin: 0 0 0.75rem; font-size: 1.05rem; }
+.t-cta p {
+  margin: 0 0 0.75rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
+}
 .t-cta-button {
   display: inline-block;
   background: #fff;
   color: var(--color-navy);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   padding: 0.75rem 1.75rem;
   border-radius: 999px;
   text-decoration: none;
 }
-.t-cta-sub { margin: 0.75rem 0 0 !important; font-size: 0.9rem !important; opacity: 0.85; }
+.t-cta-sub {
+  margin: 0.75rem 0 0 !important;
+  font-size: max(var(--minimum-text, 0px), 0.9rem !important);
+  opacity: 0.85;
+}

@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -121,7 +122,7 @@ export default async function AskAnswerPage({ params }: { params: Promise<{ slug
                   if (block.kind === "table") {
                     return (
                       <div key={blockIndex} className="art-table-wrap">
-                        <table className="art-table">
+                        <ResponsiveTable className="art-table">
                           <thead>
                             <tr>
                               {block.headers.map((h) => (
@@ -140,7 +141,7 @@ export default async function AskAnswerPage({ params }: { params: Promise<{ slug
                               </tr>
                             ))}
                           </tbody>
-                        </table>
+                        </ResponsiveTable>
                       </div>
                     );
                   }

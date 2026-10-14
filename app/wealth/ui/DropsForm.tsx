@@ -175,7 +175,7 @@ export function DropsForm() {
           {status === "sending" ? "Sending..." : "Send me the drops"} <ArrowRight size={18} aria-hidden />
         </button>
       </div>
-      <p id={`${id}-note`} style={{ margin: "14px 0 0", fontSize: "0.86rem", lineHeight: 1.5, color: "var(--w-muted)" }}>
+      <p id={`${id}-note`} style={{ margin: "14px 0 0", fontSize: "max(var(--minimum-text, 0px), 0.86rem)", lineHeight: 1.5, color: "var(--w-muted)" }}>
         {DROPS_CONSENT_TEXT}
       </p>
     </form>

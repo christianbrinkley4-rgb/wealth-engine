@@ -89,7 +89,7 @@ export default function PlanCheckPage() {
         title="Does your Medicare plan still fit?"
         lede="Medicare plans change every year. So do you. Seven quick questions about your doctors, your prescriptions, and your costs, and I'll give you an honest read on whether your plan deserves a second look before December 7."
         secondaryHref="/start"
-        secondaryLabel="Skip the quiz, book a review →"
+        secondaryLabel="Skip the quiz, request a review →"
       />
 
       <section className="bg-white py-14">
@@ -117,7 +117,7 @@ export default function PlanCheckPage() {
             </p>
             <p>
               This is educational, not advice about your particular situation. I do not recommend
-              plans in a quiz, and I do not promise outcomes. The review is where we look at your
+              plans in a quiz, and I do not promise outcomes. The review is where I look at your
               actual details together.{" "}
               <Link href="/anoc" className="underline underline-offset-2">
                 If you got an Annual Notice of Change letter, bring it
@@ -167,7 +167,7 @@ export default function PlanCheckPage() {
         heading="Ninety seconds now, or twenty minutes with me"
         body="The quiz gives you the quick read. The review gives you the full picture. Both are free, and both come from a real person in Greensboro, not a call center."
         href="/start"
-        label="Book my free review →"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

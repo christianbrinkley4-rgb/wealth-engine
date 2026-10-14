@@ -68,7 +68,7 @@ export default function RemindMePage() {
       </section>
       <KitchenTableClose
         heading="Have a question about your dates?"
-        body="We can review your timing and current coverage together. Your consultation is no cost, with no obligation to enroll."
+        body="I can review your timing and current coverage with you. Your consultation is no cost, with no obligation to enroll."
         href="/start?topic=medicare"
         label="Ask a Medicare question →"
       />

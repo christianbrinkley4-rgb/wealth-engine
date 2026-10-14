@@ -252,9 +252,9 @@ export default function MovingToNorthCarolinaMedicarePage() {
 
       <KitchenTableClose
         heading="New to North Carolina? Let's get your coverage settled"
-        body={`Tell me where you're moving from and when. We will make sure your Medicare lands smoothly in your new home. Call or text ${AGENT.phone}.`}
+        body={`Tell me where you're moving from and when. I will make sure your Medicare lands smoothly in your new home. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
-        label="Book a free review"
+        label="Request a free review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

@@ -96,7 +96,7 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-22 font-bold">How I use it</h2>
             <p className="mt-2 text-[var(--color-ink-muted)]">
-              I use your information to respond to your questions, prepare for and arrange our
+              I use your information to respond to your questions, prepare for and arrange my
               conversation, keep track of your contact preferences, and manage any appointment you
               make. When connected, email and booking services can send messages related to your
               request or appointment. I also use records to protect the site, resolve problems, and
@@ -110,7 +110,7 @@ export default function PrivacyPage() {
             <p className="mt-2 text-[var(--color-ink-muted)]">
               Your inquiry is for me, but the companies that host the site, store requests, deliver
               email, and arrange appointments process information needed for those services. Their
-              privacy notices and our service arrangements explain their handling of that
+              privacy notices and my service arrangements explain their handling of that
               information:
             </p>
             <ul className="mt-3 list-disc space-y-2 pl-6 text-[var(--color-ink-muted)]">
@@ -135,7 +135,7 @@ export default function PrivacyPage() {
                when you use the booking calendar, processes appointment details and contact
                 information. Connected calendar services, including Microsoft Outlook, may receive
                 appointment details and invitations to check availability and keep the meeting on
-                our calendars. A video meeting provider may also process information when you choose
+                my calendars. A video meeting provider may also process information when you choose
                 a video appointment.
               </li>
               <li>
@@ -160,7 +160,7 @@ export default function PrivacyPage() {
             </ul>
             <p className="mt-3 text-[var(--color-ink-muted)]">
               I do not sell your information. If you would like an introduction to a financial
-              advisor, we discuss it first; submitting this form does not automatically send your
+              advisor, I discuss it first; submitting this form does not automatically send your
               inquiry to an advisor. Information may also be disclosed where required by law or
               needed to address fraud, abuse, or a security issue.
             </p>

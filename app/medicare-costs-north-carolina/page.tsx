@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
@@ -118,7 +119,7 @@ export default function MedicareCostsNorthCarolinaPage() {
             Greensboro, Raleigh, or anywhere else in the country.
           </p>
           <div className="mt-8 overflow-x-auto">
-            <table className="w-full min-w-[520px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[520px] border-collapse text-left">
               <caption className="sr-only">
                 Medicare Parts A and B costs, 2026 finalized and 2027 projected
               </caption>
@@ -162,7 +163,7 @@ export default function MedicareCostsNorthCarolinaPage() {
                   <td className="py-3">$2,400 (final)</td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="text-15 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             2026 figures are finalized CMS amounts. 2027 Part D figures are finalized CMS

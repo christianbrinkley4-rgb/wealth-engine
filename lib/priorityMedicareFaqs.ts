@@ -15,10 +15,10 @@ export const PRIORITY_MEDICARE_FAQS = {
     },
     {
       q: "Does it cost anything to meet with you?",
-      a: "Christian's initial Medicare consultation is free with no obligation to enroll. Insurance companies pay him a commission if you choose a plan through him.",
+      a: "My initial Medicare consultation is free with no obligation to enroll. Insurance companies pay me a commission if you choose a plan through me.",
     },
     {
-      q: "What should I bring to our review?",
+      q: "What should I bring to a Medicare review?",
       a: "Bring your Annual Notice of Change, prescription list, preferred pharmacy, and doctor names to a Medicare review. Start with your questions if paperwork is incomplete.",
     },
     {
@@ -89,10 +89,10 @@ export const PRIORITY_MEDICARE_FAQS = {
     },
     {
       q: "Do you meet in person in Greensboro?",
-      a: "Christian offers free Medicare consultations at your Greensboro home, at an agreed public location, or by phone. There is no obligation to enroll.",
+      a: "I offer free Medicare consultations at your Greensboro home, at an agreed public location, or by phone. There is no obligation to enroll.",
     },
     {
-      q: "I live in High Point or Winston-Salem. Can we still meet before I turn 65?",
+      q: "I live in High Point or Winston-Salem. Can I still meet with you before I turn 65?",
       a: "Turning-65 consultations are available in High Point, Winston-Salem, and nearby Triad communities. Start before your birthday so you can review enrollment dates and coverage.",
     },
     {

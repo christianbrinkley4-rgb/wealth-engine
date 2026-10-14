@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
@@ -193,7 +194,7 @@ export default function MedicareCosts2027Page() {
             releases them.
           </p>
           <div className="mt-8 overflow-x-auto">
-            <table className="w-full border-collapse text-left">
+            <ResponsiveTable className="w-full border-collapse text-left">
               <caption className="sr-only">
                 Medicare costs: final 2026 amounts next to the 2027 amounts CMS has published so far
               </caption>
@@ -229,7 +230,7 @@ export default function MedicareCosts2027Page() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="text-16 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Sources:{" "}
@@ -308,7 +309,7 @@ export default function MedicareCosts2027Page() {
             Security looks back two years, so 2027 will use your 2025 return.
           </p>
           <div className="mt-8 overflow-x-auto">
-            <table className="w-full min-w-[600px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[600px] border-collapse text-left">
               <caption className="text-16 pb-3 text-left font-semibold">
                 2026 monthly amounts by {IRMAA_LOOKBACK_YEAR} income. 2027 brackets not announced
                 yet.
@@ -351,7 +352,7 @@ export default function MedicareCosts2027Page() {
                   );
                 })}
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="text-16 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Source:{" "}
@@ -391,7 +392,7 @@ export default function MedicareCosts2027Page() {
 
       <KitchenTableClose
         heading="Want to see what 2027 costs you?"
-        body="These are the national numbers. Your plan's premium, copays, and drug costs are in its Annual Notice of Change. Bring that letter and your prescription list, and we'll go through it together before December 7. Free consultation, no obligation."
+        body="These are the national numbers. Your plan's premium, copays, and drug costs are in its Annual Notice of Change. Bring that letter and your prescription list, and I’ll go through it with you before December 7. Free consultation, no obligation."
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation →"
       />

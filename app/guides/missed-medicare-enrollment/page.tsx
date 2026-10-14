@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -158,7 +159,7 @@ export default function MissedMedicareEnrollmentPage() {
 
           <h2 className="text-28 mt-12 font-semibold">Your next windows at a glance</h2>
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[560px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[560px] border-collapse text-left">
               <caption className="sr-only">
                 Enrollment windows after missing the December 7 deadline
               </caption>
@@ -213,7 +214,7 @@ export default function MissedMedicareEnrollmentPage() {
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
 
           <h2 className="text-28 mt-12 font-semibold">What to do right now</h2>
@@ -263,7 +264,7 @@ export default function MissedMedicareEnrollmentPage() {
 
       <KitchenTableClose
         heading="Missed the deadline? Let's find your next move"
-        body={`Tell me what coverage you have now and what changed. We will find your next enrollment window and make a plan for it. Call or text ${AGENT.phone}.`}
+        body={`Tell me what coverage you have now and what changed. I will find your next enrollment window and make a plan for it. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&stage=already_on_medicare"
         label="Get help with your options"
       />

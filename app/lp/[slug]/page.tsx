@@ -84,12 +84,9 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
                 {page.subhead}
               </p>
 
-              <Link
-                href={page.primaryHref}
-                className="text-20 mt-8 inline-flex min-h-16 w-full items-center justify-center rounded-[12px] bg-[var(--color-paper)] px-6 py-4 text-center font-semibold text-[var(--color-navy)] shadow-[0_2px_4px_rgba(0,0,0,0.12),0_4px_16px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-px hover:shadow-[0_4px_8px_rgba(0,0,0,0.14),0_8px_24px_rgba(0,0,0,0.12)] active:translate-y-0 active:shadow-[0_2px_4px_rgba(0,0,0,0.12)] sm:w-auto"
-              >
-                Request a free consultation →
-              </Link>
+              <div className="mt-6 flex flex-wrap gap-3" id="page-hero-actions">
+<a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light"><Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}</a>
+<Link href={page.primaryHref} className="btn btn-ghost-light">Request a free consultation →</Link></div>
               <p className="text-17 mt-3 text-[var(--color-paper)]/85">
                 No cost. No obligation to buy. Your request comes directly to Christian and is never
                 sold to other agents.
@@ -98,12 +95,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
                 Meet at your home in the Triad, at a convenient public location, by phone, or by
                 video. A family member is welcome.
               </p>
-              <p className="text-18 mt-5 text-[var(--color-paper)]/85">
-                Prefer to call?{" "}
-                <a href={AGENT.phoneHref} className="font-semibold underline underline-offset-4">
-                  {AGENT.phone}
-                </a>
-              </p>
+
             </div>
 
             <aside className="rounded-2xl border border-white/15 bg-white/5 p-6">
@@ -160,9 +152,9 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
           </ul>
         </div>
         <aside className="rounded-2xl border border-[rgba(21,46,52,0.12)] bg-white p-6 md:p-7">
-          <h2 className="text-22 font-semibold">What we can cover together</h2>
+          <h2 className="text-22 font-semibold">What I can help you review</h2>
           <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-            We’ll start with what matters to you. Here are a few things we can talk through:
+            I’ll start with what matters to you. Here are a few things I can talk through:
           </p>
           <ul className="mt-5 flex flex-col gap-5">
             {page.consultationTopics.map((topic) => (
@@ -173,7 +165,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
             ))}
           </ul>
           <p className="text-16 mt-6 border-t border-gray-200 pt-5 leading-relaxed text-[var(--color-ink-muted)]">
-            If you have current coverage, keep the details handy for our conversation. It’s fine to
+            If you have current coverage, keep the details handy for your conversation. It’s fine to
             start with questions. You don’t need to have everything organized.
           </p>
         </aside>
@@ -207,12 +199,12 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
               },
               {
                 n: "2",
-                t: "We confirm how and when to meet",
-                b: "Tell me how you prefer to be contacted. We’ll confirm a time and arrange an in-person, phone, or video conversation.",
+                t: "I confirm how and when to meet",
+                b: "Tell me how you prefer to be contacted. I’ll confirm a time and arrange an in-person, phone, or video conversation.",
               },
               {
                 n: "3",
-                t: "We talk through your options",
+                t: "I explain your options",
                 b: "Bring your questions and any current coverage you’d like to review. You can take your time deciding what to do next.",
               },
             ].map((step) => (
@@ -230,29 +222,20 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
 
       <section className="app-shell max-w-2xl py-12 text-center">
         <h2 className="text-26 font-semibold">Ready to talk through your questions?</h2>
-        <Link
-          href={page.primaryHref}
-          className="text-20 mt-6 inline-flex min-h-16 items-center justify-center rounded-[12px] bg-[var(--color-navy)] px-6 py-4 font-semibold text-[var(--color-paper)]"
-        >
-          Request a free consultation →
-        </Link>
+        <div className="mt-6 flex flex-wrap justify-center gap-3" >
+<a data-cta-location="page_close" href={AGENT.phoneHref} className="btn "><Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}</a>
+<Link href={page.primaryHref} className="btn btn-outline">Request a free consultation →</Link></div>
         <p className="text-17 mt-4 text-[var(--color-ink-muted)]">
           No cost. No obligation to buy. You decide what to do next.
         </p>
-        <p className="text-16 mt-4 text-[var(--color-ink-muted)]">
-          Or call{" "}
-          <a href={AGENT.phoneHref} className="font-semibold underline underline-offset-4">
-            {AGENT.phone}
-          </a>
-          . {AGENT.afterHoursPromise}
-        </p>
+        <p className="text-18 mt-4">{AGENT.afterHoursPromise}</p>
       </section>
 
       <section className="border-t border-[rgba(21,46,52,0.1)] bg-white py-12">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-24 font-semibold">Would you like to read a little more first?</h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-            Take your time. The guide explains the main questions to consider before we talk.
+            Take your time. The guide explains the main questions to consider before you call.
           </p>
           <Link
             href={page.guideHref}

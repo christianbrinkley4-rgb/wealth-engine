@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -51,60 +51,21 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "I'm in Graham but my doctors are in Burlington. Does that matter?",
-    a: "It can matter a lot. Some plans have tight local networks, and a plan that covers your Graham doctor might not cover your Burlington specialist. That's the first thing we check in a review, before you commit to anything for the year.",
+    a: "It can matter a lot. Some plans have tight local networks, and a plan that covers your Graham doctor might not cover your Burlington specialist. That's the first thing I check in a review, before you commit to anything for the year.",
   },
   {
     q: "Does living in Alamance County change my Medicare options?",
-    a: "It can. Medicare Advantage plan availability can vary by county, so what's offered in Alamance County isn't identical to what's offered over in Guilford or Orange. When we talk, we'll check what's available at your address, along with your doctors and prescriptions.",
+    a: "It can. Medicare Advantage plan availability can vary by county, so what's offered in Alamance County isn't identical to what's offered over in Guilford or Orange. When you and I talk, I’ll check what's available at your address, along with your doctors and prescriptions.",
   },
   {
-    q: "Can we meet in person in Graham?",
-    a: "Yes. We can meet somewhere convenient in Graham, like the library on South Main Street, or talk by phone. You're welcome to include your spouse or another family member. The consultation is free, with no obligation to enroll in anything.",
+    q: "Can I meet you in person in Graham?",
+    a: "Yes. I can meet somewhere convenient in Graham, like the library on South Main Street, or talk by phone. You're welcome to include your spouse or another family member. The consultation is free, with no obligation to enroll in anything.",
   },
   {
     q: "What does the free review cover?",
-    a: "We'll go over your current coverage, your doctors and prescriptions, and what's changing for next year, including your Annual Notice of Change letter if you got one. If your plan still looks good, I'll tell you so. If something changed that matters to you, we'll talk through your options before Medicare Open Enrollment ends December 7.",
+    a: "I’ll go over your current coverage, your doctors and prescriptions, and what's changing for next year, including your Annual Notice of Change letter if you got one. If your plan still looks good, I'll tell you so. If something changed that matters to you, I’ll talk through your options before Medicare Open Enrollment ends December 7.",
   },
 ] as const;
-
-function CtaBlock() {
-  return (
-    <div className="mt-8 rounded-xl border border-gray-200 bg-[var(--color-paper)] p-6">
-      <h3 className="text-22 font-semibold">Get your free Medicare review</h3>
-      <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-        Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that
-        works for you.
-      </p>
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-        <Link
-          href="/plan-check"
-          className="btn"
-        >
-          Take the plan-fit quiz
-        </Link>
-        <a
-          href="/start?topic=medicare&quick=1"
-          className="btn btn-outline"
-        >
-          Book a free call
-        </a>
-      </div>
-      <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-        Prefer to talk? Call or text{" "}
-        <a href={AGENT.phoneHref} className="underline underline-offset-2">
-          {AGENT.phone}
-        </a>
-        .
-      </p>
-      <p className="text-16 mt-2 text-[var(--color-ink-muted)]">
-        <em>
-          Free help from a licensed North Carolina insurance agent. No cost, no pressure,
-          no obligation.
-        </em>
-      </p>
-    </div>
-  );
-}
 
 export default function MedicareGrahamPage() {
   return (
@@ -165,7 +126,7 @@ export default function MedicareGrahamPage() {
         title="Medicare Help in Graham, NC"
         lede="Graham is Alamance County's seat, built around the old courthouse on the downtown traffic circle and the mill and railroad days. I'm Christian Brinkley, a licensed insurance agent in North Carolina. I help folks in Graham understand Medicare with free, no-pressure reviews. No call centers, just straight answers."
         secondaryHref="/start"
-        secondaryLabel="Book my free review →"
+        secondaryLabel="Request a free review →"
       />
 
       <section className="bg-white py-14">
@@ -191,7 +152,7 @@ export default function MedicareGrahamPage() {
             <p>
               One more local note: Medicare Advantage plan availability can vary by county.
               The plans offered here in Alamance County aren&apos;t identical to what&apos;s
-              offered over in Orange or Guilford. When we talk, we&apos;ll check
+              offered over in Orange or Guilford. When you and I talk, I&apos;ll check
               what&apos;s available at your address, not somebody else&apos;s.
             </p>
           </div>
@@ -236,7 +197,7 @@ export default function MedicareGrahamPage() {
               September. Most people file it with the junk mail. Don&apos;t.
             </p>
             <p>
-              The review takes twenty minutes. We look at what changed, check your doctors
+              The review takes twenty minutes. I look at what changed, check your doctors
               and your prescriptions against the new details, and you go into January
               knowing where you stand. If nothing important changed, I&apos;ll tell you that
               too.{" "}
@@ -254,8 +215,7 @@ export default function MedicareGrahamPage() {
           <h2 className="text-28 font-semibold">What a Free Review Covers</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
-              A free review with me is a conversation, not a sales pitch. Here&apos;s what we
-              go through:
+              A free review with me is a conversation, not a sales pitch. Here&apos;s what I go through:
             </p>
             <ul className="list-disc space-y-2 pl-6">
               <li>What you have now and what it costs you</li>
@@ -294,11 +254,11 @@ export default function MedicareGrahamPage() {
           <h2 className="text-28 font-semibold">Talk to a local first</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             You don&apos;t have to figure Medicare out from mailers and 1-800 numbers. Call
-            or text me, and we&apos;ll go through your situation together. Free consultation,
+            or text me, and I&apos;ll go through your situation with you. Free consultation,
             no obligation to enroll in anything, no pressure. If your plan is already fine,
             I&apos;ll say so.
           </p>
-          <CtaBlock />
+
         </div>
       </section>
 
@@ -306,7 +266,7 @@ export default function MedicareGrahamPage() {
         heading="Straight answers, plain English"
         body="I'd rather you hear it from a real person than from a mailer. About fifteen minutes, free, and you'll actually understand your options."
         href="/start?topic=medicare&quick=1"
-        label="Book my free review →"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

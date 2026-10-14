@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideCapture } from "@/app/components/GuideCapture";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { ConsultationActions } from "@/app/components/ConsultationActions";
 import { LearnLibrary } from "@/components/LearnLibrary";
 import { AGENT } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
@@ -90,11 +91,9 @@ export default function LearnPage() {
                 <span>
                   {AGENT.licenseLine} · {AGENT.city}, {AGENT.state}
                 </span>
-                <span>
-                  Stuck on something? Call me at <a href={AGENT.phoneHref}>{AGENT.phone}</a>.
-                </span>
               </p>
             </div>
+            <ConsultationActions label="Ask me a question" />
           </div>
           <div className="lh-start">
             <p className="lh-start-label">New here? Start with one of these.</p>

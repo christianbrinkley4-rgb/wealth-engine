@@ -243,9 +243,9 @@ export default function CobraVsMedicareAt65Page() {
 
       <KitchenTableClose
         heading="Do not let COBRA cost you a penalty"
-        body={`Tell me your timeline: when employment ended, when COBRA started. We will figure out your enrollment window and your cheapest path forward. Call or text ${AGENT.phone}.`}
+        body={`Tell me your timeline: when employment ended, when COBRA started. I will figure out your enrollment window and your cheapest path forward. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
-        label="Book a free review"
+        label="Request a free review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

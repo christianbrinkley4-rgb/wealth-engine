@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -129,7 +130,7 @@ export default function MedicarePartBEmployerCoveragePage() {
 
           <h2 className="text-28 mt-12 font-semibold">The 20-employee rule</h2>
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[520px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[520px] border-collapse text-left">
               <caption className="sr-only">
                 Part B enrollment rules by employer size
               </caption>
@@ -163,7 +164,7 @@ export default function MedicarePartBEmployerCoveragePage() {
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Federal law also protects you at work. Employers with 20 or more workers must offer you
@@ -245,7 +246,7 @@ export default function MedicarePartBEmployerCoveragePage() {
 
       <KitchenTableClose
         heading="Time your Medicare start around your work"
-        body={`Tell me about your employer coverage and your retirement date. We will map the enrollment steps so you skip the penalties. Call or text ${AGENT.phone}.`}
+        body={`Tell me about your employer coverage and your retirement date. I will map the enrollment steps so you skip the penalties. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&stage=turning_65"
         label="Get free help with the timing"
       />

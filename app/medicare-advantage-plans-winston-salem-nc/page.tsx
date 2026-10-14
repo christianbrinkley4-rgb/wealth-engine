@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -45,56 +45,17 @@ const FAQ = [
   },
   {
     q: "My plan's drug list changed for next year. What do I do?",
-    a: "This is exactly what Annual Enrollment is for. Plans change their formularies every year, and a drug moving to a higher tier can cost you real money. Bring your prescription list to a review and we will check each drug against next year's details. October 15 through December 7 is your window to fix it.",
+    a: "This is exactly what Annual Enrollment is for. Plans change their formularies every year, and a drug moving to a higher tier can cost you real money. Bring your prescription list to a review and I will check each drug against next year's details. October 15 through December 7 is your window to fix it.",
   },
   {
     q: "If I move within Forsyth County, does my plan change?",
-    a: "Usually not. Moving within the same county keeps you in the same service area. Moving to a different county is the trigger: plans are built by county, so a move across the line can mean new options and a special enrollment window. Tell me before you move and we will sort it out.",
+    a: "Usually not. Moving within the same county keeps you in the same service area. Moving to a different county is the trigger: plans are built by county, so a move across the line can mean new options and a special enrollment window. Tell me before you move and I will sort it out.",
   },
   {
     q: "Are the extra benefits, like dental and vision, worth choosing a plan for?",
     a: "They are nice, but they should not lead the decision. Compare the core first: your doctors, your hospitals, your drugs. A plan with great dental that does not cover your cardiologist is a bad plan with great dental. Extras are the tiebreaker, never the reason.",
   },
 ] as const;
-
-function CtaBlock() {
-  return (
-    <section className="bg-white py-14">
-      <div className="measure-prose app-shell max-w-3xl">
-        <h2 className="text-28 font-semibold">Get your free Advantage plan review</h2>
-        <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-          for you.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link
-            href="/plan-check"
-            className="btn"
-          >
-            Take the plan-fit quiz →
-          </Link>
-          <a
-            href="/start?topic=medicare&quick=1"
-            className="btn btn-outline"
-          >
-            Book a free call
-          </a>
-        </div>
-        <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-          Prefer to talk? Call or text{" "}
-          <a href={AGENT.phoneHref} className="underline underline-offset-2">
-            {AGENT.phone}
-          </a>
-          .
-        </p>
-        <p className="text-16 mt-4 italic text-[var(--color-ink-muted)]">
-          Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-          obligation.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 export default function MedicareAdvantagePlansWinstonSalemPage() {
   return (
@@ -263,7 +224,7 @@ export default function MedicareAdvantagePlansWinstonSalemPage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -279,7 +240,7 @@ export default function MedicareAdvantagePlansWinstonSalemPage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">

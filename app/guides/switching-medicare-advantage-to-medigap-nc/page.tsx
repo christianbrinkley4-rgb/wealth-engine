@@ -274,7 +274,7 @@ export default function SwitchingMedicareAdvantageToMedigapNcPage() {
 
       <KitchenTableClose
         heading={"Find out where you stand before you switch"}
-        body={`${"Tell me when you joined your Medicare Advantage plan and what's prompting the change. We'll check whether you have a guaranteed right and what the safe order of steps looks like."} Call or text ${AGENT.phone}.`}
+        body={`${"Tell me when you joined your Medicare Advantage plan and what's prompting the change. I’ll check whether you have a guaranteed right and what the safe order of steps looks like."} Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

@@ -75,7 +75,7 @@ const FAQ = [
   },
   {
     q: "Will my plan change in 2027?",
-    a: "Probably, in some way. Plans adjust premiums, deductibles, copays, drug lists, and doctor networks every year. Your plan mailed an Annual Notice of Change in September explaining exactly what is different. If you did not read it, bring it to a review and we will go through it together.",
+    a: "Probably, in some way. Plans adjust premiums, deductibles, copays, drug lists, and doctor networks every year. Your plan mailed an Annual Notice of Change in September explaining exactly what is different. If you did not read it, bring it to a review and I will go through it with you.",
   },
   {
     q: "What should I do before December 7?",
@@ -196,7 +196,7 @@ export default function MedicareChanges2027Page() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Most people never read it. It is long and dense, and it does not tell you what to{" "}
-            <em>do</em>. Bring it to me and I will translate it into plain English, then we check
+            <em>do</em>. Bring it to me and I will translate it into plain English, then I check
             your drugs and doctors against it. If your plan still looks good, I will tell you so.{" "}
             <Link href="/anoc" className="underline underline-offset-2">
               What the ANOC letter actually says
@@ -229,7 +229,7 @@ export default function MedicareChanges2027Page() {
 
       <KitchenTableClose
         heading="Let's check what 2027 means for you"
-        body={`We will go through your plan's changes, your prescriptions, and your doctors before December 7. The review is free, with no obligation to enroll. Call or text ${AGENT.phone}.`}
+        body={`I will go through your plan's changes, your prescriptions, and your doctors before December 7. The review is free, with no obligation to enroll. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&stage=already_on_medicare"
         label="Request a free review →"
       />

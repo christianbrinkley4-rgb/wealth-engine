@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -133,7 +134,7 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
 
           <h2 className="text-28 mt-12 font-semibold">The 2026 limits</h2>
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[560px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[560px] border-collapse text-left">
               <caption className="sr-only">
                 2026 Social Security earnings test limits by age situation
               </caption>
@@ -180,7 +181,7 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
 
           <h2 className="text-28 mt-12 font-semibold">What the withholding looks like</h2>
@@ -254,7 +255,7 @@ export default function WorkingWhileCollectingSocialSecurityPage() {
 
       <KitchenTableClose
         heading="Plan your work and your benefits together"
-        body={`Tell me when you plan to claim and how much you plan to earn. We will walk through the 2026 limits for your situation. Call or text ${AGENT.phone}.`}
+        body={`Tell me when you plan to claim and how much you plan to earn. I will walk through the 2026 limits for your situation. Call or text ${AGENT.phone}.`}
         href="/start?topic=retirement"
         label="Talk through your timing"
       />

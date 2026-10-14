@@ -52,7 +52,7 @@ export function UnsubscribeForm({ token }: { token: string }) {
     <div className="card-surface">
       <h2>Stop the follow-up emails?</h2>
       <p className="personal-body">
-        I&apos;ll stop emailing you right away. This won&apos;t affect anything else, if we&apos;ve
+        I&apos;ll stop emailing you right away. This won&apos;t affect anything else, if you&apos;ve
         talked or have a consultation scheduled, that&apos;s all still on.
       </p>
       <button

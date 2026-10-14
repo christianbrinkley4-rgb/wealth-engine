@@ -1,36 +1,37 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ServiceHero } from "@/app/components/ServiceHero";
+import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
-import { SITE_URL } from "@/lib/seo";
 
 const QUESTIONS = [
   {
     q: "Are you licensed in North Carolina?",
-    a: "Yes. Christian Brinkley is a licensed Life and Health insurance agent in North Carolina. You can verify any agent's license through the NC Department of Insurance.",
+    a: "Yes. I’m a licensed Life and Health insurance agent in North Carolina. You can verify my license through the NC Department of Insurance.",
   },
   {
     q: "Do you work with more than one insurance company?",
-    a: "Yes. Christian represents a limited number of insurance companies, not just one. He will tell you upfront which companies he works with and what he cannot help with.",
+    a: "Yes. I represent a limited number of insurance companies. I’ll tell you which companies I work with and what I can help you review.",
   },
   {
     q: "How do you get paid?",
-    a: "The consultation is free with no obligation. If you enroll through Christian, he is paid a commission by the insurance company. Your premium is the same as if you enrolled on your own. There is no markup to you.",
+    a: "The consultation is free with no obligation. If you enroll through me, the insurance company pays me a commission. Your premium is the same as if you enrolled on your own. There is no markup to you.",
   },
   {
     q: "Will you be the person I talk to next year?",
-    a: "Yes. You work with Christian directly, not a call center. The same person answers your questions this year and reviews your plan next year.",
+    a: "Yes. You talk directly to me. You can return to me with questions about your coverage and your next annual review.",
   },
   {
     q: "Can you help me compare my current plan against other options?",
-    a: "Yes. Bring your Annual Notice of Change letter, your prescription list, and your doctors' names. He will walk through costs, drug coverage, and provider networks side by side.",
+    a: "Yes. Bring your Annual Notice of Change letter, your prescription list, and your doctors' names. I’ll walk through costs, drug coverage, and provider networks side by side.",
   },
   {
     q: "What if I want to stay on my current plan?",
-    a: "That is a perfectly good outcome. The review is about making sure your plan still fits, not about switching. Many reviews end with staying put.",
+    a: "Keeping your plan is a useful outcome when it still fits. I’ll explain your options, and you decide whether to make a change.",
   },
   {
     q: "Do you sell my information?",
-    a: "No. Your contact information is not sold to other agents or lead companies. Inquiries are reviewed personally by Christian.",
+    a: "No. I review your inquiry personally. I do not sell your contact information to other agents or lead companies.",
   },
   {
     q: "Can my spouse or family member join the meeting?",
@@ -51,8 +52,7 @@ export const metadata: Metadata = {
   }),
   twitter: pageTwitter({
     title: "Questions to ask a Medicare agent",
-    description:
-      "Eight questions worth asking any Medicare agent, answered honestly.",
+    description: "Eight questions worth asking any Medicare agent, answered honestly.",
     path: "/questions-to-ask-medicare-agent",
   }),
 };
@@ -64,24 +64,33 @@ export default function QuestionsToAskPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(QUESTIONS)) }}
       />
-      <article>
-        <h1>Questions to ask a Medicare agent</h1>
-        <p>
-          Before you sit down with anyone about Medicare, these are the
-          questions worth asking. Here are Christian&apos;s answers, in plain
-          language.
-        </p>
+      <ServiceHero
+        crumbs={[
+          { name: "Home", href: "/" },
+          { name: "Medicare guides", href: "/learn" },
+          { name: "Questions to ask an agent" },
+        ]}
+        eyebrow="Medicare help · Greensboro and the Triad"
+        title="Eight questions to ask a Medicare agent"
+        lede="Before you meet with a Medicare agent, ask about licensing, plan choices, costs, and what happens after enrollment. Here are my answers in plain language."
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Ask me your question"
+      />
+      <article className="shell measure-prose section max-w-3xl">
         {QUESTIONS.map((item) => (
-          <section key={item.q}>
-            <h2>{item.q}</h2>
-            <p>{item.a}</p>
+          <section key={item.q} className="border-t border-gray-300 py-7">
+            <h2 className="text-28">{item.q}</h2>
+            <p className="text-18 mt-3">{item.a}</p>
           </section>
         ))}
-        <p>
-          <Link href="/start?topic=medicare&quick=1">Request a free consultation</Link> or call{" "}
-          <a href="tel:+19194086671">(919) 408-6671</a>.
-        </p>
+        <ComplianceDisclosure variant="medicare" />
       </article>
+      <KitchenTableClose
+        heading="Bring your Medicare questions."
+        body="I can review your doctors, prescriptions, and enrollment dates with you. Your consultation is free, with no obligation to enroll."
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
+      />
     </main>
   );
 }

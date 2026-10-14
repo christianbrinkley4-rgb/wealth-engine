@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -178,7 +179,7 @@ export default function WhatMedicareDoesNotCoverPage() {
             2026 figures:
           </p>
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[520px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[520px] border-collapse text-left">
               <caption className="sr-only">
                 Your share of Medicare costs in 2026
               </caption>
@@ -236,7 +237,7 @@ export default function WhatMedicareDoesNotCoverPage() {
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
 
           <h2 className="text-28 mt-12 font-semibold">How people fill the gaps</h2>
@@ -313,7 +314,7 @@ export default function WhatMedicareDoesNotCoverPage() {
 
       <KitchenTableClose
         heading="Find out what your plan actually covers"
-        body={`Bring your current plan details. We will walk through the gaps that apply to you and what fills them, before December 7. Call or text ${AGENT.phone}.`}
+        body={`Bring your current plan details. I will walk through the gaps that apply to you and what fills them, before December 7. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&stage=already_on_medicare"
         label="Request a free review"
       />

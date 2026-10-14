@@ -1,5 +1,5 @@
 "use client";
-
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { useMemo, useState } from "react";
 
 import { money } from "@/lib/wealth/math";
@@ -188,7 +188,7 @@ export function RothConversionLadder() {
         {!result.pastRmd ? (
           <>
             <div className="t-table-wrap">
-              <table className="t-table">
+              <ResponsiveTable className="t-table">
                 <thead>
                   <tr>
                     <th scope="col">Lifetime tax</th>
@@ -213,7 +213,7 @@ export function RothConversionLadder() {
                     </td>
                   </tr>
                 </tbody>
-              </table>
+              </ResponsiveTable>
             </div>
 
             <MiniChart
@@ -240,7 +240,7 @@ export function RothConversionLadder() {
 
             <h3 className="text-19 font-semibold">Year by year</h3>
             <div className="t-table-wrap">
-              <table className="t-table">
+              <ResponsiveTable className="t-table">
                 <thead>
                   <tr>
                     <th scope="col">Year</th>
@@ -261,7 +261,7 @@ export function RothConversionLadder() {
                     </tr>
                   ))}
                 </tbody>
-              </table>
+              </ResponsiveTable>
             </div>
           </>
         ) : null}

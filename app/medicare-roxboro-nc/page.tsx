@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -49,11 +49,11 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Do you help in Timberlake, Rougemont, and Hurdle Mills too?",
-    a: "Yes. I cover all of Person County, Roxboro included and the smaller communities around it. Phone reviews work great out in the county, or we can meet in Roxboro.",
+    a: "Yes. I cover all of Person County, Roxboro included and the smaller communities around it. Phone reviews work great out in the county, or I can meet in Roxboro.",
   },
   {
     q: "My doctors are in Durham. Does that matter for my plan?",
-    a: "It can matter a lot. Some plans have tight local networks and some are broader. If your care stretches from Roxboro to Durham, we need to check both against the plan's network before you commit for the year.",
+    a: "It can matter a lot. Some plans have tight local networks and some are broader. If your care stretches from Roxboro to Durham, I need to check both against the plan's network before you commit for the year.",
   },
   {
     q: "When is the Annual Enrollment Period?",
@@ -64,43 +64,6 @@ const FAQ = [
     a: "Yes. The review costs you nothing either way, even if you change nothing. I am a licensed insurance agent, and I am paid by the insurance companies when someone enrolls through me, not by you.",
   },
 ] as const;
-
-function ReviewCta() {
-  return (
-    <div>
-      <h2 className="text-28 font-semibold">Get your free Medicare review</h2>
-      <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-        Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-        for you.
-      </p>
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-        <Link
-          href="/plan-check"
-          className="btn"
-        >
-          Take the plan-fit quiz →
-        </Link>
-        <a
-          href="/start?topic=medicare&quick=1"
-          className="btn btn-outline"
-        >
-          Book a free call
-        </a>
-      </div>
-      <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-        Prefer to talk?{" "}
-        <a href={AGENT.phoneHref} className="underline underline-offset-2">
-          Call or text {AGENT.phone}
-        </a>
-        .
-      </p>
-      <p className="text-16 mt-4 text-[var(--color-ink-muted)] italic">
-        Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-        obligation.
-      </p>
-    </div>
-  );
-}
 
 export default function MedicareRoxboroPage() {
   return (
@@ -184,7 +147,7 @@ export default function MedicareRoxboroPage() {
               The other pattern here is the mail avalanche. Turn 65 in Person County and
               your mailbox fills up fast. Most of it is marketing. I will help you sort
               the real deadlines from the noise. And since Medicare Advantage availability
-              can vary by county, we will check what is offered at your Person County
+              can vary by county, I will check what is offered at your Person County
               address, not somebody else&apos;s.
             </p>
             <p>
@@ -211,7 +174,7 @@ export default function MedicareRoxboroPage() {
               27573. The county&apos;s senior center, running fitness programs, meals,
               education, and social activities for older adults. They also run in-home
               services for folks who can&apos;t easily get out. Worth a visit on its own
-              merits, whether or not we ever talk.
+              merits, whether or not you ever call me.
             </p>
           </div>
         </div>
@@ -246,8 +209,7 @@ export default function MedicareRoxboroPage() {
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
               A free review with me is a conversation, not a sales pitch. For Roxboro folks,
-              the big one is usually the driving: if your specialists are toward Durham, we
-              check every one of them against next year&apos;s network before you commit.
+              the big one is usually the driving: if your specialists are toward Durham, I check every one of them against next year&apos;s network before you commit.
               Here&apos;s the full list:
             </p>
             <ul className="list-disc space-y-2 pl-6">
@@ -264,11 +226,7 @@ export default function MedicareRoxboroPage() {
         </div>
       </section>
 
-      <section className="bg-white py-14">
-        <div className="measure-prose app-shell max-w-3xl">
-          <ReviewCta />
-        </div>
-      </section>
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -305,9 +263,7 @@ export default function MedicareRoxboroPage() {
             </Link>
             .
           </p>
-          <div className="mt-10">
-            <ReviewCta />
-          </div>
+
         </div>
       </section>
 

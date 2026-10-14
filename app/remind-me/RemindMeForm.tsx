@@ -139,7 +139,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
             href={`${AGENT.schedulingUrl}?topic=medicare`}
             className="text-18 inline-flex min-h-14 flex-1 items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)]"
           >
-            Book a time to talk →
+            Request a time to talk →
           </Link>
           <a
             href={AGENT.phoneHref}

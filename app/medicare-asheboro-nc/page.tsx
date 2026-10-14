@@ -9,7 +9,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
+
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -50,52 +50,13 @@ const FAQ = [
   },
   {
     q: "My doctors are in Asheboro but my specialists are in Greensboro. Does that matter?",
-    a: "It can. If your primary care is local but you see specialists in Greensboro or High Point, we need to check every one of them against your plan's network before you commit for the year. That's the kind of surprise a twenty-minute review catches.",
+    a: "It can. If your primary care is local but you see specialists in Greensboro or High Point, I need to check every one of them against your plan's network before you commit for the year. That's the kind of surprise a twenty-minute review catches.",
   },
   {
     q: "Do you only help people in Asheboro?",
     a: "No. I cover all of Randolph County: Archdale, Randleman, Liberty, Ramseur, Trinity, Franklinville, Seagrove, Staley, and everywhere in between.",
   },
 ] as const;
-
-function CtaBlock() {
-  return (
-    <section className="bg-white py-14">
-      <div className="measure-prose app-shell max-w-3xl">
-        <h2 className="text-28 font-semibold">Get your free Medicare review</h2>
-        <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-          Take the 2-minute plan-fit quiz and I&apos;ll reach out, or book a time that works
-          for you.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-          <Link
-            href="/plan-check"
-            className="btn"
-          >
-            Take the plan-fit quiz →
-          </Link>
-          <a
-            href="/start?topic=medicare&quick=1"
-            className="btn btn-outline"
-          >
-            Book a free call
-          </a>
-        </div>
-        <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-          Prefer to talk? Call or text{" "}
-          <a href={AGENT.phoneHref} className="underline underline-offset-2">
-            {AGENT.phone}
-          </a>
-          .
-        </p>
-        <p className="text-16 mt-4 italic text-[var(--color-ink-muted)]">
-          Free help from a licensed North Carolina insurance agent. No cost, no pressure, no
-          obligation.
-        </p>
-      </div>
-    </section>
-  );
-}
 
 export default function MedicareAsheboroPage() {
   return (
@@ -214,7 +175,7 @@ export default function MedicareAsheboroPage() {
             <p>
               October 15 through December 7, every year. Your plan can change its costs, its
               drug coverage, and its doctor network, and it has to tell you about it in the
-              Annual Notice of Change mailed by September 30. Bring that letter to our
+              Annual Notice of Change mailed by September 30. Bring that letter to my
               review, or just bring your questions. I walk through how to read the ANOC on
               my{" "}
               <Link href="/anoc" className="underline underline-offset-2">
@@ -253,7 +214,7 @@ export default function MedicareAsheboroPage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
@@ -269,7 +230,7 @@ export default function MedicareAsheboroPage() {
         </div>
       </section>
 
-      <CtaBlock />
+
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">

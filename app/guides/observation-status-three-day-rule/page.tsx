@@ -243,7 +243,7 @@ export default function ObservationStatusThreeDayRulePage() {
 
       <KitchenTableClose
         heading={"Know your coverage before you need it"}
-        body={`${"Bring your plan card or your Medicare Supplement policy. We'll look at what a hospital stay and rehab would cost you under the coverage you have now."} Call or text ${AGENT.phone}.`}
+        body={`${"Bring your plan card or your Medicare Supplement policy. I’ll look at what a hospital stay and rehab would cost you under the coverage you have now."} Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

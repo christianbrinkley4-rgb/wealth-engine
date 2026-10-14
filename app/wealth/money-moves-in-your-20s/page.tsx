@@ -1,3 +1,4 @@
+import { AGENT } from "@/lib/agent";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Fragment } from "react";
@@ -201,13 +202,16 @@ export default function MoneyMovesInYour20sPage() {
             <p className="w-eyebrow">No cost, no pressure</p>
             <h2 className="w-h3">Talk it through</h2>
             <p style={{ margin: "10px 0 0", color: "var(--w-on-ink-muted)" }}>
-              Have a money question or want a second set of eyes? Start a conversation and we will take it
+              Have a money question or want a second set of eyes? Start a conversation and I will take it
               one question at a time.
             </p>
             <div className="w-btn-row">
-              <Link href="/start" className="w-btn">
-                Start a conversation <ArrowRight size={18} aria-hidden />
-              </Link>
+              <a href={AGENT.phoneHref} className="w-btn w-btn-ink">
+                  Call Christian&apos;s direct line: {AGENT.phone}
+                </a>
+                <Link href="/start" className="w-btn w-btn-ghost">
+                  Request a free consultation <ArrowRight size={18} aria-hidden />
+                </Link>
             </div>
             <p style={{ margin: "14px 0 0", color: "var(--w-on-ink-muted)" }}>
               Christian Brinkley, Greensboro, NC, <a href="tel:+19194086671">(919) 408-6671</a>

@@ -1,5 +1,5 @@
 "use client";
-
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { useState } from "react";
 
 import { finalPoint, growthSeries, money } from "@/lib/wealth/math";
@@ -91,7 +91,7 @@ export function CompoundInterest() {
         </p>
 
         <div className="t-table-wrap">
-          <table className="t-table">
+          <ResponsiveTable className="t-table">
             <caption className="t-hint" style={{ textAlign: "left", marginBottom: "0.5rem" }}>
               Balance by year.
             </caption>
@@ -111,7 +111,7 @@ export function CompoundInterest() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </ResponsiveTable>
         </div>
 
         <AssumptionBox>

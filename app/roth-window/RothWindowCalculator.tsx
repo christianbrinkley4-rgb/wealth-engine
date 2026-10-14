@@ -1,5 +1,5 @@
 "use client";
-
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ArrowRight, CheckCircle2, Info, User, Users } from "lucide-react";
@@ -282,7 +282,7 @@ function RothWindowCalculatorInner() {
                 role="region"
                 aria-label="Cost of crossing each higher bracket"
               >
-                <table className="text-16 w-full text-left">
+                <ResponsiveTable className="text-16 w-full text-left">
                   <thead className="text-14 bg-[var(--color-paper)] text-[var(--color-ink-muted)] uppercase">
                     <tr>
                       <th className="px-6 py-3">Bracket</th>
@@ -319,7 +319,7 @@ function RothWindowCalculatorInner() {
                       </tr>
                     ))}
                   </tbody>
-                </table>
+                </ResponsiveTable>
               </div>
             </CardContent>
           </Card>

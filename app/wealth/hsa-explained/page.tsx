@@ -173,10 +173,13 @@ export default function HsaExplainedPage() {
             <div style={{ textAlign: "center" }}>
               <p className="w-eyebrow">Talk it through</p>
               <h2 className="w-h2">Questions about your own money?</h2>
-              <p>A free, no-obligation chat with Christian. No pressure and no sales pitch.</p>
+              <p>A free, no-obligation chat with me. No pressure and no sales pitch.</p>
               <div className="w-btn-row" style={{ justifyContent: "center" }}>
-                <Link href="/start" className="w-btn">
-                  Start here <ArrowRight size={18} aria-hidden />
+                <a href={WEALTH_FACTS.phoneHref} className="w-btn w-btn-ink">
+                  Call Christian&apos;s direct line: {WEALTH_FACTS.phone}
+                </a>
+                <Link href="/start" className="w-btn w-btn-ghost">
+                  Request a free consultation <ArrowRight size={18} aria-hidden />
                 </Link>
               </div>
               <p style={{ marginTop: 18 }}>

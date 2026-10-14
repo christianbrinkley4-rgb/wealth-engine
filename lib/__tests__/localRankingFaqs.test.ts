@@ -23,7 +23,7 @@ describe("local ranking FAQs stay on the page and in FAQ schema", () => {
     expect(src).toContain("Do you meet in person in Greensboro?");
     expect(src).toContain("I am still working. Do I have to sign up at 65?");
     expect(src).toContain(
-      "I live in High Point or Winston-Salem. Can we still meet before I turn 65?",
+      "I live in High Point or Winston-Salem. Can I still meet with you before I turn 65?",
     );
     expect(src).toContain("Does it matter whether I live in Guilford County or Forsyth County?");
     expect(src).toContain("faqJsonLd(FAQ)");

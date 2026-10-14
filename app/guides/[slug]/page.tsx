@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -6,6 +7,7 @@ import { MedicareByline } from "@/app/components/MedicareByline";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { GuideCapture } from "@/app/components/GuideCapture";
 import { AGENT } from "@/lib/agent";
+import { ConsultationActions } from "@/app/components/ConsultationActions";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 import { findTrafficGuide, TRAFFIC_GUIDES, TRAFFIC_GUIDE_DATE } from "@/lib/trafficGuides";
 
@@ -74,13 +76,10 @@ export default async function TrafficGuidePage({ params }: Props) {
         </p>
         <h1 className="text-40 mt-3 font-semibold">{guide.title}</h1>
         <MedicareByline reviewed={guide.dateModified ?? TRAFFIC_GUIDE_DATE} />
-        <p className="text-15 mt-4">
-          By{" "}
-          <Link href="/about" className="underline">
-            Christian Brinkley
-          </Link>
-          . Reviewed October 8, 2026.
-        </p>
+        <ConsultationActions
+          href={guide.scope === "medicare" ? "/start?topic=medicare&quick=1" : "/start"}
+          label="Ask me an insurance question"
+        />
         <aside
           aria-label="Quick answer"
           className="mt-8 rounded-xl border-2 border-[var(--color-navy)] bg-[var(--color-paper)] p-6"
@@ -100,7 +99,7 @@ export default async function TrafficGuidePage({ params }: Props) {
           </section>
         ))}
         <div className="mt-10 overflow-x-auto">
-          <table className="w-full border-collapse text-left text-base">
+          <ResponsiveTable className="w-full border-collapse text-left text-base">
             <caption className="mb-4 text-left font-semibold">{guide.comparison.caption}</caption>
             <thead>
               <tr>
@@ -121,7 +120,7 @@ export default async function TrafficGuidePage({ params }: Props) {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </ResponsiveTable>
         </div>
         <section className="mt-10">
           <h2 className="text-28 font-semibold">Your records checklist</h2>
@@ -191,19 +190,17 @@ export default async function TrafficGuidePage({ params }: Props) {
         <aside className="mt-10 rounded-xl bg-[var(--color-paper)] p-6">
           <h2 className="text-28 font-semibold">Have an insurance question?</h2>
           <p className="text-17 mt-3">
-            If this brings up an insurance question, you can{" "}
-            <Link href="/start" className="underline">
-              start a conversation with Christian
-            </Link>
-            . No obligation to enroll or buy.
+            If this brings up an insurance question, call me or send a request. No obligation to enroll or buy.
           </p>
+          <ConsultationActions
+            href={guide.scope === "medicare" ? "/start?topic=medicare&quick=1" : "/start"}
+            label="Ask me an insurance question"
+            location="page_close"
+          />
           <address className="text-17 mt-4 not-italic">
             Christian Brinkley · Greensboro, NC ·{" "}
-            <a href={AGENT.phoneHref} className="underline">
-              (919) 408-6671
-            </a>
+            {AGENT.licenseLine}
             <br />
-            NC Life &amp; Health
           </address>
         </aside>
         <div className="mt-10">

@@ -443,7 +443,7 @@ export function Plan65() {
           <h2 className="text-20 font-semibold text-[var(--color-navy)]">
             What this leaves out, and why it matters
           </h2>
-          <ul className="mt-3 flex list-disc flex-col gap-2 pl-5 text-[17px] leading-relaxed text-[var(--color-ink-muted)]">
+          <ul className="text-18 mt-3 flex list-disc flex-col gap-2 pl-5 leading-relaxed text-[var(--color-ink-muted)]">
             <li>
               <strong className="text-[var(--color-navy)]">Income tax.</strong> A conversion is
               taxable, and spreading it over years changes which tax brackets it falls in. That can

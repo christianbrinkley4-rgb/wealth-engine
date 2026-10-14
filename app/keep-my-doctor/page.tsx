@@ -81,7 +81,7 @@ const FAQ = [
   },
   {
     q: "What if my spouse and I use different doctors?",
-    a: "You can choose different Medicare plans. We can review each person’s doctors, prescriptions, and coverage needs while discussing your household budget together.",
+    a: "You can choose different Medicare plans. I can review each person’s doctors, prescriptions, and coverage needs while discussing your household budget together.",
   },
   {
     q: "Can you just check for me?",
@@ -89,7 +89,7 @@ const FAQ = [
   },
   {
     q: "I live in Greensboro and see a specialist in Winston-Salem. Can I keep both?",
-    a: "We can check each doctor and hospital against the specific plan you’re considering. Original Medicare generally lets you see providers who accept Medicare, including across the Triad. Medicare Advantage plans use networks that can differ by county, so a Greensboro address and a Winston-Salem specialist both need a look.",
+    a: "I can check each doctor and hospital against the specific plan you’re considering. Original Medicare generally lets you see providers who accept Medicare, including across the Triad. Medicare Advantage plans use networks that can differ by county, so a Greensboro address and a Winston-Salem specialist both need a look.",
   },
 ] as const;
 
@@ -170,7 +170,7 @@ export default function KeepMyDoctorPage() {
             </div>
           </div>
           <p className="text-18 mt-6 leading-relaxed">
-            Your doctors are one part of the decision. We can also discuss your prescriptions,
+            Your doctors are one part of the decision. I can also discuss your prescriptions,
             budget, and travel plans to help you understand how the options fit your life.
           </p>
         </div>
@@ -206,17 +206,17 @@ export default function KeepMyDoctorPage() {
           <h2 className="text-28 font-semibold">Care across the Triad</h2>
           <p className="text-18 mt-4 leading-relaxed">
             Whether you receive care through Cone Health, Novant Health, Atrium Health Wake Forest
-            Baptist, or an independent practice, we’ll start with the doctors and locations you use.
+            Baptist, or an independent practice, I’ll start with the doctors and locations you use.
             Include any specialists you see outside your hometown, too.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Coverage depends on the specific plan and provider. Even within the same health system,
-            it’s helpful to check the doctors and office locations you use. We can review that
+            it’s helpful to check the doctors and office locations you use. I can review that
             information together before you make a decision.
           </p>
           <GuideTownLinks heading="Medicare help near you" />
           <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            I’m not affiliated with these health systems. They’re examples of local providers we can
+            I’m not affiliated with these health systems. They’re examples of local providers I can
             check as part of your coverage review.
           </p>
         </div>
@@ -247,7 +247,7 @@ export default function KeepMyDoctorPage() {
       </ReadNext>
       <KitchenTableClose
         heading="Tell me who you see"
-        body="Bring a list of your doctors, hospitals, and prescriptions. We can review them together during a no-cost, no-obligation consultation."
+        body="Bring a list of your doctors, hospitals, and prescriptions. I can review them with you during a no-cost, no-obligation consultation."
         href="/start?topic=medicare&ask=doctors"
         label="Request a consultation →"
       />

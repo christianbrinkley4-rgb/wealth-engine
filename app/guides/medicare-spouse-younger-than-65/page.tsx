@@ -246,7 +246,7 @@ export default function MedicareSpouseYoungerThan65Page() {
 
       <KitchenTableClose
         heading={"Plan the gap for both of you"}
-        body={`${"Tell me your birthday, your spouse's birthday, and when your employer coverage ends. We'll lay out the dates and the options side by side."} Call or text ${AGENT.phone}.`}
+        body={`${"Tell me your birthday, your spouse's birthday, and when your employer coverage ends. I’ll lay out the dates and the options side by side."} Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

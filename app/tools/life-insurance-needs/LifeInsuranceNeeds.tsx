@@ -1,5 +1,5 @@
 "use client";
-
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { useState } from "react";
 
 import { money } from "@/lib/wealth/math";
@@ -74,7 +74,7 @@ export function LifeInsuranceNeeds() {
         </dl>
 
         <div className="t-table-wrap">
-          <table className="t-table">
+          <ResponsiveTable className="t-table">
             <caption className="t-hint" style={{ textAlign: "left", marginBottom: "0.5rem" }}>
               The DIME breakdown.
             </caption>
@@ -107,7 +107,7 @@ export function LifeInsuranceNeeds() {
                 <td>{money(education)}</td>
               </tr>
             </tbody>
-          </table>
+          </ResponsiveTable>
         </div>
 
         <AssumptionBox>

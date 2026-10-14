@@ -203,14 +203,14 @@ export const LANDING_PAGES: LandingPage[] = [
     ],
     compliance: "general",
     description:
-      "Bring an annuity proposal or current contract to a no-cost review with a local licensed agent. We can discuss its guarantees, fees, and access to your money.",
+      "Bring an annuity proposal or current contract to a no-cost review with a local licensed agent. I can discuss its guarantees, fees, and access to your money.",
   },
   {
     slug: "retirement-income",
     eyebrow: "Greensboro · Piedmont Triad",
     headline: "Let’s talk about your retirement questions.",
     subhead:
-      "We can start with your Medicare and insurance needs, your family’s priorities, and the questions on your mind. For financial planning, I work with an advisor so you have the right support.",
+      "I can start with your Medicare and insurance needs, your family’s priorities, and the questions on your mind. For financial planning, I work with an advisor so you have the right support.",
     primaryHref: "/start?topic=financial_planning",
     guideHref: "/retirement-income",
     consultationTopics: [
@@ -245,7 +245,7 @@ export const LANDING_SUPPORT = [
   },
   {
     title: "A conversation about your needs",
-    body: "We’ll start with your questions and the coverage you already have. You don’t need to have everything figured out.",
+    body: "I’ll start with your questions and the coverage you already have. You don’t need to have everything figured out.",
   },
   {
     title: "A comfortable way to meet",

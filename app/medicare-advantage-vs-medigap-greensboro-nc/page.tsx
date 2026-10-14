@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 const DECIDERS = [
   {
     t: "Which doctors you want to keep",
-    b: "This is where Greensboro specifics matter. If your doctors are with Cone Health, including Moses Cone or Wesley Long, or an independent practice here, we check each one against the plans you are considering. Original Medicare with Medigap generally lets you see providers who accept Medicare nationwide. Medicare Advantage plans generally use networks, and the networks are built county by county.",
+    b: "This is where Greensboro specifics matter. If your doctors are with Cone Health, including Moses Cone or Wesley Long, or an independent practice here, I check each one against the plans you are considering. Original Medicare with Medigap generally lets you see providers who accept Medicare nationwide. Medicare Advantage plans generally use networks, and the networks are built county by county.",
   },
   {
     t: "What you pay each month, and when you need care",
@@ -59,7 +59,7 @@ const DECIDERS = [
 const FAQ = [
   {
     q: "Which is better, Medicare Advantage or Medigap?",
-    a: "Neither is better in general. It comes down to your doctors, your prescriptions, your budget, and how much you value predictable costs versus a low monthly premium. We can compare both paths with your actual situation instead of guessing.",
+    a: "Neither is better in general. It comes down to your doctors, your prescriptions, your budget, and how much you value predictable costs versus a low monthly premium. I can compare both paths with your actual situation instead of guessing.",
   },
   {
     q: "What does each cost per month in North Carolina?",
@@ -71,7 +71,7 @@ const FAQ = [
   },
   {
     q: "Which Greensboro doctors and hospitals take which plans?",
-    a: 'That depends on the specific plan, not the type. Bring a list of your doctors, your preferred hospital, and your pharmacy, and we will check them against the plans you are considering for the year your coverage begins. "Takes Medicare" and "in my plan\'s network" are two different things.',
+    a: 'That depends on the specific plan, not the type. Bring a list of your doctors, your preferred hospital, and your pharmacy, and I will check them against the plans you are considering for the year your coverage begins. "Takes Medicare" and "in my plan\'s network" are two different things.',
   },
   {
     q: "How do I decide between them?",
@@ -187,9 +187,9 @@ export default function AdvantageVsMedigapGreensboroPage() {
             in Forsyth or Alamance County shops from a different list.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            When we compare, we use your home address and check the doctors and hospitals you
+            When I compare, I use your home address and check the doctors and hospitals you
             actually use. If you see specialists at Cone Health, get prescriptions at a particular
-            pharmacy, or spend part of the year elsewhere, bring that up so we review how each
+            pharmacy, or spend part of the year elsewhere, bring that up so I review how each
             option handles it.
           </p>
           <GuideTownLinks />
@@ -218,7 +218,7 @@ export default function AdvantageVsMedigapGreensboroPage() {
 
       <KitchenTableClose
         heading="Let's compare both paths for you"
-        body={`Bring your doctor list and your prescriptions. We will walk through what each option costs and covers, in Greensboro, for you. Free, no obligation. Call or text ${AGENT.phone}.`}
+        body={`Bring your doctor list and your prescriptions. I will walk through what each option costs and covers, in Greensboro, for you. Free, no obligation. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&stage=turning_65_soon"
         label="Request a free review →"
       />

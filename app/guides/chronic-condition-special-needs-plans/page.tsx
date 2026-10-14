@@ -230,7 +230,7 @@ export default function ChronicConditionSpecialNeedsPlansPage() {
             <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
-            {" and we'll check together whether any plan I offer for your condition is sold at your address, and whether your doctors and prescriptions fit. I don't offer every plan in the area, and I'll tell you when Medicare.gov is the better place to look."}
+            {" and I’ll check whether any plan I offer for your condition is sold at your address, and whether your doctors and prescriptions fit. I don't offer every plan in the area, and I'll tell you when Medicare.gov is the better place to look."}
           </p>
           <GuideTownLinks />
         </div>
@@ -265,7 +265,7 @@ export default function ChronicConditionSpecialNeedsPlansPage() {
 
       <KitchenTableClose
         heading={"Check the plan against your whole care team"}
-        body={`${"Bring your doctors, your prescriptions, and your diagnosis. We'll see what's offered at your address and whether it fits everything, not only the one condition."} Call or text ${AGENT.phone}.`}
+        body={`${"Bring your doctors, your prescriptions, and your diagnosis. I’ll see what's offered at your address and whether it fits everything, not only the one condition."} Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

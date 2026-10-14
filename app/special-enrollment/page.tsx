@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "I lost my job-based coverage. How long do I have to enroll in Part B?",
-    a: "Usually eight months from when the employment, or the coverage, ends, whichever comes first, without a late penalty. But the details matter: the coverage generally has to have been based on current employment, not retiree coverage or COBRA. Tell me what changed and when, and we'll work out your exact dates.",
+    a: "Usually eight months from when the employment, or the coverage, ends, whichever comes first, without a late penalty. But the details matter: the coverage generally has to have been based on current employment, not retiree coverage or COBRA. Tell me what changed and when, and I’ll work out your exact dates.",
   },
   {
     q: "I'm moving. Can I change my Medicare plan?",
@@ -56,7 +56,7 @@ const FAQ = [
   },
   {
     q: "What if I already missed my Initial Enrollment Period?",
-    a: "There's a General Enrollment Period each year from January 1 to March 31, though late penalties may apply. And depending on what happened, a move, lost coverage, a plan leaving your area, a Special Enrollment Period may still be open to you. The sooner we look at your dates, the more options you tend to have.",
+    a: "There's a General Enrollment Period each year from January 1 to March 31, though late penalties may apply. And depending on what happened, a move, lost coverage, a plan leaving your area, a Special Enrollment Period may still be open to you. The sooner I look at your dates, the more options you tend to have.",
   },
   {
     q: "Can you check whether I qualify for one?",
@@ -141,7 +141,7 @@ export default function SpecialEnrollmentPage() {
           </div>
           <p className="text-18 mt-6 leading-relaxed">
             The exact window depends on the situation, which is why the most useful thing you can
-            do is tell me <em>what changed and when</em>. We&apos;ll work out your dates together.
+            do is tell me <em>what changed and when</em>. I&apos;ll work out your dates with you.
           </p>
         </div>
       </section>
@@ -203,7 +203,7 @@ export default function SpecialEnrollmentPage() {
 
       <KitchenTableClose
         heading="Tell me what changed"
-        body="A date, a move, a coverage letter, bring what you have. We'll figure out whether a Special Enrollment Period applies to you, during a no-cost, no-obligation consultation."
+        body="A date, a move, a coverage letter, bring what you have. I’ll figure out whether a Special Enrollment Period applies to you, during a no-cost, no-obligation consultation."
         href="/start?topic=medicare&ask=sep"
         label="Request a consultation →"
       />

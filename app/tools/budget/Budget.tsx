@@ -1,5 +1,5 @@
 "use client";
-
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 /**
  * Monthly budget calculator: take-home pay vs spending by category.
  * Leftover (or shortfall) is plain subtraction. Shares are each category
@@ -125,7 +125,7 @@ export function Budget() {
         </div>
 
         <div className="t-table-wrap">
-          <table className="t-table">
+          <ResponsiveTable className="t-table">
             <caption className="t-hint" style={{ textAlign: "left", marginBottom: "0.5rem" }}>
               Where your take-home pay goes, by category.
             </caption>
@@ -164,7 +164,7 @@ export function Budget() {
                 );
               })}
             </tbody>
-          </table>
+          </ResponsiveTable>
         </div>
 
         <AssumptionBox>

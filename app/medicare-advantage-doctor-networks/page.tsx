@@ -78,7 +78,7 @@ const FAQ = [
   },
   {
     q: "What happens if I see an out-of-network doctor on a Medicare Advantage plan?",
-    a: "It depends on the plan type. HMO plans typically don't cover out-of-network care except emergencies. PPO plans usually cover it but at a higher cost to you. Check your plan's documents, or ask me and we'll look together.",
+    a: "It depends on the plan type. HMO plans typically don't cover out-of-network care except emergencies. PPO plans usually cover it but at a higher cost to you. Check your plan's documents, or ask me and I’ll check with you.",
   },
   {
     q: "Do provider networks change every year?",
@@ -90,7 +90,7 @@ const FAQ = [
   },
   {
     q: "Can you check my doctors for me?",
-    a: "Yes, bring your doctor list to a free review and we'll verify each one against the plans you're considering.",
+    a: "Yes, bring your doctor list to a free review and I’ll verify each one against the plans you're considering.",
   },
 ] as const;
 
@@ -238,7 +238,7 @@ export default function DoctorNetworksPage() {
             <p>
               It&apos;s also why county matters. Medicare Advantage and Part D plans are sold by
               county, Greensboro and most of High Point are in Guilford County, Winston-Salem is in
-              Forsyth County, and the plan lists can differ. We check the plans available at your
+              Forsyth County, and the plan lists can differ. I check the plans available at your
               home address, not your neighbor&apos;s.
             </p>
             <p>
@@ -263,12 +263,12 @@ export default function DoctorNetworksPage() {
               doesn&apos;t.
             </p>
             <p>
-              And if this feels like a lot of phone calls: that&apos;s genuinely part of what I do.
+              And if this feels like a lot of phone calls: that&apos;s part of what I do.
               When folks sit down with me for a fall review,{" "}
-              <Link href="/aep" className="underline underline-offset-2">
-                book one here
+              <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
+                request a review here
               </Link>{" "},
-             we check their doctors together. It&apos;s free, and it&apos;s one of the
+             I check each doctor against the plan’s network. It&apos;s free, and it&apos;s one of the
               highest-value 30 minutes in the whole process. You can also{" "}
               <Link href="/aep" className="underline underline-offset-2">
                 review the full annual enrollment guide
@@ -296,7 +296,7 @@ export default function DoctorNetworksPage() {
                       >
                         bring your doctor list to a free review
                       </Link>{" "}
-                      and we&apos;ll verify each one against the plans you&apos;re considering. Call
+                      and I&apos;ll verify each one against the plans you&apos;re considering. Call
                       or text {AGENT.phone}.
                     </>
                   ) : (
@@ -323,9 +323,9 @@ export default function DoctorNetworksPage() {
       </ReadNext>
       <KitchenTableClose
         heading="Let's check your doctors together"
-        body="Bring your doctor list to a free review, in person around Greensboro or by phone, and we'll verify each one against the plans you're considering."
+        body="Bring your doctor list to a free review, in person around Greensboro or by phone, and I’ll verify each one against the plans you're considering."
         href="/start?topic=medicare&quick=1"
-        label="Book my free review →"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

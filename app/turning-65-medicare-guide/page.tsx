@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
@@ -238,7 +239,7 @@ export default function Turning65GuidePage() {
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Key numbers to know</h2>
-          <table className="mt-6 w-full text-left text-17">
+          <ResponsiveTable className="mt-6 w-full text-left text-17">
             <thead>
               <tr className="border-b border-gray-300">
                 <th className="py-3 pr-4 font-semibold">Figure</th>
@@ -263,7 +264,7 @@ export default function Turning65GuidePage() {
                 <td className="py-3">7 months around your 65th birthday</td>
               </tr>
             </tbody>
-          </table>
+          </ResponsiveTable>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Sources:{" "}
             <a
@@ -330,7 +331,7 @@ export default function Turning65GuidePage() {
 
       <KitchenTableClose
         heading="Want help with your enrollment timeline?"
-        body="We will map your 7-month window, check your current coverage, and answer your questions. Free consultation, no obligation, by phone or in person."
+        body="I will map your 7-month window, check your current coverage, and answer your questions. Free consultation, no obligation, by phone or in person."
         href="/start?topic=medicare&stage=turning_65_soon&quick=1"
         label="Get help →"
       />

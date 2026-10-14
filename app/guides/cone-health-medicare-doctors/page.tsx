@@ -275,9 +275,9 @@ export default function ConeHealthMedicareDoctorsPage() {
 
       <KitchenTableClose
         heading="Keep your doctors, pick your plan with confidence"
-        body={`Tell me which doctors you see. We will check them against next year's plans together, before Annual Enrollment ends. Call or text ${AGENT.phone}.`}
+        body={`Tell me which doctors you see. I will check them against next year's plans with you, before Annual Enrollment ends. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
-        label="Book a free review"
+        label="Request a free review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

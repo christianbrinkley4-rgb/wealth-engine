@@ -178,12 +178,11 @@ export function HelpQuiz() {
   const [dismissedEntry, setDismissedEntry] = useState<string | null>(null);
   const [resumeDismissed, setResumeDismissed] = useState(false);
 
-  // Before hydration, render exactly what the server rendered: the topic
-  // screen, with no restored progress and no deep-linked topic. Both of those
-  // come from the browser, and using them on the first client render would mean
-  // the markup no longer matches the prerendered HTML.
+  // Stored progress is browser-only. URL parameters are available during this
+  // dynamic page's server render, so a quick request starts on the contact form
+  // in both server HTML and hydration, without flashing the topic quiz first.
   const persisted = isClient ? sanitize(raw) : INITIAL;
-  const linked = isClient && dismissedEntry !== entryKey ? urlEntry : null;
+  const linked = dismissedEntry !== entryKey ? urlEntry : null;
   const linkedTopic = linked?.topic ?? null;
 
   // A deep link from the home page is honored without writing to storage,
@@ -834,8 +833,8 @@ export function HelpQuiz() {
           </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
             {quickMode
-              ? "You can add your question below, or we can talk it through when I get in touch. If you’d like to talk now, call "
-              : "Share your contact details and Christian will personally review your answers and get in touch about the next step. If you’d like to talk sooner, call "}
+              ? "You can add your question below, or I can talk it through when I get in touch. If you’d like to talk now, call "
+              : "Share your contact details and I’ll personally review your answers and get in touch about the next step. If you’d like to talk sooner, call "}
             <a
               href={AGENT.phoneHref}
               className="font-semibold text-[var(--color-navy)] underline underline-offset-2"
@@ -869,6 +868,9 @@ export function HelpQuiz() {
           ) : null}
 
           <form onSubmit={submitContact} className="relative mt-5 space-y-5" noValidate>
+            <noscript>
+              This form needs JavaScript. Please call Christian&apos;s direct line: {AGENT.phone}.
+            </noscript>
             <div className="absolute top-auto -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
               <label htmlFor="help-quiz-website">Website</label>
               <input
@@ -1060,8 +1062,8 @@ export function HelpQuiz() {
                     className="text-17 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 leading-relaxed text-[var(--color-navy)] outline-none placeholder:text-[var(--color-ink-muted)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
                   />
                   <p className="text-15 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                    Share the questions you’d like to discuss so I can prepare for our
-                    conversation.{" "}
+                    Share the questions you’d like to discuss so I can prepare to talk with
+                    you.{" "}
                   </p>
                 </div>
 
@@ -1074,7 +1076,7 @@ export function HelpQuiz() {
                       Household income
                     </label>
                     <p className="text-15 mb-2 leading-relaxed text-[var(--color-ink-muted)]">
-                      This can help us discuss income-related Medicare premiums. You’re welcome to
+                      This can help me explain income-related Medicare premiums. You’re welcome to
                       leave it blank and talk about it later.{" "}
                     </p>
                     <select
@@ -1152,8 +1154,8 @@ export function HelpQuiz() {
 
             <button
               type="submit"
-              disabled={submitting}
-              className="text-18 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px hover:shadow-[0_2px_4px_rgba(21,46,52,0.1),0_4px_16px_rgba(21,46,52,0.1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] active:translate-y-0 active:shadow-[0_1px_2px_rgba(21,46,52,0.08)] disabled:cursor-not-allowed disabled:opacity-70 disabled:transform-none disabled:shadow-[0_1px_2px_rgba(21,46,52,0.08)]"
+              disabled={submitting || !isClient}
+              className="btn btn-outline w-full disabled:cursor-not-allowed disabled:opacity-70"
             >
               {submitting
                 ? "Sending…"

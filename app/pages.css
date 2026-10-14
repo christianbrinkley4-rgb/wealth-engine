@@ -5,8 +5,7 @@
 .sched {
   padding: clamp(2rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
   background:
-    radial-gradient(50% 40% at 100% 0%, rgba(217, 162, 58, 0.12), transparent 70%),
-    var(--cream-50);
+    radial-gradient(50% 40% at 100% 0%, rgba(217, 162, 58, 0.12), transparent 70%), var(--cream-50);
 }
 .sched-grid {
   display: grid;
@@ -18,8 +17,11 @@
 }
 .sched-callnow {
   margin: 1rem 0 0;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   font-weight: 600;
+}
+.sched-callnow a.btn {
+  color: var(--btn-fg);
 }
 .sched-callnow a {
   color: var(--pine-700);
@@ -43,22 +45,24 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  box-shadow: 0 0 0 3px var(--white), 0 0 0 4px var(--line-strong);
+  box-shadow:
+    0 0 0 3px var(--white),
+    0 0 0 4px var(--line-strong);
 }
 .sched-who p {
   display: grid;
   margin: 0;
-  font-size: 0.85rem;
+  font-size: max(var(--minimum-text, 0px), 0.85rem);
   color: var(--ink-muted);
 }
 .sched-who strong {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   color: var(--pine-900);
 }
 .sched h1 {
   margin: 1rem 0 0;
-  font-size: clamp(2.1rem, 5.5vw, 3.2rem);
+  font-size: max(var(--minimum-text, 0px), clamp(2.1rem, 5.5vw, 3.2rem));
   font-weight: 500;
   line-height: 1.05;
   animation: rise-in 0.9s var(--ease-out-expo) both;
@@ -66,7 +70,7 @@
 .sched-lede {
   margin: 1.1rem 0 0;
   max-width: 52ch;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   line-height: 1.7;
   color: #34413c;
 }
@@ -89,7 +93,7 @@
 }
 .sched-small {
   margin: 1.25rem 0 0;
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -119,15 +123,27 @@
   scroll-margin-top: 6rem;
 }
 @media (max-width: 999px) {
-  .sched-who { margin-bottom: 1rem; }
-  .sched-points { margin-top: 1rem; }
-  .sched-contact { margin-top: 1rem; }
-  .sched-grid { gap: 1.5rem; }
+  .sched-who {
+    margin-bottom: 1rem;
+  }
+  .sched-points {
+    margin-top: 1rem;
+  }
+  .sched-contact {
+    margin-top: 1rem;
+  }
+  .sched-grid {
+    gap: 1.5rem;
+  }
 }
-.cal-instructions { font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem; }
+.cal-instructions {
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
 .sched-step {
   margin: 0 0 0.9rem;
-  font-size: 1rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -151,11 +167,11 @@
 }
 .sched-topic-title {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.2rem;
+  font-size: max(var(--minimum-text, 0px), 1.2rem);
   font-weight: 500;
 }
 .sched-topic-note {
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   color: var(--ink-muted);
 }
 .sched-topic svg {
@@ -177,7 +193,7 @@
   align-items: center;
   gap: 0.35rem;
   min-height: 44px;
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   font-weight: 700;
   color: var(--pine-700);
 }
@@ -190,7 +206,7 @@
 }
 .sched-request h2 {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: max(var(--minimum-text, 0px), 1.6rem);
   font-weight: 500;
 }
 .sched-request > p:not(.sched-small) {
@@ -301,7 +317,7 @@
 }
 .cal-fallback {
   margin: 0.75rem 0 0;
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   color: var(--ink-muted);
 }
 .cal-fallback a {
@@ -322,21 +338,20 @@
 .pcq-intro {
   text-align: center;
   background:
-    radial-gradient(70% 80% at 50% 0%, rgba(217, 162, 58, 0.14), transparent 70%),
-    var(--white);
+    radial-gradient(70% 80% at 50% 0%, rgba(217, 162, 58, 0.14), transparent 70%), var(--white);
 }
 .pcq-intro-badge {
   display: inline-flex;
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
   background: var(--cream-100);
-  font-size: 0.78rem;
+  font-size: max(var(--minimum-text, 0px), 0.78rem);
   font-weight: 700;
   color: var(--honey-700);
 }
 .pcq-intro-title {
   margin: 1rem 0 0;
-  font-size: clamp(1.8rem, 4.5vw, 2.5rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.8rem, 4.5vw, 2.5rem));
   font-weight: 500;
   line-height: 1.1;
 }
@@ -367,7 +382,7 @@
 }
 .pcq-q {
   margin: 0;
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.5rem, 4vw, 2rem));
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.015em;
@@ -384,7 +399,7 @@
   background: var(--white);
   color: var(--pine-900);
   font: inherit;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   font-weight: 600;
   text-align: left;
   cursor: pointer;
@@ -416,7 +431,7 @@
   height: 2rem;
   border: 1.5px solid var(--line-strong);
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-size: max(var(--minimum-text, 0px), 0.85rem);
   font-weight: 700;
   color: var(--ink-muted);
   transition:
@@ -471,7 +486,7 @@
 }
 .pcq-form-title {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: max(var(--minimum-text, 0px), 1.35rem);
   font-weight: 500;
 }
 .pcq-input {
@@ -483,7 +498,7 @@
   border-radius: 12px;
   background: var(--white);
   font: inherit;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   color: var(--pine-900);
   transition:
     border-color 0.2s ease,
@@ -517,8 +532,7 @@
   padding: clamp(2rem, 6vw, 4.5rem) 0 clamp(2.5rem, 6vw, 4.5rem);
   background:
     radial-gradient(60% 60% at 100% 10%, rgba(217, 162, 58, 0.16), transparent 70%),
-    radial-gradient(50% 50% at 0% 100%, rgba(201, 216, 207, 0.5), transparent 70%),
-    var(--cream-50);
+    radial-gradient(50% 50% at 0% 100%, rgba(201, 216, 207, 0.5), transparent 70%), var(--cream-50);
 }
 .ab-hero-grid {
   display: grid;
@@ -526,7 +540,7 @@
 }
 .ab-hero h1 {
   margin: 1rem 0 0;
-  font-size: clamp(2.8rem, 10vw, 5rem);
+  font-size: max(var(--minimum-text, 0px), clamp(2.8rem, 10vw, 5rem));
   font-weight: 500;
   line-height: 0.98;
   letter-spacing: -0.04em;
@@ -538,7 +552,7 @@
 .ab-lede {
   margin: 1.25rem 0 0;
   max-width: 50ch;
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   line-height: 1.75;
   color: #34413c;
   animation: rise-in 0.9s var(--ease-out-expo) both 0.1s;
@@ -550,7 +564,7 @@
   border-radius: 999px;
   background: var(--pine-900);
   color: var(--honey-300);
-  font-size: 0.85rem;
+  font-size: max(var(--minimum-text, 0px), 0.85rem);
   font-weight: 700;
   animation: rise-in 0.9s var(--ease-out-expo) both 0.15s;
 }
@@ -584,7 +598,7 @@
 }
 .ab-h2 {
   margin: 0.9rem 0 0;
-  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.8rem, 4.5vw, 2.8rem));
   font-weight: 500;
   line-height: 1.08;
 }
@@ -605,14 +619,14 @@
   padding: 1.4rem 3.5rem 1.4rem 1.4rem;
 }
 .ab-start-num {
-  font-size: 0.75rem;
+  font-size: max(var(--minimum-text, 0px), 0.75rem);
   font-weight: 700;
   letter-spacing: 0.14em;
   color: var(--honey-700);
 }
 .ab-start-label {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.3rem;
+  font-size: max(var(--minimum-text, 0px), 1.3rem);
   font-weight: 500;
 }
 .ab-start-text {
@@ -645,13 +659,13 @@
 .ab-prose p {
   margin: 0 0 1.25rem;
   max-width: 62ch;
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   line-height: 1.85;
   color: #2a3632;
 }
 .ab-prose p:first-child {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: clamp(1.25rem, 2.5vw, 1.45rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.25rem, 2.5vw, 1.45rem));
   line-height: 1.6;
   color: var(--pine-900);
 }
@@ -681,7 +695,7 @@
   border-bottom: 1px solid var(--line);
 }
 .ab-road-when {
-  font-size: 0.75rem;
+  font-size: max(var(--minimum-text, 0px), 0.75rem);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -689,13 +703,13 @@
 }
 .ab-road-what {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: clamp(1.15rem, 2.6vw, 1.45rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.15rem, 2.6vw, 1.45rem));
   font-weight: 500;
   line-height: 1.35;
 }
 .ab-road-note {
   margin: 1rem 0 0;
-  font-size: 0.9rem;
+  font-size: max(var(--minimum-text, 0px), 0.9rem);
   color: var(--ink-muted);
 }
 @media (min-width: 800px) {
@@ -723,7 +737,7 @@
 .ab-paid-card h2,
 .ab-steps h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: max(var(--minimum-text, 0px), 1.5rem);
   font-weight: 500;
 }
 .ab-paid-card p {
@@ -755,7 +769,7 @@
 }
 .ab-steps h3 {
   margin: 0.35rem 0 0;
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   font-weight: 600;
 }
 .ab-steps p {
@@ -807,8 +821,7 @@
 .rvp {
   padding: clamp(1.5rem, 5vw, 4rem) 0 clamp(2.5rem, 6vw, 5rem);
   background:
-    radial-gradient(50% 40% at 100% 0%, rgba(217, 162, 58, 0.12), transparent 70%),
-    var(--cream-50);
+    radial-gradient(50% 40% at 100% 0%, rgba(217, 162, 58, 0.12), transparent 70%), var(--cream-50);
 }
 .rvp-card {
   max-width: 40rem;
@@ -825,31 +838,33 @@
   height: 6rem;
   margin: 0 auto 0.85rem;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--white), 0 0 0 5.5px var(--honey-500);
+  box-shadow:
+    0 0 0 4px var(--white),
+    0 0 0 5.5px var(--honey-500);
 }
 .rvp-who {
   display: grid;
   gap: 0.1rem;
   margin: 0 auto 1.25rem;
-  font-size: 0.85rem;
+  font-size: max(var(--minimum-text, 0px), 0.85rem);
   line-height: 1.4;
 }
 .rvp-who strong {
   font-family: var(--font-fraunces), Georgia, serif;
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   font-weight: 600;
   color: var(--pine-900);
 }
 .rvp h1 {
   margin: 0;
-  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  font-size: max(var(--minimum-text, 0px), clamp(1.9rem, 6vw, 2.6rem));
   font-weight: 500;
   line-height: 1.12;
 }
 .rvp-lede {
   margin: 1rem auto 1.75rem;
   max-width: 46ch;
-  font-size: 1.08rem;
+  font-size: max(var(--minimum-text, 0px), 1.08rem);
   line-height: 1.7;
   color: var(--ink-muted);
 }
@@ -858,12 +873,12 @@
   min-height: 3.5rem;
   max-width: 24rem;
   justify-content: center;
-  font-size: 1.05rem;
+  font-size: max(var(--minimum-text, 0px), 1.05rem);
   white-space: normal;
 }
 .rvp-hint {
   margin: 0.75rem 0 0;
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   color: var(--ink-muted);
 }
 .rvp-prompts {
@@ -873,7 +888,7 @@
 }
 .rvp-prompts h2 {
   margin: 0 0 0.75rem;
-  font-size: 1.15rem;
+  font-size: max(var(--minimum-text, 0px), 1.15rem);
   font-weight: 600;
 }
 .rvp-prompts ul {
@@ -887,27 +902,27 @@
   padding: 0.75rem 1rem;
   border-radius: var(--radius-sm);
   background: var(--cream-100);
-  font-size: 1.02rem;
+  font-size: max(var(--minimum-text, 0px), 1.02rem);
   line-height: 1.5;
 }
 .rvp-prompts p {
   margin: 0.9rem auto 0;
   max-width: 44ch;
-  font-size: 0.92rem;
+  font-size: max(var(--minimum-text, 0px), 0.92rem);
   line-height: 1.6;
   color: var(--ink-muted);
 }
 .rvp-fine {
   margin: 1.5rem auto 0;
   max-width: 44ch;
-  font-size: 0.85rem;
+  font-size: max(var(--minimum-text, 0px), 0.85rem);
   line-height: 1.6;
   color: var(--ink-muted);
 }
 .rvp-new {
   max-width: 40rem;
   margin: 1.5rem auto 0;
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   line-height: 1.7;
   text-align: center;
   color: var(--ink-muted);
@@ -945,7 +960,7 @@
 }
 .rvc-card h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: max(var(--minimum-text, 0px), 2rem);
   font-weight: 600;
   line-height: 1.1;
 }
@@ -961,16 +976,16 @@
   margin: 1.25rem auto 0;
 }
 .rvc-card .rvc-scan {
-  font-size: 0.9rem;
+  font-size: max(var(--minimum-text, 0px), 0.9rem);
 }
 .rvc-card .rvc-link {
   max-width: none;
-  font-size: 1.1rem;
+  font-size: max(var(--minimum-text, 0px), 1.1rem);
   font-weight: 700;
 }
 .rvc-card .rvc-who {
   max-width: none;
-  font-size: 0.82rem;
+  font-size: max(var(--minimum-text, 0px), 0.82rem);
 }
 .rvc-actions {
   max-width: 24rem;
@@ -979,7 +994,7 @@
 }
 .rvc-actions p {
   margin: 0.9rem 0 0;
-  font-size: 0.88rem;
+  font-size: max(var(--minimum-text, 0px), 0.88rem);
   line-height: 1.6;
   color: var(--ink-muted);
 }
@@ -1022,7 +1037,7 @@
 }
 
 .trust-facts {
-  font-size: 0.95rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
   line-height: 1.6;
   padding-block: 12px;
 }

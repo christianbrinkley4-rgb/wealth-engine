@@ -189,9 +189,12 @@ export default function StudentLoansPayoffPlanPage() {
               This page is general education, not personal advice. If you want to talk through your own situation, start here. No cost, no pressure.
             </p>
             <div className="w-btn-row">
-              <Link href="/start" className="w-btn">
-                Start here <ArrowRight size={18} aria-hidden />
-              </Link>
+              <a href={WEALTH_FACTS.phoneHref} className="w-btn w-btn-ink">
+                  Call Christian&apos;s direct line: {WEALTH_FACTS.phone}
+                </a>
+                <Link href="/start" className="w-btn w-btn-ghost">
+                  Request a free consultation <ArrowRight size={18} aria-hidden />
+                </Link>
             </div>
             <p style={{ margin: "14px 0 0", color: "var(--w-on-ink-muted)" }}>
               Christian Brinkley, Greensboro, NC. Call or text{" "}

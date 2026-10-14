@@ -115,7 +115,7 @@ const RESULTS: Record<AepQuizTier, AepQuizResult> = {
       "The exact dates depend on your birthday, including whether you were born on the 1st.",
       "If you are still working with employer coverage, different rules may let you wait.",
     ],
-    note: "Start with the turning-65 guide to find your exact dates, then we can talk through your situation.",
+    note: "Start with the turning-65 guide to find your exact dates, then I can talk through your situation.",
     ctaHref: "/turning-65",
     ctaLabel: "Find my enrollment dates",
   },

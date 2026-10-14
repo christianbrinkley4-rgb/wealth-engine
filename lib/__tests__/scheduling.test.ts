@@ -10,14 +10,14 @@ const calendarEnvironment = {
   NEXT_PUBLIC_SCHEDULING_FINANCIAL_PLANNING_URL: "https://cal.com/test-agent/retirement",
 };
 
-describe("topic-specific booking", () => {
+describe("request-only scheduling", () => {
   it.each([
     ["medicare", "https://cal.com/test-agent/medicare"],
     ["life_insurance", "https://cal.com/test-agent/life"],
     ["care_coverage", "https://cal.com/test-agent/care"],
     ["financial_planning", "https://cal.com/test-agent/retirement"],
-  ])("routes %s to its own configured event", (topic, url) => {
-    expect(bookingUrlForTopic(topic, calendarEnvironment)).toBe(url);
+  ])("keeps the calendar disabled for %s despite a configured event", (topic) => {
+    expect(bookingUrlForTopic(topic, calendarEnvironment)).toBeNull();
   });
 
   it("never borrows a different service's event or invents a generic calendar", () => {
@@ -28,17 +28,15 @@ describe("topic-specific booking", () => {
     expect(bookingUrlForTopic(null, env)).toBeNull();
   });
 
-  it("prefers a topic event and uses a generic fallback only when explicitly configured", () => {
+  it("does not revive a calendar through a topic or generic fallback", () => {
     const env = {
       NEXT_PUBLIC_SCHEDULING_URL: "https://cal.com/test-agent/intro",
       NEXT_PUBLIC_SCHEDULING_MEDICARE_URL: calendarEnvironment.NEXT_PUBLIC_SCHEDULING_MEDICARE_URL,
       NEXT_PUBLIC_SCHEDULING_LIFE_INSURANCE_URL: "https://localhost/booking",
     };
-    expect(bookingUrlForTopic("medicare", env)).toBe(
-      calendarEnvironment.NEXT_PUBLIC_SCHEDULING_MEDICARE_URL,
-    );
-    expect(bookingUrlForTopic("life_insurance", env)).toBe(env.NEXT_PUBLIC_SCHEDULING_URL);
-    expect(bookingUrlForTopic(null, env)).toBe(env.NEXT_PUBLIC_SCHEDULING_URL);
+    expect(bookingUrlForTopic("medicare", env)).toBeNull();
+    expect(bookingUrlForTopic("life_insurance", env)).toBeNull();
+    expect(bookingUrlForTopic(null, env)).toBeNull();
   });
 
   it.each([

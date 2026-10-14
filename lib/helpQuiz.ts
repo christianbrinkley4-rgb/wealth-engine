@@ -348,7 +348,7 @@ export const INCOME_OPTIONS: HelpQuizOption[] = [
   { value: "80k_120k", label: "$80,000 to $120,000" },
   { value: "120k_200k", label: "$120,000 to $200,000" },
   { value: "over_200k", label: "Over $200,000" },
-  { value: "prefer_not", label: "I can not say" },
+  { value: "prefer_not", label: "Prefer not to say" },
 ];
 
 /** topic → 2 questions → value → contact. Shorter when a card already answered question one. */
@@ -474,11 +474,11 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
           : answers.care_focus === "short_term"
             ? "Start with the length and kind of care a policy covers."
             : "Start with the help your family would need.",
-      lede: "Care and critical illness policies cover different situations. We can compare their purpose, what triggers a benefit, and what a policy would leave for your family to pay.",
+      lede: "Care and critical illness policies cover different situations. I can compare their purpose, what triggers a benefit, and what a policy would leave for your family to pay.",
       points: [
         "For care coverage, ask where care can be received, what qualifies for benefits, and how long benefits can last.",
         "For critical illness coverage, ask which diagnoses and definitions qualify. A policy does not cover every illness or expense.",
-        "Bring any existing policy to our consultation. We can review waiting periods, exclusions, benefit limits, and premiums together.",
+        "Bring any existing policy to your consultation. I can review waiting periods, exclusions, benefit limits, and premiums together.",
       ],
       note,
     };
@@ -490,7 +490,7 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
     if (focus === "annuities")
       return {
         headline: "Income is only one part of an annuity decision.",
-        lede: "We can discuss the insurance options I offer and how a contract could fit your income needs. A financial advisor can help assess how it fits alongside your investments.",
+        lede: "I can discuss the insurance options I offer and how a contract could fit your income needs. A financial advisor can help assess how it fits alongside your investments.",
         points: [
           "Ask how and when income can start, what is guaranteed, and which conditions apply.",
           "Review surrender charges, withdrawal limits, rider costs, and access to money for an emergency.",
@@ -570,7 +570,7 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
       headline: "Understand what final expense coverage would provide.",
       lede: "Final expense coverage is whole life in a modest amount, meant to keep funeral and medical costs off your family rather than to replace income. Price is driven by age and health at the time you apply.",
       points: [
-        "Cost and eligibility depend on the policy, your age, health, and other factors. We can discuss the options available to you.",
+        "Cost and eligibility depend on the policy, your age, health, and other factors. I can discuss the options available to you.",
         "Some policies have a waiting period before the full benefit is payable. That detail is worth reading before anything is signed.",
         "Keep your beneficiary information current, and let someone you trust know where to find the policy and how to contact the insurer.",
       ],
@@ -580,7 +580,7 @@ export function getValueBeat(topic: HelpQuizTopic, answers: HelpQuizAnswerMap): 
 
   return {
     headline: "Think about what your family would need help paying for.",
-    lede: "The length of coverage is one part of the choice. Your budget, current policies, savings, and family needs matter too. We can review those together.",
+    lede: "The length of coverage is one part of the choice. Your budget, current policies, savings, and family needs matter too. I can review those with you.",
     points: [
       "Term insurance can provide coverage for a set period, such as while a mortgage is being paid. Review the end date and any renewal options.",
       "Permanent life insurance is designed for longer-term coverage when policy requirements are met. Review its costs and how it would fit your needs over time.",

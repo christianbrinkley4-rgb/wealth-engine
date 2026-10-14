@@ -97,7 +97,7 @@ export function CareGuidePage({ slug }: { slug: string }) {
           ))}
         </ul>
         <p className="text-18 mt-6 leading-relaxed">
-          We can meet in Greensboro, High Point, Winston-Salem, or a nearby community. Bring any
+          I can meet in Greensboro, High Point, Winston-Salem, or a nearby community. Bring any
           current policy you’d like to review. A spouse or family member is welcome.
         </p>
         <Link
@@ -137,7 +137,7 @@ export function CareGuidePage({ slug }: { slug: string }) {
       </section>
       <KitchenTableClose
         heading="Let’s talk about what matters to your family."
-        body="We can review your questions and current coverage together. Your insurance consultation is no cost, with no obligation to buy."
+        body="I can review your questions and current coverage with you. Your insurance consultation is no cost, with no obligation to buy."
         href={request}
         label="Request a free consultation →"
       />

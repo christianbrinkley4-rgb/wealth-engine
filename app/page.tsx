@@ -79,8 +79,8 @@ const STEPS = [
     text: "It comes straight to me, not a queue. I’ll get in touch personally to find a time that works.",
   },
   {
-    title: "We sit down together.",
-    text: "At your kitchen table, somewhere nearby, or by phone. We go through your doctors, prescriptions, and budget.",
+    title: "I meet with you.",
+    text: "At your kitchen table, somewhere nearby, or by phone. I go through your doctors, prescriptions, and budget.",
   },
   {
     title: "You decide, in your own time.",
@@ -367,7 +367,7 @@ export default function HomePage() {
               Hey, I’m Christian.
             </h2>
             <p data-reveal style={{ "--i": 2 } as React.CSSProperties}>
-              When you call, you get me. I answer my own phone, and during our meeting I check
+              When you call, you get me. I answer my own phone, and during my meeting I check
               your doctors and your prescriptions against the plans live, so you see exactly what
               is covered before anything is signed. I represent 8 insurance companies, which means
               I compare options instead of selling you the only one I have.
@@ -479,7 +479,7 @@ export default function HomePage() {
               <h2 id="rv-heading">I’d rather earn reviews than write them.</h2>
               <p>
                 You won’t find made-up testimonials on this site. When people I’ve helped leave a
-                review on Google, it’ll show up right here, word for word. If we’ve worked together,
+                review on Google, it’ll show up right here, word for word. If you’ve worked with me,
                 I’d really appreciate one.
               </p>
               <div className="rv-actions">
@@ -513,11 +513,11 @@ export default function HomePage() {
             ))}
           </ol>
           <div className="steps-actions" data-reveal>
-            <Link href="/start?topic=medicare&quick=1" className="btn">
+            <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn">
+              <Phone size={19} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+            </a>
+            <Link href="/start?topic=medicare&quick=1" className="btn btn-outline">
               Ask me a question <ArrowRight size={19} className="arrow" aria-hidden />
-            </Link>
-            <Link href="/start?topic=medicare&quick=1" className="link-draw">
-              <span>Or send a quick request and I will follow up</span> <ArrowRight size={17} aria-hidden />
             </Link>
           </div>
         </div>
@@ -528,7 +528,7 @@ export default function HomePage() {
         <div className="shell faqx-grid">
           <div className="faqx-intro">
             <p className="eyebrow" data-reveal>
-              Before we meet
+              Before your visit
             </p>
             <h2 id="faq-heading" data-reveal style={{ "--i": 1 } as React.CSSProperties}>
               Questions people ask me first.

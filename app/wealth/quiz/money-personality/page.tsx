@@ -68,7 +68,7 @@ export default function MoneyPersonalityPage() {
                 <h2 className="w-h3">
                   <Link href={`/wealth/quiz/money-personality/${type.id}`}>{type.name}</Link>
                 </h2>
-                <p style={{ margin: "8px 0 0", fontFamily: "var(--w-mono)", fontSize: "0.85rem" }}>{type.tagline}</p>
+                <p style={{ margin: "8px 0 0", fontFamily: "var(--w-mono)", fontSize: "max(var(--minimum-text, 0px), 0.85rem)" }}>{type.tagline}</p>
                 <p style={{ margin: "10px 0 0", color: "var(--w-muted)" }}>{type.summary}</p>
               </div>
             ))}

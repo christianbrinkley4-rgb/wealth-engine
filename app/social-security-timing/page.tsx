@@ -168,7 +168,7 @@ export default function SocialSecurityTimingPage() {
         lede="Choosing when to start Social Security is a personal decision. Here are the main ages to know and questions to consider about your monthly income, your family, and the savings you may use in retirement."
         secondaryHref="/start?topic=financial_planning"
         secondaryLabel="Talk it through →"
-        note="Bring your Social Security statement and your questions. We can talk in person or by phone at no cost."
+        note="Bring your Social Security statement and your questions. I can talk in person or by phone at no cost."
       />
 
       <section className="bg-white py-14">
@@ -219,7 +219,7 @@ export default function SocialSecurityTimingPage() {
             tax professional or financial advisor can help you consider withdrawals, taxes, and
             possible Medicare premium effects during that time.{" "}
             <Link href="/plan" className="underline underline-offset-2">
-              Our calculator estimates the Medicare premium effect of a Roth conversion{" "}
+              My calculator estimates the Medicare premium effect of a Roth conversion{" "}
             </Link>{" "}
             using 2026 rates. It can help you prepare questions for a tax professional or financial
             advisor.{" "}
@@ -270,7 +270,7 @@ export default function SocialSecurityTimingPage() {
 
       <KitchenTableClose
         heading="Bring your statement and your questions"
-        body="We can discuss your retirement and Medicare questions and identify the information to review with Social Security or your advisor. Your consultation is no cost, with no obligation."
+        body="I can discuss your retirement and Medicare questions and identify the information to review with Social Security or your advisor. Your consultation is no cost, with no obligation."
         href="/start?topic=financial_planning"
         label="Start here →"
       />

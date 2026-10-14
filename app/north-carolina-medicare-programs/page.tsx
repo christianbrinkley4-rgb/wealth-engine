@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -175,7 +176,7 @@ export default function NorthCarolinaMedicarePrograms() {
           <p className="text-17 mt-4">{s.detail}</p>
           {s.id === "savings" ? (
             <div className="mt-6 overflow-x-auto">
-              <table className="art-table">
+              <ResponsiveTable className="art-table">
                 <caption>NC monthly countable-income limits, effective April 1, 2026</caption>
                 <thead>
                   <tr>
@@ -201,7 +202,7 @@ export default function NorthCarolinaMedicarePrograms() {
                     <td>$2,435</td>
                   </tr>
                 </tbody>
-              </table>
+              </ResponsiveTable>
               <p className="text-16 mt-3">
                 NC&apos;s chart lists MQB resource limits of $9,950 for one person and $14,910 for a
                 couple. Ask DSS which assets count.

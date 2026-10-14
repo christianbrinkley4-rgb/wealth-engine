@@ -241,9 +241,9 @@ export default function ZeroPremiumMedicareAdvantageFreePage() {
 
       <KitchenTableClose
         heading="Find out what your plan really costs"
-        body={`Bring your current plan and your prescription list. We will add up the real yearly total together and see if a $0 premium plan is actually your cheapest option. Call or text ${AGENT.phone}.`}
+        body={`Bring your current plan and your prescription list. I will add up the real yearly total with you and see if a $0 premium plan is actually your cheapest option. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
-        label="Book a free review"
+        label="Request a free review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

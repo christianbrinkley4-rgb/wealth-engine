@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -169,7 +170,7 @@ export default function MedicareHsaContributionsPage() {
             If you are still eligible and contributing, these are the 2026 IRS limits:
           </p>
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[520px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[520px] border-collapse text-left">
               <caption className="sr-only">2026 HSA contribution limits</caption>
               <thead>
                 <tr className="border-b-2 border-[var(--color-navy)]">
@@ -203,7 +204,7 @@ export default function MedicareHsaContributionsPage() {
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Prorate these limits if you are eligible for only part of the year. The months you have
@@ -254,7 +255,7 @@ export default function MedicareHsaContributionsPage() {
 
       <KitchenTableClose
         heading="Get the timing right before you enroll"
-        body={`Tell me about your work coverage and your HSA. We will map out when to stop contributions and when to start Medicare, so nothing overlaps. Call or text ${AGENT.phone}.`}
+        body={`Tell me about your work coverage and your HSA. I will map out when to stop contributions and when to start Medicare, so nothing overlaps. Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&stage=turning_65"
         label="Request a free review"
       />

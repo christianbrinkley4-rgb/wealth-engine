@@ -6,7 +6,7 @@ import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
-import { Phone } from "lucide-react";
+
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
@@ -87,7 +87,7 @@ const STEPS = [
     b: `Send a quick request, or call me at ${AGENT.phone}. Tell me a time that works for you. I am available Monday to Saturday, 8:00 to 6:00.`,
   },
   {
-    t: "We talk",
+    t: "I listen to your questions",
     b: "In person around Greensboro, or by phone if that's easier. Bring your plan letter and your medication list if you have them.",
   },
   {
@@ -104,7 +104,7 @@ const FAQ = PRIORITY_MEDICARE_FAQS.aep;
 
 const LOCAL_FAQ = [
   {
-    q: "Where do we meet for a review in Greensboro?",
+    q: "Where can I meet you for a review in Greensboro?",
     a: "Wherever is easiest for you: your home in Greensboro or Guilford County, a public place like a coffee shop, or by phone. Many folks prefer their kitchen table so their plan letter and prescriptions are right there.",
   },
   {
@@ -177,6 +177,8 @@ export default function AepPage() {
         eyebrow="October 15 to December 7, 2026 · Piedmont Triad"
         title={AEP_HERO_TITLES[aepPhase()]}
         lede="Annual Enrollment runs October 15 through December 7. Talk with Christian Brinkley about your 2027 doctors, prescriptions, and costs. Free, in person or by phone."
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       {/* ANOC campaign, the September letter, translated into plain English. */}
@@ -207,25 +209,10 @@ export default function AepPage() {
             </p>
             <p>
               If your plan still looks good, I&apos;ll tell you so. If something changed that
-              matters to you, we&apos;ll talk through your options before the December 7 deadline.
+              matters to you, I&apos;ll talk through your options before the December 7 deadline.
             </p>
           </div>
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-            <a
-              href={AGENT.phoneHref}
-              aria-label={`Call ${AGENT.name} at ${AGENT.phone}, let's go through your letter together`}
-              className="btn"
-            >
-              <Phone className="size-5 shrink-0" aria-hidden />
-              {AGENT.phone}
-            </a>
-            <Link
-              href="/start?topic=medicare&stage=already_on_medicare&quick=1"
-              className="btn btn-outline"
-            >
-              Ask for a free review →
-            </Link>
-          </div>
+
           <p className="text-16 mt-4 text-[var(--color-ink-muted)]">
             Free consultation. No obligation to enroll. No call centers, just me.
           </p>
@@ -241,10 +228,10 @@ export default function AepPage() {
               this year. Every fall, plans update their premiums, deductibles, copays, drug lists,
               and doctor networks for the coming year. Your plan sent you a letter in September
               (called an &ldquo;Annual Notice of Change&rdquo;) spelling out exactly what&apos;s
-              different for 2027. Bring it with you so we can go through it together.
+              different for 2027. Bring it with you so I can go through it with you.
             </p>
             <p>
-              That&apos;s what a fall review is for. We go through that letter together, line by
+              That&apos;s what a fall review is for. I go through that letter with you, line by
               line, and you decide whether your plan still fits, or whether something else fits
               better. No obligation either way.
             </p>
@@ -261,9 +248,9 @@ export default function AepPage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">What we check together</h2>
+          <h2 className="text-28 font-semibold">What I check for you</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Bring your current plan information and a list of your prescriptions. We&apos;ll discuss
+            Bring your current plan information and a list of your prescriptions. I&apos;ll discuss
             what needs checking and arrange any required paperwork before reviewing specific plans:
           </p>
           <ol className="mt-8 flex flex-col gap-6">
@@ -366,11 +353,11 @@ export default function AepPage() {
               One local detail worth knowing: Medicare Advantage plan lineups can differ between
               Guilford County and neighboring Forsyth County. A plan your friend in Winston-Salem
               mentions may not be available at your Greensboro address, or may cost something
-              different. We check availability at your home address, not someone else&apos;s.
+              different. I check availability at your home address, not someone else&apos;s.
             </p>
             <p>
               If your doctors are at Cone Health, Novant, or a private practice in town, bring
-              their names. We will confirm each one against next year&apos;s plan documents
+              their names. I will confirm each one against next year&apos;s plan documents
               together, so there are no surprises in January.
             </p>
           </div>
@@ -442,7 +429,7 @@ export default function AepPage() {
 
       <KitchenTableClose
         heading="Request your free fall review"
-        body="Tell me about your situation and when works for you. I'll arrange any required appointment paperwork before we discuss specific plans. No obligation to enroll."
+        body="Call me or send a request for a free conversation about your Medicare questions. I'll arrange any required appointment paperwork before I discuss specific plans. No obligation to enroll."
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

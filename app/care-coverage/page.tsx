@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, Check, HeartHandshake } from "lucide-react";
 import { AGENT } from "@/lib/agent";
 import { pageOpenGraph } from "@/lib/seo";
+import { ConsultationActions } from "@/app/components/ConsultationActions";
 
 const description =
   "Talk with Christian Brinkley about long-term care, short-term care, and critical illness insurance. A no-cost consultation in the Piedmont Triad. Read on.";
@@ -27,21 +28,21 @@ const options = [
     title: "Long-term care",
     href: "/long-term-care-insurance",
     detail:
-      "Explore insurance designed for ongoing care needs. We can review where care may be received, what qualifies for benefits, and how benefits are limited.",
+      "Explore insurance designed for ongoing care needs. I can review where care may be received, what qualifies for benefits, and how benefits are limited.",
     question: "Who would help if everyday activities became difficult?",
   },
   {
     title: "Short-term care",
     href: "/short-term-care-insurance",
     detail:
-      "Look at coverage with a shorter benefit period. We can discuss the services included, eligibility requirements, and how it fits with coverage you already have.",
+      "Look at coverage with a shorter benefit period. I can discuss the services included, eligibility requirements, and how it fits with coverage you already have.",
     question: "What help could your family need during a period of recovery?",
   },
   {
     title: "Critical illness",
     href: "/critical-illness-insurance",
     detail:
-      "Understand benefits tied to the covered illnesses defined in a policy. We can review those definitions, exclusions, waiting periods, and how a benefit may be used.",
+      "Understand benefits tied to the covered illnesses defined in a policy. I can review those definitions, exclusions, waiting periods, and how a benefit may be used.",
     question: "How would a serious covered illness affect the household budget?",
   },
 ];
@@ -58,14 +59,10 @@ export default function CareCoveragePage() {
         </h1>
         <p className="personal-lede">
           A conversation can help your family understand the choices. I’m {AGENT.name}, a local
-          licensed insurance agent. We can sit down at your kitchen table, review what you have, and
+          licensed insurance agent. I can sit down at your kitchen table, review what you have, and
           talk through the care coverage I offer.
         </p>
-        <div className="personal-actions">
-          <Link className="personal-button" href="/start?topic=care_coverage">
-            Request my free consultation <ArrowRight size={19} aria-hidden />
-          </Link>
-        </div>
+        <ConsultationActions href="/start?topic=care_coverage" />
         <p className="personal-micro">
           <Check size={16} aria-hidden /> No cost. No obligation to buy. Family members are welcome.
         </p>
@@ -93,23 +90,24 @@ export default function CareCoveragePage() {
       </section>
       <section className="personal-section personal-shell personal-about">
         <div>
-          <p className="personal-eyebrow">MAKE OUR CONVERSATION USEFUL</p>
+          <p className="personal-eyebrow">MAKE YOUR CONVERSATION USEFUL</p>
           <h2>Your questions are enough to get started.</h2>
           <p className="personal-body">
             If you have an existing policy, bring it along. A spouse or family member is welcome.
-            We’ll discuss your priorities and budget before looking at coverage.
+            I’ll discuss your priorities and budget before looking at coverage.
           </p>
           <p className="personal-body mt-4">
             One question comes up a lot: what does Medicare itself pay if someone needs a nursing
             home?{" "}
             <Link href="/answers/does-medicare-cover-nursing-homes" className="personal-text-link">
-              Here is what Medicare covers for nursing home stays <ArrowRight size={18} aria-hidden />
+              Here is what Medicare covers for nursing home stays{" "}
+              <ArrowRight size={18} aria-hidden />
             </Link>
             , and where the gaps are.
           </p>
         </div>
         <div className="rounded-lg border border-[#cdd6c9] bg-white p-6">
-          <h3>Questions we can work through together</h3>
+          <h3>Questions I can help you answer</h3>
           <ul className="mt-4 list-disc space-y-3 pl-5 text-lg">
             <li>What does my current coverage include?</li>
             <li>What starts a benefit, and when can it be paid?</li>
@@ -122,10 +120,8 @@ export default function CareCoveragePage() {
       <section className="personal-close">
         <div className="personal-shell">
           <h2>A plan begins with a conversation.</h2>
-          <p>We’ll talk through your options and the questions that matter to your family.</p>
-          <Link className="personal-button personal-button-light" href="/start?topic=care_coverage">
-            Request my free consultation <ArrowRight size={19} aria-hidden />
-          </Link>
+          <p>I’ll talk through your options and the questions that matter to your family.</p>
+          <ConsultationActions href="/start?topic=care_coverage" location="page_close" onDark />
           <p className="personal-close-note">
             Coverage and eligibility depend on the specific policy and underwriting. This is an
             insurance consultation.

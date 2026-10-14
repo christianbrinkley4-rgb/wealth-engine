@@ -205,7 +205,7 @@ export default function MedicareTownsHubPage() {
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
               { name: "Service area", path: "/service-area" },
-              { name: "Towns we serve", path: "/medicare-nc-towns" },
+              { name: "Towns I serve", path: "/medicare-nc-towns" },
             ]),
           ),
         }}
@@ -215,7 +215,7 @@ export default function MedicareTownsHubPage() {
         crumbs={[
           { name: "Home", href: "/" },
           { name: "Service area", href: "/service-area" },
-          { name: "Towns we serve" },
+          { name: "Towns I serve" },
         ]}
         eyebrow="Service area · free Medicare reviews"
         title="Medicare Help Across North Carolina Towns"

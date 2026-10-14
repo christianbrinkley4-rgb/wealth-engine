@@ -229,7 +229,7 @@ export default function MedicareFlexCardPage() {
             <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
-            {". I'll check your doctors and prescriptions first, and then we can see whether any extras are worth it."}
+            {". I'll check your doctors and prescriptions first, and then I can see whether any extras are worth it."}
           </p>
           <GuideTownLinks />
         </div>
@@ -264,7 +264,7 @@ export default function MedicareFlexCardPage() {
 
       <KitchenTableClose
         heading={"Check the plan before the card"}
-        body={`${"Bring the ad or the mailer. We'll find out which plan it's for, whether it's sold in your county, and whether your doctors and prescriptions fit."} Call or text ${AGENT.phone}.`}
+        body={`${"Bring the ad or the mailer. I’ll find out which plan it's for, whether it's sold in your county, and whether your doctors and prescriptions fit."} Call or text ${AGENT.phone}.`}
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation"
       />

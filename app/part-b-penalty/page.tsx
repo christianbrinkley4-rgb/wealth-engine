@@ -71,7 +71,7 @@ export default function PartBPenaltyPage() {
             <p className="home-heading-note">
               Ten percent is added to your premium for every full year you could have had Part B and
               didn’t, and it stays for as long as you have it. Two dates will tell you where you
-              stand. If you live in Greensboro, High Point, Winston-Salem, or nearby, we can walk
+              stand. If you live in Greensboro, High Point, Winston-Salem, or nearby, I can walk
               through the result together.
             </p>
           </div>

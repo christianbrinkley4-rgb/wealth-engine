@@ -5,9 +5,9 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
     answer:
       "A Greensboro Medicare review starts with your home address, doctors, prescriptions, and budget. Christian Brinkley offers free consultations with no obligation to enroll.",
     paragraphs: [
-      "I'm Christian Brinkley, a licensed North Carolina insurance agent based in Greensboro. We can meet at your home, agree on a public meeting place, or talk by phone. You can bring a spouse or adult child. The point is to make the next decision clear, whether you are approaching 65, retiring from work, or reviewing coverage you already have.",
+      "I'm Christian Brinkley, a licensed North Carolina insurance agent based in Greensboro. I can meet at your home, agree on a public meeting place, or talk by phone. You can bring a spouse or adult child. The point is to make the next decision clear, whether you are approaching 65, retiring from work, or reviewing coverage you already have.",
       "For a Greensboro household, I want the names of the practices you actually visit. A list that only says Cone Health is a starting point, not a finished network check. Write down the primary care office, any specialists, the preferred hospital, and the pharmacy. If an appointment takes you to High Point or Winston-Salem, include that office too. Your care does not stop at a county line just because an insurance comparison starts with an address.",
-      "You do not need to organize everything perfectly before calling. If all you have is a notice that worries you, start there. Tell me whether the question concerns a premium, a medication, a doctor, or an enrollment date. We can decide what information to gather next. Leave Medicare numbers, Social Security numbers, medical records, and payment details out of the website's request form.",
+      "You do not need to organize everything perfectly before calling. If all you have is a notice that worries you, start there. Tell me whether the question concerns a premium, a medication, a doctor, or an enrollment date. I can decide what information to gather next. Leave Medicare numbers, Social Security numbers, medical records, and payment details out of the website's request form.",
     ],
   },
   {
@@ -18,7 +18,7 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
     paragraphs: [
       "These figures describe that publisher's county summary, not a personal quote or the number of plans I represent. The $4.13 average is the plan premium, not your complete Medicare bill. The standard Part B premium and any applicable income-related surcharge are separate. A plan with a low premium can still have costs when you visit a doctor or fill a prescription.",
       "The $6,697.27 figure is an average in-network limit for covered medical services. It is not a forecast of what you will spend, and it does not combine all premiums and prescription spending into one annual ceiling. A specific plan's Evidence of Coverage controls its rules. Look at that plan's limit, copays, and out-of-network terms before deciding whether the budget works for you.",
-      "Use the county numbers to understand the range of choices, then use Medicare Plan Compare with your address and medication list. I have not added an unverified county Part D count or a guessed Medigap price range. Those comparisons need current plan files or an individual quote. If you already have a policy, bring its renewal information so we compare real costs rather than advertising examples.",
+      "Use the county numbers to understand the range of choices, then use Medicare Plan Compare with your address and medication list. I have not added an unverified county Part D count or a guessed Medigap price range. Those comparisons need current plan files or an individual quote. If you already have a policy, bring its renewal information so I compare real costs rather than advertising examples.",
     ],
     sources: [
       {
@@ -53,7 +53,7 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
       "Check each Greensboro doctor and hospital against the specific Medicare plan and coverage year. A health-system name alone does not confirm provider participation.",
     paragraphs: [
       "Cone Health lists Moses Cone Hospital and Wesley Long Hospital among its Greensboro locations. If either is where you prefer to receive care, write it down. Also name the office where you see each doctor. For a referral or planned procedure, ask about the facility and the clinicians involved instead of assuming the whole visit follows one network entry.",
-      "A Greensboro primary care visit and a specialist visit in High Point are two checks. A Burlington appointment at Alamance Regional is another. When we review a plan, we should use the exact office location you visit. A practice can have several locations, and a familiar system logo is not proof that the specific service will be covered under the terms you expect.",
+      "A Greensboro primary care visit and a specialist visit in High Point are two checks. A Burlington appointment at Alamance Regional is another. when I review a plan, I should use the exact office location you visit. A practice can have several locations, and a familiar system logo is not proof that the specific service will be covered under the terms you expect.",
       "Before changing coverage, confirm participation with both the plan and the provider for the coming year. Ask the plan about referrals, prior authorization, and any out-of-network benefits. If you need ongoing treatment, ask how a change would affect that care. Keep the answers with your plan comparison so a premium figure does not crowd out the question that brought you here: can I keep seeing the people who care for me?",
     ],
     sources: [
@@ -74,7 +74,7 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
     answer:
       "Compare each prescription's exact name, dose, quantity, and pharmacy under the coming year's Medicare drug coverage. Check restrictions as well as estimated costs.",
     paragraphs: [
-      "Bring your prescription list, including medicines filled less often than monthly. Tell me which Greensboro pharmacy you prefer and whether you use mail order. If a family member picks up prescriptions at a different location, include that preference. We should compare the way you actually fill medicines, not a convenient example from a brochure.",
+      "Bring your prescription list, including medicines filled less often than monthly. Tell me which Greensboro pharmacy you prefer and whether you use mail order. If a family member picks up prescriptions at a different location, include that preference. I should compare the way you actually fill medicines, not a convenient example from a brochure.",
       "For each option, review the covered-drug list, pharmacy status, deductible, and any approval requirements. Keep medical questions with your prescriber. An insurance comparison cannot decide whether you should stop a medication or change a dose. If a drug seems expensive or absent from the plan's list, ask about the plan's coverage process before making assumptions.",
       "A low monthly premium is only one row in this comparison. Use Plan Compare to look at estimated annual costs with your prescriptions entered accurately, then check the plan's documents. If your medicine or pharmacy changes later, revisit the estimate. If money is tight, ask about Extra Help before settling on a plan. The North Carolina program guide explains where to apply and which agency decides eligibility.",
     ],

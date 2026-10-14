@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
@@ -170,7 +171,7 @@ export default function MedicareAdvantagePlansGreensboroPage() {
             Always confirm current details on Medicare.gov before you enroll.
           </p>
           <div className="mt-8 overflow-x-auto">
-            <table className="w-full min-w-[560px] border-collapse text-left">
+            <ResponsiveTable className="w-full min-w-[560px] border-collapse text-left">
               <caption className="sr-only">
                 Example 2027 Medicare Advantage plans in Guilford County, North Carolina
               </caption>
@@ -222,7 +223,7 @@ export default function MedicareAdvantagePlansGreensboroPage() {
                   <td className="py-3">$9,250</td>
                 </tr>
               </tbody>
-            </table>
+            </ResponsiveTable>
           </div>
           <p className="text-15 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Examples from published 2027 plan data via CMS. Figures change yearly. Of the 16 HMO

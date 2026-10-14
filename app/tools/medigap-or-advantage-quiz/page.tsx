@@ -120,7 +120,7 @@ export default function MedigapQuizPage() {
       </section>
       <KitchenTableClose
         heading="The quiz raised a question? Bring it to me"
-        body="Bring your result and your question list to a free 20-minute call. We will go through your doctors, your prescriptions, and what each path would really cost you."
+        body="Bring your result and your question list to a free 20-minute call. I will go through your doctors, your prescriptions, and what each path would really cost you."
         href="/start"
         label="Start a free review →"
       />

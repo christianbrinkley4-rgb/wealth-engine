@@ -30,15 +30,15 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Which communities do you serve?",
-    a: "I meet with people in Greensboro, High Point, Winston-Salem, and the surrounding communities listed below. If you don’t see your town, get in touch and we can discuss a convenient way to meet.",
+    a: "I meet with people in Greensboro, High Point, Winston-Salem, and the surrounding communities listed below. If you don’t see your town, get in touch and I can discuss a convenient way to meet.",
   },
   {
     q: "Does where I live affect my Medicare choices?",
-    a: "Yes. Medicare Advantage plan availability can vary by county. We’ll check the options for your home address, along with your doctors, prescriptions, and coverage needs.",
+    a: "Yes. Medicare Advantage plan availability can vary by county. I’ll check the options for your home address, along with your doctors, prescriptions, and coverage needs.",
   },
   {
-    q: "Can we meet at my home?",
-    a: "Yes. We can arrange a home visit, meet at a convenient public location, or talk by phone. You’re welcome to include your spouse or another family member. The consultation is no cost, with no obligation to buy anything.",
+    q: "Can I meet you at my home?",
+    a: "Yes. I can arrange a home visit, meet at a convenient public location, or talk by phone. You’re welcome to include your spouse or another family member. The consultation is no cost, with no obligation to buy anything.",
   },
 ] as const;
 
@@ -78,14 +78,14 @@ export default function ServiceAreaPage() {
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             I serve individuals and families throughout the Piedmont Triad, including Greensboro,
             High Point, Winston-Salem, and the communities around them. I’m based in Greensboro and
-            offer home visits in the surrounding area. We can also meet at a convenient public
+            offer home visits in the surrounding area. I can also meet at a convenient public
             location, or talk by phone or video. Get in touch to ask about appointment options and
             whether a home visit works for where you live. There’s no need to have everything
-            figured out before we talk. Bring your questions, and we’ll take them one at a time.
+            figured out before you call. Bring your questions, and I’ll take them one at a time.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The communities below are grouped by county because your location can affect your
-            Medicare Advantage options. Your doctors, prescriptions, and budget matter too. We’ll
+            Medicare Advantage options. Your doctors, prescriptions, and budget matter too. I’ll
             look at those together before you decide on your next step.
           </p>
         </div>
@@ -158,7 +158,7 @@ export default function ServiceAreaPage() {
       <section className="bg-white py-12">
         <div className="measure-prose app-shell max-w-3xl">
           <p className="text-17 leading-relaxed text-[var(--color-ink-muted)]">
-            Don’t see your town? Get in touch and we can confirm whether a home visit fits your
+            Don’t see your town? Get in touch and I can confirm whether a home visit fits your
             location and availability, or arrange a phone conversation. Phone consultations are
             available throughout North Carolina.
           </p>
@@ -285,7 +285,7 @@ export default function ServiceAreaPage() {
       </section>
       <KitchenTableClose
         heading="Let’s talk about what matters to you."
-        body="We can review your coverage, answer your questions, and discuss the next steps for you and your family. Your consultation is no cost, with no obligation to buy anything."
+        body="I can review your coverage, answer your questions, and discuss the next steps for you and your family. Your consultation is no cost, with no obligation to buy anything."
         href="/start"
         label="Request a free consultation →"
       />

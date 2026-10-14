@@ -295,7 +295,7 @@ export default function AepChecklistPage() {
 
       <KitchenTableClose
         heading="Want a second set of eyes on your list?"
-        body="Bring your ANOC letter, your prescriptions, and your doctors' names. We'll go down this checklist together, in person or by phone, before December 7. Free consultation, no obligation to change anything."
+        body="Bring your ANOC letter, your prescriptions, and your doctors' names. I’ll go through this checklist with you, in person or by phone, before December 7. Free consultation, no obligation to change anything."
         href="/start?topic=medicare&quick=1"
         label="Request a free consultation →"
       />
@@ -308,7 +308,7 @@ export default function AepChecklistPage() {
           </Link>
           . For free, unbiased counseling with no sales angle, see{" "}
           <Link href="/medicare-help-directory" className="underline underline-offset-2">
-            our free Medicare help directory
+            the free Medicare help directory
           </Link>
           . Open enrollment is also scam season, so keep the{" "}
           <Link href="/medicare-scam-alert" className="underline underline-offset-2">
