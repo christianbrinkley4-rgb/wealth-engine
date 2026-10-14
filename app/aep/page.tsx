@@ -177,8 +177,6 @@ export default function AepPage() {
         eyebrow="October 15 to December 7, 2026 · Piedmont Triad"
         title={AEP_HERO_TITLES[aepPhase()]}
         lede="Annual Enrollment runs October 15 through December 7. Talk with Christian Brinkley about your 2027 doctors, prescriptions, and costs. Free, in person or by phone."
-        secondaryHref="/start?topic=medicare&quick=1"
-        secondaryLabel="Request a free consultation"
       />
 
       {/* ANOC campaign, the September letter, translated into plain English. */}
