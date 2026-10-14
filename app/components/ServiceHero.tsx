@@ -35,8 +35,8 @@ export function ServiceHero({
   eyebrow: string;
   title: string;
   lede: string;
-  secondaryHref: string;
-  secondaryLabel: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
   note?: ReactNode;
   proof?: readonly string[];
   /** The /ai guides are purely informational; they carry no phone CTA. */
@@ -50,7 +50,7 @@ export function ServiceHero({
   variant?: "default" | "compact" | "info";
 }) {
   // Older pages put an arrow character in the label; the button draws its own.
-  const label = secondaryLabel.replace(/\s*→\s*$/, "");
+  const label = (secondaryLabel || "").replace(/\s*→\s*$/, "");
   const variantClass = variant === "compact" ? " sh-compact" : variant === "info" ? " sh-info" : "";
   return (
     <section className={["sh", variant === "info" ? "" : "on-dark", variantClass.trim()].filter(Boolean).join(" ")}>
@@ -98,15 +98,17 @@ export function ServiceHero({
                 data-cta-location="hero"
                 href={AGENT.phoneHref}
                 className="btn btn-ghost-light"
-                aria-label={`Call Christian at ${AGENT.phone}`}
+                aria-label={`Call Christian's direct line at ${AGENT.phone}`}
               >
                 <Phone size={19} aria-hidden />
                 {AGENT.phone}
               </a>
             )}
-            <Link ctaLocation="hero" href={secondaryHref} className="btn btn-ghost-light">
-                {label} <ArrowRight size={18} className="arrow" aria-hidden />
-              </Link>
+            {secondaryHref ? (
+              <Link ctaLocation="hero" href={secondaryHref} className="btn btn-ghost-light">
+                  {label} <ArrowRight size={18} className="arrow" aria-hidden />
+                </Link>
+            ) : null}
           </div>
           {note ? (
             <div className="sh-note">{note}</div>

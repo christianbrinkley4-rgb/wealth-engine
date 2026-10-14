@@ -96,7 +96,7 @@ export default async function SchedulePage({
           <p className="sched-callnow">
             Rather talk now?{" "}
             <a href={AGENT.phoneHref}>
-              Call {AGENT.phone}, I usually pick up.
+              Call my direct line {AGENT.phone}, I usually pick up.
             </a>
           </p>
         </div>
