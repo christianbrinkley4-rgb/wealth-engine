@@ -79,6 +79,17 @@ export function ServiceHero({
           <p className="sh-lede">{lede}</p>
 
           <div className="sh-actions" id="page-hero-actions">
+            {!hidePhoneCta && (
+              <a
+                data-cta-location="hero"
+                href={AGENT.phoneHref}
+                className="btn btn-light"
+                aria-label={`Call Christian's direct line at ${AGENT.phone}`}
+              >
+                <Phone size={19} aria-hidden />
+                Call Christian&apos;s direct line: {AGENT.phone}
+              </a>
+            )}
             {!hidePhoneCta && variant !== "info" && (
               <Link
                 ctaLocation="hero"
@@ -88,21 +99,10 @@ export function ServiceHero({
                     ? "/start?topic=medicare&quick=1"
                     : "/start"
                 }
-                className="btn btn-light"
+                className="btn btn-ghost-light"
               >
                 Request a free consultation <ArrowRight size={18} aria-hidden />
               </Link>
-            )}
-            {!hidePhoneCta && (
-              <a
-                data-cta-location="hero"
-                href={AGENT.phoneHref}
-                className="btn btn-ghost-light"
-                aria-label={`Call Christian's direct line at ${AGENT.phone}`}
-              >
-                <Phone size={19} aria-hidden />
-                {AGENT.phone}
-              </a>
             )}
             {secondaryHref ? (
               <Link ctaLocation="hero" href={secondaryHref} className="btn btn-ghost-light">

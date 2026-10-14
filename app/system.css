@@ -540,13 +540,13 @@ p {
   display: none;
 }
 @media (max-width: 639px) {
-  /* Mobile header: the call pill carries the full phone number as text and
-     comes first; the header Book button hides (the hero and menu both carry
-     it) so the Menu button is never pushed past the viewport edge. */
+  /* Mobile header: the call button is primary and stays visible; the form
+     button hides (the hero and menu both carry it) so the Menu button is
+     never pushed past the viewport edge. */
   .nav-brand-text {
     display: none;
   }
-  .nav-cta { display: none; }
+  .nav-cta:not(.nav-cta-phone) { display: none; }
   .nav-actions { gap: 0.5rem; }
   .nav-call { padding-inline: 0.85rem; width: auto; }
   .nav-call-number { display: inline; font-size: 0.92rem; letter-spacing: 0.01em; }

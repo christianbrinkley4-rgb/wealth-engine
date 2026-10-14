@@ -155,12 +155,12 @@ export default function HomePage() {
               pressure, no call center.
             </p>
             <div className="hx-actions" id="home-hero-actions">
-              <Link ctaLocation="hero" href="/start?topic=medicare&quick=1" className="btn btn-accent">
+              <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-accent">
+                <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+              </a>
+              <Link ctaLocation="hero" href="/start?topic=medicare&quick=1" className="btn btn-outline">
                 Request a free consultation <ArrowRight size={19} className="arrow" aria-hidden />
               </Link>
-              <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-outline">
-                <Phone size={18} aria-hidden /> Call {AGENT.phone}
-              </a>
             </div>
             <a href="#timing" className="hx-sublink">
               Turning 65? See how your enrollment window works <ArrowDown size={16} aria-hidden />

@@ -426,3 +426,32 @@
 .safe-bottom {
   padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
 }
+
+/* ---------------------------------------------------------------------------
+ * Mobile typography for seniors (65+)
+ *
+ * Larger type, taller tap targets, and roomier spacing on phones so the
+ * site stays readable and tappable for older visitors.
+ * ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  body {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .btn {
+    font-size: 20px;
+    min-height: 48px;
+  }
+
+  input,
+  textarea,
+  select {
+    min-height: 56px;
+    font-size: 18px;
+  }
+
+  .app-shell {
+    padding-inline: 24px;
+  }
+}

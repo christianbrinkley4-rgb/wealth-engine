@@ -32,12 +32,12 @@ const HIDE_PREFIXES = [
 
 const DISMISS_KEY = "we-scta-dismissed";
 
-/** Medicare pages offer a free review; the plan check itself offers a time. */
+/** Medicare pages offer a free review; the inquiry form captures the request. */
 function secondStep(pathname: string): { href: string; label: string } {
   if (pathname === "/" || pathname === "/turning-65" || pathname.startsWith("/medicare") || pathname === "/aep" || pathname === "/aep" || pathname === "/anoc" || pathname.startsWith("/answers/")) {
-    return { href: "/schedule?topic=medicare#booking-calendar", label: "Book free consultation" };
+    return { href: "/start?topic=medicare&quick=1", label: "Free Review" };
   }
-  if (pathname === "/plan-check") return { href: "/schedule?topic=medicare#booking-calendar", label: "Book a time" };
+  if (pathname === "/plan-check") return { href: "/start?topic=medicare&quick=1", label: "Free Review" };
   if (pathname === "/aep" || pathname === "/aep" || pathname.startsWith("/aep/")) {
     return { href: "/aep-quiz", label: "Free Review" };
   }
