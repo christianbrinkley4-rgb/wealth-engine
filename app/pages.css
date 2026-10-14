@@ -198,6 +198,24 @@
   line-height: 1.7;
   color: var(--ink-muted);
 }
+.sched-request .btn {
+  display: inline-flex;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: normal;
+  text-align: center;
+  justify-content: center;
+}
+@media (max-width: 480px) {
+  .sched-request .btn {
+    width: 100%;
+    padding-inline: 1rem;
+    font-size: 1rem;
+  }
+  .sched-request .btn .arrow {
+    flex-shrink: 0;
+  }
+}
 .sched-soa {
   margin-top: 1.5rem;
 }
