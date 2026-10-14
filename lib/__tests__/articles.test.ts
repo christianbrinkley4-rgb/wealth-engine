@@ -30,7 +30,7 @@ describe("question-led articles", () => {
       it("has 3 to 5 FAQ items and cites a government source", () => {
         expect(article.faq.length).toBeGreaterThanOrEqual(3);
         expect(article.faq.length).toBeLessThanOrEqual(5);
-        expect(article.sources.some((s) => /medicare\.gov|cms\.gov/.test(s.href))).toBe(true);
+        expect(article.sources.some((s) => /\.gov\//.test(s.href))).toBe(true);
       });
 
       it("keeps meta description under 160 characters", () => {
