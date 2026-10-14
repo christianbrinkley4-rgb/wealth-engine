@@ -97,6 +97,7 @@ export default function NumbersHubPage() {
             temporalCoverage: "2026/2027",
             datePublished: "2026-10-08",
             dateModified: LAST_UPDATED_ISO,
+            license: "https://creativecommons.org/licenses/by/4.0/",
             creator: {
               "@type": "Person",
               name: "Christian Brinkley",
