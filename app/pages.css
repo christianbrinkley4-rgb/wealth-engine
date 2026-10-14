@@ -227,8 +227,6 @@
   }
   .sched-head {
     grid-column: 1;
-    position: sticky;
-    top: 6rem;
   }
   .sched-panel {
     grid-column: 2;
