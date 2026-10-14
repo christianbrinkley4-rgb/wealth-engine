@@ -17,7 +17,7 @@ import { pageOpenGraph } from "@/lib/seo";
 import { CalEmbedLazy } from "./CalEmbedLazy";
 
 export const metadata: Metadata = {
-  title: "Book a Free Medicare Review",
+  title: "Request a Free Medicare Review",
   description:
     "Request a personal conversation about Medicare, life insurance, or retirement planning questions with Christian Brinkley in the Piedmont Triad.",
   alternates: { canonical: "/schedule" },
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
 
 const TOPIC_DESCRIPTIONS: Record<SchedulingTopic, string> = {
   medicare:
-    "Choose a date and time below, then enter your contact details. We can talk by phone, by video, or at your home. This introductory conversation is free, with no obligation to enroll.",
+    "Tell me about your situation and when works for you. We can talk by phone, by video, or at your home. This introductory conversation is free, with no obligation to enroll.",
   life_insurance:
-    "Let’s go over the coverage you already have, the people who matter to you, and your questions, at a comfortable pace. We can meet by phone, by video, or at your home in the Triad, and I’ll confirm the location with you. You are welcome to invite a family member. When you book, please leave out medical details, policy numbers, and account numbers.",
+    "Let’s go over the coverage you already have, the people who matter to you, and your questions, at a comfortable pace. We can meet by phone, by video, or at your home in the Triad, and I’ll confirm the location with you. You are welcome to invite a family member. When you reach out, please leave out medical details, policy numbers, and account numbers.",
   care_coverage:
     "Let’s talk about long-term care, short-term care, or critical illness insurance. We can review the help you might need, the support your family has, and the benefits and limits of coverage you’re considering.",
   financial_planning:
@@ -85,10 +85,10 @@ export default async function SchedulePage({
           <p className="eyebrow">A conversation, at your pace</p>
           <h1>
             {topic === "medicare"
-              ? "Book your free Medicare consultation"
+              ? "Request your free Medicare consultation"
               : topic
                 ? SCHEDULING_LABELS[topic]
-                : "Book a free consultation"}
+                : "Request a free consultation"}
           </h1>
           <p className="sched-lede">
             Your booking comes straight to me, Christian Brinkley. No call center, no pressure.
@@ -122,7 +122,7 @@ export default async function SchedulePage({
           ) : (
             <div className="sched-book">
               <div className="sched-book-head">
-                <p className="sched-step">Choose a date and time</p>
+                <p className="sched-step">Tell me what works for you</p>
                 <Link href="/schedule" className="sched-change">
                   <ArrowLeft size={16} aria-hidden /> Change topic
                 </Link>
@@ -190,7 +190,7 @@ export default async function SchedulePage({
             ))}
           </ul>
           <p className="sched-small">
-            Allow 60 minutes for our conversation. The calendar shows current availability.
+            Allow 60 minutes for our conversation. Tell me what times work for you and I will confirm personally.
             {topic === null || topic === "medicare"
               ? " For a Medicare conversation, I’ll also confirm with you personally before we meet."
               : ""}{" "}

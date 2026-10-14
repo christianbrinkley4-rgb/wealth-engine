@@ -71,8 +71,8 @@ export function bookingUrlForTopic(
   topic: unknown,
   env: SchedulingEnvironment = PUBLIC_SCHEDULING_ENV,
 ): string | null {
-  const config = schedulingConfiguration(env);
-  if (topic == null) return config.genericUrl;
-  if (!isSchedulingTopic(topic)) return null;
-  return config.topicUrls[topic] ?? config.genericUrl;
+  // 2026-10-13: Calendar removed per Christian's direction. The Cal.com embed
+  // was not mobile-friendly and showed confusing time slots. All topics now
+  // use the request-a-time inquiry form at /start instead.
+  return null;
 }
