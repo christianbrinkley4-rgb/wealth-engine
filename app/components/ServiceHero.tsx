@@ -85,12 +85,12 @@ export function ServiceHero({
                 href={
                   eyebrow.toLowerCase().includes("medicare") ||
                   crumbs.some((crumb) => /medicare|annual|turning 65|anoc/i.test(crumb.name))
-                    ? "/schedule?topic=medicare#booking-calendar"
-                    : "/schedule"
+                    ? "/start?topic=medicare&quick=1"
+                    : "/start"
                 }
                 className="btn btn-light"
               >
-                Book a free consultation <ArrowRight size={18} aria-hidden />
+                Request a free consultation <ArrowRight size={18} aria-hidden />
               </Link>
             )}
             {!hidePhoneCta && (
@@ -104,11 +104,9 @@ export function ServiceHero({
                 {AGENT.phone}
               </a>
             )}
-            {!secondaryHref.startsWith("/schedule") && (
-              <Link ctaLocation="hero" href={secondaryHref} className="btn btn-ghost-light">
+            <Link ctaLocation="hero" href={secondaryHref} className="btn btn-ghost-light">
                 {label} <ArrowRight size={18} className="arrow" aria-hidden />
               </Link>
-            )}
           </div>
           {note ? (
             <div className="sh-note">{note}</div>

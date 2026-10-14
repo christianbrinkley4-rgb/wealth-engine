@@ -112,7 +112,7 @@ export default function MovingToNorthCarolinaMedicarePage() {
         eyebrow="Guide · Updated October 13, 2026"
         title="Moving to North Carolina on Medicare: what changes"
         lede="Retiring to the Triad? Your move changes your Medicare options. Here is what follows you, what doesn't, and what to handle before the boxes arrive."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free coverage review"
       />
 
@@ -253,7 +253,7 @@ export default function MovingToNorthCarolinaMedicarePage() {
       <KitchenTableClose
         heading="New to North Carolina? Let's get your coverage settled"
         body={`Tell me where you're moving from and when. We will make sure your Medicare lands smoothly in your new home. Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book a free review"
       />
 

@@ -33,7 +33,7 @@ export function ShiipAndAgent() {
             Find a SHIIP counselor in your county
           </a>
           {" or "}
-          <Link className="underline" href="/schedule?topic=medicare">
+          <Link className="underline" href="/start?topic=medicare&quick=1">
             book a free conversation with Christian
           </Link>
           .

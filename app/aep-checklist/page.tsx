@@ -174,8 +174,8 @@ export default function AepChecklistPage() {
         eyebrow="October 15 to December 7 · Annual Enrollment"
         title="AEP checklist: 10 things to review before December 7"
         lede="Your plan can change every January, even if you don't touch it. Here are ten things to check this fall. For each one: what to look at, where to find it, and why it matters."
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation →"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation →"
       />
 
       <section className="bg-white py-14">
@@ -296,8 +296,8 @@ export default function AepChecklistPage() {
       <KitchenTableClose
         heading="Want a second set of eyes on your list?"
         body="Bring your ANOC letter, your prescriptions, and your doctors' names. We'll go down this checklist together, in person or by phone, before December 7. Free consultation, no obligation to change anything."
-        href="/schedule?topic=medicare"
-        label="Book a free consultation →"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

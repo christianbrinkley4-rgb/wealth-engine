@@ -157,7 +157,7 @@ export default function AepQuizPage() {
       <KitchenTableClose
         heading="Not sure the quiz fits your situation?"
         body="Call me and we'll figure it out together in a few minutes. You'll reach me, not a call center."
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book my free review →"
       />
 

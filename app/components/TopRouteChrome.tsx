@@ -155,10 +155,10 @@ export function TopRouteChrome() {
             {!isAiRoute(pathname) && pathname !== "/schedule" && (
               <Link
                 ctaLocation="header"
-                href="/schedule?topic=medicare#booking-calendar"
+                href="/start?topic=medicare&quick=1"
                 className="btn btn-accent btn-sm nav-cta"
               >
-                Book a free consultation
+                Request a free consultation
               </Link>
             )}
             {!isAiRoute(pathname) && (
@@ -189,7 +189,7 @@ export function TopRouteChrome() {
       <nav id="site-menu" aria-label="Menu" className="nav-sheet" hidden={!menuOpen}>
         <ul>
           {[
-            { href: "/schedule?topic=medicare#booking-calendar", label: "Book a free consultation" },
+            { href: "/start?topic=medicare&quick=1", label: "Request a free consultation" },
             ...NAV,
             ...SHEET_EXTRA,
           ].map((item, index) => (
@@ -213,10 +213,10 @@ export function TopRouteChrome() {
           )}
           <Link
             ctaLocation="menu"
-            href="/schedule?topic=medicare#booking-calendar"
+            href="/start?topic=medicare&quick=1"
             className="btn btn-accent btn-block"
           >
-            Book a free consultation
+            Request a free consultation
           </Link>
         </div>
         <p className="nav-sheet-note">

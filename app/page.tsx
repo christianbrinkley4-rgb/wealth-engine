@@ -155,8 +155,8 @@ export default function HomePage() {
               pressure, no call center.
             </p>
             <div className="hx-actions" id="home-hero-actions">
-              <Link ctaLocation="hero" href="/schedule?topic=medicare#booking-calendar" className="btn btn-accent">
-                Book a free consultation <ArrowRight size={19} className="arrow" aria-hidden />
+              <Link ctaLocation="hero" href="/start?topic=medicare&quick=1" className="btn btn-accent">
+                Request a free consultation <ArrowRight size={19} className="arrow" aria-hidden />
               </Link>
               <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-outline">
                 <Phone size={18} aria-hidden /> Call {AGENT.phone}
@@ -516,8 +516,8 @@ export default function HomePage() {
             <Link href="/start?topic=medicare&quick=1" className="btn">
               Ask me a question <ArrowRight size={19} className="arrow" aria-hidden />
             </Link>
-            <Link href="/schedule?topic=medicare#booking-calendar" className="link-draw">
-              <span>Or book a time on my calendar</span> <ArrowRight size={17} aria-hidden />
+            <Link href="/start?topic=medicare&quick=1" className="link-draw">
+              <span>Or send a quick request and I will follow up</span> <ArrowRight size={17} aria-hidden />
             </Link>
           </div>
         </div>

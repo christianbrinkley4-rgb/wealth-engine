@@ -108,7 +108,7 @@ export default function CobraVsMedicareAt65Page() {
         eyebrow="Guide · Updated October 13, 2026"
         title="COBRA vs. Medicare at 65: why COBRA can cost you"
         lede="COBRA feels like the safe choice when you turn 65. Keep the plan you know. But COBRA does not protect you from Medicare's late penalties, and the mistake can follow you for life."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free coverage review"
       />
 
@@ -244,7 +244,7 @@ export default function CobraVsMedicareAt65Page() {
       <KitchenTableClose
         heading="Do not let COBRA cost you a penalty"
         body={`Tell me your timeline: when employment ended, when COBRA started. We will figure out your enrollment window and your cheapest path forward. Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book a free review"
       />
 

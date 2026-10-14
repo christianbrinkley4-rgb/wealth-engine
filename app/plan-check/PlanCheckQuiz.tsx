@@ -28,7 +28,7 @@ const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const STORAGE_KEY = "plan-check-progress-v1";
 /** The embedded Cal.com calendar, so booking never sends anyone to another site. */
-const BOOKING_HREF = "/schedule?topic=medicare";
+const BOOKING_HREF = "/start?topic=medicare&quick=1";
 
 interface QuizOption {
   label: string;

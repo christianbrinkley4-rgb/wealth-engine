@@ -152,7 +152,7 @@ export default function DoctorNetworksPage() {
         eyebrow="Guilford & Forsyth counties · Piedmont Triad"
         title="Can I keep my doctor?"
         lede="It's the first question almost everyone asks me, and it's the right one. But the answer has a trap in it, and the trap catches people every fall during Annual Enrollment."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Check my doctors with me →"
       />
 
@@ -291,7 +291,7 @@ export default function DoctorNetworksPage() {
                     <>
                       Yes,{" "}
                       <Link
-                        href="/schedule?topic=medicare"
+                        href="/start?topic=medicare&quick=1"
                         className="underline underline-offset-2"
                       >
                         bring your doctor list to a free review
@@ -324,7 +324,7 @@ export default function DoctorNetworksPage() {
       <KitchenTableClose
         heading="Let's check your doctors together"
         body="Bring your doctor list to a free review, in person around Greensboro or by phone, and we'll verify each one against the plans you're considering."
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book my free review →"
       />
 

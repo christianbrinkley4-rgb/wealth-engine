@@ -101,8 +101,8 @@ export default function MedicareSpouseYoungerThan65Page() {
         eyebrow="Guide · Updated October 13, 2026"
         title={"Going on Medicare when your spouse is younger than 65"}
         lede={"Medicare covers you. It doesn't cover your husband or wife. If you turn 65 first and your spouse has been on your health plan, you need a plan for them before you make any changes."}
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       <section className="bg-white py-14">
@@ -208,7 +208,7 @@ export default function MedicareSpouseYoungerThan65Page() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {"I'm a licensed insurance agent, so I can help with the Medicare side and point you to the right place for the rest. If you'd like to map out the dates for both of you, "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
             {". Your spouse is welcome to join."}
@@ -247,8 +247,8 @@ export default function MedicareSpouseYoungerThan65Page() {
       <KitchenTableClose
         heading={"Plan the gap for both of you"}
         body={`${"Tell me your birthday, your spouse's birthday, and when your employer coverage ends. We'll lay out the dates and the options side by side."} Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
-        label="Book a free consultation"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

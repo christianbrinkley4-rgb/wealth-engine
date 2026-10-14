@@ -287,7 +287,7 @@ export function PlanChecklist() {
             <a data-cta-location="tool_result" href={AGENT.phoneHref} className="btn">
               Call {AGENT.phone}
             </a>
-            <TrackedLink href="/schedule?topic=medicare#booking-calendar" ctaLocation="tool_result" className="btn btn-outline">
+            <TrackedLink href="/start?topic=medicare&quick=1" ctaLocation="tool_result" className="btn btn-outline">
               Book a time
             </TrackedLink>
           </div>

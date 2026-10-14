@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { CalendarClock, CheckCircle2, Mail, Phone, ShieldCheck } from "lucide-react";
+import { CheckCircle2, Mail, Phone, ShieldCheck } from "lucide-react";
 import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
@@ -76,18 +76,6 @@ const NEXT_READS: Record<InterestTopic, Array<{ href: string; label: string; blu
   ],
 };
 
-/**
- * The booking button used to read "Conversation options", which told a visitor
- * who had just answered four Medicare questions nothing about where it went.
- * Naming the topic is the difference between a link and an invitation.
- */
-const BOOKING_CTA: Record<InterestTopic, string> = {
-  medicare: "See Medicare times",
-  life_insurance: "See life insurance times",
-  financial_planning: "See times for retirement questions",
-  care_coverage: "See times for care coverage",
-};
-
 function ThankYouInner() {
   const searchParams = useSearchParams();
   const source = searchParams.get("source") ?? "";
@@ -150,9 +138,6 @@ function ThankYouInner() {
   );
 
   const reads = topicKey ? NEXT_READS[topicKey] : null;
-  const schedulingHref = topicKey
-    ? `${AGENT.schedulingUrl}?topic=${encodeURIComponent(topicKey)}`
-    : AGENT.schedulingUrl;
 
   return (
     <div className="bg-[var(--color-paper)] px-4 py-14 md:py-20">
@@ -185,41 +170,25 @@ function ThankYouInner() {
           ))}
         </ul>
 
-        {/* Booking is the action worth taking, so it gets the whole card. */}
+        {/* Confirmation: the request is done, no further step needed. */}
         <div className="card-surface mt-10 p-6 md:p-8">
           <div className="flex items-start gap-4">
-            <CalendarClock
-              className="mt-1 size-8 shrink-0 text-[var(--color-gold-ink)]"
+            <CheckCircle2
+              className="mt-1 size-8 shrink-0 text-[var(--color-success)]"
               strokeWidth={1.5}
               aria-hidden
             />
             <div>
               <h2 className="text-22 font-semibold text-[var(--color-navy)]">
-                Let’s arrange a conversation.
+                I&rsquo;ll be in touch soon.
               </h2>
               <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                Your answers are saved, so there is nothing to send again. You can pick a time now,
-                or wait for me to follow up, whichever you prefer.
+                Your request came straight to me. I personally read every inquiry and I&rsquo;ll
+                follow up within one business day. If you&rsquo;d rather talk now, call or text me
+                directly at the number below.
               </p>
             </div>
           </div>
-
-          <Link
-            href={schedulingHref}
-            className="text-18 mt-6 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px hover:shadow-[0_2px_4px_rgba(21,46,52,0.1),0_4px_16px_rgba(21,46,52,0.1)] active:translate-y-0 active:shadow-[0_1px_2px_rgba(21,46,52,0.08)]"
-          >
-            {topicKey ? BOOKING_CTA[topicKey] : "See available times"} →
-          </Link>
-
-          {/* Details below the button: what the meeting is, for someone who
-              has decided to tap, not a paragraph standing in their way. */}
-          <p className="text-16 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            We set aside 60 minutes, every day at 9am, 11am, 1pm, 3pm, and 5pm Eastern, with at
-            least 24 hours’ notice.
-            {topicKey === null || topicKey === "medicare"
-              ? " For a Medicare conversation, I’ll confirm with you personally before we meet."
-              : ""}
-          </p>
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">

@@ -102,8 +102,8 @@ export default function SwitchingMedicareAdvantageToMedigapNcPage() {
         eyebrow="Guide · Updated October 13, 2026"
         title={"Can you switch from Medicare Advantage to Medigap in North Carolina?"}
         lede={"Yes, you can leave a Medicare Advantage plan. The harder question is whether a Medicare Supplement company will take you afterward. In North Carolina, that often depends on your health."}
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       <section className="bg-white py-14">
@@ -225,7 +225,7 @@ export default function SwitchingMedicareAdvantageToMedigapNcPage() {
               {"Annual Enrollment page"}
             </Link>
             {". If you'd like to find out whether you'd likely be approved before you change anything, "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
             {". For a second opinion from someone who doesn't sell insurance, NC SHIIP is at 1-855-408-1212."}
@@ -275,8 +275,8 @@ export default function SwitchingMedicareAdvantageToMedigapNcPage() {
       <KitchenTableClose
         heading={"Find out where you stand before you switch"}
         body={`${"Tell me when you joined your Medicare Advantage plan and what's prompting the change. We'll check whether you have a guaranteed right and what the safe order of steps looks like."} Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
-        label="Book a free consultation"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

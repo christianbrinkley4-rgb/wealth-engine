@@ -101,8 +101,8 @@ export default function MedicarePrescriptionPaymentPlanPage() {
         eyebrow="Guide · Updated October 13, 2026"
         title={"The Medicare Prescription Payment Plan: spreading drug costs over the year"}
         lede={"If your prescriptions hit hard in the first few months of the year, there's an option that lets you spread those costs out. It doesn't lower what you owe. It changes when you pay it."}
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       <section className="bg-white py-14">
@@ -220,7 +220,7 @@ export default function MedicarePrescriptionPaymentPlanPage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {"If you'd like to go through your prescriptions together and see whether the payment plan makes sense for you, "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
             {". Bring your medication list with doses."}
@@ -270,8 +270,8 @@ export default function MedicarePrescriptionPaymentPlanPage() {
       <KitchenTableClose
         heading={"See what your prescriptions cost next year"}
         body={`${"Bring your medication list with doses and the pharmacy you use. We'll look at your drug costs for next year and whether spreading them out would help."} Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
-        label="Book a free consultation"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

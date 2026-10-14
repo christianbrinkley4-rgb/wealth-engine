@@ -101,8 +101,8 @@ export default function MedicareAdvantagePriorAuthorizationPage() {
         eyebrow="Guide · Updated October 13, 2026"
         title={"Medicare Advantage prior authorization: what to do when care is denied"}
         lede={"Your doctor ordered something, and your plan said it needs approval first. Or worse, it said no. That's prior authorization. You have more options than the denial letter makes it feel like."}
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       <section className="bg-white py-14">
@@ -211,7 +211,7 @@ export default function MedicareAdvantagePriorAuthorizationPage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {"If you want help reading a denial letter or weighing whether to change plans, "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
             {". I don't decide appeals, but I can help you understand the letter and your choices."}
@@ -257,8 +257,8 @@ export default function MedicareAdvantagePriorAuthorizationPage() {
       <KitchenTableClose
         heading={"Read the denial letter with someone"}
         body={`${"Bring the letter and your plan card. We'll go through what it says, what your deadline is, and whether your plan still fits the care you need."} Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
-        label="Book a free consultation"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

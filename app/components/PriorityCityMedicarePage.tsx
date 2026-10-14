@@ -53,7 +53,7 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
         eyebrow={city.county}
         title={city.heading}
         lede={`Free Medicare help in ${city.name} from Christian Brinkley, a licensed NC insurance agent. We can review your county, doctors, prescriptions, and enrollment dates by phone or at an agreed meeting. No obligation to enroll.`}
-        secondaryHref="/schedule?topic=medicare#booking-calendar"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Book a free conversation"
       />
       <MedicareByline reviewed="2026-10-13" />
@@ -139,7 +139,7 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
       <KitchenTableClose
         heading={city.ctaHeading}
         body={city.ctaLine}
-        href="/schedule?topic=medicare#booking-calendar"
+        href="/start?topic=medicare&quick=1"
         label="Book a free Medicare conversation"
       />
       <div className="app-shell max-w-3xl pb-12">

@@ -113,7 +113,7 @@ export default function NcStateHealthPlanMedicarePage() {
         eyebrow="Guide · Updated October 13, 2026"
         title="NC State Health Plan retirees and Medicare"
         lede="Turning 65 on the State Health Plan? Your coverage changes in ways that surprise people. Here is what happens and what you have to do."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free coverage review"
       />
 
@@ -259,7 +259,7 @@ export default function NcStateHealthPlanMedicarePage() {
       <KitchenTableClose
         heading="State retiree? Let's walk through your three options"
         body={`Tell me where you are in the process. We will make sure your Medicare enrollment lines up with your retiree coverage. Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book a free review"
       />
 

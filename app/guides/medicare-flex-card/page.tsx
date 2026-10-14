@@ -101,8 +101,8 @@ export default function MedicareFlexCardPage() {
         eyebrow="Guide · Updated October 13, 2026"
         title={"Is the Medicare flex card real? What those ads don't tell you"}
         lede={"You've seen the ads. A card loaded with money for groceries, gas, and bills, just for being on Medicare. Part of that is real. A lot of it isn't. Here's the difference."}
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       <section className="bg-white py-14">
@@ -226,7 +226,7 @@ export default function MedicareFlexCardPage() {
               {"Annual Enrollment page"}
             </Link>
             {". If you want to look at it together, you can "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
             {". I'll check your doctors and prescriptions first, and then we can see whether any extras are worth it."}
@@ -265,8 +265,8 @@ export default function MedicareFlexCardPage() {
       <KitchenTableClose
         heading={"Check the plan before the card"}
         body={`${"Bring the ad or the mailer. We'll find out which plan it's for, whether it's sold in your county, and whether your doctors and prescriptions fit."} Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
-        label="Book a free consultation"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

@@ -109,7 +109,7 @@ export default function ConeHealthMedicareDoctorsPage() {
         eyebrow="Guide · Updated October 13, 2026"
         title="Which Medicare plans work with Cone Health doctors?"
         lede="Your doctor matters more than your plan's brochure. Here is how to make sure the two still go together before you enroll for 2027."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free coverage review"
       />
 
@@ -276,7 +276,7 @@ export default function ConeHealthMedicareDoctorsPage() {
       <KitchenTableClose
         heading="Keep your doctors, pick your plan with confidence"
         body={`Tell me which doctors you see. We will check them against next year's plans together, before Annual Enrollment ends. Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book a free review"
       />
 

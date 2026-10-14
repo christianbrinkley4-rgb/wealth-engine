@@ -109,7 +109,7 @@ export default function ExtraHelpMedicareSavingsProgramsNcPage() {
         eyebrow="Guide · Updated October 13, 2026"
         title="Extra Help and Medicare Savings Programs in North Carolina"
         lede="Medicare costs too much for a lot of good people. Two programs exist for exactly that situation, and most people who qualify have never heard of them."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free coverage review"
       />
 
@@ -228,7 +228,7 @@ export default function ExtraHelpMedicareSavingsProgramsNcPage() {
       <KitchenTableClose
         heading="Pay less for Medicare if you qualify"
         body={`Bring your income details and your current plan. We will check whether Extra Help or a Medicare Savings Program fits, and help you apply. Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book a free review"
       />
 

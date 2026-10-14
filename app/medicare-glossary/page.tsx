@@ -313,8 +313,8 @@ export default function MedicareGlossaryPage() {
         eyebrow="A to Z · Plain English"
         title="Medicare terms explained simply"
         lede={`${TERMS.length} words you'll see in your Medicare mail and hear at the doctor's office. Each one gets a sentence or two. If a word still doesn't make sense, call me and I'll explain it for your situation.`}
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation →"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation →"
       />
 
       <section className="bg-white py-14">
@@ -406,8 +406,8 @@ export default function MedicareGlossaryPage() {
       <KitchenTableClose
         heading="Got a letter you can't make sense of?"
         body="Bring it with you, or read it to me over the phone. I'll tell you what it means for you and whether you need to do anything. Free consultation, no obligation."
-        href="/schedule?topic=medicare"
-        label="Book a free consultation →"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

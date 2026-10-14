@@ -101,8 +101,8 @@ export default function MedigapPremiumIncreasePage() {
         eyebrow="Guide · Updated October 13, 2026"
         title={"Why did my Medicare Supplement premium go up?"}
         lede={"The letter says your Medicare Supplement premium is going up, and you didn't do anything different. That's normal, and it's not about you personally. Here's why it happens and what you can do."}
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       <section className="bg-white py-14">
@@ -225,7 +225,7 @@ export default function MedigapPremiumIncreasePage() {
           </ul>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {"If you'd like me to check what the same plan letter costs elsewhere and whether you'd likely be approved, "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
             {". If staying put is the better move, I'll tell you that."}
@@ -275,8 +275,8 @@ export default function MedigapPremiumIncreasePage() {
       <KitchenTableClose
         heading={"Compare before you cancel anything"}
         body={`${"Bring the letter and your policy. We'll look at how your plan is priced, what the same letter costs at other companies, and whether switching makes sense."} Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
-        label="Book a free consultation"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

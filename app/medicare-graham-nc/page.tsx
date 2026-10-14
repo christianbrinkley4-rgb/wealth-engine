@@ -83,7 +83,7 @@ function CtaBlock() {
           Take the plan-fit quiz
         </Link>
         <a
-          href="/schedule?topic=medicare"
+          href="/start?topic=medicare&quick=1"
           className="btn btn-outline"
         >
           Book a free call
@@ -305,7 +305,7 @@ export default function MedicareGrahamPage() {
       <KitchenTableClose
         heading="Straight answers, plain English"
         body="I'd rather you hear it from a real person than from a mailer. About fifteen minutes, free, and you'll actually understand your options."
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book my free review →"
       />
 

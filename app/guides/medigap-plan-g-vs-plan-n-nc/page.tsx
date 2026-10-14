@@ -113,7 +113,7 @@ export default function PlanGVsPlanNPage() {
         eyebrow="Guide · Updated October 13, 2026"
         title="Medigap Plan G vs Plan N in North Carolina"
         lede="The two most popular Medigap plans look almost identical. Three differences decide which one fits you."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free Medigap review"
       />
 
@@ -250,7 +250,7 @@ export default function PlanGVsPlanNPage() {
       <KitchenTableClose
         heading="Plan G or Plan N? Let's do the math together"
         body={`Tell me about your doctors and how often you see them. We will figure out which plan actually costs less for you. Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book a free review"
       />
 

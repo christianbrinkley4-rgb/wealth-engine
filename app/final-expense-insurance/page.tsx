@@ -77,7 +77,7 @@ function CtaBlock() {
           <Link href="/start?topic=life_insurance" className="btn">
             Start the conversation →
           </Link>
-          <a href="/schedule?topic=life_insurance" className="btn btn-outline">
+          <a href="/start?topic=life_insurance&quick=1" className="btn btn-outline">
             Book a free call
           </a>
         </div>

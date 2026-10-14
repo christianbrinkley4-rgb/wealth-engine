@@ -272,7 +272,7 @@ export default function AnocPage() {
       <KitchenTableClose
         heading="That letter won't read itself"
         body="The changes take effect January 1 either way. About fifteen minutes with me now beats a surprise in January. Free, no pressure."
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book my free review →"
       />
 

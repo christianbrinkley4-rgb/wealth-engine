@@ -113,7 +113,7 @@ export default function MarketplaceToMedicarePage() {
         eyebrow="Guide · Updated October 13, 2026"
         title="Turning 65 on an ACA Marketplace plan"
         lede="Your Marketplace subsidies end when Medicare starts. Here is the timing, the cancellation step people forget, and the HSA trap."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free transition review"
       />
 
@@ -271,7 +271,7 @@ export default function MarketplaceToMedicarePage() {
       <KitchenTableClose
         heading="Turning 65 on a Marketplace plan? Let's time it right"
         body={`Tell me when you turn 65 and what coverage you have now. We will map out the enrollment, the cancellation, and the HSA timing. Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book a free review"
       />
 

@@ -287,7 +287,7 @@ export default function MedicareCreedmoorPage() {
       <KitchenTableClose
         heading="From Creedmoor, for Creedmoor"
         body="I'd rather you hear it from a neighbor than a call center. About fifteen minutes, free, and you'll actually understand your options."
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book my free review →"
       />
 

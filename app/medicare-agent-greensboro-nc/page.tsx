@@ -64,7 +64,7 @@ export default function MedicareAgentGreensboroPage() {
         eyebrow="Greensboro and Guilford County"
         title="Medicare help in Greensboro, NC"
         lede="Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. We can review your doctors, prescriptions, enrollment dates, and the plans I represent. Meet at home or talk by phone. There's no obligation to enroll."
-        secondaryHref="/schedule?topic=medicare#booking-calendar"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Book a free Medicare conversation"
       />
       <MedicareByline reviewed="2026-10-12" />
@@ -168,7 +168,7 @@ export default function MedicareAgentGreensboroPage() {
       <KitchenTableClose
         heading="Bring your Medicare questions"
         body="We'll go through your doctors, prescriptions, and coverage options together. Free, with no obligation to enroll."
-        href="/schedule?topic=medicare#booking-calendar"
+        href="/start?topic=medicare&quick=1"
         label="Book a free conversation"
       />
       <div className="measure-prose app-shell max-w-3xl pb-12">

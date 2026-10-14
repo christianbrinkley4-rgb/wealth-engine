@@ -101,8 +101,8 @@ export default function MedicareUnder65DisabilityNcPage() {
         eyebrow="Guide · Updated October 13, 2026"
         title={"Medicare under 65 on disability (SSDI) in North Carolina"}
         lede={"Medicare isn't only for people 65 and older. If you're on Social Security Disability, it's coming, usually after two years. North Carolina also gives you a right that many states don't."}
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       <section className="bg-white py-14">
@@ -229,7 +229,7 @@ export default function MedicareUnder65DisabilityNcPage() {
           </ul>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {"If you'd like to go through it together, "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
             {". A family member or caregiver is welcome to join. For free counseling from someone who doesn't sell insurance, call NC SHIIP at 1-855-408-1212."}
@@ -279,8 +279,8 @@ export default function MedicareUnder65DisabilityNcPage() {
       <KitchenTableClose
         heading={"Don't let the six-month window pass by accident"}
         body={`${"Tell me your Part B start date. We'll mark your North Carolina window, check your doctors and prescriptions, and see whether you qualify for help with costs."} Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
-        label="Book a free consultation"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

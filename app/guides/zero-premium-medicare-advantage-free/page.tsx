@@ -108,7 +108,7 @@ export default function ZeroPremiumMedicareAdvantageFreePage() {
         eyebrow="Guide · Updated October 13, 2026"
         title="Is a $0 premium Medicare Advantage plan really free?"
         lede="The ads say $0 premium like the plan costs nothing. It does not. Here is the full bill, and how to tell if the plan is actually a good deal for you."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free coverage review"
       />
 
@@ -242,7 +242,7 @@ export default function ZeroPremiumMedicareAdvantageFreePage() {
       <KitchenTableClose
         heading="Find out what your plan really costs"
         body={`Bring your current plan and your prescription list. We will add up the real yearly total together and see if a $0 premium plan is actually your cheapest option. Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book a free review"
       />
 

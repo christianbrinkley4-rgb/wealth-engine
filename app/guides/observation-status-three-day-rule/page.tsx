@@ -101,8 +101,8 @@ export default function ObservationStatusThreeDayRulePage() {
         eyebrow="Guide · Updated October 13, 2026"
         title={"Observation status and the 3-day rule: why your hospital stay matters"}
         lede={"You can sleep in a hospital bed for two or three nights and never be admitted. It's called observation status. It changes how you're billed, and it can decide whether Medicare pays for rehab afterward."}
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       <section className="bg-white py-14">
@@ -198,7 +198,7 @@ export default function ObservationStatusThreeDayRulePage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {"If you want to go over how your current coverage would handle a hospital stay, "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
             {". It's easier to sort out at home than from a hospital room."}
@@ -244,8 +244,8 @@ export default function ObservationStatusThreeDayRulePage() {
       <KitchenTableClose
         heading={"Know your coverage before you need it"}
         body={`${"Bring your plan card or your Medicare Supplement policy. We'll look at what a hospital stay and rehab would cost you under the coverage you have now."} Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
-        label="Book a free consultation"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

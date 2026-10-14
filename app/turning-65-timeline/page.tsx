@@ -153,10 +153,10 @@ export default function Turning65TimelinePage() {
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row print:hidden">
             <Link
-              href="/schedule?topic=medicare"
+              href="/start?topic=medicare&quick=1"
               className="rounded-lg bg-[var(--color-navy)] px-8 py-4 text-center text-[22px] font-semibold text-white"
             >
-              Book a free consultation
+              Request a free consultation
             </Link>
             <a
               href="tel:+19194086671"
@@ -241,8 +241,8 @@ export default function Turning65TimelinePage() {
         <KitchenTableClose
           heading="Turning 65 soon? Let's walk through it together."
           body="Bring your questions and your current coverage details. We will go through your timeline one step at a time. Free consultation, no obligation, and your family is welcome."
-          href="/schedule?topic=medicare"
-          label="Book a free consultation →"
+          href="/start?topic=medicare&quick=1"
+          label="Request a free consultation →"
         />
       </div>
 

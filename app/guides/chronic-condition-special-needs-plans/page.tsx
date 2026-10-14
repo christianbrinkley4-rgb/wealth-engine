@@ -101,8 +101,8 @@ export default function ChronicConditionSpecialNeedsPlansPage() {
         eyebrow="Guide · Updated October 13, 2026"
         title={"Chronic condition special needs plans (C-SNPs): who qualifies"}
         lede={"If you have diabetes, heart failure, or a chronic lung condition, you may have heard there's a kind of Medicare plan made for you. There is. It's worth understanding before you decide if it fits."}
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       <section className="bg-white py-14">
@@ -227,7 +227,7 @@ export default function ChronicConditionSpecialNeedsPlansPage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {"Or "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               {"book a free consultation"}
             </Link>
             {" and we'll check together whether any plan I offer for your condition is sold at your address, and whether your doctors and prescriptions fit. I don't offer every plan in the area, and I'll tell you when Medicare.gov is the better place to look."}
@@ -266,8 +266,8 @@ export default function ChronicConditionSpecialNeedsPlansPage() {
       <KitchenTableClose
         heading={"Check the plan against your whole care team"}
         body={`${"Bring your doctors, your prescriptions, and your diagnosis. We'll see what's offered at your address and whether it fits everything, not only the one condition."} Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
-        label="Book a free consultation"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

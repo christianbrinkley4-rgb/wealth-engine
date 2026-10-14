@@ -151,7 +151,7 @@ export default function MedicareScamAlertPage() {
         eyebrow="Greensboro, Winston-Salem & High Point · Updated for open enrollment"
         title="If Medicare calls you about money, it is not Medicare"
         lede="Every year during open enrollment, scammers call seniors pretending to be from Medicare. This year they are calling about a real $90 payment and using it as bait to steal bank and Medicare information. Here is how the scam works, what Medicare will never do, and what to do if you get the call."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Talk to a real local agent →"
       />
 
@@ -236,8 +236,8 @@ export default function MedicareScamAlertPage() {
       <KitchenTableClose
         heading="Not sure about a call or letter you got?"
         body="Bring it to me before you respond to it. I would rather spend ten minutes looking at something suspicious with you than have you learn the hard way. Free consultation, no obligation."
-        href="/schedule?topic=medicare"
-        label="Book a free consultation →"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

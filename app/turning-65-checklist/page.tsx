@@ -153,7 +153,7 @@ export default function Turning65ChecklistPage() {
         eyebrow="Piedmont Triad · Greensboro, High Point, Winston-Salem"
         title="The Turning-65 Checklist: 8 steps before your 65th birthday"
         lede="Turning 65 comes with a pile of mail and a lot of noise. This is the checklist I walk through with people before their 65th birthday. Print it, work it top to bottom, and you will know exactly where you stand."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Walk through it with me →"
       />
 
@@ -172,7 +172,7 @@ export default function Turning65ChecklistPage() {
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             I&apos;m Christian Brinkley, a licensed Medicare agent here in Greensboro. I do not
             charge for this help. If you get stuck on any step,{" "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               book a free walkthrough
             </Link>{" "}
             or call me at {AGENT.phone}.
@@ -299,7 +299,7 @@ export default function Turning65ChecklistPage() {
       <KitchenTableClose
         heading="Work the checklist with me"
         body="Bring your 65th birthday month and your current insurance card. We will walk all eight steps together, free, no obligation, about 30 minutes."
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book my free walkthrough →"
       />
 

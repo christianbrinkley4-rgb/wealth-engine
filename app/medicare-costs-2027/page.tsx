@@ -180,8 +180,8 @@ export default function MedicareCosts2027Page() {
         eyebrow="Checked October 13, 2026 · Official CMS figures only"
         title="Medicare costs 2027"
         lede="Here's what CMS has officially published for 2027, and what it hasn't. The Part D numbers are final. The Part A, Part B, and IRMAA numbers aren't out yet, so I show the 2026 amounts with the year on every one. No estimates."
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation →"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation →"
       />
 
       <section className="bg-white py-14">
@@ -392,8 +392,8 @@ export default function MedicareCosts2027Page() {
       <KitchenTableClose
         heading="Want to see what 2027 costs you?"
         body="These are the national numbers. Your plan's premium, copays, and drug costs are in its Annual Notice of Change. Bring that letter and your prescription list, and we'll go through it together before December 7. Free consultation, no obligation."
-        href="/schedule?topic=medicare"
-        label="Book a free consultation →"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

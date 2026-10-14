@@ -83,8 +83,8 @@ const CHECKS = [
 
 const STEPS = [
   {
-    t: "You book a time",
-    b: `Book below, or call me at ${AGENT.phone}. My hours are Monday to Saturday, 9:00 to 5:00.`,
+    t: "You reach out",
+    b: `Send a quick request, or call me at ${AGENT.phone}. Tell me a time that works for you. I am available Monday to Saturday, 8:00 to 6:00.`,
   },
   {
     t: "We talk",
@@ -177,8 +177,8 @@ export default function AepPage() {
         eyebrow="October 15 to December 7, 2026 · Piedmont Triad"
         title={AEP_HERO_TITLES[aepPhase()]}
         lede="Annual Enrollment runs October 15 through December 7. Talk with Christian Brinkley about your 2027 doctors, prescriptions, and costs. Free, in person or by phone."
-        secondaryHref="/schedule?topic=medicare#booking-calendar"
-        secondaryLabel="Book a free consultation"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation"
       />
 
       {/* ANOC campaign, the September letter, translated into plain English. */}
@@ -443,10 +443,10 @@ export default function AepPage() {
       </ReadNext>
 
       <KitchenTableClose
-        heading="Book your free fall review"
-        body="Choose a date and time for a free conversation about your Medicare questions. I'll arrange any required appointment paperwork before we discuss specific plans. No obligation to enroll."
-        href="/schedule?topic=medicare#booking-calendar"
-        label="Book a free consultation"
+        heading="Request your free fall review"
+        body="Tell me about your situation and when works for you. I'll arrange any required appointment paperwork before we discuss specific plans. No obligation to enroll."
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

@@ -133,8 +133,8 @@ export default function MedicareHelpDirectoryPage() {
         eyebrow="Greensboro, Winston-Salem & High Point · No cost, no catch"
         title="Free Medicare help in the Triad"
         lede="You do not have to figure Medicare out alone, and you do not have to pay for help. These are real, verified programs that answer Medicare questions for free in our area. I put this list together because I send people to these resources all the time. Every entry below was verified before I published it."
-        secondaryHref="/schedule?topic=medicare"
-        secondaryLabel="Book a free consultation with me →"
+        secondaryHref="/start?topic=medicare&quick=1"
+        secondaryLabel="Request a free consultation with me →"
       />
 
       <section className="bg-white py-14">
@@ -193,7 +193,7 @@ export default function MedicareHelpDirectoryPage() {
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             A lot of people do both: get the unbiased overview from a counselor, then sit down
             with an agent to compare specific plans and enroll. If you want that second part,{" "}
-            <Link href="/schedule?topic=medicare" className="underline underline-offset-2">
+            <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
               book a free consultation
             </Link>
             . It costs nothing and there is no obligation.
@@ -225,8 +225,8 @@ export default function MedicareHelpDirectoryPage() {
       <KitchenTableClose
         heading="Want to talk it through with a local agent?"
         body="Free consultation, no obligation. We can meet at your home, talk by phone, or meet somewhere convenient. Bring your questions and we will take them one at a time."
-        href="/schedule?topic=medicare"
-        label="Book a free consultation →"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free consultation →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

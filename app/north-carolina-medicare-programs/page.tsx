@@ -153,7 +153,7 @@ export default function NorthCarolinaMedicarePrograms() {
         eyebrow="North Carolina Medicare resources"
         title="North Carolina programs that help with Medicare"
         lede="Start with the kind of help you need: independent counseling, lower premiums, prescription assistance, or support at home. Here are North Carolina's application paths and the rules to check before choosing a plan."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Talk through your options"
       />
       <MedicareByline reviewed="2026-10-12" />
@@ -234,7 +234,7 @@ export default function NorthCarolinaMedicarePrograms() {
           Read the Greensboro Medicare guide
         </Link>{" "}
         or{" "}
-        <Link className="underline" href="/schedule?topic=medicare">
+        <Link className="underline" href="/start?topic=medicare&quick=1">
           book a free conversation
         </Link>
         .

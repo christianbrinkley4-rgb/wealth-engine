@@ -108,7 +108,7 @@ export default function MedicareInHomeCarePage() {
         eyebrow="Guide · Updated October 13, 2026"
         title="Does Medicare pay for in-home care?"
         lede="This is one of the most painful misunderstandings in Medicare. Families assume help at home is covered. Then they learn the line Medicare draws, and it is not where they expected."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free coverage review"
       />
 
@@ -245,7 +245,7 @@ export default function MedicareInHomeCarePage() {
       <KitchenTableClose
         heading="Get clear answers about home care coverage"
         body={`Tell me what kind of help your family needs. We will sort out what Medicare covers and what your options are for the rest. Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book a free review"
       />
 

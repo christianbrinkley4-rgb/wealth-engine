@@ -114,7 +114,7 @@ export default function PlansLeavingNc2027Page() {
         eyebrow="Guide · Updated October 13, 2026"
         title="Medicare Advantage plans leaving North Carolina in 2027"
         lede="Some plans are ending for 2027. Here is what is verified, how to tell if yours is affected, and what to do about it."
-        secondaryHref="/schedule?topic=medicare"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free plan review"
       />
 
@@ -277,7 +277,7 @@ export default function PlansLeavingNc2027Page() {
       <KitchenTableClose
         heading="Plan ending? Let's find your next one"
         body={`Bring your letter and your prescription list. We will compare your options side by side before December 7. Call or text ${AGENT.phone}.`}
-        href="/schedule?topic=medicare"
+        href="/start?topic=medicare&quick=1"
         label="Book a free review"
       />
 
