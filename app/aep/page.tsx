@@ -7,12 +7,14 @@ import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
 
-
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { LeadCluster } from "@/app/components/LeadCluster";
 import { ServiceHero } from "@/app/components/ServiceHero";
+import { EngineContact } from "@/components/EngineContact";
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
+import "@/app/lead-engine.css";
 import { AEP_HERO_TITLES, aepPhase } from "@/lib/aep";
 import { AGENT } from "@/lib/agent";
 import {
@@ -173,13 +175,44 @@ export default function AepPage() {
       />
 
       <ServiceHero
+        variant="compact"
         crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment for 2027" }]}
         eyebrow="October 15 to December 7, 2026 · Piedmont Triad"
         title={AEP_HERO_TITLES[aepPhase()]}
         lede="Annual Enrollment runs October 15 through December 7. Talk with Christian Brinkley about your 2027 doctors, prescriptions, and costs. Free, in person or by phone."
-        secondaryHref="/start?topic=medicare&quick=1"
-        secondaryLabel="Request a free consultation"
+        secondaryHref="#request-review"
+        secondaryLabel="Request a Medicare review"
       />
+
+      <section
+        id="request-review"
+        className="engine shell"
+        aria-label="Request a Medicare review"
+        style={{ scrollMarginTop: 100 }}
+      >
+        <p className="engine-eyebrow">I’m 21. I’m a licensed NC insurance agent in Greensboro.</p>
+        <div className="engine-grid">
+          <EngineContact />
+          <aside className="engine-card">
+            <h2>Or choose a time to talk</h2>
+            <p>
+              Bring your plan letter and your questions. We can review what to check for 2027,
+              including doctors, prescriptions, and costs.
+            </p>
+            <a className="engine-button" href={ENGINE_BOOKING_URL}>
+              Open my Medicare calendar
+            </a>
+            <p>No cost for the conversation. No obligation to enroll.</p>
+            <p>
+              Still organizing your questions?{" "}
+              <Link href="/medicare-fit">Try the five-question checklist</Link>.
+            </p>
+            <p>
+              <a href={AGENT.phoneHref}>{AGENT.phone}</a>
+            </p>
+          </aside>
+        </div>
+      </section>
 
       {/* ANOC campaign, the September letter, translated into plain English. */}
       <section className="bg-[var(--color-paper)] py-14">
@@ -316,12 +349,14 @@ export default function AepPage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Open enrollment in Greensboro and Guilford County</h2>
+          <h2 className="text-28 font-semibold">
+            Open enrollment in Greensboro and Guilford County
+          </h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
               I am based in Greensboro, so most of my fall reviews happen right here in Guilford
-              County: at kitchen tables across the city, from Irving Park to Adams Farm, or by
-              phone when that is easier. If you are in{" "}
+              County: at kitchen tables across the city, from Irving Park to Adams Farm, or by phone
+              when that is easier. If you are in{" "}
               <Link href="/medicare-agent-high-point-nc" className="underline underline-offset-2">
                 High Point
               </Link>
@@ -333,21 +368,15 @@ export default function AepPage() {
                 Winston-Salem
               </Link>
               , or{" "}
-              <Link
-                href="/medicare-agent-kernersville-nc"
-                className="underline underline-offset-2"
-              >
+              <Link href="/medicare-agent-kernersville-nc" className="underline underline-offset-2">
                 Kernersville
               </Link>
               , I come to you too. Folks in{" "}
-              <Link
-                href="/medicare-agent-burlington-nc"
-                className="underline underline-offset-2"
-              >
+              <Link href="/medicare-agent-burlington-nc" className="underline underline-offset-2">
                 Burlington
               </Link>{" "}
-              get the same help by phone or in person. The review works the same everywhere in
-              the Triad.
+              get the same help by phone or in person. The review works the same everywhere in the
+              Triad.
             </p>
             <p>
               One local detail worth knowing: Medicare Advantage plan lineups can differ between
@@ -356,9 +385,9 @@ export default function AepPage() {
               different. I check availability at your home address, not someone else&apos;s.
             </p>
             <p>
-              If your doctors are at Cone Health, Novant, or a private practice in town, bring
-              their names. I will confirm each one against next year&apos;s plan documents
-              together, so there are no surprises in January.
+              If your doctors are at Cone Health, Novant, or a private practice in town, bring their
+              names. I will confirm each one against next year&apos;s plan documents together, so
+              there are no surprises in January.
             </p>
           </div>
         </div>
@@ -419,9 +448,8 @@ export default function AepPage() {
           Before you review coverage, read the{" "}
           <Link href="/medicare-changes-2027">2027 changes</Link> and the{" "}
           <Link href="/medicare-part-d-donut-hole-2027">Part D cap explanation</Link>, then work
-          through the{" "}
-          <Link href="/aep-checklist">Annual Enrollment checklist</Link>
-          . If your plan is not renewing, see the{" "}
+          through the <Link href="/aep-checklist">Annual Enrollment checklist</Link>. If your plan
+          is not renewing, see the{" "}
           <Link href="/guides/medicare-plan-not-renewing-triad">Triad checklist</Link>.
         </p>
         <ChecklistPointer />
@@ -438,7 +466,14 @@ export default function AepPage() {
         <ComplianceDisclosure variant="medicare" />
       </div>
       <MedicareByline reviewed="2026-10-12" />
-      <TrafficGuideLinks slugs={["medicare-plan-not-renewing-triad", "medicare-dual-eligible-snp-triad", "medicare-part-b-giveback-plans", "medicare-advantage-open-enrollment-period"]} />
+      <TrafficGuideLinks
+        slugs={[
+          "medicare-plan-not-renewing-triad",
+          "medicare-dual-eligible-snp-triad",
+          "medicare-part-b-giveback-plans",
+          "medicare-advantage-open-enrollment-period",
+        ]}
+      />
       <RelatedMedicareGuides />
     </main>
   );

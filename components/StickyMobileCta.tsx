@@ -27,6 +27,7 @@ const HIDE_PREFIXES = [
   // Keep contact bars clear of print cards, reviews, and interactive tool fields.
   "/review",
   "/tools",
+  "/medicare-fit",
   "/medicare-plan-checklist",
   "/plan-checklist-tool",
   "/greensboro-medicare-cost-calculator",

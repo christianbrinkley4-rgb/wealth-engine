@@ -1,0 +1,206 @@
+.engine {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px 100px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #142f3d;
+}
+.engine-heading {
+  max-width: 760px;
+  margin: 0 auto 36px;
+}
+.engine h1 {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  line-height: 1.12;
+  margin: 14px 0 24px;
+}
+.engine h2 {
+  font-size: 1.65rem;
+  line-height: 1.25;
+  margin: 0 0 20px;
+}
+.engine h2:focus {
+  outline: 2px solid #ae7b2d;
+  outline-offset: 5px;
+}
+.engine p {
+  margin: 16px 0;
+}
+.engine-eyebrow {
+  font-size: 16px;
+  font-weight: 700;
+}
+.engine-card {
+  background: #fff;
+  border: 1px solid #c6d0d5;
+  border-radius: 20px;
+  padding: clamp(20px, 4vw, 36px);
+  margin: 20px 0;
+  box-shadow: 0 10px 35px #142f3d08;
+}
+.engine-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+.engine-button,
+.engine-options button {
+  display: inline-block;
+  border: 0;
+  border-radius: 10px;
+  background: #153c4c;
+  color: #fff;
+  padding: 16px 22px;
+  min-height: 52px;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+.engine-button:focus-visible,
+.engine-options button:focus-visible,
+.engine-back:focus-visible {
+  outline: 3px solid #a46713;
+  outline-offset: 4px;
+}
+.engine-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+.engine-form {
+  display: flex;
+  flex-direction: column;
+}
+.engine-form > label {
+  font-weight: 700;
+  margin-top: 18px;
+}
+.engine-form > input {
+  border: 1px solid #72858f;
+  border-radius: 8px;
+  padding: 12px;
+  min-width: 0;
+  width: 100%;
+  font: inherit;
+  min-height: 52px;
+}
+.engine-form > input:focus {
+  outline: 3px solid #a46713;
+  outline-offset: 2px;
+}
+.engine-consent {
+  display: flex;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 400 !important;
+  align-items: flex-start;
+}
+.engine-consent input {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 5px;
+  accent-color: #153c4c;
+}
+.engine-small {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.engine a:not(.engine-button):not(.engine-call) {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.engine-error {
+  background: #fff1ee;
+  color: #862b1a;
+  padding: 14px;
+  border: 1px solid #b55d48;
+  border-radius: 6px;
+}
+.engine-options {
+  display: grid;
+  gap: 14px;
+}
+.engine-options button {
+  background: #f4f7f8;
+  color: #142f3d;
+  text-align: left;
+  border: 1px solid #72858f;
+  font-weight: 400;
+}
+.engine-options button:hover,
+.engine-options button[aria-pressed="true"] {
+  background: #dce9ee;
+  border-color: #153c4c;
+}
+.engine progress {
+  width: 100%;
+  height: 12px;
+  margin-bottom: 24px;
+  accent-color: #153c4c;
+}
+.engine-back {
+  font: inherit;
+  text-decoration: underline;
+  margin-top: 20px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.engine li {
+  margin-bottom: 14px;
+}
+.engine-call {
+  display: none;
+}
+.engine-sr {
+  position: absolute;
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+@media (max-width: 700px) {
+  .engine-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .engine {
+    padding-top: 24px;
+  }
+  .engine-call {
+    display: block;
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    background: #153c4c;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    z-index: 60;
+    box-shadow: 0 3px 18px #0003;
+  }
+  .engine-button {
+    width: 100%;
+  }
+}
+@media print {
+  .engine-call,
+  .engine-button {
+    display: none;
+  }
+  .engine-card {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  .engine {
+    padding: 0;
+  }
+}

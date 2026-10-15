@@ -27,6 +27,9 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         headers: [
+          ...(process.env.VERCEL_ENV === "preview"
+            ? [{ key: "X-Robots-Tag", value: "noindex, nofollow" }]
+            : []),
           {
             key: "X-Frame-Options",
             value: "SAMEORIGIN",
