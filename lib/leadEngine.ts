@@ -157,8 +157,9 @@ export async function deliverEngineAlerts(leadId?: string) {
     let providerId: string | null = null;
     let reason = "provider_unconfigured";
     try {
-      // Keep sensitive quiz answers out of SMS and email. Review them in the secured database.
-      const message = `Medicare callback requested: ${job.payload.name}. Phone: ${job.payload.phone}. ZIP: ${job.payload.zip}. Source: ${job.payload.source}. Reference: ${job.lead_id}.`;
+      // Keep sensitive quiz answers out of owner email. Review them in the secured database.
+      const staging = process.env.LEAD_ENGINE_ENVIRONMENT === "staging";
+      const message = `${staging ? "STAGING TEST. Synthetic contact, do not call. " : ""}Medicare callback requested: ${job.payload.name}. Phone: ${job.payload.phone}. ZIP: ${job.payload.zip}. Source: ${job.payload.source}. Reference: ${job.lead_id}.\n(919) 408-6671`;
       let res: Response | undefined;
       if (
         job.channel === "email" &&
@@ -177,33 +178,10 @@ export async function deliverEngineAlerts(leadId?: string) {
           body: JSON.stringify({
             from: process.env.RESEND_FROM,
             to: [process.env.LEAD_NOTIFY_EMAIL],
-            subject: "Medicare callback request",
+            subject: `${staging ? "STAGING TEST: " : ""}Medicare callback request`,
             text: message,
           }),
         });
-      } else if (
-        job.channel === "sms" &&
-        process.env.TWILIO_ACCOUNT_SID &&
-        process.env.TWILIO_AUTH_TOKEN &&
-        process.env.TWILIO_FROM_NUMBER &&
-        process.env.ALERT_SMS_TO
-      ) {
-        res = await fetch(
-          `https://api.twilio.com/2010-04-01/Accounts/${process.env.TWILIO_ACCOUNT_SID}/Messages.json`,
-          {
-            method: "POST",
-            signal: AbortSignal.timeout(8000),
-            headers: {
-              Authorization: `Basic ${Buffer.from(`${process.env.TWILIO_ACCOUNT_SID}:${process.env.TWILIO_AUTH_TOKEN}`).toString("base64")}`,
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams({
-              From: process.env.TWILIO_FROM_NUMBER,
-              To: process.env.ALERT_SMS_TO,
-              Body: message,
-            }),
-          },
-        );
       }
       if (res) {
         const body = await res.json().catch(() => ({}));

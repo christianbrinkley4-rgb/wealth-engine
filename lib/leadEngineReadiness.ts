@@ -39,19 +39,14 @@ export function leadEngineReadiness(env: Environment = process.env) {
   const emailReady = ["RESEND_API_KEY", "RESEND_FROM", "LEAD_NOTIFY_EMAIL"].every((key) =>
     configured(env[key]),
   );
-  const smsReady = [
-    "TWILIO_ACCOUNT_SID",
-    "TWILIO_AUTH_TOKEN",
-    "TWILIO_FROM_NUMBER",
-    "ALERT_SMS_TO",
-  ].every((key) => configured(env[key]));
+  const smsReady = false; // Owner selected Resend email only.
   if (mode === "production") {
     if (
       dummyTurnstile(env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) ||
       dummyTurnstile(env.TURNSTILE_SECRET_KEY)
     )
       missing.push("production_captcha_uses_test_keys");
-    if (env.LEAD_ENGINE_ALERTS_ENABLED !== "true" || (!emailReady && !smsReady))
+    if (env.LEAD_ENGINE_ALERTS_ENABLED !== "true" || !emailReady)
       missing.push("owner_notifications");
     if ((env.LEAD_ENGINE_CRON_SECRET?.length ?? 0) < 32) missing.push("LEAD_ENGINE_CRON_SECRET");
     try {

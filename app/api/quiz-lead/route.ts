@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
       p_payload: lead.payload,
     });
     if (receipt?.stored !== true || receipt.id !== lead.id) throw new Error("storage_unavailable");
-    // The lead and both alert jobs are committed in one transaction before success.
+    // The lead and the email alert job are committed in one transaction before success.
     // A cron retries pending/expired jobs if this best-effort attempt cannot finish.
     after(async () => {
       try {

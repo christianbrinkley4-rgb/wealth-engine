@@ -12,7 +12,7 @@ create table public.engine_alerts (
   id uuid primary key default gen_random_uuid(),
   lead_id uuid not null references public.engine_leads(id) on delete cascade,
   channel text not null check (channel in ('email','sms')),
-  status text not null default 'pending' check (status in ('pending','sending','sent','needs_attention')),
+  status text not null default 'pending' check (status in ('pending','sending','sent','needs_attention','cancelled')),
   attempts integer not null default 0,
   next_attempt_at timestamptz not null default now(),
   lease_until timestamptz,
@@ -49,7 +49,7 @@ begin
     return jsonb_build_object('stored',true,'id',p_id,'duplicate',true);
   end if;
   insert into public.engine_leads(id,fingerprint,payload) values (p_id,p_fingerprint,p_payload);
-  insert into public.engine_alerts(lead_id,channel) values (p_id,'email'),(p_id,'sms');
+  insert into public.engine_alerts(lead_id,channel) values (p_id,'email');
   return jsonb_build_object('stored',true,'id',p_id,'duplicate',false);
 end; $$;
 
@@ -63,7 +63,7 @@ begin
     where a.status = 'sending' and a.attempts >= 12 and a.lease_until < now();
   return query with candidates as (
     select a.id from public.engine_alerts a
-    where (p_lead_id is null or a.lead_id = p_lead_id)
+    where a.channel = 'email' and (p_lead_id is null or a.lead_id = p_lead_id)
       and a.attempts < 12
       and ((a.status = 'pending' and a.next_attempt_at <= now())
         or (a.status = 'sending' and a.lease_until < now()))

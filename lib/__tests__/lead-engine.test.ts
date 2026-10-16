@@ -95,7 +95,7 @@ describe("owner alerts", () => {
     vi.stubEnv("LEAD_ENGINE_SERVICE_ROLE_KEY", "");
     await expect(engineRpc("capture_engine_lead", {})).rejects.toThrow("engine_unconfigured");
   });
-  it("keeps a failed email retryable and still attempts SMS", async () => {
+  it("keeps a failed email retryable and still attempts another owner email", async () => {
     vi.stubEnv("LEAD_ENGINE_ALERTS_ENABLED", "true");
     vi.stubEnv("RESEND_API_KEY", "test");
     vi.stubEnv("RESEND_FROM", "test@example.invalid");
@@ -105,19 +105,23 @@ describe("owner alerts", () => {
     vi.stubEnv("TWILIO_FROM_NUMBER", "+13365550100");
     vi.stubEnv("ALERT_SMS_TO", "+13365550101");
     const marks: Record<string, unknown>[] = [];
+    let sends = 0;
     const fetch = vi.fn(async (url: string, options: RequestInit) => {
       if (url.includes("claim_engine_alerts"))
         return Response.json(
-          ["email", "sms"].map((channel) => ({
-            id: channel,
+          ["first", "second"].map((id) => ({
+            id,
             lead_id: valid().id,
-            channel,
+            channel: "email",
             lease_token: "lease",
             payload: { name: "Test", phone: "3365550100", zip: "27401", source: "medicare-fit" },
           })),
         );
-      if (url.includes("resend.com")) return Response.json({ error: "outage" }, { status: 503 });
-      if (url.includes("twilio.com")) return Response.json({ sid: "SMtest" });
+      if (url.includes("resend.com"))
+        return ++sends === 1
+          ? Response.json({ error: "outage" }, { status: 503 })
+          : Response.json({ id: "email-test" });
+      if (url.includes("twilio.com")) throw new Error("SMS must stay disabled");
       marks.push(JSON.parse(options.body as string));
       return Response.json(true);
     });
