@@ -34,8 +34,10 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
     });
     widget.current = id;
     return () => {
-      api()?.remove(id);
-      widget.current = null;
+      if (widget.current === id) {
+        api()?.remove(id);
+        widget.current = null;
+      }
     };
   }, [ready, sitekey]);
 
@@ -133,6 +135,15 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
             sessionStorage.removeItem(`engine-id:${source}`);
           } catch {
             /* Optional storage. */
+          }
+          // Remove the widget while its container still exists.
+          if (widget.current) {
+            try {
+              api()?.remove(widget.current);
+            } catch {
+              /* A saved lead stays confirmed even if widget cleanup fails. */
+            }
+            widget.current = null;
           }
           setSaved(true);
           onSaved?.();

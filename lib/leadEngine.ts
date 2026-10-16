@@ -122,6 +122,10 @@ export function validateEngineLead(value: unknown) {
 
 // This separate server-only storage path accepts phone leads without fabricating email.
 export async function engineRpc(name: string, args: object) {
+  if (process.env.LEAD_ENGINE_STORAGE === "neon") {
+    const { neonEngineRpc } = await import("./leadEngineNeon");
+    return neonEngineRpc(name, args as Record<string, unknown>);
+  }
   const url = process.env.LEAD_ENGINE_SUPABASE_URL;
   const key = process.env.LEAD_ENGINE_SERVICE_ROLE_KEY;
   if (!url || !key || !/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(url))
@@ -147,6 +151,7 @@ export async function deliverEngineAlerts(leadId?: string) {
     lease_token: string;
   }>;
   let processed = 0;
+  let unconfirmed = 0;
   for (const job of jobs) {
     let sent = false;
     let providerId: string | null = null;
@@ -210,14 +215,19 @@ export async function deliverEngineAlerts(leadId?: string) {
     } catch {
       reason = "provider_network_error";
     }
-    await engineRpc("finish_engine_alert", {
-      p_id: job.id,
-      p_lease_token: job.lease_token,
-      p_sent: sent,
-      p_provider_id: providerId,
-      p_error: reason,
-    });
+    try {
+      const marked = await engineRpc("finish_engine_alert", {
+        p_id: job.id,
+        p_lease_token: job.lease_token,
+        p_sent: sent,
+        p_provider_id: providerId,
+        p_error: reason,
+      });
+      if (marked !== true) unconfirmed++;
+    } catch {
+      unconfirmed++;
+    }
     processed++;
   }
-  return { held: false, processed };
+  return { held: false, processed, unconfirmed };
 }

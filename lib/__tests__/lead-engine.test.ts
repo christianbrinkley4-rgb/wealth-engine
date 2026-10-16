@@ -122,7 +122,7 @@ describe("owner alerts", () => {
       return Response.json(true);
     });
     vi.stubGlobal("fetch", fetch);
-    expect(await deliverEngineAlerts()).toEqual({ held: false, processed: 2 });
+    expect(await deliverEngineAlerts()).toEqual({ held: false, processed: 2, unconfirmed: 0 });
     expect(marks[0].p_sent).toBe(false);
     expect(marks[1].p_sent).toBe(true);
     expect(JSON.stringify(fetch.mock.calls)).not.toContain('"answers"');

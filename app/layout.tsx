@@ -121,9 +121,25 @@ export default function RootLayout({
         {/* Shared author identity; insurance offers stay on insurance pages. */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteIdentityJsonLd()).replace(/</g, "\\u003c") }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(siteIdentityJsonLd()).replace(/</g, "\\u003c"),
+          }}
         />
         <TopRouteChrome />
+        {process.env.LEAD_ENGINE_ENVIRONMENT === "staging" ? (
+          <aside
+            role="note"
+            style={{
+              background: "#fff4cf",
+              color: "#463b1b",
+              padding: "12px 20px",
+              textAlign: "center",
+              fontSize: 16,
+            }}
+          >
+            Staging preview. Use synthetic test details only.
+          </aside>
+        ) : null}
         <MainContent>{children}</MainContent>
 
         <SiteFooter />

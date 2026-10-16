@@ -1,5 +1,5 @@
--- Staging schema proposal. Not applied to any remote database.
--- Use a dedicated staging project. Never paste this into the existing CRM by accident.
+-- Portable Postgres schema. Apply only to the dedicated lead-engine staging database.
+-- Existing Supabase databases and the CRM are outside this schema's scope.
 begin;
 create table public.engine_leads (
   id uuid primary key,
@@ -25,8 +25,7 @@ create table public.engine_alerts (
 create index engine_alerts_pending on public.engine_alerts(status, next_attempt_at);
 alter table public.engine_leads enable row level security;
 alter table public.engine_alerts enable row level security;
-revoke all on public.engine_leads, public.engine_alerts from public, anon, authenticated;
-grant select, insert, update, delete on public.engine_leads, public.engine_alerts to service_role;
+revoke all on public.engine_leads, public.engine_alerts from public;
 
 create function public.capture_engine_lead(p_id uuid, p_fingerprint text, p_payload jsonb)
 returns jsonb language plpgsql security invoker set search_path = '' as $$
@@ -56,8 +55,13 @@ end; $$;
 
 create function public.claim_engine_alerts(p_lead_id uuid default null)
 returns table(id uuid,lead_id uuid,channel text,payload jsonb,lease_token uuid)
-language sql security invoker set search_path = '' as $$
-  with candidates as (
+language plpgsql security invoker set search_path = '' as $$
+begin
+  -- A crash on the final lease must become visible to an operator.
+  update public.engine_alerts a set status = 'needs_attention',
+    last_error = 'final_worker_lease_expired', lease_token = null, lease_until = null
+    where a.status = 'sending' and a.attempts >= 12 and a.lease_until < now();
+  return query with candidates as (
     select a.id from public.engine_alerts a
     where (p_lead_id is null or a.lead_id = p_lead_id)
       and a.attempts < 12
@@ -72,7 +76,7 @@ language sql security invoker set search_path = '' as $$
   ) select c.id,c.lead_id,c.channel,
       jsonb_build_object('name',l.payload->>'name','phone',l.payload->>'phone','zip',l.payload->>'zip','source',l.payload->>'source'),c.lease_token
     from claimed c join public.engine_leads l on l.id = c.lead_id;
-$$;
+end; $$;
 
 create function public.finish_engine_alert(p_id uuid,p_lease_token uuid,p_sent boolean,p_provider_id text,p_error text)
 returns boolean language plpgsql security invoker set search_path = '' as $$
@@ -95,6 +99,20 @@ returns jsonb language sql security invoker set search_path = '' as $$
     'oldest_pending',min(next_attempt_at) filter (where status='pending')
   ) from public.engine_alerts;
 $$;
-revoke all on function public.capture_engine_lead(uuid,text,jsonb), public.claim_engine_alerts(uuid), public.finish_engine_alert(uuid,uuid,boolean,text,text), public.engine_queue_health() from public, anon, authenticated;
-grant execute on function public.capture_engine_lead(uuid,text,jsonb), public.claim_engine_alerts(uuid), public.finish_engine_alert(uuid,uuid,boolean,text,text), public.engine_queue_health() to service_role;
+revoke all on function public.capture_engine_lead(uuid,text,jsonb), public.claim_engine_alerts(uuid), public.finish_engine_alert(uuid,uuid,boolean,text,text), public.engine_queue_health() from public;
+-- Supabase predefines these roles. Neon uses the private server-side owner connection.
+do $permissions$
+declare role_name text;
+begin
+  foreach role_name in array array['anon','authenticated'] loop
+    if exists(select 1 from pg_roles where rolname=role_name) then
+      execute format('revoke all on public.engine_leads,public.engine_alerts from %I',role_name);
+      execute format('revoke all on function public.capture_engine_lead(uuid,text,jsonb),public.claim_engine_alerts(uuid),public.finish_engine_alert(uuid,uuid,boolean,text,text),public.engine_queue_health() from %I',role_name);
+    end if;
+  end loop;
+  if exists(select 1 from pg_roles where rolname='service_role') then
+    grant select,insert,update,delete on public.engine_leads,public.engine_alerts to service_role;
+    grant execute on function public.capture_engine_lead(uuid,text,jsonb),public.claim_engine_alerts(uuid),public.finish_engine_alert(uuid,uuid,boolean,text,text),public.engine_queue_health() to service_role;
+  end if;
+end; $permissions$;
 commit;

@@ -75,7 +75,7 @@ const CHECKS = [
   },
   {
     t: "Your total costs",
-    b: "Premium plus deductible plus copays, added up honestly, not just the monthly number. Sometimes the slightly higher premium costs less overall.",
+    b: "Compare the premium, deductible, copays, and coinsurance with the care and prescriptions you expect to use.",
   },
   {
     t: "Your drug plan",
@@ -86,7 +86,7 @@ const CHECKS = [
 const STEPS = [
   {
     t: "You reach out",
-    b: `Send a quick request, or call me at ${AGENT.phone}. Tell me a time that works for you. I am available Monday to Saturday, 8:00 to 6:00.`,
+    b: `Send a quick request, or call me at ${AGENT.phone}. Tell me a time that works for you.`,
   },
   {
     t: "I listen to your questions",
@@ -98,7 +98,7 @@ const STEPS = [
   },
   {
     t: "That's it",
-    b: "There's no fee, no obligation, and no pressure to change anything. Plenty of people I meet with keep the plan they have, and that's a good outcome.",
+    b: "There's no fee for the conversation and no obligation to enroll or change your coverage.",
   },
 ] as const;
 
@@ -107,7 +107,7 @@ const FAQ = PRIORITY_MEDICARE_FAQS.aep;
 const LOCAL_FAQ = [
   {
     q: "Where can I meet you for a review in Greensboro?",
-    a: "Wherever is easiest for you: your home in Greensboro or Guilford County, a public place like a coffee shop, or by phone. Many folks prefer their kitchen table so their plan letter and prescriptions are right there.",
+    a: "We can arrange a conversation at your home in Greensboro or Guilford County, a convenient public place, or by phone. You can bring a family member and your questions.",
   },
   {
     q: "Do you help people outside Greensboro?",
@@ -155,7 +155,7 @@ export default function AepPage() {
                 "What a free fall review covers: your plan's 2027 changes, prescriptions, doctors, and total costs, with a licensed local agent.",
               path: "/aep",
               datePublished: "2026-09-19",
-              dateModified: "2026-10-12",
+              dateModified: "2026-10-15",
             }),
           ),
         }}
@@ -231,8 +231,8 @@ export default function AepPage() {
               you find out.
             </p>
             <p>
-              Honestly, who can blame them? It&apos;s long, it&apos;s dense, and it doesn&apos;t
-              tell you what to <em>do</em>.
+              Start with what changes next year. Bring the letter and your questions, and we can go
+              through it together.
             </p>
             <p>
               Here&apos;s what to do: bring it to me. I&apos;ll sit down with you, in person or by
@@ -354,9 +354,8 @@ export default function AepPage() {
           </h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
-              I am based in Greensboro, so most of my fall reviews happen right here in Guilford
-              County: at kitchen tables across the city, from Irving Park to Adams Farm, or by phone
-              when that is easier. If you are in{" "}
+              I am based in Greensboro and serve Guilford County and nearby communities. We can
+              arrange a conversation in person or by phone. If you are in{" "}
               <Link href="/medicare-agent-high-point-nc" className="underline underline-offset-2">
                 High Point
               </Link>
@@ -458,7 +457,7 @@ export default function AepPage() {
       <KitchenTableClose
         heading="Request your free fall review"
         body="Call me or send a request for a free conversation about your Medicare questions. I'll arrange any required appointment paperwork before I discuss specific plans. No obligation to enroll."
-        href="/start?topic=medicare&quick=1"
+        href="#request-review"
         label="Request a free consultation"
       />
 

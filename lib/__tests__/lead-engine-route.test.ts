@@ -35,6 +35,11 @@ const request = (value: unknown = body, origin = "https://staging.example.com") 
   });
 beforeEach(() => {
   vi.stubEnv("LEAD_ENGINE_CAPTURE_ENABLED", "true");
+  vi.stubEnv("LEAD_ENGINE_ENVIRONMENT", "staging");
+  vi.stubEnv("LEAD_ENGINE_SUPABASE_URL", "https://staging.supabase.co");
+  vi.stubEnv("LEAD_ENGINE_SERVICE_ROLE_KEY", "synthetic-key");
+  vi.stubEnv("NEXT_PUBLIC_TURNSTILE_SITE_KEY", "synthetic-sitekey");
+  vi.stubEnv("TURNSTILE_SECRET_KEY", "synthetic-secret");
   rpc.mockReset();
 });
 afterEach(() => vi.unstubAllEnvs());
@@ -85,5 +90,10 @@ describe("capture receipt boundary", () => {
     expect((await GET(new NextRequest("https://staging.example.com/api/quiz-lead"))).status).toBe(
       401,
     );
+  });
+  it("holds capture when staging is accidentally deployed as production", async () => {
+    vi.stubEnv("VERCEL_ENV", "production");
+    expect((await POST(request())).status).toBe(503);
+    expect(rpc).not.toHaveBeenCalled();
   });
 });

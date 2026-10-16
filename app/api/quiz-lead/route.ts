@@ -3,6 +3,7 @@ import { NextRequest, NextResponse, after } from "next/server";
 import { deliverEngineAlerts, engineRpc, validateEngineLead } from "@/lib/leadEngine";
 import { getClientIp, isRateLimited } from "@/lib/rateLimit";
 import { isTurnstileConfigured, verifyTurnstile } from "@/lib/turnstile";
+import { leadEngineReadiness } from "@/lib/leadEngineReadiness";
 
 export const runtime = "nodejs";
 const reply = (body: object, status = 200) =>
@@ -12,6 +13,11 @@ export async function POST(request: NextRequest) {
   const origin = request.headers.get("origin");
   if (!origin || origin !== new URL(request.url).origin)
     return reply({ error: "Please submit from this website." }, 403);
+  if (
+    process.env.LEAD_ENGINE_ENVIRONMENT === "production" &&
+    origin !== process.env.LEAD_ENGINE_PRODUCTION_ORIGIN
+  )
+    return reply({ error: "Please submit from the main website." }, 403);
   if (!request.headers.get("content-type")?.startsWith("application/json"))
     return reply({ error: "Invalid request." }, 415);
   const ip = getClientIp(request);
@@ -45,7 +51,11 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     return reply({ error: (error as Error).message }, 400);
   }
-  if (process.env.LEAD_ENGINE_CAPTURE_ENABLED !== "true" || !isTurnstileConfigured())
+  if (
+    process.env.LEAD_ENGINE_CAPTURE_ENABLED !== "true" ||
+    !isTurnstileConfigured() ||
+    !leadEngineReadiness().ready
+  )
     return reply(
       {
         error:
@@ -103,7 +113,9 @@ export async function GET(request: NextRequest) {
   )
     return reply({ error: "Unauthorized" }, 401);
   try {
-    return reply(await deliverEngineAlerts());
+    const delivery = await deliverEngineAlerts();
+    const queue = await engineRpc("engine_queue_health", {});
+    return reply({ delivery, queue });
   } catch {
     return reply({ error: "Alert retry unavailable" }, 503);
   }
