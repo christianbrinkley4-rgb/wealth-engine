@@ -31,14 +31,12 @@ describe("Netlify owner email retry", () => {
   });
   it("authenticates the retry without logging the secret", async () => {
     const log = vi.spyOn(console, "log").mockImplementation(() => {});
-    const fetch = vi
-      .fn()
-      .mockResolvedValue(
-        Response.json({
-          delivery: { processed: 1, unconfirmed: 0 },
-          queue: { pending: 0, needs_attention: 0 },
-        }),
-      );
+    const fetch = vi.fn().mockResolvedValue(
+      Response.json({
+        delivery: { processed: 1, unconfirmed: 0 },
+        queue: { pending: 0, needs_attention: 0 },
+      }),
+    );
     vi.stubGlobal("fetch", fetch);
     expect((await retry()).status).toBe(204);
     expect(fetch.mock.calls[0][1].headers.authorization).toBe("Bearer " + "x".repeat(64));
@@ -55,5 +53,20 @@ describe("Netlify owner email retry", () => {
         ),
     );
     await expect(retry()).rejects.toThrow("operator attention");
+  });
+  it("runs with production-only settings when CONTEXT is absent at function runtime", async () => {
+    vi.stubEnv("CONTEXT", undefined);
+    vi.spyOn(console, "log").mockImplementation(() => {});
+    const fetch = vi
+      .fn()
+      .mockResolvedValue(
+        Response.json({
+          delivery: { processed: 0, unconfirmed: 0 },
+          queue: { needs_attention: 0 },
+        }),
+      );
+    vi.stubGlobal("fetch", fetch);
+    expect((await retry()).status).toBe(204);
+    expect(fetch).toHaveBeenCalledOnce();
   });
 });

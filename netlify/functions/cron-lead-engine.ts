@@ -3,7 +3,7 @@ export const config = { schedule: "*/5 * * * *" };
 
 const retryOwnerEmail = async () => {
   if (
-    process.env.CONTEXT !== "production" ||
+    (process.env.CONTEXT && process.env.CONTEXT !== "production") ||
     process.env.LEAD_ENGINE_ENVIRONMENT !== "production" ||
     process.env.LEAD_ENGINE_RETRY_ENABLED !== "true"
   )
