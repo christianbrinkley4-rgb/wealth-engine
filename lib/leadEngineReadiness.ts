@@ -3,8 +3,23 @@ const configured = (value: string | undefined) =>
   Boolean(value?.trim()) && !/placeholder|replace[_-]?me|your[_-]?key/i.test(value!);
 const dummyTurnstile = (value: string | undefined) => /^[123]x0{10,}/.test(value ?? "");
 
+/** Reuse the site's existing server credentials only in production. */
+export function leadEngineEnvironment(env: Environment = process.env): Environment {
+  const production = env.LEAD_ENGINE_ENVIRONMENT === "production";
+  return {
+    ...env,
+    LEAD_ENGINE_SUPABASE_URL:
+      env.LEAD_ENGINE_SUPABASE_URL || (production ? env.SUPABASE_URL : undefined),
+    LEAD_ENGINE_SERVICE_ROLE_KEY:
+      env.LEAD_ENGINE_SERVICE_ROLE_KEY || (production ? env.SUPABASE_SERVICE_ROLE_KEY : undefined),
+    LEAD_ENGINE_CRON_SECRET:
+      env.LEAD_ENGINE_CRON_SECRET || (production ? env.CRON_SECRET : undefined),
+  };
+}
+
 /** Contains variable names and booleans only. Never include credential values. */
 export function leadEngineReadiness(env: Environment = process.env) {
+  env = leadEngineEnvironment(env);
   const missing: string[] = [];
   const mode = env.LEAD_ENGINE_ENVIRONMENT;
   const hostingTarget =

@@ -1,5 +1,5 @@
--- Portable Postgres schema. Apply only to the dedicated lead-engine staging database.
--- Existing Supabase databases and the CRM are outside this schema's scope.
+-- Portable Postgres schema. Apply once to the explicitly selected database.
+-- Creates new lead capture tables only. Existing CRM records are not modified.
 begin;
 create table public.engine_leads (
   id uuid primary key,

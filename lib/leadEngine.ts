@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { leadEngineEnvironment } from "./leadEngineReadiness";
 import { ENGINE_CONSENT, ENGINE_CONSENT_VERSION } from "./leadEnginePublic";
 export { ENGINE_CONSENT, ENGINE_CONSENT_VERSION } from "./leadEnginePublic";
 export const QUIZ_VALUES = [
@@ -126,8 +127,9 @@ export async function engineRpc(name: string, args: object) {
     const { neonEngineRpc } = await import("./leadEngineNeon");
     return neonEngineRpc(name, args as Record<string, unknown>);
   }
-  const url = process.env.LEAD_ENGINE_SUPABASE_URL;
-  const key = process.env.LEAD_ENGINE_SERVICE_ROLE_KEY;
+  const env = leadEngineEnvironment();
+  const url = env.LEAD_ENGINE_SUPABASE_URL;
+  const key = env.LEAD_ENGINE_SERVICE_ROLE_KEY;
   if (!url || !key || !/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(url))
     throw new Error("engine_unconfigured");
   const res = await fetch(`${url}/rest/v1/rpc/${name}`, {

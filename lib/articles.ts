@@ -12,6 +12,8 @@
  * qualifying for Medicaid. See docs/CONTENT-VOICE.md.
  */
 
+import { RELEASE_ARTICLES } from "./releaseArticles";
+
 import {
   CMS_PARTS_AB_SOURCE,
   CMS_PART_D_SOURCE,
@@ -66,6 +68,7 @@ const table = (headers: string[], rows: string[][]): ArticleBlock => ({
 });
 
 export const ARTICLES: Article[] = [
+  ...RELEASE_ARTICLES,
   {
     slug: "original-medicare-or-medicare-advantage",
     title: "Should I stay on Original Medicare or switch to Medicare Advantage?",

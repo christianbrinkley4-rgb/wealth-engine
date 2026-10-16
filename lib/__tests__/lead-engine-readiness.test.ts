@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { leadEngineReadiness } from "../leadEngineReadiness";
+import { leadEngineReadiness, leadEngineEnvironment } from "../leadEngineReadiness";
 const staging = {
   LEAD_ENGINE_ENVIRONMENT: "staging",
   VERCEL_ENV: "preview",
@@ -48,4 +48,27 @@ describe("lead engine release boundaries", () => {
     ).toBe(false));
   it("accepts a complete production configuration", () =>
     expect(leadEngineReadiness(production).ready).toBe(true));
+  it("reuses existing Netlify server credentials in production", () => {
+    const env = {
+      ...production,
+      LEAD_ENGINE_SUPABASE_URL: undefined,
+      LEAD_ENGINE_SERVICE_ROLE_KEY: undefined,
+      LEAD_ENGINE_CRON_SECRET: undefined,
+      SUPABASE_URL: "https://production.supabase.co",
+      SUPABASE_SERVICE_ROLE_KEY: "server-only",
+      CRON_SECRET: "x".repeat(64),
+    };
+    expect(leadEngineReadiness(env).ready).toBe(true);
+  });
+  it("never falls back to production database credentials in staging", () => {
+    const env = leadEngineEnvironment({
+      LEAD_ENGINE_ENVIRONMENT: "staging",
+      SUPABASE_URL: "https://production.supabase.co",
+      SUPABASE_SERVICE_ROLE_KEY: "private",
+      CRON_SECRET: "private",
+    });
+    expect(env.LEAD_ENGINE_SUPABASE_URL).toBeUndefined();
+    expect(env.LEAD_ENGINE_SERVICE_ROLE_KEY).toBeUndefined();
+    expect(env.LEAD_ENGINE_CRON_SECRET).toBeUndefined();
+  });
 });

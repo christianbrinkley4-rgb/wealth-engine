@@ -3,7 +3,7 @@ import { NextRequest, NextResponse, after } from "next/server";
 import { deliverEngineAlerts, engineRpc, validateEngineLead } from "@/lib/leadEngine";
 import { getClientIp, isRateLimited } from "@/lib/rateLimit";
 import { isTurnstileConfigured, verifyTurnstile } from "@/lib/turnstile";
-import { leadEngineReadiness } from "@/lib/leadEngineReadiness";
+import { leadEngineReadiness, leadEngineEnvironment } from "@/lib/leadEngineReadiness";
 
 export const runtime = "nodejs";
 const reply = (body: object, status = 200) =>
@@ -103,7 +103,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  const expected = process.env.LEAD_ENGINE_CRON_SECRET;
+  const expected = leadEngineEnvironment().LEAD_ENGINE_CRON_SECRET;
   const received = request.headers.get("authorization") ?? "";
   const target = `Bearer ${expected ?? ""}`;
   if (
