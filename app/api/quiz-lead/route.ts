@@ -11,13 +11,14 @@ const reply = (body: object, status = 200) =>
 
 export async function POST(request: NextRequest) {
   const origin = request.headers.get("origin");
-  if (!origin || origin !== new URL(request.url).origin)
+  // Production proxies can reconstruct an internal URL. Pin the browser origin
+  // to the configured public site instead of trusting proxy host headers.
+  const expectedOrigin =
+    process.env.LEAD_ENGINE_ENVIRONMENT === "production"
+      ? process.env.LEAD_ENGINE_PRODUCTION_ORIGIN
+      : new URL(request.url).origin;
+  if (!origin || origin !== expectedOrigin)
     return reply({ error: "Please submit from this website." }, 403);
-  if (
-    process.env.LEAD_ENGINE_ENVIRONMENT === "production" &&
-    origin !== process.env.LEAD_ENGINE_PRODUCTION_ORIGIN
-  )
-    return reply({ error: "Please submit from the main website." }, 403);
   if (!request.headers.get("content-type")?.startsWith("application/json"))
     return reply({ error: "Invalid request." }, 415);
   const ip = getClientIp(request);

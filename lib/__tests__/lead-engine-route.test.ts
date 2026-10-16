@@ -96,4 +96,26 @@ describe("capture receipt boundary", () => {
     expect((await POST(request())).status).toBe(503);
     expect(rpc).not.toHaveBeenCalled();
   });
+  it.each(["https://christianbrinkleync.com", "https://attacker.example"])(
+    "checks the configured public origin behind Netlify: %s",
+    async (origin) => {
+      vi.stubEnv("LEAD_ENGINE_ENVIRONMENT", "production");
+      vi.stubEnv("CONTEXT", "production");
+      vi.stubEnv("LEAD_ENGINE_PRODUCTION_ORIGIN", "https://christianbrinkleync.com");
+      vi.stubEnv("LEAD_ENGINE_ALERTS_ENABLED", "true");
+      vi.stubEnv("RESEND_API_KEY", "synthetic-provider");
+      vi.stubEnv("RESEND_FROM", "test@example.invalid");
+      vi.stubEnv("LEAD_NOTIFY_EMAIL", "owner@example.invalid");
+      vi.stubEnv("LEAD_ENGINE_CRON_SECRET", "x".repeat(64));
+      rpc.mockResolvedValue({ stored: true, id: body.id });
+      const proxied = new NextRequest("http://internal-netlify-host/api/quiz-lead", {
+        method: "POST",
+        headers: { origin, "content-type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const valid = origin === "https://christianbrinkleync.com";
+      expect((await POST(proxied)).status).toBe(valid ? 200 : 403);
+      expect(rpc.mock.calls.length).toBe(valid ? 1 : 0);
+    },
+  );
 });
