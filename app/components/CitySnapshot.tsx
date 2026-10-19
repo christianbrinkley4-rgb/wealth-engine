@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { isHighIntentPlace, nearbyCountyContrasts, type TriadCity } from "@/lib/triad";
+import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 
 export type CitySnapshotTopic = "medicare" | "life" | "retirement";
 
@@ -87,7 +88,7 @@ export function CitySnapshot({
           {contrasts.map((place, index) => (
             <span key={place.slug}>
               {index > 0 ? ", " : ""}
-              <Link href={`/medicare-in/${place.slug}`} className="underline underline-offset-2">
+              <Link href={canonicalMedicareLocation(`/medicare-in/${place.slug}`)} className="underline underline-offset-2">
                 {place.name}
               </Link>{" "}
               ({place.county})

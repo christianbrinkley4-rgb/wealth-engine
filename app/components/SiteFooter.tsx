@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { TpmoDisclaimer } from "@/components/TpmoDisclaimer";
 import { AGENT, GOVERNMENT_DISCLAIMER, publishedProfiles } from "@/lib/agent";
 import { indexableMedicarePlaces } from "@/lib/triad";
+import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 
 const START = [
   { href: "/plan-check", label: "Plan check quiz" },
@@ -177,7 +178,7 @@ export function SiteFooter() {
             <ul>
               {indexableMedicarePlaces().map((city) => (
                 <li key={city.slug}>
-                  <Link href={`/medicare-in/${city.slug}`}>Medicare in {city.name}</Link>
+                  <Link href={canonicalMedicareLocation(`/medicare-in/${city.slug}`)}>Medicare in {city.name}</Link>
                 </li>
               ))}
               <li>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 import { isIndexableTown } from "@/lib/triad";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -258,7 +259,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             {others.map((other) => (
               <li key={other.slug}>
                 <Link
-                  href={`/medicare-in/${other.slug}`}
+                  href={canonicalMedicareLocation(`/medicare-in/${other.slug}`)}
                   className="flex min-h-16 flex-col justify-center rounded-xl border border-[rgba(21,46,52,0.14)] bg-white px-5 py-4 transition-colors hover:border-[var(--color-navy)]"
                 >
                   <span className="text-18 font-semibold">Medicare in {other.name} →</span>

@@ -28,6 +28,7 @@ import { learnEntries, SITUATIONS } from "@/lib/learn";
 import { faqJsonLd, localBusinessJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { hasTestimonials, visibleRatedReviews } from "@/lib/testimonials";
 import { featuredPlaces } from "@/lib/triad";
+import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 
 const title = "Medicare and Retirement Help | Christian Brinkley NC";
 const description =
@@ -555,7 +556,7 @@ export default function HomePage() {
             <ul className="faqx-towns" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               {towns.map((town) => (
                 <li key={town.slug}>
-                  <Link href={`/medicare-in/${town.slug}`}>{town.name}</Link>
+                  <Link href={canonicalMedicareLocation(`/medicare-in/${town.slug}`)}>{town.name}</Link>
                 </li>
               ))}
               <li>
