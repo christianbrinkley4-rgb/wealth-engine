@@ -13,7 +13,9 @@ const FACEBOOK_PROFILE =
   "https://www.facebook.com/p/Christian-Brinkley-Greensboro-Retirement-Resource-61566655540080/";
 const LINKEDIN_PROFILE = "https://www.linkedin.com/in/christianbrinkley";
 const NEXTDOOR_PROFILE = "https://nextdoor.com/page/christian-brinkley-greensboro-nc-jd6c10/";
-const INSTAGRAM_PROFILE = "https://www.instagram.com/brinkleyc4";
+const INSTAGRAM_PROFILE = "https://www.instagram.com/triadmedicare/";
+const TIKTOK_PROFILE = "https://www.tiktok.com/@triadmedicare";
+const REDDIT_PROFILE = "https://www.reddit.com/user/Dense_Gas_9025/";
 const THREADS_PROFILE = "https://www.threads.com/@christianbrinkleync";
 const YOUTUBE_PROFILE = "https://www.youtube.com/@christianbrinkleync";
 const GOOGLE_MAPS_PROFILE = "https://www.google.com/maps?cid=12304450181097673337";
@@ -60,9 +62,11 @@ describe("search discovery", () => {
     expect(profiles.map((profile) => profile.network)).toEqual([
       "facebook",
       "instagram",
+      "tiktok",
       "threads",
       "youtube",
       "linkedin",
+      "reddit",
       "nextdoor",
       "google",
       "brownbook",
@@ -71,9 +75,11 @@ describe("search discovery", () => {
     expect(urls).toEqual([
       FACEBOOK_PROFILE,
       INSTAGRAM_PROFILE,
+      TIKTOK_PROFILE,
       THREADS_PROFILE,
       YOUTUBE_PROFILE,
       LINKEDIN_PROFILE,
+      REDDIT_PROFILE,
       NEXTDOOR_PROFILE,
       GOOGLE_MAPS_PROFILE,
       "https://www.brownbook.net/business/55524532/christian-brinkley",
@@ -87,7 +93,14 @@ describe("search discovery", () => {
     const service = graph.find((entity) => entity["@type"] === "InsuranceAgency");
     const json = JSON.stringify(localBusinessJsonLd()).toLowerCase();
     // Person carries personal profiles; InsuranceAgency carries business listings.
-    expect(person?.sameAs).toEqual([LINKEDIN_PROFILE, INSTAGRAM_PROFILE, THREADS_PROFILE, YOUTUBE_PROFILE]);
+    expect(person?.sameAs).toEqual([
+      LINKEDIN_PROFILE,
+      INSTAGRAM_PROFILE,
+      TIKTOK_PROFILE,
+      THREADS_PROFILE,
+      YOUTUBE_PROFILE,
+      REDDIT_PROFILE,
+    ]);
     expect(agency?.sameAs).toEqual([GOOGLE_MAPS_PROFILE, FACEBOOK_PROFILE, NEXTDOOR_PROFILE, "https://www.manta.com/c/m1hjvy9/christian-brinkley", "https://www.brownbook.net/business/55524532/christian-brinkley"]);
     expect(service?.sameAs).toEqual(agency?.sameAs);
     expect(service?.hasMap).toBe(GOOGLE_MAPS_PROFILE);
@@ -105,9 +118,11 @@ describe("search discovery", () => {
     expect(profiles.map((profile) => profile.network)).toEqual([
       "facebook",
       "instagram",
+      "tiktok",
       "threads",
       "youtube",
       "linkedin",
+      "reddit",
       "nextdoor",
       "google",
       "brownbook",

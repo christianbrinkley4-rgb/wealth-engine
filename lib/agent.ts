@@ -19,6 +19,7 @@ export type SocialNetwork =
   | "threads"
   | "youtube"
   | "linkedin"
+  | "reddit"
   | "nextdoor"
   | "google"
   | "yelp"
@@ -56,12 +57,14 @@ export const SOCIAL_PROFILES: readonly SocialProfile[] = [
   {
     network: "instagram",
     label: "Instagram",
-    url: "https://www.instagram.com/brinkleyc4",
+    // @triadmedicare is the business account (og:title "Christian Brinkley
+    // (@triadmedicare)", checked 2026-10-20). @brinkleyc4 is personal.
+    url: "https://www.instagram.com/triadmedicare/",
   },
   {
     network: "tiktok",
     label: "TikTok",
-    url: null,
+    url: "https://www.tiktok.com/@triadmedicare",
   },
   {
     network: "threads",
@@ -77,6 +80,11 @@ export const SOCIAL_PROFILES: readonly SocialProfile[] = [
     network: "linkedin",
     label: "LinkedIn",
     url: "https://www.linkedin.com/in/christianbrinkley",
+  },
+  {
+    network: "reddit",
+    label: "Reddit",
+    url: "https://www.reddit.com/user/Dense_Gas_9025/",
   },
   {
     network: "nextdoor",
@@ -96,6 +104,13 @@ export const SOCIAL_PROFILES: readonly SocialProfile[] = [
     url: "https://www.manta.com/c/m1hjvy9/christian-brinkley",
   },
 ];
+
+/**
+ * The free public lookup the NC Department of Insurance links to for checking
+ * an agent's NPN and license status (ncdoi.gov, "Free Individual National
+ * Producer Number (NPN) and License Status Lookup"). Run by the NAIC.
+ */
+export const LICENSE_LOOKUP_URL = "https://external-lookup-web.prod.naic.org/";
 
 export type PublishedSocialProfile = SocialProfile & { readonly url: string };
 

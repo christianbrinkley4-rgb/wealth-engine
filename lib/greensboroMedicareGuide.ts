@@ -14,19 +14,76 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
     id: "guilford-2027",
     heading: "Guilford County Medicare Advantage: 2027 by the numbers",
     answer:
-      "MedicareAdvantage.com lists 55 Guilford County Medicare Advantage plans for 2027, averaging $4.13 monthly premiums and a $6,697.27 in-network out-of-pocket maximum. These are countywide averages.",
+      "MedicareAdvantage.com lists 55 Guilford County Medicare Advantage plans for 2027, averaging $4.13 monthly premiums and a $7,055.45 in-network out-of-pocket maximum. These are countywide averages.",
     paragraphs: [
       "These figures describe that publisher's county summary, not a personal quote or the number of plans I represent. The $4.13 average is the plan premium, not your complete Medicare bill. The standard Part B premium and any applicable income-related surcharge are separate. A plan with a low premium can still have costs when you visit a doctor or fill a prescription.",
-      "The $6,697.27 figure is an average in-network limit for covered medical services. It is not a forecast of what you will spend, and it does not combine all premiums and prescription spending into one annual ceiling. A specific plan's Evidence of Coverage controls its rules. Look at that plan's limit, copays, and out-of-network terms before deciding whether the budget works for you.",
+      "The $7,055.45 figure is an average in-network limit for covered medical services. It is not a forecast of what you will spend, and it does not combine all premiums and prescription spending into one annual ceiling. A specific plan's Evidence of Coverage controls its rules. Look at that plan's limit, copays, and out-of-network terms before deciding whether the budget works for you.",
       "Use the county numbers to understand the range of choices, then use Medicare Plan Compare with your address and medication list. I have not added an unverified county Part D count or a guessed Medigap price range. Those comparisons need current plan files or an individual quote. If you already have a policy, bring its renewal information so I compare real costs rather than advertising examples.",
     ],
     sources: [
       {
-        label: "MedicareAdvantage.com: Guilford County 2027 summary, checked October 12, 2026",
+        label: "MedicareAdvantage.com: Guilford County 2027 summary, checked October 20, 2026",
         href: "https://www.medicareadvantage.com/plans-by-state/north-carolina/guilford",
       },
       { label: "Medicare Plan Compare", href: "https://www.medicare.gov/plan-compare/" },
     ],
+  },
+  {
+    id: "counties",
+    heading: "How do Guilford, Forsyth, Alamance, Davidson, and Granville counties differ?",
+    answer:
+      "Medicare Advantage plans are sold by county, so your home county sets your plan list. For 2027, MedicareAdvantage.com lists 55 plans in Guilford, 54 in Davidson, 53 in Forsyth, 52 in Alamance, and 31 in Granville.",
+    table: {
+      caption: "2027 Medicare Advantage county averages, MedicareAdvantage.com, checked October 20, 2026",
+      headers: ["County", "Plans", "Average monthly premium", "Average in-network out-of-pocket maximum"],
+      rows: [
+        ["Guilford (Greensboro, High Point)", "55", "$4.13", "$7,055.45"],
+        ["Forsyth (Winston-Salem, Kernersville)", "53", "$3.36", "$7,099.06"],
+        ["Alamance (Burlington)", "52", "$4.37", "$7,147.12"],
+        ["Davidson (Lexington, Thomasville)", "54", "$4.21", "$7,076.85"],
+        ["Granville (Oxford, Creedmoor, Butner)", "31", "$6.44", "$7,066.13"],
+      ],
+    },
+    paragraphs: [
+      "Those are county averages, not quotes and not the plans I represent. They do show one real difference. Granville County has far fewer Medicare Advantage choices than the Triad counties around Greensboro.",
+      "The hospitals change from county to county too. In Greensboro, Cone Health runs Moses Cone Hospital and Wesley Long Hospital. Cone Health also runs Alamance Regional Medical Center in Burlington. In Winston-Salem, Novant Health runs Forsyth Medical Center, and Atrium Health Wake Forest Baptist runs its main medical center there.",
+      "Novant Health also runs Kernersville Medical Center. Atrium Health Wake Forest Baptist runs medical centers in High Point and Lexington. In Granville County, Granville Health System has its main campus in Oxford.",
+      "Here's why that matters. A plan can include your Greensboro doctor and treat a Winston-Salem specialist differently. If you live in Oxford and see doctors in Durham, check those offices as well. If you move from one county to another, check whether your plan still serves your new address before you cancel anything.",
+    ],
+    sources: [
+      {
+        label: "MedicareAdvantage.com: Guilford",
+        href: "https://www.medicareadvantage.com/plans-by-state/north-carolina/guilford",
+      },
+      {
+        label: "Forsyth",
+        href: "https://www.medicareadvantage.com/plans-by-state/north-carolina/forsyth",
+      },
+      {
+        label: "Alamance",
+        href: "https://www.medicareadvantage.com/plans-by-state/north-carolina/alamance",
+      },
+      {
+        label: "Davidson",
+        href: "https://www.medicareadvantage.com/plans-by-state/north-carolina/davidson",
+      },
+      {
+        label: "Granville county summaries, checked October 20, 2026",
+        href: "https://www.medicareadvantage.com/plans-by-state/north-carolina/granville",
+      },
+      { label: "Cone Health: about us", href: "https://www.conehealth.com/about-us/" },
+      {
+        label: "Novant Health: Forsyth Medical Center",
+        href: "https://www.novanthealth.org/locations/medical-centers/forsyth-medical-center",
+      },
+      {
+        label: "Novant Health: Kernersville Medical Center",
+        href: "https://www.novanthealth.org/locations/medical-centers/kernersville-medical-center",
+      },
+      { label: "Atrium Health Wake Forest Baptist: locations", href: "https://www.wakehealth.edu/locations" },
+      { label: "Granville Health System: about us", href: "https://ghshospital.org/about-us/" },
+    ],
+    related: { label: "Check your doctors and hospital networks", href: "/keep-my-doctor" },
   },
   {
     id: "coverage",
@@ -156,6 +213,26 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
       label: "North Carolina Medicare assistance and protections",
       href: "/north-carolina-medicare-programs",
     },
+  },
+  {
+    id: "license",
+    heading: "How do I check that a Medicare agent in Greensboro is licensed?",
+    answer:
+      "Search the agent's National Producer Number in the free license lookup the NC Department of Insurance links to. My NPN is 22217190, and my license is NC Life & Health.",
+    paragraphs: [
+      "Open the lookup, choose North Carolina, and search by NPN or by name. The result shows whether the license is active. Any licensed agent should give you an NPN when you ask for it.",
+      "I'm one local person, not a call center. When you call (919) 408-6671, you reach me. If I'm with a family, leave a message and I'll call you back myself.",
+    ],
+    sources: [
+      {
+        label: "NC DOI: agent and adjuster licensing",
+        href: "https://www.ncdoi.gov/licensees/agent-and-adjuster-licensing",
+      },
+      {
+        label: "Free NPN and license status lookup",
+        href: "https://external-lookup-web.prod.naic.org/",
+      },
+    ],
   },
   {
     id: "appointment",

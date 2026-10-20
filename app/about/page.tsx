@@ -5,7 +5,14 @@ import { ArrowRight, CalendarDays, Mail, Phone } from "lucide-react";
 
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { LeadCluster } from "@/app/components/LeadCluster";
-import { AGENT, COMPENSATION_DISCLOSURE, hasPublishableNpn, publishedProfiles } from "@/lib/agent";
+import {
+  AGENT,
+  COMPENSATION_DISCLOSURE,
+  hasPublishableNpn,
+  LICENSE_LOOKUP_URL,
+  publishedProfiles,
+} from "@/lib/agent";
+import { GOOGLE_REVIEWS } from "@/lib/testimonials";
 import { breadcrumbJsonLd, pageOpenGraph, SITE_URL } from "@/lib/seo";
 
 const title = "About Christian Brinkley: Medicare Agent in Greensboro";
@@ -64,11 +71,7 @@ const STEPS = [
 ] as const;
 
 export default function AboutPage() {
-  const profiles = publishedProfiles().filter((profile) =>
-    ["youtube", "facebook", "instagram", "nextdoor", "linkedin", "google"].includes(
-      profile.network,
-    ),
-  );
+  const profiles = publishedProfiles();
 
   return (
     <main className="ab">
@@ -78,22 +81,10 @@ export default function AboutPage() {
         "@id": `${SITE_URL}/about#profile`,
         url: `${SITE_URL}/about`,
         name: title,
-        mainEntity: {
-          "@type": "Person",
-          "@id": `${SITE_URL}/#christian`,
-          name: AGENT.name,
-          url: `${SITE_URL}/about`,
-          image: `${SITE_URL}/christian-brinkley.jpg`,
-          jobTitle: "Licensed Insurance Agent",
-          telephone: AGENT.phone,
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Greensboro",
-            addressRegion: "NC",
-            addressCountry: "US",
-          },
-          sameAs: AGENT.profiles,
-        },
+        // A reference, not a second Person. The full Person lives once in the
+        // sitewide graph; a copy here with its own sameAs and phone format
+        // gave search engines two versions of the same @id to reconcile.
+        mainEntity: { "@id": `${SITE_URL}/#christian` },
       }).replace(/</g, "\\u003c") }} />
       <script
         type="application/ld+json"
@@ -163,6 +154,76 @@ export default function AboutPage() {
               sizes="(max-width: 899px) 90vw, 460px"
             />
           </figure>
+        </div>
+      </section>
+
+      <section className="section-tight ab-facts" aria-labelledby="ab-facts-heading">
+        <div className="shell">
+          <h2 id="ab-facts-heading" className="ab-h2" data-reveal>
+            At a glance.
+          </h2>
+          <dl className="ab-facts-list">
+            <div>
+              <dt>Name</dt>
+              <dd>{AGENT.name}</dd>
+            </div>
+            <div>
+              <dt>License</dt>
+              <dd>
+                Licensed North Carolina insurance agent, {AGENT.licenseLine}
+                {hasPublishableNpn() ? <>, NPN {AGENT.npn}</> : null}.{" "}
+                <a href={LICENSE_LOOKUP_URL} rel="noopener noreferrer">
+                  Check my license
+                </a>{" "}
+                with the free lookup the NC Department of Insurance links to. Pick North Carolina
+                and search by NPN.
+              </dd>
+            </div>
+            <div>
+              <dt>Based in</dt>
+              <dd>Greensboro, NC</dd>
+            </div>
+            <div>
+              <dt>Serving</dt>
+              <dd>
+                The Piedmont Triad (Greensboro, High Point, Winston-Salem, Kernersville,
+                Burlington, Lexington) and Granville County (Creedmoor, Oxford, Butner, Stem)
+              </dd>
+            </div>
+            <div>
+              <dt>I help with</dt>
+              <dd>
+                Medicare Advantage, Medicare Supplement (Medigap), Part D, life insurance, long-term
+                care insurance, supplemental health coverage, and retirement income education
+              </dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd>
+                <a href={AGENT.phoneHref}>{AGENT.phone}</a>. Calls and texts come to me, not a
+                call center.
+              </dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <dd>Monday to Saturday, 9 AM to 5 PM Eastern</dd>
+            </div>
+            <div>
+              <dt>Cost</dt>
+              <dd>Free consultation, no obligation to enroll or buy</dd>
+            </div>
+            {GOOGLE_REVIEWS && GOOGLE_REVIEWS.count > 0 ? (
+              <div>
+                <dt>Reviews</dt>
+                <dd>
+                  <a href={GOOGLE_REVIEWS.url} rel="noopener noreferrer">
+                    {GOOGLE_REVIEWS.count} Google reviews, {GOOGLE_REVIEWS.rating.toFixed(1)} out
+                    of 5
+                  </a>
+                </dd>
+              </div>
+            ) : null}
+          </dl>
         </div>
       </section>
 

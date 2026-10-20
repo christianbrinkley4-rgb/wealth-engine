@@ -4,7 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { TpmoDisclaimer } from "@/components/TpmoDisclaimer";
-import { AGENT, GOVERNMENT_DISCLAIMER, publishedProfiles } from "@/lib/agent";
+import {
+  AGENT,
+  GOVERNMENT_DISCLAIMER,
+  hasPublishableNpn,
+  LICENSE_LOOKUP_URL,
+  publishedProfiles,
+} from "@/lib/agent";
 import { indexableMedicarePlaces } from "@/lib/triad";
 
 const START = [
@@ -126,10 +132,18 @@ export function SiteFooter() {
               <li>
                 <span className="ft-col-text">
                   Licensed agent · {AGENT.licenseLine}
+                  {hasPublishableNpn() ? ` · NPN ${AGENT.npn}` : ""}
                   <br />
-                  {AGENT.city}, {AGENT.state}
+                  {AGENT.city}, {AGENT.state} · one local person, not a call center
                 </span>
               </li>
+              {hasPublishableNpn() ? (
+                <li>
+                  <a href={LICENSE_LOOKUP_URL} rel="noopener noreferrer">
+                    Check my license with the state
+                  </a>
+                </li>
+              ) : null}
               <li>
                 <Link href="/review">Worked with me? Leave a review</Link>
               </li>

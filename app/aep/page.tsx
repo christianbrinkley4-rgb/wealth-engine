@@ -2,6 +2,7 @@ import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import { MedicareByline } from "@/app/components/MedicareByline";
+import { MedicareFactBlock } from "@/app/components/MedicareFactBlock";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
@@ -412,6 +413,10 @@ export default function AepPage() {
           </div>
         </div>
       </section>
+
+      <div className="bg-white">
+        <MedicareFactBlock heading="Annual Enrollment facts, with sources" />
+      </div>
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">

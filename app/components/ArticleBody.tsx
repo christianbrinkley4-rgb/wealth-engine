@@ -12,6 +12,30 @@ import { featuredPlaces } from "@/lib/triad";
 
 const LINK_PATTERN = /\[([^\]]+)\]\(([^)]+)\)/g;
 
+/**
+ * The service page an article feeds, so every answer links to it in the body
+ * with a descriptive anchor. Checked in order; the first match wins, and
+ * anything unmatched goes to the Greensboro Medicare agent page.
+ */
+const SERVICE_PAGES: Array<{ test: RegExp; href: string; label: string }> = [
+  { test: /long[- ]term care|nursing home|assisted living/i, href: "/long-term-care-insurance", label: "long-term care insurance in the Triad" },
+  { test: /life insurance|final expense|burial|beneficiar/i, href: "/life-insurance", label: "life insurance help in Greensboro" },
+  { test: /annuit/i, href: "/annuities", label: "annuity questions answered locally" },
+  { test: /turning 65|turn 65|initial enrollment|sign up for medicare|first time/i, href: "/turning-65", label: "turning 65 Medicare help in Greensboro" },
+  { test: /part d|prescription|drug plan|extra help/i, href: "/medicare-part-d-greensboro-nc", label: "Part D drug plan help in Greensboro" },
+  { test: /medigap|supplement|advantage vs|advantage or/i, href: "/medicare-advantage-vs-medigap-greensboro-nc", label: "Medicare Advantage vs Medigap in Greensboro" },
+];
+
+export function servicePageFor(article: Pick<Article, "title" | "keyword" | "slug">) {
+  const haystack = `${article.title} ${article.keyword} ${article.slug.replace(/-/g, " ")}`;
+  const match = SERVICE_PAGES.find((page) => page.test.test(haystack));
+  if (match) return match;
+  // Money articles for younger readers get no Medicare pitch (two-voice rule).
+  return /medicare|medigap|part [abd]|irmaa|enrollment|turning 65|social security|retire/i.test(haystack)
+    ? { href: "/medicare-agent-greensboro-nc", label: "a local Medicare agent in Greensboro" }
+    : null;
+}
+
 /** Turns "[text](url)" into a link. Internal paths use next/link. */
 function renderInline(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
@@ -84,6 +108,7 @@ export function ArticleBody({
   const towns = featuredPlaces()
     .map((place) => place.name)
     .join(", ");
+  const service = servicePageFor(article);
   const outline = article.sections.map((section) => ({
     id: slugify(section.h2),
     title: section.h2,
@@ -254,6 +279,13 @@ export function ArticleBody({
             <p className="art-next-towns">
               I meet people in {towns}, and the towns around them. Or I can talk by phone.
             </p>
+            {service ? (
+              <p className="art-next-towns">
+                More on this: <Link href={service.href}>{service.label}</Link>. Reviewing coverage
+                for 2027? Start with the{" "}
+                <Link href="/aep">free Annual Enrollment review, open October 15 to December 7</Link>.
+              </p>
+            ) : null}
           </aside>
 
           <GuideCapture />
@@ -275,7 +307,7 @@ export function ArticleBody({
               <ul className="art-related">
                 {[
                   ...article.related,
-                  { href: "/medicare-agent-greensboro-nc", label: "Medicare help in Greensboro" },
+                  { href: "/medicare-agent-greensboro-nc", label: "Medicare agent in Greensboro" },
                   {
                     href: "/north-carolina-medicare-programs",
                     label: "North Carolina Medicare assistance programs",

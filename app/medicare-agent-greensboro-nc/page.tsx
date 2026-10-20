@@ -4,7 +4,9 @@ import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
 import { MedicareByline } from "@/app/components/MedicareByline";
+import { MedicareFactBlock } from "@/app/components/MedicareFactBlock";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { ShiipAndAgent } from "@/app/components/ShiipAndAgent";
 import { MedicareGuideTools } from "@/components/MedicareGuideTools";
@@ -22,9 +24,9 @@ import {
 } from "@/lib/seo";
 
 const path = "/medicare-agent-greensboro-nc";
-const title = "Medicare Help in Greensboro, NC | Local Licensed Agent";
+const title = "Medicare Agent in Greensboro, NC | Free Local Medicare Help";
 const description =
-  "Get free Medicare help in Greensboro, NC. Check Guilford County plans, doctors, prescriptions, enrollment dates, and NC assistance with a local licensed agent.";
+  "Christian Brinkley, a licensed Medicare agent in Greensboro, NC (NPN 22217190). Free help comparing Guilford County plans, doctors, and prescriptions.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -40,14 +42,14 @@ export default function MedicareAgentGreensboroPage() {
         breadcrumbJsonLd([
           { name: "Home", path: "/" },
           { name: "NC service area", path: "/medicare-nc-towns" },
-          { name: "Medicare help in Greensboro", path },
+          { name: "Medicare agent in Greensboro", path },
         ]),
         articleJsonLd({
           headline: title,
           description,
           path,
           datePublished: "2026-10-12",
-          dateModified: "2026-10-12",
+          dateModified: "2026-10-20",
         }),
         serviceJsonLd({ name: "Free Medicare consultation in Greensboro", description, path }),
         faqJsonLd(GREENSBORO_MEDICARE_FAQ),
@@ -60,14 +62,14 @@ export default function MedicareAgentGreensboroPage() {
       ))}
       <LocationBusinessMarkup path={path} />
       <ServiceHero
-        crumbs={[{ name: "Home", href: "/" }, { name: "Medicare help in Greensboro" }]}
+        crumbs={[{ name: "Home", href: "/" }, { name: "Medicare agent in Greensboro" }]}
         eyebrow="Greensboro and Guilford County"
-        title="Medicare help in Greensboro, NC"
+        title="Medicare agent in Greensboro, NC"
         lede="Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. I can review your doctors, prescriptions, enrollment dates, and the plans I represent. Meet at home or talk by phone. There's no obligation to enroll."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free Medicare conversation"
       />
-      <MedicareByline reviewed="2026-10-12" />
+      <MedicareByline reviewed="2026-10-20" />
       <nav className="app-shell max-w-3xl py-6" aria-label="In this Greensboro guide">
         <ul className="space-y-2">
           {GREENSBORO_MEDICARE_SECTIONS.map((s) => (
@@ -83,6 +85,31 @@ export default function MedicareAgentGreensboroPage() {
         <section key={s.id} id={s.id} className="measure-prose app-shell max-w-3xl py-8">
           <h2 className="text-28 font-semibold">{s.heading}</h2>
           <p className="text-18 mt-4">{s.answer}</p>
+          {"table" in s ? (
+            <div className="art-table-wrap mt-4">
+              <ResponsiveTable className="art-table">
+                <caption className="text-16">{s.table.caption}</caption>
+                <thead>
+                  <tr>
+                    {s.table.headers.map((h) => (
+                      <th key={h} scope="col">
+                        {h}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {s.table.rows.map((row) => (
+                    <tr key={row[0]}>
+                      {row.map((cell, i) => (
+                        <td key={i}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </ResponsiveTable>
+            </div>
+          ) : null}
           {s.paragraphs.map((p) => (
             <p key={p} className="text-17 mt-4 leading-relaxed">
               {p}
@@ -112,6 +139,7 @@ export default function MedicareAgentGreensboroPage() {
           ) : null}
         </section>
       ))}
+      <MedicareFactBlock heading="Medicare facts for 2026, with sources" />
       <ShiipAndAgent />
       <MedicareGuideTools currentYear={new Date().getFullYear()} />
       <section

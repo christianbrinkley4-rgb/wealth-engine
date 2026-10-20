@@ -8,12 +8,12 @@ import type { Metadata } from "next";
 import {
   AGENT,
   hasPublishableNpn,
+  LICENSE_LOOKUP_URL,
   MEDICARE_TPMO_SCOPE,
   TPMO_ORGANIZATION_COUNT,
   TPMO_PRODUCT_COUNT,
   publishedProfiles,
 } from "@/lib/agent";
-import { placeNames, SERVICE_AREA_LEDE } from "@/lib/triad";
 
 const LOCAL_SITE_URL = "http://localhost:3000";
 
@@ -163,7 +163,7 @@ export function publishedSameAs(): string[] | undefined {
 /** Personal profiles for the Person entity (not business listings). */
 export function personSameAs(): string[] {
   const profiles = publishedProfiles();
-  return ["linkedin", "instagram", "threads", "youtube"]
+  return ["linkedin", "instagram", "tiktok", "threads", "youtube", "reddit"]
     .map((network) => profiles.find((p) => p.network === network)?.url)
     .filter((url): url is string => Boolean(url));
 }
@@ -176,27 +176,62 @@ export function agencySameAs(): string[] {
     .filter((url): url is string => Boolean(url));
 }
 
+/**
+ * The one service-area list every InsuranceAgency node uses. Two nodes with
+ * the same @id and different areaServed lists read as a conflict, which is
+ * what the homepage and town pages published until October 2026.
+ * The 13 Google Business Profile towns plus Burlington and Lexington, which
+ * have their own pages, and the five counties those towns sit in.
+ */
+export const AGENCY_AREA_SERVED = [
+  ...[
+    "Greensboro",
+    "High Point",
+    "Winston-Salem",
+    "Kernersville",
+    "Burlington",
+    "Lexington",
+    "Summerfield",
+    "Jamestown",
+    "Oak Ridge",
+    "Archdale",
+    "Thomasville",
+    "Creedmoor",
+    "Oxford",
+    "Butner",
+    "Stem",
+  ].map((name) => ({ "@type": "City" as const, name: `${name}, NC` })),
+  ...["Guilford", "Forsyth", "Alamance", "Davidson", "Granville"].map((name) => ({
+    "@type": "AdministrativeArea" as const,
+    name: `${name} County, NC`,
+  })),
+];
+
+const AGENCY_DESCRIPTION =
+  "Christian Brinkley is a licensed North Carolina insurance agent (NC Life & Health) based in " +
+  "Greensboro, NC, serving the Piedmont Triad and Granville County. Free, no-obligation help " +
+  "with Medicare Advantage, Medicare Supplement (Medigap), Part D, life insurance, long-term " +
+  "care insurance, supplemental health coverage, and retirement income education. One local " +
+  "person who answers personally, not a call center.";
+
+const AGENCY_KNOWS_ABOUT = [
+  "Medicare",
+  "Medicare Advantage",
+  "Medicare Supplement Insurance",
+  "Medicare Part D",
+  "Turning 65 Medicare enrollment",
+  "Medicare Annual Enrollment Period",
+  "Life insurance",
+  "Long-term care insurance",
+  "Supplemental health insurance",
+  "Retirement income education",
+];
+
 /** Corrected sitewide entity graph: one Person, one InsuranceAgency, linked by @id. */
 export function siteIdentityJsonLd() {
   const personProfiles = personSameAs();
   const agencyProfiles = agencySameAs();
-
-  // The 13-town service area, aligned with the Google Business Profile.
-  const areaServed = [
-    "Greensboro, NC",
-    "High Point, NC",
-    "Winston-Salem, NC",
-    "Kernersville, NC",
-    "Summerfield, NC",
-    "Jamestown, NC",
-    "Oak Ridge, NC",
-    "Archdale, NC",
-    "Thomasville, NC",
-    "Creedmoor, NC",
-    "Oxford, NC",
-    "Butner, NC",
-    "Stem, NC",
-  ].map((name) => ({ "@type": "City" as const, name }));
+  const areaServed = AGENCY_AREA_SERVED;
 
   return {
     "@context": "https://schema.org",
@@ -215,11 +250,26 @@ export function siteIdentityJsonLd() {
         name: "Christian Brinkley",
         url: `${SITE_URL}/about`,
         image: `${SITE_URL}/christian-brinkley.jpg`,
+        givenName: "Christian",
+        familyName: "Brinkley",
         jobTitle: "Licensed Insurance Agent",
         description:
-          "Licensed North Carolina Life & Health insurance agent who helps people in Greensboro and the Piedmont Triad with Medicare.",
-        telephone: "+1-919-408-6671",
+          "Licensed North Carolina insurance agent (NC Life & Health, NPN 22217190) based in Greensboro, NC, who helps people in the Piedmont Triad and Granville County with Medicare, life insurance, long-term care, and retirement coverage.",
+        telephone: SITE_OWNER_PHONE,
         worksFor: { "@id": `${SITE_URL}/#agency` },
+        workLocation: {
+          "@type": "Place",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Greensboro",
+            addressRegion: "NC",
+            addressCountry: "US",
+          },
+        },
+        affiliation: {
+          "@type": "CollegeOrUniversity",
+          name: "University of North Carolina at Greensboro",
+        },
         ...(hasPublishableNpn()
           ? {
               identifier: {
@@ -234,19 +284,14 @@ export function siteIdentityJsonLd() {
           "@type": "EducationalOccupationalCredential",
           name: "North Carolina Life & Health Insurance License",
           credentialCategory: "license",
+          url: LICENSE_LOOKUP_URL,
           recognizedBy: {
             "@type": "GovernmentOrganization",
             name: "North Carolina Department of Insurance",
             url: "https://www.ncdoi.gov",
           },
         },
-        knowsAbout: [
-          "Medicare",
-          "Medicare Advantage",
-          "Medicare Supplement Insurance",
-          "Medicare Part D",
-          "Medicare enrollment periods",
-        ],
+        knowsAbout: AGENCY_KNOWS_ABOUT,
         ...(personProfiles.length > 0 ? { sameAs: personProfiles } : {}),
       },
       {
@@ -256,9 +301,8 @@ export function siteIdentityJsonLd() {
         url: SITE_URL,
         logo: `${SITE_URL}/opengraph-image`,
         image: `${SITE_URL}/christian-brinkley.jpg`,
-        description:
-          "Free Medicare help from a licensed local agent in Greensboro, NC. Meetings at your home, a public place, or by phone.",
-        telephone: "+1-919-408-6671",
+        description: AGENCY_DESCRIPTION,
+        telephone: SITE_OWNER_PHONE,
         founder: { "@id": `${SITE_URL}/#christian` },
         employee: { "@id": `${SITE_URL}/#christian` },
         address: {
@@ -276,14 +320,7 @@ export function siteIdentityJsonLd() {
             closes: "17:00",
           },
         ],
-        knowsAbout: [
-          "Medicare",
-          "Medicare Advantage",
-          "Medicare Supplement Insurance",
-          "Medicare Part D",
-          "Turning 65 Medicare enrollment",
-          "Medicare Annual Enrollment Period",
-        ],
+        knowsAbout: AGENCY_KNOWS_ABOUT,
         ...(agencyProfiles.length > 0 ? { sameAs: agencyProfiles } : {}),
       },
     ],
@@ -300,11 +337,10 @@ export function siteIdentityJsonLd() {
  * "about 30 minutes" into a circular mileage claim.
  */
 export function localBusinessJsonLd(visibleReviews: readonly VerifiedReview[] = []) {
-  const areaServed = placeNames().map((name) => ({
-    "@type": "City" as const,
-    name,
-    address: { "@type": "PostalAddress", addressRegion: SITE_REGION, addressCountry: "US" },
-  }));
+  // Same @id as the sitewide identity graph, so every property the two nodes
+  // share must carry the identical value: description, areaServed,
+  // knowsAbout, hours and phone all come from the same constants.
+  const areaServed = AGENCY_AREA_SERVED;
 
   const address = {
     "@type": "PostalAddress",
@@ -323,22 +359,9 @@ export function localBusinessJsonLd(visibleReviews: readonly VerifiedReview[] = 
         "@type": "InsuranceAgency",
         "@id": `${SITE_URL}/#agency`,
         name: SITE_NAME,
-        description:
-          "Medicare initial enrollment, annual enrollment, life insurance, and " +
-          "retirement income questions answered in person by one licensed agent " +
-          `in ${SITE_LOCALITY}, ${SITE_REGION}. ${SERVICE_AREA_LEDE} ` +
-          "Free consultation with no obligation to enroll.",
+        description: AGENCY_DESCRIPTION,
         founder: { "@id": `${SITE_URL}/#christian` },
-        knowsAbout: [
-          "Medicare Initial Enrollment counseling",
-          "Medicare Annual Enrollment review",
-          "Life insurance review",
-          "Long-term care insurance consultation",
-          "Short-term care insurance consultation",
-          "Critical illness insurance consultation",
-          "Annuity consultation",
-          "Retirement income and Medicare timing education",
-        ],
+        knowsAbout: AGENCY_KNOWS_ABOUT,
         areaServed,
         // Kept identical to the Google Business Profile hours. Structured
         // markup that contradicts the profile is worse than none at all.
@@ -630,7 +653,7 @@ export function serviceJsonLd(input: { name: string; description: string; path: 
     description: input.description,
     url: `${SITE_URL}${input.path}`,
     provider: { "@id": `${SITE_URL}/#christian` },
-    areaServed: placeNames().map((name) => ({ "@type": "City", name })),
+    areaServed: AGENCY_AREA_SERVED,
     offers: {
       "@type": "Offer",
       price: "0",

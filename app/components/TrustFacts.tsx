@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { AGENT, GOOGLE_MAPS_PROFILE_URL, hasPublishableNpn } from "@/lib/agent";
+import { AGENT, GOOGLE_MAPS_PROFILE_URL, hasPublishableNpn, LICENSE_LOOKUP_URL } from "@/lib/agent";
 import { GOOGLE_REVIEWS } from "@/lib/testimonials";
 
 /**
@@ -28,7 +28,7 @@ export function TrustFacts({ compact = false }: { compact?: boolean }) {
         {hasPublishableNpn() ? (
           <li>
             <a
-              href="https://www.ncdoi.gov/licensees/insurance-producer-and-adjuster-licensing"
+              href={LICENSE_LOOKUP_URL}
               rel="noopener noreferrer"
             >
               Check my license with the state

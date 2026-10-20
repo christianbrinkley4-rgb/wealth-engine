@@ -17,7 +17,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  *
  * 2027 figures below come from CMS data as published by medicareadvantage.com
  * and medicare.org (crawled October 2026): 55 plans in Guilford County, average
- * monthly premium $4.13, average in-network out-of-pocket maximum $6,697.27.
+ * monthly premium $4.13, average in-network out-of-pocket maximum $7,055.45.
  * Specific plan examples are from published 2027 plan details. All figures are
  * presented as examples, not quotes; readers are told to verify on Medicare.gov.
  * Educational only; no carrier or plan recommendations.
@@ -78,7 +78,7 @@ const FAQ = [
   },
   {
     q: "What is the out-of-pocket maximum on Advantage plans here?",
-    a: "The average in-network out-of-pocket maximum in Guilford County is about $6,697 for 2027. Individual plans range from around $3,200 to over $9,000. That number is your worst-case year: once your covered spending hits it, the plan pays 100% for covered services the rest of the year.",
+    a: "The average in-network out-of-pocket maximum in Guilford County is about $7,055 for 2027. Individual plans range from around $3,200 to over $9,000. That number is your worst-case year: once your covered spending hits it, the plan pays 100% for covered services the rest of the year.",
   },
   {
     q: "Can I switch Medicare Advantage plans during the year?",

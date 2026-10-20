@@ -111,7 +111,7 @@ const FAQ = [
   },
   {
     q: "What is the out-of-pocket maximum on Medicare Advantage plans?",
-    a: "Every Medicare Advantage plan has an annual out-of-pocket maximum that caps what you pay for covered services in a year. In Guilford County, the average in-network maximum is about $6,697 for 2027, with individual plans ranging from around $3,200 to over $9,000. Once you hit it, the plan pays 100% for covered services the rest of the year.",
+    a: "Every Medicare Advantage plan has an annual out-of-pocket maximum that caps what you pay for covered services in a year. In Guilford County, the average in-network maximum is about $7,055 for 2027, with individual plans ranging from around $3,200 to over $9,000. Once you hit it, the plan pays 100% for covered services the rest of the year.",
   },
   {
     q: "Are Medicare Advantage plans the same in every NC county?",

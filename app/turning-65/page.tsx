@@ -14,6 +14,7 @@ import { MedicareTimeline } from "@/components/MedicareTimeline";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
+import { MedicareFactBlock } from "@/app/components/MedicareFactBlock";
 import { LeadCluster } from "@/app/components/LeadCluster";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import {
@@ -434,6 +435,10 @@ export default function Turning65Page() {
           <LeadCluster current="/turning-65" heading="More help as you prepare for retirement" />
         </div>
       </section>
+
+      <div className="bg-white">
+        <MedicareFactBlock heading="Turning 65: the numbers, with sources" />
+      </div>
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">

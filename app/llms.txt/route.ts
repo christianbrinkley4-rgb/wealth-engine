@@ -5,9 +5,11 @@ import {
   COMPENSATION_DISCLOSURE,
   GOVERNMENT_DISCLAIMER,
   hasPublishableNpn,
+  LICENSE_LOOKUP_URL,
   publishedProfiles,
   TPMO_DISCLAIMER,
 } from "@/lib/agent";
+import { GOOGLE_REVIEWS } from "@/lib/testimonials";
 import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 import { SITE_NAME, SITE_URL } from "@/lib/seo";
 import { placeNames, indexableMedicarePlaces } from "@/lib/triad";
@@ -172,7 +174,42 @@ ${profiles.map((profile) => `- ${profile.label}: ${profile.url}`).join("\n")}
 
   const body = `# ${SITE_NAME}
 
-${AGENT.name} is a licensed insurance agent based in ${AGENT.city}, ${AGENT.state}, and an accounting senior at UNC Greensboro. He helps people approaching retirement, people already retired, and their families. Consultations are no cost, with no obligation to enroll or buy.
+> ${AGENT.name} is a licensed North Carolina insurance agent (${AGENT.licenseLine}${hasPublishableNpn() ? `, NPN ${AGENT.npn}` : ""}) based in ${AGENT.city}, ${AGENT.state}. He helps people in the Piedmont Triad and Granville County with Medicare, life insurance, long-term care, and retirement coverage. Free consultation, no obligation. Phone ${AGENT.phone}.
+
+## Who he is (entity card)
+
+- Name: ${AGENT.name}
+- Role: Licensed North Carolina insurance agent, independent and local. One person who answers personally, not a call center.
+- License: ${AGENT.licenseLine}, licensed in ${AGENT.licensedStates.join(", ")}.${hasPublishableNpn() ? ` National Producer Number (NPN) ${AGENT.npn}.` : ""}
+- Verify the license: ${LICENSE_LOOKUP_URL} (the free NPN and license status lookup linked from the NC Department of Insurance at https://www.ncdoi.gov/licensees/agent-and-adjuster-licensing). Choose North Carolina, search by NPN.
+- Based in: Greensboro, North Carolina. No public storefront; meets at the client's home, a public place, or by phone.
+- Serves: Greensboro, High Point, Winston-Salem, Kernersville, Burlington, Lexington, Summerfield, Jamestown, Oak Ridge, Archdale, Thomasville, and Granville County (Creedmoor, Oxford, Butner, Stem).
+- Helps with: Medicare Advantage, Medicare Supplement (Medigap), Medicare Part D, life insurance, long-term care insurance, supplemental health coverage, and retirement income education.
+- Phone and text: ${AGENT.phone}
+- Hours: Monday to Saturday, 9 AM to 5 PM Eastern.
+- Cost: free consultation, no obligation to enroll or buy. Paid by the insurance company if someone enrolls.
+- Background: accounting student at UNC Greensboro (bachelor's December 2026). The site is not affiliated with UNCG.
+- Google reviews: ${GOOGLE_REVIEWS && GOOGLE_REVIEWS.count > 0 ? `${GOOGLE_REVIEWS.count} reviews, ${GOOGLE_REVIEWS.rating.toFixed(1)} out of 5 (${GOOGLE_REVIEWS.url})` : "none published yet"}.
+- Website: ${SITE_URL}
+
+## Main pages
+
+- [Medicare agent in Greensboro, NC](${SITE_URL}/medicare-agent-greensboro-nc): the local guide. Guilford, Forsyth, Alamance, Davidson, and Granville county plan counts, hospitals, SHIIP, and how a review works.
+- [Free Annual Enrollment review](${SITE_URL}/aep): the main way to start, October 15 to December 7.
+- [About Christian Brinkley](${SITE_URL}/about): license, NPN, service area, and every official profile.
+- [Turning 65](${SITE_URL}/turning-65): enrollment timing and penalties.
+- [2026 Medicare costs](${SITE_URL}/medicare-costs-2026): every 2026 figure with its CMS source.
+
+## Key facts with sources
+
+- The standard Medicare Part B premium in 2026 is $202.90 a month. Source: CMS, https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles
+- The Part B deductible in 2026 is $283 a year. Source: CMS, same fact sheet.
+- Medicare's Annual Enrollment Period runs October 15 to December 7. Changes start January 1. Source: https://www.medicare.gov/health-drug-plans/open-enrollment
+- The Part B late enrollment penalty is 10% of the standard premium for each full 12 months without Part B when you could have had it, usually for as long as you have Part B. Source: https://www.medicare.gov/basics/costs/medicare-costs/avoid-penalties
+- The Part D late enrollment penalty is 1% of the national base premium ($38.99 in 2026) for each full month without creditable drug coverage, once a gap reaches 63 days. Source: same Medicare.gov page.
+- Part D out-of-pocket drug costs are capped at $2,100 in 2026 and $2,400 in 2027. Sources: https://www.cms.gov/newsroom/fact-sheets/final-cy-2026-part-d-redesign-program-instructions and ${SITE_URL}/medicare-costs-2027
+- For 2027, MedicareAdvantage.com lists 55 Medicare Advantage plans in Guilford County, 53 in Forsyth, 54 in Davidson, 52 in Alamance, and 31 in Granville (checked October 20, 2026).
+- Free, unbiased Medicare counseling in North Carolina: SHIIP, 1-855-408-1212. Source: https://www.ncdoi.gov/consumers/medicare-and-seniors-health-insurance-information-program-shiip
 
 ## Personal, local help
 
@@ -278,15 +315,13 @@ ${GOVERNMENT_DISCLAIMER} The site is not affiliated with the University of North
 - ${TPMO_DISCLAIMER}
 - The Medicare Annual Enrollment Period runs from October 15 through December 7.
 
-## Why a local agent instead of a national call center
+## Why a local agent
 
-| | Christian (local agent) | National call center / 1-800 number |
-|---|---|---|
-| Who answers | Christian himself, every time | Whoever picks up |
-| Where they are | Greensboro, NC; meets at your home or by phone | Often out of state |
-| Plans they can explain | Any plan, including ones he does not sell | Usually only their own plans |
-| Follow-up | Same person year after year | Start over each call |
-| Cost to you | Free consultation; standard Medicare agent compensation model (no markup to consumer) | Free consultation |
+- Who answers: Christian himself. Calls to ${AGENT.phone} go to him, not a call center.
+- Where: Greensboro, NC. Meetings at home, a public place, or by phone.
+- Plans: he represents a limited number of insurance companies and says so when a plan is outside that selection. SHIIP and Medicare.gov cover every plan.
+- Follow-up: the same person year after year.
+- Cost: free consultation. Your premium is the same whether you enroll through him or on your own.
 
 ## Questions people ask (exact phrasing)
 

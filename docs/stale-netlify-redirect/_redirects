@@ -1,0 +1,5 @@
+# Deploy this folder to the OLD Netlify site stupendous-rugelach-44e473
+# (drag the folder onto that site's Deploys page). Every URL then 301s to
+# the real site, which merges the old quiz page's signal into
+# christianbrinkleync.com instead of splitting it.
+/*  https://christianbrinkleync.com/:splat  301!

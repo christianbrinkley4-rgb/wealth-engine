@@ -9,7 +9,7 @@
  *   Supplement June 2026 - May 2027" rate outline, non-tobacco attained-age rates
  *   (nchealthplans.com). Averaged male/female below. This filing is current.
  * - MA plan figures: CMS 2027 landscape file for Guilford County, via
- *   medicareadvantage.com (55 plans, $4.13 avg monthly premium, $6,697.27 avg
+ *   medicareadvantage.com (55 plans, $4.13 avg monthly premium, $7,055.45 avg
  *   max out-of-pocket). National average MA premium ~$12/month from the CMS
  *   press release of Sept 28, 2026 (projection). Part D $700 max deductible
  *   and $2,400 out-of-pocket cap from the CMS CY 2027 Rate Announcement (final).
@@ -101,7 +101,7 @@ export const MA_LANDSCAPE_2027: MaLandscapeRow[] = [
   },
   {
     metric: "Average maximum out-of-pocket",
-    value: "$6,697.27",
+    value: "$7,055.45",
     source: "CMS 2027 landscape file, via medicareadvantage.com",
   },
   {
@@ -202,7 +202,7 @@ export function calculate(input: {
 export const FAQS = [
   {
     q: "Are these real Greensboro plan prices?",
-    a: "The Medicare Advantage figures come from the CMS 2027 landscape file for Guilford County (55 plans, $4.13 average monthly premium, $6,697.27 average max out-of-pocket). The Medigap Plan G premiums are Blue Cross NC's filed non-tobacco rates by age. The Part B premium and deductible shown are 2027 projections from the Medicare Trustees Report; CMS finalizes those in November 2026. Plan availability and prices vary by county and change every year, so always verify current details on Medicare.gov before deciding anything.",
+    a: "The Medicare Advantage figures come from the CMS 2027 landscape file for Guilford County (55 plans, $4.13 average monthly premium, $7,055.45 average max out-of-pocket). The Medigap Plan G premiums are Blue Cross NC's filed non-tobacco rates by age. The Part B premium and deductible shown are 2027 projections from the Medicare Trustees Report; CMS finalizes those in November 2026. Plan availability and prices vary by county and change every year, so always verify current details on Medicare.gov before deciding anything.",
   },
   {
     q: "Does this calculator recommend a plan?",
@@ -210,7 +210,7 @@ export const FAQS = [
   },
   {
     q: "Why does Medicare Advantage look cheaper here?",
-    a: "Most MA plans in Guilford County have $0 monthly premiums, so the estimate starts lower. But the estimate assumes average health. A bad year with hospital stays can push MA costs toward the plan's maximum out-of-pocket, which averages $6,697.27 across Guilford County plans for 2027. Medigap Plan G has no such ceiling risk because it covers nearly all cost sharing after the Part B deductible.",
+    a: "Most MA plans in Guilford County have $0 monthly premiums, so the estimate starts lower. But the estimate assumes average health. A bad year with hospital stays can push MA costs toward the plan's maximum out-of-pocket, which averages $7,055.45 across Guilford County plans for 2027. Medigap Plan G has no such ceiling risk because it covers nearly all cost sharing after the Part B deductible.",
   },
   {
     q: "What is missing from these estimates?",

@@ -810,6 +810,36 @@
 .ab-lead {
   max-width: 48rem;
 }
+.ab-facts-list {
+  display: grid;
+  gap: 0;
+  max-width: 48rem;
+  margin: 1.25rem 0 0;
+  border-top: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+}
+.ab-facts-list > div {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line, rgba(0, 0, 0, 0.12));
+}
+.ab-facts-list dt {
+  font-weight: 700;
+}
+.ab-facts-list dd {
+  margin: 0;
+  line-height: 1.55;
+}
+.ab-facts-list a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+@media (min-width: 720px) {
+  .ab-facts-list > div {
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+  }
+}
 @media (max-width: 899px) {
   .ab-photo {
     max-width: 440px;
