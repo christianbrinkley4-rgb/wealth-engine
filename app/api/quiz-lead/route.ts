@@ -10,6 +10,25 @@ const reply = (body: object, status = 200) =>
   NextResponse.json(body, { status, headers: { "Cache-Control": "no-store" } });
 
 export async function POST(request: NextRequest) {
+  const startedAt = Date.now();
+  const requestId = crypto.randomUUID();
+  const reply = (body: object, status = 200) => {
+    // Never log names, phone numbers, IPs, quiz answers, tokens, or provider errors.
+    const entry = { requestId, status, durationMs: Date.now() - startedAt };
+    if (status >= 500) console.error("[quiz-lead] request failed", entry);
+    else console.info("[quiz-lead] request completed", entry);
+    return NextResponse.json(
+      { ...body, requestId },
+      {
+        status,
+        headers: {
+          "Cache-Control": "no-store",
+          "X-Request-Id": requestId,
+          ...(status === 429 ? { "Retry-After": "60" } : {}),
+        },
+      },
+    );
+  };
   const origin = request.headers.get("origin");
   // Production proxies can reconstruct an internal URL. Pin the browser origin
   // to the configured public site instead of trusting proxy host headers.
@@ -64,10 +83,18 @@ export async function POST(request: NextRequest) {
       },
       503,
     );
-  const checked = await verifyTurnstile(
-    typeof body.turnstile_token === "string" ? body.turnstile_token : undefined,
-    ip,
-  );
+  let checked;
+  try {
+    checked = await verifyTurnstile(
+      typeof body.turnstile_token === "string" ? body.turnstile_token : undefined,
+      ip,
+    );
+  } catch {
+    return reply(
+      { error: "The form check isn't available. Please try again, or call (919) 408-6671." },
+      503,
+    );
+  }
   if (!checked.ok)
     return reply(
       { error: "The form check didn't finish. Please try again, or call (919) 408-6671." },

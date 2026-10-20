@@ -37,6 +37,7 @@ import {
   type AepQuizResult,
 } from "@/lib/aepQuiz";
 import { newEventId, readAttribution } from "@/lib/attribution";
+import { AEP_PROGRESS_KEY, readAepProgress, saveAepProgress } from "@/lib/aepQuizProgress";
 import { loadTurnstile } from "@/lib/loadTurnstile";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
@@ -45,7 +46,14 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 type TurnstileApi = {
   render: (
     container: HTMLElement,
-    options: { sitekey: string; theme: "light"; "error-callback": () => void },
+    options: {
+      sitekey: string;
+      theme: "light";
+      size: "compact";
+      callback: () => void;
+      "expired-callback": () => void;
+      "error-callback": () => void;
+    },
   ) => string | undefined;
   getResponse: (widgetId: string) => string | undefined;
   reset: (widgetId: string) => void;
@@ -77,12 +85,16 @@ function useTurnstile(active: boolean) {
         clearInterval(poll);
       }
     }, 100);
-    const giveUp = setTimeout(() => clearInterval(poll), 20000);
+    const giveUp = setTimeout(() => {
+      clearInterval(poll);
+      if (!turnstileApi())
+        setWidgetError("The form check couldn't load. Please refresh this page or call me.");
+    }, 20000);
     return () => {
       clearInterval(poll);
       clearTimeout(giveUp);
     };
-  }, [active, ready]);
+  }, [active, ready, renderKey]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -94,6 +106,13 @@ function useTurnstile(active: boolean) {
       widgetId = api.render(container, {
         sitekey: TURNSTILE_SITE_KEY,
         theme: "light",
+        size: "compact",
+        callback: () => {
+          if (!disposed) setWidgetError(null);
+        },
+        "expired-callback": () => {
+          if (!disposed) setWidgetError("The form check expired. Please complete it again.");
+        },
         "error-callback": () => {
           if (!disposed)
             setWidgetError("The form check couldn't finish. Please try again, or call me.");
@@ -129,6 +148,7 @@ function useTurnstile(active: boolean) {
 
   const reset = useCallback(() => {
     if (!TURNSTILE_SITE_KEY) return;
+    setWidgetError(null);
     try {
       const api = turnstileApi();
       if (widgetRef.current && api) api.reset(widgetRef.current);
@@ -174,12 +194,35 @@ export function AepQuiz() {
   const question = questions[index];
 
   useEffect(() => {
-    const assigned = assignQuizVariant(readQuizVariantCookie(document.cookie));
+    let restored = null;
+    try {
+      restored = readAepProgress(localStorage.getItem(AEP_PROGRESS_KEY));
+    } catch {
+      /* Storage is optional. */
+    }
+    const assigned = assignQuizVariant(restored?.variant ?? readQuizVariantCookie(document.cookie));
     if (assigned.isNew) document.cookie = quizVariantCookie(assigned.variant);
     // Browser-cookie assignment must be synchronized after hydration.
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setVariant(assigned.variant);
+    if (restored) {
+      setAnswers(restored.answers);
+      setIndex(restored.index);
+      setPhase(restored.phase);
+    }
   }, []);
+
+  useEffect(() => {
+    if (!variant) return;
+    try {
+      if (phase === "result" || Object.keys(answers).length === 0)
+        localStorage.removeItem(AEP_PROGRESS_KEY);
+      else
+        localStorage.setItem(AEP_PROGRESS_KEY, saveAepProgress({ variant, phase, index, answers }));
+    } catch {
+      /* The quiz still works when browser storage is blocked or full. */
+    }
+  }, [variant, phase, index, answers]);
 
   // Move focus to the new question so screen reader and keyboard users are
   // not stranded after each step. Focus scrolling ignores the sticky header,
@@ -218,6 +261,7 @@ export function AepQuiz() {
 
   async function submitCapture(event: React.FormEvent) {
     event.preventDefault();
+    if (sending) return;
     const cleanName = name.trim();
     const cleanEmail = email.trim().toLowerCase();
     const phoneDigits = phone.replace(/\D/g, "");
@@ -230,12 +274,12 @@ export function AepQuiz() {
       setError("Enter a valid email address so I can send your results.");
       return;
     }
-    if (!consent) {
-      setError("Check the box so I know it's alright to contact you.");
+    if (phoneDigits && !/^(1)?[2-9]\d{2}[2-9]\d{6}$/.test(phoneDigits)) {
+      setError("Enter a valid US phone number, or leave the optional phone field blank.");
       return;
     }
-    if (widgetError) {
-      setError(widgetError);
+    if (!consent) {
+      setError("Check the box so I know it's alright to contact you.");
       return;
     }
     const turnstileToken = getToken();
@@ -251,6 +295,7 @@ export function AepQuiz() {
     try {
       const res = await fetch("/api/capture-lead", {
         method: "POST",
+        signal: AbortSignal.timeout(20000),
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           stage: "complete",
@@ -271,8 +316,11 @@ export function AepQuiz() {
           turnstile_token: turnstileToken,
         }),
       });
-      const data = (await res.json().catch(() => null)) as { error?: string } | null;
-      if (!res.ok) {
+      const data = (await res.json().catch(() => null)) as {
+        error?: string;
+        success?: boolean;
+      } | null;
+      if (!res.ok || data?.success !== true) {
         reset();
         setError(data?.error ?? "Something went wrong on my end. Please try again, or call me.");
         setSending(false);
@@ -280,12 +328,18 @@ export function AepQuiz() {
       }
       // The result is revealed only after the lead is captured.
       // Same event id as the server event, so Meta counts one lead.
-      trackLeadOnce(eventId, "medicare");
-      tracking.complete();
       setResult(aepQuizResult(aepQuizTier(answers)));
       setPhase("result");
+      try {
+        trackLeadOnce(eventId, "medicare");
+        tracking.complete();
+      } catch {
+        /* Analytics must not turn a confirmed submission into an error. */
+      }
     } catch {
       setError("Something went wrong on my end. Please try again, or call me.");
+      reset();
+    } finally {
       setSending(false);
     }
   }
@@ -300,11 +354,36 @@ export function AepQuiz() {
         <button
           type="button"
           onClick={goBack}
+          disabled={sending}
           className="text-18 mb-6 inline-flex min-h-12 items-center gap-2 rounded-lg px-2 font-medium text-[var(--color-navy)] transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
         >
           <ArrowLeft className="size-5 shrink-0" aria-hidden />
           Back
         </button>
+      ) : null}
+
+      {variant !== null && phase !== "result" ? (
+        <div className="text-16 mb-5 text-[var(--color-ink-muted)]">
+          <p>Your browser can save your answers for 24 hours. Contact details aren&apos;t saved.</p>
+          <button
+            type="button"
+            disabled={sending}
+            className="min-h-12 underline"
+            onClick={() => {
+              setAnswers({});
+              setIndex(0);
+              setPhase("questions");
+              setError(null);
+              setName("");
+              setEmail("");
+              setPhone("");
+              setConsent(false);
+              setSmsConsent(false);
+            }}
+          >
+            Start over
+          </button>
+        </div>
       ) : null}
 
       {variant === null ? (
@@ -364,8 +443,8 @@ export function AepQuiz() {
             Your result is ready.
           </h2>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
-            Drop your email and I will send your personalized result, plus a reminder before the
-            December 7 deadline. Your answers go directly to me, never to a call center.
+            Add your contact details to request a review and see your educational result. Your
+            answers go directly to me, never to a call center.
           </p>
           <form onSubmit={submitCapture} className="relative mt-6 space-y-5" noValidate>
             <div className="absolute top-auto -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
@@ -472,25 +551,37 @@ export function AepQuiz() {
 
             {TURNSTILE_SITE_KEY ? <div ref={containerRef} /> : null}
 
-            {error ? (
+            {error || widgetError ? (
               <div
                 role="alert"
                 className="rounded-xl border border-[rgba(185,79,92,0.35)] bg-[rgba(185,79,92,0.06)] px-4 py-3"
               >
-                <p className="text-16 text-[var(--color-error)]">{error}</p>
+                <p className="text-16 text-[var(--color-error)]">{error || widgetError}</p>
                 <a
                   href={AGENT.phoneHref}
                   className="text-16 mt-2 inline-flex font-semibold text-[var(--color-navy)] underline underline-offset-2"
                 >
                   Call {AGENT.phone}
                 </a>
+                {widgetError ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setError(null);
+                      reset();
+                    }}
+                    className="ml-3 min-h-12 underline"
+                  >
+                    Retry form check
+                  </button>
+                ) : null}
               </div>
             ) : null}
 
             <button
               type="submit"
               disabled={sending}
-              className="text-18 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] disabled:cursor-not-allowed disabled:opacity-70 disabled:transform-none"
+              className="text-18 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] disabled:transform-none disabled:cursor-not-allowed disabled:opacity-70"
             >
               {sending ? "Sending…" : captureButtonLabel(variant ?? "a")}
             </button>
@@ -547,10 +638,7 @@ export function AepQuiz() {
           </Link>
           <p className="text-16 mt-3 text-center text-[var(--color-ink-muted)]">
             Prefer to talk it through?{" "}
-            <a
-              href={AGENT.phoneHref}
-              className="font-semibold text-[var(--color-navy)] underline"
-            >
+            <a href={AGENT.phoneHref} className="font-semibold text-[var(--color-navy)] underline">
               <Phone className="mr-1 inline size-4" aria-hidden />
               {AGENT.phone}
             </a>

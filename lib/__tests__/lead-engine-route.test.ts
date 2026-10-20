@@ -61,6 +61,28 @@ describe("capture receipt boundary", () => {
       expect((await POST(request())).status).toBe(503);
     },
   );
+  it("logs a traceable failure without contact details or provider secrets", async () => {
+    const log = vi.spyOn(console, "error").mockImplementation(() => {});
+    try {
+      rpc.mockRejectedValue(new Error("secret provider response"));
+      const response = await POST(request());
+      const result = await response.json();
+      expect(result.requestId).toBe(response.headers.get("X-Request-Id"));
+      expect(log).toHaveBeenCalledWith(
+        "[quiz-lead] request failed",
+        expect.objectContaining({
+          requestId: result.requestId,
+          status: 503,
+          durationMs: expect.any(Number),
+        }),
+      );
+      const logs = JSON.stringify(log.mock.calls);
+      expect(logs).not.toContain(body.phone);
+      expect(logs).not.toContain("secret provider response");
+    } finally {
+      log.mockRestore();
+    }
+  });
   it("keeps storage outages visible", async () => {
     rpc.mockRejectedValue(new Error("storage_unavailable"));
     expect((await POST(request())).status).toBe(503);

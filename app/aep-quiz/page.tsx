@@ -7,12 +7,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import {
-  articleJsonLd,
-  breadcrumbJsonLd,
-  faqJsonLd,
-  pageOpenGraph,
-} from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 import { AepQuiz } from "./AepQuiz";
 
@@ -54,7 +49,7 @@ const FAQ = [
   },
   {
     q: "What happens with my email?",
-    a: "Your answers stay on your device while you take the quiz. Nothing is sent anywhere until you ask for your results. If you do, I will send the results and may follow up about Medicare plan reviews before December 7. No spam, no sharing, unsubscribe anytime.",
+    a: "Your quiz answers are saved on this device for 24 hours so you can return to them. Contact details and permission checkboxes are not saved on your device. Your answers and contact details are sent when you submit a review request. You can then see your educational result, and I may follow up about your Medicare questions. (919) 408-6671",
   },
   {
     q: "Is the review really free?",
