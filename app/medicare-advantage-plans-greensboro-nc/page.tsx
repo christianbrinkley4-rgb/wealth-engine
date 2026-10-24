@@ -25,19 +25,19 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Advantage Plans in Greensboro NC (2027)",
+    absolute: "Medicare Advantage Greensboro NC (2027) | Plans, Doctors, and Local Help",
   },
   description:
     "Medicare Advantage plans in Greensboro, NC for 2027: how many plans Guilford County has, what they cost, and how to compare them. From a licensed local agent.",
   alternates: { canonical: "/medicare-advantage-plans-greensboro-nc" },
   openGraph: pageOpenGraph({
-    title: "Medicare Advantage Plans in Greensboro, NC",
+    title: "Medicare Advantage Greensboro NC (2027) | Plans, Doctors, and Local Help",
     description:
       "55 plans in Guilford County for 2027. What they cost, how they work, and how to compare them without guessing.",
     path: "/medicare-advantage-plans-greensboro-nc",
   }),
   twitter: pageTwitter({
-    title: "Medicare Advantage Plans in Greensboro, NC",
+    title: "Medicare Advantage Greensboro NC (2027) | Plans, Doctors, and Local Help",
     description:
       "55 plans in Guilford County for 2027. What they cost, how they work, and how to compare them without guessing.",
     path: "/medicare-advantage-plans-greensboro-nc",

@@ -23,10 +23,10 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 
 export const metadata: Metadata = {
   title: {
-    absolute: "NC State Health Plan Retirees and Medicare: How It Works",
+    absolute: "NC State Health Plan Medicare for Retirees: How It Works",
   },
   description:
-    "Turning 65 as an NC state retiree? You must enroll in Medicare Parts A and B, then choose among three State Health Plan retiree options. Here is how it works.",
+    "NC State Health Plan Medicare for retirees: turning 65 means enrolling in Medicare Parts A and B, then choosing among three State Health Plan retiree options. What to enroll in first and what each option covers.",
   alternates: { canonical: "/guides/nc-state-health-plan-medicare" },
   openGraph: pageOpenGraph({
     title: "NC State Health Plan retirees and Medicare",

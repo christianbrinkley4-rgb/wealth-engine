@@ -79,7 +79,7 @@ export default function MedicareGreensboroPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare in Greensboro" }]}
         eyebrow="Greensboro and Guilford County"
-        title="Medicare Help in Greensboro, NC"
+        title="Medicare Greensboro NC"
         lede="Medicare is federal, but the help around it can be local. Free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. Meet at home or talk by phone. No obligation to enroll."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free Medicare conversation"

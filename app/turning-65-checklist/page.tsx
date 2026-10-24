@@ -22,7 +22,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Turning 65 Checklist: 8 Steps Before Your 65th Birthday",
+    absolute: "Turning 65 Medicare Checklist: 8 Steps Before Your 65th Birthday",
   },
   description:
     "Turning 65? The 8-step Medicare checklist a licensed Greensboro agent walks through with every new client. Free, no call center. Read the details here.",

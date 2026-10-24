@@ -20,18 +20,18 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Is There Still a Medicare Donut Hole in 2027?",
+    absolute: "Medicare Part D Donut Hole 2027: Is There Still One?",
   },
   description:
-    "The Medicare donut hole ended January 1, 2025. How Part D works now: the $700 deductible, $2,400 cap, and picking a 2027 drug plan. Explore the guide.",
+    "Medicare Part D donut hole 2027: the coverage gap ended January 1, 2025. How Part D works now, the $700 deductible, the $2,400 cap, and how to pick a 2027 drug plan.",
   alternates: { canonical: "/medicare-part-d-donut-hole-2027" },
   openGraph: pageOpenGraph({
-    title: "Is There Still a Medicare Donut Hole in 2027?",
+    title: "Medicare Part D Donut Hole 2027: Is There Still One?",
     description: "No, and here is what replaced it: three simple stages and a cap on what you pay.",
     path: "/medicare-part-d-donut-hole-2027",
   }),
   twitter: pageTwitter({
-    title: "Is There Still a Medicare Donut Hole in 2027?",
+    title: "Medicare Part D Donut Hole 2027: Is There Still One?",
     description: "No, and here is what replaced it: three simple stages and a cap on what you pay.",
     path: "/medicare-part-d-donut-hole-2027",
   }),

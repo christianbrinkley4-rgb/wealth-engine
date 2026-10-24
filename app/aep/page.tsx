@@ -42,19 +42,19 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Annual Enrollment 2027 | Free Review in Greensboro",
+    absolute: "Medicare Open Enrollment 2027 | Free Review in Greensboro NC",
   },
   description:
     "Medicare open enrollment runs Oct 15 to Dec 7. Free no-pressure review of your 2027 coverage with licensed local agent Christian Brinkley in Greensboro.",
   alternates: { canonical: "/aep" },
   openGraph: pageOpenGraph({
-    title: "Medicare Annual Enrollment for 2027 coverage | Free fall review in Greensboro NC",
+    title: "Medicare Open Enrollment 2027 | Free Review in Greensboro NC",
     description:
       "Oct 15 to Dec 7: review your 2027 Medicare coverage with a licensed local agent. Free, no pressure, no call center.",
     path: "/aep",
   }),
   twitter: pageTwitter({
-    title: "Medicare Annual Enrollment for 2027 coverage | Free fall review in Greensboro NC",
+    title: "Medicare Open Enrollment 2027 | Free Review in Greensboro NC",
     description:
       "Oct 15 to Dec 7: review your 2027 Medicare coverage with a licensed local agent. Free, no pressure, no call center.",
     path: "/aep",

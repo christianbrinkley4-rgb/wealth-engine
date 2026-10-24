@@ -138,6 +138,27 @@ const GUIDES: LearnEntry[] = [
     featured: true,
   },
   {
+    href: "/medicare-advantage-vs-medigap",
+    title: "Medicare Advantage vs Medigap, nationwide",
+    blurb: "The national comparison: premiums, networks, drugs, travel, and switching rules.",
+    situation: "on-medicare",
+    kind: "Guide",
+  },
+  {
+    href: "/medicare-part-d-plans",
+    title: "Medicare Part D plans, explained",
+    blurb: "Formularies, 2026 costs, the out-of-pocket cap, and how to compare drug plans.",
+    situation: "medicare-costs",
+    kind: "Guide",
+  },
+  {
+    href: "/medicare-greensboro-nc",
+    title: "Medicare in Greensboro, NC",
+    blurb: "Local help: 2026 costs, enrollment dates, doctors, and free reviews.",
+    situation: "on-medicare",
+    kind: "Guide",
+  },
+  {
     href: "/special-enrollment",
     title: "Special Enrollment Periods",
     blurb: "When you can sign up or change plans outside the usual windows.",

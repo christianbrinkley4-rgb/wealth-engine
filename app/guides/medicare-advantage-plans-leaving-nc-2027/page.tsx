@@ -24,19 +24,19 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Medicare Advantage Plans Leaving North Carolina in 2027: What to Do",
+    absolute: "Medicare Advantage Plans Leaving NC in 2027: What to Do",
   },
   description:
     "Some Medicare Advantage plans are ending for 2027. How to tell if yours is affected, what your options are, and the deadlines that matter.",
   alternates: { canonical: "/guides/medicare-advantage-plans-leaving-nc-2027" },
   openGraph: pageOpenGraph({
-    title: "Medicare Advantage plans leaving North Carolina in 2027",
+    title: "Medicare Advantage plans leaving NC in 2027",
     description:
       "Which exits are verified, how to read your plan's letter, and what to do before December 7.",
     path: "/guides/medicare-advantage-plans-leaving-nc-2027",
   }),
   twitter: pageTwitter({
-    title: "Medicare Advantage plans leaving North Carolina in 2027",
+    title: "Medicare Advantage plans leaving NC in 2027",
     description:
       "Which exits are verified, how to read your plan's letter, and what to do before December 7.",
     path: "/guides/medicare-advantage-plans-leaving-nc-2027",

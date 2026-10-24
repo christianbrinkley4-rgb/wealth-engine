@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     absolute: "What Medicare Does Not Cover: The Full List of Gaps",
   },
   description:
-    "Original Medicare leaves real gaps: dental, vision, hearing aids, long-term care, and more. The full list, plus how people fill each gap. Read the guide.",
+    "Original Medicare leaves real gaps: dental, vision, hearing aids, nursing home care, long-term care, and more. The full list, plus how people fill each gap. Read the guide.",
   alternates: { canonical: "/guides/what-medicare-does-not-cover" },
   openGraph: pageOpenGraph({
     title: "What Medicare does not cover",
@@ -153,6 +153,11 @@ export default function WhatMedicareDoesNotCoverPage() {
               <strong className="text-[var(--color-navy)]">Long-term custodial care.</strong>{" "}
               Medicare pays for recovery, not residency. Help with bathing, dressing, and eating, at
               home or in a nursing facility, is not covered.
+            </li>
+            <li>
+              <strong className="text-[var(--color-navy)]">Nursing home stays.</strong>{" "}
+              Medicare covers up to 100 days of skilled nursing after a qualifying hospital stay. A
+              long stay in a nursing home for custodial care is not covered.
             </li>
             <li>
               <strong className="text-[var(--color-navy)]">Care outside the United States.</strong>{" "}

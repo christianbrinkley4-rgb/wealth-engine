@@ -5,7 +5,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     title: "Medicare Agent in High Point, NC | Christian Brinkley",
     heading: "A Medicare agent for High Point and the surrounding counties",
     description:
-      "Free Medicare help in High Point, NC. A licensed local agent who checks your High Point Medical Center doctors and your county before you pick a plan.",
+      "Free Medicare insurance help in High Point, NC. A licensed local agent who checks your High Point Medical Center doctors and your county before you pick a plan.",
     localHeading: "In High Point, your county matters as much as your city",
     paragraphs: [
       "High Point is a place where the mailing city can hide an important insurance detail. Most of High Point is in Guilford County, with portions extending into Davidson, Forsyth, and Randolph counties. Start a Medicare Advantage search with your residential address and county. Do not assume the Guilford County list applies just because the envelope says High Point.",
@@ -150,7 +150,7 @@ export const PRIORITY_MEDICARE_CITIES = {
   burlington: {
     name: "Burlington",
     county: "Alamance County",
-    title: "Burlington Medicare Help: Alamance Coverage and Doctors",
+    title: "Medicare Agent in Burlington, NC | Christian Brinkley",
     heading: "Burlington Medicare help from Alamance to the Triangle",
     description:
       "Get free Medicare help in Burlington, NC. Compare Alamance County coverage, check doctors in Greensboro or the Triangle, and review prescriptions locally.",

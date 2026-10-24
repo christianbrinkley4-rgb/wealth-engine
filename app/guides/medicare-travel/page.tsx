@@ -128,6 +128,16 @@ export default function MedicareTravelPage() {
             </p>
           </div>
 
+          <h2 className="text-28 mt-12 font-semibold">Can I use my Medicare in another state?</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            With Original Medicare, yes. It works with any provider that accepts Medicare, in all
+            50 states, and a Medigap plan travels the same way. With a Medicare Advantage plan,
+            emergency and urgent care are covered anywhere in the United States, but routine care
+            depends on the plan network: HMO plans generally cover only in-network providers, while
+            PPO plans generally cover out-of-network care at a higher cost. Before a long trip or a
+            move, check each doctor and hospital against the plan for that year.
+          </p>
+
           <h2 className="text-28 mt-12 font-semibold">Original Medicare and Medigap: fully portable</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             With Original Medicare, your red, white, and blue card works the same in every state.

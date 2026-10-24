@@ -91,7 +91,7 @@ export default function PartDPlansPage() {
       <MedicareByline reviewed="2026-10-24" />
 
       <section className="measure-prose app-shell max-w-3xl py-8">
-        <h2 className="text-28 font-semibold">What Medicare Part D Is</h2>
+        <h2 className="text-28 font-semibold">How does Medicare Part D work?</h2>
         <p className="text-17 mt-4 leading-relaxed">
           Medicare Part D is prescription drug coverage. That is the short version.
         </p>
