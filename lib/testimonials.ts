@@ -72,10 +72,13 @@ export const TESTIMONIALS: Testimonial[] = [
 /**
  * The Google Business Profile summary shown beside the reviews. Rating and
  * count copied exactly as Google shows them; update when they change.
+ * Count corrected 2026-10-24: the Oct 23 GBP pull showed 3 reviews at 5.0
+ * stars (Stephen Stein, Nicole Flury, Bernice Brinkley). An Oct 24 sweep
+ * reporting 2 was reading the site's own stale copy, not the profile.
  */
 export const GOOGLE_REVIEWS: { rating: number; count: number; url: string } | null = {
   rating: 5.0,
-  count: 2,
+  count: 3,
   url: GOOGLE_MAPS_PROFILE_URL,
 };
 

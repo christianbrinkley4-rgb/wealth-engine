@@ -386,11 +386,17 @@ export function AepQuiz() {
         </div>
       ) : null}
 
-      {variant === null ? (
+      {/*
+        Questions render on the server from the default variant ("a") so
+        crawlers, AI search, and no-JS readers see real content instead of a
+        loading line. The assigned variant (from cookie or saved progress)
+        still takes over after hydration via the restore effect above.
+      */}
+      {phase === "questions" && !question ? (
         <p className="text-18 text-[var(--color-ink-muted)]">Loading the questions.</p>
       ) : null}
 
-      {variant !== null && phase === "questions" && question ? (
+      {phase === "questions" && question ? (
         <section aria-labelledby="aep-quiz-heading">
           <div
             className="mb-8 h-3 overflow-hidden rounded-full bg-[rgba(21,46,52,0.08)]"

@@ -26,7 +26,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { AGENT, GOOGLE_MAPS_PROFILE_URL } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
 import { faqJsonLd, localBusinessJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
-import { hasTestimonials, visibleRatedReviews } from "@/lib/testimonials";
+import { GOOGLE_REVIEWS, hasTestimonials, visibleRatedReviews } from "@/lib/testimonials";
 import { featuredPlaces } from "@/lib/triad";
 
 const title = "Medicare and Retirement Help | Christian Brinkley NC";
@@ -171,7 +171,7 @@ export default function HomePage() {
             <p className="hx-micro hx-rating">
               <Star size={16} aria-hidden fill="currentColor" />{" "}
               <a href={GOOGLE_MAPS_PROFILE_URL} target="_blank" rel="noopener">
-                5.0 on Google
+                5.0 on Google ({GOOGLE_REVIEWS ? GOOGLE_REVIEWS.count : 0} reviews)
               </a>{" "}
               from local clients
             </p>
@@ -289,7 +289,8 @@ export default function HomePage() {
             <p className="pc-lede" data-reveal style={{ "--i": 2 } as React.CSSProperties}>
               Open enrollment runs October 15 to December 7. Seven quick questions about your
               doctors, your prescriptions, and what you pay, and you’ll get an honest read on
-              whether a review is worth your time. Nothing gets sent anywhere unless you ask.
+              whether a review is worth your time. Nothing gets sent anywhere unless you ask.{" "}
+              <Link href="/aep">Read the Annual Enrollment guide</Link>.
             </p>
             <div className="pc-actions" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               <Link ctaLocation="hero" href="/plan-check" className="btn btn-accent">

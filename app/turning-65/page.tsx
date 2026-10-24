@@ -34,6 +34,13 @@ import {
  * and a local agent who will sit down and walk through it.
  */
 
+/**
+ * Revalidate hourly so the AEP countdown stays current without a redeploy.
+ * Without this the page served the build-day count: on Oct 24 it still said
+ * 48 days left, the count from the Oct 20 build, instead of 44.
+ */
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: {
     absolute: "Turning 65 Greensboro NC: Local Licensed Medicare Help",
@@ -462,7 +469,7 @@ export default function Turning65Page() {
 
       <ReadNext>
         <p>
-          Use the <Link href="/turning-65-checklist">turning-65 checklist</Link> to organize each next step. Try the <Link href="/greensboro-medicare-cost-calculator">Greensboro Medicare cost calculator</Link> to estimate your yearly costs. If you live nearby, these guides explain <Link href="/medigap-plans-greensboro-nc">Medigap in Greensboro</Link>, the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local coverage comparison</Link>, <Link href="/medicare-advantage-plans-greensboro-nc">Advantage plans in Greensboro</Link>, <Link href="/medicare-part-d-greensboro-nc">Part D drug coverage</Link>, <Link href="/medigap-plans-greensboro-nc">Medigap plan letters</Link>, and <Link href="/medicare-costs-north-carolina">what Medicare costs in North Carolina</Link>.
+          Use the <Link href="/turning-65-checklist">turning-65 checklist</Link> to organize each next step. Try the <Link href="/greensboro-medicare-cost-calculator">Greensboro Medicare cost calculator</Link> to estimate your yearly costs. If you live nearby, these guides explain <Link href="/medigap-plans-greensboro-nc">Medigap in Greensboro</Link>, the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local coverage comparison</Link>, <Link href="/medicare-advantage-plans-greensboro-nc">Advantage plans in Greensboro</Link>, <Link href="/medicare-part-d-greensboro-nc">Part D drug coverage</Link>, <Link href="/medigap-plans-greensboro-nc">Medigap plan letters</Link>, and <Link href="/medicare-costs-north-carolina">what Medicare costs in North Carolina</Link>. For the national picture, read <Link href="/medicare-advantage-vs-medigap">Medicare Advantage vs Medigap</Link> and the <Link href="/medicare-part-d-plans">Part D prescription drug plans guide</Link>.
         </p>
         <p>
           Common questions answered: <Link href="/answers/missed-iep-penalties">what happens if you miss your enrollment period</Link>, <Link href="/answers/working-past-65-medicare">working past 65</Link>, <Link href="/answers/how-to-apply-for-medicare">how to apply</Link>, <Link href="/answers/medicare-part-d-late-penalty">the Part D late penalty</Link>, and <Link href="/answers/spouse-employer-plan-medicare">staying on a spouse&apos;s employer plan</Link>.

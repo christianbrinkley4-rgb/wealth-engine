@@ -19,10 +19,9 @@ import {
 import { formatMoney } from "@/lib/partBPenalty";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
-const title =
-  "2026 Medicare Costs in NC: Premiums, IRMAA, Deductibles";
+const title = "How Much Does Medicare Cost in 2026? NC Premiums, Deductibles, IRMAA";
 const description =
-  "Every 2026 Medicare figure in one place, from CMS fact sheets: Part B $202.90, deductible $283, Part D cap $2,100, both IRMAA tables. Explore the guide.";
+  "How much does Medicare cost in 2026? Every figure in one place, from CMS fact sheets: Part B $202.90, deductible $283, Part D cap $2,100, both IRMAA tables, plus a first look at 2027 projections.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -114,13 +113,13 @@ export default function MedicareCosts2026Page() {
           <div className="home-heading-row">
             <div>
               <p className="home-eyebrow home-eyebrow-rust">Published figures, with sources</p>
-              <h1 className="ref-title">What Medicare costs in {COSTS_YEAR}</h1>
+              <h1 className="ref-title">How much does Medicare cost in {COSTS_YEAR}?</h1>
             </div>
             <p className="home-heading-note">
               These are the national figures from the CMS fact sheets, not estimates. They are the
-              same in North Carolina as anywhere else. What each one means if you live in Greensboro,
-              High Point, or Winston-Salem, and which Advantage or Part D plans are sold in your
-              county, is the part worth a conversation.
+              same in North Carolina as anywhere else. What each one means if you live in
+              Greensboro, High Point, or Winston-Salem, and which Advantage or Part D plans are sold
+              in your county, is the part worth a conversation.
             </p>
           </div>
 
@@ -185,7 +184,10 @@ export default function MedicareCosts2026Page() {
           </div>
           <p className="ref-note">
             That 20% has no ceiling of its own, which is the whole reason supplemental coverage
-            exists. <Link href="/medicare-advantage-vs-medigap-greensboro-nc">How Advantage and Medigap handle it</Link>{" "}
+            exists.{" "}
+            <Link href="/medicare-advantage-vs-medigap-greensboro-nc">
+              How Advantage and Medigap handle it
+            </Link>{" "}
             differs more than the premiums suggest.
           </p>
           <p className="ref-note">
@@ -287,6 +289,49 @@ export default function MedicareCosts2026Page() {
             mean every drug you take is covered, each plan has its own list, and checking yours
             against it is the single most useful hour of the whole process.
           </p>
+          <p className="ref-note">
+            <Link href="/medicare-part-d-plans">Read the Part D prescription drug plans guide</Link>{" "}
+            for formularies, tiers, and how to compare drug plans each fall.
+          </p>
+        </div>
+      </section>
+
+      <section className="home-section home-rule-top" id="costs-2027">
+        <div className="personal-shell ref-block">
+          <h2>A first look at 2027</h2>
+          <p>
+            Everything in this section is a projection. These are not final figures. CMS confirms
+            the final numbers in mid-November, and they can come in different from what you see
+            here. These projections are here so you have a rough idea of where things may be headed,
+            not so you can plan down to the dollar.
+          </p>
+          <p>
+            <strong>Part B premium.</strong> The trustees project the standard Part B premium at
+            $209.50 a month for 2027. That is up from $202.90 in 2026. Again, it is a projection.
+            The final number comes from CMS in the fall.
+          </p>
+          <p>
+            <strong>Part D deductible.</strong> The projected ceiling on the Part D deductible for
+            2027 is $700. In 2026 it is $615. That is the most a plan can set its deductible at.
+            Some plans may set theirs lower.
+          </p>
+          <p>
+            <strong>Part D out-of-pocket cap.</strong> The cap on what you pay out of pocket for
+            covered Part D drugs is projected at $2,400 for 2027. In 2026 it is $2,100. Once you hit
+            the cap, you do not pay more for covered drugs that year.
+          </p>
+          <p>
+            <strong>Average Part D premium.</strong> The average Part D premium is projected at
+            $41.33 a month for 2027. That projection reflects the end of the premium stabilization
+            demonstration. Keep in mind it is an average. What you would pay depends on the plan.
+          </p>
+          <p>
+            <strong>What to do with all this.</strong> Nothing, for now. There is no decision to
+            make today based on projected numbers. When fall comes, it is worth sitting down to
+            check your doctors and prescriptions against next year&apos;s plan documents. That way
+            you can see how things look for 2027 and make any changes before the December 7
+            deadline. <Link href="/aep">Read the Annual Enrollment guide</Link>.
+          </p>
         </div>
       </section>
 
@@ -328,7 +373,7 @@ export default function MedicareCosts2026Page() {
                       <th scope="row">{range(bracket.minIncome, bracket.maxIncome)}</th>
                       <td>{range(jointBracket.minIncome, jointBracket.maxIncome)}</td>
                       <td>{formatMoney(bracket.partBPremium)}</td>
-                      <td>{band.surcharge === 0  ? "None" : `+${formatMoney(band.surcharge)}`}</td>
+                      <td>{band.surcharge === 0 ? "None" : `+${formatMoney(band.surcharge)}`}</td>
                     </tr>
                   );
                 })}
@@ -387,14 +432,14 @@ export default function MedicareCosts2026Page() {
             <li>
               <a href={CMS_PARTS_AB_SOURCE.url} target="_blank" rel="noopener noreferrer">
                 {CMS_PARTS_AB_SOURCE.title}
-              </a>{" "},
-             Part A, Part B, and both IRMAA tables.
+              </a>{" "}
+              , Part A, Part B, and both IRMAA tables.
             </li>
             <li>
               <a href={CMS_PART_D_SOURCE.url} target="_blank" rel="noopener noreferrer">
                 {CMS_PART_D_SOURCE.title}
-              </a>{" "},
-             the Part D deductible ceiling, out-of-pocket cap and base premium.
+              </a>{" "}
+              , the Part D deductible ceiling, out-of-pocket cap and base premium.
             </li>
           </ul>
           <p className="ref-note">

@@ -72,6 +72,10 @@ export const PRIORITY_MEDICARE_FAQS = {
   ],
   turning: [
     {
+      q: "When should I sign up for Medicare?",
+      a: "Your Initial Enrollment Period runs 7 months: 3 months before your 65th birthday month, your birthday month, and 3 months after.",
+    },
+    {
       q: "When does my Medicare Initial Enrollment Period start?",
       a: "Medicare's Initial Enrollment Period usually starts three months before your birthday month and lasts seven months. First-of-month birthdays shift that enrollment window earlier.",
     },

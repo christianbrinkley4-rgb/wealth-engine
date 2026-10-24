@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     absolute: "Medicare Annual Enrollment 2027 | Free Review in Greensboro",
   },
   description:
-    "Medicare Annual Enrollment runs Oct 15 to Dec 7. Free no-pressure review of your 2027 coverage with licensed local agent Christian Brinkley in Greensboro.",
+    "Medicare open enrollment runs Oct 15 to Dec 7. Free no-pressure review of your 2027 coverage with licensed local agent Christian Brinkley in Greensboro.",
   alternates: { canonical: "/aep" },
   openGraph: pageOpenGraph({
     title: "Medicare Annual Enrollment for 2027 coverage | Free fall review in Greensboro NC",
@@ -106,6 +106,10 @@ const STEPS = [
 const FAQ = PRIORITY_MEDICARE_FAQS.aep;
 
 const LOCAL_FAQ = [
+  {
+    q: "Is Annual Enrollment the same as Medicare open enrollment?",
+    a: "Yes. Medicare open enrollment is the everyday name for Medicare Annual Enrollment. It runs October 15 through December 7, and changes you make take effect January 1.",
+  },
   {
     q: "Where can I meet you for a review in Greensboro?",
     a: "We can arrange a conversation at your home in Greensboro or Guilford County, a convenient public place, or by phone. You can bring a family member and your questions.",
@@ -180,7 +184,7 @@ export default function AepPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Annual enrollment for 2027" }]}
         eyebrow="October 15 to December 7, 2026 · Piedmont Triad"
         title={AEP_HERO_TITLES[aepPhase()]}
-        lede="Annual Enrollment runs October 15 through December 7. Talk with Christian Brinkley about your 2027 doctors, prescriptions, and costs. Free, in person or by phone."
+        lede="Annual Enrollment runs October 15 through December 7. This is the window most people call Medicare open enrollment. Talk with Christian Brinkley about your 2027 doctors, prescriptions, and costs. Free, in person or by phone."
         secondaryHref="#request-review"
         secondaryLabel="Request a Medicare review"
       />
@@ -455,6 +459,11 @@ export default function AepPage() {
           through the <Link href="/aep-checklist">Annual Enrollment checklist</Link>. If your plan
           is not renewing, see the{" "}
           <Link href="/guides/medicare-plan-not-renewing-triad">Triad checklist</Link>.
+        </p>
+        <p>
+          Compare your options in the{" "}
+          <Link href="/medicare-advantage-vs-medigap">Medicare Advantage vs Medigap guide</Link> and
+          read the <Link href="/medicare-part-d-plans">Part D prescription drug plans guide</Link>.
         </p>
         <ChecklistPointer />
       </ReadNext>

@@ -7,12 +7,18 @@ import {
   captureInCommandCenter,
   commandCenterConfig,
   markDelivery,
+  type CommandCenterReceipt,
   type DeliveryStatus,
   type Outbox,
 } from "@/lib/commandCenter";
 import { scoreLead } from "@/lib/leadScoring";
 import { sendMetaLeadEvent } from "@/lib/metaCapi";
-import { sequenceKeyForTopic, shouldEnrollNurture, QUIZ_ABANDONER_KEY, QUIZ_COMPLETER_KEY } from "@/lib/nurture";
+import {
+  sequenceKeyForTopic,
+  shouldEnrollNurture,
+  QUIZ_ABANDONER_KEY,
+  QUIZ_COMPLETER_KEY,
+} from "@/lib/nurture";
 import { enrollLead, newUnsubscribeToken } from "@/lib/nurtureStore";
 import {
   type DeliveryResult,
@@ -161,6 +167,138 @@ function settled(result: PromiseSettledResult<DeliveryResult>): DeliveryResult {
 function deliveryStatus(result: DeliveryResult): DeliveryStatus {
   if (result.ok) return "sent";
   return result.retryable ? "failed_retryable" : "failed_permanent";
+}
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
+ * Structured storage failure log. Path and error only, never contact details:
+ * the lead itself is never printed to logs.
+ */
+function logStorageFailure(path: string, attempt: number, error: unknown) {
+  console.error("[capture-lead] storage failed:", {
+    path,
+    attempt,
+    error: String(error).slice(0, 300),
+  });
+}
+
+/**
+ * Command Center capture with retries. Safe to retry: the Command Center
+ * dedupes on the request key (one UTC day, same answers), so a retried call
+ * cannot create a second inquiry. The 15s Edge Function timeout is the known
+ * intermittency source (cold starts), and a retry usually lands warm.
+ */
+async function captureInCommandCenterWithRetry(
+  row: Record<string, unknown>,
+): Promise<CommandCenterReceipt> {
+  let lastError: unknown = null;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (attempt === 1) await sleep(400);
+    if (attempt === 2) await sleep(1200);
+    try {
+      return await captureInCommandCenter(row);
+    } catch (error) {
+      lastError = error;
+      logStorageFailure("command-center", attempt + 1, error);
+    }
+  }
+  throw lastError;
+}
+
+type StoredLead = {
+  existing: { id: string; lead_score: number | null } | null;
+  finalScore: number;
+};
+
+/**
+ * Direct Supabase leads write with same-day dedupe: a repeat submission from
+ * the same person for the same source updates the existing row instead of
+ * creating a second one. That makes retries safe even if the first attempt
+ * stored the row and its response was lost.
+ */
+async function storeLeadInSupabase(
+  db: ReturnType<typeof getSupabaseAdmin>,
+  row: Record<string, unknown>,
+  email: string,
+  source: string,
+  score: number,
+): Promise<StoredLead> {
+  const cutoff = new Date(Date.now() - 86_400_000).toISOString();
+  const { data: existingRows } = await db
+    .from("leads")
+    .select("id, lead_score")
+    .eq("email", email)
+    .eq("source", source)
+    .gte("created_at", cutoff)
+    .order("created_at", { ascending: false })
+    .limit(1);
+
+  const existing = existingRows?.[0] ?? null;
+  const finalScore = existing ? Math.max(score, existing.lead_score ?? 0) : score;
+
+  if (existing) {
+    const { error } = await db
+      .from("leads")
+      .update({ ...row, lead_score: finalScore })
+      .eq("id", existing.id);
+    if (error) throw new Error(error.message);
+  } else {
+    const { error } = await db.from("leads").insert(row);
+    if (error) throw new Error(error.message);
+  }
+  return { existing, finalScore };
+}
+
+async function storeLeadInSupabaseWithRetry(
+  db: ReturnType<typeof getSupabaseAdmin>,
+  row: Record<string, unknown>,
+  email: string,
+  source: string,
+  score: number,
+): Promise<StoredLead> {
+  let lastError: unknown = null;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    if (attempt > 0) await sleep(500);
+    try {
+      return await storeLeadInSupabase(db, row, email, source, score);
+    } catch (error) {
+      lastError = error;
+      logStorageFailure("supabase-direct", attempt + 1, error);
+    }
+  }
+  throw lastError;
+}
+
+/**
+ * Best-effort dead-letter write. If both storage paths fail, the lead lands in
+ * lead_dead_letters (migration: supabase/migrate-2026-10-lead-dead-letters.sql)
+ * instead of living only in the alert email. Never fails the request: until
+ * the migration is applied the insert throws, is logged, and the alert below
+ * still goes out exactly as before.
+ */
+async function writeDeadLetter(
+  row: Record<string, unknown>,
+  source: string,
+  error: unknown,
+): Promise<void> {
+  try {
+    if (!hasSupabaseAdminConfig()) return;
+    const db = getSupabaseAdmin();
+    const { error: insertError } = await db.from("lead_dead_letters").insert({
+      payload: row,
+      source,
+      error: String(error).slice(0, 500),
+    });
+    if (insertError) throw new Error(insertError.message);
+  } catch (deadLetterError) {
+    console.error(
+      "[capture-lead] dead-letter write failed (table may not exist yet):",
+      String(deadLetterError).slice(0, 300),
+    );
+  }
 }
 
 /**
@@ -512,45 +650,56 @@ export async function POST(request: NextRequest) {
     let duplicate = false;
     let requiresReview = false;
     let outbox: Outbox = {};
+    let lastStorageError: unknown = null;
 
     if (commandCenter) {
       try {
-        const receipt = await captureInCommandCenter(row);
+        const receipt = await captureInCommandCenterWithRetry(row);
         stored = receipt.stored;
         duplicate = receipt.duplicate;
         requiresReview = receipt.requires_review;
         outbox = receipt.outbox;
       } catch (storageError) {
-        console.error("[capture-lead] Command center capture failed:", storageError);
+        lastStorageError = storageError;
+        console.error("[capture-lead] Command center capture failed after retries:", storageError);
+        /*
+         * Fall back to the direct Supabase path, but only when the failure
+         * proves nothing was stored (a rejection, a "did not confirm"
+         * response, or missing config). A timeout or aborted request may
+         * have stored the lead already, so falling back there could double
+         * it; those cases keep the previous alert-only behavior.
+         */
+        const message = String(storageError);
+        const definitelyNotStored = /rejected capture|did not confirm storage|not configured/.test(
+          message,
+        );
+        if (definitelyNotStored && hasSupabaseAdminConfig()) {
+          try {
+            const fallbackDb = getSupabaseAdmin();
+            const direct = await storeLeadInSupabaseWithRetry(
+              fallbackDb,
+              row,
+              email,
+              source,
+              score,
+            );
+            existing = direct.existing;
+            finalScore = direct.finalScore;
+            stored = true;
+          } catch (fallbackError) {
+            lastStorageError = fallbackError;
+            console.error("[capture-lead] Supabase fallback failed:", fallbackError);
+          }
+        }
       }
     } else if (supabase) {
       try {
-        // De-duplicate repeat submissions from the same person in the same day.
-        const cutoff = new Date(Date.now() - 86_400_000).toISOString();
-        const { data: existingRows } = await supabase
-          .from("leads")
-          .select("id, lead_score")
-          .eq("email", email)
-          .eq("source", source)
-          .gte("created_at", cutoff)
-          .order("created_at", { ascending: false })
-          .limit(1);
-
-        existing = existingRows?.[0] ?? null;
-        finalScore = existing ? Math.max(score, existing.lead_score ?? 0) : score;
-
-        if (existing) {
-          const { error } = await supabase
-            .from("leads")
-            .update({ ...row, lead_score: finalScore })
-            .eq("id", existing.id);
-          if (error) throw new Error(error.message);
-        } else {
-          const { error } = await supabase.from("leads").insert(row);
-          if (error) throw new Error(error.message);
-        }
+        const direct = await storeLeadInSupabaseWithRetry(supabase, row, email, source, score);
+        existing = direct.existing;
+        finalScore = direct.finalScore;
         stored = true;
       } catch (storageError) {
+        lastStorageError = storageError;
         console.error("[capture-lead] STORAGE FAILED, falling back to alert only:", storageError);
       }
     }
@@ -565,6 +714,8 @@ export async function POST(request: NextRequest) {
     // When the database write failed, the alert IS the lead, so send it before
     // answering, and only claim success if it actually went out.
     if (!stored) {
+      // Last chance to keep a database copy before falling back to email only.
+      await writeDeadLetter(row, source, lastStorageError);
       const alert = await notifyLeadCaptured({
         storageFailed: true,
         source,
@@ -715,7 +866,8 @@ export async function POST(request: NextRequest) {
          * client marks completion by including the tier (solid/flags/changed).
          * No tier means the email came from the Q3 interstitial: abandoner.
          */
-        const quizCompleted = typeof quiz_answers?.tier === "string" && quiz_answers.tier.length > 0;
+        const quizCompleted =
+          typeof quiz_answers?.tier === "string" && quiz_answers.tier.length > 0;
         sequenceKey = quizCompleted ? QUIZ_COMPLETER_KEY : QUIZ_ABANDONER_KEY;
         if (quizCompleted) {
           const now = new Date().toISOString();

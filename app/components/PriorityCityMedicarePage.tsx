@@ -119,6 +119,11 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
         <h2 className="text-24 font-semibold">Tools to prepare for your conversation</h2>
         <ul className="text-17 mt-4 space-y-3">
           <li>
+            <Link className="underline" href="/aep">
+              Review your coverage during Annual Enrollment
+            </Link>
+          </li>
+          <li>
             <Link className="underline" href="/aep-quiz">
               Check whether you need to act during Annual Enrollment
             </Link>
