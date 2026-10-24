@@ -37,13 +37,13 @@ export const metadata: Metadata = {
     "Licensed NC agent and lifelong Creedmoor resident helping Granville County neighbors understand Medicare. Free, no-pressure plan reviews. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-creedmoor-nc" },
   openGraph: pageOpenGraph({
-    title: "Medicare help from someone who grew up here.",
+    title: "Medicare Help in Creedmoor, NC | Free Local Plan Reviews",
     description:
       "Free, no-pressure Medicare plan reviews for Creedmoor, Oxford, Butner, and Stem. A local licensed agent, not a call center.",
     path: "/medicare-creedmoor-nc",
   }),
   twitter: pageTwitter({
-    title: "Medicare help from someone who grew up here.",
+    title: "Medicare Help in Creedmoor, NC | Free Local Plan Reviews",
     description:
       "Free, no-pressure Medicare plan reviews for Creedmoor, Oxford, Butner, and Stem. A local licensed agent, not a call center.",
     path: "/medicare-creedmoor-nc",
@@ -127,7 +127,7 @@ export default function MedicareCreedmoorPage() {
         eyebrow="Medicare help · Creedmoor and Granville County"
         title="Medicare Help in Creedmoor, NC"
         lede="I'm Christian Brinkley, a licensed insurance agent, and I grew up right here in Creedmoor. I help folks in Creedmoor, Oxford, Butner, and Stem understand their Medicare options with free, no-pressure reviews. No call centers, no scripts, just a local who'll sit down with you and explain it straight."
-        secondaryHref="/start"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free review →"
       />
 

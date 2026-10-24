@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     "Turning 65 in Butner, NC? Free Medicare help from Christian Brinkley, licensed NC agent and your neighbor in Creedmoor. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-butner-nc" },
   openGraph: pageOpenGraph({
-    title: "Medicare help from a neighbor, not a call center.",
+    title: "Medicare Help in Butner, NC | Christian Brinkley",
     description:
       "Free, no-pressure Medicare plan reviews for Butner and Granville County, from a licensed agent who lives just up the road in Creedmoor.",
     path: "/medicare-butner-nc",
   }),
   twitter: pageTwitter({
-    title: "Medicare help from a neighbor, not a call center.",
+    title: "Medicare Help in Butner, NC | Christian Brinkley",
     description:
       "Free, no-pressure Medicare plan reviews for Butner and Granville County, from a licensed agent who lives just up the road in Creedmoor.",
     path: "/medicare-butner-nc",
@@ -125,7 +125,7 @@ export default function MedicareButnerPage() {
         eyebrow="Medicare help · Butner and Granville County"
         title="Medicare Help in Butner, NC"
         lede="I'm Christian Brinkley, a licensed insurance agent, and I live just up the road in Creedmoor. I help folks in Butner understand their Medicare options with free, no-pressure reviews. No call centers, no scripts, just a neighbor who'll sit down with you and explain it straight."
-        secondaryHref="/start"
+        secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free review →"
       />
 

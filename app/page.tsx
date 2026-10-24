@@ -29,7 +29,7 @@ import { faqJsonLd, localBusinessJsonLd, pageOpenGraph, pageTwitter } from "@/li
 import { GOOGLE_REVIEWS, hasTestimonials, visibleRatedReviews } from "@/lib/testimonials";
 import { featuredPlaces } from "@/lib/triad";
 
-const title = "Medicare and Retirement Help | Christian Brinkley NC";
+const title = "Medicare Help in Greensboro NC | Christian Brinkley";
 const description =
   "Medicare, life insurance, and retirement questions with a licensed agent in Greensboro and the Piedmont Triad. Free, no obligation. Call (919) 408-6671.";
 export const metadata: Metadata = {

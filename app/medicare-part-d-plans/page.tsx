@@ -17,7 +17,7 @@ import {
 } from "@/lib/seo";
 
 const path = "/medicare-part-d-plans";
-const title = "Medicare Part D prescription drug plans: A Plain-English Guide for 2026 and 2027";
+const title = "Medicare Part D Plans Explained in Plain English";
 const description =
   "Medicare Part D explained in plain English: formularies, 2026 costs, the out-of-pocket cap, late penalties, and how to compare drug plans each fall.";
 export const metadata: Metadata = {

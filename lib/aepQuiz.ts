@@ -103,7 +103,7 @@ const RESULTS: Record<AepQuizTier, AepQuizResult> = {
       "If your plan still fits, I will tell you so. Plenty of people I meet with keep what they have.",
     ],
     note: "Annual Enrollment runs October 15 through December 7. After December 7, your options to change coverage are limited.",
-    ctaHref: "/schedule?topic=medicare",
+    ctaHref: "/start?topic=medicare&quick=1",
     ctaLabel: "Book my free review",
   },
   aep_turning65: {

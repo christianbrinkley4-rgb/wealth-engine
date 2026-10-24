@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     "Turning 65 or reviewing your Medicare plan in Oxford, NC? Free local help from Christian Brinkley, licensed NC agent. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-oxford-nc" },
   openGraph: pageOpenGraph({
-    title: "Medicare help for Oxford and Granville County.",
+    title: "Medicare Help in Oxford, NC | Christian Brinkley",
     description:
       "Free, no-pressure Medicare plan reviews for Oxford and Granville County. A local licensed agent, not a call center.",
     path: "/medicare-oxford-nc",
   }),
   twitter: pageTwitter({
-    title: "Medicare help for Oxford and Granville County.",
+    title: "Medicare Help in Oxford, NC | Christian Brinkley",
     description:
       "Free, no-pressure Medicare plan reviews for Oxford and Granville County. A local licensed agent, not a call center.",
     path: "/medicare-oxford-nc",
@@ -251,8 +251,8 @@ export default function MedicareOxfordPage() {
       <KitchenTableClose
         heading="From Granville County, for Granville County"
         body="About twenty minutes, free, and you'll actually understand your options. No call centers, just me."
-        href="/plan-check"
-        label="Take the plan-fit quiz →"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

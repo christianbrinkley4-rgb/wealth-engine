@@ -43,6 +43,15 @@ import { loadTurnstile } from "@/lib/loadTurnstile";
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** Show (919) 555-0123 as they type; validation still reads digits only. */
+function formatPhoneDisplay(value: string): string {
+  let digits = value.replace(/\D/g, "").slice(0, 11);
+  if (digits.length === 11 && digits.startsWith("1")) digits = digits.slice(1);
+  if (digits.length <= 3) return digits;
+  if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+}
+
 type TurnstileApi = {
   render: (
     container: HTMLElement,
@@ -448,6 +457,9 @@ export function AepQuiz() {
           >
             Your result is ready.
           </h2>
+          <p className="text-16 font-medium text-[var(--color-ink-muted)]">
+            Final step: your contact details
+          </p>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
             Add your contact details to request a review and see your educational result. Your
             answers go directly to me, never to a call center.
@@ -517,7 +529,7 @@ export function AepQuiz() {
                 inputMode="tel"
                 placeholder="(919) 555-0123"
                 value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => setPhone(formatPhoneDisplay(e.target.value))}
                 className={inputClass}
               />
             </div>
@@ -527,7 +539,7 @@ export function AepQuiz() {
                 type="checkbox"
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
-                className="mt-1 size-5 shrink-0 rounded border-gray-400"
+                className="mt-1 size-6 shrink-0 rounded border-gray-400"
               />
               <span>
                 {CONSENT_TEXT}{" "}
@@ -546,7 +558,7 @@ export function AepQuiz() {
                   type="checkbox"
                   checked={smsConsent}
                   onChange={(e) => setSmsConsent(e.target.checked)}
-                  className="mt-1 size-5 shrink-0 rounded border-gray-400"
+                  className="mt-1 size-6 shrink-0 rounded border-gray-400"
                 />
                 <span>
                   <span className="font-medium">Texting is fine too (optional).</span>{" "}
@@ -642,6 +654,16 @@ export function AepQuiz() {
           >
             {resultButtonLabel(variant ?? "a", result.ctaLabel)} →
           </Link>
+          {result.ctaHref !== "/start?topic=medicare&quick=1" ? (
+            <p className="text-16 mt-3 text-center">
+              <Link
+                href="/start?topic=medicare&quick=1"
+                className="font-semibold text-[var(--color-navy)] underline"
+              >
+                Or book a free review now
+              </Link>
+            </p>
+          ) : null}
           <p className="text-16 mt-3 text-center text-[var(--color-ink-muted)]">
             Prefer to talk it through?{" "}
             <a href={AGENT.phoneHref} className="font-semibold text-[var(--color-navy)] underline">

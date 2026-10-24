@@ -34,13 +34,13 @@ export const metadata: Metadata = {
     "Free Medicare plan reviews in Eden, NC from Christian Brinkley, licensed NC agent. Plain-English help for Rockingham County. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-eden-nc" },
   openGraph: pageOpenGraph({
-    title: "Medicare help for Eden and northern Rockingham County.",
+    title: "Medicare Help in Eden, NC | Christian Brinkley",
     description:
       "Free, no-pressure Medicare plan reviews for Eden and Rockingham County from Christian Brinkley, a licensed NC agent. Call (919) 408-6671.",
     path: "/medicare-eden-nc",
   }),
   twitter: pageTwitter({
-    title: "Medicare help for Eden and northern Rockingham County.",
+    title: "Medicare Help in Eden, NC | Christian Brinkley",
     description:
       "Free, no-pressure Medicare plan reviews for Eden and Rockingham County from Christian Brinkley, a licensed NC agent. Call (919) 408-6671.",
     path: "/medicare-eden-nc",
@@ -274,8 +274,8 @@ export default function MedicareEdenPage() {
       <KitchenTableClose
         heading="Medicare help without the runaround"
         body="About twenty minutes, free, and you&apos;ll actually understand your options. No call centers, just me."
-        href="/plan-check"
-        label="Take the plan-fit quiz →"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

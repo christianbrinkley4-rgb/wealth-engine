@@ -19,9 +19,9 @@ import {
 import { formatMoney } from "@/lib/partBPenalty";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
-const title = "How Much Does Medicare Cost in 2026? NC Premiums, Deductibles, IRMAA";
+const title = "Medicare Costs 2026: Premiums, Deductibles, IRMAA";
 const description =
-  "How much does Medicare cost in 2026? Every figure in one place, from CMS fact sheets: Part B $202.90, deductible $283, Part D cap $2,100, both IRMAA tables, plus a first look at 2027 projections.";
+  "How much does Medicare cost in 2026? Every figure from CMS fact sheets: Part B $202.90, deductible $283, Part D cap $2,100, plus IRMAA tables.";
 
 export const metadata: Metadata = {
   title: { absolute: title },

@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     "Turning 65 or reviewing your Medicare in Asheboro, NC? Free local help from Christian Brinkley, licensed NC agent. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-asheboro-nc" },
   openGraph: pageOpenGraph({
-    title: "Medicare help for Asheboro and Randolph County.",
+    title: "Medicare Help in Asheboro, NC | Christian Brinkley",
     description:
       "Free, no-pressure Medicare plan reviews for Asheboro and all of Randolph County. A local licensed agent, not a call center.",
     path: "/medicare-asheboro-nc",
   }),
   twitter: pageTwitter({
-    title: "Medicare help for Asheboro and Randolph County.",
+    title: "Medicare Help in Asheboro, NC | Christian Brinkley",
     description:
       "Free, no-pressure Medicare plan reviews for Asheboro and all of Randolph County. A local licensed agent, not a call center.",
     path: "/medicare-asheboro-nc",
@@ -251,8 +251,8 @@ export default function MedicareAsheboroPage() {
       <KitchenTableClose
         heading="From a neighbor, not a call center"
         body="About twenty minutes, free, and you'll actually understand your options. If your plan is already fine, I'll tell you so."
-        href="/plan-check"
-        label="Take the plan-fit quiz →"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     "A Medicare agent for Stem, NC and Granville County. Free, no-pressure help from Christian Brinkley, a licensed North Carolina agent. Call (919) 408-6671.",
   alternates: { canonical: "/medicare-agent-stem-nc" },
   openGraph: pageOpenGraph({
-    title: "Medicare help for Stem and Granville County.",
+    title: "Medicare Agent in Stem, NC | Christian Brinkley",
     description:
       "Free Medicare plan reviews for Stem and Granville County. A local licensed agent, not a call center.",
     path: "/medicare-agent-stem-nc",
   }),
   twitter: pageTwitter({
-    title: "Medicare help for Stem and Granville County.",
+    title: "Medicare Agent in Stem, NC | Christian Brinkley",
     description:
       "Free Medicare plan reviews for Stem and Granville County. A local licensed agent, not a call center.",
     path: "/medicare-agent-stem-nc",
@@ -256,8 +256,8 @@ export default function MedicareAgentStemPage() {
       <KitchenTableClose
         heading="From a neighbor, not a call center"
         body="About twenty minutes, free, and you'll actually understand your options. If your plan is already fine, I'll tell you so."
-        href="/plan-check"
-        label="Take the plan-fit quiz →"
+        href="/start?topic=medicare&quick=1"
+        label="Request a free review →"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

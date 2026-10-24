@@ -70,7 +70,7 @@ describe("aepQuizResult", () => {
   });
 
   it("routes the review tier to scheduling and the turning-65 tier to the guide", () => {
-    expect(aepQuizResult("aep_review").ctaHref).toContain("/schedule");
+    expect(aepQuizResult("aep_review").ctaHref).toBe("/start?topic=medicare&quick=1");
     expect(aepQuizResult("aep_turning65").ctaHref).toContain("/turning-65");
   });
 });
