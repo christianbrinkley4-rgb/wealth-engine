@@ -464,6 +464,8 @@ export default function AepPage() {
           Compare your options in the{" "}
           <Link href="/medicare-advantage-vs-medigap">Medicare Advantage vs Medigap guide</Link> and
           read the <Link href="/medicare-part-d-plans">Part D prescription drug plans guide</Link>.
+          If you live in Greensboro, start with the{" "}
+          <Link href="/medicare-greensboro-nc">Greensboro Medicare hub</Link>.
         </p>
         <ChecklistPointer />
       </ReadNext>

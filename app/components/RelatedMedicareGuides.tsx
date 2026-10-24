@@ -11,6 +11,11 @@ export function RelatedMedicareGuides() {
           </Link>
         </li>
         <li>
+          <Link className="underline" href="/medicare-greensboro-nc">
+            Greensboro Medicare hub: costs, enrollment dates, and local help
+          </Link>
+        </li>
+        <li>
           <Link className="underline" href="/north-carolina-medicare-programs">
             North Carolina programs that help with Medicare
           </Link>
