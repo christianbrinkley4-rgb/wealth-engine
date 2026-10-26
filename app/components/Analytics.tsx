@@ -28,6 +28,9 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import {
   conversionTarget,
+  metaAllowedOnRoute,
+  isBookingHref,
+  bookingParams,
   ctaDetail,
   handoffDestination,
   eventParams,
@@ -72,7 +75,7 @@ function trackAdsConversion(event: MeasuredEvent) {
 
 declare global {
   interface Window {
-    fbq?: (...args: unknown[]) => void;
+    fbq?: ((...args: unknown[]) => void) & { trackWealthPageView?: () => void };
     gtag?: (...args: unknown[]) => void;
     ndp?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
@@ -81,7 +84,11 @@ declare global {
 
 /** A phone tap. Standard Contact event, with no name or number attached. */
 export function trackMetaContact() {
-  if (typeof window === "undefined") return;
+  if (
+    typeof window === "undefined" ||
+    !metaAllowedOnRoute(window.location.pathname, META_ADS_ALLOWED)
+  )
+    return;
   try {
     window.fbq?.("track", "Contact");
   } catch {
@@ -94,7 +101,8 @@ export function trackLead(eventId: string, topic?: string) {
   if (typeof window === "undefined") return;
   if (!META_ADS_ALLOWED && !GA4_ID && !GOOGLE_ADS_ID && !NEXTDOOR_PIXEL_ID) return;
   try {
-    window.fbq?.("track", "Lead", { content_category: topic }, { eventID: eventId });
+    if (topic !== "medicare" && metaAllowedOnRoute(window.location.pathname, META_ADS_ALLOWED))
+      window.fbq?.("track", "Lead", { content_category: topic }, { eventID: eventId });
     // The event id deduplicates against the server-side copy; the topic says
     // which service was asked about, never what was answered.
     window.gtag?.("event", "generate_lead", { event_id: eventId, topic });
@@ -143,9 +151,22 @@ export function trackEvent(name: string, detail?: EventDetail) {
     completedTools.add(id);
   }
   try {
-    window.gtag?.("event", name, eventParams(window.location.pathname, detail));
+    window.gtag?.(
+      "event",
+      name,
+      name === "booking_click"
+        ? bookingParams(window.location.pathname, detail)
+        : eventParams(window.location.pathname, detail),
+    );
     trackAdsConversion(name);
-    (window as Window & { sa_event?: (event: string) => void }).sa_event?.(name);
+    (
+      window as Window & {
+        sa_event?: (event: string, params?: EventDetail & { page_path: string }) => void;
+      }
+    ).sa_event?.(
+      name,
+      name === "booking_click" ? bookingParams(window.location.pathname, detail) : undefined,
+    );
   } catch {
     // A blocked script must never break the page.
   }
@@ -174,6 +195,13 @@ export function Analytics() {
         });
         trackMetaContact();
       }
+      const booking = target?.closest?.("a[href]");
+      if (booking && isBookingHref(booking.getAttribute("href") ?? "")) {
+        trackEvent("booking_click", {
+          cta_location: (booking.getAttribute("data-cta-location") ?? "inline") as CtaLocation,
+        });
+        return;
+      }
       // Plain anchors to the three contact pages. TrackedLink marks its own
       // anchors with a location attribute, so a tap is never counted twice.
       const plainLink = target?.closest?.("a[href]:not([data-cta-location])");
@@ -198,7 +226,10 @@ export function Analytics() {
     if (previousPath.current === pathname) return;
     previousPath.current = pathname;
     try {
-      window.fbq?.("track", "PageView");
+      if (metaAllowedOnRoute(window.location.pathname, META_ADS_ALLOWED)) {
+        if (window.fbq?.trackWealthPageView) window.fbq.trackWealthPageView();
+        else window.fbq?.("track", "PageView");
+      }
       if (GA4_ID)
         window.gtag?.("config", GA4_ID, {
           ...eventParams(pathname),
@@ -211,17 +242,29 @@ export function Analytics() {
 
   return (
     <>
-      {META_ADS_ALLOWED && META_PIXEL_ID ? (
+      {metaAllowedOnRoute(pathname, META_ADS_ALLOWED) && META_PIXEL_ID ? (
         <Script id="meta-pixel" strategy="afterInteractive">
-          {`!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          {`if(location.pathname === "/wealth" || location.pathname.startsWith("/wealth/")) {
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){
+if((location.pathname === "/wealth" || location.pathname.startsWith("/wealth/")) && n.callMethod)
+n.callMethod.apply(n,arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
+n.queue=[];
+window.fbq.disablePushState = true;
+window.fbq.disableAutoConfig = true;
+var initialized=false;
+n.trackWealthPageView=function(){
+if(!(location.pathname === "/wealth" || location.pathname.startsWith("/wealth/")) || !n.callMethod)return;
+if(!initialized){
+fbq('set','autoConfig',false,'${META_PIXEL_ID}');
+fbq('init','${META_PIXEL_ID}');
+initialized=true;}
+fbq('track','PageView');};
+t=b.createElement(e);t.async=!0;t.onload=n.trackWealthPageView;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','${META_PIXEL_ID}');fbq('track','PageView');`}
+'https://connect.facebook.net/en_US/fbevents.js');}`}
         </Script>
       ) : null}
 

@@ -2,7 +2,7 @@
  * Meta Conversions API, the server half of the Lead event.
  *
  * Browser pixels get blocked by iOS, ad blockers, and privacy extensions, and
- * this audience runs a lot of them. The server event always fires. Both events
+ * this audience runs a lot of them. Only wealth sources can send. Both events
  * carry the same event_id, so Meta deduplicates rather than counting two leads.
  *
  * Set META_CAPI_ACCESS_TOKEN, NEXT_PUBLIC_META_PIXEL_ID, and
@@ -17,6 +17,7 @@
  */
 
 import crypto from "node:crypto";
+import { metaAllowedForLead } from "@/lib/analytics";
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim() || "";
 const ACCESS_TOKEN = process.env.META_CAPI_ACCESS_TOKEN?.trim() || "";
@@ -36,9 +37,7 @@ export interface CapiLeadInput {
   sourceUrl?: string;
 }
 
-const NEUTRAL_SOURCE_PATHS = new Set(["/", "/start", "/about", "/schedule", "/thank-you"]);
-
-/** Keep only a real, neutral page URL on this deployment's configured origin. */
+/** Keep only the neutral wealth hub URL on this deployment's configured origin. */
 export function metaSourceUrl(raw: string | undefined): string | null {
   try {
     if (!raw || !process.env.NEXT_PUBLIC_SITE_URL?.trim()) return null;
@@ -51,7 +50,8 @@ export function metaSourceUrl(raw: string | undefined): string | null {
       source.origin !== canonical.origin ||
       source.username ||
       source.password ||
-      !NEUTRAL_SOURCE_PATHS.has(source.pathname)
+      !metaAllowedForLead(raw) ||
+      source.pathname !== "/wealth"
     ) {
       return null;
     }

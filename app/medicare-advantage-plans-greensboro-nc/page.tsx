@@ -1,4 +1,3 @@
-import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
@@ -9,37 +8,27 @@ import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
-/**
- * Medicare Advantage plans available in Greensboro / Guilford County.
- *
- * 2027 figures below come from CMS data as published by medicareadvantage.com
- * and medicare.org (crawled October 2026): 55 plans in Guilford County, average
- * monthly premium $4.13, average in-network out-of-pocket maximum $7,055.45.
- * Specific plan examples are from published 2027 plan details. All figures are
- * presented as examples, not quotes; readers are told to verify on Medicare.gov.
- * Educational only; no carrier or plan recommendations.
- */
+/** General Medicare Advantage information. Check address-specific options at Medicare.gov. */
 
 export const metadata: Metadata = {
   title: {
     absolute: "Medicare Advantage Greensboro NC (2027) | Plans, Doctors, and Local Help",
   },
   description:
-    "Medicare Advantage plans in Greensboro, NC for 2027: how many plans Guilford County has, what they cost, and how to compare them. From a licensed local agent.",
+    "Plan options depend on your ZIP code. Compare every plan at Medicare.gov, or book a time and I will check the plans at your address.",
   alternates: { canonical: "/medicare-advantage-plans-greensboro-nc" },
   openGraph: pageOpenGraph({
     title: "Medicare Advantage Greensboro NC (2027) | Plans, Doctors, and Local Help",
     description:
-      "55 plans in Guilford County for 2027. What they cost, how they work, and how to compare them without guessing.",
+      "Plan options depend on your ZIP code. Compare every plan at Medicare.gov, or book a time and I will check the plans at your address.",
     path: "/medicare-advantage-plans-greensboro-nc",
   }),
   twitter: pageTwitter({
     title: "Medicare Advantage Greensboro NC (2027) | Plans, Doctors, and Local Help",
     description:
-      "55 plans in Guilford County for 2027. What they cost, how they work, and how to compare them without guessing.",
+      "Plan options depend on your ZIP code. Compare every plan at Medicare.gov, or book a time and I will check the plans at your address.",
     path: "/medicare-advantage-plans-greensboro-nc",
   }),
 };
@@ -51,34 +40,34 @@ const HOW_IT_WORKS = [
   },
   {
     t: "Your county decides your plan list",
-    b: "This is the part people miss. Medicare Advantage plans are approved county by county, so the plans available in Greensboro are not the same as the ones in Raleigh or Charlotte. Guilford County has 55 Medicare Advantage plans for 2027, according to CMS data. Your zip code is the first thing that matters, before anything about premiums or doctors.",
+    b: "Medicare Advantage plans are approved county by county. Plan options depend on your ZIP code. Compare every plan at Medicare.gov.",
   },
   {
     t: "Networks, not open access",
     b: "Most Advantage plans use networks. HMOs generally require you to use in-network doctors and hospitals except in emergencies, and some require referrals to specialists. PPOs let you go out of network for a higher cost. If your doctors are with Cone Health or an independent practice in the Triad, check each plan's provider directory before you enroll. Original Medicare with Medigap generally lets you see any doctor who accepts Medicare nationwide.",
   },
   {
-    t: "Low premium, pay as you go",
-    b: "The average monthly premium for Advantage plans in Guilford County is about $4.13 for 2027, and many plans charge $0 beyond your Part B premium. Nationally, the weighted average is projected around $12 a month. The tradeoff is cost sharing when you need care: copays for doctor visits, coinsurance for hospital stays, and an annual out-of-pocket maximum that caps your yearly spending.",
+    t: "Compare costs when you need care",
+    b: "Compare copays, coinsurance, and the annual out-of-pocket maximum. The maximum limits covered spending during the year.",
   },
 ] as const;
 
 const FAQ = [
   {
     q: "How many Medicare Advantage plans are available in Greensboro?",
-    a: "Guilford County has 55 Medicare Advantage plans for 2027, according to CMS data. That includes HMOs, PPOs, and special needs plans from carriers like Humana, UnitedHealthcare, Aetna, Anthem Blue Cross Blue Shield, Devoted, Alignment Health, and HealthSpring. The exact list for your zip code is on Medicare.gov.",
+    a: "Plan options depend on your ZIP code. Compare every plan at Medicare.gov, or book a time and I will check the plans at your address.",
   },
   {
     q: "What is the average premium for Medicare Advantage in Greensboro?",
-    a: "About $4.13 a month on average for 2027 in Guilford County, per CMS data. Many plans charge $0 beyond your Part B premium. But the premium is only one part of the cost: compare copays, deductibles, the drug formulary, and the out-of-pocket maximum before you decide.",
+    a: "Compare copays, deductibles, drug coverage, and the out-of-pocket maximum before you decide.",
   },
   {
     q: "Do Medicare Advantage plans cover my Greensboro doctors?",
-    a: "It depends on the specific plan, not the type. Advantage plans use provider networks built county by county. Bring a list of your doctors, your preferred hospital, and your pharmacy, and check them against each plan's directory for the year your coverage starts. I can help you check them at no cost.",
+    a: "Advantage plans use provider networks. Check each plan's directory for your doctors, hospital, and pharmacy.",
   },
   {
     q: "What is the out-of-pocket maximum on Advantage plans here?",
-    a: "The average in-network out-of-pocket maximum in Guilford County is about $7,055 for 2027. Individual plans range from around $3,200 to over $9,000. That number is your worst-case year: once your covered spending hits it, the plan pays 100% for covered services the rest of the year.",
+    a: "The out-of-pocket maximum limits covered spending during the year. Check each plan at Medicare.gov.",
   },
   {
     q: "Can I switch Medicare Advantage plans during the year?",
@@ -114,7 +103,7 @@ export default function MedicareAdvantagePlansGreensboroPage() {
             articleJsonLd({
               headline: "Medicare Advantage Plans in Greensboro NC (2027)",
               description:
-                "How many Advantage plans Guilford County has for 2027, what they cost, and how to compare them. Educational, no plan recommendations.",
+                "Plan options depend on your ZIP code. Compare every plan at Medicare.gov, or book a time and I will check the plans at your address.",
               path: "/medicare-advantage-plans-greensboro-nc",
               datePublished: "2026-10-09",
               dateModified: "2026-10-09",
@@ -130,9 +119,8 @@ export default function MedicareAdvantagePlansGreensboroPage() {
         ]}
         eyebrow="Greensboro, NC · Guilford County"
         title="Medicare Advantage plans in Greensboro"
-        lede="55 plans in Guilford County for 2027. Here is how Advantage works, what it tends to cost here, and how to compare plans without guessing."
+        lede="Plan options depend on your ZIP code. Compare every plan at Medicare.gov, or book a time and I will check the plans at your address."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon"
-        secondaryLabel="Compare plans with me →"
       />
 
       <section className="bg-white py-14">
@@ -162,89 +150,11 @@ export default function MedicareAdvantagePlansGreensboroPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--color-paper)] py-14">
-        <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">What plans look like here in 2027</h2>
-          <p className="text-18 mt-4 leading-relaxed">
-            These are examples from published 2027 plan details in Guilford County, to show the
-            range. They are examples, not recommendations, and benefits change every year.
-            Always confirm current details on Medicare.gov before you enroll.
-          </p>
-          <div className="mt-8 overflow-x-auto">
-            <ResponsiveTable className="w-full min-w-[560px] border-collapse text-left">
-              <caption className="sr-only">
-                Example 2027 Medicare Advantage plans in Guilford County, North Carolina
-              </caption>
-              <thead>
-                <tr className="border-b-2 border-[var(--color-navy)]">
-                  <th scope="col" className="py-3 pr-4 text-16 font-semibold">
-                    Plan example
-                  </th>
-                  <th scope="col" className="py-3 pr-4 text-16 font-semibold">
-                    Type
-                  </th>
-                  <th scope="col" className="py-3 pr-4 text-16 font-semibold">
-                    Premium
-                  </th>
-                  <th scope="col" className="py-3 text-16 font-semibold">
-                    Out-of-pocket max
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="text-16">
-                <tr className="border-b border-gray-300">
-                  <td className="py-3 pr-4">AARP Medicare Advantage from UHC NC-0022</td>
-                  <td className="py-3 pr-4">HMO-POS</td>
-                  <td className="py-3 pr-4">$0</td>
-                  <td className="py-3">$5,900</td>
-                </tr>
-                <tr className="border-b border-gray-300">
-                  <td className="py-3 pr-4">AARP Medicare Advantage from UHC NC-0016</td>
-                  <td className="py-3 pr-4">PPO</td>
-                  <td className="py-3 pr-4">$53</td>
-                  <td className="py-3">$4,450</td>
-                </tr>
-                <tr className="border-b border-gray-300">
-                  <td className="py-3 pr-4">Alignment Health Platinum</td>
-                  <td className="py-3 pr-4">HMO</td>
-                  <td className="py-3 pr-4">$0</td>
-                  <td className="py-3">$3,900</td>
-                </tr>
-                <tr className="border-b border-gray-300">
-                  <td className="py-3 pr-4">Devoted Core NC</td>
-                  <td className="py-3 pr-4">HMO</td>
-                  <td className="py-3 pr-4">$0</td>
-                  <td className="py-3">$3,600</td>
-                </tr>
-                <tr className="border-b border-gray-300">
-                  <td className="py-3 pr-4">Blue Medicare Essential</td>
-                  <td className="py-3 pr-4">HMO</td>
-                  <td className="py-3 pr-4">$0</td>
-                  <td className="py-3">$9,250</td>
-                </tr>
-              </tbody>
-            </ResponsiveTable>
-          </div>
-          <p className="text-15 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Examples from published 2027 plan data via CMS. Figures change yearly. Of the 16 HMO
-            plans in the county, 13 charge a $0 premium, and the average HMO out-of-pocket
-            maximum is about $5,206.
-          </p>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Notice the pattern: lower premiums often pair with higher out-of-pocket maximums.
-            A $0 premium plan with a $9,250 maximum is not cheaper than a $53 premium plan with
-            a $4,450 maximum if you have a bad health year. Compare the whole picture, not just
-            the monthly number.
-          </p>
-        </div>
-      </section>
-
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The questions that actually decide it</h2>
           <p className="text-18 mt-4 leading-relaxed">
-            With 55 plans, the comparison can feel impossible. It gets simpler when you answer
-            these first.
+            Start with your doctors, prescriptions, and questions about costs.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             <strong className="font-semibold text-[var(--color-navy)]">
@@ -260,8 +170,7 @@ export default function MedicareAdvantagePlansGreensboroPage() {
             </strong>{" "}
             Drug coverage varies more than anything else between plans. Enter your exact
             medications on Medicare.gov&rsquo;s plan finder and sort by total yearly cost, not
-            premium. Two plans with the same $0 premium can differ by thousands on drugs
-            alone.
+            premium.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             <strong className="font-semibold text-[var(--color-navy)]">
@@ -342,9 +251,9 @@ export default function MedicareAdvantagePlansGreensboroPage() {
 
       <KitchenTableClose
         heading="Let's compare plans with your doctors and drugs"
-        body={`Bring your doctor list and prescriptions. I will check them against the 2027 plans for your zip code and show you real numbers, not brochures. Free, no obligation. Call or text ${AGENT.phone}.`}
+        body="Plan options depend on your ZIP code. Compare every plan at Medicare.gov, or book a time and I will check the plans at your address."
         href="/start?topic=medicare&stage=turning_65_soon"
-        label="Request a free plan review →"
+        label="Book a 45-minute phone review"
       />
 
       <div className="measure-prose app-shell max-w-3xl pb-12">

@@ -1,5 +1,6 @@
 "use client";
 
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Download, LockKeyhole, Printer } from "lucide-react";
@@ -211,8 +212,8 @@ export function MedicareTimeline({ currentYear }: { currentYear: number }) {
                   Print
                 </button>
               </div>
-              <Link className="tl-next" href="/start?topic=medicare&stage=turning_65_soon">
-                Go over these dates with Christian <ArrowRight size={19} aria-hidden />
+              <Link className="tl-next" href={ENGINE_BOOKING_URL} target="_blank" rel="noopener">
+                Book a 45-minute phone review
               </Link>
               <a
                 className="tl-source"

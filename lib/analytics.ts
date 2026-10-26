@@ -1,3 +1,5 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
+
 /**
  * What this site is allowed to measure, and what it may say about a visit.
  *
@@ -19,6 +21,7 @@ export const MEASURED_EVENTS = {
   tool_start: "tool_start",
   tool_complete: "tool_complete",
   cta_click: "cta_click",
+  booking_click: "booking_click",
   official_handoff_click: "official_handoff_click",
   ask_submit: "ask_submit",
   guide_signup: "guide_signup",
@@ -197,4 +200,40 @@ export function measurementProviders(env: Record<string, string | undefined>): s
   if ((env.NEXT_PUBLIC_NEXTDOOR_PIXEL_ID ?? "").trim()) providers.push("Nextdoor");
   if (env.NEXT_PUBLIC_SIMPLE_ANALYTICS === "true") providers.push("Simple Analytics");
   return providers;
+}
+
+/** Only the wealth section can load or call the optional Meta pixel. */
+export function metaAllowedOnRoute(path: string | null | undefined, enabled: boolean): boolean {
+  return enabled && !!path && (path === "/wealth" || path.startsWith("/wealth/"));
+}
+
+/** A known wealth source is required; Medicare submissions always stay off. */
+export function metaAllowedForLead(
+  sourceUrl: string | undefined,
+  topic?: string | null,
+  source?: string,
+): boolean {
+  if (!sourceUrl || topic === "medicare" || source === "quiz-2026") return false;
+  try {
+    const url = new URL(sourceUrl);
+    return (
+      (url.protocol === "https:" || url.protocol === "http:") &&
+      !url.username &&
+      !url.password &&
+      metaAllowedOnRoute(url.pathname, true)
+    );
+  } catch {
+    return false;
+  }
+}
+
+export function isBookingHref(href: string): boolean {
+  return href === ENGINE_BOOKING_URL || href.split(/[?#]/)[0] === "/book";
+}
+
+export function bookingParams(path: string, detail?: EventDetail) {
+  const { page_path, cta_location } = eventParams(path, {
+    cta_location: detail?.cta_location ?? "inline",
+  });
+  return { page_path, ...(cta_location ? { cta_location } : {}) };
 }

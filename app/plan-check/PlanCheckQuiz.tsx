@@ -15,6 +15,7 @@
  * completer vs abandoner nurture branch.
  */
 
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { ArrowLeft, ArrowRight, CalendarCheck, Phone } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -27,8 +28,8 @@ import { loadTurnstile } from "@/lib/loadTurnstile";
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const STORAGE_KEY = "plan-check-progress-v1";
-/** The embedded Cal.com calendar, so booking never sends anyone to another site. */
-const BOOKING_HREF = "/start?topic=medicare&quick=1";
+/** Google Calendar opens in a new tab to book a 45-minute phone call. */
+const BOOKING_HREF = ENGINE_BOOKING_URL;
 
 interface QuizOption {
   label: string;
@@ -165,21 +166,18 @@ const QUESTIONS: QuizQuestion[] = [
 
 type Tier = "solid" | "flags" | "changed";
 
-const TIER_COPY: Record<Tier, { headline: string; body: string; cta: string }> = {
+const TIER_COPY: Record<Tier, { headline: string; body: string }> = {
   solid: {
     headline: "Your plan looks pretty solid.",
     body: "Based on your answers, nothing major has shifted since you enrolled. That's good news. Plans still change every year though, and a free 20-minute review makes sure nothing slipped through the cracks before enrollment closes December 7.",
-    cta: "Request a free yearly check",
   },
   flags: {
     headline: "A few things are worth a second look.",
     body: "None of this means your plan is wrong. It means a free review would be smart before December 7, while you can still do something about it.",
-    cta: "Request a free plan review",
   },
   changed: {
     headline: "A lot has changed since you enrolled.",
     body: "Your plan may not fit your life the way it used to. You're asking before December 7, which means there's still time to sort it out. A free 20-minute review will give you straight answers.",
-    cta: "Request a free review now",
   },
 };
 
@@ -877,9 +875,8 @@ export function PlanCheckQuiz() {
             </p>
           )}
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-            <a href={BOOKING_HREF} className="btn btn-accent">
-              <CalendarCheck className="size-5" aria-hidden />
-              {copy.cta}
+            <a href={BOOKING_HREF} className="btn btn-accent" target="_blank" rel="noopener">
+              <CalendarCheck className="size-5" aria-hidden /> Book a 45-minute phone review
             </a>
             <a href={AGENT.phoneHref} className="btn btn-outline">
               <Phone className="size-5" aria-hidden />

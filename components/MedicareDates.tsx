@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import Link from "next/link";
 import { CalendarDays, Phone, ShieldCheck, Timer } from "lucide-react";
 
@@ -248,21 +249,23 @@ export function MedicareDates({
       {/*
         The dates are the useful part and they are given away above. This is
         the one place the page asks for anything, and it asks in the order this
-        audience prefers: the phone first.
+        audience can use: booking or a phone call.
       */}
       <div className="mt-6 flex flex-col gap-3 border-t border-gray-300 pt-6 sm:flex-row">
         <a
           href={AGENT.phoneHref}
-          className="text-18 inline-flex min-h-14 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
+          className="text-18 inline-flex min-h-14 flex-1 items-center justify-center gap-2 rounded-xl border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(21,46,52,0.05)]"
         >
           <Phone className="size-5 shrink-0" aria-hidden />
           Talk it through: {AGENT.phone}
         </a>
         <Link
-          href="/start?topic=medicare&stage=turning_65_soon"
-          className="text-18 inline-flex min-h-14 flex-1 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(21,46,52,0.05)]"
+          href={ENGINE_BOOKING_URL}
+          className="text-18 inline-flex min-h-14 flex-1 items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95"
+          target="_blank"
+          rel="noopener"
         >
-          Ask me a question instead
+          Book a 45-minute phone review
         </Link>
       </div>
 

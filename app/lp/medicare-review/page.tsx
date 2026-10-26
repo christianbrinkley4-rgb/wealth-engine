@@ -33,8 +33,17 @@ export default function MedicareReview() {
             Use my calendar to choose a time to talk about Medicare. A callback request and a
             calendar booking are separate.
           </p>
-          <a className="engine-button" href={ENGINE_BOOKING_URL}>
-            Open my Medicare calendar
+          <a
+            className="engine-button"
+            href={ENGINE_BOOKING_URL}
+            target="_blank"
+            rel="noopener"
+            data-cta-location="hero"
+          >
+            Book a 45-minute phone review
+          </a>
+          <a href="/start?topic=medicare&quick=1" className="underline">
+            Or send a question
           </a>
           <h2>What we&apos;ll talk through</h2>
           <ol>

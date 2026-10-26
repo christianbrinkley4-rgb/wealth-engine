@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL, isMedicareStartHref } from "@/lib/leadEnginePublic";
 import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import Image from "next/image";
 import Link from "next/link";
@@ -109,6 +110,7 @@ export function ArticleBody({
     .map((place) => place.name)
     .join(", ");
   const service = servicePageFor(article);
+  const isBookingAction = isMedicareStartHref(article.startHref);
   const outline = article.sections.map((section) => ({
     id: slugify(section.h2),
     title: section.h2,
@@ -264,17 +266,27 @@ export function ArticleBody({
             <h2>{nextStep.heading}</h2>
             <p>{nextStep.body}</p>
             <div className="art-next-actions">
-              <a data-cta-location="article_end" href={AGENT.phoneHref} className="btn">
+              <a
+                data-cta-location="article_end"
+                href={AGENT.phoneHref}
+                className={isBookingAction ? "btn btn-outline" : "btn"}
+              >
                 <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
               </a>
               <TrackedLink
-                href={article.startHref}
-                className="btn btn-outline"
+                href={isBookingAction ? ENGINE_BOOKING_URL : article.startHref}
+                className={isBookingAction ? "btn" : "btn btn-outline"}
                 event="article_cta_click"
                 ctaLocation="article_end"
               >
-                {nextStep.label} <ArrowRight size={18} className="arrow" aria-hidden />
+                {isBookingAction ? "Book a 45-minute phone review" : nextStep.label}{" "}
+                <ArrowRight size={18} className="arrow" aria-hidden />
               </TrackedLink>
+              {isBookingAction && (
+                <a href={article.startHref} className="underline">
+                  Or send a question
+                </a>
+              )}
             </div>
             <p className="art-next-towns">
               I meet people in {towns}, and the towns around them. Or I can talk by phone.

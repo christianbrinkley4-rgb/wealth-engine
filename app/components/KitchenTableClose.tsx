@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL, isMedicareStartHref } from "@/lib/leadEnginePublic";
 import Image from "next/image";
 import { TrustFacts } from "@/app/components/TrustFacts";
 import { TrackedLink as Link } from "@/components/TrackedLink";
@@ -17,6 +18,7 @@ export function KitchenTableClose({
   href: string;
   label: string;
 }) {
+  const isBookingAction = href === ENGINE_BOOKING_URL || isMedicareStartHref(href);
   const cleanLabel = label.replace(/\s*→\s*$/, "");
   return (
     <section className="ktc">
@@ -39,14 +41,29 @@ export function KitchenTableClose({
           <h2>{heading}</h2>
           <p>{body}</p>
           <div className="ktc-actions">
-            <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn">
+            <a
+              data-cta-location="page_close"
+              href={AGENT.phoneHref}
+              className={isBookingAction ? "btn btn-outline" : "btn"}
+            >
               <Phone size={19} aria-hidden />
               Call Christian&apos;s direct line: {AGENT.phone}
             </a>
             {href !== AGENT.phoneHref && (
-              <Link ctaLocation="page_close" href={href} className="btn btn-outline">
-                {cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
+              <Link
+                ctaLocation="page_close"
+                href={isBookingAction ? ENGINE_BOOKING_URL : href}
+                target={isBookingAction ? "_blank" : undefined}
+                rel={isBookingAction ? "noopener" : undefined}
+                className={isBookingAction ? "btn" : "btn btn-outline"}
+              >
+                {isBookingAction ? "Book a 45-minute phone review" : cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
               </Link>
+            )}
+            {isBookingAction && (
+              <a href={href === ENGINE_BOOKING_URL ? "/start" : href} className="underline">
+                Or send a question
+              </a>
             )}
           </div>
           <TrustFacts compact />

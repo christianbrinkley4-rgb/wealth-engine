@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL, isMedicareStartHref } from "@/lib/leadEnginePublic";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -51,6 +52,7 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const page = getLandingPage(slug);
   if (!page) notFound();
+  const isBookingAction = isMedicareStartHref(page.primaryHref);
 
   return (
     <main className="bg-[var(--color-paper)] text-[var(--color-navy)]">
@@ -84,9 +86,27 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
                 {page.subhead}
               </p>
 
+              {isBookingAction ? (
+              <div className="mt-6 flex flex-wrap gap-3" id="page-hero-actions">
+                <a
+                  data-cta-location="hero"
+                  href={ENGINE_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener"
+                  className="btn btn-light"
+                >
+                  Book a 45-minute phone review
+                </a>
+<a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-ghost-light"><Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}</a>
+                <a href={page.primaryHref} className="underline">
+                  Or send a question
+                </a>
+              </div>
+              ) : (
               <div className="mt-6 flex flex-wrap gap-3" id="page-hero-actions">
 <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light"><Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}</a>
-<Link href={page.primaryHref} className="btn btn-ghost-light">Request a free consultation →</Link></div>
+<Link href={page.primaryHref} className="btn btn-ghost-light">Request a consultation →</Link></div>
+              )}
               <p className="text-17 mt-3 text-[var(--color-paper)]/85">
                 No cost. No obligation to buy. Your request comes directly to Christian and is never
                 sold to other agents.
@@ -222,9 +242,27 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
 
       <section className="app-shell max-w-2xl py-12 text-center">
         <h2 className="text-26 font-semibold">Ready to talk through your questions?</h2>
+        {isBookingAction ? (
+        <div className="mt-6 flex flex-wrap justify-center gap-3" >
+          <a
+            data-cta-location="page_close"
+            href={ENGINE_BOOKING_URL}
+            target="_blank"
+            rel="noopener"
+            className="btn"
+          >
+            Book a 45-minute phone review
+          </a>
+<a data-cta-location="page_close" href={AGENT.phoneHref} className="btn btn-outline"><Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}</a>
+          <a href={page.primaryHref} className="underline">
+            Or send a question
+          </a>
+        </div>
+        ) : (
         <div className="mt-6 flex flex-wrap justify-center gap-3" >
 <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn "><Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}</a>
-<Link href={page.primaryHref} className="btn btn-outline">Request a free consultation →</Link></div>
+<Link href={page.primaryHref} className="btn btn-outline">Request a consultation →</Link></div>
+        )}
         <p className="text-17 mt-4 text-[var(--color-ink-muted)]">
           No cost. No obligation to buy. You decide what to do next.
         </p>

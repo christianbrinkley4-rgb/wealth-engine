@@ -69,6 +69,7 @@ export function captureButtonLabel(variant: QuizVariant): string {
 }
 
 export function resultButtonLabel(variant: QuizVariant, fallback: string): string {
-  if (variant === "b" && fallback === "Book my free review") return "Schedule my free review";
+  if (variant === "b" && fallback === "Book a 45-minute phone review")
+    return "Schedule a 45-minute phone review";
   return fallback;
 }

@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import Link from "next/link";
 import { SHIIP_CONTACT_URL } from "@/lib/planChecklist";
 
@@ -33,8 +34,8 @@ export function ShiipAndAgent() {
             Find a SHIIP counselor in your county
           </a>
           {" or "}
-          <Link className="underline" href="/start?topic=medicare&quick=1">
-            book a free conversation with Christian
+          <Link className="underline" href={ENGINE_BOOKING_URL} target="_blank" rel="noopener">
+            Book a 45-minute phone review
           </Link>
           .
         </p>

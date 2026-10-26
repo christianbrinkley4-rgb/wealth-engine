@@ -1,11 +1,12 @@
 "use client";
 
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { Phone, X } from "lucide-react";
 
 import { TrackedLink as Link } from "@/components/TrackedLink";
 
 /**
- * Mobile bar: the phone number and one free-review link.
+ * Mobile bar: booking is primary and the phone number is secondary.
  * The parent decides when it is hidden, tucked, or dismissed.
  */
 export function StickyCTA({
@@ -13,16 +14,12 @@ export function StickyCTA({
   tucked,
   callHref,
   callLabel,
-  reviewHref,
-  reviewLabel,
   onDismiss,
 }: {
   hidden: boolean;
   tucked: boolean;
   callHref: string;
   callLabel: string;
-  reviewHref: string;
-  reviewLabel: string;
   onDismiss: () => void;
 }) {
   if (hidden) return null;
@@ -32,21 +29,27 @@ export function StickyCTA({
       className="scta"
       data-tucked={tucked ? "true" : undefined}
       role="region"
-      aria-label="Call or get a free review"
+      aria-label="Call or book a phone review"
       inert={tucked}
     >
+      <Link
+        ctaLocation="sticky_bar"
+        href={ENGINE_BOOKING_URL}
+        target="_blank"
+        rel="noopener"
+        className="scta-call"
+      >
+        Book a phone review
+      </Link>
       <a
         data-cta-location="sticky_bar"
         href={callHref}
-        className="scta-call"
+        className="scta-second"
         aria-label={`Call Christian's direct line: ${callLabel}`}
       >
         <Phone size={20} aria-hidden />
         {callLabel}
       </a>
-      <Link ctaLocation="sticky_bar" href={reviewHref} className="scta-second">
-        {reviewLabel}
-      </Link>
       <button type="button" className="scta-dismiss" onClick={onDismiss} aria-label="Dismiss">
         <X size={16} aria-hidden />
       </button>

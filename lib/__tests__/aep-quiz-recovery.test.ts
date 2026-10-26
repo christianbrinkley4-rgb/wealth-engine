@@ -2,6 +2,7 @@
 import { createElement } from "react";
 import { cleanup, fireEvent, render, screen, waitFor, act } from "@testing-library/react";
 import { beforeEach, afterEach, describe, expect, it, vi } from "vitest";
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import {
   AEP_PROGRESS_KEY,
   readAepProgress,
@@ -63,8 +64,8 @@ async function mount() {
   const { AepQuiz } = await import("@/app/aep-quiz/AepQuiz");
   return render(createElement(AepQuiz));
 }
-async function contact() {
-  localStorage.setItem(AEP_PROGRESS_KEY, saveAepProgress(capture));
+async function contact(progress: Parameters<typeof saveAepProgress>[0] = capture) {
+  localStorage.setItem(AEP_PROGRESS_KEY, saveAepProgress(progress));
   await mount();
   await waitFor(() => expect(api.render).toHaveBeenCalled());
   fireEvent.change(screen.getByLabelText("First name"), { target: { value: "Test" } });
@@ -72,6 +73,31 @@ async function contact() {
   fireEvent.click(screen.getByRole("checkbox"));
 }
 const submit = () => fireEvent.click(screen.getByRole("button", { name: "Show my result" }));
+
+describe("AEP result destinations", () => {
+  it.each([
+    ["a", "review", ENGINE_BOOKING_URL, "Book a 45-minute phone review"],
+    ["b", "review", ENGINE_BOOKING_URL, "Schedule a 45-minute phone review"],
+    ["a", "turning65", "/turning-65", "Find my enrollment dates"],
+    ["b", "turning65", "/turning-65", "Find my enrollment dates"],
+    ["a", "fine", "/aep", "Learn about the fall window"],
+    ["b", "fine", "/aep", "Learn about the fall window"],
+  ] as const)("keeps variant %s outcome %s at %s", async (variant, outcome, href, label) => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue(Response.json({ success: true, stored: true })));
+    document.cookie = `we-quiz-variant=${variant}`;
+    await contact({
+      ...capture,
+      variant,
+      answers: { ...answers, happyWithPlan: outcome !== "review", turning65Soon: outcome === "turning65" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: variant === "a" ? "Show my result" : /Get my .* review/ }));
+    await screen.findByText("Your result");
+    const primary = screen.getByRole("link", { name: `${label} →` });
+    expect(primary.getAttribute("href")).toBe(href);
+    expect(primary.getAttribute("target")).toBe(href === ENGINE_BOOKING_URL ? "_blank" : null);
+    expect(document.querySelectorAll(`a[href="${ENGINE_BOOKING_URL}"]`)).toHaveLength(1);
+  });
+});
 
 describe("quiz progress and submission recovery", () => {
   it("restores the same question after remount", async () => {

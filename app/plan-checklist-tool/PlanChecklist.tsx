@@ -1,5 +1,6 @@
 "use client";
 
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { useEffect, useRef, useState } from "react";
 
 import { trackEvent } from "@/app/components/Analytics";
@@ -284,11 +285,17 @@ export function PlanChecklist() {
             anything.
           </p>
           <div className="checklist-actions">
-            <a data-cta-location="tool_result" href={AGENT.phoneHref} className="btn">
+            <a data-cta-location="tool_result" href={AGENT.phoneHref} className="btn btn-outline">
               Call {AGENT.phone}
             </a>
-            <TrackedLink href="/start?topic=medicare&quick=1" ctaLocation="tool_result" className="btn btn-outline">
-              Request a time
+            <TrackedLink
+              href={ENGINE_BOOKING_URL}
+              ctaLocation="tool_result"
+              className="btn"
+              target="_blank"
+              rel="noopener"
+            >
+              Book a 45-minute phone review
             </TrackedLink>
           </div>
         </>

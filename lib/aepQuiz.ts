@@ -11,6 +11,8 @@
  * "quiz-2026".
  */
 
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
+
 export type AepQuizTier = "aep_review" | "aep_turning65" | "aep_fine";
 
 export interface AepQuizAnswers {
@@ -103,8 +105,8 @@ const RESULTS: Record<AepQuizTier, AepQuizResult> = {
       "If your plan still fits, I will tell you so. Plenty of people I meet with keep what they have.",
     ],
     note: "Annual Enrollment runs October 15 through December 7. After December 7, your options to change coverage are limited.",
-    ctaHref: "/start?topic=medicare&quick=1",
-    ctaLabel: "Book my free review",
+    ctaHref: ENGINE_BOOKING_URL,
+    ctaLabel: "Book a 45-minute phone review",
   },
   aep_turning65: {
     tier: "aep_turning65",

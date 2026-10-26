@@ -41,24 +41,10 @@ const HIDE_PREFIXES = [
 
 const DISMISS_KEY = "we-scta-dismissed";
 
-/** Medicare pages offer a free review; the plan check itself offers a time. */
-function secondStep(pathname: string): { href: string; label: string } {
-  if (
-    ["/", "/turning-65", "/plan-check", "/aep", "/anoc", "/answers"].some(
-      (route) => pathname === route || pathname.startsWith(`${route}/`),
-    ) ||
-    pathname.startsWith("/medicare") ||
-    pathname.startsWith("/guides")
-  ) {
-    return { href: "/start?topic=medicare&quick=1", label: "Ask me a question" };
-  }
-  return { href: "/start", label: "Free Review" };
-}
-
 const FIELD_SELECTOR = "input, select, textarea";
 
 /**
- * Mobile-only sticky bar: the phone number, then a free review.
+ * Mobile-only sticky bar: book a phone review or call Christian.
  *
  * It stays tucked until the hero's own buttons have scrolled away, and it
  * hides while someone is typing so it cannot cover a form field. A visitor
@@ -140,7 +126,6 @@ export function StickyMobileCta() {
   }
 
   const tucked = typing || !pastHero;
-  const second = secondStep(pathname);
 
   return (
     <StickyCTA
@@ -148,8 +133,6 @@ export function StickyMobileCta() {
       tucked={tucked}
       callHref={AGENT.phoneHref}
       callLabel={AGENT.phone}
-      reviewHref={second.href}
-      reviewLabel={second.label}
       onDismiss={dismiss}
     />
   );

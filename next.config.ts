@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL } from "./lib/leadEnginePublic";
 import type { NextConfig } from "next";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -57,6 +58,7 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
+      { source: "/book", destination: ENGINE_BOOKING_URL, permanent: false },
       ...Object.entries(LOCATION_CONSOLIDATIONS).map(([source, destination]) => ({
         source,
         destination,

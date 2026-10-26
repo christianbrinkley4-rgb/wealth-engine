@@ -18,6 +18,7 @@ describe("what may be measured", () => {
         "checklist_complete",
         "checklist_start",
         "cta_click",
+        "booking_click",
         "booking_complete",
         "booking_open",
         "generate_lead",

@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 
 import {
   aepQuizPayload,
@@ -70,8 +71,9 @@ describe("aepQuizResult", () => {
   });
 
   it("routes the review tier to scheduling and the turning-65 tier to the guide", () => {
-    expect(aepQuizResult("aep_review").ctaHref).toBe("/start?topic=medicare&quick=1");
-    expect(aepQuizResult("aep_turning65").ctaHref).toContain("/turning-65");
+    expect(aepQuizResult("aep_review").ctaHref).toBe(ENGINE_BOOKING_URL);
+    expect(aepQuizResult("aep_turning65").ctaHref).toBe("/turning-65");
+    expect(aepQuizResult("aep_fine").ctaHref).toBe("/aep");
   });
 });
 

@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL, isMedicareStartHref } from "@/lib/leadEnginePublic";
 import Image from "next/image";
 import { TrackedLink as Link } from "@/components/TrackedLink";
 import { ArrowRight, Check, Phone } from "lucide-react";
@@ -59,6 +60,7 @@ export function ServiceHero({
         ? "/start?topic=medicare&quick=1"
         : "/start"
       : undefined);
+  const isBookingAction = !!actionHref && isMedicareStartHref(actionHref);
   const variantClass = variant === "compact" ? " sh-compact" : variant === "info" ? " sh-info" : "";
   return (
     <section
@@ -92,7 +94,11 @@ export function ServiceHero({
 
           <div className="sh-actions" id="page-hero-actions">
             {!hidePhoneCta && variant !== "info" && (
-              <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light">
+              <a
+                data-cta-location="hero"
+                href={AGENT.phoneHref}
+                className={`btn ${isBookingAction ? "btn-ghost-light" : "btn-light"}`}
+              >
                 <Phone size={19} aria-hidden />
                 Call Christian&apos;s direct line: {AGENT.phone}
               </a>
@@ -100,13 +106,21 @@ export function ServiceHero({
             {actionHref && actionHref !== AGENT.phoneHref && (
               <Link
                 ctaLocation="hero"
-                href={actionHref}
-                className={`btn ${hidePhoneCta || variant === "info" ? "btn-outline" : "btn-ghost-light"}`}
+                href={isBookingAction ? ENGINE_BOOKING_URL : actionHref}
+                target={isBookingAction ? "_blank" : undefined}
+                rel={isBookingAction ? "noopener" : undefined}
+                className={`btn ${isBookingAction ? (variant === "info" ? "" : "btn-light") : hidePhoneCta || variant === "info" ? "btn-outline" : "btn-ghost-light"}`}
               >
-                {label} <ArrowRight size={18} className="arrow" aria-hidden />
+                {isBookingAction ? "Book a 45-minute phone review" : label}{" "}
+                <ArrowRight size={18} className="arrow" aria-hidden />
               </Link>
             )}
           </div>
+          {isBookingAction && (
+            <Link href={actionHref!} className="underline">
+              Or send a question
+            </Link>
+          )}
           {note ? (
             <div className="sh-note">{note}</div>
           ) : variant === "info" ? (

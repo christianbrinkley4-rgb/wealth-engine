@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { TrackedLink as Link } from "@/components/TrackedLink";
 
 import { aepWindow, aepWindowMessage } from "@/lib/aepWindow";
@@ -31,11 +32,8 @@ export function AepCountdown({
             Take the 2-minute quiz
           </Link>
           <span aria-hidden> · </span>
-          <Link
-            ctaLocation="inline"
-            href="/start?topic=medicare&stage=already_on_medicare&quick=1"
-          >
-            Request a free review
+          <Link ctaLocation="inline" href={ENGINE_BOOKING_URL} target="_blank" rel="noopener">
+            Book a 45-minute phone review
           </Link>
         </p>
       </div>
