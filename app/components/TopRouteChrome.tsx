@@ -1,5 +1,6 @@
 "use client";
 
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import Image from "next/image";
 import { TrackedLink as Link } from "@/components/TrackedLink";
 import { ArrowRight, Menu, Phone, X } from "lucide-react";
@@ -155,10 +156,12 @@ export function TopRouteChrome() {
             {!isAiRoute(pathname) && pathname !== "/schedule" && pathname !== "/start" && (
               <Link
                 ctaLocation="header"
-                href="/start?topic=medicare&quick=1"
+                href={ENGINE_BOOKING_URL}
+                target="_blank"
+                rel="noopener"
                 className="btn btn-outline btn-sm nav-cta"
               >
-                Request a free consultation
+                Book a phone review
               </Link>
             )}
             {!isAiRoute(pathname) && (
@@ -208,13 +211,20 @@ export function TopRouteChrome() {
             </a>
           )}
           {!isAiRoute(pathname) && pathname !== "/start" && (
-            <Link
-              ctaLocation="menu"
-              href="/start?topic=medicare&quick=1"
-              className="btn btn-outline btn-block"
-            >
-              Request a free consultation
-            </Link>
+            <>
+              <Link
+                ctaLocation="menu"
+                href={ENGINE_BOOKING_URL}
+                target="_blank"
+                rel="noopener"
+                className="btn btn-outline btn-block"
+              >
+                Book a phone review
+              </Link>
+              <Link href="/start" className="underline">
+                Or send a question
+              </Link>
+            </>
           )}
         </div>
         <p className="nav-sheet-note">

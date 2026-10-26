@@ -1,7 +1,8 @@
 // Browser-safe wording. Keep the server validator on these same constants.
 export const ENGINE_CONSENT_VERSION = "2026-10-15.v1";
-// Existing public Medicare event, checked in a browser on October 15, 2026.
-export const ENGINE_BOOKING_URL = "https://cal.com/christianbrinkleync/medicare-questions";
+// Google Calendar appointment page, 45-minute phone calls, confirmed Oct 26, 2026.
+export const ENGINE_BOOKING_URL =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ3o4z5ujB5EOQfw_2jXZkdwBwskeVEb8VdziguWf5GQy9-5J0UgTxjbnXe0F_856Iti_noWHjdZ";
 export const ENGINE_CONSENT =
   "I ask Christian Brinkley, a licensed NC insurance agent, to call me about my Medicare questions at the number I provided. This isn't a request to enroll. I can ask him to stop contacting me. My information won't be sold or shared with other agents.";
 

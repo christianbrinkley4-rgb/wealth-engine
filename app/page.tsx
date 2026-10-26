@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { speakableJsonLd } from "@/lib/seo";
 import { ShiipAndAgent } from "@/app/components/ShiipAndAgent";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
@@ -156,12 +157,21 @@ export default function HomePage() {
               pressure, no call center.
             </p>
             <div className="hx-actions" id="home-hero-actions">
+              <a
+                data-cta-location="hero"
+                href={ENGINE_BOOKING_URL}
+                target="_blank"
+                rel="noopener"
+                className="btn"
+              >
+                Book a 45-minute phone review
+              </a>
               <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-accent">
                 <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
               </a>
-              <Link ctaLocation="hero" href="/start?topic=medicare&quick=1" className="btn btn-outline">
-                Request a free consultation <ArrowRight size={19} className="arrow" aria-hidden />
-              </Link>
+              <a href="/start" className="underline">
+                Or send a question
+              </a>
             </div>
             <a href="#timing" className="hx-sublink">
               Turning 65? See how your enrollment window works <ArrowDown size={16} aria-hidden />
@@ -515,12 +525,21 @@ export default function HomePage() {
             ))}
           </ol>
           <div className="steps-actions" data-reveal>
+            <a
+              data-cta-location="page_close"
+              href={ENGINE_BOOKING_URL}
+              target="_blank"
+              rel="noopener"
+              className="btn"
+            >
+              Book a 45-minute phone review
+            </a>
             <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn">
               <Phone size={19} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
             </a>
-            <Link href="/start?topic=medicare&quick=1" className="btn btn-outline">
-              Ask me a question <ArrowRight size={19} className="arrow" aria-hidden />
-            </Link>
+            <a href="/start" className="underline">
+              Or send a question
+            </a>
           </div>
         </div>
       </section>

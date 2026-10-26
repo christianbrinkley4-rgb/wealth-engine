@@ -15,6 +15,7 @@
  * completer vs abandoner nurture branch.
  */
 
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { ArrowLeft, ArrowRight, CalendarCheck, Phone } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -28,7 +29,7 @@ const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const STORAGE_KEY = "plan-check-progress-v1";
 /** The embedded Cal.com calendar, so booking never sends anyone to another site. */
-const BOOKING_HREF = "/start?topic=medicare&quick=1";
+const BOOKING_HREF = ENGINE_BOOKING_URL;
 
 interface QuizOption {
   label: string;
@@ -877,9 +878,8 @@ export function PlanCheckQuiz() {
             </p>
           )}
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-            <a href={BOOKING_HREF} className="btn btn-accent">
-              <CalendarCheck className="size-5" aria-hidden />
-              {copy.cta}
+            <a href={BOOKING_HREF} className="btn btn-accent" target="_blank" rel="noopener">
+              <CalendarCheck className="size-5" aria-hidden /> Book a 45-minute phone review
             </a>
             <a href={AGENT.phoneHref} className="btn btn-outline">
               <Phone className="size-5" aria-hidden />

@@ -6,6 +6,7 @@ import Page, { generateMetadata, generateStaticParams } from "@/app/guides/[slug
 import sitemap from "@/app/sitemap";
 import { GET as shortIndex } from "@/app/llms.txt/route";
 import { GET as fullIndex } from "@/app/llms-full.txt/route";
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
 
 describe("traffic guide publishing contract", () => {
@@ -46,9 +47,7 @@ describe("traffic guide publishing contract", () => {
       expect(html).toContain("Educational information only");
       expect(html).toContain("not a CPA or registered investment adviser");
       expect(html).toContain("(919) 408-6671");
-      expect(html).toContain(
-        guide.scope === "medicare" ? 'href="/start?topic=medicare&amp;quick=1"' : 'href="/start"',
-      );
+      expect(html).toContain(`href="${ENGINE_BOOKING_URL}"`);
       expect(html).toContain("<caption");
       expect(html).not.toContain("\u2014");
       const json = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/)?.[1];

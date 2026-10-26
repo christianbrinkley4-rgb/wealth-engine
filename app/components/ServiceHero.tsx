@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import Image from "next/image";
 import { TrackedLink as Link } from "@/components/TrackedLink";
 import { ArrowRight, Check, Phone } from "lucide-react";
@@ -50,7 +51,7 @@ export function ServiceHero({
   variant?: "default" | "compact" | "info";
 }) {
   // Older pages put an arrow character in the label; the button draws its own.
-  const label = (secondaryLabel ?? "Request a free consultation").replace(/\s*→\s*$/, "");
+  const label = (secondaryLabel ?? "Book a 45-minute phone review").replace(/\s*→\s*$/, "");
   const actionHref =
     secondaryHref ??
     (!hidePhoneCta && variant !== "info"
@@ -59,6 +60,7 @@ export function ServiceHero({
         ? "/start?topic=medicare&quick=1"
         : "/start"
       : undefined);
+  const isStartAction = actionHref?.split("?")[0] === "/start";
   const variantClass = variant === "compact" ? " sh-compact" : variant === "info" ? " sh-info" : "";
   return (
     <section
@@ -100,13 +102,21 @@ export function ServiceHero({
             {actionHref && actionHref !== AGENT.phoneHref && (
               <Link
                 ctaLocation="hero"
-                href={actionHref}
+                href={isStartAction ? ENGINE_BOOKING_URL : actionHref}
+                target={isStartAction ? "_blank" : undefined}
+                rel={isStartAction ? "noopener" : undefined}
                 className={`btn ${hidePhoneCta || variant === "info" ? "btn-outline" : "btn-ghost-light"}`}
               >
-                {label} <ArrowRight size={18} className="arrow" aria-hidden />
+                {isStartAction ? "Book a 45-minute phone review" : label}{" "}
+                <ArrowRight size={18} className="arrow" aria-hidden />
               </Link>
             )}
           </div>
+          {isStartAction && (
+            <Link href="/start" className="underline">
+              Or send a question
+            </Link>
+          )}
           {note ? (
             <div className="sh-note">{note}</div>
           ) : variant === "info" ? (

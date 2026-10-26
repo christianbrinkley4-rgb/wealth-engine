@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -173,9 +174,17 @@ export default function RentVsBuyMathPage() {
                 <a href={WEALTH_FACTS.phoneHref} className="w-btn w-btn-ink">
                   Call Christian&apos;s direct line: {WEALTH_FACTS.phone}
                 </a>
-                <Link href="/start" className="w-btn w-btn-ghost">
-                  Request a free consultation <ArrowRight size={18} aria-hidden />
+                <Link
+                  href={ENGINE_BOOKING_URL}
+                  className="w-btn w-btn-ghost"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Book a 45-minute phone review <ArrowRight size={18} aria-hidden />
                 </Link>
+                <a href="/start" className="underline">
+                  Or send a question
+                </a>
               </div>
               <p style={{ marginTop: 18 }}>
                 Christian Brinkley, Greensboro, NC,{" "}

@@ -1,5 +1,6 @@
 "use client";
 
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, LockKeyhole } from "lucide-react";
@@ -213,8 +214,8 @@ export function PartBPenaltyCalculator() {
                   : "This is an estimate for education, not a determination. Medicare decides the penalty. It is based on the standard premium rather than an income-adjusted one, and exceptions apply: coverage from current work, Special Enrollment Periods, and help paying Medicare costs can all change it."}
               </p>
 
-              <Link className="tl-next" href="/start?topic=medicare">
-                Check this with Christian before you assume it <ArrowRight size={19} aria-hidden />
+              <Link className="tl-next" href={ENGINE_BOOKING_URL} target="_blank" rel="noopener">
+                Book a 45-minute phone review
               </Link>
               <p className="tl-context">
                 If a penalty has been added and you think it is wrong, it can be appealed. That is

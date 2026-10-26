@@ -13,6 +13,7 @@
  * promise savings. Every tier ends at a free review conversation.
  */
 
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { ArrowLeft, CheckCircle2, Phone } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -649,18 +650,22 @@ export function AepQuiz() {
           </div>
 
           <Link
-            href={result.ctaHref}
+            href={ENGINE_BOOKING_URL}
             className="text-18 mt-8 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+            target="_blank"
+            rel="noopener"
           >
-            {resultButtonLabel(variant ?? "a", result.ctaLabel)} →
+            {resultButtonLabel(variant ?? "a", "Book a 45-minute phone review")}
           </Link>
           {result.ctaHref !== "/start?topic=medicare&quick=1" ? (
             <p className="text-16 mt-3 text-center">
               <Link
-                href="/start?topic=medicare&quick=1"
+                href={ENGINE_BOOKING_URL}
+                target="_blank"
+                rel="noopener"
                 className="font-semibold text-[var(--color-navy)] underline"
               >
-                Or book a free review now
+                Book a 45-minute phone review
               </Link>
             </p>
           ) : null}

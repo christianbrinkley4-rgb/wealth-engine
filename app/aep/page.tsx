@@ -204,8 +204,17 @@ export default function AepPage() {
               Bring your plan letter and your questions. We can review what to check for 2027,
               including doctors, prescriptions, and costs.
             </p>
-            <a className="engine-button" href={ENGINE_BOOKING_URL}>
-              Open my Medicare calendar
+            <a
+              className="engine-button"
+              href={ENGINE_BOOKING_URL}
+              target="_blank"
+              rel="noopener"
+              data-cta-location="hero"
+            >
+              Book a 45-minute phone review
+            </a>
+            <a href="/start" className="underline">
+              Or send a question
             </a>
             <p>No cost for the conversation. No obligation to enroll.</p>
             <p>

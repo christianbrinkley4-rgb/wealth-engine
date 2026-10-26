@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import Link from "next/link";
 import { CalendarDays, Phone, ShieldCheck, Timer } from "lucide-react";
 
@@ -259,10 +260,12 @@ export function MedicareDates({
           Talk it through: {AGENT.phone}
         </a>
         <Link
-          href="/start?topic=medicare&stage=turning_65_soon"
+          href={ENGINE_BOOKING_URL}
           className="text-18 inline-flex min-h-14 flex-1 items-center justify-center rounded-xl border-2 border-[var(--color-navy)] px-6 font-semibold text-[var(--color-navy)] transition-colors hover:bg-[rgba(21,46,52,0.05)]"
+          target="_blank"
+          rel="noopener"
         >
-          Ask me a question instead
+          Book a 45-minute phone review
         </Link>
       </div>
 
