@@ -134,7 +134,7 @@ export function ServiceHero({
                 width={1200}
                 height={1600}
                 loading="eager"
-                fetchPriority="high"
+                fetchPriority="low"
                 sizes={variant === "compact" ? "76px" : "(max-width: 899px) 76px, 340px"}
               />
             </div>

@@ -1,3 +1,4 @@
+import "./landing.css";
 import { speakableJsonLd } from "@/lib/seo";
 import { ShiipAndAgent } from "@/app/components/ShiipAndAgent";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";

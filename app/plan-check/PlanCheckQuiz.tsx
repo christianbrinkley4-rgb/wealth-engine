@@ -22,6 +22,7 @@ import { trackLeadOnce } from "@/app/components/Analytics";
 import { useQuizTracking } from "@/hooks/useQuizTracking";
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
 import { newEventId, readAttribution } from "@/lib/attribution";
+import { useDeferredFormCheck } from "@/hooks/useDeferredFormCheck";
 import { loadTurnstile } from "@/lib/loadTurnstile";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
@@ -215,7 +216,7 @@ function turnstileApi(): TurnstileApi | undefined {
  * Mirrors the pattern in components/EmailResultsCapture.tsx (rendered
  * directly, never through turnstile.ready(), because the async tag throws).
  */
-function useTurnstile() {
+function useTurnstile(active: boolean) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetRef = useRef<string | null>(null);
   const [ready, setReady] = useState(false);
@@ -223,7 +224,7 @@ function useTurnstile() {
   const [widgetError, setWidgetError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!TURNSTILE_SITE_KEY || ready) return;
+    if (!active || !TURNSTILE_SITE_KEY || ready) return;
     loadTurnstile();
     const poll = setInterval(() => {
       if (turnstileApi()) {
@@ -236,7 +237,7 @@ function useTurnstile() {
       clearInterval(poll);
       clearTimeout(giveUp);
     };
-  }, [ready]);
+  }, [active, ready]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -314,7 +315,8 @@ function CaptureForm({
   const [honeypot, setHoneypot] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
-  const { containerRef, getToken, reset, widgetError } = useTurnstile();
+  const { formRef, active } = useDeferredFormCheck();
+  const { containerRef, getToken, reset, widgetError } = useTurnstile(active);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -387,7 +389,7 @@ function CaptureForm({
 
   const isInterstitial = mode === "interstitial";
   return (
-    <form onSubmit={handleSubmit} className="pcq-form">
+    <form ref={formRef} onSubmit={handleSubmit} className="pcq-form">
       <h3 className="pcq-form-title">
         {isInterstitial
           ? "Want your results emailed when you finish?"
@@ -504,7 +506,8 @@ function PhoneFollowUp({
   const [smsConsent, setSmsConsent] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
-  const { containerRef, getToken, reset, widgetError } = useTurnstile();
+  const { formRef, active } = useDeferredFormCheck();
+  const { containerRef, getToken, reset, widgetError } = useTurnstile(active);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -566,7 +569,7 @@ function PhoneFollowUp({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="pcq-form pcq-form-soft">
+    <form ref={formRef} onSubmit={handleSubmit} className="pcq-form pcq-form-soft">
       <h3 className="text-18 font-semibold">Want a text reminder before December 7?</h3>
       <p className="text-15 mt-1 text-[var(--color-ink-muted)]">
         Optional. One reminder text, no spam.

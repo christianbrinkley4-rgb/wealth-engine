@@ -13,7 +13,7 @@
  */
 const TURNSTILE_SRC = "https://challenges.cloudflare.com/turnstile/v0/api.js";
 
-export function loadTurnstile(): void {
+export function loadTurnstile(onError?: () => void): void {
   if (typeof document === "undefined") return;
   if (!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) return;
   if (document.querySelector(`script[src="${TURNSTILE_SRC}"]`)) return;
@@ -22,5 +22,6 @@ export function loadTurnstile(): void {
   script.async = true;
   script.defer = true;
   script.dataset.turnstileLoader = "true";
+  if (onError) script.addEventListener("error", () => onError());
   document.head.appendChild(script);
 }

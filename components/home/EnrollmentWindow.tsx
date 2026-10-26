@@ -1,5 +1,6 @@
 "use client";
 
+import "@/app/landing.css";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";

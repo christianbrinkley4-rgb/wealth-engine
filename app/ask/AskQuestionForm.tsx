@@ -12,6 +12,7 @@ import {
   validateQuestion,
 } from "@/lib/askWall";
 import { readAttribution } from "@/lib/attribution";
+import { useDeferredFormCheck } from "@/hooks/useDeferredFormCheck";
 import { loadTurnstile } from "@/lib/loadTurnstile";
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
@@ -32,9 +33,13 @@ export function AskQuestionForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
+  const { formRef, active } = useDeferredFormCheck();
 
   // The widget renders itself (class "cf-turnstile") once the script arrives.
-  useEffect(() => loadTurnstile(), []);
+  useEffect(() => {
+    if (!active) return;
+    loadTurnstile();
+  }, [active]);
 
   const remaining = QUESTION_MAX_LENGTH - question.length;
 
@@ -111,7 +116,7 @@ export function AskQuestionForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="card-surface p-6 md:p-8">
+    <form ref={formRef} onSubmit={handleSubmit} noValidate className="card-surface p-6 md:p-8">
       <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
         <label htmlFor="ask-website">Website</label>
         <input

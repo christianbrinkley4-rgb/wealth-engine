@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { MedicareDates } from "@/components/MedicareDates";
 import { AGENT, REMINDER_CONSENT_TEXT } from "@/lib/agent";
 import { readAttribution } from "@/lib/attribution";
+import { useDeferredFormCheck } from "@/hooks/useDeferredFormCheck";
 import { loadTurnstile } from "@/lib/loadTurnstile";
 import {
   formatLongDate,
@@ -39,8 +40,12 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
   const [consent, setConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const { formRef, active } = useDeferredFormCheck();
   // The widget below renders itself (class "cf-turnstile") once the script arrives.
-  useEffect(() => loadTurnstile(), []);
+  useEffect(() => {
+    if (!active) return;
+    loadTurnstile();
+  }, [active]);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<Result | null>(null);
 
@@ -178,7 +183,7 @@ export function RemindMeForm({ initialKind = "t65" }: { initialKind?: ReminderKi
 
   return (
     <>
-      <form onSubmit={handleSubmit} noValidate className="card-surface p-6 md:p-8">
+      <form ref={formRef} onSubmit={handleSubmit} noValidate className="card-surface p-6 md:p-8">
         <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
           <label htmlFor="remind-website">Website</label>
           <input

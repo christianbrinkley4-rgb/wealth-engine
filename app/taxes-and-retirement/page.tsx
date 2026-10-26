@@ -1,3 +1,4 @@
+import "@/app/landing.css";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";

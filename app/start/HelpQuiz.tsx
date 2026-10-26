@@ -3,7 +3,6 @@
 import { ArrowLeft, CalendarDays, CheckCircle2, HeartPulse, Landmark, Shield } from "lucide-react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
 
 import { useIsClient } from "@/hooks/useIsClient";
@@ -11,6 +10,7 @@ import { useQuizTracking } from "@/hooks/useQuizTracking";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
 import { newEventId, readAttribution } from "@/lib/attribution";
+import { loadTurnstile } from "@/lib/loadTurnstile";
 import { normalizeUsPhone } from "@/lib/contact";
 import {
   ASK_PROMPTS,
@@ -240,6 +240,25 @@ export function HelpQuiz() {
   const turnstileWidgetRef = useRef<string | null>(null);
   const [turnstileReady, setTurnstileReady] = useState(false);
   const [turnstileRender, setTurnstileRender] = useState(0);
+  // The contact step is the only place the check is used. Load it then,
+  // not while someone is still answering questions.
+  useEffect(() => {
+    if (stored.phase !== "contact" || !TURNSTILE_SITE_KEY) return;
+    loadTurnstile(() =>
+      setError("The form check couldn’t load. Please try again, or call me directly."),
+    );
+    const poll = setInterval(() => {
+      if (turnstileApi()) {
+        setTurnstileReady(true);
+        clearInterval(poll);
+      }
+    }, 100);
+    const giveUp = setTimeout(() => clearInterval(poll), 20000);
+    return () => {
+      clearInterval(poll);
+      clearTimeout(giveUp);
+    };
+  }, [stored.phase]);
   const quickMode = Boolean(linked?.quick && stored.phase === "contact");
   const tracking = useQuizTracking("help_request");
   const startTracking = tracking.start;
@@ -570,17 +589,6 @@ export function HelpQuiz() {
 
   return (
     <div className="mx-auto w-full max-w-[640px]">
-      {TURNSTILE_SITE_KEY ? (
-        <Script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-          strategy="afterInteractive"
-          onLoad={() => setTurnstileReady(true)}
-          onReady={() => setTurnstileReady(true)}
-          onError={() =>
-            setError("The form check couldn’t load. Please try again, or call me directly.")
-          }
-        />
-      ) : null}
       {resumePrompt ? (
         <div className="card-surface mb-8 p-5">
           <p className="text-17 text-[var(--color-navy)]">
