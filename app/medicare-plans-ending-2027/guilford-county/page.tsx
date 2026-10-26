@@ -421,7 +421,7 @@ export default function GuilfordPlanEndingPhaseAPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Disclosures and sources</h2>
           <p className="text-17 mt-4 leading-relaxed">
-            [TPMO disclaimer held pending Christian answer on 65 vs 60, do not publish]
+            We do not offer every plan available in your area. Currently we represent 8 organizations which offer 65 products in your area. Please contact Medicare.gov or 1-800-MEDICARE to get information on all of your options.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Christian Brinkley is a licensed insurance agent. Not connected with or endorsed by

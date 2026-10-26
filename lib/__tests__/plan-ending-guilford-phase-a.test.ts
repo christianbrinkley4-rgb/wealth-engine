@@ -45,7 +45,7 @@ describe("Guilford plan ending Phase A draft", () => {
     expect(source).not.toContain("2,283");
   });
 
-  it("has a CTA with no free wording, plus the TPMO placeholder and booking link", () => {
+  it("has a CTA with no free wording, plus the confirmed TPMO 65 disclaimer and booking link", () => {
     const source = readFileSync(PAGE_PATH, "utf8");
     const ctaStart = source.indexOf("function PlanCheckCta");
     const ctaEnd = source.indexOf("export default function", ctaStart);
@@ -55,8 +55,10 @@ describe("Guilford plan ending Phase A draft", () => {
     expect(cta).toContain("book a 45-minute phone plan check");
     expect(source).toContain(BOOKING_URL);
     expect(source).toContain(
-      "[TPMO disclaimer held pending Christian answer on 65 vs 60, do not publish]",
+      "Currently we represent 8 organizations which offer 65 products in your area",
     );
+    expect(source).not.toContain("TPMO disclaimer held");
+    expect(source).not.toContain("60 products");
     expect(source.match(/<PlanCheckCta \/>/g)?.length).toBe(2);
   });
 
