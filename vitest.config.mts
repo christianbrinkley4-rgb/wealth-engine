@@ -10,7 +10,14 @@ export default defineConfig({
     maxWorkers: 2,
     environment: "node",
     include: ["**/__tests__/**/*.test.ts", "**/*.test.ts"],
-    exclude: ["**/node_modules/**", ".cache/**", ".next/**", ".next-preview/**", ".next-verify/**"],
+    exclude: [
+      "**/node_modules/**",
+      ".cache/**",
+      ".next/**",
+      ".next-preview/**",
+      ".next-verify/**",
+      "tests/**",
+    ],
   },
   resolve: {
     alias: {

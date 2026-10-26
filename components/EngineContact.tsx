@@ -1,8 +1,9 @@
 "use client";
 
-import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
+import { useDeferredFormCheck } from "@/hooks/useDeferredFormCheck";
 import { ENGINE_CONSENT, ENGINE_CONSENT_VERSION } from "@/lib/leadEnginePublic";
+import { loadTurnstile } from "@/lib/loadTurnstile";
 
 type Turnstile = {
   render: (node: HTMLElement, options: object) => string;
@@ -17,12 +18,29 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
   const [saved, setSaved] = useState(false);
   const [ready, setReady] = useState(false);
   const [token, setToken] = useState("");
+  const { formRef, active } = useDeferredFormCheck();
   const node = useRef<HTMLDivElement>(null);
   const widget = useRef<string | null>(null);
   const requestId = useRef<string | null>(null);
   const previous = useRef("");
   const source = answers ? "medicare-fit" : "medicare-review";
   const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+  useEffect(() => {
+    if (!active || !sitekey || ready) return;
+    loadTurnstile();
+    const poll = setInterval(() => {
+      if (api()) {
+        setReady(true);
+        clearInterval(poll);
+      }
+    }, 100);
+    const giveUp = setTimeout(() => clearInterval(poll), 20000);
+    return () => {
+      clearInterval(poll);
+      clearTimeout(giveUp);
+    };
+  }, [active, ready, sitekey]);
 
   useEffect(() => {
     if (!ready || !sitekey || !node.current || !api()) return;
@@ -55,6 +73,7 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
 
   return (
     <form
+      ref={formRef}
       className="engine-card engine-form"
       onSubmit={async (event) => {
         event.preventDefault();
@@ -202,13 +221,6 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
         <a href="/privacy">Privacy policy</a>. You can read Medicare information without requesting
         contact at <a href="https://www.medicare.gov/health-drug-plans">Medicare.gov</a>.
       </p>
-      {sitekey && (
-        <Script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-          strategy="afterInteractive"
-          onReady={() => setReady(true)}
-        />
-      )}
       <div ref={node} />
       {error && (
         <p role="alert" className="engine-error">

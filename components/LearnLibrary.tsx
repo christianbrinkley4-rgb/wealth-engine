@@ -1,5 +1,6 @@
 "use client";
 
+import "@/app/landing.css";
 import Link from "next/link";
 import { ArrowRight, Search, X } from "lucide-react";
 import { useMemo, useState } from "react";

@@ -92,13 +92,19 @@ export default function PlanCheckPage() {
         secondaryLabel="Skip the quiz, request a review →"
       />
 
-      <section className="bg-white py-14">
+      <section
+        className="bg-white py-14"
+        style={{ contentVisibility: "auto", containIntrinsicSize: "auto 900px" }}
+      >
         <div className="measure-prose app-shell max-w-3xl">
           <PlanCheckQuiz />
         </div>
       </section>
 
-      <section className="bg-[var(--color-paper)] py-14">
+      <section
+        className="bg-[var(--color-paper)] py-14"
+        style={{ contentVisibility: "auto", containIntrinsicSize: "auto 900px" }}
+      >
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">What the plan check covers</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">

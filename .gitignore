@@ -53,3 +53,10 @@ next-env.d.ts
 
 # Local SEO and browser verification evidence.
 /docs/seo-evidence/
+
+# Local Lighthouse reports and browser test output. Do not commit.
+/docs/perf/
+/.lighthouseci/
+/playwright-report/
+/test-results/
+/blob-report/

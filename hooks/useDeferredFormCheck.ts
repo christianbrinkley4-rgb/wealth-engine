@@ -8,15 +8,23 @@ export function useDeferredFormCheck() {
   const activate = useCallback(() => setActive(true), []);
   useEffect(() => {
     const form = formRef.current;
-    if (!form || active || typeof IntersectionObserver === "undefined") return;
-    const observer = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
-        activate();
-        observer.disconnect();
-      }
-    });
-    observer.observe(form);
-    return () => observer.disconnect();
+    if (!form || active) return;
+    const onFocus = () => activate();
+    form.addEventListener("focusin", onFocus);
+    let observer: IntersectionObserver | undefined;
+    if (typeof IntersectionObserver !== "undefined") {
+      observer = new IntersectionObserver((entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          activate();
+          observer?.disconnect();
+        }
+      });
+      observer.observe(form);
+    }
+    return () => {
+      form.removeEventListener("focusin", onFocus);
+      observer?.disconnect();
+    };
   }, [active, activate]);
   return { formRef, active, activate };
 }

@@ -21,7 +21,6 @@ import "./globals.css";
 import "./personal.css";
 import "./home.css";
 import "./system.css";
-import "./landing.css";
 import "./learn.css";
 import "./pages.css";
 
@@ -38,6 +37,7 @@ const bodyFont = Atkinson_Hyperlegible_Next({
 
 // Headlines: a warm, characterful serif with an optical-size axis, so the
 // big display sizes get finer detail and the small sizes stay sturdy.
+// Both styles stay preloaded so first paint does not wait on a late font.
 const displayFont = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
