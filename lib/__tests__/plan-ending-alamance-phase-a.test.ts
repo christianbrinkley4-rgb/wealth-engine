@@ -88,4 +88,14 @@ describe("Alamance plan ending Phase A draft", () => {
     );
     expect(source).not.toContain("Nine Alamance Medicare Advantage plans are ending.");
   });
+  it("renders the key dates table through ResponsiveTable so it stacks on phones", () => {
+    const source = readFileSync(PAGE_PATH, "utf8");
+    expect(source).toContain(
+      'import { ResponsiveTable } from "@/app/components/ResponsiveTable";',
+    );
+    expect(source).toContain("<ResponsiveTable");
+    expect(source).toContain("</ResponsiveTable>");
+    expect(source).not.toContain("<table");
+  });
+
 });

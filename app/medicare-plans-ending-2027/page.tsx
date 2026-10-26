@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
+import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
@@ -345,7 +346,7 @@ export default function PlanEndingHubPhaseAPage() {
             These dates are from Medicare.gov. Your own letter still controls your own case.
             Confirm each date that applies to you in that letter.
           </p>
-          <table className="mt-8 w-full border-collapse text-17 leading-relaxed">
+          <ResponsiveTable className="mt-8 w-full border-collapse text-17 leading-relaxed">
             <thead>
               <tr>
                 <th className="border-b border-gray-300 py-2 pr-4 text-left">Date</th>
@@ -362,7 +363,7 @@ export default function PlanEndingHubPhaseAPage() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </ResponsiveTable>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Coverage start dates by month are not printed here. They were marked for verification
             in the brief, and they rest on lookup site text, not on Medicare.gov wording.

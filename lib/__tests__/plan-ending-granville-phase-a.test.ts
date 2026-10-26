@@ -99,4 +99,14 @@ describe("Granville plan ending Phase A draft", () => {
     const checklist = source.slice(checklistStart, checklistEnd);
     expect(checklist.match(/t: "/g)?.length).toBe(8);
   });
+  it("renders the key dates table through ResponsiveTable so it stacks on phones", () => {
+    const source = readFileSync(PAGE_PATH, "utf8");
+    expect(source).toContain(
+      'import { ResponsiveTable } from "@/app/components/ResponsiveTable";',
+    );
+    expect(source).toContain("<ResponsiveTable");
+    expect(source).toContain("</ResponsiveTable>");
+    expect(source).not.toContain("<table");
+  });
+
 });

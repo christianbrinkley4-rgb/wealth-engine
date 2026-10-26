@@ -99,4 +99,14 @@ describe("Plan ending hub Phase A draft", () => {
     expect(source).toContain("medicare-plans-ending-2027/alamance-county");
     expect(source).toContain("medicare-plans-ending-2027/granville-county");
   });
+  it("renders the key dates table through ResponsiveTable so it stacks on phones", () => {
+    const source = readFileSync(PAGE_PATH, "utf8");
+    expect(source).toContain(
+      'import { ResponsiveTable } from "@/app/components/ResponsiveTable";',
+    );
+    expect(source).toContain("<ResponsiveTable");
+    expect(source).toContain("</ResponsiveTable>");
+    expect(source).not.toContain("<table");
+  });
+
 });
