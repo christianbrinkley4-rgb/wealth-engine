@@ -1,4 +1,3 @@
-import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { AGENT } from "@/lib/agent";
 import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import Link from "next/link";
@@ -181,17 +180,9 @@ export function WealthArticlePage({ article }: { article: ArticleData }) {
               <a href={AGENT.phoneHref} className="w-btn w-btn-ink">
                   Call Christian&apos;s direct line: {AGENT.phone}
                 </a>
-                <Link
-                  href={ENGINE_BOOKING_URL}
-                  className="w-btn w-btn-ghost"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Book a 45-minute phone review <ArrowRight size={18} aria-hidden />
+                <Link href="/start" className="w-btn w-btn-ghost">
+                  Request a free consultation <ArrowRight size={18} aria-hidden />
                 </Link>
-                <a href="/start" className="underline">
-                  Or send a question
-                </a>
             </div>
           </aside>
           <p style={{ marginTop: 24, color: "var(--w-on-ink-muted)" }}>

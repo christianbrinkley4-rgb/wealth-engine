@@ -1,4 +1,3 @@
-import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import type { Metadata } from "next";
 import { Fragment } from "react";
 import Link from "next/link";
@@ -200,17 +199,9 @@ export default function CreditScoreBasicsPage() {
               <a href={WEALTH_FACTS.phoneHref} className="w-btn w-btn-ink">
                   Call Christian&apos;s direct line: {WEALTH_FACTS.phone}
                 </a>
-                <Link
-                  href={ENGINE_BOOKING_URL}
-                  className="w-btn w-btn-ghost"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Book a 45-minute phone review <ArrowRight size={18} aria-hidden />
+                <Link href="/start" className="w-btn w-btn-ghost">
+                  Request a free consultation <ArrowRight size={18} aria-hidden />
                 </Link>
-                <a href="/start" className="underline">
-                  Or send a question
-                </a>
             </div>
             <p style={{ margin: "14px 0 0", color: "var(--w-on-ink-muted)" }}>
               Christian Brinkley, Greensboro, NC. Call or text{" "}
