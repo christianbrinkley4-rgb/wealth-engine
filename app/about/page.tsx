@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -135,8 +136,13 @@ export default function AboutPage() {
               <a href={AGENT.phoneHref} className="btn">
                 <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
               </a>
-              <Link href="/start?topic=medicare&quick=1" className="btn btn-outline">
-                <CalendarDays size={18} aria-hidden /> Request a free consultation
+              <Link
+                href={ENGINE_BOOKING_URL}
+                className="btn btn-outline"
+                target="_blank"
+                rel="noopener"
+              >
+                <CalendarDays size={18} aria-hidden /> Book a 45-minute phone review
               </Link>
               <a href={`mailto:${AGENT.email}`} className="link-draw">
                 <Mail size={17} aria-hidden /> <span>Email me</span>

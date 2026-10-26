@@ -5,6 +5,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ConsultationActions } from "@/app/components/ConsultationActions";
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { AGENT } from "@/lib/agent";
 vi.mock("next/image", () => ({ default: () => null }));
 vi.mock("@/components/TrackedLink", () => ({
@@ -25,55 +26,63 @@ const hero = {
   title: "Review your coverage",
   lede: "Bring your questions.",
   secondaryHref: "/start?topic=medicare&quick=1",
-  secondaryLabel: "Request a free consultation",
+  secondaryLabel: "Review",
 };
-describe("consultation CTA hierarchy", () => {
-  it("supplies one secondary request when the page omits optional hero actions", () => {
-    render(createElement(ServiceHero, {
-      crumbs: hero.crumbs, eyebrow: hero.eyebrow, title: hero.title, lede: hero.lede,
-    }));
-    expect(document.querySelectorAll("#page-hero-actions a")).toHaveLength(2);
-    expect(screen.getByRole("link", { name: "Request a free consultation" }).getAttribute("href")).toBe(hero.secondaryHref);
-  });
-  it("styles the custom dark hero phone as the primary action", () => {
-    render(createElement(ConsultationActions, { onDark: true }));
-    const actions = document.querySelectorAll("#page-hero-actions a");
-    expect(actions).toHaveLength(2);
-    expect(actions[0].classList.contains("btn")).toBe(true);
-    expect(actions[0].classList.contains("btn-light")).toBe(true);
-    expect(actions[1].classList.contains("btn-ghost-light")).toBe(true);
-  });
-  it("gives a service hero one primary phone action and one secondary form action", () => {
-    render(createElement(ServiceHero, hero));
-    const actions = document.querySelectorAll("#page-hero-actions a");
-    expect(actions).toHaveLength(2);
-    expect(actions[0].getAttribute("href")).toBe(AGENT.phoneHref);
-    expect(actions[0].className).toContain("btn-light");
-    expect(actions[1].className).toContain("btn-ghost-light");
-    expect(screen.getAllByRole("link", { name: "Request a free consultation" })).toHaveLength(1);
-  });
-  it("does not duplicate a secondary action that points to the same phone", () => {
-    render(createElement(ServiceHero, { ...hero, secondaryHref: AGENT.phoneHref }));
-    expect(document.querySelectorAll("#page-hero-actions a")).toHaveLength(1);
-  });
-  it("keeps the closing form secondary for calendar and request destinations", () => {
-    for (const href of ["/schedule?topic=life_insurance", "/start?topic=life_insurance"]) {
-      render(
-        createElement(KitchenTableClose, {
-          heading: "Review your life insurance",
-          body: "Bring your policy.",
-          href,
-          label: "Request a free consultation",
-        }),
+describe("booking CTA hierarchy", () => {
+  it.each(["hero", "close", "custom"])(
+    "provides booking for %s and preserves the phone",
+    (kind) => {
+      const component =
+        kind === "hero"
+          ? createElement(ServiceHero, hero)
+          : kind === "close"
+            ? createElement(KitchenTableClose, {
+                heading: "Review",
+                body: "Bring your questions.",
+                href: "/start",
+                label: "Review",
+              })
+            : createElement(ConsultationActions, { onDark: true });
+      render(component);
+      const booking = screen.getByRole("link", { name: "Book a 45-minute phone review" });
+      expect(booking.getAttribute("href")).toBe(ENGINE_BOOKING_URL);
+      expect(booking.getAttribute("target")).toBe("_blank");
+      const actions = booking.parentElement!.querySelectorAll("a");
+      expect(
+        Array.from(actions).some((action) => action.getAttribute("href") === AGENT.phoneHref),
+      ).toBe(true);
+      if (kind !== "close") {
+        expect(actions[0].getAttribute("href")).toBe(AGENT.phoneHref);
+        expect(actions[1]).toBe(booking);
+      }
+      expect(screen.getByRole("link", { name: "Or send a question" }).getAttribute("href")).toBe(
+        "/start",
       );
-      const actions = document.querySelectorAll(".ktc-actions a");
-      expect(actions).toHaveLength(2);
-      expect(actions[0].getAttribute("href")).toBe(AGENT.phoneHref);
-      expect(actions[1].className).toContain("btn-outline");
-      cleanup();
-    }
+    },
+  );
+  it("preserves custom hero destinations and labels", () => {
+    render(
+      createElement(ServiceHero, {
+        ...hero,
+        secondaryHref: "/learn",
+        secondaryLabel: "Read guides",
+      }),
+    );
+    expect(screen.getByRole("link", { name: "Read guides" }).getAttribute("href")).toBe("/learn");
+    expect(screen.queryByRole("link", { name: "Or send a question" })).toBeNull();
   });
-  it("keeps educational heroes free of phone sales actions", () => {
+  it("preserves custom consultation destinations and dark classes", () => {
+    render(
+      createElement(ConsultationActions, { href: "/learn", label: "Read guides", onDark: true }),
+    );
+    expect(screen.getByRole("link", { name: "Read guides" }).getAttribute("href")).toBe("/learn");
+    expect(document.querySelector('a[href^="tel:"]')?.className).toBe("btn btn-light");
+  });
+  it("keeps default informational heroes without actions", () => {
+    render(createElement(ServiceHero, { ...hero, secondaryHref: undefined, variant: "info" }));
+    expect(document.querySelector("#page-hero-actions")?.children).toHaveLength(0);
+  });
+  it("keeps educational heroes without phone actions", () => {
     render(createElement(ServiceHero, { ...hero, variant: "info", hidePhoneCta: true }));
     expect(document.querySelectorAll('a[href^="tel:"]')).toHaveLength(0);
   });

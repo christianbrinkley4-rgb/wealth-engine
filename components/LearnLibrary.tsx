@@ -1,5 +1,6 @@
 "use client";
 
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import Link from "next/link";
 import { ArrowRight, Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -107,8 +108,13 @@ export function LearnLibrary({
         )}
         {needle && total === 0 ? (
           <div className="ll-empty">
-            <Link href="/start" className="btn btn-outline">
-              Ask me your question <ArrowRight size={18} className="arrow" aria-hidden />
+            <Link
+              href={ENGINE_BOOKING_URL}
+              className="btn btn-outline"
+              target="_blank"
+              rel="noopener"
+            >
+              Book a 45-minute phone review
             </Link>
           </div>
         ) : null}

@@ -1,7 +1,7 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import Image from "next/image";
 import { TrustFacts } from "@/app/components/TrustFacts";
-import { TrackedLink as Link } from "@/components/TrackedLink";
-import { ArrowRight, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 
 import { AGENT } from "@/lib/agent";
 
@@ -10,14 +10,12 @@ export function KitchenTableClose({
   heading,
   body,
   href,
-  label,
 }: {
   heading: string;
   body: string;
   href: string;
   label: string;
 }) {
-  const cleanLabel = label.replace(/\s*→\s*$/, "");
   return (
     <section className="ktc">
       <div className="shell">
@@ -39,14 +37,23 @@ export function KitchenTableClose({
           <h2>{heading}</h2>
           <p>{body}</p>
           <div className="ktc-actions">
+            <a
+              data-cta-location="page_close"
+              href={ENGINE_BOOKING_URL}
+              target="_blank"
+              rel="noopener"
+              className="btn"
+            >
+              Book a 45-minute phone review
+            </a>
             <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn">
               <Phone size={19} aria-hidden />
               Call Christian&apos;s direct line: {AGENT.phone}
             </a>
             {href !== AGENT.phoneHref && (
-              <Link ctaLocation="page_close" href={href} className="btn btn-outline">
-                {cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
-              </Link>
+              <a href="/start" className="underline">
+                Or send a question
+              </a>
             )}
           </div>
           <TrustFacts compact />

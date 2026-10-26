@@ -43,7 +43,17 @@ export function EngineQuiz({ results }: { results: Record<string, Result> }) {
           decision.
         </p>
         <p>
-          <a href={ENGINE_BOOKING_URL}>Choose a time to talk</a>
+          <a
+            href={ENGINE_BOOKING_URL}
+            target="_blank"
+            rel="noopener"
+            data-cta-location="tool_result"
+          >
+            Book a 45-minute phone review
+          </a>
+          <a href="/start" className="underline">
+            Or send a question
+          </a>
         </p>
         <p>
           <a href="tel:+19194086671">(919) 408-6671</a>

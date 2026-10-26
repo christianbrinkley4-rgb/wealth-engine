@@ -1,3 +1,4 @@
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,7 +6,6 @@ import { ArrowRight, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { GuideCapture } from "@/app/components/GuideCapture";
-import { TrackedLink } from "@/components/TrackedLink";
 import { AGENT, hasPublishableNpn } from "@/lib/agent";
 import { articleText, type Article } from "@/lib/articles";
 import { featuredPlaces } from "@/lib/triad";
@@ -264,17 +264,21 @@ export function ArticleBody({
             <h2>{nextStep.heading}</h2>
             <p>{nextStep.body}</p>
             <div className="art-next-actions">
+              <a
+                data-cta-location="article_end"
+                href={ENGINE_BOOKING_URL}
+                target="_blank"
+                rel="noopener"
+                className="btn"
+              >
+                Book a 45-minute phone review
+              </a>
               <a data-cta-location="article_end" href={AGENT.phoneHref} className="btn">
                 <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
               </a>
-              <TrackedLink
-                href={article.startHref}
-                className="btn btn-outline"
-                event="article_cta_click"
-                ctaLocation="article_end"
-              >
-                {nextStep.label} <ArrowRight size={18} className="arrow" aria-hidden />
-              </TrackedLink>
+              <a href="/start" className="underline">
+                Or send a question
+              </a>
             </div>
             <p className="art-next-towns">
               I meet people in {towns}, and the towns around them. Or I can talk by phone.
