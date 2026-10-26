@@ -14,19 +14,27 @@ afterEach(() => {
 });
 
 describe("advertising event data limits", () => {
-  it("strips all query and fragment data from a neutral form page", async () => {
+  it("strips all query and fragment data from a wealth page", async () => {
     const { metaSourceUrl } = await import("@/lib/metaCapi");
     expect(
       metaSourceUrl(
-        "https://christianbrinkleync.com/start?topic=medicare&email=private@example.com#care",
+        "https://christianbrinkleync.com/wealth?email=private@example.com#contact",
       ),
-    ).toBe("https://christianbrinkleync.com/start");
+    ).toBe("https://christianbrinkleync.com/wealth");
   });
 
   it.each([
     "https://other.example/start",
+    "https://other.example/wealth",
     "https://christianbrinkleync.com/critical-illness-insurance",
+    "https://christianbrinkleync.com/start",
+    "https://christianbrinkleync.com/turning-65",
+    "https://christianbrinkleync.com/wealthy",
     "https://visitor:password@christianbrinkleync.com/start",
+    "https://visitor:password@christianbrinkleync.com/wealth",
+    "https://christianbrinkleync.com/wealth/disability-insurance-explained",
+    "https://christianbrinkleync.com/wealth/life-insurance-explained",
+    "https://christianbrinkleync.com/wealth/calculators/debt-payoff",
     "not a url",
   ])("does not use untrusted or service-specific URLs: %s", async (url) => {
     const { metaSourceUrl } = await import("@/lib/metaCapi");
@@ -40,25 +48,35 @@ describe("advertising event data limits", () => {
     await sendMetaLeadEvent({
       eventId: "test-event",
       email: "private@example.com",
-      sourceUrl: "https://christianbrinkleync.com/start?topic=medicare&income=100000",
+      sourceUrl: "https://christianbrinkleync.com/wealth?income=100000",
       userAgent: "test-browser",
     });
     expect(fetch).toHaveBeenCalledOnce();
     const serialized = fetch.mock.calls[0][1].body;
     const event = JSON.parse(serialized).data[0];
-    expect(event.event_source_url).toBe("https://christianbrinkleync.com/start");
+    expect(event.event_source_url).toBe("https://christianbrinkleync.com/wealth");
     expect(event).not.toHaveProperty("custom_data");
     expect(event.user_data.em[0]).toMatch(/^[a-f0-9]{64}$/);
     expect(serialized).not.toMatch(/medicare|income|100000|private@example/);
   });
 
-  it("does not send an event if a real safe source URL is unavailable", async () => {
-    const fetch = vi.fn();
-    vi.stubGlobal("fetch", fetch);
-    const { sendMetaLeadEvent } = await import("@/lib/metaCapi");
-    await sendMetaLeadEvent({ eventId: "test", email: "private@example.com" });
-    expect(fetch).not.toHaveBeenCalled();
-  });
+  it.each([
+    undefined,
+    "not a url",
+    "/wealth",
+    "https://christianbrinkleync.com/start",
+    "https://christianbrinkleync.com/turning-65",
+    "https://christianbrinkleync.com/wealth/disability-insurance-explained",
+  ])(
+    "does not send an event without a safe wealth source: %s",
+    async (sourceUrl) => {
+      const fetch = vi.fn();
+      vi.stubGlobal("fetch", fetch);
+      const { sendMetaLeadEvent } = await import("@/lib/metaCapi");
+      await sendMetaLeadEvent({ eventId: "test", email: "private@example.com", sourceUrl });
+      expect(fetch).not.toHaveBeenCalled();
+    },
+  );
 
   it("stays dormant when tracking credentials are absent", async () => {
     vi.stubEnv("META_CAPI_ACCESS_TOKEN", "");
@@ -68,7 +86,7 @@ describe("advertising event data limits", () => {
     await sendMetaLeadEvent({
       eventId: "test",
       email: "private@example.com",
-      sourceUrl: "https://christianbrinkleync.com/start",
+      sourceUrl: "https://christianbrinkleync.com/wealth",
     });
     expect(fetch).not.toHaveBeenCalled();
   });
@@ -81,7 +99,7 @@ describe("advertising event data limits", () => {
     await sendMetaLeadEvent({
       eventId: "test",
       email: "private@example.com",
-      sourceUrl: "https://christianbrinkleync.com/start",
+      sourceUrl: "https://christianbrinkleync.com/wealth",
     });
     expect(fetch).not.toHaveBeenCalled();
   });

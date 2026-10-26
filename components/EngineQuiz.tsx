@@ -48,9 +48,11 @@ export function EngineQuiz({ results }: { results: Record<string, Result> }) {
             target="_blank"
             rel="noopener"
             data-cta-location="tool_result"
+            className="engine-button"
           >
             Book a 45-minute phone review
           </a>
+          {" "}
           <a href="/start" className="underline">
             Or send a question
           </a>

@@ -1,10 +1,12 @@
 // @vitest-environment jsdom
+import { runInNewContext } from "node:vm";
 import { createElement } from "react";
 import { cleanup, fireEvent, render } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { bookingParams, isBookingHref, isMeasuredEvent, metaAllowedOnRoute } from "@/lib/analytics";
-vi.mock("next/navigation", () => ({ usePathname: () => window.location.pathname }));
+const route = vi.hoisted(() => ({ renderedPath: null as string | null }));
+vi.mock("next/navigation", () => ({ usePathname: () => route.renderedPath ?? window.location.pathname }));
 vi.mock("next/script", () => ({
   default: ({ id, children }: { id?: string; children?: React.ReactNode }) =>
     createElement("script", { id }, children),
@@ -18,6 +20,7 @@ afterEach(() => {
   cleanup();
   vi.restoreAllMocks();
   window.history.replaceState({}, "", "/");
+  route.renderedPath = null;
 });
 describe("booking measurement", () => {
   it("declares booking and strips everything except location and path", () => {
@@ -88,9 +91,91 @@ describe("Meta route gate", () => {
     const { rerender } = render(createElement(Analytics));
     expect(document.querySelector("#meta-pixel")).not.toBeNull();
     window.history.replaceState({}, "", "/medicare");
+    trackMetaContact();
+    trackLead("test", "medicare");
     rerender(createElement(Analytics));
     expect(document.querySelector("#meta-pixel")).toBeNull();
     expect(window.fbq).not.toHaveBeenCalled();
+  });
+  it.each([false, true])("configures the created stub and gates a late load: %s", (late) => {
+    window.history.replaceState({}, "", "/wealth");
+    const pixel = vi.fn();
+    delete window.fbq;
+    const { rerender } = render(createElement(Analytics));
+    const bootstrap = document.querySelector("#meta-pixel")!.textContent!;
+    const init = bootstrap.indexOf("fbq('init'");
+    for (const setting of [
+      "window.fbq.disablePushState = true",
+      "window.fbq.disableAutoConfig = true",
+      "fbq('set','autoConfig',false,'test-pixel')",
+    ]) {
+      expect(bootstrap.indexOf(setting)).toBeGreaterThan(-1);
+      expect(bootstrap.indexOf(setting)).toBeLessThan(init);
+    }
+    expect(bootstrap.indexOf("n=f.fbq=function")).toBeLessThan(bootstrap.indexOf("window.fbq.disablePushState"));
+    const script = document.createElement("script");
+    const insertBefore = vi.fn();
+    const run = () => runInNewContext(bootstrap, {
+      window,
+      location: window.location,
+      get fbq() { return window.fbq; },
+      document: {
+        createElement: () => script,
+        getElementsByTagName: () => [{ parentNode: { insertBefore } }],
+      },
+    });
+    run();
+    const stub = window.fbq as NonNullable<typeof window.fbq> & { callMethod?: typeof pixel };
+    expect(stub).toHaveProperty("disablePushState", true);
+    expect(stub).toHaveProperty("disableAutoConfig", true);
+    trackMetaContact();
+    trackLead("early", "financial_planning");
+    expect(stub).toHaveProperty("queue", []);
+    if (late) {
+      window.history.replaceState({}, "", "/turning-65");
+      rerender(createElement(Analytics));
+    }
+    stub.callMethod = pixel;
+    script.onload?.call(script, new Event("load"));
+    if (late) {
+      expect(pixel).not.toHaveBeenCalled();
+      window.history.replaceState({}, "", "/wealth");
+      rerender(createElement(Analytics));
+    }
+    expect(pixel).toHaveBeenNthCalledWith(1, "set", "autoConfig", false, "test-pixel");
+    expect(pixel).toHaveBeenNthCalledWith(2, "init", "test-pixel");
+    expect(pixel).toHaveBeenNthCalledWith(3, "track", "PageView");
+    pixel.mockClear();
+    window.history.replaceState({}, "", "/turning-65");
+    run();
+    trackMetaContact();
+    trackLead("test", "financial_planning");
+    rerender(createElement(Analytics));
+    expect(pixel).not.toHaveBeenCalled();
+  });
+  it("checks the current browser path when the route hook still reports wealth", () => {
+    route.renderedPath = "/wealth";
+    window.history.replaceState({}, "", "/wealth");
+    window.fbq = vi.fn();
+    const { rerender } = render(createElement(Analytics));
+    window.history.replaceState({}, "", "/start");
+    route.renderedPath = "/wealth/retirement";
+    rerender(createElement(Analytics));
+    expect(window.fbq).not.toHaveBeenCalled();
+  });
+  it("sends permitted wealth events but never a Medicare Lead", () => {
+    window.history.replaceState({}, "", "/wealth");
+    window.fbq = vi.fn();
+    const { rerender } = render(createElement(Analytics));
+    trackLead("medicare-test", "medicare");
+    expect(window.fbq).not.toHaveBeenCalled();
+    trackMetaContact();
+    trackLead("wealth-test", "financial_planning");
+    window.history.replaceState({}, "", "/wealth/retirement");
+    rerender(createElement(Analytics));
+    expect(window.fbq).toHaveBeenCalledWith("track", "Contact");
+    expect(window.fbq).toHaveBeenCalledWith("track", "Lead", { content_category: "financial_planning" }, { eventID: "wealth-test" });
+    expect(window.fbq).toHaveBeenCalledWith("track", "PageView");
   });
   it.each(["/", "/medicare", "/aep", "/start", "/links", "/wealthy", "/tools", ""])(
     "stays off at %s even with ads enabled",

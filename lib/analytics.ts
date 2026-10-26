@@ -207,6 +207,26 @@ export function metaAllowedOnRoute(path: string | null | undefined, enabled: boo
   return enabled && !!path && (path === "/wealth" || path.startsWith("/wealth/"));
 }
 
+/** A known wealth source is required; Medicare submissions always stay off. */
+export function metaAllowedForLead(
+  sourceUrl: string | undefined,
+  topic?: string | null,
+  source?: string,
+): boolean {
+  if (!sourceUrl || topic === "medicare" || source === "quiz-2026") return false;
+  try {
+    const url = new URL(sourceUrl);
+    return (
+      (url.protocol === "https:" || url.protocol === "http:") &&
+      !url.username &&
+      !url.password &&
+      metaAllowedOnRoute(url.pathname, true)
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function isBookingHref(href: string): boolean {
   return href === ENGINE_BOOKING_URL || href.split(/[?#]/)[0] === "/book";
 }

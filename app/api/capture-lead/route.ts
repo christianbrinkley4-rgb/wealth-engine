@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
+import { metaAllowedForLead } from "@/lib/analytics";
 import { NAME_MAX_LENGTH, validateQuestion } from "@/lib/askWall";
 import { normalizeUsPhone } from "@/lib/contact";
 import {
@@ -797,18 +798,20 @@ export async function POST(request: NextRequest) {
           }),
       // Reports nothing about whether the pixel event actually posted, so its
       // outbox row is deliberately left pending rather than marked on a guess.
-      sendMetaLeadEvent({
-        eventId:
-          typeof body.event_id === "string" ? body.event_id.slice(0, 100) : `lead_${Date.now()}`,
-        email,
-        phone: phone_number,
-        zip: zip_code,
-        firstName: full_name,
-        clientIp: ip,
-        userAgent,
-        fbclid: attribution?.fbclid ?? null,
-        sourceUrl,
-      }).then(() => SUPPRESSED),
+      metaAllowedForLead(sourceUrl, interest_topic, source)
+        ? sendMetaLeadEvent({
+            eventId:
+              typeof body.event_id === "string" ? body.event_id.slice(0, 100) : `lead_${Date.now()}`,
+            email,
+            phone: phone_number,
+            zip: zip_code,
+            firstName: full_name,
+            clientIp: ip,
+            userAgent,
+            fbclid: attribution?.fbclid ?? null,
+            sourceUrl,
+          }).then(() => SUPPRESSED)
+        : Promise.resolve(SUPPRESSED),
     ]);
 
     const alert = settled(delivery[0]);

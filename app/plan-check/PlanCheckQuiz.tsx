@@ -28,7 +28,7 @@ import { loadTurnstile } from "@/lib/loadTurnstile";
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const STORAGE_KEY = "plan-check-progress-v1";
-/** The embedded Cal.com calendar, so booking never sends anyone to another site. */
+/** Google Calendar opens in a new tab to book a 45-minute phone call. */
 const BOOKING_HREF = ENGINE_BOOKING_URL;
 
 interface QuizOption {

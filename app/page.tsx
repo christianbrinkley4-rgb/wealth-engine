@@ -162,11 +162,11 @@ export default function HomePage() {
                 href={ENGINE_BOOKING_URL}
                 target="_blank"
                 rel="noopener"
-                className="btn"
+                className="btn order-first"
               >
                 Book a 45-minute phone review
               </a>
-              <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-accent">
+              <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-outline">
                 <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
               </a>
               <a href="/start" className="underline">
@@ -534,7 +534,7 @@ export default function HomePage() {
             >
               Book a 45-minute phone review
             </a>
-            <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn">
+            <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn btn-outline">
               <Phone size={19} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
             </a>
             <a href="/start" className="underline">

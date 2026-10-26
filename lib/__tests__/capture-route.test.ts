@@ -13,6 +13,7 @@ const mocks = vi.hoisted(() => ({
   commandCenterCapture: vi.fn(),
   markDelivery: vi.fn(),
   verifyTurnstile: vi.fn(),
+  metaLead: vi.fn(),
 }));
 vi.mock("@/lib/commandCenter", () => ({
   commandCenterConfig: mocks.commandCenterConfig,
@@ -21,7 +22,7 @@ vi.mock("@/lib/commandCenter", () => ({
 }));
 vi.mock("@/lib/rateLimit", () => ({ getClientIp: () => "127.0.0.1", isRateLimited: () => false }));
 vi.mock("@/lib/turnstile", () => ({ verifyTurnstile: mocks.verifyTurnstile }));
-vi.mock("@/lib/metaCapi", () => ({ sendMetaLeadEvent: async () => {} }));
+vi.mock("@/lib/metaCapi", () => ({ sendMetaLeadEvent: mocks.metaLead }));
 vi.mock("@/lib/notifyLead", () => ({
   isLeadNotifyConfigured: () => true,
   notifyLeadCaptured: mocks.notify,
@@ -64,11 +65,11 @@ const valid = () => ({
   consent_text: CONSENT_TEXT,
   consent_version: CONSENT_VERSION,
 });
-const request = (body: unknown) =>
+const request = (body: unknown, referer?: string) =>
   new NextRequest("http://localhost/api/capture-lead", {
     method: "POST",
     body: JSON.stringify(body),
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...(referer ? { referer } : {}) },
   });
 
 beforeEach(() => {
@@ -86,6 +87,36 @@ beforeEach(() => {
   mocks.email.mockResolvedValue(notConfigured);
   mocks.notify.mockResolvedValue(delivered);
   mocks.markDelivery.mockResolvedValue(true);
+  mocks.metaLead.mockResolvedValue(undefined);
+});
+
+describe("Meta lead route gate", () => {
+  it.each(["/turning-65", "/start", "/wealthy", undefined, "not a url", "/wealth"])(
+    "does not call Meta for a Medicare, absent, or invalid referer: %s",
+    async (path) => {
+      const referer = path?.startsWith("/") && path !== "/wealth"
+        ? `https://christianbrinkleync.com${path}`
+        : path;
+      const body = { ...valid(), interest_topic: "financial_planning" };
+      expect((await POST(request(body, referer))).status).toBe(200);
+      expect(mocks.metaLead).not.toHaveBeenCalled();
+    },
+  );
+
+  it.each(["/wealth", "/wealth/retirement"])("calls Meta for a wealth lead from %s", async (path) => {
+    const sourceUrl = `https://christianbrinkleync.com${path}`;
+    expect((await POST(request({ ...valid(), interest_topic: "financial_planning" }, sourceUrl))).status).toBe(200);
+    expect(mocks.metaLead).toHaveBeenCalledOnce();
+    expect(mocks.metaLead).toHaveBeenCalledWith(expect.objectContaining({ sourceUrl }));
+  });
+
+  it.each([
+    { interest_topic: "medicare" },
+    { source: "quiz-2026", interest_topic: "financial_planning" },
+  ])("rejects Medicare topics and quiz sources even with a wealth referer", async (fields) => {
+    expect((await POST(request({ ...valid(), ...fields }, "https://christianbrinkleync.com/wealth"))).status).toBe(200);
+    expect(mocks.metaLead).not.toHaveBeenCalled();
+  });
 });
 
 describe("lead capture delivery contract", () => {

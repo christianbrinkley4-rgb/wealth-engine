@@ -75,7 +75,7 @@ function trackAdsConversion(event: MeasuredEvent) {
 
 declare global {
   interface Window {
-    fbq?: (...args: unknown[]) => void;
+    fbq?: ((...args: unknown[]) => void) & { trackWealthPageView?: () => void };
     gtag?: (...args: unknown[]) => void;
     ndp?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
@@ -101,7 +101,7 @@ export function trackLead(eventId: string, topic?: string) {
   if (typeof window === "undefined") return;
   if (!META_ADS_ALLOWED && !GA4_ID && !GOOGLE_ADS_ID && !NEXTDOOR_PIXEL_ID) return;
   try {
-    if (metaAllowedOnRoute(window.location.pathname, META_ADS_ALLOWED))
+    if (topic !== "medicare" && metaAllowedOnRoute(window.location.pathname, META_ADS_ALLOWED))
       window.fbq?.("track", "Lead", { content_category: topic }, { eventID: eventId });
     // The event id deduplicates against the server-side copy; the topic says
     // which service was asked about, never what was answered.
@@ -226,7 +226,10 @@ export function Analytics() {
     if (previousPath.current === pathname) return;
     previousPath.current = pathname;
     try {
-      if (metaAllowedOnRoute(pathname, META_ADS_ALLOWED)) window.fbq?.("track", "PageView");
+      if (metaAllowedOnRoute(window.location.pathname, META_ADS_ALLOWED)) {
+        if (window.fbq?.trackWealthPageView) window.fbq.trackWealthPageView();
+        else window.fbq?.("track", "PageView");
+      }
       if (GA4_ID)
         window.gtag?.("config", GA4_ID, {
           ...eventParams(pathname),
@@ -243,14 +246,25 @@ export function Analytics() {
         <Script id="meta-pixel" strategy="afterInteractive">
           {`if(location.pathname === "/wealth" || location.pathname.startsWith("/wealth/")) {
 !function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+{if(f.fbq)return;n=f.fbq=function(){
+if((location.pathname === "/wealth" || location.pathname.startsWith("/wealth/")) && n.callMethod)
+n.callMethod.apply(n,arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
+n.queue=[];
+window.fbq.disablePushState = true;
+window.fbq.disableAutoConfig = true;
+var initialized=false;
+n.trackWealthPageView=function(){
+if(!(location.pathname === "/wealth" || location.pathname.startsWith("/wealth/")) || !n.callMethod)return;
+if(!initialized){
+fbq('set','autoConfig',false,'${META_PIXEL_ID}');
+fbq('init','${META_PIXEL_ID}');
+initialized=true;}
+fbq('track','PageView');};
+t=b.createElement(e);t.async=!0;t.onload=n.trackWealthPageView;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window,document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','${META_PIXEL_ID}');fbq('track','PageView');}`}
+'https://connect.facebook.net/en_US/fbevents.js');}`}
         </Script>
       ) : null}
 

@@ -1,4 +1,4 @@
-import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
+import { ENGINE_BOOKING_URL, isMedicareStartHref } from "@/lib/leadEnginePublic";
 import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,6 +6,7 @@ import { ArrowRight, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { GuideCapture } from "@/app/components/GuideCapture";
+import { TrackedLink } from "@/components/TrackedLink";
 import { AGENT, hasPublishableNpn } from "@/lib/agent";
 import { articleText, type Article } from "@/lib/articles";
 import { featuredPlaces } from "@/lib/triad";
@@ -109,6 +110,7 @@ export function ArticleBody({
     .map((place) => place.name)
     .join(", ");
   const service = servicePageFor(article);
+  const isBookingAction = isMedicareStartHref(article.startHref);
   const outline = article.sections.map((section) => ({
     id: slugify(section.h2),
     title: section.h2,
@@ -266,19 +268,25 @@ export function ArticleBody({
             <div className="art-next-actions">
               <a
                 data-cta-location="article_end"
-                href={ENGINE_BOOKING_URL}
-                target="_blank"
-                rel="noopener"
-                className="btn"
+                href={AGENT.phoneHref}
+                className={isBookingAction ? "btn btn-outline" : "btn"}
               >
-                Book a 45-minute phone review
-              </a>
-              <a data-cta-location="article_end" href={AGENT.phoneHref} className="btn">
                 <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
               </a>
-              <a href="/start" className="underline">
-                Or send a question
-              </a>
+              <TrackedLink
+                href={isBookingAction ? ENGINE_BOOKING_URL : article.startHref}
+                className={isBookingAction ? "btn" : "btn btn-outline"}
+                event="article_cta_click"
+                ctaLocation="article_end"
+              >
+                {isBookingAction ? "Book a 45-minute phone review" : nextStep.label}{" "}
+                <ArrowRight size={18} className="arrow" aria-hidden />
+              </TrackedLink>
+              {isBookingAction && (
+                <a href={article.startHref} className="underline">
+                  Or send a question
+                </a>
+              )}
             </div>
             <p className="art-next-towns">
               I meet people in {towns}, and the towns around them. Or I can talk by phone.

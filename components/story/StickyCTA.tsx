@@ -6,7 +6,7 @@ import { Phone, X } from "lucide-react";
 import { TrackedLink as Link } from "@/components/TrackedLink";
 
 /**
- * Mobile bar: the phone number and one free-review link.
+ * Mobile bar: booking is primary and the phone number is secondary.
  * The parent decides when it is hidden, tucked, or dismissed.
  */
 export function StickyCTA({
@@ -20,8 +20,6 @@ export function StickyCTA({
   tucked: boolean;
   callHref: string;
   callLabel: string;
-  reviewHref: string;
-  reviewLabel: string;
   onDismiss: () => void;
 }) {
   if (hidden) return null;
@@ -37,7 +35,7 @@ export function StickyCTA({
       <a
         data-cta-location="sticky_bar"
         href={callHref}
-        className="scta-call"
+        className="scta-second"
         aria-label={`Call Christian's direct line: ${callLabel}`}
       >
         <Phone size={20} aria-hidden />
@@ -48,7 +46,7 @@ export function StickyCTA({
         href={ENGINE_BOOKING_URL}
         target="_blank"
         rel="noopener"
-        className="scta-second"
+        className="scta-call"
       >
         Book a phone review
       </Link>

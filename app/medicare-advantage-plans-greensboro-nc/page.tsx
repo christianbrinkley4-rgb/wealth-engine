@@ -121,7 +121,6 @@ export default function MedicareAdvantagePlansGreensboroPage() {
         title="Medicare Advantage plans in Greensboro"
         lede="Plan options depend on your ZIP code. Compare every plan at Medicare.gov, or book a time and I will check the plans at your address."
         secondaryHref="/start?topic=medicare&stage=turning_65_soon"
-        secondaryLabel="Compare plans with me →"
       />
 
       <section className="bg-white py-14">
@@ -169,8 +168,9 @@ export default function MedicareAdvantagePlansGreensboroPage() {
             <strong className="font-semibold text-[var(--color-navy)]">
               What do your prescriptions cost under each plan?
             </strong>{" "}
-            Drug coverage varies more than anything else between plans. Enter your exact medications
-            on Medicare.gov&rsquo;s plan finder and sort by total yearly cost, not premium.
+            Drug coverage varies more than anything else between plans. Enter your exact
+            medications on Medicare.gov&rsquo;s plan finder and sort by total yearly cost, not
+            premium.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             <strong className="font-semibold text-[var(--color-navy)]">

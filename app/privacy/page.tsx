@@ -129,14 +129,11 @@ export default function PrivacyPage() {
                 management system.
               </li>
               <li>
-                <a href="https://cal.com/privacy" className="underline underline-offset-2">
-                  Cal.com
-                </a>{" "},
-               when you use the booking calendar, processes appointment details and contact
-                information. Connected calendar services, including Microsoft Outlook, may receive
-                appointment details and invitations to check availability and keep the meeting on
-                my calendars. A video meeting provider may also process information when you choose
-                a video appointment.
+                <a href="https://policies.google.com/privacy" className="underline underline-offset-2">
+                  Google Calendar appointment scheduling (Google)
+                </a>{" "}
+                processes appointment details and contact information when you use the booking page.
+                Google Calendar holds the booking for your phone call.
               </li>
               <li>
                 <a

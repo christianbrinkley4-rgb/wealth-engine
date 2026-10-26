@@ -36,7 +36,12 @@ describe("quiz variant assignment", () => {
   it("changes the button wording without changing the destination", () => {
     expect(captureButtonLabel("a")).toBe("Show my result");
     expect(captureButtonLabel("b")).toBe("Get my free review");
-    expect(resultButtonLabel("b", "Book my free review")).toBe("Schedule my free review");
+    expect(resultButtonLabel("b", "Book a 45-minute phone review")).toBe(
+      "Schedule a 45-minute phone review",
+    );
+    expect(resultButtonLabel("a", "Book a 45-minute phone review")).toBe(
+      "Book a 45-minute phone review",
+    );
     expect(resultButtonLabel("a", "Find my enrollment dates")).toBe("Find my enrollment dates");
   });
 });

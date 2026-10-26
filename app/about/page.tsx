@@ -133,12 +133,12 @@ export default function AboutPage() {
               {hasPublishableNpn() ? ` · NPN ${AGENT.npn}` : ""}
             </p>
             <div className="ab-actions" id="page-hero-actions">
-              <a href={AGENT.phoneHref} className="btn">
+              <a href={AGENT.phoneHref} className="btn btn-outline">
                 <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
               </a>
               <Link
                 href={ENGINE_BOOKING_URL}
-                className="btn btn-outline"
+                className="btn"
                 target="_blank"
                 rel="noopener"
               >

@@ -1,7 +1,8 @@
-import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
+import { ENGINE_BOOKING_URL, isMedicareStartHref } from "@/lib/leadEnginePublic";
 import Image from "next/image";
 import { TrustFacts } from "@/app/components/TrustFacts";
-import { Phone } from "lucide-react";
+import { TrackedLink as Link } from "@/components/TrackedLink";
+import { ArrowRight, Phone } from "lucide-react";
 
 import { AGENT } from "@/lib/agent";
 
@@ -10,12 +11,15 @@ export function KitchenTableClose({
   heading,
   body,
   href,
+  label,
 }: {
   heading: string;
   body: string;
   href: string;
   label: string;
 }) {
+  const isBookingAction = href === ENGINE_BOOKING_URL || isMedicareStartHref(href);
+  const cleanLabel = label.replace(/\s*→\s*$/, "");
   return (
     <section className="ktc">
       <div className="shell">
@@ -39,19 +43,25 @@ export function KitchenTableClose({
           <div className="ktc-actions">
             <a
               data-cta-location="page_close"
-              href={ENGINE_BOOKING_URL}
-              target="_blank"
-              rel="noopener"
-              className="btn"
+              href={AGENT.phoneHref}
+              className={isBookingAction ? "btn btn-outline" : "btn"}
             >
-              Book a 45-minute phone review
-            </a>
-            <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn">
               <Phone size={19} aria-hidden />
               Call Christian&apos;s direct line: {AGENT.phone}
             </a>
             {href !== AGENT.phoneHref && (
-              <a href="/start" className="underline">
+              <Link
+                ctaLocation="page_close"
+                href={isBookingAction ? ENGINE_BOOKING_URL : href}
+                target={isBookingAction ? "_blank" : undefined}
+                rel={isBookingAction ? "noopener" : undefined}
+                className={isBookingAction ? "btn" : "btn btn-outline"}
+              >
+                {isBookingAction ? "Book a 45-minute phone review" : cleanLabel} <ArrowRight size={18} className="arrow" aria-hidden />
+              </Link>
+            )}
+            {isBookingAction && (
+              <a href={href === ENGINE_BOOKING_URL ? "/start" : href} className="underline">
                 Or send a question
               </a>
             )}

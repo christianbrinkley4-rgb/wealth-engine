@@ -285,13 +285,13 @@ export function PlanChecklist() {
             anything.
           </p>
           <div className="checklist-actions">
-            <a data-cta-location="tool_result" href={AGENT.phoneHref} className="btn">
+            <a data-cta-location="tool_result" href={AGENT.phoneHref} className="btn btn-outline">
               Call {AGENT.phone}
             </a>
             <TrackedLink
               href={ENGINE_BOOKING_URL}
               ctaLocation="tool_result"
-              className="btn btn-outline"
+              className="btn"
               target="_blank"
               rel="noopener"
             >

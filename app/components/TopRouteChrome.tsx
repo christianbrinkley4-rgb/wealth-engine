@@ -159,7 +159,7 @@ export function TopRouteChrome() {
                 href={ENGINE_BOOKING_URL}
                 target="_blank"
                 rel="noopener"
-                className="btn btn-outline btn-sm nav-cta"
+                className="btn btn-sm nav-cta"
               >
                 Book a phone review
               </Link>
@@ -167,7 +167,7 @@ export function TopRouteChrome() {
             {!isAiRoute(pathname) && (
               <a
                 data-cta-location="header"
-                className="nav-call"
+                className="btn btn-outline btn-sm"
                 href={AGENT.phoneHref}
                 aria-label={`Call Christian's direct line: ${AGENT.phone}`}
               >
@@ -206,7 +206,7 @@ export function TopRouteChrome() {
         </ul>
         <div className="nav-sheet-actions">
           {!isAiRoute(pathname) && (
-            <a data-cta-location="menu" href={AGENT.phoneHref} className="btn btn-block">
+            <a data-cta-location="menu" href={AGENT.phoneHref} className="btn btn-outline btn-block">
               <Phone size={19} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
             </a>
           )}
@@ -217,7 +217,7 @@ export function TopRouteChrome() {
                 href={ENGINE_BOOKING_URL}
                 target="_blank"
                 rel="noopener"
-                className="btn btn-outline btn-block"
+                className="btn btn-block"
               >
                 Book a phone review
               </Link>
