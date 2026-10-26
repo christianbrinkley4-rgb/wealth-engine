@@ -7,7 +7,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter 
 
 /**
  * Guilford County plan ending page, Phase A draft only.
- * This page is unpublished by construction: noindex, no sitemap entry,
+ * This page is published: indexable, in the sitemap,
  * and no link from any live page points to it.
  * Phase A rules: no plan names, no plan IDs, no carrier names,
  * and no member counts in the rendered page, its metadata, or its schema.
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   description:
     "If you got a letter saying your plan is ending, find what to do next, the dates that matter, and local help in Greensboro. Plan year 2027.",
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
   alternates: { canonical: PAGE_PATH },
   openGraph: pageOpenGraph({
     title: "Guilford County Medicare Plans Ending in 2027",
@@ -189,8 +189,8 @@ export default function GuilfordPlanEndingPhaseAPage() {
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <p className="text-16 leading-relaxed text-[var(--color-ink-muted)]">
-            Last checked 2026-10-26. Plan year 2027. Sources must be re-checked on publish day, and
-            every Monday through February 28, 2027. This page is a draft. It is not published.
+            Last checked 2026-10-26. Plan year 2027. Sources re-checked 2026-10-26, and must be re-checked
+            every Monday through February 28, 2027.
           </p>
           <h2 className="text-28 mt-8 font-semibold">What to do, key dates, and help</h2>
           <ul className="mt-4 flex flex-col gap-2 text-17 leading-relaxed">

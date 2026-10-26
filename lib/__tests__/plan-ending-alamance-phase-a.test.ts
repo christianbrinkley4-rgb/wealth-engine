@@ -68,7 +68,7 @@ describe("Alamance plan ending Phase A draft", () => {
     expect(source.match(/<PlanCheckCta \/>/g)?.length).toBe(2);
   });
 
-  it("is unpublished by construction and carries the required title, H1, and stamp", () => {
+  it("is published and carries the required title, H1, and stamp", () => {
     const source = readFileSync(PAGE_PATH, "utf8");
     expect(source).toContain(
       "Alamance County Medicare Plans Ending in 2027 | Christian Brinkley",
@@ -76,9 +76,9 @@ describe("Alamance plan ending Phase A draft", () => {
     expect(source).toContain("Is your Alamance County Medicare plan ending in 2027?");
     expect(source).toContain("Last checked 2026-10-26");
     expect(source).toContain("Plan year 2027");
-    expect(source).toContain("robots: { index: false, follow: false }");
+    expect(source).toContain("robots: { index: true, follow: true }");
     const sitemap = readFileSync(join(process.cwd(), "app/sitemap.ts"), "utf8");
-    expect(sitemap).not.toContain("medicare-plans-ending-2027/alamance-county");
+    expect(sitemap).toContain("medicare-plans-ending-2027/alamance-county");
   });
 
   it("uses the Phase A hook, not the brief count hook", () => {

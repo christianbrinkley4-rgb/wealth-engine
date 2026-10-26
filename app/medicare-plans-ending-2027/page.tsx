@@ -7,7 +7,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter 
 
 /**
  * Medicare plan ending hub page, Phase A draft only.
- * This page is unpublished by construction: noindex, no sitemap entry,
+ * This page is published: indexable, in the sitemap,
  * and no link from any live page points to it.
  * Phase A rules: no plan names, no plan IDs, no carrier names,
  * no member counts, and no county ending or replaced counts as verified
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   description:
     "If you got a letter saying your plan is ending, find what to do next, the dates that matter, and local help in the Triad. Plan year 2027.",
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
   alternates: { canonical: PAGE_PATH },
   openGraph: pageOpenGraph({
     title: "Medicare Plans Ending in 2027",
@@ -140,14 +140,17 @@ const DATES = [
 const COUNTIES = [
   {
     name: "Guilford County",
+    path: "/medicare-plans-ending-2027/guilford-county",
     towns: "Greensboro, High Point, Jamestown, and Summerfield.",
   },
   {
     name: "Alamance County",
+    path: "/medicare-plans-ending-2027/alamance-county",
     towns: "Burlington, Graham, Mebane, Elon, Haw River, and Gibsonville.",
   },
   {
     name: "Granville County",
+    path: "/medicare-plans-ending-2027/granville-county",
     towns: "Oxford, Creedmoor, Butner, Stem, and Stovall.",
   },
 ] as const;
@@ -215,8 +218,8 @@ export default function PlanEndingHubPhaseAPage() {
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <p className="text-16 leading-relaxed text-[var(--color-ink-muted)]">
-            Last checked 2026-10-26. Plan year 2027. Sources must be re-checked on publish day, and
-            every Monday through February 28, 2027. This page is a draft. It is not published.
+            Last checked 2026-10-26. Plan year 2027. Sources re-checked 2026-10-26, and must be re-checked
+            every Monday through February 28, 2027.
           </p>
           <h2 className="text-28 mt-8 font-semibold">What to do, key dates, and help</h2>
           <ul className="mt-4 flex flex-col gap-2 text-17 leading-relaxed">
@@ -258,15 +261,14 @@ export default function PlanEndingHubPhaseAPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Counties covered</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            This hub covers three counties. Each county has its own page in progress. County pages
-            are not linked here yet, because they are unpublished drafts. They will be linked
-            when they are live. Until then, use your letter from your plan. That letter is the
+            This hub covers three counties. Each county has its own page, linked below.
+            Use your letter from your plan. That letter is the
             source that matters for your own coverage.
           </p>
           <ul className="mt-8 flex flex-col gap-6">
             {COUNTIES.map((county) => (
               <li key={county.name} className="border-t border-gray-300 pt-5">
-                <h3 className="text-20 font-semibold">{county.name}</h3>
+                <h3 className="text-20 font-semibold"><Link href={county.path} className="underline underline-offset-2">{county.name}</Link></h3>
                 <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
                   Towns include {county.towns}
                 </p>

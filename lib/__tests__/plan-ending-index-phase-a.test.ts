@@ -77,7 +77,7 @@ describe("Plan ending hub Phase A draft", () => {
     expect(source.match(/<PlanCheckCta \/>/g)?.length).toBe(2);
   });
 
-  it("is unpublished by construction and carries the required title, H1, and stamp", () => {
+  it("is published and carries the required title, H1, and stamp", () => {
     const source = readFileSync(PAGE_PATH, "utf8");
     expect(source).toContain(
       "Medicare Plans Ending in 2027 | Christian Brinkley",
@@ -85,18 +85,18 @@ describe("Plan ending hub Phase A draft", () => {
     expect(source).toContain("Is your Medicare plan ending in 2027?");
     expect(source).toContain("Last checked 2026-10-26");
     expect(source).toContain("Plan year 2027");
-    expect(source).toContain("robots: { index: false, follow: false }");
+    expect(source).toContain("robots: { index: true, follow: true }");
     const sitemap = readFileSync(join(process.cwd(), "app/sitemap.ts"), "utf8");
-    expect(sitemap).not.toContain("medicare-plans-ending-2027");
+    expect(sitemap).toContain("medicare-plans-ending-2027");
   });
 
-  it("lists counties as text only, with no link to any county plan ending route", () => {
+  it("links to all three county plan ending routes", () => {
     const source = readFileSync(PAGE_PATH, "utf8");
     expect(source).toContain("Guilford County");
     expect(source).toContain("Alamance County");
     expect(source).toContain("Granville County");
-    expect(source).not.toContain("medicare-plans-ending-2027/guilford-county");
-    expect(source).not.toContain("medicare-plans-ending-2027/alamance-county");
-    expect(source).not.toContain("medicare-plans-ending-2027/granville-county");
+    expect(source).toContain("medicare-plans-ending-2027/guilford-county");
+    expect(source).toContain("medicare-plans-ending-2027/alamance-county");
+    expect(source).toContain("medicare-plans-ending-2027/granville-county");
   });
 });
