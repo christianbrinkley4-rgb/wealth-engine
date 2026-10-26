@@ -11,6 +11,7 @@ import {
   LICENSE_LOOKUP_URL,
   publishedProfiles,
 } from "@/lib/agent";
+import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 import { indexableMedicarePlaces } from "@/lib/triad";
 
 const START = [
@@ -191,7 +192,7 @@ export function SiteFooter() {
             <ul>
               {indexableMedicarePlaces().map((city) => (
                 <li key={city.slug}>
-                  <Link href={`/medicare-in/${city.slug}`}>Medicare in {city.name}</Link>
+                  <Link href={canonicalMedicareLocation(`/medicare-in/${city.slug}`)}>Medicare in {city.name}</Link>
                 </li>
               ))}
               <li>

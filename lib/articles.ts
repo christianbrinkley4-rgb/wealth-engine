@@ -10973,6 +10973,266 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=money",
   },
+  {
+    slug: "social-security-cola-medicare-part-b",
+    title: "Will my Social Security raise cover my Medicare premium increase?",
+    metaTitle: "Will Your Social Security Raise Cover the 2027 Part B Hike?",
+    description:
+      "The 2027 Social Security COLA is 3.6% (announced Oct 14); the Part B premium follows in November. How to figure out what you will actually keep each month.",
+    keyword: "will social security raise cover medicare premium increase",
+    eyebrow: "Medicare questions, answered",
+    lede: "Two announcements, one month apart, decide what lands in your bank account. Here is the math, and the rule that keeps your check from shrinking.",
+    published: "2026-10-12",
+    updated: "2026-10-19",
+    intro:
+      "Every October the same question comes up in Greensboro living rooms: the Social Security raise is coming, so why does the check barely move? The answer is timing. Your raise and your Medicare premium increase are decided by two different agencies, in two different months, and the premium comes out of your check before you see it. Here is how the two numbers interact for 2027, and the rule that keeps a premium hike from shrinking your payment.",
+    sections: [
+      {
+        h2: "Two announcements, one month apart",
+        blocks: [
+          p(
+            "The Social Security Administration announced the 2027 cost-of-living adjustment, the COLA, on October 14, 2026: 3.6 percent. That works out to about $75 a month on the average benefit. The number is official now, so you can do real math with it.",
+          ),
+          p(
+            "The Part B premium comes later. The Centers for Medicare and Medicaid Services announces next year's standard premium in November. For 2026 it is $202.90 a month. For 2027 the 2026 Medicare Trustees Report projected about $209.50. A projection, not the final figure.",
+          ),
+          p(
+            "Do not plan off headlines. Until both announcements are out, every 2027 comparison you see is built on at least one guess.",
+          ),
+        ],
+      },
+      {
+        h2: "Do the math on your own check",
+        blocks: [
+          p(
+            "The raise is a percentage of your benefit. The premium increase is a flat dollar amount. That mismatch is the whole story.",
+          ),
+          table(
+            ["Your monthly benefit", "Raise at 3.6% (final)", "Part B hike ~$6.60 (projection)", "What you keep"],
+            [
+              ["$1,500", "+$54.00", "-$6.60", "~$47.40"],
+              ["$2,000", "+$72.00", "-$6.60", "~$65.40"],
+              ["$2,500", "+$90.00", "-$6.60", "~$83.40"],
+            ],
+          ),
+          p(
+            "One number is final, one is not: the 3.6 percent COLA is official, the $6.60 premium increase is still a projection. Your benefit and the final premium decide your real result.",
+          ),
+          p(
+            "One more cost for the calendar: the standard Part D deductible rises to a maximum of $700 in 2027, and the out-of-pocket cap rises to $2,400. Both are final per the CMS CY2027 Rate Announcement. The deductible does not come out of your check. It shows up at the pharmacy counter in January.",
+          ),
+        ],
+      },
+      {
+        h2: "The premium comes out before you see the money",
+        blocks: [
+          p(
+            "For most people, the Part B premium is deducted automatically from the Social Security payment. You never get a bill. The deposit in your bank account is already net of the premium.",
+          ),
+          p(
+            "That is why the gross raise can mislead. A $72 raise with a $6.60 premium increase is a $65.40 raise in real life. The check that matters is the one after the deduction.",
+          ),
+        ],
+      },
+      {
+        h2: "The rule that keeps your check from shrinking",
+        blocks: [
+          p(
+            "Federal law includes a provision people call hold harmless (42 U.S.C. 1395r(f)). If the Part B premium increase is bigger than your COLA, your premium increase is limited so your net Social Security payment does not go down.",
+          ),
+          p(
+            "It does not cover everyone. It does not apply to IRMAA surcharges for higher incomes, to people who pay Part B directly instead of through deduction, to premiums paid by Medicaid, or to first-year Part B enrollees.",
+          ),
+          p(
+            "It stops your check from shrinking. It does not guarantee you keep the whole raise.",
+          ),
+        ],
+      },
+      {
+        h2: "What to do with this before January",
+        blocks: [
+          p(
+            "The lever you control opens October 15. The Annual Enrollment Period runs October 15 to December 7, the one time of year you can change drug plans and Medicare Advantage plans for January 1. Premiums get the headlines, but drug deductibles and tiers move every year, and that is where the bigger surprises hide.",
+          ),
+          p(
+            "Then read your December notice. Social Security mails a letter showing your exact 2027 amount, also visible in your my Social Security account. Compare that number to your January deposit, not to the COLA headline.",
+          ),
+          p(
+            "If the math worries you, talk to someone local before December 7. A ten-minute review of your drug list against next year's plans beats a hundred COLA headlines.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "When will the 2027 numbers be final?",
+        a: "SSA announced the 2027 COLA of 3.6% on October 14, 2026. CMS announces the 2027 Part B premium and deductible in November. Your exact new amount arrives in a Social Security notice in December, and higher payments start with January 2027 benefits.",
+      },
+      {
+        q: "Can a Part B increase make my Social Security check go down?",
+        a: "For most people with premiums deducted from Social Security, no. Hold harmless limits the premium increase so the net payment does not fall. Exceptions: IRMAA surcharges, direct Part B payers, new enrollees, and Medicaid-paid premiums.",
+      },
+      {
+        q: "Does the Part D deductible come out of my check too?",
+        a: "No. The Part D deductible is paid at the pharmacy, not deducted from your check. For 2027 the standard deductible maxes out at $700, per the CMS CY2027 Rate Announcement. Once you hit the $2,400 out-of-pocket cap, covered drugs cost $0 the rest of the year.",
+      },
+      {
+        q: "I pay extra for Medicare because of my income. Does hold harmless protect me?",
+        a: "No. IRMAA, the income-related monthly adjustment amount, sits outside hold harmless protection. If your income dropped since the tax year Social Security used, you can ask for reconsideration with a life-changing event form.",
+      },
+      {
+        q: "Where do I see my exact new amount?",
+        a: "Your December notice shows your exact 2027 benefit, also visible in your my Social Security account. That number minus your Part B premium is the January deposit to expect.",
+      },
+    ],
+    sources: [
+      {
+        label: "CMS: 2026 Medicare Parts A & B premiums and deductibles",
+        href: "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+      },
+      {
+        label: "Social Security Administration: 2027 COLA announcement",
+        href: "https://www.ssa.gov/news/en/advocates/2026-10-14.html",
+      },
+      {
+        label: "Medicare.gov: When you can join, switch, or drop a plan",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan",
+      },
+    ],
+    related: [
+      { label: "Do I owe extra for Medicare because of my income?", href: "/answers/medicare-irmaa-income-premiums" },
+      { label: "Switching Medicare Advantage plans during AEP", href: "/answers/switching-medicare-advantage-plans-aep" },
+      { label: "Do I need Medicare drug coverage?", href: "/answers/do-i-need-medicare-drug-coverage" },
+      { label: "Every 2027 Medicare cost, final vs projected", href: "/medicare-costs-2027" },
+      { label: "Medicare help near you", href: "/service-area" },
+    ],
+    startHref: "/start?topic=medicare&stage=already_on_medicare",
+  },
+  {
+    slug: "compare-part-d-plans-open-enrollment-2027",
+    title: "How do I compare Medicare drug plans during Open Enrollment?",
+    metaTitle: "Compare Medicare Part D Plans for 2027: What to Check",
+    description:
+      "Open Enrollment runs October 15 to December 7. The 2027 Part D numbers are final: a $700 max deductible and a $2,400 cap. How to compare plans for next year.",
+    keyword: "compare medicare part d plans open enrollment 2027",
+    eyebrow: "Medicare questions, answered",
+    lede: "The monthly premium is the smallest part of the comparison. Your drugs, your pharmacy, and the plan's rulebook decide your real cost for the year.",
+    published: "2026-10-19",
+    updated: "2026-10-19",
+    intro:
+      "Every October, Medicare drug plans rewrite the fine print for next year: new premiums, new copay tiers, drugs added or dropped from the list. Open Enrollment, October 15 to December 7, is the one window when you can switch drug plans for January 1. Comparing takes about twenty minutes if you bring your drug list. Here is what to check, with the final 2027 numbers.",
+    sections: [
+      {
+        h2: "Start with the letter you already got",
+        blocks: [
+          p(
+            "By September 30 your plan mails an Annual Notice of Change. It is the single most useful document of the season: exactly what your plan changes for next year. Premium, deductible, copay and coinsurance tiers, which drugs stay on the formulary, and which pharmacy network applies. Read that first, before any advertising.",
+          ),
+          p(
+            "Watch for two red flags. A drug you take moves to a higher tier or leaves the formulary, or your pharmacy drops out of the preferred network. Either one is a signal to shop, even if the premium barely moved.",
+          ),
+        ],
+      },
+      {
+        h2: "The 2027 numbers you can trust",
+        blocks: [
+          p(
+            "CMS finalized the core 2027 Part D numbers on April 6, 2026, in the CY2027 Rate Announcement. These are not projections.",
+          ),
+          table(
+            ["Part D feature", "2026", "2027"],
+            [
+              ["Standard deductible (maximum)", "$615", "$700"],
+              ["Annual out-of-pocket cap", "$2,100", "$2,400"],
+              ["National base beneficiary premium", "$38.99", "$41.33"],
+            ],
+          ),
+          p(
+            "Once your out-of-pocket costs for covered drugs reach the $2,400 cap, you pay $0 for covered drugs the rest of the year. The deductible counts toward the cap. Premiums do not.",
+          ),
+          p(
+            "Two footnotes. The base beneficiary premium is the number used to calculate late-enrollment penalties. It is not what any specific plan charges. And the federal demonstration that held stand-alone plan premiums down ends with 2026, so premiums can move more freely for 2027. Read your notice instead of assuming a small increase.",
+          ),
+        ],
+      },
+      {
+        h2: "Compare your total year, not the monthly premium",
+        blocks: [
+          p(
+            "Take the premium off the table first. Multiply it by 12. Then add what your drugs cost under each plan's rules: deductible, copays or coinsurance by tier, and whether your pharmacy is preferred. The plan with the lowest premium often loses on the total.",
+          ),
+          p(
+            "See how the pieces fit with the 2027 standard benefit. A covered prescription that costs $100 a month and is subject to the deductible runs about $100 a month January through July to meet the $700 deductible, then 25 percent, or $25 a month, August through December. That is $825 for the year before the premium. Your plan's tiers set your real numbers. The standard benefit shows you the shape of the math.",
+          ),
+          p(
+            "Then check the formulary itself. Plans change which drugs they cover and which tier each drug sits in every year. Enter your exact drugs, doses, and pharmacy into the Medicare plan finder at medicare.gov to see your real total by plan.",
+          ),
+        ],
+      },
+      {
+        h2: "The deadline, and what happens if you do nothing",
+        blocks: [
+          p(
+            "Open Enrollment ends December 7. Your plan must receive your enrollment form by then, and changes take effect January 1. Miss the window and you are generally locked in until next October, outside a few special exceptions.",
+          ),
+          p(
+            "If your plan still fits, you do not have to do anything. Coverage generally renews automatically with the new year's terms. The risk is assuming nothing changed. Plans change formularies and tiers every year, and the premium in your notice is the only number that matters.",
+          ),
+        ],
+      },
+      {
+        h2: "When a ten-minute review beats an afternoon of tabs",
+        blocks: [
+          p(
+            "Twenty minutes with your drug list and the Medicare plan finder handles most comparisons. The people who get burned are the ones who never open the Annual Notice of Change.",
+          ),
+          p(
+            "If the letter confuses you, get a second pair of eyes before December 7. A free review in Greensboro or anywhere in the Triad takes your actual drug list against next year's plans and tells you the real yearly cost. Bring the notice, your drug bottles, and your pharmacy name.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "When is Open Enrollment for 2027 drug plans?",
+        a: "October 15 through December 7, 2026. You can join, switch, or drop a drug plan. Changes take effect January 1, 2027. Your plan must receive the enrollment form by December 7.",
+      },
+      {
+        q: "What are the 2027 Part D deductible and out-of-pocket cap?",
+        a: "CMS finalized them in the CY2027 Rate Announcement: the standard deductible rises to a $700 maximum (from $615) and the annual out-of-pocket cap rises to $2,400 (from $2,100). Once your out-of-pocket costs for covered drugs reach the cap, you pay $0 for covered drugs the rest of the year.",
+      },
+      {
+        q: "What is the Annual Notice of Change?",
+        a: "A letter your drug plan must mail by September 30 each year. It shows exactly what changes for the next plan year: premium, deductible, copays, formulary, and pharmacy network. Read it before Open Enrollment.",
+      },
+      {
+        q: "Do I have to switch if I like my plan?",
+        a: "No. If your plan still fits, it generally renews automatically with the new year's terms. The risk is assuming nothing changed. Plans change formularies and copay tiers every year.",
+      },
+      {
+        q: "Where do I compare plans?",
+        a: "The Medicare plan finder at medicare.gov compares 2027 plans using your actual drugs, doses, and pharmacy. Or bring your drug list to a free local review before December 7.",
+      },
+    ],
+    sources: [
+      {
+        label: "CMS: CY2027 Medicare Advantage and Part D Rate Announcement",
+        href: "https://www.cms.gov/medicare/payment/medicare-advantage-rates-statistics/announcements-and-documents",
+      },
+      {
+        label: "Medicare.gov: When you can join, switch, or drop a plan",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan",
+      },
+    ],
+    related: [
+      { label: "Do I need Medicare drug coverage?", href: "/answers/do-i-need-medicare-drug-coverage" },
+      { label: "How does Medicare Part D drug coverage work?", href: "/answers/how-does-medicare-part-d-drug-coverage-work" },
+      { label: "The Part D late enrollment penalty", href: "/answers/medicare-part-d-late-penalty" },
+      { label: "Switching Medicare Advantage plans during AEP", href: "/answers/switching-medicare-advantage-plans-aep" },
+      { label: "Every 2027 Medicare cost, final vs projected", href: "/medicare-costs-2027" },
+    ],
+    startHref: "/start?topic=medicare&stage=already_on_medicare",
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

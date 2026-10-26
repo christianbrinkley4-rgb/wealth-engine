@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 import { CitySnapshot } from "@/app/components/CitySnapshot";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
@@ -236,7 +237,7 @@ export function LocalCityServicePage({ kind, slug }: { kind: LocalServiceKind; s
               View all communities
             </Link>
             {" · "}
-            <Link href={`/medicare-in/${city.slug}`} className="underline underline-offset-2">
+            <Link href={canonicalMedicareLocation(`/medicare-in/${city.slug}`)} className="underline underline-offset-2">
               Medicare in {city.name}
             </Link>
             {kind !== "life" ? (

@@ -6,6 +6,7 @@ import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 import { placesByCounty, SERVICE_AREA_LABEL, SERVICE_AREA_LEDE } from "@/lib/triad";
+import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 
 const title = "Medicare Help: Greensboro, High Point, Winston-Salem";
 const description =
@@ -130,7 +131,7 @@ export default function ServiceAreaPage() {
                   <p className="text-18 font-semibold">{place.name}</p>
                   <p className="text-16 mt-3 flex flex-wrap gap-2">
                     <Link
-                      href={`/medicare-in/${place.slug}`}
+                      href={canonicalMedicareLocation(`/medicare-in/${place.slug}`)}
                       className="inline-flex min-h-11 items-center rounded-lg px-2 underline underline-offset-2"
                     >
                       Medicare

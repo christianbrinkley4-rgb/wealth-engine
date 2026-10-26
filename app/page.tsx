@@ -27,6 +27,7 @@ import { AGENT, GOOGLE_MAPS_PROFILE_URL } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
 import { faqJsonLd, localBusinessJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { GOOGLE_REVIEWS, hasTestimonials, visibleRatedReviews } from "@/lib/testimonials";
+import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 import { featuredPlaces } from "@/lib/triad";
 
 const title = "Medicare Help in Greensboro NC | Christian Brinkley";
@@ -556,7 +557,7 @@ export default function HomePage() {
             <ul className="faqx-towns" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               {towns.map((town) => (
                 <li key={town.slug}>
-                  <Link href={`/medicare-in/${town.slug}`}>{town.name}</Link>
+                  <Link href={canonicalMedicareLocation(`/medicare-in/${town.slug}`)}>{town.name}</Link>
                 </li>
               ))}
               <li>

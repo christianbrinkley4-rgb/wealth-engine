@@ -16,7 +16,7 @@ const STATIC_ROUTES: Array<{
   priority: number;
 }> = [
   { path: "/north-carolina-medicare-programs", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-12" },
-  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-24" },
+  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-26" },
   { path: "/insurance-services", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-07" },
   { path: "/care-coverage", changeFrequency: "monthly", priority: 0.85 },
   { path: "/long-term-care-insurance", changeFrequency: "monthly", priority: 0.85 },
