@@ -1,0 +1,78 @@
+{
+  "ci": {
+    "collect": {
+      "startServerCommand": "npm run start",
+      "startServerReadyPattern": "Ready",
+      "startServerReadyTimeout": 60000,
+      "url": [
+        "http://localhost:3000/",
+        "http://localhost:3000/aep",
+        "http://localhost:3000/plan-check"
+      ],
+      "numberOfRuns": 3,
+      "settings": {
+        "blockedUrlPatterns": [
+          "*://connect.facebook.net/*",
+          "*://www.facebook.com/tr/*",
+          "*://www.googletagmanager.com/*",
+          "*://www.google-analytics.com/*",
+          "*://*.google-analytics.com/*",
+          "*://analytics.google.com/*",
+          "*://stats.g.doubleclick.net/*",
+          "*://googleads.g.doubleclick.net/*",
+          "*://www.googleadservices.com/*",
+          "*://scripts.simpleanalyticscdn.com/*",
+          "*://*.simpleanalyticscdn.com/*",
+          "*://ads.nextdoor.com/*"
+        ]
+      }
+    },
+    "assert": {
+      "assertMatrix": [
+        {
+          "matchingUrlPattern": "http://localhost:3000/$",
+          "aggregationMethod": "median",
+          "assertions": {
+            "categories:accessibility": ["error", { "minScore": 0.95 }],
+            "categories:best-practices": ["error", { "minScore": 0.95 }],
+            "categories:seo": ["error", { "minScore": 0.95 }],
+            "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+            "categories:performance": ["warn", { "minScore": 0.86 }],
+            "largest-contentful-paint": ["warn", { "maxNumericValue": 3965 }],
+            "total-blocking-time": ["warn", { "maxNumericValue": 61 }]
+          }
+        },
+        {
+          "matchingUrlPattern": "http://localhost:3000/aep$",
+          "aggregationMethod": "median",
+          "assertions": {
+            "categories:accessibility": ["error", { "minScore": 0.95 }],
+            "categories:best-practices": ["error", { "minScore": 0.95 }],
+            "categories:seo": ["error", { "minScore": 0.95 }],
+            "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+            "categories:performance": ["warn", { "minScore": 0.87 }],
+            "largest-contentful-paint": ["warn", { "maxNumericValue": 3864 }],
+            "total-blocking-time": ["warn", { "maxNumericValue": 78 }]
+          }
+        },
+        {
+          "matchingUrlPattern": "http://localhost:3000/plan-check$",
+          "aggregationMethod": "median",
+          "assertions": {
+            "categories:accessibility": ["error", { "minScore": 0.95 }],
+            "categories:best-practices": ["error", { "minScore": 0.95 }],
+            "categories:seo": ["error", { "minScore": 0.95 }],
+            "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+            "categories:performance": ["warn", { "minScore": 0.87 }],
+            "largest-contentful-paint": ["warn", { "maxNumericValue": 3844 }],
+            "total-blocking-time": ["warn", { "maxNumericValue": 55 }]
+          }
+        }
+      ]
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": ".lighthouseci"
+    }
+  }
+}
