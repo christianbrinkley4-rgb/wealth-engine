@@ -436,7 +436,7 @@ export default function AlamancePlanEndingPhaseAPage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Christian Brinkley is a licensed insurance agent. Not connected with or endorsed by
-            the U.S. government or the federal Medicare program. FMO to confirm exact wording.
+            the U.S. government or the federal Medicare program.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Sources, with dates: Medicare.gov Open Enrollment page; Medicare.gov Special

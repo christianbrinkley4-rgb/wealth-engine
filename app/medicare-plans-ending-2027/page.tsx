@@ -490,8 +490,7 @@ export default function PlanEndingHubPhaseAPage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Christian Brinkley is a licensed insurance agent. Not connected with or endorsed by
-            the U.S. government or the federal Medicare program. FMO to confirm exact wording.
-            FMO is also to confirm which SHIP wording 2027 materials require before publishing.
+            the U.S. government or the federal Medicare program.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Sources, with dates: Medicare.gov Open Enrollment page; Medicare.gov Special
