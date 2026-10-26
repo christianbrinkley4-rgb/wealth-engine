@@ -169,7 +169,7 @@ export default function HomePage() {
               <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-outline">
                 <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
               </a>
-              <a href="/start" className="underline">
+              <a href="/start?topic=medicare&quick=1" className="underline">
                 Or send a question
               </a>
             </div>
@@ -537,7 +537,7 @@ export default function HomePage() {
             <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn btn-outline">
               <Phone size={19} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
             </a>
-            <a href="/start" className="underline">
+            <a href="/start?topic=medicare&quick=1" className="underline">
               Or send a question
             </a>
           </div>

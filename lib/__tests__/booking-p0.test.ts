@@ -197,12 +197,12 @@ describe("Meta route gate", () => {
 });
 
 describe("booking redirect", () => {
-  it("permanently redirects the short booking path to the shared URL", async () => {
+  it("temporarily redirects the short booking path to the shared URL", async () => {
     const { default: config } = await import("../../next.config");
     expect(await config.redirects!()).toContainEqual({
       source: "/book",
       destination: ENGINE_BOOKING_URL,
-      permanent: true,
+      permanent: false,
     });
   });
 });

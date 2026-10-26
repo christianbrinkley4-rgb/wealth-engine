@@ -32,15 +32,6 @@ export function StickyCTA({
       aria-label="Call or book a phone review"
       inert={tucked}
     >
-      <a
-        data-cta-location="sticky_bar"
-        href={callHref}
-        className="scta-second"
-        aria-label={`Call Christian's direct line: ${callLabel}`}
-      >
-        <Phone size={20} aria-hidden />
-        {callLabel}
-      </a>
       <Link
         ctaLocation="sticky_bar"
         href={ENGINE_BOOKING_URL}
@@ -50,6 +41,15 @@ export function StickyCTA({
       >
         Book a phone review
       </Link>
+      <a
+        data-cta-location="sticky_bar"
+        href={callHref}
+        className="scta-second"
+        aria-label={`Call Christian's direct line: ${callLabel}`}
+      >
+        <Phone size={20} aria-hidden />
+        {callLabel}
+      </a>
       <button type="button" className="scta-dismiss" onClick={onDismiss} aria-label="Dismiss">
         <X size={16} aria-hidden />
       </button>

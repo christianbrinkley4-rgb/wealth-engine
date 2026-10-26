@@ -213,7 +213,7 @@ export default function AepPage() {
             >
               Book a 45-minute phone review
             </a>
-            <a href="/start" className="underline">
+            <a href="/start?topic=medicare&quick=1" className="underline">
               Or send a question
             </a>
             <p>No cost for the conversation. No obligation to enroll.</p>

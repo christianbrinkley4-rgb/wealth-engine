@@ -166,21 +166,18 @@ const QUESTIONS: QuizQuestion[] = [
 
 type Tier = "solid" | "flags" | "changed";
 
-const TIER_COPY: Record<Tier, { headline: string; body: string; cta: string }> = {
+const TIER_COPY: Record<Tier, { headline: string; body: string }> = {
   solid: {
     headline: "Your plan looks pretty solid.",
     body: "Based on your answers, nothing major has shifted since you enrolled. That's good news. Plans still change every year though, and a free 20-minute review makes sure nothing slipped through the cracks before enrollment closes December 7.",
-    cta: "Request a free yearly check",
   },
   flags: {
     headline: "A few things are worth a second look.",
     body: "None of this means your plan is wrong. It means a free review would be smart before December 7, while you can still do something about it.",
-    cta: "Request a free plan review",
   },
   changed: {
     headline: "A lot has changed since you enrolled.",
     body: "Your plan may not fit your life the way it used to. You're asking before December 7, which means there's still time to sort it out. A free 20-minute review will give you straight answers.",
-    cta: "Request a free review now",
   },
 };
 

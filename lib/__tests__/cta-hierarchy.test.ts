@@ -123,7 +123,7 @@ describe("booking CTA hierarchy", () => {
         expect(actions[1]).toBe(booking);
       }
       expect(screen.getByRole("link", { name: "Or send a question" }).getAttribute("href")).toBe(
-        kind === "hero" ? hero.secondaryHref : "/start",
+        kind === "hero" ? hero.secondaryHref : kind === "close" ? "/start" : "/start?topic=medicare&quick=1",
       );
     },
   );

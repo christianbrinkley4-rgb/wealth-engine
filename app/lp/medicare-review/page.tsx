@@ -42,7 +42,7 @@ export default function MedicareReview() {
           >
             Book a 45-minute phone review
           </a>
-          <a href="/start" className="underline">
+          <a href="/start?topic=medicare&quick=1" className="underline">
             Or send a question
           </a>
           <h2>What we&apos;ll talk through</h2>

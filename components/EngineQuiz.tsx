@@ -53,7 +53,7 @@ export function EngineQuiz({ results }: { results: Record<string, Result> }) {
             Book a 45-minute phone review
           </a>
           {" "}
-          <a href="/start" className="underline">
+          <a href="/start?topic=medicare&quick=1" className="underline">
             Or send a question
           </a>
         </p>

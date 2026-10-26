@@ -39,7 +39,7 @@ export function ConsultationActions({
         {isBookingAction ? "Book a 45-minute phone review" : label} <ArrowRight size={18} aria-hidden />
       </TrackedLink>
       {isBookingAction && (
-        <TrackedLink href={href === ENGINE_BOOKING_URL ? "/start" : href} className="underline">
+        <TrackedLink href={href === ENGINE_BOOKING_URL ? "/start?topic=medicare&quick=1" : href} className="underline">
           Or send a question
         </TrackedLink>
       )}

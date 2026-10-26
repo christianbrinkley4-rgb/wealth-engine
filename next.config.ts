@@ -58,7 +58,7 @@ const nextConfig: NextConfig = {
    */
   async redirects() {
     return [
-      { source: "/book", destination: ENGINE_BOOKING_URL, permanent: true },
+      { source: "/book", destination: ENGINE_BOOKING_URL, permanent: false },
       ...Object.entries(LOCATION_CONSOLIDATIONS).map(([source, destination]) => ({
         source,
         destination,

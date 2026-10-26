@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
 };
 
-const EFFECTIVE_DATE = "September 10, 2026";
+const EFFECTIVE_DATE = "October 26, 2026";
 
 function listProviders(providers: string[]): string {
   if (providers.length === 1) return providers[0];
@@ -133,7 +133,9 @@ export default function PrivacyPage() {
                   Google Calendar appointment scheduling (Google)
                 </a>{" "}
                 processes appointment details and contact information when you use the booking page.
-                Google Calendar holds the booking for your phone call.
+                Google Calendar holds the booking for your phone call. Connected calendar services,
+                including Microsoft Outlook, may receive appointment details and invitations to check
+                availability and keep the meeting on my calendars.
               </li>
               <li>
                 <a
