@@ -19,25 +19,34 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  * Local angle national sites cannot copy. All program facts verified from
  * public sources (hr.unc.edu, NC Health News). No plan recommendations;
  * retirees should confirm details with the State Health Plan each year.
+ *
+ * 2027 section (Oct 27, 2026) verified against shpnc.gov's Medicare-member
+ * open enrollment page (Oct 12 - Nov 6, 2026; 70/30 members who do nothing
+ * move to the Base plan; 70/30 tiered network), the NC Treasurer's Oct 14,
+ * 2026 release (Atrium to the out-of-network tier Jan 1, 2027) and Becker's
+ * Payer Issues, June 8, 2026 (out-of-pocket maximums, Part B drug copay).
+ * No source says how the Atrium change applies to the Medicare Advantage
+ * group plans, so the page says so and points to the support center.
+ * After Nov 6, 2026 the deadline copy goes stale: update or remove it.
  */
 
 export const metadata: Metadata = {
   title: {
-    absolute: "NC State Health Plan Medicare for Retirees: How It Works",
+    absolute: "NC State Health Plan Medicare Retirees: 2027 Changes, Nov. 6 Deadline",
   },
   description:
-    "NC State Health Plan Medicare for retirees: turning 65 means enrolling in Medicare Parts A and B, then choosing among three State Health Plan retiree options. What to enroll in first and what each option covers.",
+    "NC state retirees on Medicare: 2027 open enrollment ends November 6, 2026. 70/30 plan members who do nothing move to the Base Medicare Advantage plan, out-of-pocket maximums rise, and Atrium Health changes tiers. What to check.",
   alternates: { canonical: "/guides/nc-state-health-plan-medicare" },
   openGraph: pageOpenGraph({
-    title: "NC State Health Plan retirees and Medicare",
+    title: "NC State Health Plan retirees: 2027 changes and the Nov. 6 deadline",
     description:
-      "What happens to your state coverage at 65, the three retiree options, and the deadlines that matter.",
+      "What changes for state retirees on Medicare in 2027, what happens if you do nothing, and what to check before November 6.",
     path: "/guides/nc-state-health-plan-medicare",
   }),
   twitter: pageTwitter({
-    title: "NC State Health Plan retirees and Medicare",
+    title: "NC State Health Plan retirees: 2027 changes and the Nov. 6 deadline",
     description:
-      "What happens to your state coverage at 65, the three retiree options, and the deadlines that matter.",
+      "What changes for state retirees on Medicare in 2027, what happens if you do nothing, and what to check before November 6.",
     path: "/guides/nc-state-health-plan-medicare",
   }),
 };
@@ -64,8 +73,16 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
     a: "Yes, you can cover eligible dependents, but you pay the full cost of their coverage. A spouse 65 or older must have Medicare Parts A and B to join your Medicare Advantage or 70/30 option.",
   },
   {
-    q: "When can I change my retiree health plan?",
-    a: "During the State Health Plan's annual open enrollment each October, done through the ORBIT system. That is your yearly chance to switch among the three retiree options.",
+    q: "When can I change my retiree health plan for 2027?",
+    a: "During the State Health Plan's open enrollment, which runs October 12 to November 6, 2026 for the 2027 plan year. That is your yearly chance to switch among the three retiree options. Outside open enrollment you generally need a qualifying event to change.",
+  },
+  {
+    q: "What happens if I'm on the 70/30 plan and do nothing for 2027?",
+    a: "According to the State Health Plan, retirees in the 70/30 plan who take no action during open enrollment are moved to the Base Medicare Advantage plan for 2027. If you want to stay on the 70/30 plan, you have to choose it before November 6, 2026.",
+  },
+  {
+    q: "Is Atrium Health out of network for state retirees in 2027?",
+    a: "The State Treasurer announced on October 14, 2026 that Atrium Health moves to the State Health Plan's out-of-network tier starting January 1, 2027, except for certain access-level facilities. The announcement does not spell out how this applies to the Medicare Advantage Base and Enhanced plans. If you see Atrium Health Wake Forest Baptist doctors, call the State Health Plan Medicare Support Center at 833-429-5003 before November 6 to confirm.",
   },
 ];
 
@@ -94,7 +111,7 @@ export default function NcStateHealthPlanMedicarePage() {
                 "What happens to NC State Health Plan coverage at 65, the three retiree options, the Part A and B requirement, and the deadlines that matter.",
               path: "/guides/nc-state-health-plan-medicare",
               datePublished: "2026-10-13",
-              dateModified: "2026-10-13",
+              dateModified: "2026-10-27",
             }),
           ),
         }}
@@ -110,9 +127,9 @@ export default function NcStateHealthPlanMedicarePage() {
           { name: "Guides" },
           { name: "State retirees and Medicare" },
         ]}
-        eyebrow="Guide · Updated October 13, 2026"
+        eyebrow="Guide · Updated October 27, 2026"
         title="NC State Health Plan retirees and Medicare"
-        lede="Turning 65 on the State Health Plan? Your coverage changes in ways that surprise people. Here is what happens and what you have to do."
+        lede="Open enrollment for 2027 ends November 6, 2026. Here is what changes for state retirees on Medicare, what happens if you do nothing, and what to check first."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Get a free coverage review"
       />
@@ -125,10 +142,54 @@ export default function NcStateHealthPlanMedicarePage() {
               If you retired from North Carolina state employment, you must enroll in Medicare Parts
               A and B at 65. After that, you pick one of three State Health Plan retiree options.
               Most retirees land in the base Medicare Advantage plan automatically. Plan details and
-              costs change year to year, so confirm everything with the State Health Plan each
-              October during open enrollment.
+              costs change year to year, so confirm everything with the State Health Plan during
+              open enrollment. For 2027, that window closes November 6, 2026.
             </p>
           </div>
+
+          <h2 className="text-28 mt-12 font-semibold">What changes for 2027</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Open enrollment for the 2027 plan year runs October 12 to November 6, 2026. It was
+            first set to end October 30 and was extended. Here is what changes for retirees on
+            Medicare:
+          </p>
+          <ul className="text-17 mt-4 flex list-disc flex-col gap-3 pl-6 leading-relaxed text-[var(--color-ink-muted)]">
+            <li>
+              <strong className="text-[var(--color-navy)]">On the 70/30 plan and do nothing?</strong>{" "}
+              You&apos;re moved to the Base Medicare Advantage plan for 2027. To stay on the 70/30
+              plan, you have to pick it before November 6.
+            </li>
+            <li>
+              <strong className="text-[var(--color-navy)]">Already on a Medicare Advantage plan?</strong>{" "}
+              If you do nothing, you stay on the plan you have.
+            </li>
+            <li>
+              <strong className="text-[var(--color-navy)]">Higher out-of-pocket limits.</strong>{" "}
+              The most you can pay in a year goes from $4,000 to $4,500 on the Base plan and from
+              $3,300 to $3,700 on the Enhanced plan, and there&apos;s a new $50 copay for Part B
+              drugs.
+            </li>
+            <li>
+              <strong className="text-[var(--color-navy)]">A new network setup on the 70/30 plan.</strong>{" "}
+              The 70/30 plan uses a three-tier provider network in 2027, and the tier your doctor
+              is in can change what you pay.
+            </li>
+            <li>
+              <strong className="text-[var(--color-navy)]">Atrium Health changes tiers.</strong>{" "}
+              The State Treasurer announced on October 14 that Atrium Health moves to the
+              plan&apos;s out-of-network tier starting January 1, 2027, except for certain
+              access-level facilities. Business North Carolina reported that this covers Atrium
+              facilities in the Charlotte area and the Triad. The announcement doesn&apos;t spell
+              out how this applies to the Medicare Advantage Base and Enhanced plans, so if you see
+              Atrium Health Wake Forest Baptist doctors in Winston-Salem or High Point, call the
+              State Health Plan Medicare Support Center at 833-429-5003 before November 6 and ask.
+            </li>
+          </ul>
+          <p className="text-15 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Sources: State Health Plan 2027 open enrollment page for Medicare members (shpnc.gov);
+            NC Department of State Treasurer, October 14, 2026; Business North Carolina, October
+            14, 2026; Becker&apos;s Payer Issues, June 8, 2026.
+          </p>
 
           <h2 className="text-28 mt-12 font-semibold">The Part A and Part B requirement</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -194,6 +255,12 @@ export default function NcStateHealthPlanMedicarePage() {
             prescriptions or see specialists often. Use your first open enrollment to compare all
             three with your actual health needs in mind, not just the default.
           </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Doing nothing during open enrollment has its own default too. For 2027, retirees on a
+            Medicare Advantage plan stay where they are, and retirees on the 70/30 plan are moved to
+            the Base Medicare Advantage plan. If that move isn&apos;t what you want, the only time to
+            stop it is before November 6, 2026.
+          </p>
 
           <h2 className="text-28 mt-12 font-semibold">Can you skip the state options and buy your own plan?</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -208,14 +275,16 @@ export default function NcStateHealthPlanMedicarePage() {
 
           <h2 className="text-28 mt-12 font-semibold">Key dates and contacts</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            The State Health Plan holds its open enrollment each October, and retirees make their
-            choices through the ORBIT system. That is your yearly window to switch among the three
-            options. Outside of open enrollment, you generally cannot change plans unless you have
-            a qualifying event.
+            The State Health Plan holds open enrollment every fall. For the 2027 plan year it runs
+            October 12 to November 6, 2026, online through the State Health Plan&apos;s eBenefits
+            site. That is your yearly window to switch among the three options. Outside of open
+            enrollment, you generally cannot change plans unless you have a qualifying event.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             For questions about eligibility and enrollment, the State Health Plan&apos;s support
-            center is at 855-859-0966.{" "}
+            center is at 855-859-0966. Retirees on Medicare can also call the State Health Plan
+            Medicare Support Center at 833-429-5003. It can answer questions about the plans but
+            can&apos;t enroll you in a different one.{" "}
             <Link href="/turning-65" className="underline underline-offset-2">
               New to Medicare entirely? Start with the turning 65 guide
             </Link>
@@ -266,7 +335,7 @@ export default function NcStateHealthPlanMedicarePage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-13" />
+      <MedicareByline reviewed="2026-10-27" />
     </main>
   );
 }
