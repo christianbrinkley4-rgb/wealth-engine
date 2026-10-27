@@ -38,6 +38,7 @@ export function WhatsChanging2027() {
           ))}
         </ul>
         <p className="chg-close">
+          <Link href="/medicare-2027-by-county">See what&rsquo;s changing in your county</Link>.
           Not sure which of these touches you?{" "}
           <a href={ENGINE_BOOKING_URL} target="_blank" rel="noopener" data-cta-location="inline">
             Book a phone review

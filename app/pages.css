@@ -1096,3 +1096,74 @@
 .ktc .trust-facts ul {
   justify-content: center;
 }
+
+/* 2027 plans by county picker (/medicare-2027-by-county) */
+.cty-pick {
+  margin-top: 1.25rem;
+}
+.cty-label {
+  display: block;
+  font-size: max(var(--minimum-text, 0px), 1.0625rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.cty-select {
+  width: 100%;
+  max-width: 24rem;
+  min-height: 3.25rem;
+  padding: 0.6rem 0.9rem;
+  border: 2px solid var(--color-navy);
+  border-radius: 0.75rem;
+  background: #fff;
+  color: var(--color-navy);
+  font-size: max(var(--minimum-text, 0px), 1.125rem);
+}
+.cty-card {
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 1rem;
+  background: var(--color-paper);
+}
+.cty-title {
+  font-size: max(var(--minimum-text, 0px), 1.375rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+.cty-summary {
+  margin-top: 0.6rem;
+  font-size: max(var(--minimum-text, 0px), 1.0625rem);
+  line-height: 1.6;
+  color: var(--color-ink-muted);
+}
+.cty-rows {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.15rem;
+}
+.cty-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: max(var(--minimum-text, 0px), 1.0625rem);
+}
+.cty-row dt {
+  flex: 1 1 14rem;
+  color: var(--color-ink-muted);
+}
+.cty-row dd {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.cty-old {
+  color: var(--color-ink-muted);
+}
+.cty-note {
+  margin-top: 0.9rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
+  line-height: 1.55;
+  color: var(--color-ink-muted);
+}
