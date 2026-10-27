@@ -21,6 +21,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import { trackLeadOnce } from "@/app/components/Analytics";
 import { useQuizTracking } from "@/hooks/useQuizTracking";
+import { DrugCapCheck } from "./DrugCapCheck";
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
 import { newEventId, readAttribution } from "@/lib/attribution";
 import { loadTurnstile } from "@/lib/loadTurnstile";
@@ -913,6 +914,9 @@ export function PlanCheckQuiz() {
             give you straight answers either way. Prefer to talk? Call or text.
           </p>
         </div>
+        {/* Answer first: anyone whose drug costs changed gets the 2027 cap check
+            before any contact form. Option 0 is "No changes, costs are fine". */}
+        {answers["drugs"] !== undefined && answers["drugs"] !== 0 ? <DrugCapCheck /> : null}
         {capturedEmail ? (
           <>
             <p className="pcq-sent">
