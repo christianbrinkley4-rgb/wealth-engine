@@ -147,6 +147,12 @@ export default function NcStateHealthPlanMedicarePage() {
               costs change year to year, so confirm everything with the State Health Plan during
               open enrollment. For 2027, that window closes November 6, 2026.
             </p>
+            <p className="text-17 mt-3 leading-relaxed">
+              <Link href="/state-health-plan-checklist" className="font-semibold underline underline-offset-2">
+                Short on time? Use the one-page November 6 checklist
+              </Link>
+              , or print it for a friend.
+            </p>
           </div>
 
           <h2 className="text-28 mt-12 font-semibold">What changes for 2027</h2>

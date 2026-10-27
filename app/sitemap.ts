@@ -200,6 +200,7 @@ const STATIC_ROUTES: Array<{
     "/guides/atrium-wake-forest-baptist-medicare-doctors",
     "/guides/novant-health-medicare-doctors",
     "/guides/nc-state-health-plan-medicare",
+    "/state-health-plan-checklist",
     "/guides/moving-to-north-carolina-medicare",
     "/guides/medicare-advantage-plans-leaving-nc-2027",
     "/guides/medigap-plan-g-vs-plan-n-nc",
