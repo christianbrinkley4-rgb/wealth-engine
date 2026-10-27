@@ -164,7 +164,7 @@ export default function PlanCheckPage() {
       </section>
 
       <KitchenTableClose
-        heading="Ninety seconds now, or twenty minutes with me"
+        heading="Ninety seconds now, or a real review with me"
         body="The quiz gives you the quick read. The review gives you the full picture. Both are free, and both come from a real person in Greensboro, not a call center."
         href="/start"
         label="Request a free review →"
