@@ -327,6 +327,9 @@
 
 /* ─── Plan check quiz ─────────────────────────────────────────────────── */
 
+[data-plan-check] {
+  scroll-margin-top: 6rem;
+}
 .pcq-card {
   position: relative;
   padding: clamp(1.4rem, 4vw, 2.5rem);
