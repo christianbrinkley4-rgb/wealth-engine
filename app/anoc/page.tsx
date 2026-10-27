@@ -4,6 +4,7 @@ import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
 import Link from "next/link";
+import { PLAN_LETTER_LIVE } from "@/lib/planLetter";
 
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
@@ -130,6 +131,15 @@ export default function AnocPage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
+          {PLAN_LETTER_LIVE ? (
+            <p className="text-17 mb-10 rounded-xl border-2 border-[var(--color-navy)] bg-white p-5 leading-relaxed">
+              <strong>Have it in front of you right now?</strong> Take a photo and{" "}
+              <Link href="/plan-letter" className="font-semibold underline underline-offset-2">
+                see what changes in plain English
+              </Link>
+              . Free, and no name or email needed.
+            </p>
+          ) : null}
           <h2 className="text-28 font-semibold">What the letter is telling you</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
