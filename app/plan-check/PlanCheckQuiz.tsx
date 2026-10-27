@@ -169,7 +169,7 @@ type Tier = "solid" | "flags" | "changed";
 const TIER_COPY: Record<Tier, { headline: string; body: string }> = {
   solid: {
     headline: "Your plan looks pretty solid.",
-    body: "Based on your answers, nothing major has shifted since you enrolled. That's good news. Plans still change every year though, and a free 20-minute review makes sure nothing slipped through the cracks before enrollment closes December 7.",
+    body: "Based on your answers, nothing major has shifted since you enrolled. That's good news. Plans still change every year though, and a free review makes sure nothing slipped through the cracks before enrollment closes December 7.",
   },
   flags: {
     headline: "A few things are worth a second look.",
@@ -177,7 +177,7 @@ const TIER_COPY: Record<Tier, { headline: string; body: string }> = {
   },
   changed: {
     headline: "A lot has changed since you enrolled.",
-    body: "Your plan may not fit your life the way it used to. You're asking before December 7, which means there's still time to sort it out. A free 20-minute review will give you straight answers.",
+    body: "Your plan may not fit your life the way it used to. You're asking before December 7, which means there's still time to sort it out. A free review will give you straight answers.",
   },
 };
 

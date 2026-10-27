@@ -98,7 +98,7 @@ const RESULTS: Record<AepQuizTier, AepQuizResult> = {
   aep_review: {
     tier: "aep_review",
     headline: "Yes, a free review is worth your time.",
-    lede: "Something changed since you picked your plan: your costs, your doctors, or your prescriptions. Plans change too, every single year. A 30-minute review costs nothing and tells you whether your coverage still fits for 2027.",
+    lede: "Something changed since you picked your plan: your costs, your doctors, or your prescriptions. Plans change too, every single year. A review costs nothing and tells you whether your coverage still fits for 2027.",
     points: [
       "Your plan's costs, drug list, and doctor network can all change on January 1.",
       "Your Annual Notice of Change letter (mailed in September) spells out exactly what is different.",
@@ -128,7 +128,7 @@ const RESULTS: Record<AepQuizTier, AepQuizResult> = {
     points: [
       "Skim your Annual Notice of Change for premium, drug cost, and network changes.",
       "If nothing meaningful changed and you are happy, staying put is a fine decision.",
-      "If anything looks different or confusing, a free review takes 30 minutes.",
+      "If anything looks different or confusing, a free review by phone sorts it out.",
     ],
     note: "You are never required to change plans. The fall window is simply your yearly chance to check.",
     ctaHref: "/aep",
