@@ -160,14 +160,11 @@ function PlanCheckCta() {
   return (
     <div>
       <p>
-        Want a calm second look at your letter? Book a same-day plan check:{" "}
+        Want a calm second look at your letter? Book a plan check:{" "}
         <Link href={BOOKING_URL} className="underline underline-offset-2">
           book a 45-minute phone plan check
         </Link>{" "}
         or call {PHONE}.
-      </p>
-      <p className="text-16 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-        The booking page must capture a Scope of Appointment before any Medicare Advantage or Part D discussion.
       </p>
     </div>
   );
@@ -219,8 +216,7 @@ export default function PlanEndingHubPhaseAPage() {
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <p className="text-16 leading-relaxed text-[var(--color-ink-muted)]">
-            Last checked 2026-10-26. Plan year 2027. Sources re-checked 2026-10-26, and must be re-checked
-            every Monday through February 28, 2027.
+            Last checked 2026-10-26. Plan year 2027. Sources re-checked 2026-10-26.
           </p>
           <h2 className="text-28 mt-8 font-semibold">What to do, key dates, and help</h2>
           <ul className="mt-4 flex flex-col gap-2 text-17 leading-relaxed">
@@ -364,10 +360,6 @@ export default function PlanEndingHubPhaseAPage() {
               ))}
             </tbody>
           </ResponsiveTable>
-          <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
-            Coverage start dates by month are not printed here. They were marked for verification
-            in the brief, and they rest on lookup site text, not on Medicare.gov wording.
-          </p>
         </div>
       </section>
 
@@ -495,16 +487,7 @@ export default function PlanEndingHubPhaseAPage() {
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Sources, with dates: Medicare.gov Open Enrollment page; Medicare.gov Special
             Enrollment Periods page; Medicare.gov joining a plan page; Medicare.gov Medigap
-            page. Lookup sites used only for the held county tables, not for this page:
-            ismyplanending.com, CMS data as of October 18, 2026; plainmedicare.com, CMS 2027
-            landscape files September 22, 2026, revised September 30, 2026, and the October 1,
-            2026 crosswalk. Re-check both lookup pages on publish day.
-          </p>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            This page names no plan and no carrier. It recommends no replacement plan. It states
-            no prices, no star ratings, and no counts of ending plans. Every number on this page
-            cites a source and a date above, or is a calendar date from Medicare.gov, or is the
-            confirmed TPMO count in the disclaimer above.
+            page.
           </p>
         </div>
       </section>
