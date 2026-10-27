@@ -1,6 +1,6 @@
 import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";

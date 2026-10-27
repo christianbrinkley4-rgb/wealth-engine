@@ -1,5 +1,5 @@
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { STANDALONE_GUIDES } from "@/lib/standaloneGuides";
 
 /** "Read next" links for the ten standalone /guides pages. Data lives in lib/standaloneGuides.ts. */

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/Link";
 import { CheckCircle2, Mail, Phone, ShieldCheck } from "lucide-react";
 import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";

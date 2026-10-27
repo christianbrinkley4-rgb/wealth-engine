@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/Link";
 import { nextUnopenedTool } from "@/lib/wealth/explore";
 import { EXPLORED_KEY, NO_SLUGS, usePersistentState } from "./hooks";
 

@@ -3,7 +3,7 @@ import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";

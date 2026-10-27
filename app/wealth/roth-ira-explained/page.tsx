@@ -1,6 +1,6 @@
 import { AGENT } from "@/lib/agent";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { Fragment } from "react";
 import { ArrowRight } from "lucide-react";
 

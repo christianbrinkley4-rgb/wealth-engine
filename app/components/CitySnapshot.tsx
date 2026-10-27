@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { isHighIntentPlace, nearbyCountyContrasts, type TriadCity } from "@/lib/triad";
 import { canonicalMedicareLocation } from "@/lib/locationConsolidation";

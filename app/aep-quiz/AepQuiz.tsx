@@ -15,7 +15,7 @@
 
 import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { ArrowLeft, CheckCircle2, Phone } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { trackLeadOnce } from "@/app/components/Analytics";

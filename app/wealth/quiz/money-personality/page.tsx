@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { PersonalityQuiz } from "@/app/wealth/quiz/money-personality/PersonalityQuiz";
 import { Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";

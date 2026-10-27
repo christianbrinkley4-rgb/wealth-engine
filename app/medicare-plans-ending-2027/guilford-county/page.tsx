@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";
 import { ResponsiveTable } from "@/app/components/ResponsiveTable";

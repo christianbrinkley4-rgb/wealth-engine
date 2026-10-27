@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { LocationBusinessMarkup } from "@/app/components/LocationBusinessMarkup";

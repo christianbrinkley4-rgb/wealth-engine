@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ArrowUpRight } from "lucide-react";
 
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/seo";

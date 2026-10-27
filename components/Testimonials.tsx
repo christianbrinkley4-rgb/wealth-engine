@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { TestimonialCarousel } from "@/components/story/TestimonialCarousel";
 import { GOOGLE_REVIEWS, TESTIMONIALS } from "@/lib/testimonials";

@@ -1,5 +1,5 @@
 import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { SHIIP_CONTACT_URL } from "@/lib/planChecklist";
 
 export function ShiipAndAgent() {

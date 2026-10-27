@@ -1,7 +1,7 @@
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";

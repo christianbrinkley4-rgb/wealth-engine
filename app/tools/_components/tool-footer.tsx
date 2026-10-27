@@ -4,7 +4,7 @@
  * the page close (soft CTA, contact line, compliance disclosure).
  */
 
-import Link from "next/link";
+import Link from "@/components/Link";
 import type { ReactNode } from "react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";

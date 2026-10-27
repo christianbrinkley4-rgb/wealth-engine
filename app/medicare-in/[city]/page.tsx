@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 import { isIndexableTown } from "@/lib/triad";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { notFound } from "next/navigation";
 
 import { CitySnapshot } from "@/app/components/CitySnapshot";

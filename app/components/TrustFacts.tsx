@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { AGENT, GOOGLE_MAPS_PROFILE_URL, hasPublishableNpn, LICENSE_LOOKUP_URL } from "@/lib/agent";
 import { GOOGLE_REVIEWS } from "@/lib/testimonials";

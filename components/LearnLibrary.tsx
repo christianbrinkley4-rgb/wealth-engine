@@ -1,7 +1,7 @@
 "use client";
 
 import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ArrowRight, Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
 

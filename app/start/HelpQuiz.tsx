@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeft, CalendarDays, CheckCircle2, HeartPulse, Landmark, Shield } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useRouter, useSearchParams } from "next/navigation";
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";

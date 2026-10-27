@@ -1,5 +1,5 @@
 import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { featuredPlaces, highIntentPlaces, TRIAD_CITIES } from "@/lib/triad";
 

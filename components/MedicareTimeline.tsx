@@ -2,7 +2,7 @@
 
 import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { useRef, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ArrowRight, Download, LockKeyhole, Printer } from "lucide-react";
 
 import { trackEvent } from "@/app/components/Analytics";

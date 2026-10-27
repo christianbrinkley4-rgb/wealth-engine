@@ -1,7 +1,7 @@
 "use client";
 
 import { BellRing, CalendarClock, CheckCircle2 } from "lucide-react";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useEffect, useState } from "react";
 
 import { MedicareDates } from "@/components/MedicareDates";

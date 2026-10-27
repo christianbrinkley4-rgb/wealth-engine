@@ -1,6 +1,6 @@
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, SITE_URL } from "@/lib/seo";

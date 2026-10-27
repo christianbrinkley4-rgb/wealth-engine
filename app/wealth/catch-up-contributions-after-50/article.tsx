@@ -1,6 +1,6 @@
 import { AGENT } from "@/lib/agent";
 import { ResponsiveTable } from "@/app/components/ResponsiveTable";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ArrowRight } from "lucide-react";
 
 import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";

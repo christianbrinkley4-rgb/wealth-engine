@@ -6,7 +6,7 @@ import { MedicareFactBlock } from "@/app/components/MedicareFactBlock";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import { ChecklistPointer, ReadNext } from "@/app/components/ReadNext";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { GuideTownLinks } from "@/app/components/GuideTownLinks";

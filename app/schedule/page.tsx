@@ -2,7 +2,7 @@ import { serviceJsonLd } from "@/lib/seo";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ArrowLeft, ArrowRight, Check, Mail, Phone } from "lucide-react";
 
 import { AGENT } from "@/lib/agent";

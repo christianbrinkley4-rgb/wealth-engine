@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { AGENT } from "@/lib/agent";
 import { SITE_OWNER, SITE_OWNER_EMAIL } from "@/lib/seo";

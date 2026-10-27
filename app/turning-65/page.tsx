@@ -8,7 +8,7 @@ import { PullQuote } from "@/components/story/PullQuote";
 import { ScrollReveal } from "@/components/story/ScrollReveal";
 import type { Metadata } from "next";
 import { ReadNext } from "@/app/components/ReadNext";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { MedicareTimeline } from "@/components/MedicareTimeline";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";

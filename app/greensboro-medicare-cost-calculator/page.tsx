@@ -5,7 +5,7 @@ import { pageTwitter } from "@/lib/seo";
 import "../tools/tools.css";
 
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";

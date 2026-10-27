@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Fragment } from "react";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ArrowRight } from "lucide-react";
 
 import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";

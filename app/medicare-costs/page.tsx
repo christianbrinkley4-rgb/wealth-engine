@@ -4,7 +4,7 @@ import { MedicareByline } from "@/app/components/MedicareByline";
 import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { DataFreshness } from "@/app/components/DataFreshness";

@@ -1,7 +1,7 @@
 import { ENGINE_BOOKING_URL, isMedicareStartHref } from "@/lib/leadEnginePublic";
 import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ArrowRight, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 

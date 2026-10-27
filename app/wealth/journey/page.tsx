@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { MessageCircle } from "lucide-react";
 
 import { JsonLd, NextUp, PageHead } from "@/app/wealth/ui/shell";

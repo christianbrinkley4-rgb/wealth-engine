@@ -1,6 +1,6 @@
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ArrowRight, Calculator, LineChart, Percent } from "lucide-react";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";

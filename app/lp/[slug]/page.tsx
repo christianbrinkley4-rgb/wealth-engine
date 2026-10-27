@@ -1,7 +1,7 @@
 import { ENGINE_BOOKING_URL, isMedicareStartHref } from "@/lib/leadEnginePublic";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { notFound } from "next/navigation";
 import { Check, Phone } from "lucide-react";
 

@@ -1,7 +1,7 @@
 import { MONEY_GUIDES } from "@/lib/guideLanes";
 import { TrafficGuideLinks } from "@/app/components/TrafficGuideLinks";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ArrowDown, ArrowRight } from "lucide-react";
 
 import { DropsForm } from "@/app/wealth/ui/DropsForm";

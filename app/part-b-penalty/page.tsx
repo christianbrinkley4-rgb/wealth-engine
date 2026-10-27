@@ -2,7 +2,7 @@ import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { PRIORITY_MEDICARE_FAQS } from "@/lib/priorityMedicareFaqs";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { PartBPenaltyCalculator } from "@/app/part-b-penalty/PartBPenaltyCalculator";

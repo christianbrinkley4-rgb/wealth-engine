@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
 
 /** Contextual links from existing pillar and cluster pages. */

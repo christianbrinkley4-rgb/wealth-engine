@@ -1,6 +1,6 @@
 "use client";
 import { ResponsiveTable } from "@/app/components/ResponsiveTable";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useSearchParams } from "next/navigation";
 import { ArrowRight, CheckCircle2, Info, User, Users } from "lucide-react";
 import { Suspense, useMemo, useState } from "react";

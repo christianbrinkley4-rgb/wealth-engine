@@ -1,7 +1,7 @@
 import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { ArrowRight, CalendarDays, Mail, Phone } from "lucide-react";
 
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
