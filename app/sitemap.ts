@@ -4,6 +4,7 @@ import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles";
 import { ASK_QUESTIONS } from "@/lib/askWall";
 import { SITE_URL } from "@/lib/seo";
+import { PLAN_LETTER_LIVE } from "@/lib/planLetter";
 import { LOCATION_CONSOLIDATIONS } from "@/lib/locationConsolidation";
 import { TAX_ARTICLES } from "@/lib/taxArticles";
 import { indexableMedicarePlaces } from "@/lib/triad";
@@ -287,5 +288,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority,
     })),
     ...cityRoutes.filter(route => !LOCATION_CONSOLIDATIONS[new URL(route.url).pathname]),
+    // The letter reader is listed only once it is switched on in Netlify.
+    ...(PLAN_LETTER_LIVE
+      ? [{ url: `${SITE_URL}/plan-letter`, lastModified: "2026-10-27", changeFrequency: "weekly" as const, priority: 0.9 }]
+      : []),
   ];
 }
