@@ -52,7 +52,7 @@ const FAQ = [
   },
   {
     q: "Is this really free? What is the catch?",
-    a: "No catch. The quiz is free and the 20-minute review it leads to is free. I am a licensed insurance agent in North Carolina, and I am paid by insurance companies when someone enrolls through me, not by you. If your plan still fits, I will tell you that.",
+    a: "No catch. The quiz is free and the phone review it leads to is free. I am a licensed insurance agent in North Carolina, and I am paid by insurance companies when someone enrolls through me, not by you. If your plan still fits, I will tell you that.",
   },
   {
     q: "What happens to my answers?",
@@ -112,7 +112,7 @@ export default function PlanCheckPage() {
             <p>
               Your answers get sorted into one of three plain-English results. If nothing major
               has shifted, I will say so. If a few things look worth a second look, I will name
-              them. Either way, the next step is the same: a free 20-minute review, by phone or
+              them. Either way, the next step is the same: a free review, by phone or
               video, before Annual Enrollment ends December 7.
             </p>
             <p>

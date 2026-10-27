@@ -615,7 +615,7 @@ const quizCompleterSequence: NurtureSequence = {
       paragraphs: [
         "{greeting}",
         "",
-        "Thanks for running through the plan check. Whatever your results said, the next step is the same: a free 20-minute review before Annual Enrollment ends December 7.",
+        "Thanks for running through the plan check. Whatever your results said, the next step is the same: a free phone review before Annual Enrollment ends December 7.",
         "",
         "Bring your questions, and your Annual Notice of Change letter if you got one. If your plan still fits, I will tell you that straight.",
         "",
@@ -678,7 +678,7 @@ const quizAbandonerSequence: NurtureSequence = {
         "",
         "{site}/plan-check",
         "",
-        "Or skip the quiz and book the free review directly. Same 20 minutes, same straight answers:",
+        "Or skip the quiz and book the free review directly. Same straight answers:",
         "",
         "{booking}",
         "",
