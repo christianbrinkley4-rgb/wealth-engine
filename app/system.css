@@ -559,18 +559,43 @@ p {
   }
   .nav-actions {
     gap: 0.5rem;
+    flex-shrink: 0;
   }
   .nav-call {
     padding-inline: 0.85rem;
     width: auto;
+    flex-shrink: 0;
   }
   .nav-call-number {
     display: inline;
     font-size: max(var(--minimum-text, 0px), 0.92rem);
     letter-spacing: 0.01em;
+    white-space: nowrap;
   }
   .nav-bar {
     gap: 0.75rem;
+  }
+}
+/* Narrow phones (320px class): at the 18px phone readability floor the full
+   number plus icon plus menu button is wider than the header shell, so the
+   pill used to squeeze and the number broke across two lines in the sticky
+   header. Shrink this one pill so the number stays on a single line; the
+   number itself is unchanged and still tap-to-call. */
+@media (max-width: 400px) {
+  .nav-call {
+    gap: 0.35rem;
+    padding-inline: 0.6rem;
+  }
+  .nav-call svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+  .nav-call-number {
+    font-size: 15px;
+  }
+  .nav-bar {
+    gap: 0.5rem;
   }
 }
 @media (min-width: 640px) {
