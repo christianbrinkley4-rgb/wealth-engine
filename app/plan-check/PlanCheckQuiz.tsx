@@ -611,6 +611,31 @@ export function PlanCheckQuiz() {
   const [interstitialShown, setInterstitialShown] = useState(false);
   const tracking = useQuizTracking("plan_check");
 
+  // Keep the current question in view on phones. Without this the page kept
+  // its old scroll position after "Start" and after each answer, so the
+  // question text sat under the sticky header and people saw only the A to D
+  // buttons (found on a 390 px check, Oct 27, 2026). Armed only by a click
+  // inside the quiz, so restoring saved progress on page load never scrolls.
+  const stepRootRef = useRef<HTMLDivElement | null>(null);
+  const scrollArmed = useRef(false);
+  useEffect(() => {
+    const arm = (event: Event) => {
+      const target = event.target as Element | null;
+      if (target?.closest?.("[data-plan-check], .pcq-start")) scrollArmed.current = true;
+    };
+    document.addEventListener("click", arm, true);
+    return () => document.removeEventListener("click", arm, true);
+  }, []);
+  useEffect(() => {
+    const el = stepRootRef.current;
+    if (!scrollArmed.current || phase === "intro" || !el) return;
+    const navBottom = document.querySelector(".nav")?.getBoundingClientRect().bottom ?? 0;
+    const top = el.getBoundingClientRect().top;
+    if (top >= navBottom && top < window.innerHeight * 0.4) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  }, [phase, questionIndex]);
+
   // Resume: answers persist on this device so abandoners can pick up where
   // they left off, including on the results screen after a reload.
   // Nothing leaves the device until they submit the form. Deferred to a
@@ -805,7 +830,7 @@ export function PlanCheckQuiz() {
 
   if (phase === "interstitial") {
     return (
-      <div>
+      <div ref={stepRootRef} data-plan-check>
         <div className="mb-6 flex items-center justify-between">
           <p className="text-15 font-medium text-[var(--color-ink-muted)]">
             Question 4 of 7 coming up
@@ -840,7 +865,7 @@ export function PlanCheckQuiz() {
     const { tier, flagLabels, benefitsMatter } = scoreQuiz();
     const copy = TIER_COPY[tier];
     return (
-      <div>
+      <div ref={stepRootRef} data-plan-check>
         <div className="pcq-card pcq-result" data-tier={tier}>
           <span className="pcq-result-meter" aria-hidden>
             <span />
@@ -929,7 +954,7 @@ export function PlanCheckQuiz() {
 
   const question = QUESTIONS[questionIndex];
   return (
-    <div className="pcq-card pcq-step">
+    <div ref={stepRootRef} data-plan-check className="pcq-card pcq-step">
       <div className="mb-6 flex items-center justify-between">
         <p className="text-15 font-medium text-[var(--color-ink-muted)]">
           Question {questionIndex + 1} of {QUESTIONS.length}
