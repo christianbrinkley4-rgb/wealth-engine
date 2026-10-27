@@ -125,7 +125,7 @@ export default function FiveTwentyNineVsRothPage() {
             <section>
               <h2>The SECURE 2.0 rollover</h2>
               <p>
-                Since 2024, unused <Link href="/wealth/529-college-savings-basics">529</Link> money can roll into the beneficiary&apos;s Roth IRA. The
+                Since 2024, unused <Link href="/wealth/529-college-savings-basics">529</Link>{" "}money can roll into the beneficiary&apos;s Roth IRA. The
                 lifetime cap is $35,000 per beneficiary.
               </p>
               <p>

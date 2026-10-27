@@ -178,7 +178,7 @@ export default function MovingToNorthCarolinaMedicarePage() {
             coverage is confirmed.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            <strong className="text-[var(--color-navy)]">After you arrive:</strong> update your
+            <strong className="text-[var(--color-navy)]">After you arrive:</strong>{" "}update your
             address with Social Security. Find new in-network doctors and transfer your records.
             Check that your pharmacy is in your Part D plan&apos;s network. If you moved mid-year,
             review your plan during the next Annual Enrollment like everyone else.{" "}

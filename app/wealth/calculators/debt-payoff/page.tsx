@@ -71,7 +71,7 @@ export default function DebtPayoffPage() {
           <h2>The trick both share</h2>
           <p>
             When a debt hits zero, don&apos;t pocket its payment. Roll it into the next debt. Your <Link href="/tools/budget">monthly
-            total</Link> stays the same, but more of it lands on one balance. That&apos;s why the line on the chart
+            total</Link>{" "}stays the same, but more of it lands on one balance. That&apos;s why the line on the chart
             gets steeper near the end.
           </p>
           <h2>Before you start</h2>

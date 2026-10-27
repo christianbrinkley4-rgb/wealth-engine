@@ -111,7 +111,7 @@ export function LifeInsuranceNeeds() {
         </div>
 
         <AssumptionBox>
-          <strong>A starting point, not a recommendation.</strong> This total is the opening number
+          <strong>A starting point, not a recommendation.</strong>{" "}This total is the opening number
           for a conversation with a licensed agent, not a coverage amount to buy. It leaves out
           existing savings, current policies, a spouse&apos;s income, and final expenses. Term and
           permanent coverage work differently, and the right type depends on your situation.
