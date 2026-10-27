@@ -270,10 +270,20 @@ s.parentNode.insertBefore(t,s)}(window,document,'script',
 
       {GOOGLE_TAG_ID ? (
         <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`}
-            strategy="lazyOnload"
-          />
+          {/* The tag library itself (about 170 KB) cost phones 0.65 to 1 s of
+              blocked main thread even on lazyOnload, right when the page first
+              becomes usable. It now loads on the visitor's first scroll, tap
+              or key press, or 6 s after load, whichever comes first. The
+              dataLayer queue below exists from the start, so every pageview
+              and event fired before then is sent once the library arrives. */}
+          <Script id="google-tag-loader" strategy="afterInteractive">
+            {`(function(){var done=false,ev=['pointerdown','keydown','scroll','touchstart'];
+function load(){if(done)return;done=true;ev.forEach(function(e){removeEventListener(e,load,{passive:true})});
+var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}';document.head.appendChild(s);}
+ev.forEach(function(e){addEventListener(e,load,{passive:true,once:true})});
+function later(){setTimeout(load,6000)}
+if(document.readyState==='complete')later();else addEventListener('load',later,{once:true});})();`}
+          </Script>
           {/* One tag, up to two destinations: the analytics property and the
               ads account. Ad personalisation stays off, this site measures
               whether the phone rang, it does not build audiences out of people

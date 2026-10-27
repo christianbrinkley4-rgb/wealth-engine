@@ -24,9 +24,13 @@ it("queues one landing view, phone clicks and later routes before the deferred t
   const { Analytics, trackEvent } = await import("@/app/components/Analytics");
   window.history.replaceState({}, "", "/aep?email=synthetic#private");
   const { rerender } = render(createElement(Analytics));
-  expect(
-    document.querySelector('script[src*="googletagmanager"]')?.getAttribute("data-strategy"),
-  ).toBe("lazyOnload");
+  // No tag library in the initial markup: it is injected on first interaction
+  // or 6 s after load, so it never competes with the page becoming usable.
+  expect(document.querySelector('script[src*="googletagmanager"]')).toBeNull();
+  const loader = document.getElementById("google-tag-loader")!.textContent!;
+  expect(loader).toContain("https://www.googletagmanager.com/gtag/js?id=G-SYNTHETIC");
+  expect(loader).toContain("pointerdown");
+  expect(loader).toContain("setTimeout(load,6000)");
   // Execute only our queue bootstrap, with no network or external tag.
   const code = document.getElementById("google-tag")!.textContent!;
   new Function("window", "location", code)(window, window.location);

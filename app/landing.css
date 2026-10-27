@@ -397,6 +397,109 @@
   }
 }
 
+/* ─── What's changing for 2027 (news cards) ───────────────────────────── */
+
+.chg {
+  border-top: 1px solid var(--line);
+}
+.chg h2 {
+  font-size: max(var(--minimum-text, 0px), clamp(2rem, 6vw, 3.4rem));
+  font-weight: 500;
+  line-height: 1.04;
+}
+.chg h2 em {
+  color: var(--pine-700);
+}
+.chg-grid {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.chg-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.3rem 1.3rem 1.1rem;
+}
+.chg-kicker {
+  align-self: flex-start;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--honey-300);
+  color: var(--pine-900);
+  font-size: max(var(--minimum-text, 0px), 0.78rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.chg-title {
+  margin-top: 0.8rem;
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: max(var(--minimum-text, 0px), 1.28rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.22;
+  text-wrap: balance;
+}
+.chg-body {
+  margin-top: 0.55rem;
+  font-size: max(var(--minimum-text, 0px), 0.95rem);
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+.chg-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: max(var(--minimum-text, 0px), 0.92rem);
+  font-weight: 700;
+  color: var(--pine-700);
+}
+.chg-cta svg {
+  transition: transform 0.35s var(--ease-out-expo);
+}
+.chg-card:hover .chg-cta svg {
+  transform: translateX(4px);
+}
+.chg-source {
+  margin-top: 0.7rem;
+  font-size: max(var(--minimum-text, 0px), 0.8rem);
+  line-height: 1.45;
+  color: var(--ink-muted);
+}
+@media (min-width: 640px) {
+  /* Reserve two lines so the links line up across a row of cards. */
+  .chg-source {
+    min-height: 2.9em;
+  }
+}
+.chg-close {
+  margin-top: 1.4rem;
+  font-size: max(var(--minimum-text, 0px), 1rem);
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+.chg-close a {
+  color: var(--pine-700);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (min-width: 640px) {
+  .chg-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1080px) {
+  .chg-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 /* ─── Signature: enrollment window ────────────────────────────────────── */
 
 .tw {

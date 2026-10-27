@@ -1,3 +1,4 @@
+import { isOffTopicPath } from "@/lib/indexFocus";
 import { TRAFFIC_GUIDES, TRAFFIC_GUIDE_DATE } from "@/lib/trafficGuides";
 import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles";
@@ -274,7 +275,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   return [
-    ...STATIC_ROUTES.filter(route => !LOCATION_CONSOLIDATIONS[route.path]).map(({ path, changeFrequency, priority, lastModified: own }) => ({
+    ...STATIC_ROUTES.filter(route => !LOCATION_CONSOLIDATIONS[route.path] && !isOffTopicPath(route.path)).map(({ path, changeFrequency, priority, lastModified: own }) => ({
       // Next emits the homepage canonical as the origin with no trailing slash.
       // Every other path already matches its canonical.
       url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
