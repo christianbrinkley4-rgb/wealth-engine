@@ -19,6 +19,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  * 5.4, Oct 2026). Targets Winston-Salem, High Point and Lexington searches
  * like "does wake forest baptist take medicare advantage".
  *
+ * Atrium / State Health Plan: reversed Oct 27, 2026 (deal; access tier).
  * Facts (verified Oct 27, 2026): hospital list from the Wikipedia list of
  * NC hospitals; accepted-plan list lives on wakehealth.edu; State Health
  * Plan tier change from the NC Treasurer's Oct 14, 2026 release. No plan or
@@ -58,8 +59,8 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
     a: "Look the doctor up by name in the plan's 2027 provider directory, then call the doctor's office and ask if they're in network for that exact plan in 2027. Atrium Health Wake Forest Baptist also posts a list of the insurance plans it accepts on its website. Use all three, because any one of them can be out of date.",
   },
   {
-    q: "I'm an NC state retiree. Is Atrium Health out of network for me in 2027?",
-    a: "The State Treasurer announced on October 14, 2026 that Atrium Health moves to the State Health Plan's out-of-network tier starting January 1, 2027, except for certain access-level facilities. The announcement doesn't spell out how this applies to the Medicare Advantage Base and Enhanced plans. Call the State Health Plan Medicare Support Center at 833-429-5003 before open enrollment ends on November 6, 2026.",
+    q: "I'm an NC state retiree. Is Atrium Health in network for me in 2027?",
+    a: "Yes. The State Treasurer announced on October 14, 2026 that Atrium would move to the State Health Plan's out-of-network tier, but on October 27 the two sides reached a multi-year agreement. For 2027, all Atrium doctors and hospitals are in-network in the plan's middle \"access\" tier, at about today's costs. If you're unsure how your plan treats your Wake Forest Baptist doctors, call the State Health Plan Medicare Support Center at 833-429-5003 before open enrollment ends on November 6, 2026.",
   },
   {
     q: "What if my plan drops Wake Forest Baptist in the middle of the year?",
@@ -164,27 +165,27 @@ export default function AtriumWakeForestBaptistMedicareDoctorsPage() {
             enroll with confidence.
           </p>
 
-          <h2 className="text-28 mt-12 font-semibold">NC state retirees: the State Health Plan change</h2>
+          <h2 className="text-28 mt-12 font-semibold">NC state retirees: Atrium stays in network for 2027</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            If you&apos;re a retired teacher or state employee, there&apos;s a separate change to
-            know about. The State Treasurer announced on October 14, 2026 that Atrium Health moves
-            to the State Health Plan&apos;s out-of-network tier starting January 1, 2027, except
-            for certain access-level facilities. Business North Carolina reported that this covers
-            Atrium facilities in the Charlotte area and the Triad.
+            If you&apos;re a retired teacher or state employee, you may have heard Atrium was
+            leaving the State Health Plan&apos;s network. That was announced on October 14, 2026,
+            and reversed on October 27, when Atrium and the State Health Plan reached a multi-year
+            agreement. For 2027, all Atrium doctors and hospitals, including Wake Forest Baptist,
+            are in-network in the plan&apos;s middle &ldquo;access&rdquo; tier, at about
+            today&apos;s costs.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            The announcement doesn&apos;t spell out how this applies to the State Health
-            Plan&apos;s Medicare Advantage Base and Enhanced plans. If you see Wake Forest Baptist
-            doctors, call the State Health Plan Medicare Support Center at 833-429-5003 and ask
-            before open enrollment ends on November 6, 2026.{" "}
+            Open enrollment still ends November 6, 2026. If you&apos;re not sure how your plan
+            treats your Wake Forest Baptist doctors, call the State Health Plan Medicare Support
+            Center at 833-429-5003 and ask before then.{" "}
             <Link href="/guides/nc-state-health-plan-medicare" className="underline underline-offset-2">
               Here&apos;s everything that changes for state retirees in 2027
             </Link>
             .
           </p>
           <p className="text-15 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Sources: NC Department of State Treasurer, October 14, 2026; Business North Carolina,
-            October 14, 2026; shpnc.gov.
+            Sources: NC Department of State Treasurer, October 14, 2026; WFDD / NC Newsroom and
+            North Carolina Health News, October 27, 2026; shpnc.gov.
           </p>
 
           <h2 className="text-28 mt-12 font-semibold">Emergencies are different</h2>
