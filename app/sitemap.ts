@@ -195,6 +195,7 @@ const STATIC_ROUTES: Array<{
     "/guides/irmaa-brackets-2026",
     "/guides/standard-deduction-seniors-2026",
     "/guides/cone-health-medicare-doctors",
+    "/medicare-2027-by-county",
     "/guides/atrium-wake-forest-baptist-medicare-doctors",
     "/guides/novant-health-medicare-doctors",
     "/guides/nc-state-health-plan-medicare",

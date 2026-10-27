@@ -183,6 +183,13 @@ export default function MedicareChanges2027Page() {
             </Link>
             . Figures are national; your plan&apos;s details are in its Annual Notice of Change.
           </p>
+          <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
+            Want the numbers for where you live?{" "}
+            <Link href="/medicare-2027-by-county" className="underline underline-offset-2">
+              See how many plans your NC county has for 2027 and how out-of-pocket limits changed
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
