@@ -23,10 +23,12 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  * 2027 section (Oct 27, 2026) verified against shpnc.gov's Medicare-member
  * open enrollment page (Oct 12 - Nov 6, 2026; 70/30 members who do nothing
  * move to the Base plan; 70/30 tiered network), the NC Treasurer's Oct 14,
- * 2026 release (Atrium to the out-of-network tier Jan 1, 2027) and Becker's
- * Payer Issues, June 8, 2026 (out-of-pocket maximums, Part B drug copay).
- * No source says how the Atrium change applies to the Medicare Advantage
- * group plans, so the page says so and points to the support center.
+ * 2026 release (Atrium to the out-of-network tier) and Becker's Payer
+ * Issues, June 8, 2026 (out-of-pocket maximums, Part B drug copay).
+ * Atrium REVERSED Oct 27, 2026: multi-year deal puts all Atrium doctors and
+ * hospitals in the plan's "access" tier for 2027 (WFDD / NC Newsroom and
+ * NC Health News, Oct 27, 2026). Neither says how tiers apply to the
+ * Medicare Advantage group plans, so the page points to the support center.
  * After Nov 6, 2026 the deadline copy goes stale: update or remove it.
  */
 
@@ -35,7 +37,7 @@ export const metadata: Metadata = {
     absolute: "NC State Health Plan Medicare Retirees: 2027 Changes, Nov. 6 Deadline",
   },
   description:
-    "NC state retirees on Medicare: 2027 open enrollment ends November 6, 2026. 70/30 plan members who do nothing move to the Base Medicare Advantage plan, out-of-pocket maximums rise, and Atrium Health changes tiers. What to check.",
+    "NC state retirees on Medicare: 2027 open enrollment ends November 6, 2026. 70/30 plan members who do nothing move to the Base Medicare Advantage plan, out-of-pocket maximums rise, and Atrium Health stays in network. What to check.",
   alternates: { canonical: "/guides/nc-state-health-plan-medicare" },
   openGraph: pageOpenGraph({
     title: "NC State Health Plan retirees: 2027 changes and the Nov. 6 deadline",
@@ -81,8 +83,8 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
     a: "According to the State Health Plan, retirees in the 70/30 plan who take no action during open enrollment are moved to the Base Medicare Advantage plan for 2027. If you want to stay on the 70/30 plan, you have to choose it before November 6, 2026.",
   },
   {
-    q: "Is Atrium Health out of network for state retirees in 2027?",
-    a: "The State Treasurer announced on October 14, 2026 that Atrium Health moves to the State Health Plan's out-of-network tier starting January 1, 2027, except for certain access-level facilities. The announcement does not spell out how this applies to the Medicare Advantage Base and Enhanced plans. If you see Atrium Health Wake Forest Baptist doctors, call the State Health Plan Medicare Support Center at 833-429-5003 before November 6 to confirm.",
+    q: "Is Atrium Health in network for state retirees in 2027?",
+    a: "Yes. On October 14, 2026 the State Treasurer announced Atrium would move to the out-of-network tier, but on October 27 Atrium and the State Health Plan reached a multi-year agreement. For 2027, all Atrium doctors and hospitals, including Atrium Health Wake Forest Baptist, are in-network in the plan's middle \"access\" tier, at about today's costs. If you're not sure how your own plan treats your Atrium doctors, call the State Health Plan Medicare Support Center at 833-429-5003 before November 6.",
   },
 ];
 
@@ -175,20 +177,20 @@ export default function NcStateHealthPlanMedicarePage() {
               is in can change what you pay.
             </li>
             <li>
-              <strong className="text-[var(--color-navy)]">Atrium Health changes tiers.</strong>{" "}
-              The State Treasurer announced on October 14 that Atrium Health moves to the
-              plan&apos;s out-of-network tier starting January 1, 2027, except for certain
-              access-level facilities. Business North Carolina reported that this covers Atrium
-              facilities in the Charlotte area and the Triad. The announcement doesn&apos;t spell
-              out how this applies to the Medicare Advantage Base and Enhanced plans, so if you see
-              Atrium Health Wake Forest Baptist doctors in Winston-Salem or High Point, call the
-              State Health Plan Medicare Support Center at 833-429-5003 before November 6 and ask.
+              <strong className="text-[var(--color-navy)]">Atrium Health is back in network (updated October 27).</strong>{" "}
+              On October 14 the State Treasurer announced Atrium would move to the plan&apos;s
+              out-of-network tier for 2027. On October 27, Atrium and the State Health Plan reached
+              a multi-year agreement instead: for 2027, all Atrium doctors and hospitals, including
+              Atrium Health Wake Forest Baptist in Winston-Salem and High Point, are in-network in
+              the plan&apos;s middle &ldquo;access&rdquo; tier, at about today&apos;s costs. If you
+              see Atrium doctors and aren&apos;t sure how your plan treats them, call the State
+              Health Plan Medicare Support Center at 833-429-5003 before November 6.
             </li>
           </ul>
           <p className="text-15 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Sources: State Health Plan 2027 open enrollment page for Medicare members (shpnc.gov);
-            NC Department of State Treasurer, October 14, 2026; Business North Carolina, October
-            14, 2026; Becker&apos;s Payer Issues, June 8, 2026.
+            NC Department of State Treasurer, October 14, 2026; WFDD / NC Newsroom and North
+            Carolina Health News, October 27, 2026; Becker&apos;s Payer Issues, June 8, 2026.
           </p>
 
           <h2 className="text-28 mt-12 font-semibold">The Part A and Part B requirement</h2>
