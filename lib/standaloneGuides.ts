@@ -128,6 +128,28 @@ export const STANDALONE_GUIDES: Array<{
     ],
   },
   {
+    slug: "atrium-wake-forest-baptist-medicare-doctors",
+    title: "Wake Forest Baptist doctors and Medicare",
+    description:
+      "Does Atrium Health Wake Forest Baptist take your Medicare plan? How to check your doctors for 2027, plus the State Health Plan change for state retirees.",
+    related: [
+      { title: "Novant Health doctors and Medicare", href: "/guides/novant-health-medicare-doctors" },
+      { title: "NC State Health Plan retirees", href: "/guides/nc-state-health-plan-medicare" },
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
+    ],
+  },
+  {
+    slug: "novant-health-medicare-doctors",
+    title: "Novant Health doctors and Medicare",
+    description:
+      "Does Novant Health take your Medicare plan? How to check your Winston-Salem, Kernersville, Clemmons or Thomasville doctors before you enroll for 2027.",
+    related: [
+      { title: "Wake Forest Baptist doctors and Medicare", href: "/guides/atrium-wake-forest-baptist-medicare-doctors" },
+      { title: "Cone Health doctors and Medicare", href: "/guides/cone-health-medicare-doctors" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
     slug: "nc-state-health-plan-medicare",
     title: "NC State Health Plan retirees and Medicare",
     description:

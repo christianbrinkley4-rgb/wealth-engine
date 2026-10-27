@@ -236,7 +236,18 @@ export default function ConeHealthMedicareDoctorsPage() {
             <Link href="/medicare-advantage-doctor-networks" className="underline underline-offset-2">
               Here is how to check any Medicare Advantage network
             </Link>
-            . Shopping for next year?{" "}
+            . Also seeing doctors in Winston-Salem or High Point?{" "}
+            <Link
+              href="/guides/atrium-wake-forest-baptist-medicare-doctors"
+              className="underline underline-offset-2"
+            >
+              Atrium Health Wake Forest Baptist
+            </Link>{" "}
+            and{" "}
+            <Link href="/guides/novant-health-medicare-doctors" className="underline underline-offset-2">
+              Novant Health
+            </Link>{" "}
+            have their own guides. Shopping for next year?{" "}
             <Link href="/aep" className="underline underline-offset-2">
               Here is what to review during Annual Enrollment
             </Link>

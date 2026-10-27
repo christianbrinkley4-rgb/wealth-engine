@@ -9,6 +9,21 @@ import { ServiceHero } from "@/app/components/ServiceHero";
 import { PRIORITY_MEDICARE_CITIES, type PriorityMedicareCity } from "@/lib/priorityMedicareCities";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
+const CONE = { label: "Cone Health", href: "/guides/cone-health-medicare-doctors" };
+const ATRIUM = {
+  label: "Atrium Health Wake Forest Baptist",
+  href: "/guides/atrium-wake-forest-baptist-medicare-doctors",
+};
+const NOVANT = { label: "Novant Health", href: "/guides/novant-health-medicare-doctors" };
+
+/** The health-system guides that matter for each town's doctors. */
+const HOSPITAL_GUIDES: Partial<Record<PriorityMedicareCity, Array<{ label: string; href: string }>>> = {
+  "high-point": [ATRIUM, CONE],
+  "winston-salem": [ATRIUM, NOVANT],
+  kernersville: [NOVANT, CONE, ATRIUM],
+  burlington: [CONE],
+};
+
 export function priorityCityMetadata(slug: PriorityMedicareCity): Metadata {
   const city = PRIORITY_MEDICARE_CITIES[slug];
   const path = `/medicare-agent-${slug}-nc`;
@@ -104,6 +119,19 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
           </div>
         ))}
         <p className="text-17 mt-6">{city.hospitalTakeaway}</p>
+        {HOSPITAL_GUIDES[slug] && (
+          <p className="text-17 mt-4">
+            How to check your doctors for 2027:{" "}
+            {HOSPITAL_GUIDES[slug]!.map((g, i, all) => (
+              <span key={g.href}>
+                <Link className="underline" href={g.href}>
+                  {g.label}
+                </Link>
+                {i < all.length - 1 ? (i === all.length - 2 ? " and " : ", ") : "."}
+              </span>
+            ))}
+          </p>
+        )}
         <p className="text-14 mt-4">{city.hospitalNote}</p>
       </section>
       <section className="measure-prose app-shell max-w-3xl py-10">
