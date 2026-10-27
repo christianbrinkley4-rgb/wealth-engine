@@ -4,7 +4,7 @@ import { describe, expect, it } from "vitest";
 
 import sitemap from "@/app/sitemap";
 import { NC_LANDSCAPE } from "@/lib/ncLandscape2027";
-import { TRIAD_COUNTIES, describeCounty, formatDollars } from "@/lib/ncLandscapeCopy";
+import { TRIAD_COUNTIES, describeCounty, formatDollars, formatPremium } from "@/lib/ncLandscapeCopy";
 
 const ROOT = join(__dirname, "..", "..");
 const INSURER_WORDS =
@@ -54,6 +54,8 @@ describe("NC 2027 county landscape", () => {
     }
     expect(formatDollars(6750)).toBe("$6,750");
     expect(formatDollars(null)).toBe("n/a");
+    expect(formatPremium(5.3)).toBe("$5.30");
+    expect(NC_LANDSCAPE.pdp.y2027.lowestPremium).toBe(5.3);
   });
 
   it("is in the sitemap", () => {

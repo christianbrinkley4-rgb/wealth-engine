@@ -9,7 +9,7 @@ import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
 import { NC_LANDSCAPE } from "@/lib/ncLandscape2027";
-import { TRIAD_COUNTIES, formatDollars } from "@/lib/ncLandscapeCopy";
+import { TRIAD_COUNTIES, formatDollars, formatPremium } from "@/lib/ncLandscapeCopy";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { CountyPicker } from "./CountyPicker";
@@ -52,7 +52,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "Are there $0 premium stand-alone drug plans in North Carolina for 2027?",
-    a: `No. The CMS file lists ${PDP.y2027.plans} stand-alone Part D drug plans in North Carolina for 2027, and none has a $0 total monthly premium. The lowest premium listed is ${formatDollars(PDP.y2027.lowestPremium)}. In 2026 the lowest was ${formatDollars(PDP.y2026.lowestPremium)}.`,
+    a: `No. The CMS file lists ${PDP.y2027.plans} stand-alone Part D drug plans in North Carolina for 2027, and none has a $0 total monthly premium. The lowest premium listed is ${formatPremium(PDP.y2027.lowestPremium)}. In 2026 the lowest was ${formatPremium(PDP.y2026.lowestPremium)}.`,
   },
 ];
 
@@ -168,7 +168,7 @@ export default function MedicareByCountyPage() {
             If you have Original Medicare with a separate Part D drug plan, there are{" "}
             {PDP.y2027.plans} stand-alone drug plans in North Carolina for 2027 ({PDP.y2026.plans} in
             2026). None has a $0 monthly premium. The lowest listed premium is{" "}
-            {formatDollars(PDP.y2027.lowestPremium)} a month, up from {formatDollars(PDP.y2026.lowestPremium)}.
+            {formatPremium(PDP.y2027.lowestPremium)} a month, up from {formatPremium(PDP.y2026.lowestPremium)}.
             The premium is only part of the cost, though. What you pay at the pharmacy for your own
             drugs matters more, so compare plans with your actual prescriptions.{" "}
             <Link href="/medicare-part-d-plans" className="underline underline-offset-2">

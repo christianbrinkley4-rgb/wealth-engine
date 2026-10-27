@@ -1,5 +1,11 @@
 import type { CountyLandscape } from "./ncLandscapeTypes";
 
+/** Monthly premiums keep their cents: $5.30, not $5. */
+export function formatPremium(value: number | null): string {
+  if (value === null) return "n/a";
+  return `$${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+}
+
 export function formatDollars(value: number | null): string {
   if (value === null) return "n/a";
   return `$${Math.round(value).toLocaleString("en-US")}`;
