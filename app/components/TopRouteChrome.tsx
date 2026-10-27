@@ -17,9 +17,10 @@ export const NAV = [
   { href: "/about", label: "About" },
 ] as const;
 const SHEET_EXTRA = [
-  { href: "/wealth", label: "Money guides" },
+  { href: "/medicare-changes-2027", label: "What's changing in 2027" },
   { href: "/start", label: "Ask a question" },
   { href: "/tools", label: "Free tools" },
+  { href: "/wealth", label: "Money guides" },
 ] as const;
 
 /** The /wealth hub and /links carry their own header and footer. */
@@ -150,8 +151,10 @@ export function TopRouteChrome() {
           </nav>
 
           <div className="nav-actions">
-            <Link href="/wealth" className="nav-money">
-              Money guides
+            {/* Medicare visitors' most-asked topic this fall. The /wealth hub
+                stays in the menu and footer but is kept out of Google (lib/indexFocus.ts). */}
+            <Link href="/medicare-changes-2027" className="nav-money">
+              2027 changes
             </Link>
             {!isAiRoute(pathname) && pathname !== "/schedule" && pathname !== "/start" && (
               <Link
