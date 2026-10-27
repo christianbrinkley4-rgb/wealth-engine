@@ -151,7 +151,7 @@ export default function MedicareAgentStemPage() {
           <h2 className="text-28 font-semibold">Where I can Meet</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
-              <strong>Your home, or a Granville County library branch.</strong> In a
+              <strong>Your home, or a Granville County library branch.</strong>{" "}In a
               town like Stem, meeting at your kitchen table is often the easiest
               option, and I&apos;m happy to do it. If you&apos;d rather meet in
               public, the county&apos;s library branches work well.

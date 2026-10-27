@@ -133,7 +133,7 @@ export function FirstThousandQuiz() {
           </button>
         </div>
         <p className="w-note">
-          <strong>This is education, not advice.</strong> It&apos;s the standard order for the basics, based
+          <strong>This is education, not advice.</strong>{" "}It&apos;s the standard order for the basics, based
           on a few questions. It doesn&apos;t know your whole situation, and it never recommends a product.
         </p>
       </div>

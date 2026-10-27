@@ -79,7 +79,7 @@ export default function CompoundInterestPage() {
               <strong>The amount.</strong> Start with $0 and double the monthly amount. That doubles the result.
             </li>
             <li>
-              <strong>The rate.</strong> <Link href="/tools/retirement-projector">Small changes add up</Link> over decades. It&apos;s also the one you
+              <strong>The rate.</strong> <Link href="/tools/retirement-projector">Small changes add up</Link>{" "}over decades. It&apos;s also the one you
               don&apos;t control.
             </li>
           </ol>

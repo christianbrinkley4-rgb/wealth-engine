@@ -159,7 +159,7 @@ export default function MedicareTravelPage() {
           </p>
           <ul className="text-17 mt-4 flex list-disc flex-col gap-3 pl-6 leading-relaxed text-[var(--color-ink-muted)]">
             <li>
-              <strong className="text-[var(--color-navy)]">HMO plans</strong> generally cover only
+              <strong className="text-[var(--color-navy)]">HMO plans</strong>{" "}generally cover only
               providers inside the plan&apos;s network and service area. A checkup in another state is
               typically not covered.
             </li>

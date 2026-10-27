@@ -135,7 +135,7 @@ export default function MedicareCostsPage() {
             Part D, premium. The 2026 figures use your 2024 return.
           </p>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Here&apos;s the part people miss: if your income has <em>dropped</em> since that tax
+            Here&apos;s the part people miss: if your income has <em>dropped</em>{" "}since that tax
             year, because you retired, your spouse stopped working, or another big life change,
             you can ask Social Security to recalculate using your current situation. It&apos;s a
             standard request, and it often lowers the premium back down.{" "}
