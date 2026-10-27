@@ -135,7 +135,8 @@ describe("tools and navigation", () => {
       ...PERSONALITIES.map((type) => `/wealth/quiz/money-personality/${type.id}`),
     ].filter((route) => (route.startsWith("/wealth") && route !== "/wealth/calculators") || route === "/links");
     for (const route of paths) {
-      expect(urls.has(route), route).toBe(route !== "/links");
+      // The /wealth hub is live but kept out of Google and the sitemap (lib/indexFocus.ts).
+      expect(urls.has(route), route).toBe(false);
       expect(text, route).toContain(`${route})`);
     }
   });

@@ -227,6 +227,7 @@ describe("ask wall publishing contract", () => {
   it("makes the wall and every answer discoverable in the sitemap and llms indexes", async () => {
     const { ASK_QUESTIONS } = await import("@/lib/askWall");
     const { default: sitemap } = await import("@/app/sitemap");
+    const { isOffTopicPath } = await import("@/lib/indexFocus");
     const { GET: shortIndex } = await import("@/app/llms.txt/route");
     const { GET: fullIndex } = await import("@/app/llms-full.txt/route");
     const paths = sitemap().map((entry) => new URL(entry.url).pathname);
@@ -235,7 +236,8 @@ describe("ask wall publishing contract", () => {
     for (const index of indexes) expect(index).toContain("/ask");
     for (const question of ASK_QUESTIONS) {
       const path = `/ask/${question.slug}`;
-      expect(paths.filter((value) => value === path)).toHaveLength(1);
+      // Off-topic answers stay live but out of the sitemap (lib/indexFocus.ts).
+      expect(paths.filter((value) => value === path)).toHaveLength(isOffTopicPath(path) ? 0 : 1);
       expect(indexes[0]).toContain(path);
     }
   });

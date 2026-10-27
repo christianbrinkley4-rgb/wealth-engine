@@ -1,4 +1,5 @@
 import { existsSync, readFileSync } from "node:fs";
+import { isOffTopicPath } from "@/lib/indexFocus";
 import { resolve } from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
@@ -25,7 +26,8 @@ describe("traffic guide publishing contract", () => {
     expect(new Set(TRAFFIC_GUIDES.map((guide) => guide.slug)).size).toBe(38);
     for (const guide of TRAFFIC_GUIDES) {
       const path = `/guides/${guide.slug}`;
-      expect(paths.filter((value) => value === path)).toHaveLength(1);
+      // Off-topic guides stay live but out of the sitemap (lib/indexFocus.ts).
+      expect(paths.filter((value) => value === path)).toHaveLength(isOffTopicPath(path) ? 0 : 1);
       for (const index of indexes) expect(index).toContain(path);
       for (const link of guide.related) {
         const dynamic = TRAFFIC_GUIDES.some((item) => link.href === `/guides/${item.slug}`);

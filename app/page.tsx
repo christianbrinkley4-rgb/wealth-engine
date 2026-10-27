@@ -23,6 +23,7 @@ import {
 
 import { EnrollmentWindow } from "@/components/home/EnrollmentWindow";
 import { WaitingCost } from "@/components/home/WaitingCost";
+import { WhatsChanging2027 } from "@/components/home/WhatsChanging2027";
 import { Testimonials } from "@/components/Testimonials";
 import { AGENT, GOOGLE_MAPS_PROFILE_URL } from "@/lib/agent";
 import { learnEntries, SITUATIONS } from "@/lib/learn";
@@ -223,6 +224,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── What's changing for 2027: the news people are asking about ──── */}
+      <WhatsChanging2027 />
 
       {/* ── Where are you right now? ───────────────────────────────────── */}
       <section className="section-tight sit" aria-labelledby="sit-heading">

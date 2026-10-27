@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { LOCATION_CONSOLIDATIONS } from "./lib/locationConsolidation";
+import { offTopicRobotsHeaders } from "./lib/indexFocus";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -49,6 +50,8 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      // Off-topic money pages stay live but out of Google (lib/indexFocus.ts).
+      ...offTopicRobotsHeaders(),
     ];
   },
   /**
