@@ -39,7 +39,9 @@ export function StickyCTA({
         rel="noopener"
         className="scta-call"
       >
-        Book a phone review
+        {/* Short on purpose: at 375px "Book a phone review" broke into three
+            lines beside the full phone number. It books the 45-minute call. */}
+        Book a call
       </Link>
       <a
         data-cta-location="sticky_bar"

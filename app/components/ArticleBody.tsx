@@ -271,7 +271,7 @@ export function ArticleBody({
                 href={AGENT.phoneHref}
                 className={isBookingAction ? "btn btn-outline" : "btn"}
               >
-                <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+                <Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
               </a>
               <TrackedLink
                 href={isBookingAction ? ENGINE_BOOKING_URL : article.startHref}

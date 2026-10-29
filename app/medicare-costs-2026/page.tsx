@@ -432,14 +432,14 @@ export default function MedicareCosts2026Page() {
             <li>
               <a href={CMS_PARTS_AB_SOURCE.url} target="_blank" rel="noopener noreferrer">
                 {CMS_PARTS_AB_SOURCE.title}
-              </a>{" "}
-              , Part A, Part B, and both IRMAA tables.
+              </a>
+              : Part A, Part B, and both IRMAA tables.
             </li>
             <li>
               <a href={CMS_PART_D_SOURCE.url} target="_blank" rel="noopener noreferrer">
                 {CMS_PART_D_SOURCE.title}
-              </a>{" "}
-              , the Part D deductible ceiling, out-of-pocket cap and base premium.
+              </a>
+              : the Part D deductible ceiling, out-of-pocket cap and base premium.
             </li>
           </ul>
           <p className="ref-note">

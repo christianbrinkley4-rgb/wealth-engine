@@ -117,14 +117,14 @@ export default function PrivacyPage() {
               <li>
                 <a href="https://www.netlify.com/privacy/" className="underline underline-offset-2">
                   Netlify
-                </a>{" "},
+                </a>{" "}
                hosts the new site and processes web requests and security information. The
                 earlier vercel.app version is hosted by Vercel.
               </li>
               <li>
                 <a href="https://supabase.com/privacy" className="underline underline-offset-2">
                   Supabase
-                </a>{" "},
+                </a>{" "}
                stores inquiries, contact permissions, and follow-up records in my contact
                 management system.
               </li>
@@ -143,7 +143,7 @@ export default function PrivacyPage() {
                   className="underline underline-offset-2"
                 >
                   Resend
-                </a>{" "},
+                </a>{" "}
                when email delivery is connected, processes recipients, message content, and
                 delivery information for request confirmations and notices that help me respond.
               </li>

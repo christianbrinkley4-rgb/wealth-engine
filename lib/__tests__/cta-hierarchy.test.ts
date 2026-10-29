@@ -91,7 +91,7 @@ describe("booking CTA hierarchy", () => {
     render(createElement(StickyCTA, {
       hidden: false, tucked: false, callHref: AGENT.phoneHref, callLabel: AGENT.phone, onDismiss: vi.fn(),
     }));
-    expect(screen.getByRole("link", { name: "Book a phone review" }).className).toBe("scta-call");
+    expect(screen.getByRole("link", { name: "Book a call" }).className).toBe("scta-call");
     expect(document.querySelector('a[href^="tel:"]')?.className).toBe("scta-second");
   });
   it.each(["hero", "close", "custom"])(

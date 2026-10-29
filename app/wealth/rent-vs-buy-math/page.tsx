@@ -171,7 +171,7 @@ export default function RentVsBuyMathPage() {
               <p>A free, no-obligation chat with me. No pressure and no sales pitch.</p>
               <div className="w-btn-row" style={{ justifyContent: "center" }}>
                 <a href={WEALTH_FACTS.phoneHref} className="w-btn w-btn-ink">
-                  Call Christian&apos;s direct line: {WEALTH_FACTS.phone}
+                  <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{WEALTH_FACTS.phone}</span></span>
                 </a>
                 <Link href="/start" className="w-btn w-btn-ghost">
                   Request a free consultation <ArrowRight size={18} aria-hidden />

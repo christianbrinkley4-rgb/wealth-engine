@@ -298,7 +298,7 @@ export default function Turning65ChecklistPage() {
       </ReadNext>
       <KitchenTableClose
         heading="Work the checklist with me"
-        body="Bring your 65th birthday month and your current insurance card. I will walk you through all eight steps, free, no obligation, about 30 minutes."
+        body="Bring your 65th birthday month and your current insurance card. I will walk you through all eight steps, free, no obligation, about 45 minutes."
         href="/start?topic=medicare&quick=1"
         label="Request a free walkthrough →"
       />

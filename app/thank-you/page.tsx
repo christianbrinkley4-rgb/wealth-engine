@@ -150,7 +150,7 @@ function ThankYouInner() {
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-navy)]">{lede}</p>
           <div id="page-hero-actions" className="mt-6">
             <a data-cta-location="hero" href={AGENT.phoneHref} className="btn">
-              <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+              <Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
             </a>
           </div>
         </div>

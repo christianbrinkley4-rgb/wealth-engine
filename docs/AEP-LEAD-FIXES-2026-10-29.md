@@ -231,3 +231,35 @@ Browser checks, local production build at 375 x 812, no form submitted:
 - Making sure the profile's website link points to christianbrinkleync.com.
 - Fixing the stale Netlify subdomain with the ready redirect in `docs/stale-netlify-redirect/`.
 
+
+## 9. Quality audit, Oct 29 (deployed with this section)
+
+**How it was checked:**
+- All 370 live pages and every internal link were crawled. The scan looked for broken links, error pages, placeholder or garbled text, em dashes, doubled brand names, stray punctuation, phone numbers and title lengths.
+- All 201 sitemap pages were loaded in headless Chrome at 375px and 1280px to catch sideways overflow and crash screens.
+- The top landing pages were screenshotted at phone and desktop size and read by eye.
+
+**Clean:**
+- No broken internal links and no error pages.
+- No em dashes, placeholder text or garbled characters.
+- No page overflows sideways at either width. The only hits were hidden anti-spam fields, which sit off-screen on purpose.
+- Every `tel:` link goes to (919) 408-6671, except /turning-65, which lists official and local office numbers on purpose.
+
+**Fixed:**
+
+| Problem | Where | Fix |
+|---|---|---|
+| Review length promised as 30 or 60 minutes (the booking page is 45) | /medicare-advantage-doctor-networks ("highest-value 30 minutes"), /turning-65-checklist ("about 30 minutes"), /schedule ("Allow 60 minutes") | 45 minutes, or no length. /schedule states 45 only for Medicare, since other topics may use other calendars. A guard test now fails on any 15, 20, 30 or 60 minute promise in app pages. |
+| Space before a comma after a link, left over from em-dash removal | /privacy (3), /medicare-advantage-doctor-networks (3), /medicare-costs-2026 (2), /care-coverage | Sentences rewritten. Guard test added. |
+| "Medicare help - Greensboro" with a bare hyphen | Homepage label | Uses the site's "·" separator |
+| Breadcrumbs stacked, "Home" above "/ Page" | Every page with the shared hero | Laid out as one line |
+| Phone number split across lines ("(919)" / "408-6671") | Call buttons sitewide, mobile sticky bar | The number never breaks. Sticky bar reads "Book a call" so both buttons fit on one line at 360 and 375px. |
+| Review line split into two columns on phones | Homepage hero | Reads as one sentence |
+| Green focus box around a heading on load | /start and other steps that focus a heading from code | No ring on code-only focus targets. Keyboard focus rings are unchanged. |
+
+**Seen, deliberately left:**
+- **/aep "I'm 21" line:** Christian's positioning call.
+- **The "pretty" wrapping on the /aep card intro:** intentional typography, not a bug.
+- **Portrait fade-in on the homepage:** about 1.3 seconds. It looked like a gap only in a screenshot taken mid-animation.
+- **Long titles on the county plan-ending pages (66 and 67 characters):** those pages name plans, so they wait for the compliance look.
+- **The State Health Plan guide's 230-character description:** it names plans, so it waits for the same look.

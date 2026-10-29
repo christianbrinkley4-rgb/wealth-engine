@@ -96,7 +96,7 @@ export default async function SchedulePage({
           <p className="sched-callnow">
             Rather talk now?{" "}
             <a data-cta-location="hero" href={AGENT.phoneHref} className="btn">
-              Call Christian&apos;s direct line: {AGENT.phone}
+              <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
             </a>
           </p>
         </div>
@@ -190,9 +190,9 @@ export default async function SchedulePage({
             ))}
           </ul>
           <p className="sched-small">
-            Allow 60 minutes for your conversation. Tell me what times work for you and I will confirm personally.
+            Tell me what times work for you and I will confirm personally.
             {topic === null || topic === "medicare"
-              ? " For a Medicare conversation, I’ll also confirm with you personally before your visit."
+              ? " Medicare phone reviews are 45 minutes. For a Medicare conversation, I’ll also confirm with you personally before your visit."
               : ""}{" "}
             {topic === "financial_planning"
               ? "Any separate financial planning services and fees would be explained by the advisor before you agree to them."

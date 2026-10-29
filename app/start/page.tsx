@@ -75,7 +75,7 @@ export default async function StartPage({
           </p>
           <div id="page-hero-actions" className="mt-5">
             <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light">
-              Call Christian&apos;s direct line: {AGENT.phone}
+              <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
             </a>
           </div>
           {!quickMedicare ? (

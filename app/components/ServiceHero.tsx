@@ -100,7 +100,7 @@ export function ServiceHero({
                 className={`btn ${isBookingAction ? "btn-ghost-light" : "btn-light"}`}
               >
                 <Phone size={19} aria-hidden />
-                Call Christian&apos;s direct line: {AGENT.phone}
+                <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
               </a>
             )}
             {actionHref && actionHref !== AGENT.phoneHref && (

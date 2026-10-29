@@ -27,7 +27,7 @@ export function ConsultationActions({
         href={AGENT.phoneHref}
         className={`btn${isBookingAction ? (onDark ? " btn-ghost-light" : " btn-outline") : onDark ? " btn-light" : ""}`}
       >
-        <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+        <Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
       </a>
       <TrackedLink
         href={isBookingAction ? ENGINE_BOOKING_URL : href}

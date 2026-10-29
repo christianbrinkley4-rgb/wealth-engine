@@ -129,6 +129,11 @@ p {
   outline-offset: 3px;
   border-radius: 4px;
 }
+/* Headings and steps that only receive focus from code (tabIndex -1) so a
+   screen reader announces them. A ring there reads as a stray box. */
+[tabindex="-1"]:focus-visible {
+  outline: none;
+}
 .ft :focus-visible,
 .sh :focus-visible,
 .scta :focus-visible {
@@ -1228,6 +1233,20 @@ details[open]::details-content {
   font-size: max(var(--minimum-text, 0px), 0.82rem);
   color: rgba(251, 248, 241, 0.62);
 }
+/* The list had no layout of its own, so every crumb stacked on its own line
+   ("Home" above "/ Annual enrollment for 2027"). Found Oct 29, 2026. */
+.sh-crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sh-crumbs li {
+  display: inline;
+  margin-right: 0.35rem;
+}
 .sh-crumbs a {
   color: rgba(251, 248, 241, 0.82);
   text-decoration: underline;
@@ -1671,8 +1690,16 @@ details[open]::details-content {
     min-width: 48px;
   }
   .scta {
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) 48px;
+    /* The call button takes the width of the number, so "(919) 408-6671"
+       never breaks across two lines. */
+    grid-template-columns: minmax(0, 1fr) auto 48px;
     border-radius: 1.5rem;
+  }
+  .scta a.scta-call,
+  .scta a.scta-second {
+    white-space: nowrap;
+    padding-inline: 0.6rem;
+    font-size: 0.94rem;
   }
   .scta-dismiss {
     position: static;

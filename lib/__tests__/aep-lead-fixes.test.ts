@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync, statSync } from "node:fs";
+import { join } from "node:path";
 import { createElement } from "react";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -203,5 +204,25 @@ describe("llms.txt answers for the questions strangers ask", () => {
     expect(body).toContain("capped at $2,400");
     expect(body).toContain("15 drugs take effect January 1, 2027");
     expect(body).not.toContain("\u2014");
+  });
+});
+
+describe("sitewide copy guards from the Oct 29 quality audit", () => {
+  function pages(dir: string): string[] {
+    return readdirSync(dir).flatMap((name) => {
+      const full = join(dir, name);
+      if (statSync(full).isDirectory()) return /^(wealth|ai|tools)$/.test(name) ? [] : pages(full);
+      return full.endsWith(".tsx") ? [full] : [];
+    });
+  }
+  const files = [...pages("app"), ...pages("components")];
+
+  it("never promises a review length other than the 45 minutes the booking page offers", () => {
+    for (const file of files)
+      expect(readFileSync(file, "utf8"), file).not.toMatch(/\b(15|20|30|60)[- ]minutes?\b/i);
+  });
+
+  it("never leaves a space before a comma after a link", () => {
+    for (const file of files) expect(readFileSync(file, "utf8"), file).not.toContain('{" "},');
   });
 });

@@ -210,7 +210,7 @@ export function TopRouteChrome() {
         <div className="nav-sheet-actions">
           {!isAiRoute(pathname) && (
             <a data-cta-location="menu" href={AGENT.phoneHref} className="btn btn-outline btn-block">
-              <Phone size={19} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+              <Phone size={19} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
             </a>
           )}
           {!isAiRoute(pathname) && pathname !== "/start" && (

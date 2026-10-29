@@ -134,7 +134,7 @@ export default function HomePage() {
         <div className="hx-bg" aria-hidden />
         <div className="shell hx-grid">
           <div className="hx-copy">
-            <p className="eyebrow hx-eyebrow">Medicare help - Greensboro &amp; the Triad</p>
+            <p className="eyebrow hx-eyebrow">Medicare help · Greensboro &amp; the Triad</p>
             <h1 id="hx-title" className="hx-title">
               <span className="split-line">
                 <span style={{ "--i": 0 } as React.CSSProperties}>Medicare questions?</span>
@@ -168,7 +168,7 @@ export default function HomePage() {
                 Book a 45-minute phone review
               </a>
               <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-outline">
-                <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+                <Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
               </a>
               <a href="/start?topic=medicare&quick=1" className="underline">
                 Or send a question
@@ -181,11 +181,15 @@ export default function HomePage() {
               <ShieldCheck size={17} aria-hidden /> Free. No obligation. Your info is never sold.
             </p>
             <p className="hx-micro hx-rating">
-              <Star size={16} aria-hidden fill="currentColor" />{" "}
-              <a href={GOOGLE_MAPS_PROFILE_URL} target="_blank" rel="noopener">
-                5.0 on Google ({GOOGLE_REVIEWS ? GOOGLE_REVIEWS.count : 0} reviews)
-              </a>{" "}
-              from local clients
+              <Star size={16} aria-hidden fill="currentColor" />
+              {/* One flex item, so the sentence wraps as a sentence on phones
+                  instead of splitting into two columns. */}
+              <span>
+                <a href={GOOGLE_MAPS_PROFILE_URL} target="_blank" rel="noopener">
+                  5.0 on Google ({GOOGLE_REVIEWS ? GOOGLE_REVIEWS.count : 0} reviews)
+                </a>{" "}
+                from local clients
+              </span>
             </p>
           </div>
 
@@ -539,7 +543,7 @@ export default function HomePage() {
               Book a 45-minute phone review
             </a>
             <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn btn-outline">
-              <Phone size={19} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+              <Phone size={19} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
             </a>
             <a href="/start?topic=medicare&quick=1" className="underline">
               Or send a question

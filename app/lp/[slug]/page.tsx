@@ -97,14 +97,14 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
                 >
                   Book a 45-minute phone review
                 </a>
-<a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-ghost-light"><Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}</a>
+<a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-ghost-light"><Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span></a>
                 <a href={page.primaryHref} className="underline">
                   Or send a question
                 </a>
               </div>
               ) : (
               <div className="mt-6 flex flex-wrap gap-3" id="page-hero-actions">
-<a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light"><Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}</a>
+<a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light"><Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span></a>
 <Link href={page.primaryHref} className="btn btn-ghost-light">Request a consultation →</Link></div>
               )}
               <p className="text-17 mt-3 text-[var(--color-paper)]/85">
@@ -253,14 +253,14 @@ export default async function LandingPage({ params }: { params: Promise<{ slug: 
           >
             Book a 45-minute phone review
           </a>
-<a data-cta-location="page_close" href={AGENT.phoneHref} className="btn btn-outline"><Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}</a>
+<a data-cta-location="page_close" href={AGENT.phoneHref} className="btn btn-outline"><Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span></a>
           <a href={page.primaryHref} className="underline">
             Or send a question
           </a>
         </div>
         ) : (
         <div className="mt-6 flex flex-wrap justify-center gap-3" >
-<a data-cta-location="page_close" href={AGENT.phoneHref} className="btn "><Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}</a>
+<a data-cta-location="page_close" href={AGENT.phoneHref} className="btn "><Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span></a>
 <Link href={page.primaryHref} className="btn btn-outline">Request a consultation →</Link></div>
         )}
         <p className="text-17 mt-4 text-[var(--color-ink-muted)]">

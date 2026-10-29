@@ -100,10 +100,9 @@ export default function CareCoveragePage() {
             One question comes up a lot: what does Medicare itself pay if someone needs a nursing
             home?{" "}
             <Link href="/answers/does-medicare-cover-nursing-homes" className="personal-text-link">
-              Here is what Medicare covers for nursing home stays{" "}
+              Here is what Medicare covers for nursing home stays, and where the gaps are{" "}
               <ArrowRight size={18} aria-hidden />
             </Link>
-            , and where the gaps are.
           </p>
         </div>
         <div className="rounded-lg border border-[#cdd6c9] bg-white p-6">

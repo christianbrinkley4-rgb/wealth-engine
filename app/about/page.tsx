@@ -134,7 +134,7 @@ export default function AboutPage() {
             </p>
             <div className="ab-actions" id="page-hero-actions">
               <a href={AGENT.phoneHref} className="btn btn-outline">
-                <Phone size={18} aria-hidden /> Call Christian&apos;s direct line: {AGENT.phone}
+                <Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
               </a>
               <Link
                 href={ENGINE_BOOKING_URL}

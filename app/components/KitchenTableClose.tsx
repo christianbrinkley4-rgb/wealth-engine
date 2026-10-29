@@ -47,7 +47,7 @@ export function KitchenTableClose({
               className={isBookingAction ? "btn btn-outline" : "btn"}
             >
               <Phone size={19} aria-hidden />
-              Call Christian&apos;s direct line: {AGENT.phone}
+              <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
             </a>
             {href !== AGENT.phoneHref && (
               <Link

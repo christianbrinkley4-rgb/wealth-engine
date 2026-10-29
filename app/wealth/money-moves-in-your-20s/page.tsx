@@ -207,7 +207,7 @@ export default function MoneyMovesInYour20sPage() {
             </p>
             <div className="w-btn-row">
               <a href={AGENT.phoneHref} className="w-btn w-btn-ink">
-                  Call Christian&apos;s direct line: {AGENT.phone}
+                  <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
                 </a>
                 <Link href="/start" className="w-btn w-btn-ghost">
                   Request a free consultation <ArrowRight size={18} aria-hidden />

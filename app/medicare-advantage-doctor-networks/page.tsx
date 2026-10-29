@@ -193,11 +193,12 @@ export default function DoctorNetworksPage() {
             <p>
               With Original Medicare plus a supplement, the picture is simpler: any doctor that
               accepts Medicare assignment takes it, anywhere in the country. That&apos;s one of the
-              genuine tradeoffs between the two paths,{" "}
+              genuine tradeoffs between the two paths, and it&apos;s worth understanding before you
+              choose.{" "}
               <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
-                here&apos;s how Advantage and Medigap compare
-              </Link>{" "},
-             and it&apos;s worth understanding before you choose.
+                Here&apos;s how Advantage and Medigap compare
+              </Link>
+              .
             </p>
           </div>
         </div>
@@ -255,21 +256,22 @@ export default function DoctorNetworksPage() {
               If keeping your current doctors is your top priority, start there and work backward:
               confirm who&apos;s in-network first, then compare costs among the plans that pass the
               test. If you&apos;re flexible on doctors and focused on total cost, run the numbers
-              first,{" "}
+              first (
               <Link href="/medicare-costs" className="underline underline-offset-2">
                 here&apos;s what Medicare costs
-              </Link>{" "},
-             and then verify the network. Either order works. Skipping the network check
+              </Link>
+              ), then verify the network. Either order works. Skipping the network check
               doesn&apos;t.
             </p>
             <p>
               And if this feels like a lot of phone calls: that&apos;s part of what I do.
-              When folks sit down with me for a fall review,{" "}
+              When folks sit down with me for a fall review, I check each doctor against the
+              plan’s network. It&apos;s free, and it&apos;s one of the most useful steps in the whole
+              process.{" "}
               <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
-                request a review here
-              </Link>{" "},
-             I check each doctor against the plan’s network. It&apos;s free, and it&apos;s one of the
-              highest-value 30 minutes in the whole process. You can also{" "}
+                Request a review here
+              </Link>
+              . You can also{" "}
               <Link href="/aep" className="underline underline-offset-2">
                 review the full annual enrollment guide
               </Link>{" "}
