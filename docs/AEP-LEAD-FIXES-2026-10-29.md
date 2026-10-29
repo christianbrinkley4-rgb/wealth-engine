@@ -263,3 +263,53 @@ Browser checks, local production build at 375 x 812, no form submitted:
 - **Portrait fade-in on the homepage:** about 1.3 seconds. It looked like a gap only in a screenshot taken mid-animation.
 - **Long titles on the county plan-ending pages (66 and 67 characters):** those pages name plans, so they wait for the compliance look.
 - **The State Health Plan guide's 230-character description:** it names plans, so it waits for the same look.
+
+## 10. Search Console and Analytics, read Oct 29 (Christian's Chrome)
+
+### Corrections to sections 1 and 6
+- **`booking_click` did fire:** once, Oct 1 to 28. It isn't broken, just rare.
+- **`book_consultation_click` also fired once.** It isn't in this repo's code, so something outside the code sends it, probably a GA4 "create event" rule or an older build. Check GA4 Admin > Events > Create event before unstarring it.
+- **The quiz funnel by people (GA4, Oct 1 to 28):**
+  - 29 users triggered `quiz_start`, but only 6 users answered a single question (`quiz_step`). 3 users completed.
+  - The gap between 29 and 6 fits the quick-form page-load counting fixed in section 3.
+- **Phone taps and leads by people:**
+  - `phone_click` was 13 events from 3 users, about 4 each, which looks like testing.
+  - `generate_lead` was 7 events from 4 users.
+  - `booking_open` was 12 events from 4 users, all on the old Cal.com embed.
+- **Possible bot traffic:** GA4 flagged a page_view surge on Oct 9 (Chrome, from 12 to 138), likely bots, which inflates sessions for that window.
+
+### Indexing: the 139 not indexed
+| Reason | Count | What it actually is |
+|---|---|---|
+| Crawled, not indexed | 41 | 33 are `/_next/static` CSS and font files, which should never be indexed. Only 8 are pages: `/medicare-butner-nc`, `/medicare-asheboro-nc`, `/turning-65-checklist`, `/medicare-advantage-vs-medigap`, `/medicare-part-d-plans`, and three money pages. |
+| Discovered, not indexed | 54 | About 24 Medicare and retirement pages and about 30 `/wealth` and `/ai` pages |
+| Noindex | 32 | Deliberate (town pages and utility pages) |
+| Redirect | 12 | Deliberate |
+
+**The important Medicare pages still waiting on Google:**
+- `/guides/medicare-plan-not-renewing-triad`, `/medigap-plans-high-point-nc`, `/medicare-part-d-greensboro-nc`
+- `/questions-to-ask-medicare-agent`, `/answers/original-medicare-or-medicare-advantage`, `/part-b-penalty`
+- `/guides/medigap-plan-g-vs-plan-n-nc`, `/guides/medicare-advantage-open-enrollment-period`, `/medicare-costs-north-carolina`
+
+**Done Oct 29:**
+- Requested indexing for the first five in that list. Each went into Google's priority crawl queue.
+- `/medigap-plans-high-point-nc` and `/questions-to-ask-medicare-agent` had no internal links anywhere in the code. They're now linked from the priority city pages and from the shared "Related Medicare guides" list on 72 pages.
+
+### Search demand (last 28 days: 48 clicks, 6,880 impressions, 0.7% click rate, position 45.3)
+- **Almost no Greensboro Medicare searches reach the site in Search Console.** The only Greensboro queries are a few life-insurance and retirement ones (12 impressions total). High Point shows "medicare insurance high point nc" (30 impressions, position 62). Winston-Salem shows "medicare winston-salem nc" (3 impressions, position 18).
+- **Local Medicare searches are low-volume, and Google sends them to the map listings.** That's why the Google Business Profile, reviews and local mentions decide "#1 in the Triad" more than page copy does.
+- **Impressions come mostly from national how-to questions.**
+- **About 1,100 impressions went to `/wealth`, `/ai` and money guides.** That's not Medicare demand.
+- **Pages already near the top:**
+
+  | Page | Position | Impressions | Clicks |
+  |---|---|---|---|
+  | Plans-leaving guide | 7.2 | 378 | 12 |
+  | State Health Plan guide | 9.5 | 246 | 2 |
+  | "Are Medicare supplement plans the same" | 7.3 | 130 | 0 |
+  | Homepage | 9.2 | 100 | 6 |
+  | Donut hole 2027 | 7.1 | 75 | 1 |
+  | Medigap premium increase | 10.6 | 71 | 1 |
+
+  "Are Medicare supplement plans the same" is the clearest title test: page 1, no clicks.
+- **The brand query "christian brinkley"** sits at position 12.9 (48 impressions). The musician with the same name still holds the top results.

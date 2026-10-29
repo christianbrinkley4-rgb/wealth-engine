@@ -226,3 +226,14 @@ describe("sitewide copy guards from the Oct 29 quality audit", () => {
     for (const file of files) expect(readFileSync(file, "utf8"), file).not.toContain('{" "},');
   });
 });
+
+describe("internal links to pages Search Console found orphaned (Oct 29)", () => {
+  it("links the questions page sitewide and the High Point Medigap page from High Point", () => {
+    expect(readFileSync("app/components/RelatedMedicareGuides.tsx", "utf8")).toContain(
+      'href="/questions-to-ask-medicare-agent"',
+    );
+    const city = readFileSync("app/components/PriorityCityMedicarePage.tsx", "utf8");
+    expect(city).toContain('href="/medigap-plans-high-point-nc"');
+    expect(city).toContain('href="/questions-to-ask-medicare-agent"');
+  });
+});

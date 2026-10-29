@@ -166,6 +166,20 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
               Find your Medicare enrollment dates
             </Link>
           </li>
+          {/* These two pages had no links from anywhere on the site, so Google
+              only knew them from the sitemap (Search Console, Oct 29, 2026). */}
+          {slug === "high-point" ? (
+            <li>
+              <Link className="underline" href="/medigap-plans-high-point-nc">
+                How Medigap plans work in High Point
+              </Link>
+            </li>
+          ) : null}
+          <li>
+            <Link className="underline" href="/questions-to-ask-medicare-agent">
+              Questions to ask a Medicare agent before you meet
+            </Link>
+          </li>
         </ul>
       </nav>
       <RelatedMedicareGuides />

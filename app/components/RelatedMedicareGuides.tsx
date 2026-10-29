@@ -30,6 +30,11 @@ export function RelatedMedicareGuides() {
             Turning 65 and finding your enrollment dates
           </Link>
         </li>
+        <li>
+          <Link className="underline" href="/questions-to-ask-medicare-agent">
+            Questions to ask a Medicare agent before you meet
+          </Link>
+        </li>
       </ul>
     </nav>
   );
