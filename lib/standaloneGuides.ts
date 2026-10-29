@@ -190,6 +190,7 @@ export const STANDALONE_GUIDES: Array<{
     related: [
       { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
       { title: "Medicare and HSA contributions", href: "/guides/medicare-hsa-contributions" },
+      { title: "Why did my Medicare Supplement premium increase?", href: "/guides/medigap-premium-increase" },
       { title: "Annual Enrollment review", href: "/aep" },
     ],
   },

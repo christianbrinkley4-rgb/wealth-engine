@@ -13,7 +13,7 @@ import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 /**
- * Why did my Medicare Supplement premium go up?
+ * Why did my Medicare Supplement premium increase?
  *
  * No rate figures and no company names. The NC underwriting point follows
  * NCDOI's Medicare supplement guidance.
@@ -23,17 +23,17 @@ const PATH = "/guides/medigap-premium-increase";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Why Did My Medicare Supplement Premium Go Up?",
+    absolute: "Why Did My Medicare Supplement Premium Increase?",
   },
-  description: "Medigap premiums usually rise over time. Here's why it happens, how your policy is priced, and what you can do about it in North Carolina before you cancel anything.",
+  description: "Medicare Supplement rate increases are normal. Why your premium went up, whether it rises with age, and what you can do in NC before you cancel anything.",
   alternates: { canonical: PATH },
   openGraph: pageOpenGraph({
-    title: "Why did my Medicare Supplement premium go up?",
+    title: "Why did my Medicare Supplement premium increase?",
     description: "Medigap rate increases are normal, and they're not about your claims. Here's why they happen and what your options are in North Carolina.",
     path: PATH,
   }),
   twitter: pageTwitter({
-    title: "Why did my Medicare Supplement premium go up?",
+    title: "Why did my Medicare Supplement premium increase?",
     description: "Medigap rate increases are normal, and they're not about your claims. Here's why they happen and what your options are in North Carolina.",
     path: PATH,
   }),
@@ -43,6 +43,10 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   {
     q: "Why does my Medicare Supplement premium go up every year?",
     a: "The most common reasons are age-based pricing, rising health care costs, and the claims experience of everyone in your plan group. Your premium can also rise when an introductory or household discount ends.",
+  },
+  {
+    q: "Do Medicare Supplement premiums increase with age?",
+    a: "They can, depending on how your policy is priced. An attained-age policy goes up as you get older. Issue-age and community-rated policies don't rise just because you age, but they can still go up with health care costs.",
   },
   {
     q: "Did my premium go up because I filed claims?",
@@ -82,11 +86,11 @@ export default function MedigapPremiumIncreasePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Why Did My Medicare Supplement Premium Go Up?",
-              description: "Medigap premiums usually rise over time. Here's why it happens, how your policy is priced, and what you can do about it in North Carolina before you cancel anything.",
+              headline: "Why Did My Medicare Supplement Premium Increase?",
+              description: "Medicare Supplement rate increases are normal. Why your premium went up, whether it rises with age, and what you can do in NC before you cancel anything.",
               path: PATH,
               datePublished: "2026-10-13",
-              dateModified: "2026-10-13",
+              dateModified: "2026-10-29",
             }),
           ),
         }}
@@ -98,9 +102,9 @@ export default function MedigapPremiumIncreasePage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Guides" }, { name: "Medigap premium increases" }]}
-        eyebrow="Guide · Updated October 13, 2026"
-        title={"Why did my Medicare Supplement premium go up?"}
-        lede={"The letter says your Medicare Supplement premium is going up, and you didn't do anything different. That's normal, and it's not about you personally. Here's why it happens and what you can do."}
+        eyebrow="Guide · Updated October 29, 2026"
+        title={"Why did my Medicare Supplement premium increase?"}
+        lede={"Most Medicare Supplement premium increases come from your age, rising health care costs, and the claims of everyone in your plan group. They don't come from your own claims. Here's how it works and what you can do before you cancel anything."}
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free consultation"
       />
