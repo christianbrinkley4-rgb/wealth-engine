@@ -313,3 +313,20 @@ Browser checks, local production build at 375 x 812, no form submitted:
 
   "Are Medicare supplement plans the same" is the clearest title test: page 1, no clicks.
 - **The brand query "christian brinkley"** sits at position 12.9 (48 impressions). The musician with the same name still holds the top results.
+
+## 11. Title test: /answers/are-medicare-supplement-plans-the-same (Oct 29)
+
+**Before:** title "Are Medigap Plans the Same From Every Company?"
+- Search Console, last 90 days: 130 impressions, position 7.3, 0 clicks.
+- Every query behind those impressions is too rare for Google to report.
+
+**After:**
+- Title: "Medigap Plans Are the Same at Every Company. Prices Aren't." (59 characters)
+- Description: "Same letter, same coverage, whichever company sells it. What changes is the price, how fast it rises, and the extras. Here's how to compare before you switch." (158 characters)
+
+**What the page backs up:** price differences for the same letter, different rates of increase, how pricing is set, and the warning not to cancel a plan before a new one is approved. No plan letter, company or dollar figure is named in the title or description.
+
+**How we'll measure it:**
+- Compare clicks and click rate for this one URL over the 4 weeks before and after Oct 29.
+- Only count it if the position stays near 7.
+- Nothing else on the page changed, so the title is the only variable.

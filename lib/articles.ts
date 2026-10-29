@@ -193,9 +193,11 @@ export const ARTICLES: Article[] = [
   {
     slug: "are-medicare-supplement-plans-the-same",
     title: "Are Medicare Supplement plans the same no matter the company?",
-    metaTitle: "Are Medigap Plans the Same From Every Company?",
+    // Retitled Oct 29, 2026: page 1 (position 7.3) with 130 impressions and
+    // no clicks. The title now gives the answer and the reason to click.
+    metaTitle: "Medigap Plans Are the Same at Every Company. Prices Aren't.",
     description:
-      "Medigap plans are standardized by letter, so Plan G covers the same core benefits at every company. What really differs, and what to do when a notice arrives.",
+      "Same letter, same coverage, whichever company sells it. What changes is the price, how fast it rises, and the extras. Here's how to compare before you switch.",
     keyword: "are Medigap plans standardized by letter",
     eyebrow: "Medicare questions, answered",
     lede: "The letter tells you what is covered. The company decides the price and the extras.",
