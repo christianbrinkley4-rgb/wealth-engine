@@ -64,7 +64,7 @@ export function isMeasuredEvent(name: string): name is MeasuredEvent {
 }
 
 /** The quizzes that report their steps. A quiz id names a tool, never a person. */
-export const QUIZ_IDS = ["plan_check", "help_request", "medigap_or_advantage", "roth_conversion", "cd_or_savings", "aep"] as const;
+export const QUIZ_IDS = ["plan_check", "help_request", "medigap_or_advantage", "roth_conversion", "cd_or_savings", "aep", "medicare_fit"] as const;
 export type QuizId = (typeof QUIZ_IDS)[number];
 
 export function isQuizId(value: unknown): value is QuizId {

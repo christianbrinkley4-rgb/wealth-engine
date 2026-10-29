@@ -242,11 +242,10 @@ export function HelpQuiz() {
   const [turnstileRender, setTurnstileRender] = useState(0);
   const quickMode = Boolean(linked?.quick && stored.phase === "contact");
   const tracking = useQuizTracking("help_request");
-  const startTracking = tracking.start;
-  // The short contact form (quick=1) skips the questions; opening it is the start.
-  useEffect(() => {
-    if (quickMode) startTracking();
-  }, [quickMode, startTracking]);
+  // The short contact form (quick=1) skips the questions. It used to count a
+  // start on page load, so every visit to the form read as a quiz start and
+  // every visitor who left read as an abandon. Now the first field touched is
+  // the start (see the form's onFocus).
 
   const askContext = linked?.ask ?? "general";
   const topic = stored.topic;
@@ -867,7 +866,12 @@ export function HelpQuiz() {
             </div>
           ) : null}
 
-          <form onSubmit={submitContact} className="relative mt-5 space-y-5" noValidate>
+          <form
+            onSubmit={submitContact}
+            onFocus={quickMode ? tracking.start : undefined}
+            className="relative mt-5 space-y-5"
+            noValidate
+          >
             <noscript>
               This form needs JavaScript. Please call Christian&apos;s direct line: {AGENT.phone}.
             </noscript>

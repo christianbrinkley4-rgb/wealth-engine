@@ -83,16 +83,20 @@ export default function PlanCheckPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQ)) }}
       />
 
+      {/* Compact, and its second button goes to the quiz, so a phone visitor
+          can start from the first screen. The full hero put Start 1,813px
+          down at 375px wide (Oct 29, 2026). */}
       <ServiceHero
+        variant="compact"
         crumbs={[{ name: "Home", href: "/" }, { name: "Plan check" }]}
         eyebrow="Free tool · 90 seconds · nothing is sent anywhere unless you ask"
         title="Does your Medicare plan still fit?"
         lede="Medicare plans change every year. So do you. Seven quick questions about your doctors, your prescriptions, and your costs, and I'll give you an honest read on whether your plan deserves a second look before December 7."
-        secondaryHref="/start"
-        secondaryLabel="Skip the quiz, request a review →"
+        secondaryHref="#plan-check-quiz"
+        secondaryLabel="Start the plan check"
       />
 
-      <section className="bg-white py-14">
+      <section id="plan-check-quiz" className="scroll-mt-24 bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <PlanCheckQuiz />
         </div>

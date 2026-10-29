@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useState } from "react";
+import { useQuizTracking } from "@/hooks/useQuizTracking";
 import { FIT_QUESTIONS, ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { EngineContact } from "./EngineContact";
 
@@ -9,6 +10,9 @@ export function EngineQuiz({ results }: { results: Record<string, Result> }) {
   const [step, setStep] = useState(0);
   const [saved, setSaved] = useState(false);
   const heading = useRef<HTMLHeadingElement>(null);
+  // This checklist reported nothing before, so its starts and drop-offs were
+  // invisible. Complete means all five answered, as with the plan check.
+  const tracking = useQuizTracking("medicare_fit");
   function move(next: number) {
     setStep(next);
     requestAnimationFrame(() => {
@@ -97,6 +101,8 @@ export function EngineQuiz({ results }: { results: Record<string, Result> }) {
               const next = answers.slice(0, step);
               next[step] = value;
               setAnswers(next);
+              tracking.step(step + 1);
+              if (step + 1 === FIT_QUESTIONS.length) tracking.complete();
               move(step + 1);
             }}
           >

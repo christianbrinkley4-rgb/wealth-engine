@@ -1,8 +1,9 @@
 "use client";
 
-import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
+import { trackLeadOnce } from "@/app/components/Analytics";
 import { ENGINE_CONSENT, ENGINE_CONSENT_VERSION } from "@/lib/leadEnginePublic";
+import { loadTurnstile } from "@/lib/loadTurnstile";
 
 type Turnstile = {
   render: (node: HTMLElement, options: object) => string;
@@ -10,12 +11,17 @@ type Turnstile = {
   remove: (id: string) => void;
 };
 const api = () => (window as Window & { turnstile?: Turnstile }).turnstile;
+const CHECK_PENDING =
+  "One moment, the form check is still finishing. Tap the button again in a few seconds, or call (919) 408-6671.";
 
 export function EngineContact({ answers, onSaved }: { answers?: string[]; onSaved?: () => void }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [saved, setSaved] = useState(false);
   const [ready, setReady] = useState(false);
+  // The form check is close to 1 MB on a phone. It cost /aep its mobile load
+  // time when it came with the page, so it loads once someone uses the form.
+  const [wanted, setWanted] = useState(false);
   const [token, setToken] = useState("");
   const node = useRef<HTMLDivElement>(null);
   const widget = useRef<string | null>(null);
@@ -25,10 +31,33 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
   const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
   useEffect(() => {
+    if (!wanted || ready || !sitekey) return;
+    loadTurnstile();
+    const poll = setInterval(() => {
+      if (api()) {
+        setReady(true);
+        clearInterval(poll);
+      }
+    }, 100);
+    const giveUp = setTimeout(() => {
+      clearInterval(poll);
+      if (!api())
+        setError("The form check couldn't load. Please refresh this page, or call (919) 408-6671.");
+    }, 20000);
+    return () => {
+      clearInterval(poll);
+      clearTimeout(giveUp);
+    };
+  }, [wanted, ready, sitekey]);
+
+  useEffect(() => {
     if (!ready || !sitekey || !node.current || !api()) return;
     const id = api()!.render(node.current, {
       sitekey,
-      callback: setToken,
+      callback: (value: string) => {
+        setToken(value);
+        setError((current) => (current === CHECK_PENDING ? "" : current));
+      },
       "expired-callback": () => setToken(""),
       "error-callback": () => setToken(""),
     });
@@ -56,9 +85,18 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
   return (
     <form
       className="engine-card engine-form"
+      onFocus={() => setWanted(true)}
+      onPointerDown={() => setWanted(true)}
       onSubmit={async (event) => {
         event.preventDefault();
         if (busy) return;
+        // The button used to sit disabled, with no reason given, until the
+        // check passed. Now it always answers the tap.
+        if (sitekey && !token) {
+          setWanted(true);
+          setError(CHECK_PENDING);
+          return;
+        }
         setBusy(true);
         setError("");
         const form = new FormData(event.currentTarget);
@@ -145,6 +183,12 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
             }
             widget.current = null;
           }
+          try {
+            // Counted only after the server confirms the saved record.
+            trackLeadOnce(result.id, "medicare");
+          } catch {
+            /* Analytics must not turn a saved request into an error. */
+          }
           setSaved(true);
           onSaved?.();
         } catch (problem) {
@@ -202,20 +246,13 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
         <a href="/privacy">Privacy policy</a>. You can read Medicare information without requesting
         contact at <a href="https://www.medicare.gov/health-drug-plans">Medicare.gov</a>.
       </p>
-      {sitekey && (
-        <Script
-          src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-          strategy="afterInteractive"
-          onReady={() => setReady(true)}
-        />
-      )}
       <div ref={node} />
       {error && (
         <p role="alert" className="engine-error">
           {error}
         </p>
       )}
-      <button type="submit" disabled={busy || Boolean(sitekey && !token)} className="engine-button">
+      <button type="submit" disabled={busy} className="engine-button">
         {busy
           ? "Saving your request..."
           : answers

@@ -805,12 +805,9 @@ export function PlanCheckQuiz() {
         <span className="pcq-intro-badge" aria-hidden>
           7 questions · about 90 seconds
         </span>
-        <h2 className="pcq-intro-title">Does your Medicare plan still fit?</h2>
-        <p className="text-17 mx-auto mt-4 max-w-xl leading-relaxed text-[var(--color-ink-muted)]">
-          Medicare plans change every year. So do you. Answer 7 quick questions, about 90 seconds,
-          and I will tell you whether your plan is worth a second look before Annual Enrollment ends
-          December 7.
-        </p>
+        {/* The page hero already asks this question and says what the quiz
+            covers. Repeating both here pushed Start past two phone screens. */}
+        <h2 className="sr-only">Start the plan check</h2>
         <p className="text-15 mx-auto mt-3 max-w-xl text-[var(--color-ink-muted)]">
           This is educational, not advice. I won&apos;t recommend a specific plan here. Just a
           straight answer on whether a free review makes sense.
