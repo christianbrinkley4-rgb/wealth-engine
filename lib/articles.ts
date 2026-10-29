@@ -6688,34 +6688,46 @@ export const ARTICLES: Article[] = [
   {
     slug: "what-are-medicare-part-b-excess-charges",
     title: "What are Medicare Part B excess charges?",
-    metaTitle: "What are Medicare Part B excess charges?",
-    description: "Learn what Medicare Part B excess charges are, the 15 percent limiting charge rule, how to avoid them, and why providers who accept assignment matter.",
+    // Retitled 2026-10-29: the page sat around position 23 for "part b excess
+    // charges" while skipping the two things searchers ask next (does NC allow
+    // them, which Medigap letters cover them).
+    metaTitle: "Part B Excess Charges: The 15% Rule, NC, and How to Avoid Them",
+    description: "Part B excess charges explained: who can bill them, the 15 percent limit, whether North Carolina allows them, and which Medigap plans pay them for you.",
     keyword: "medicare part b excess charges",
     eyebrow: "Medicare questions, answered",
-    lede: "You got a bill from a doctor that was higher than what Medicare approved. You paid your normal coinsurance. Then there was an extra charge on top.",
+    lede: "A Part B excess charge is the extra a doctor who doesn't take Medicare's approved amount can bill you, up to 15 percent more. North Carolina allows them.",
     published: "2026-10-14",
-    updated: "2026-10-14",
-    intro: "You got a bill from a doctor that was higher than what Medicare approved. You paid your normal coinsurance. Then there was an extra charge on top. That extra charge might be a Part B excess charge. Excess charges are one of the most confusing parts of Original Medicare. They only show up in one specific situation. Once you understand that situation, you can mostly avoid them.",
+    updated: "2026-10-29",
+    intro: "A Part B excess charge is the extra amount a doctor can bill you when they don't accept Medicare's approved amount as payment in full. Federal law caps it at 15 percent above that approved amount. North Carolina doesn't ban them, so they can show up here. You'll only see one with Original Medicare, from a doctor who doesn't accept assignment. Pick doctors who do, and you'll almost never get one.",
     sections: [
       {
         h2: "What Excess Charges Actually Are",
         blocks: [
           p("Medicare sets an approved amount for every covered service. Think of it as the price Medicare thinks the service is worth. Normally, you pay 20 percent of that approved amount as coinsurance, and Medicare pays the other 80 percent. That is the standard split for Part B services after you meet your deductible."),
-          p("An excess charge happens when a provider bills you more than the Medicare approved amount. Not all providers can do this. Only non-participating providers can charge excess charges. Participating providers cannot. We will get to that distinction in a minute."),
+          p("An excess charge is anything a provider bills above that approved amount. Only non-participating providers can do it."),
         ],
       },
       {
         h2: "The 15 Percent Limit",
         blocks: [
-          p("The 15 percent limiting charge is set by federal law. It applies everywhere in the country. A provider cannot waive it, negotiate past it, or ignore it. They can charge less than the limit if they want. Many do not."),
+          p("The 15 percent limiting charge is set by federal law, and it's the most a provider can add anywhere in the country. A few states go further and ban or tighten it. North Carolina isn't one of them, so the federal 15 percent cap is the rule here. A provider can charge less than the limit if they want. Many don't."),
           p("It helps to know the math. If the approved amount is 200 dollars, the most the provider can bill is 230 dollars. Your coinsurance is still based on the approved amount, so you would owe 40 dollars in coinsurance plus up to 30 dollars in excess charges."),
         ],
       },
       {
         h2: "Participating vs Non-Participating vs Opt-Out Providers",
         blocks: [
-          p("This is where it gets practical. Every doctor who works with Medicare falls into one of three groups."),
           p("Participating providers agree to accept Medicare's approved amount as payment in full. They accept assignment. You pay your 20 percent coinsurance and your deductible share. No excess charges, ever. This is the group you want."),
+          p("Non-participating providers still take Medicare patients, but they decide visit by visit whether to accept assignment. When they don't, they can bill you up to the 15 percent limit. You may also have to pay the whole bill up front and wait for Medicare to pay you back its share."),
+          p("Opt-out providers have left Medicare entirely. Excess charge limits don't apply, because Medicare doesn't pay them at all. You'd sign a private contract and pay the full price yourself. Neither Medicare nor a Medigap plan will chip in."),
+        ],
+      },
+      {
+        h2: "Which Medigap Plans Cover Excess Charges",
+        blocks: [
+          p("Medigap Plan G covers Part B excess charges in full. So does Plan F, but only people who were eligible for Medicare before January 1, 2020 can buy it. Plan N and the other letters don't cover them."),
+          p("So if you're comparing Plan G and Plan N, this is one of the real differences. It matters most if you see specialists who don't accept assignment. If all your doctors do, it may never come up."),
+          p("If you're on a Medicare Advantage plan, excess charges work differently. Your plan's network and its own cost sharing decide what you pay, so check with the plan before you see a doctor outside it."),
         ],
       },
       {
@@ -6728,35 +6740,37 @@ export const ARTICLES: Article[] = [
       {
         h2: "What to Do If You Get Billed Too Much",
         blocks: [
-          p("First, check the bill against your Medicare Summary Notice. The Summary Notice shows the approved amount and what you owe. If the bill is more than the approved amount plus the allowed excess, something is wrong."),
-          p("Second, call the provider's billing office. Mistakes happen. A charge above the 15 percent limit is often a billing error. Ask them to recheck the limiting charge calculation."),
-          p("Third, you can file a complaint with Medicare. If a non-participating provider charges more than the limiting charge, that is a violation. Medicare takes these complaints seriously."),
+          p("Check the bill against your Medicare Summary Notice, which shows the approved amount. If the bill is higher than that plus 15 percent, call the billing office first. It's often a mistake. If they won't fix it, you can report it to 1-800-MEDICARE, because billing above the limit breaks the rule."),
         ],
       },
       {
         h2: "The Bottom Line",
         blocks: [
-          p("Excess charges are the extra up to 15 percent that non-participating providers can bill above Medicare's approved amount. Participating providers never charge them. The fix is almost always the same: confirm the provider accepts assignment before the visit, and keep your Medigap plan letter in mind if you have one."),
+          p("Confirm the provider accepts assignment before the visit. And if you have Medigap, check whether your plan letter covers excess charges."),
           p("This article is for general information only and is not legal, tax, or insurance advice. Medicare rules change and vary by state. For free, unbiased help, contact your State Health Insurance Assistance Program (SHIP), call 1-800-MEDICARE, or talk with a local licensed insurance agent who can review your specific situation."),
         ],
       },
     ],
     faq: [
       {
-        q: "What excess charges actually are?",
-        a: "Medicare sets an approved amount for every covered service. Think of it as the price Medicare thinks the service is worth. Normally, you pay 20 percent of that approved amount as coinsurance, and Medicare pays the other 80 percent. That is the standard split for Part B services after you meet your deductible.",
+        q: "What is a Medicare Part B excess charge?",
+        a: "It's the extra amount a doctor who doesn't accept Medicare's approved amount can bill you, on top of your normal coinsurance. Federal law caps it at 15 percent above the approved amount. It only applies to Original Medicare.",
       },
       {
-        q: "What is the 15 percent limit?",
-        a: "The 15 percent limiting charge is set by federal law. It applies everywhere in the country. A provider cannot waive it, negotiate past it, or ignore it. They can charge less than the limit if they want. Many do not. It helps to know the math. If the approved amount is 200 dollars, the most the provider can bill is 230 dollars.",
+        q: "Does North Carolina allow Part B excess charges?",
+        a: "Yes. A few states ban or limit excess charges further, but North Carolina isn't one of them. Here the federal 15 percent cap is the limit.",
+      },
+      {
+        q: "Does Medigap Plan G cover excess charges?",
+        a: "Yes. Plan G covers Part B excess charges in full. Plan F does too, but only people eligible for Medicare before January 1, 2020 can buy it. Plan N doesn't cover them.",
       },
       {
         q: "How do I avoid excess charges?",
-        a: "The easiest way to avoid excess charges is to use participating providers. Most doctors are participating. Medicare's provider finder on medicare.gov lets you filter for providers who accept assignment.",
+        a: "Use doctors who accept assignment. Most do, and the provider finder on medicare.gov lets you check.",
       },
       {
-        q: "What to do if you get billed too much?",
-        a: "First, check the bill against your Medicare Summary Notice. The Summary Notice shows the approved amount and what you owe. If the bill is more than the approved amount plus the allowed excess, something is wrong. Second, call the provider's billing office. Mistakes happen. A charge above the 15 percent limit is often a billing error.",
+        q: "What if I'm billed more than the limit?",
+        a: "Compare the bill with your Medicare Summary Notice. If it's more than the approved amount plus 15 percent, call the billing office. It's often a mistake.",
       },
     ],
     sources: [

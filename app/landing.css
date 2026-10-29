@@ -1225,6 +1225,19 @@
 .lib-card:hover .lib-arrow {
   transform: translateX(6px);
 }
+.lib-popular-label {
+  margin: 2rem 0 0.75rem;
+  font-size: max(var(--minimum-text, 0px), 0.72rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--honey-700);
+}
+.lib-chips.lib-popular {
+  flex-wrap: wrap;
+  overflow: visible;
+  margin-bottom: 0;
+}
 .lib-foot {
   margin-top: 2rem;
   text-align: center;

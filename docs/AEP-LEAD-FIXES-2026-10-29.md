@@ -330,3 +330,32 @@ Browser checks, local production build at 375 x 812, no form submitted:
 - Compare clicks and click rate for this one URL over the 4 weeks before and after Oct 29.
 - Only count it if the position stays near 7.
 - Nothing else on the page changed, so the title is the only variable.
+
+## 12. Top-3 push, round 1 (Oct 29)
+
+**What the 90-day Search Console data says:**
+- **Totals:** 57 clicks and 7,060 impressions, average position 45.
+- **Most impressions come from national questions at positions 35 to 90.** Examples: dual eligible, nursing homes, 72(t). A new site with no other websites linking to it won't reach the top 3 on those soon.
+- **Local and "near me" searches are already close but rare.**
+  - "medicare agent near me": position 6.
+  - "medicare specialist near me": position 5.2.
+  - "medicare enrollment help near me": position 7.4.
+  - Each of these drew only a handful of impressions, because Google's map takes most local searches. The map depends on the Google Business Profile and reviews: see [ACCOUNTS-TO-CREATE-2026-10-29.md](ACCOUNTS-TO-CREATE-2026-10-29.md).
+- **"christian brinkley":** the homepage averages position 12.9, so people searching your name land on page 2. More listings and more local links are the fix.
+- **"turning 65 ... near me / charlotte / asheboro":** these land on /turning-65 at positions 80 to 94.
+- **Two Greensboro pages split local searches:** /medicare-greensboro-nc (new Oct 24) and /medicare-agent-greensboro-nc. They're left as they are until mid-November, then one should redirect to the other if they're still splitting.
+
+**What changed:**
+1. **/answers/what-are-medicare-part-b-excess-charges** (123 impressions, position 23):
+   - New title and opening line that answer the question directly.
+   - It now says whether North Carolina allows excess charges, explains all three provider types (the page promised three and explained one), and says which Medigap plans cover the charges.
+   - Repeated text was trimmed so the page stays within the 900-word limit.
+2. **Homepage:** a "What Triad readers open most" row links the nine guides already near page 1. The homepage is the strongest page on the site, so these links pass the most weight.
+3. **/life-insurance:**
+   - Title is now "Life Insurance Agent in Greensboro & Winston-Salem, NC". "Life insurance winston salem" is its top search.
+   - H1 and lead now name the Triad towns.
+   - The /life-insurance-in/[city] pages stay noindexed on purpose: they're templates, and Google treats near-duplicate city pages as doorways.
+
+**Compliance check needed:**
+- The excess charges answer names Medigap Plans F, G and N. They're standard federal plan letters, but it's a Medicare page naming plans.
+- The homepage row links the State Health Plan guide by name.

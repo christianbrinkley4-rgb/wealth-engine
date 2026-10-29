@@ -99,6 +99,17 @@ const PLAN_CHECK_PREVIEW = [
 ] as const;
 
 export default function HomePage() {
+  const POPULAR_GUIDES = [
+    { href: "/guides/medicare-advantage-plans-leaving-nc-2027", label: "Plans leaving NC in 2027" },
+    { href: "/guides/nc-state-health-plan-medicare", label: "State Health Plan and Medicare" },
+    { href: "/medicare-part-d-donut-hole-2027", label: "Part D donut hole 2027" },
+    { href: "/answers/are-medicare-supplement-plans-the-same", label: "Are Medigap plans the same?" },
+    { href: "/guides/medigap-premium-increase", label: "Why Medigap premiums go up" },
+    { href: "/guides/cone-health-medicare-doctors", label: "Cone Health and Medicare" },
+    { href: "/answers/what-are-medicare-part-b-excess-charges", label: "Part B excess charges" },
+    { href: "/guides/extra-help-medicare-savings-programs-nc", label: "Help paying Medicare costs" },
+    { href: "/life-insurance", label: "Life insurance help" },
+  ];
   const featured = learnEntries()
     .filter((entry) => entry.featured)
     .slice(0, 6);
@@ -463,6 +474,18 @@ export default function HomePage() {
                   <span className="lib-blurb">{entry.blurb}</span>
                   <ArrowRight size={20} className="lib-arrow" aria-hidden />
                 </Link>
+              </li>
+            ))}
+          </ul>
+          {/* Pages already on page 1 of Google; a homepage link is the
+              strongest internal vote we can give them. */}
+          <p className="lib-popular-label" data-reveal>
+            What Triad readers open most
+          </p>
+          <ul className="lib-chips lib-popular" data-reveal>
+            {POPULAR_GUIDES.map((guide) => (
+              <li key={guide.href}>
+                <Link href={guide.href}>{guide.label}</Link>
               </li>
             ))}
           </ul>

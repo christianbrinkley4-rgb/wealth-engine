@@ -30,10 +30,12 @@ import { SERVICE_AREA_LEDE } from "@/lib/triad";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Life Insurance Help in Greensboro | Free Review",
+    // Most of this page's impressions are "life insurance winston salem" and
+    // Kernersville searches, so the title names the towns people type.
+    absolute: "Life Insurance Agent in Greensboro & Winston-Salem, NC",
   },
   description:
-    "Review life insurance with Christian Brinkley in Greensboro, High Point, or Winston-Salem. Understand your coverage and what may change at retirement.",
+    "A local life insurance agent for Greensboro, Winston-Salem, High Point and Kernersville. Christian Brinkley reviews your coverage, beneficiaries, and what changes at retirement.",
   alternates: { canonical: "/life-insurance" },
   openGraph: pageOpenGraph({
     title: "Life insurance help in Greensboro, Winston-Salem & High Point",
@@ -125,9 +127,9 @@ export default function LifeInsurancePage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Life insurance" }]}
-        eyebrow="Greensboro, High Point & Winston-Salem"
-        title="Protect the people who depend on you"
-        lede="Review employer and personal coverage, beneficiaries, policy end dates, and how long your family may need protection. Work directly with a licensed agent who meets in Greensboro, High Point, Winston-Salem, and nearby Triad communities."
+        eyebrow="Life insurance agent · Greensboro, Winston-Salem, High Point & Kernersville"
+        title="Life insurance help from a local Triad agent"
+        lede="Review employer and personal coverage, beneficiaries, policy end dates, and how long your family may need protection. Work directly with a licensed agent who meets in Greensboro, Winston-Salem, High Point, Kernersville, and nearby Triad towns."
         secondaryHref="/start?topic=life_insurance"
         secondaryLabel="Get a personal coverage review →"
       />
