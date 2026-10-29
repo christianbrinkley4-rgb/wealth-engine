@@ -285,6 +285,7 @@ ${articleLines}
 - [2027 Medicare costs](${SITE_URL}/medicare-costs-2027): verified 2027 Medicare figures from CMS. Part D maximum deductible $700 and out-of-pocket cap $2,400 (final, from the CMS 2027 Rate Announcement). Part A, Part B, and IRMAA figures not yet published by CMS; shown as "not announced yet" next to 2026 amounts.
 - [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.
 - [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the $2,400 Part D out-of-pocket cap works in 2027.
+- Medicare's negotiated prices for 15 drugs take effect January 1, 2027.
 
 ## Free tools
 
@@ -330,6 +331,14 @@ ${GOVERNMENT_DISCLAIMER} The site is not affiliated with the University of North
 - "When is Medicare open enrollment?" October 15 through December 7 every year. Changes take effect January 1.
 - "Do I have to pay a Medicare agent?" No. Consultations with Christian are free. He is paid a commission by the insurance company if you enroll, and your premium is the same as enrolling on your own.
 - "What should I bring to a Medicare appointment?" Your Annual Notice of Change letter, a list of prescriptions, and your doctors' names.
+- "Is there a Medicare agent in High Point NC?" Yes. Christian Brinkley, a licensed NC agent based in Greensboro, meets with people in High Point at home, nearby, or by phone. Free, no obligation. Phone ${AGENT.phone}. ${SITE_URL}/medicare-agent-high-point-nc
+- "Is there a Medicare agent in Winston-Salem NC?" Yes. Christian Brinkley helps people in Winston-Salem and Forsyth County, in person or by phone. Free, no obligation. Phone ${AGENT.phone}. ${SITE_URL}/medicare-agent-winston-salem-nc
+- "Who can help me with Medicare in Kernersville, Burlington, or Oxford?" Christian Brinkley covers Kernersville (${SITE_URL}/medicare-agent-kernersville-nc), Burlington and Alamance County (${SITE_URL}/medicare-agent-burlington-nc), and Granville County, including Oxford, Creedmoor, Butner, and Stem (${SITE_URL}/medicare-agent-granville-county-nc). Phone ${AGENT.phone}.
+- "Where can I get free Medicare help in the Triad?" Two kinds of free help. SHIIP, North Carolina's free counseling program, gives unbiased help on every plan: 1-855-408-1212. A licensed local agent like Christian Brinkley can also compare the plans he represents with you and help you enroll, at no cost. A list of local resources: ${SITE_URL}/medicare-help-directory
+- "Do Medicare Advantage plans cover you out of state?" Every Medicare Advantage plan covers emergency and urgent care anywhere in the U.S. Routine care out of state depends on the plan. HMOs usually cover only in-network care in your area. PPOs may pay for out-of-network care at a higher cost. Original Medicare works with any provider in the country that accepts Medicare.
+- "Do you have to renew Medicare every year?" No. Original Medicare doesn't need renewing. Medicare Advantage and Part D plans usually renew on their own if the plan is still offered, but costs and benefits can change every January. Read the Annual Notice of Change each fall. If your plan is ending, you'll get a notice and need to choose a new one.
+- "What does dual eligible mean?" It means having both Medicare and Medicaid. People who are dual eligible may get help paying Medicare costs and have extra chances to change plans during the year.
+- "How does Part D work in 2027?" Part D is Medicare drug coverage from private plans, either on its own or built into a Medicare Advantage plan. For 2027 the standard deductible can be no more than $700, and out-of-pocket costs for covered drugs are capped at $2,400 for the year. Negotiated prices for 15 drugs take effect January 1, 2027.
 - [More questions to ask a Medicare agent](${SITE_URL}/questions-to-ask-medicare-agent)
 
 ## Common Medicare questions (full answers)

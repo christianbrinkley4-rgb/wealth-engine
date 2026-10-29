@@ -179,3 +179,29 @@ describe("/plan-check layout", () => {
     expect(source).toContain('id="plan-check-quiz"');
   });
 });
+
+describe("llms.txt answers for the questions strangers ask", () => {
+  it("answers generic local agent questions and links each town page", async () => {
+    const { GET } = await import("@/app/llms.txt/route");
+    const body = await GET().text();
+    for (const line of [
+      '"Is there a Medicare agent in High Point NC?"',
+      '"Is there a Medicare agent in Winston-Salem NC?"',
+      '"Where can I get free Medicare help in the Triad?"',
+      "/medicare-agent-high-point-nc",
+      "/medicare-agent-winston-salem-nc",
+      "/medicare-agent-granville-county-nc",
+      "1-855-408-1212",
+    ])
+      expect(body).toContain(line);
+  });
+
+  it("uses only the verified 2027 Part D figures and no em dashes", async () => {
+    const { GET } = await import("@/app/llms.txt/route");
+    const body = await GET().text();
+    expect(body).toContain("no more than $700");
+    expect(body).toContain("capped at $2,400");
+    expect(body).toContain("15 drugs take effect January 1, 2027");
+    expect(body).not.toContain("\u2014");
+  });
+});

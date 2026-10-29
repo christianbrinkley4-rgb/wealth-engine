@@ -1,6 +1,8 @@
 # AEP lead fixes, Oct 29, 2026
 
-Branch `claude/aep-lead-fixes-2026-10-29`, cut from origin/master `182b363`. Not merged, not deployed. Deployment stays with woody after his normal gates.
+Branch `claude/aep-lead-fixes-2026-10-29`, cut from origin/master `182b363`.
+
+Deployed Oct 29, 2026 on Christian's direct instruction ("go ahead and deploy"). That skipped two gates from his original brief: woody's deploy gates and the separate compliance check for quiz and booking changes. The compliance flags in section 6 still stand and should be reviewed after the fact.
 
 Goal: Medicare enrollments during AEP (Oct 15 to Dec 7, 2026). Target 70, current 0. The numbers below come from Christian's brief. Anything I measured myself is marked with how.
 
@@ -201,3 +203,31 @@ Browser checks, local production build at 375 x 812, no form submitted:
 - **No plan names, carrier names, dollar figures, member counts or savings claims** were added anywhere.
 - **No Part B premium or deductible** figures were touched.
 - **No street address** was added to structured data.
+
+## 8. AI search answers (added before deploy)
+
+**What I found:**
+- Live robots tags were checked page by page: `/`, `/aep`, `/turning-65`, the Greensboro and High Point agent pages, `/plan-check`, the State Health Plan guide and the plan-ending hub all serve `index, follow`.
+- `robots.txt` allows Google and the AI crawlers.
+- The local agent pages and the plan-ending hub already have clean titles under 60 characters.
+- The gap: `llms.txt` answered "Medicare agent near me in Greensboro" but not the High Point, Winston-Salem or "free Medicare help" questions where AI answers left him out on Oct 27 and 29.
+
+**What changed in `app/llms.txt/route.ts`:**
+- Direct answers for "Is there a Medicare agent in High Point NC?", "...in Winston-Salem NC?", Kernersville, Burlington and Granville County, each linking its page.
+- "Where can I get free Medicare help in the Triad?" now names SHIIP alongside Christian, so an answer that cites SHIIP has a reason to cite him too.
+- Plain answers for four questions that already earn impressions at positions 70 to 82: Advantage plans out of state, whether you renew each year, dual eligible, and how Part D works in 2027.
+- The only figures used are the verified 2027 ones: $700 deductible maximum, $2,400 cap, and 15 negotiated drugs from January 1, 2027.
+
+**Measured by:** the same Perplexity question set as Oct 27 and 29, rerun about Nov 5 and Nov 12. Success is being cited on a generic local question that doesn't name him. A citation is not a lead, so leads are still counted in the CRM.
+
+**Deliberately not touched:**
+- **Plan-ending hub title:** it's the top-clicked page from search at position 7.2. Don't change a winner mid-season.
+- **State Health Plan guide:** its title changed Oct 27, and the page names plans. It needs the compliance look first.
+- **Review count in `lib/testimonials.ts`:** still 3, from the Oct 23 profile pull. The 4 vs 3 discrepancy is unresolved, so it wasn't changed either way.
+
+**Off-site, Christian only** (these move local and AI search more than any code change):
+- Real client reviews on the Google Business Profile.
+- A weekly AEP post on the profile.
+- Making sure the profile's website link points to christianbrinkleync.com.
+- Fixing the stale Netlify subdomain with the ready redirect in `docs/stale-netlify-redirect/`.
+
