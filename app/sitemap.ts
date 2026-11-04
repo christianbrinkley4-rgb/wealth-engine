@@ -91,7 +91,7 @@ const STATIC_ROUTES: Array<{
   { path: "/about", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-29" },
   { path: "/privacy", changeFrequency: "monthly", priority: 0.5, lastModified: "2026-10-29" },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/part-b-penalty", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/part-b-penalty", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-11-04" },
   { path: "/medicare-costs-2026", changeFrequency: "monthly", priority: 0.95, lastModified: "2026-10-29" },
   { path: "/plan", changeFrequency: "weekly", priority: 0.8 },
   { path: "/annuities", changeFrequency: "monthly", priority: 0.85 },
