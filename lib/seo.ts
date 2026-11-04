@@ -200,6 +200,11 @@ export const AGENCY_AREA_SERVED = [
     "Oxford",
     "Butner",
     "Stem",
+    "Asheboro",
+    "Reidsville",
+    "Franklinton",
+    "Youngsville",
+    "Wake Forest",
   ].map((name) => ({ "@type": "City" as const, name: `${name}, NC` })),
   ...["Guilford", "Forsyth", "Alamance", "Davidson", "Granville"].map((name) => ({
     "@type": "AdministrativeArea" as const,
