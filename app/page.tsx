@@ -602,7 +602,11 @@ export default function HomePage() {
               <Link href="/medicare-agent-burlington-nc" className="underline underline-offset-2">
                 Burlington
               </Link>{" "}
-              get the same free, no-pressure help as everyone in Greensboro.
+              get the same free, no-pressure help as everyone in{" "}
+              <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
+                Greensboro
+              </Link>
+              .
             </p>
             <ul className="faqx-towns" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               {towns.map((town) => (
@@ -640,7 +644,7 @@ export default function HomePage() {
       <div className="shell py-8">
         <TrustFacts />
       </div>
-      <MedicareByline reviewed="2026-10-12" />
+      <MedicareByline reviewed="2026-11-04" />
       <ShiipAndAgent />
       <RelatedMedicareGuides />
     </main>

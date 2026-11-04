@@ -75,10 +75,13 @@ export const TESTIMONIALS: Testimonial[] = [
  * Count corrected 2026-10-24: the Oct 23 GBP pull showed 3 reviews at 5.0
  * stars (Stephen Stein, Nicole Flury, Bernice Brinkley). An Oct 24 sweep
  * reporting 2 was reading the site's own stale copy, not the profile.
+ * Count updated 2026-11-04: the Nov 4 live check put the profile at 5
+ * reviews. Rating held at 5.0 pending the next GBP dashboard pull, which
+ * should re-confirm it before this ships.
  */
 export const GOOGLE_REVIEWS: { rating: number; count: number; url: string } | null = {
   rating: 5.0,
-  count: 3,
+  count: 5,
   url: GOOGLE_MAPS_PROFILE_URL,
 };
 

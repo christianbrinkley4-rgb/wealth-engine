@@ -18,7 +18,7 @@ const STATIC_ROUTES: Array<{
   priority: number;
 }> = [
   { path: "/north-carolina-medicare-programs", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-12" },
-  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-10-29" },
+  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-11-04" },
   { path: "/insurance-services", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-07" },
   { path: "/care-coverage", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-29" },
   { path: "/long-term-care-insurance", changeFrequency: "monthly", priority: 0.85 },
@@ -59,7 +59,7 @@ const STATIC_ROUTES: Array<{
   { path: "/medicare-liberty-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
   { path: "/medicare-ramseur-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-04" },
   { path: "/medicare-agent-high-point-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-24" },
-  { path: "/medicare-agent-greensboro-nc", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-12" },
+  { path: "/medicare-agent-greensboro-nc", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-11-04" },
   { path: "/medicare-agent-winston-salem-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-24" },
   { path: "/medicare-agent-kernersville-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-24" },
   { path: "/medicare-agent-burlington-nc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-24" },
