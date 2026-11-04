@@ -1,4 +1,5 @@
 "use client";
+import { useFormTracking } from "@/hooks/useFormTracking";
 
 /**
  * The plan-fit quiz: "Does your Medicare plan still fit?"
@@ -310,6 +311,7 @@ function CaptureForm({
   const [consent, setConsent] = useState(false);
   const [smsConsent, setSmsConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const formTracking = useFormTracking("plan_check_contact");
   const [error, setError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const { containerRef, getToken, reset, widgetError } = useTurnstile();
@@ -347,6 +349,7 @@ function CaptureForm({
     // are counted as one inquiry.
     const eventId = newEventId();
     try {
+      formTracking.submit();
       const res = await fetch("/api/capture-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -369,8 +372,8 @@ function CaptureForm({
           turnstile_token: turnstileToken,
         }),
       });
-      const data = (await res.json().catch(() => null)) as { error?: string } | null;
-      if (!res.ok) {
+      const data = (await res.json().catch(() => null)) as { error?: string; success?: boolean; stored?: boolean } | null;
+      if (!res.ok || data?.success !== true || data?.stored !== true) {
         reset();
         setError(data?.error ?? "Something went wrong on my end. Please try again, or call me.");
         setSending(false);
@@ -385,7 +388,7 @@ function CaptureForm({
 
   const isInterstitial = mode === "interstitial";
   return (
-    <form onSubmit={handleSubmit} className="pcq-form">
+    <form onFocus={formTracking.start} onSubmit={handleSubmit} className="pcq-form">
       <h3 className="pcq-form-title">
         {isInterstitial
           ? "Want your results emailed when you finish?"
@@ -500,6 +503,7 @@ function PhoneFollowUp({
 }) {
   const [phone, setPhone] = useState("");
   const [smsConsent, setSmsConsent] = useState(false);
+  const formTracking = useFormTracking("plan_check_reminder");
   const [error, setError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
   const { containerRef, getToken, reset, widgetError } = useTurnstile();
@@ -528,6 +532,7 @@ function PhoneFollowUp({
     setError(null);
     setSending(true);
     try {
+      formTracking.submit();
       const res = await fetch("/api/capture-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -550,7 +555,8 @@ function PhoneFollowUp({
           turnstile_token: turnstileToken,
         }),
       });
-      if (!res.ok) {
+      const receipt = await res.json().catch(() => null);
+      if (!res.ok || receipt?.success !== true || receipt?.stored !== true) {
         reset();
         setError("Something went wrong. You can also just call or text me directly.");
         setSending(false);
@@ -564,7 +570,7 @@ function PhoneFollowUp({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="pcq-form pcq-form-soft">
+    <form onFocus={formTracking.start} onSubmit={handleSubmit} className="pcq-form pcq-form-soft">
       <h3 className="text-18 font-semibold">Want a text reminder before December 7?</h3>
       <p className="text-15 mt-1 text-[var(--color-ink-muted)]">
         Optional. One reminder text, no spam.

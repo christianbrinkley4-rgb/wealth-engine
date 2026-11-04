@@ -1,3 +1,4 @@
+import { shpMetadataCopy } from "@/lib/shpMetadata";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -32,26 +33,18 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  * After Nov 6, 2026 the deadline copy goes stale: update or remove it.
  */
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "NC State Health Plan Medicare Retirees: 2027 Changes, Nov. 6 Deadline",
-  },
-  description:
-    "NC state retirees on Medicare: 2027 open enrollment ends November 6, 2026. 70/30 plan members who do nothing move to the Base Medicare Advantage plan, out-of-pocket maximums rise, and Atrium Health stays in network. What to check.",
-  alternates: { canonical: "/guides/nc-state-health-plan-medicare" },
-  openGraph: pageOpenGraph({
-    title: "NC State Health Plan retirees: 2027 changes and the Nov. 6 deadline",
-    description:
-      "What changes for state retirees on Medicare in 2027, what happens if you do nothing, and what to check before November 6.",
-    path: "/guides/nc-state-health-plan-medicare",
-  }),
-  twitter: pageTwitter({
-    title: "NC State Health Plan retirees: 2027 changes and the Nov. 6 deadline",
-    description:
-      "What changes for state retirees on Medicare in 2027, what happens if you do nothing, and what to check before November 6.",
-    path: "/guides/nc-state-health-plan-medicare",
-  }),
-};
+export const revalidate = 3600;
+export function generateMetadata(): Metadata {
+  const copy = shpMetadataCopy();
+  const path = "/guides/nc-state-health-plan-medicare";
+  return {
+    title: { absolute: copy.title },
+    description: copy.description,
+    alternates: { canonical: path },
+    openGraph: pageOpenGraph({ ...copy, path }),
+    twitter: pageTwitter({ ...copy, path }),
+  };
+}
 
 const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   {

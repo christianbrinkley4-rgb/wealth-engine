@@ -1,4 +1,5 @@
 "use client";
+import { recordAcceptedLead } from "@/app/components/Analytics";
 import { useDeferredFormCheck } from "@/hooks/useDeferredFormCheck";
 
 import { useRouter } from "next/navigation";
@@ -219,9 +220,11 @@ export function TimelineEmailCapture({
       const data = (await res.json().catch(() => null)) as {
         error?: string;
         emailConfigured?: boolean;
+        success?: boolean;
+        stored?: boolean;
       } | null;
 
-      if (!res.ok) {
+      if (!res.ok || data?.success !== true || data?.stored !== true) {
         resetFormCheck();
         setError(
           data?.error ?? `Something went wrong on my end. Please call me at ${AGENT.phone}.`,
@@ -231,6 +234,7 @@ export function TimelineEmailCapture({
       }
 
       trackEvent("timeline_email_request");
+      recordAcceptedLead(eventId, "medicare");
       router.push(
         thankYouUrl({
           source: "help_quiz",

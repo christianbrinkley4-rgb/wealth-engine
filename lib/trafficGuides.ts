@@ -2082,9 +2082,9 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
   },
   {
     slug: "medicare-part-b-giveback-plans",
-    title: "Medicare Part B Giveback Plans: Are They Worth It?",
+    title: "Medicare Part B Giveback: Who Qualifies and What to Check",
     description:
-      "Seen the TV ads about getting money back on your Part B premium? Here is what a Part B giveback really is, who qualifies, and what the ads leave out. Read on.",
+      "What a Medicare Part B giveback means, why availability varies, and how to check your doctors, prescriptions, and total costs before choosing your coverage.",
     query: "medicare part b giveback",
     opportunity:
       "Heavy national TV and mailer spend makes this one of the most-searched Medicare questions each fall. A plain-English, Greensboro-framed explainer with no dollar claims captures the local curiosity search without touching carrier ads.",

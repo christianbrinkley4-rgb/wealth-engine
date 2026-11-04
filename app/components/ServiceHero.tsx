@@ -60,7 +60,7 @@ export function ServiceHero({
         ? "/start?topic=medicare&quick=1"
         : "/start"
       : undefined);
-  const isBookingAction = !!actionHref && isMedicareStartHref(actionHref);
+  const isBookingAction = !!actionHref && (isMedicareStartHref(actionHref) || actionHref === "/aep" || actionHref === ENGINE_BOOKING_URL);
   const variantClass = variant === "compact" ? " sh-compact" : variant === "info" ? " sh-info" : "";
   return (
     <section
@@ -106,8 +106,8 @@ export function ServiceHero({
             {actionHref && actionHref !== AGENT.phoneHref && (
               <Link
                 ctaLocation="hero"
-                href={isBookingAction ? ENGINE_BOOKING_URL : actionHref}
-                target={isBookingAction ? "_blank" : undefined}
+                href={isBookingAction ? (actionHref === ENGINE_BOOKING_URL ? ENGINE_BOOKING_URL : "/aep") : actionHref}
+                target={actionHref === ENGINE_BOOKING_URL ? "_blank" : undefined}
                 rel={isBookingAction ? "noopener" : undefined}
                 className={`btn ${isBookingAction ? (variant === "info" ? "" : "btn-light") : hidePhoneCta || variant === "info" ? "btn-outline" : "btn-ghost-light"}`}
               >
@@ -117,7 +117,7 @@ export function ServiceHero({
             )}
           </div>
           {isBookingAction && (
-            <Link href={actionHref!} className="underline">
+            <Link href={isMedicareStartHref(actionHref!) ? actionHref! : "/start?topic=medicare&quick=1"} className="underline">
               Or send a question
             </Link>
           )}

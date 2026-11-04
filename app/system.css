@@ -603,6 +603,18 @@ p {
     gap: 0.5rem;
   }
 }
+/* Keep the full phone number and 48px menu target within narrow phones. */
+@media (max-width: 359px) {
+  .nav-call {
+    padding-inline: 0.6rem;
+  }
+  .nav-call > svg {
+    display: none;
+  }
+  .nav-call-number {
+    letter-spacing: 0;
+  }
+}
 @media (min-width: 640px) {
   .nav-license-place {
     display: inline;

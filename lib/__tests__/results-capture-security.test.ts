@@ -64,7 +64,7 @@ afterEach(() => {
 describe("results email capture form check", () => {
   it("sends the Turnstile token and an empty honeypot with a complete lead", async () => {
     const api = stubTurnstile("valid-token");
-    const fetch = vi.fn().mockResolvedValue(Response.json({ success: true }));
+    const fetch = vi.fn().mockResolvedValue(Response.json({ success: true, stored: true }));
     vi.stubGlobal("fetch", fetch);
     const { container } = await renderForm();
 
@@ -118,7 +118,7 @@ describe("results email capture form check", () => {
 
   it("forwards a filled honeypot so the route can drop the bot quietly", async () => {
     const api = stubTurnstile("valid-token");
-    const fetch = vi.fn().mockResolvedValue(Response.json({ success: true }));
+    const fetch = vi.fn().mockResolvedValue(Response.json({ success: true, stored: true }));
     vi.stubGlobal("fetch", fetch);
     const { container } = await renderForm();
     // The widget is polled for rather than announced, so wait for it to exist.
@@ -135,7 +135,7 @@ describe("results email capture form check", () => {
 
   it("keeps the form usable without a site key", async () => {
     vi.stubEnv("NEXT_PUBLIC_TURNSTILE_SITE_KEY", "");
-    const fetch = vi.fn().mockResolvedValue(Response.json({ success: true }));
+    const fetch = vi.fn().mockResolvedValue(Response.json({ success: true, stored: true }));
     vi.stubGlobal("fetch", fetch);
     await renderForm();
 

@@ -23,8 +23,9 @@
  * an event_id with the browser event so Meta counts one lead, not two.
  */
 
+import { canMeasureVisitor } from "@/lib/measurementTraffic";
 import Script from "next/script";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useSyncExternalStore } from "react";
 import { usePathname } from "next/navigation";
 import {
   conversionTarget,
@@ -85,7 +86,7 @@ declare global {
 /** A phone tap. Standard Contact event, with no name or number attached. */
 export function trackMetaContact() {
   if (
-    typeof window === "undefined" ||
+    !canMeasureVisitor() ||
     !metaAllowedOnRoute(window.location.pathname, META_ADS_ALLOWED)
   )
     return;
@@ -98,7 +99,7 @@ export function trackMetaContact() {
 
 /** Fire the Lead conversion. Called from the thank-you page and a finished quiz. */
 export function trackLead(eventId: string, topic?: string) {
-  if (typeof window === "undefined") return;
+  if (!canMeasureVisitor()) return;
   if (!META_ADS_ALLOWED && !GA4_ID && !GOOGLE_ADS_ID && !NEXTDOOR_PIXEL_ID) return;
   try {
     if (topic !== "medicare" && metaAllowedOnRoute(window.location.pathname, META_ADS_ALLOWED))
@@ -113,9 +114,23 @@ export function trackLead(eventId: string, topic?: string) {
   }
 }
 
+const reportedLeads = new Set<string>();
+const acceptedLeads = new Set<string>();
+export function recordAcceptedLead(eventId: string, topic?: string) {
+  acceptedLeads.add(eventId);
+  try { sessionStorage.setItem(`we-accepted:${eventId}`, "1"); } catch { /* Optional storage. */ }
+  trackLeadOnce(eventId, topic);
+}
+export function hasAcceptedLead(eventId: string) {
+  if (acceptedLeads.has(eventId)) return true;
+  try { return sessionStorage.getItem(`we-accepted:${eventId}`) === "1"; } catch { return false; }
+}
+
 /** Reloading thank-you is not a new inquiry. Count at most once per tab. */
 export function trackLeadOnce(eventId: string, topic?: string) {
-  if (typeof window === "undefined") return;
+  if (!canMeasureVisitor()) return;
+  if (reportedLeads.has(eventId)) return;
+  reportedLeads.add(eventId);
   const key = `we-lead-pixel:${eventId}`;
   try {
     if (sessionStorage.getItem(key)) return;
@@ -141,7 +156,7 @@ export function resetToolPage(path: string) {
  * details, which have no business in an analytics or ad platform.
  */
 export function trackEvent(name: string, detail?: EventDetail) {
-  if (typeof window === "undefined") return;
+  if (!canMeasureVisitor()) return;
   // An event this file has not declared is a mistake, not a measurement.
   if (!isMeasuredEvent(name)) return;
   resetToolPage(window.location.pathname);
@@ -174,6 +189,7 @@ export function trackEvent(name: string, detail?: EventDetail) {
 
 export function Analytics() {
   const pathname = usePathname();
+  const enabled = useSyncExternalStore(() => () => {}, canMeasureVisitor, () => false);
   // The bootstrap scripts report the landing view; this effect owns subsequent routes.
   const previousPath = useRef(pathname);
 
@@ -198,6 +214,7 @@ export function Analytics() {
       const booking = target?.closest?.("a[href]");
       if (booking && isBookingHref(booking.getAttribute("href") ?? "")) {
         trackEvent("booking_click", {
+          booking_destination: booking.getAttribute("href")?.split(/[?#]/)[0] === "/aep" ? "aep" : "calendar",
           cta_location: (booking.getAttribute("data-cta-location") ?? "inline") as CtaLocation,
         });
         return;
@@ -221,7 +238,7 @@ export function Analytics() {
 
   // Client-side route changes need an explicit pageview.
   useEffect(() => {
-    if (!pathname) return;
+    if (!pathname || !canMeasureVisitor()) return;
     resetToolPage(pathname);
     if (previousPath.current === pathname) return;
     previousPath.current = pathname;
@@ -240,6 +257,7 @@ export function Analytics() {
     }
   }, [pathname]);
 
+  if (!enabled) return null;
   return (
     <>
       {metaAllowedOnRoute(pathname, META_ADS_ALLOWED) && META_PIXEL_ID ? (

@@ -7,7 +7,7 @@ export type AepProgress = {
   variant: QuizVariant;
   answers: AepQuizAnswers;
   index: number;
-  phase: "questions" | "capture";
+  phase: "questions" | "capture" | "result";
 };
 
 // Contact details, permission checkboxes, and verification tokens are never persisted.
@@ -21,7 +21,7 @@ export function readAepProgress(raw: string | null, now = Date.now()): AepProgre
       now - value.savedAt > AEP_PROGRESS_MAX_AGE ||
       value.savedAt > now ||
       !["a", "b"].includes(value.variant) ||
-      !["questions", "capture"].includes(value.phase) ||
+      !["questions", "capture", "result"].includes(value.phase) ||
       !Number.isInteger(value.index) ||
       value.index < 0 ||
       !value.answers ||
@@ -35,7 +35,7 @@ export function readAepProgress(raw: string | null, now = Date.now()): AepProgre
     }
     const questions = questionsForVariant(value.variant, answers);
     if (value.index >= questions.length) return null;
-    const required = value.phase === "capture" ? questions : questions.slice(0, value.index);
+    const required = value.phase !== "questions" ? questions : questions.slice(0, value.index);
     if (required.some(({ id }) => typeof answers[id] !== "boolean")) return null;
     return { variant: value.variant, answers, index: value.index, phase: value.phase };
   } catch {

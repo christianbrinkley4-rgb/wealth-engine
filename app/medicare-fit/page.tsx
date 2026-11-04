@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Five questions to help organize your Medicare review. Request a call from Christian Brinkley, a licensed NC insurance agent in Greensboro.",
   alternates: { canonical: "/medicare-fit" },
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 export default function MedicareFit() {
   const combinations = [

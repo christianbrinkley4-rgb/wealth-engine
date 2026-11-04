@@ -97,7 +97,7 @@ export function validateEngineLead(value: unknown) {
   }
   const attribution: Record<string, string> = {};
   if (b.attribution && typeof b.attribution === "object" && !Array.isArray(b.attribution)) {
-    for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content"]) {
+    for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "traffic_type"]) {
       const v = (b.attribution as Record<string, unknown>)[key];
       if (typeof v === "string") attribution[key] = v.slice(0, 120);
     }

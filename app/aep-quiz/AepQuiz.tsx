@@ -1,4 +1,5 @@
 "use client";
+import { useFormTracking } from "@/hooks/useFormTracking";
 
 /**
  * "Do I Need to Act During AEP?" quiz.
@@ -23,7 +24,6 @@ import { useQuizTracking } from "@/hooks/useQuizTracking";
 import { AGENT, CONSENT_TEXT, CONSENT_VERSION, SMS_CONSENT_TEXT } from "@/lib/agent";
 import {
   assignQuizVariant,
-  captureButtonLabel,
   questionsForVariant,
   quizVariantCookie,
   readQuizVariantCookie,
@@ -194,10 +194,14 @@ export function AepQuiz() {
   const [consent, setConsent] = useState(false);
   const [smsConsent, setSmsConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const formTracking = useFormTracking("aep_contact");
   const [error, setError] = useState<string | null>(null);
   const [sending, setSending] = useState(false);
+  const [captured, setCaptured] = useState(false);
 
+  const requestId = useRef<string | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
+  const resultHeadingRef = useRef<HTMLHeadingElement>(null);
   const stepRef = useRef<HTMLDivElement>(null);
   const { containerRef, getToken, reset, widgetError } = useTurnstile(phase === "capture");
   const questions = questionsForVariant(variant ?? "a", answers);
@@ -218,27 +222,28 @@ export function AepQuiz() {
     if (restored) {
       setAnswers(restored.answers);
       setIndex(restored.index);
-      setPhase(restored.phase);
+      setPhase(restored.phase === "capture" ? "result" : restored.phase);
+      if (restored.phase !== "questions") setResult(aepQuizResult(aepQuizTier(restored.answers)));
     }
   }, []);
 
   useEffect(() => {
     if (!variant) return;
     try {
-      if (phase === "result" || Object.keys(answers).length === 0)
+      if (captured || Object.keys(answers).length === 0)
         localStorage.removeItem(AEP_PROGRESS_KEY);
       else
         localStorage.setItem(AEP_PROGRESS_KEY, saveAepProgress({ variant, phase, index, answers }));
     } catch {
       /* The quiz still works when browser storage is blocked or full. */
     }
-  }, [variant, phase, index, answers]);
+  }, [variant, phase, index, answers, captured]);
 
   // Move focus to the new question so screen reader and keyboard users are
   // not stranded after each step. Focus scrolling ignores the sticky header,
   // so the step itself is scrolled with scroll-margin-top clearing .nav.
   useEffect(() => {
-    const heading = headingRef.current;
+    const heading = phase === "result" ? resultHeadingRef.current : headingRef.current;
     if (!heading) return;
     heading.focus({ preventScroll: true });
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -256,7 +261,11 @@ export function AepQuiz() {
     setError(null);
     tracking.step(index + 1);
     const upcoming = questionsForVariant(variant ?? "a", next);
-    if (index + 1 >= upcoming.length) setPhase("capture");
+    if (index + 1 >= upcoming.length) {
+      setResult(aepQuizResult(aepQuizTier(next)));
+      setPhase("result");
+      tracking.complete();
+    }
     else setIndex(index + 1);
   }
 
@@ -300,9 +309,10 @@ export function AepQuiz() {
     }
     setError(null);
     setSending(true);
-    const eventId = newEventId();
+    const eventId = requestId.current ??= newEventId();
 
     try {
+      formTracking.submit();
       const res = await fetch("/api/capture-lead", {
         method: "POST",
         signal: AbortSignal.timeout(20000),
@@ -329,20 +339,21 @@ export function AepQuiz() {
       const data = (await res.json().catch(() => null)) as {
         error?: string;
         success?: boolean;
+        stored?: boolean;
       } | null;
-      if (!res.ok || data?.success !== true) {
+      if (!res.ok || data?.success !== true || data?.stored !== true) {
         reset();
         setError(data?.error ?? "Something went wrong on my end. Please try again, or call me.");
         setSending(false);
         return;
       }
-      // The result is revealed only after the lead is captured.
+      // Contact capture never controls access to the educational result.
       // Same event id as the server event, so Meta counts one lead.
       setResult(aepQuizResult(aepQuizTier(answers)));
       setPhase("result");
+      setCaptured(true);
       try {
         trackLeadOnce(eventId, "medicare");
-        tracking.complete();
       } catch {
         /* Analytics must not turn a confirmed submission into an error. */
       }
@@ -380,6 +391,9 @@ export function AepQuiz() {
             disabled={sending}
             className="min-h-12 underline"
             onClick={() => {
+              requestId.current = null;
+              setCaptured(false);
+              setResult(null);
               setAnswers({});
               setIndex(0);
               setPhase("questions");
@@ -448,6 +462,69 @@ export function AepQuiz() {
         </section>
       ) : null}
 
+      {phase !== "questions" && result ? (
+        <section aria-labelledby="aep-result-heading">
+          <div className="card-surface p-6 md:p-8">
+            <p className="text-14 font-medium tracking-[0.08em] text-[var(--color-gold-ink)] uppercase">
+              Your result
+            </p>
+            <h2
+              id="aep-result-heading"
+              ref={resultHeadingRef}
+              tabIndex={-1}
+              className="text-24 md:text-27 mt-3 leading-tight font-bold text-[var(--color-navy)] outline-none"
+            >
+              {result.headline}
+            </h2>
+            <p className="text-18 mt-4 leading-relaxed text-[var(--color-navy)]">{result.lede}</p>
+            <ul className="mt-5 flex flex-col gap-3">
+              {result.points.map((point) => (
+                <li key={point} className="text-17 flex gap-3 leading-relaxed">
+                  <CheckCircle2
+                    className="mt-1 size-5 shrink-0 text-[var(--color-gold-ink)]"
+                    aria-hidden
+                  />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-15 mt-5 border-t border-gray-300 pt-4 leading-relaxed text-[var(--color-ink-muted)]">
+              {result.note}
+            </p>
+          </div>
+
+          <Link
+            href={result.ctaHref}
+            className="text-18 mt-8 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
+            target={result.ctaHref === ENGINE_BOOKING_URL ? "_blank" : undefined}
+            rel={result.ctaHref === ENGINE_BOOKING_URL ? "noopener" : undefined}
+          >
+            {resultButtonLabel(variant ?? "a", result.ctaLabel)} →
+          </Link>
+          {result.ctaHref !== ENGINE_BOOKING_URL ? (
+            <p className="text-16 mt-3 text-center">
+              <Link
+                href={ENGINE_BOOKING_URL}
+                target="_blank"
+                rel="noopener"
+                className="font-semibold text-[var(--color-navy)] underline"
+              >
+                Book a 45-minute phone review
+              </Link>
+            </p>
+          ) : null}
+          <p className="text-16 mt-3 text-center text-[var(--color-ink-muted)]">
+            Prefer to talk it through?{" "}
+            <a href={AGENT.phoneHref} className="font-semibold text-[var(--color-navy)] underline">
+              <Phone className="mr-1 inline size-4" aria-hidden />
+              {AGENT.phone}
+            </a>
+          </p>
+          {!captured && phase !== "capture" ? <button type="button" className="btn btn-outline mt-6" onClick={() => setPhase("capture")}>Ask me to follow up</button> : null}
+          {captured ? <p role="status" className="mt-4">Your request is saved. This doesn&apos;t book an appointment. (919) 408-6671</p> : null}
+        </section>
+      ) : null}
+
       {phase === "capture" ? (
         <section aria-labelledby="aep-quiz-heading">
           <h2
@@ -456,16 +533,16 @@ export function AepQuiz() {
             tabIndex={-1}
             className="text-26 md:text-28 leading-tight font-bold text-[var(--color-navy)] outline-none"
           >
-            Your result is ready.
+            Want me to follow up?
           </h2>
           <p className="text-16 font-medium text-[var(--color-ink-muted)]">
-            Final step: your contact details
+            Optional: your contact details
           </p>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-navy)]/85">
-            Add your contact details to request a review and see your educational result. Your
+            Your result is above. Add your contact details only if you want me to follow up. Your
             answers go directly to me, never to a call center.
           </p>
-          <form onSubmit={submitCapture} className="relative mt-6 space-y-5" noValidate>
+          <form onFocus={formTracking.start} onSubmit={submitCapture} className="relative mt-6 space-y-5" noValidate>
             <div className="absolute top-auto -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden>
               <label htmlFor="aep-quiz-website">Website</label>
               <input
@@ -602,7 +679,7 @@ export function AepQuiz() {
               disabled={sending}
               className="text-18 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)] disabled:transform-none disabled:cursor-not-allowed disabled:opacity-70"
             >
-              {sending ? "Sending…" : captureButtonLabel(variant ?? "a")}
+              {sending ? "Sending..." : "Request a follow-up"}
             </button>
             <p className="text-15 text-center text-[var(--color-ink-muted)]">
               Or call{" "}
@@ -615,67 +692,6 @@ export function AepQuiz() {
               to skip the quiz entirely.
             </p>
           </form>
-        </section>
-      ) : null}
-
-      {phase === "result" && result ? (
-        <section aria-labelledby="aep-quiz-heading">
-          <div className="card-surface p-6 md:p-8">
-            <p className="text-14 font-medium tracking-[0.08em] text-[var(--color-gold-ink)] uppercase">
-              Your result
-            </p>
-            <h2
-              id="aep-quiz-heading"
-              ref={headingRef}
-              tabIndex={-1}
-              className="text-24 md:text-27 mt-3 leading-tight font-bold text-[var(--color-navy)] outline-none"
-            >
-              {result.headline}
-            </h2>
-            <p className="text-18 mt-4 leading-relaxed text-[var(--color-navy)]">{result.lede}</p>
-            <ul className="mt-5 flex flex-col gap-3">
-              {result.points.map((point) => (
-                <li key={point} className="text-17 flex gap-3 leading-relaxed">
-                  <CheckCircle2
-                    className="mt-1 size-5 shrink-0 text-[var(--color-gold-ink)]"
-                    aria-hidden
-                  />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="text-15 mt-5 border-t border-gray-300 pt-4 leading-relaxed text-[var(--color-ink-muted)]">
-              {result.note}
-            </p>
-          </div>
-
-          <Link
-            href={result.ctaHref}
-            className="text-18 mt-8 inline-flex h-14 w-full items-center justify-center rounded-xl bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] shadow-[0_1px_2px_rgba(21,46,52,0.08),0_2px_8px_rgba(21,46,52,0.06)] transition-all duration-200 ease-out hover:-translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-navy)]"
-            target={result.ctaHref === ENGINE_BOOKING_URL ? "_blank" : undefined}
-            rel={result.ctaHref === ENGINE_BOOKING_URL ? "noopener" : undefined}
-          >
-            {resultButtonLabel(variant ?? "a", result.ctaLabel)} →
-          </Link>
-          {result.ctaHref !== ENGINE_BOOKING_URL ? (
-            <p className="text-16 mt-3 text-center">
-              <Link
-                href={ENGINE_BOOKING_URL}
-                target="_blank"
-                rel="noopener"
-                className="font-semibold text-[var(--color-navy)] underline"
-              >
-                Book a 45-minute phone review
-              </Link>
-            </p>
-          ) : null}
-          <p className="text-16 mt-3 text-center text-[var(--color-ink-muted)]">
-            Prefer to talk it through?{" "}
-            <a href={AGENT.phoneHref} className="font-semibold text-[var(--color-navy)] underline">
-              <Phone className="mr-1 inline size-4" aria-hidden />
-              {AGENT.phone}
-            </a>
-          </p>
         </section>
       ) : null}
     </div>

@@ -78,7 +78,7 @@ export const TESTIMONIALS: Testimonial[] = [
  */
 export const GOOGLE_REVIEWS: { rating: number; count: number; url: string } | null = {
   rating: 5.0,
-  count: 3,
+  count: 4,
   url: GOOGLE_MAPS_PROFILE_URL,
 };
 

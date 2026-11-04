@@ -1,4 +1,5 @@
 "use client";
+import { recordAcceptedLead } from "@/app/components/Analytics";
 import { useDeferredFormCheck } from "@/hooks/useDeferredFormCheck";
 
 import { Mail } from "lucide-react";
@@ -214,9 +215,11 @@ export function EmailResultsCapture({
         error?: string;
         code?: string;
         emailConfigured?: boolean;
+        success?: boolean;
+        stored?: boolean;
       };
 
-      if (!res.ok) {
+      if (!res.ok || data?.success !== true || data?.stored !== true) {
         resetFormCheck();
         const configFail = data.code === "storage_unavailable" || res.status === 503;
         setError(
@@ -229,6 +232,7 @@ export function EmailResultsCapture({
         return;
       }
 
+      recordAcceptedLead(eventId, isRoth ? "financial_planning" : "medicare");
       router.push(
         thankYouUrl({
           source,

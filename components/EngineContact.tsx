@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { testAttribution } from "@/lib/measurementTraffic";
+import { useFormTracking } from "@/hooks/useFormTracking";
 import { trackLeadOnce } from "@/app/components/Analytics";
 import { ENGINE_CONSENT, ENGINE_CONSENT_VERSION } from "@/lib/leadEnginePublic";
 import { loadTurnstile } from "@/lib/loadTurnstile";
@@ -27,6 +29,7 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
   const widget = useRef<string | null>(null);
   const requestId = useRef<string | null>(null);
   const previous = useRef("");
+  const formTracking = useFormTracking(answers ? "medicare_fit_contact" : "medicare_review_contact");
   const source = answers ? "medicare-fit" : "medicare-review";
   const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
@@ -85,7 +88,7 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
   return (
     <form
       className="engine-card engine-form"
-      onFocus={() => setWanted(true)}
+      onFocus={() => { setWanted(true); formTracking.start(); }}
       onPointerDown={() => setWanted(true)}
       onSubmit={async (event) => {
         event.preventDefault();
@@ -142,13 +145,14 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
               query.get(key) ?? "",
             ]),
           );
+          formTracking.submit();
           const response = await fetch("/api/quiz-lead", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               ...contact,
               id: requestId.current,
-              attribution,
+              attribution: { ...attribution, ...testAttribution() },
               turnstile_token: token,
             }),
             signal: AbortSignal.timeout(20000),
@@ -207,7 +211,7 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
       <h2>{answers ? "Your next steps are ready" : "Ask me to call you"}</h2>
       <p>
         {answers
-          ? "Enter your name, phone, and ZIP to request a call and see your educational checklist."
+          ? "Want to discuss your checklist? You can request a call. Sharing your contact details is optional."
           : "Tell me where to reach you about your Medicare questions."}
       </p>
       <label htmlFor="engine-name">Name</label>
@@ -256,7 +260,7 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
         {busy
           ? "Saving your request..."
           : answers
-            ? "Request a call and see my checklist"
+            ? "Request a call about my checklist"
             : "Request a Medicare call"}
       </button>
       <p className="engine-small">

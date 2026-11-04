@@ -142,6 +142,7 @@ function normalizeAttribution(value: Attribution | null | undefined): Attributio
     "referrer",
     "landing_path",
     "captured_at",
+    "traffic_type",
   ];
   const out: Attribution = {};
   for (const key of allowed) {

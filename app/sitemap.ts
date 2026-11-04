@@ -32,6 +32,7 @@ const STATIC_ROUTES: Array<{
   { path: "/medicare-plans-ending-2027/guilford-county", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-26" },
   { path: "/medicare-plans-ending-2027/alamance-county", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-26" },
   { path: "/medicare-plans-ending-2027/granville-county", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-26" },
+  { path: "/medicare-fit", changeFrequency: "monthly", priority: 0.7, lastModified: "2026-11-03" },
   { path: "/medicare-part-d-donut-hole-2027", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-24" },
   { path: "/turning-65-checklist", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-29" },
   { path: "/medicare-advantage-vs-medigap-greensboro-nc", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-10-08" },

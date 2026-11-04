@@ -102,6 +102,14 @@ export default async function SchedulePage({
         </div>
 
         <div className="sched-panel" id="booking-calendar">
+          {(!topic || topic === "medicare") && (
+            <div className="sched-request">
+              <h2>Choose a time for a Medicare phone review</h2>
+              <p>A 45-minute conversation with me. No cost and no obligation to enroll.</p>
+              <Link href="/aep" data-cta-location="hero" className="btn">Book a 45-minute phone review</Link>
+              <p className="sched-small"><Link href="/start?topic=medicare&quick=1" className="underline">Or send a question</Link>. A question doesn&apos;t reserve an appointment.</p>
+            </div>
+          )}
           {!topic ? (
             <nav aria-label="Choose your consultation topic" className="sched-topics">
               <p className="sched-step">Step 1 · What would you like to talk about?</p>
@@ -119,7 +127,7 @@ export default async function SchedulePage({
                 </Link>
               ))}
             </nav>
-          ) : (
+          ) : topic !== "medicare" ? (
             <div className="sched-book">
               <div className="sched-book-head">
                 <p className="sched-step">Tell me what works for you</p>
@@ -150,7 +158,7 @@ export default async function SchedulePage({
                 </div>
               )}
             </div>
-          )}
+          ) : null}
           <p className="sched-small sched-soa">
             For a Medicare plan discussion, any required permission and scope of appointment will be
             arranged before the meeting. Please keep Medicare numbers, Social Security numbers, and
