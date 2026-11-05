@@ -8,11 +8,11 @@
  */
 
 /**
- * The voice card stays hidden until Christian approves the disclosure wording
- * below (CLAUDE.md: ask before changing what a visitor agrees to).
- * NEXT_PUBLIC_VOICE_PREVIEW=1 shows it in a local build for testing.
+ * Christian approved the disclosure wording below on 2026-11-05. Any change to
+ * it needs his OK again before it ships (CLAUDE.md: ask before changing what a
+ * visitor agrees to). Set this to false to hide voice mode.
  */
-const APPROVED_FOR_LIVE = false;
+const APPROVED_FOR_LIVE = true;
 
 export function voiceCheckerEnabled(
   env: Record<string, string | undefined> = process.env,
