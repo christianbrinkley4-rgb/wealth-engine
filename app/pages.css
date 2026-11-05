@@ -1167,3 +1167,25 @@
   line-height: 1.55;
   color: var(--color-ink-muted);
 }
+
+/* /state-health-plan-checklist: people print this for a spouse or a friend,
+   so the paper copy is the list, a contact line and the disclosure. */
+[data-shp-checklist] .print-only {
+  display: none;
+}
+@media print {
+  [data-shp-checklist] .print-only {
+    display: block;
+  }
+  [data-shp-checklist] .print-hide {
+    display: none !important;
+  }
+  [data-shp-checklist] section {
+    break-inside: auto;
+    padding-block: 0 !important;
+  }
+  [data-shp-checklist] ol > li {
+    break-inside: avoid;
+    padding: 10px 14px !important;
+  }
+}
