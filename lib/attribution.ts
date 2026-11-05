@@ -1,3 +1,4 @@
+import { testAttribution } from "./measurementTraffic";
 /**
  * Ad attribution capture.
  *
@@ -13,6 +14,7 @@
 const STORAGE_KEY = "attribution_v1";
 
 export interface Attribution {
+  traffic_type?: string;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
@@ -79,10 +81,10 @@ export function readAttribution(): Attribution | null {
   if (typeof window === "undefined") return null;
   try {
     const raw = window.sessionStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
+    if (!raw) return Object.keys(testAttribution()).length ? testAttribution() : null;
     const parsed = JSON.parse(raw) as unknown;
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
-    return parsed as Attribution;
+    return { ...parsed as Attribution, ...testAttribution() };
   } catch {
     return null;
   }

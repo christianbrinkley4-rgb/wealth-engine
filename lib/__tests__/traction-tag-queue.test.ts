@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+vi.mock("@/lib/measurementTraffic", () => ({ canMeasureVisitor: () => true }));
 import { createElement } from "react";
 import { act, cleanup, render } from "@testing-library/react";
 import { afterEach, expect, it, vi } from "vitest";

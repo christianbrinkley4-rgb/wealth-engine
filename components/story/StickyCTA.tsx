@@ -1,6 +1,7 @@
 "use client";
 
 import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
+import { usePathname } from "next/navigation";
 import { Phone, X } from "lucide-react";
 
 import { TrackedLink as Link } from "@/components/TrackedLink";
@@ -22,6 +23,7 @@ export function StickyCTA({
   callLabel: string;
   onDismiss: () => void;
 }) {
+  const pathname = usePathname();
   if (hidden) return null;
 
   return (
@@ -34,8 +36,8 @@ export function StickyCTA({
     >
       <Link
         ctaLocation="sticky_bar"
-        href={ENGINE_BOOKING_URL}
-        target="_blank"
+        href={pathname === "/aep" ? ENGINE_BOOKING_URL : "/aep"}
+        target={pathname === "/aep" ? "_blank" : undefined}
         rel="noopener"
         className="scta-call"
       >

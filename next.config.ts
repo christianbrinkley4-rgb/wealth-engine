@@ -33,10 +33,6 @@ const nextConfig: NextConfig = {
             ? [{ key: "X-Robots-Tag", value: "noindex, nofollow" }]
             : []),
           {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
-          {
             key: "X-Content-Type-Options",
             value: "nosniff",
           },
@@ -49,6 +45,13 @@ const nextConfig: NextConfig = {
             value: "camera=(), microphone=(), geolocation=()",
           },
         ],
+      },
+      // Every page refuses to be framed by other sites, except the NC Medicare
+      // Atlas widget under /embed/, which partners embed on their own pages
+      // (lib/atlasEmbed.ts). The embed route sets frame-ancestors itself.
+      {
+        source: "/((?!embed/).*)",
+        headers: [{ key: "X-Frame-Options", value: "SAMEORIGIN" }],
       },
       // Off-topic money pages stay live but out of Google (lib/indexFocus.ts).
       ...offTopicRobotsHeaders(),

@@ -110,8 +110,8 @@ describe("booking CTA hierarchy", () => {
             : createElement(ConsultationActions, { onDark: true });
       render(component);
       const booking = screen.getByRole("link", { name: "Book a 45-minute phone review" });
-      expect(booking.getAttribute("href")).toBe(ENGINE_BOOKING_URL);
-      expect(booking.getAttribute("target")).toBe("_blank");
+      expect(booking.getAttribute("href")).toBe(kind === "custom" ? ENGINE_BOOKING_URL : "/aep");
+      expect(booking.getAttribute("target")).toBe(kind === "custom" ? "_blank" : null);
       expect(booking.className).not.toMatch(/btn-outline|btn-ghost-light/);
       const actions = booking.parentElement!.querySelectorAll("a");
       expect(

@@ -32,7 +32,7 @@ export function TrackedLink({
       <a
         {...props}
         href={props.href}
-        target="_blank"
+        target={props.href.startsWith("/") ? props.target : "_blank"}
         rel="noopener"
         data-cta-location={detail?.cta_location ?? ctaLocation}
         onClick={onClick}

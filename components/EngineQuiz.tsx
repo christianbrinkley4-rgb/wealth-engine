@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { useQuizTracking } from "@/hooks/useQuizTracking";
-import { FIT_QUESTIONS, ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
+import { FIT_QUESTIONS } from "@/lib/leadEnginePublic";
 import { EngineContact } from "./EngineContact";
 
 type Result = { title: string; points: string[] };
@@ -31,7 +31,7 @@ export function EngineQuiz({ results }: { results: Record<string, Result> }) {
             ["predictable", "freedom"].includes(answers[3])
           ? "compare-coverage"
           : "compare-costs";
-  if (saved)
+  if (step === FIT_QUESTIONS.length)
     return (
       <section className="engine-card" aria-live="polite">
         <h2 tabIndex={-1} ref={heading}>
@@ -43,14 +43,12 @@ export function EngineQuiz({ results }: { results: Record<string, Result> }) {
           ))}
         </ul>
         <p>
-          Your request is saved. This checklist isn&apos;t a plan recommendation or an eligibility
+          This checklist isn&apos;t a plan recommendation or an eligibility
           decision.
         </p>
         <p>
           <a
-            href={ENGINE_BOOKING_URL}
-            target="_blank"
-            rel="noopener"
+            href="/aep"
             data-cta-location="tool_result"
             className="engine-button"
           >
@@ -61,27 +59,8 @@ export function EngineQuiz({ results }: { results: Record<string, Result> }) {
             Or send a question
           </a>
         </p>
-        <p>
-          <a href="tel:+19194086671">(919) 408-6671</a>
-        </p>
-      </section>
-    );
-  if (step === FIT_QUESTIONS.length)
-    return (
-      <section>
-        <h2 className="engine-sr" tabIndex={-1} ref={heading}>
-          Request your next steps
-        </h2>
-        <EngineContact
-          answers={answers}
-          onSaved={() => {
-            setSaved(true);
-            requestAnimationFrame(() => heading.current?.focus());
-          }}
-        />
-        <button className="engine-back" onClick={() => move(4)}>
-          Back to the last question
-        </button>
+        <p><a href="tel:+19194086671">(919) 408-6671</a></p>
+        {!saved ? <EngineContact answers={answers} onSaved={() => setSaved(true)} /> : <p role="status">Your callback request is saved. This doesn&apos;t book an appointment. (919) 408-6671</p>}
       </section>
     );
   const question = FIT_QUESTIONS[step];

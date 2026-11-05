@@ -1,3 +1,4 @@
+import { ReviewBookingBox } from "@/app/components/ReviewBookingBox";
 import { speakableJsonLd, SITE_URL } from "@/lib/seo";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
@@ -157,7 +158,7 @@ export default function Turning65Page() {
         eyebrow="Initial Enrollment Period · Piedmont Triad"
         title="Turning 65 in Greensboro? Your Medicare Timeline"
         lede="Your Initial Enrollment Period is 7 months: the 3 months before the month you turn 65, your birthday month, and the 3 months after. Enroll in the first 3 months to avoid coverage gaps. Below is the full timeline, the Part B late penalty explained, and the local resources in Greensboro, High Point, and Winston-Salem that make this easier."
-        secondaryHref="/start?topic=medicare&stage=turning_65_soon&quick=1"
+        secondaryHref="/aep"
         secondaryLabel="Request a consultation →"
         note={
           <>
@@ -294,6 +295,7 @@ export default function Turning65Page() {
             Provider networks and prescription coverage can change. Check the doctors and
             medications you need for the plan year you’re considering.{" "}
           </p>
+          <ReviewBookingBox />
           <GuideTownLinks />
         </div>
       </section>
@@ -479,7 +481,7 @@ export default function Turning65Page() {
       <KitchenTableClose
         heading="Ready to review your Medicare timeline?"
         body="Request a consultation and I’ll spend at least one hour on your enrollment timing, current coverage, doctors, and questions. Meet in person or by phone. No cost. No obligation. A request needs confirmation and is not a reserved appointment."
-        href="/start?topic=medicare&stage=turning_65_soon&quick=1"
+        href="/aep"
         label="Request a consultation →"
       />
 

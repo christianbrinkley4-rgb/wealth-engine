@@ -520,7 +520,7 @@ export async function sendProspectAutoReply(input: {
   }
 
   const firstName = (input.full_name || "").trim().split(" ")[0] || "there";
-  const quickContact = input.quiz_answers?.entry_mode === "quick_contact";
+  const quickContact = input.source === "quiz-2026" || input.quiz_answers?.entry_mode === "quick_contact";
   const replyByEmail = !input.phone_number || input.quiz_answers?.meet_preference === "email";
   const followUpText = replyByEmail
     ? "I'll reply to your email personally during business hours (Mon to Sat, 9 to 5 Eastern)."

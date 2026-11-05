@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+vi.mock("@/lib/measurementTraffic", () => ({ canMeasureVisitor: () => true }));
 import { AGENT } from "@/lib/agent";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -178,7 +179,7 @@ describe("CTA surfaces and official handoffs", () => {
     render(createElement("div", {}, createElement(Analytics), createElement(TopRouteChrome)));
     fireEvent.click(screen.getByRole("link", { name: "Book a phone review", exact: true }));
     expect(recorder.mock.calls.filter((call) => call[1] === "booking_click")).toEqual([
-      ["event", "booking_click", { page_path: window.location.pathname, cta_location: "header" }],
+      ["event", "booking_click", { page_path: window.location.pathname, cta_location: "header", booking_destination: "calendar" }],
     ]);
     const plain = document.createElement("a");
     plain.href = "/schedule?email=synthetic";

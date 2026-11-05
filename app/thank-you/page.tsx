@@ -5,7 +5,7 @@ import { CheckCircle2, Mail, Phone, ShieldCheck } from "lucide-react";
 import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
-import { trackLeadOnce } from "@/app/components/Analytics";
+import { hasAcceptedLead, trackLeadOnce } from "@/app/components/Analytics";
 import { AGENT } from "@/lib/agent";
 import { inSentence, TOPIC_LABELS, type InterestTopic } from "@/lib/helpQuiz";
 
@@ -90,7 +90,7 @@ function ThankYouInner() {
   // The conversion event. Shares its id with the server-side event so the ad
   // platform counts one lead rather than two.
   useEffect(() => {
-    if (!eventId) return;
+    if (!eventId || !hasAcceptedLead(eventId)) return;
     trackLeadOnce(eventId, topicRaw ?? undefined);
   }, [eventId, topicRaw]);
 

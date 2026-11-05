@@ -22,6 +22,8 @@ export const MEASURED_EVENTS = {
   tool_complete: "tool_complete",
   cta_click: "cta_click",
   booking_click: "booking_click",
+  form_start: "form_start",
+  form_submit: "form_submit",
   official_handoff_click: "official_handoff_click",
   ask_submit: "ask_submit",
   guide_signup: "guide_signup",
@@ -83,14 +85,17 @@ export function isReviewSource(value: unknown): value is ReviewSource {
   return typeof value === "string" && (REVIEW_SOURCES as readonly string[]).includes(value);
 }
 
-export const TOOL_IDS = ["roth_vs_traditional", "emergency_fund", "debt_payoff", "retirement_projector", "take_home_pay", "life_insurance_needs", "compound_interest", "budget", "roth_conversion_ladder"] as const;
+export const TOOL_IDS = ["roth_vs_traditional", "emergency_fund", "debt_payoff", "retirement_projector", "take_home_pay", "life_insurance_needs", "compound_interest", "budget", "roth_conversion_ladder", "retirement_checker", "retirement_checker_voice"] as const;
 export type ToolId = (typeof TOOL_IDS)[number];
 export const CTA_IDS = ["plan_check", "ask_question", "book_time"] as const;
 export const CTA_LOCATIONS = ["header", "hero", "sticky_bar", "page_close", "article_end", "inline", "menu", "tool_result"] as const;
 export type CtaLocation = (typeof CTA_LOCATIONS)[number];
 export const DESTINATIONS = ["medicare_plan_compare", "medicare_gov", "ssa_gov", "nc_shiip"] as const;
 export const LIST_IDS = ["guides", "drops"] as const;
-const FIXED_LABELS = { tool_id: TOOL_IDS, cta_id: CTA_IDS, cta_location: CTA_LOCATIONS, destination: DESTINATIONS, list_id: LIST_IDS };
+export const FORM_IDS = ["aep_contact", "medicare_fit_contact", "medicare_review_contact", "plan_check_contact", "plan_check_reminder", "help_contact"] as const;
+export type FormId = (typeof FORM_IDS)[number];
+export const BOOKING_DESTINATIONS = ["aep", "calendar"] as const;
+const FIXED_LABELS = { form_id: FORM_IDS, booking_destination: BOOKING_DESTINATIONS, tool_id: TOOL_IDS, cta_id: CTA_IDS, cta_location: CTA_LOCATIONS, destination: DESTINATIONS, list_id: LIST_IDS };
 
 export function ctaDetail(href: string, location: CtaLocation): EventDetail | undefined {
   const path = href.split(/[?#]/)[0];
@@ -124,6 +129,8 @@ export function handoffDestination(href: string): (typeof DESTINATIONS)[number] 
 
 /** What an event may say beyond the page: which quiz, which step, which review link. */
 export type EventDetail = {
+  form_id?: FormId;
+  booking_destination?: (typeof BOOKING_DESTINATIONS)[number];
   quiz_id?: QuizId; step?: number; review_source?: ReviewSource;
   tool_id?: ToolId;
   cta_id?: (typeof CTA_IDS)[number];
@@ -228,12 +235,13 @@ export function metaAllowedForLead(
 }
 
 export function isBookingHref(href: string): boolean {
-  return href === ENGINE_BOOKING_URL || href.split(/[?#]/)[0] === "/book";
+  return href === ENGINE_BOOKING_URL || ["/book", "/aep"].includes(href.split(/[?#]/)[0]);
 }
 
 export function bookingParams(path: string, detail?: EventDetail) {
-  const { page_path, cta_location } = eventParams(path, {
+  const { page_path, cta_location, booking_destination } = eventParams(path, {
     cta_location: detail?.cta_location ?? "inline",
+    booking_destination: detail?.booking_destination,
   });
-  return { page_path, ...(cta_location ? { cta_location } : {}) };
+  return { page_path, ...(cta_location ? { cta_location } : {}), ...(booking_destination ? { booking_destination } : {}) };
 }

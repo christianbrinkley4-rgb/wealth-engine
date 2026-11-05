@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => ({ push: vi.fn() }));
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push: mocks.push }) }));
-vi.mock("@/app/components/Analytics", () => ({ trackEvent: vi.fn() }));
+vi.mock("@/app/components/Analytics", () => ({ trackEvent: vi.fn(), recordAcceptedLead: vi.fn() }));
 beforeEach(() => {
   vi.resetModules();
   vi.stubEnv("NEXT_PUBLIC_TURNSTILE_SITE_KEY", "test-site-key");
@@ -83,7 +83,7 @@ describe.each(["timeline", "results"] as const)("%s capture verification recover
     });
     const fetch = vi
       .fn()
-      .mockResolvedValue(Response.json({ success: true, emailConfigured: false }));
+      .mockResolvedValue(Response.json({ success: true, stored: true, emailConfigured: false }));
     vi.stubGlobal("fetch", fetch);
     await renderForm(kind);
 

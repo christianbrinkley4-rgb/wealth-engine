@@ -88,7 +88,7 @@ const CHECKS = [
 const STEPS = [
   {
     t: "You reach out",
-    b: `Send a quick request, or call me at ${AGENT.phone}. Tell me a time that works for you.`,
+    b: `Choose a time for a 45-minute phone review, or call me at ${AGENT.phone}.`,
   },
   {
     t: "I listen to your questions",
@@ -186,8 +186,8 @@ export default function AepPage() {
         eyebrow="October 15 to December 7, 2026 · Piedmont Triad"
         title={AEP_HERO_TITLES[aepPhase()]}
         lede="Annual Enrollment runs October 15 through December 7. This is the window most people call Medicare open enrollment. Talk with Christian Brinkley about your 2027 doctors, prescriptions, and costs. Free, in person or by phone."
-        secondaryHref="#request-review"
-        secondaryLabel="Request a Medicare review"
+        secondaryHref={ENGINE_BOOKING_URL}
+        secondaryLabel="Book a 45-minute phone review"
       />
 
       <section
@@ -198,9 +198,8 @@ export default function AepPage() {
       >
         <p className="engine-eyebrow">I’m 21. I’m a licensed NC insurance agent in Greensboro.</p>
         <div className="engine-grid">
-          <EngineContact />
           <aside className="engine-card">
-            <h2>Or choose a time to talk</h2>
+            <h2>Choose a time for your phone review</h2>
             <p>
               Bring your plan letter and your questions. We can review what to check for 2027,
               including doctors, prescriptions, and costs.
@@ -226,6 +225,7 @@ export default function AepPage() {
               <a href={AGENT.phoneHref}>{AGENT.phone}</a>
             </p>
           </aside>
+          <EngineContact />
         </div>
       </section>
 
@@ -466,6 +466,7 @@ export default function AepPage() {
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(ALL_FAQ)) }}
           />
           <GuideTownLinks />
+          <p className="text-17 mb-6">Heard about the old coverage gap? <Link href="/medicare-part-d-donut-hole-2027" className="underline">Read the Medicare Part D donut-hole explainer</Link>.</p>
           <LeadCluster current="/aep" heading="Turning 65, or a different Medicare question?" />
         </div>
       </section>
@@ -490,9 +491,9 @@ export default function AepPage() {
       </ReadNext>
 
       <KitchenTableClose
-        heading="Request your free fall review"
+        heading="Book your fall phone review"
         body="Call me or send a request for a free conversation about your Medicare questions. I'll arrange any required appointment paperwork before I discuss specific plans. No obligation to enroll."
-        href="#request-review"
+        href={ENGINE_BOOKING_URL}
         label="Request a free consultation"
       />
 

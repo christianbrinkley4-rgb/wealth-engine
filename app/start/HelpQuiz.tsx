@@ -1,4 +1,6 @@
 "use client";
+import { recordAcceptedLead } from "@/app/components/Analytics";
+import { useFormTracking } from "@/hooks/useFormTracking";
 
 import { ArrowLeft, CalendarDays, CheckCircle2, HeartPulse, Landmark, Shield } from "lucide-react";
 import Link from "next/link";
@@ -223,6 +225,7 @@ export function HelpQuiz() {
   const [smsConsent, setSmsConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const formTracking = useFormTracking("help_contact");
   const [error, setError] = useState<string | null>(null);
   const [invalidField, setInvalidField] = useState<ContactField | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -493,6 +496,7 @@ export function HelpQuiz() {
         return;
       }
 
+      formTracking.submit();
       const res = await fetch("/api/capture-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -531,9 +535,11 @@ export function HelpQuiz() {
         phoneHref?: string;
         email?: string;
         emailConfigured?: boolean;
+        success?: boolean;
+        stored?: boolean;
       } | null;
 
-      if (!res.ok) {
+      if (!res.ok || data?.success !== true || data?.stored !== true) {
         // Siteverify consumes a token even if saving or another server check fails.
         // Always get a new one before the visitor retries the request.
         resetFormCheck();
@@ -550,6 +556,7 @@ export function HelpQuiz() {
 
       clearStored();
       tracking.complete();
+      recordAcceptedLead(eventId, topic);
       router.push(
         thankYouUrl({
           source: "help_quiz",
@@ -868,7 +875,7 @@ export function HelpQuiz() {
 
           <form
             onSubmit={submitContact}
-            onFocus={quickMode ? tracking.start : undefined}
+            onFocus={() => { formTracking.start(); if (quickMode) tracking.start(); }}
             className="relative mt-5 space-y-5"
             noValidate
           >

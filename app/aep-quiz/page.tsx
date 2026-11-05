@@ -49,7 +49,7 @@ const FAQ = [
   },
   {
     q: "What happens with my email?",
-    a: "Your quiz answers are saved on this device for 24 hours so you can return to them. Contact details and permission checkboxes are not saved on your device. Your answers and contact details are sent when you submit a review request. You can then see your educational result, and I may follow up about your Medicare questions. (919) 408-6671",
+    a: "Your quiz answers are saved on this device for 24 hours so you can return to them. Contact details and permission checkboxes are not saved on your device. You can see your educational result without sharing contact details. Your answers and contact details are sent only if you submit an optional follow-up request, and I may follow up about your Medicare questions. (919) 408-6671",
   },
   {
     q: "Is the review really free?",

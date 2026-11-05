@@ -222,6 +222,11 @@ export default function LifeInsurancePage() {
             {SERVICE_AREA_LEDE} You’re welcome to include a spouse or family member in my
             conversation.
           </p>
+          <p className="text-17 mt-5">
+            Live in Forsyth County? Read about{" "}
+            <Link href="/life-insurance-winston-salem-nc" className="underline">life insurance questions to ask in Winston-Salem</Link>,
+            including employer coverage, beneficiaries, and policy costs.
+          </p>
           <FeaturedPlaceCards
             hrefFor={(place) => `/life-insurance-in/${place.slug}`}
             labelFor={(place) => `Life insurance in ${place.name}`}

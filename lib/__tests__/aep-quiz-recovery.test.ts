@@ -10,7 +10,7 @@ import {
   AEP_PROGRESS_MAX_AGE,
 } from "../aepQuizProgress";
 
-vi.mock("@/app/components/Analytics", () => ({ trackLeadOnce: vi.fn() }));
+vi.mock("@/app/components/Analytics", () => ({ trackLeadOnce: vi.fn(), trackEvent: vi.fn() }));
 vi.mock("@/hooks/useQuizTracking", () => ({
   useQuizTracking: () => ({ start: vi.fn(), step: vi.fn(), complete: vi.fn() }),
 }));
@@ -67,12 +67,13 @@ async function mount() {
 async function contact(progress: Parameters<typeof saveAepProgress>[0] = capture) {
   localStorage.setItem(AEP_PROGRESS_KEY, saveAepProgress(progress));
   await mount();
+  fireEvent.click(await screen.findByRole("button", { name: "Ask me to follow up" }));
   await waitFor(() => expect(api.render).toHaveBeenCalled());
   fireEvent.change(screen.getByLabelText("First name"), { target: { value: "Test" } });
   fireEvent.change(screen.getByLabelText("Email"), { target: { value: "test@example.com" } });
   fireEvent.click(screen.getByRole("checkbox"));
 }
-const submit = () => fireEvent.click(screen.getByRole("button", { name: "Show my result" }));
+const submit = () => fireEvent.click(screen.getByRole("button", { name: "Request a follow-up" }));
 
 describe("AEP result destinations", () => {
   it.each([
@@ -90,7 +91,7 @@ describe("AEP result destinations", () => {
       variant,
       answers: { ...answers, happyWithPlan: outcome !== "review", turning65Soon: outcome === "turning65" },
     });
-    fireEvent.click(screen.getByRole("button", { name: variant === "a" ? "Show my result" : /Get my .* review/ }));
+    fireEvent.click(screen.getByRole("button", { name: "Request a follow-up" }));
     await screen.findByText("Your result");
     const primary = screen.getByRole("link", { name: `${label} →` });
     expect(primary.getAttribute("href")).toBe(href);
@@ -118,6 +119,7 @@ describe("quiz progress and submission recovery", () => {
     expect(raw).not.toContain("consent");
     cleanup();
     await mount();
+    fireEvent.click(await screen.findByRole("button", { name: "Ask me to follow up" }));
     expect(((await screen.findByLabelText("Email")) as HTMLInputElement).value).toBe("");
     expect((screen.getByRole("checkbox") as HTMLInputElement).checked).toBe(false);
   });
@@ -172,9 +174,12 @@ describe("quiz progress and submission recovery", () => {
     await screen.findByRole("alert");
     expect(api.reset).toHaveBeenCalled();
     submit();
-    await screen.findByText("Your result");
+    await screen.findByRole("status");
     expect(localStorage.getItem(AEP_PROGRESS_KEY)).toBeNull();
     expect(fetch).toHaveBeenCalledTimes(2);
+    const attempts = fetch.mock.calls.map(call => JSON.parse(call[1].body));
+    expect(attempts[0].event_id).toBe(attempts[1].event_id);
+    expect(document.activeElement?.id).toBe("aep-result-heading");
   });
   it("shows verification errors immediately and clears them after verification succeeds", async () => {
     await contact();

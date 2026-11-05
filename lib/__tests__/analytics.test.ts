@@ -22,6 +22,8 @@ describe("what may be measured", () => {
         "booking_complete",
         "booking_open",
         "generate_lead",
+        "form_start",
+        "form_submit",
         "guide_signup",
         "official_handoff_click",
         "phone_click",

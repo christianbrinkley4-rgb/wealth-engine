@@ -32,9 +32,9 @@ import { GOOGLE_REVIEWS, hasTestimonials, visibleRatedReviews } from "@/lib/test
 import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 import { featuredPlaces } from "@/lib/triad";
 
-const title = "Medicare Help in Greensboro NC | Christian Brinkley";
+const title = "Medicare Agent Greensboro | Christian Brinkley";
 const description =
-  "Medicare, life insurance, and retirement questions with a licensed agent in Greensboro and the Piedmont Triad. Free, no obligation. Call (919) 408-6671.";
+  "Meet Christian Brinkley, a licensed NC insurance agent in Greensboro. Get free help with Medicare choices, doctors, prescriptions, and enrollment dates.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -148,25 +148,25 @@ export default function HomePage() {
             <p className="eyebrow hx-eyebrow">Medicare help · Greensboro &amp; the Triad</p>
             <h1 id="hx-title" className="hx-title">
               <span className="split-line">
-                <span style={{ "--i": 0 } as React.CSSProperties}>Medicare questions?</span>
+                <span style={{ "--i": 0 } as React.CSSProperties}>Medicare agent</span>
               </span>{" "}
               <span className="split-line">
                 <span style={{ "--i": 1 } as React.CSSProperties}>
-                  <em>Let&apos;s talk them through.</em>
+                  <em>in Greensboro, NC.</em>
                 </span>
               </span>
             </h1>
             <p className="hx-subhead">
-              Turning 65 or reviewing your coverage? Get help from a local agent who answers his own
-              phone. Free.
+              Turning 65 or reviewing your coverage? I can help you understand your Medicare
+              choices, doctors, prescriptions, and enrollment dates. No cost. No obligation.
             </p>
             <p className="hx-lede">
               I’m{" "}
               <Link href="/about" ctaLocation="hero">
                 Christian Brinkley
               </Link>
-              , a licensed insurance agent in Greensboro. Meet at home or talk by phone. No cost, no
-              pressure, no call center.
+              , a 21-year-old licensed NC insurance agent and UNCG accounting student based in
+              Greensboro. Meet at home or talk by phone. No call centers, just me.
             </p>
             <div className="hx-actions" id="home-hero-actions">
               <a
@@ -398,14 +398,13 @@ export default function HomePage() {
               Hey, I’m Christian.
             </h2>
             <p data-reveal style={{ "--i": 2 } as React.CSSProperties}>
-              When you call, you get me. I answer my own phone, and during my meeting I check
-              your doctors and your prescriptions against the plans live, so you see exactly what
-              is covered before anything is signed. I represent 8 insurance companies, which means
-              I compare options instead of selling you the only one I have.
+              When you call, you get me. We can check your doctors, prescriptions, monthly premiums,
+              and costs when you need care. I explain the plans I represent and what to confirm
+              with the plan and your doctor before you enroll.
             </p>
             <p data-reveal style={{ "--i": 3 } as React.CSSProperties}>
-              I am based in Greensboro and have been a licensed agent ({AGENT.licenseLine}) since
-              June 2026, with 12 policies written so far. I am also an accounting senior at UNCG,
+              I am based in Greensboro and am a licensed NC insurance agent ({AGENT.licenseLine}).
+              I am also an accounting senior at UNCG,
               graduating in December 2026.
             </p>
             <p data-reveal style={{ "--i": 4 } as React.CSSProperties}>
@@ -602,7 +601,11 @@ export default function HomePage() {
               <Link href="/medicare-agent-burlington-nc" className="underline underline-offset-2">
                 Burlington
               </Link>{" "}
-              get the same free, no-pressure help as everyone in Greensboro.
+              get the same free, no-pressure help as everyone in{" "}
+              <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
+                Greensboro
+              </Link>
+              .
             </p>
             <ul className="faqx-towns" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               {towns.map((town) => (
@@ -640,7 +643,7 @@ export default function HomePage() {
       <div className="shell py-8">
         <TrustFacts />
       </div>
-      <MedicareByline reviewed="2026-10-12" />
+      <MedicareByline reviewed="2026-11-05" />
       <ShiipAndAgent />
       <RelatedMedicareGuides />
     </main>

@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+vi.mock("@/lib/measurementTraffic", () => ({ canMeasureVisitor: () => true }));
 import { runInNewContext } from "node:vm";
 import { createElement } from "react";
 import { cleanup, fireEvent, render } from "@testing-library/react";
@@ -73,14 +74,14 @@ describe("booking measurement", () => {
       expect(window.gtag).toHaveBeenCalledTimes(2);
       expect(window.gtag).toHaveBeenNthCalledWith(1, "event", "booking_click", {
         page_path: "/",
-        cta_location: "hero",
+        cta_location: "hero", booking_destination: "calendar",
       });
       expect(window.gtag).toHaveBeenNthCalledWith(2, "event", "booking_click", {
         page_path: "/",
-        cta_location: "article_end",
+        cta_location: "article_end", booking_destination: "calendar",
       });
       expect(sa).toHaveBeenCalledTimes(2);
-      expect(sa).toHaveBeenCalledWith("booking_click", { page_path: "/", cta_location: "hero" });
+      expect(sa).toHaveBeenCalledWith("booking_click", { page_path: "/", cta_location: "hero", booking_destination: "calendar" });
     },
   );
 });

@@ -18,7 +18,7 @@ export function KitchenTableClose({
   href: string;
   label: string;
 }) {
-  const isBookingAction = href === ENGINE_BOOKING_URL || isMedicareStartHref(href);
+  const isBookingAction = href === ENGINE_BOOKING_URL || href === "/aep" || isMedicareStartHref(href);
   const cleanLabel = label.replace(/\s*→\s*$/, "");
   return (
     <section className="ktc">
@@ -52,8 +52,8 @@ export function KitchenTableClose({
             {href !== AGENT.phoneHref && (
               <Link
                 ctaLocation="page_close"
-                href={isBookingAction ? ENGINE_BOOKING_URL : href}
-                target={isBookingAction ? "_blank" : undefined}
+                href={isBookingAction ? (href === ENGINE_BOOKING_URL ? ENGINE_BOOKING_URL : "/aep") : href}
+                target={href === ENGINE_BOOKING_URL ? "_blank" : undefined}
                 rel={isBookingAction ? "noopener" : undefined}
                 className={isBookingAction ? "btn" : "btn btn-outline"}
               >
@@ -61,7 +61,7 @@ export function KitchenTableClose({
               </Link>
             )}
             {isBookingAction && (
-              <a href={href === ENGINE_BOOKING_URL ? "/start" : href} className="underline">
+              <a href={isMedicareStartHref(href) ? href : "/start?topic=medicare&quick=1"} className="underline">
                 Or send a question
               </a>
             )}

@@ -28,6 +28,8 @@ vi.mock("@/hooks/useLocalStorage", () => ({
   ],
 }));
 
+vi.mock("@/lib/measurementTraffic", async (importOriginal) => ({ ...await importOriginal<typeof import("@/lib/measurementTraffic")>(), canMeasureVisitor: () => true }));
+
 const TURNSTILE_SRC = "https://challenges.cloudflare.com/turnstile/v0/api.js";
 
 afterEach(() => {

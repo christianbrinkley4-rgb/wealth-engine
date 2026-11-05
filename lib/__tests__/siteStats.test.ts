@@ -24,7 +24,7 @@ function pageDirs(relative: string): string[] {
 describe("SITE_STATS trust band counts", () => {
   it("calculators matches the /tools calculator pages (quizzes and hub excluded)", () => {
     const tools = pageDirs("app/tools").filter(
-      (name) => name !== "_components" && !name.endsWith("-quiz")
+      (name) => name !== "_components" && !name.endsWith("-quiz"),
     );
     expect(tools).toHaveLength(SITE_STATS.calculators);
   });
@@ -36,7 +36,7 @@ describe("SITE_STATS trust band counts", () => {
 
   it("guides matches TRAFFIC_GUIDES plus the standalone /guides pages", () => {
     expect(TRAFFIC_GUIDES).toHaveLength(38);
-    expect(STANDALONE_GUIDES).toHaveLength(32);
+    expect(STANDALONE_GUIDES).toHaveLength(33);
     expect(SITE_STATS.guides).toBe(TRAFFIC_GUIDES.length + STANDALONE_GUIDES.length);
   });
 
