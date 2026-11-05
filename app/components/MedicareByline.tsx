@@ -28,7 +28,7 @@ export function MedicareByline({
         , Licensed NC Insurance Agent
         {hasPublishableNpn() ? ` (NPN ${AGENT.npn})` : ""}.
         <br />
-        Last reviewed <time dateTime={reviewed}>{formatArticleDate(reviewed)}</time>. Personal
+        Last reviewed <time dateTime={reviewed}>{formatArticleDate(reviewed)}</time>. Personal{" "}
         {scope === "medicare" ? "Medicare" : "insurance"} help in {AGENT.city}, {AGENT.state}.
       </p>
     </aside>
