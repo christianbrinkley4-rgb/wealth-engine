@@ -89,6 +89,7 @@ export function CheckerForm() {
   const [filing, setFiling] = useState<"individual" | "married_jointly">("individual");
   const [income, setIncome] = useState("");
   const [roth, setRoth] = useState("");
+  const [wages, setWages] = useState("");
   const [irmaa, setIrmaa] = useState<"yes" | "no">("no");
   const [lifeChange, setLifeChange] = useState<"yes" | "no">("no");
   const [results, setResults] = useState<Finding[] | null>(null);
@@ -113,6 +114,7 @@ export function CheckerForm() {
       rothConversion: num(roth),
       recentLifeChange: lifeChange === "yes",
       payingIrmaa: irmaa === "yes",
+      wagesThisYear: ss === "yes" ? num(wages) : null,
     };
     setResults(checkRetirement(inputs));
     window.setTimeout(() => document.getElementById("checker-results")?.focus(), 0);
@@ -242,6 +244,23 @@ export function CheckerForm() {
         <legend className={LABEL}>Are you collecting Social Security?</legend>
         <Choice name="ss" value={ss} onChange={setSs} options={YES_NO} />
       </fieldset>
+
+      {ss === "yes" && (
+        <fieldset>
+          <legend className={LABEL}>
+            Are you still working? Expected earnings this year (optional)
+          </legend>
+          <input
+            id="checker-wages"
+            aria-label="Expected earnings from work this year"
+            inputMode="numeric"
+            placeholder="$30,000"
+            className={INPUT}
+            value={wages}
+            onChange={(e) => setWages(e.target.value)}
+          />
+        </fieldset>
+      )}
 
       <fieldset>
         <legend className={LABEL}>How do you file taxes?</legend>

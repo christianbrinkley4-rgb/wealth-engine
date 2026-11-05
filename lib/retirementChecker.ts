@@ -25,6 +25,11 @@
  */
 
 import { calculatePartBPremium, type FilingStatus } from "@/lib/irmaa";
+import {
+  EARNINGS_TEST,
+  EARNINGS_TEST_SOURCE,
+  fullRetirementAgeDate,
+} from "@/lib/retirementFigures";
 import { getT65Window } from "@/lib/reminders";
 
 export type Coverage =
@@ -56,6 +61,8 @@ export interface CheckerInputs {
   recentLifeChange: boolean;
   /** Currently paying an income-related Medicare surcharge (IRMAA). */
   payingIrmaa: boolean;
+  /** Expected earnings from work this year (wages or net self-employment). */
+  wagesThisYear?: number | null;
 }
 
 export type Severity = "act_now" | "watch";
@@ -296,6 +303,36 @@ export function checkRetirement(inputs: CheckerInputs, today: Date = new Date())
           href: "/medicare-advantage-vs-medigap",
         },
         source: SRC.medigap,
+      });
+    }
+  }
+
+  // 10. Working while collecting Social Security before full retirement age.
+  const wages = inputs.wagesThisYear ?? 0;
+  const limits = EARNINGS_TEST[today.getFullYear()];
+  if (inputs.collectsSocialSecurity && wages > 0 && limits) {
+    const fra = fullRetirementAgeDate(inputs.birthMonth, inputs.birthYear);
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1;
+    const before = year < fra.year;
+    const fraYear = year === fra.year && month < fra.month;
+    const limit = before ? limits.lower : fraYear ? limits.higher : null;
+    if (limit != null && wages > limit) {
+      const held = Math.round((wages - limit) / (before ? 2 : 3));
+      out.push({
+        id: "earnings-test",
+        severity: "watch",
+        title: "Working while collecting could hold back some Social Security",
+        detail: before
+          ? `You haven't reached full retirement age, so for ${year} Social Security withholds $1 of benefits for every $2 you earn above ${money(limits.lower)}. On ${money(wages)} of earnings, that's about ${money(held)} held back this year.`
+          : `You reach full retirement age in ${DATE.format(new Date(Date.UTC(fra.year, fra.month - 1, 1)))}. Until then, Social Security withholds $1 for every $3 you earn above ${money(limits.higher)}, counting only earnings before that month. On ${money(wages)}, that's up to about ${money(held)} held back.`,
+        action:
+          "Withheld benefits aren't lost: your monthly benefit goes up permanently at full retirement age. Tell Social Security your expected earnings so they withhold the right amount instead of asking for money back later.",
+        learnMore: {
+          label: "Working while collecting Social Security",
+          href: "/guides/working-while-collecting-social-security",
+        },
+        source: EARNINGS_TEST_SOURCE,
       });
     }
   }

@@ -129,4 +129,46 @@ describe("retirement mistake checker", () => {
       expect(f.source.url).toMatch(/^https:\/\/(www\.)?(medicare|healthcare|ssa)\.gov\//);
     }
   });
+
+  it("estimates earnings-test withholding before full retirement age", () => {
+    // Born 1964: FRA 67 in 2031, so 2026 uses the lower $24,480 limit, $1 per $2 over.
+    const found = checkRetirement(
+      base({
+        birthMonth: 3,
+        birthYear: 1964,
+        medicare: "none",
+        coverage: "employer_active",
+        employerSize: "20_plus",
+        wagesThisYear: 40000,
+      }),
+      TODAY,
+    );
+    const f = found.find((x) => x.id === "earnings-test");
+    expect(f?.detail).toContain("$24,480.00");
+    expect(f?.detail).toContain("$7,760.00");
+    expect(
+      ids(
+        base({
+          birthMonth: 3,
+          birthYear: 1964,
+          medicare: "none",
+          coverage: "none",
+          wagesThisYear: 20000,
+        }),
+      ),
+    ).not.toContain("earnings-test");
+  });
+
+  it("uses the higher limit in the year reaching full retirement age", () => {
+    // Born June 1960: FRA June 2027. In Feb 2027 the $67,920 limit applies, $1 per $3 over.
+    const found = checkRetirement(
+      base({ birthMonth: 6, birthYear: 1960, wagesThisYear: 80000 }),
+      new Date(2027, 1, 10),
+    );
+    expect(found.find((x) => x.id === "earnings-test")?.detail).toContain("$4,027.00");
+    // After FRA, earnings don't count.
+    expect(ids(base({ birthMonth: 6, birthYear: 1958, wagesThisYear: 200000 }))).not.toContain(
+      "earnings-test",
+    );
+  });
 });

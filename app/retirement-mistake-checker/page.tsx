@@ -119,8 +119,9 @@ export default function RetirementMistakeCheckerPage() {
               <h3 className="text-19 font-semibold">And a few more</h3>
               <p className={`${P} mt-2`}>
                 Your first sign-up window, small-employer coverage where Medicare pays first,
-                Marketplace savings that end with Part A, the one-time Medigap window, and lowering
-                a surcharge after retirement or a spouse&apos;s death. Each result links to the
+                Marketplace savings that end with Part A, the one-time Medigap window, lowering a
+                surcharge after retirement or a spouse&apos;s death, and Social Security held back
+                when you work while collecting before full retirement age. Each result links to the
                 official source and to a plain-English guide like{" "}
                 <Link href="/part-b-penalty" className="underline underline-offset-2">
                   how the Part B penalty works

@@ -33,7 +33,7 @@ export const RETIREMENT_MCP_TOOLS = [
     name: "check_retirement_traps",
     title: "Check a household for costly retirement mistakes",
     description:
-      "Runs christianbrinkleync.com's retirement mistake checker on the facts you pass: Part B late penalty, COBRA and retiree coverage traps, small employers where Medicare pays first, HSA contributions near Medicare, Marketplace savings ending with Part A, Roth conversions raising IRMAA two years later (2026 brackets), SSA-44 appeals and the Medigap open enrollment window. Returns each finding with what to do and an official source URL. Only pass facts the user gave you; leave unknowns out.",
+      "Runs christianbrinkleync.com's retirement mistake checker on the facts you pass: Part B late penalty, COBRA and retiree coverage traps, small employers where Medicare pays first, HSA contributions near Medicare, Marketplace savings ending with Part A, Roth conversions raising IRMAA two years later (2026 brackets), SSA-44 appeals, the Medigap open enrollment window and the Social Security earnings test. Returns each finding with what to do and an official source URL. Only pass facts the user gave you; leave unknowns out.",
     inputSchema: {
       type: "object",
       properties: {
@@ -67,6 +67,11 @@ export const RETIREMENT_MCP_TOOLS = [
         payingIrmaa: {
           type: "boolean",
           description: "Currently paying an income-related Medicare surcharge.",
+        },
+        wagesThisYear: {
+          type: "number",
+          description:
+            "Expected earnings from work this year, for the Social Security earnings test.",
         },
       },
       required: ["birthMonth", "birthYear", "medicare", "coverage"],
@@ -132,6 +137,7 @@ export function runCheckRetirementTraps(args: Args, today: Date = new Date()): s
     rothConversion: pos(args.rothConversion),
     recentLifeChange: bool(args.recentLifeChange),
     payingIrmaa: bool(args.payingIrmaa),
+    wagesThisYear: pos(args.wagesThisYear),
   };
   const findings = checkRetirement(inputs, today).map((f) => ({
     severity: f.severity === "act_now" ? "act soon" : "worth checking",
