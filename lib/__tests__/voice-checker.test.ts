@@ -3,10 +3,17 @@ import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { VOICE_AGENT_ID, VOICE_DISCLOSURE, voiceCheckerEnabled } from "@/lib/voiceChecker";
+import {
+  captionText,
+  VOICE_AGENT_ID,
+  VOICE_DISCLOSURE,
+  voiceCheckerEnabled,
+} from "@/lib/voiceChecker";
 
 const root = join(__dirname, "..", "..");
 const src = (path: string) => readFileSync(join(root, path), "utf8");
+const EM = String.fromCharCode(0x2014);
+const EN = String.fromCharCode(0x2013);
 
 describe("voice checker", () => {
   it("stays off unless approved or previewed locally", () => {
@@ -25,7 +32,7 @@ describe("voice checker", () => {
     expect(text).toMatch(/ElevenLabs/);
     expect(text).toMatch(/Medicare number/);
     expect(text).toMatch(/not plan, tax or legal advice/);
-    expect(text).not.toMatch(/—/);
+    expect(text).not.toContain(EM);
   });
 
   it("loads the ElevenLabs SDK only after a tap", () => {
@@ -33,12 +40,21 @@ describe("voice checker", () => {
     const staticImports = code.match(/^import (?!type ).*from "@elevenlabs\/client";$/gm) ?? [];
     expect(staticImports).toEqual([]);
     expect(code).toContain('await import("@elevenlabs/client")');
-    expect(code).not.toMatch(/—/);
+    expect(code).not.toContain(EM);
   });
 
   it("renders the voice card and its privacy answer only behind the flag", () => {
     const page = src("app/retirement-mistake-checker/page.tsx");
     expect(page).toMatch(/VOICE_ON \? \(\s*<div[^>]*>\s*<VoiceCheck \/>/);
     expect(page).toMatch(/a: VOICE_ON\s*\?/);
+  });
+
+  it("cleans dashes and markdown out of captions", () => {
+    expect(captionText(`traps people miss${EM}things like deadlines`)).toBe(
+      "traps people miss, things like deadlines",
+    );
+    expect(captionText(`one ${EN} two`)).toBe("one, two");
+    expect(captionText("**Act soon:** sign up")).toBe("Act soon: sign up");
+    expect(captionText("  ok  ")).toBe("ok");
   });
 });

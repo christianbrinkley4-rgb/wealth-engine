@@ -32,3 +32,21 @@ export const VOICE_DISCLOSURE = [
   "Please don't share your name, Medicare number, Social Security number or health details. You don't need them.",
   "Results are educational, not plan, tax or legal advice.",
 ] as const;
+
+/**
+ * Caption text for the on-page transcript. The agent is told to speak plain
+ * sentences, but models slip, and the site never shows em or en dashes or
+ * markdown. Dashes become commas; asterisks and stray hashes are dropped.
+ */
+// Built from a string so the escapes survive formatting (en dash, em dash).
+const DASHES = new RegExp("\\s*[\\u2013\\u2014]\\s*", "g");
+
+export function captionText(text: string): string {
+  return text
+    .replace(DASHES, ", ")
+    .replace(/[*#]+/g, "")
+    .replace(/\s+,/g, ",")
+    .replace(/,\s*,/g, ",")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}

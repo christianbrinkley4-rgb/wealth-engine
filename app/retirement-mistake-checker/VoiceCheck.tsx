@@ -4,7 +4,7 @@ import type { Conversation } from "@elevenlabs/client";
 import { useEffect, useRef, useState } from "react";
 
 import { AGENT } from "@/lib/agent";
-import { VOICE_AGENT_ID, VOICE_DISCLOSURE } from "@/lib/voiceChecker";
+import { captionText, VOICE_AGENT_ID, VOICE_DISCLOSURE } from "@/lib/voiceChecker";
 
 /**
  * Talk-through version of the checker. Nothing from ElevenLabs loads until the
@@ -79,7 +79,7 @@ export function VoiceCheck() {
         onError: () => fail("unavailable"),
         onModeChange: ({ mode }) => mounted.current && setSpeaking(mode === "speaking"),
         onMessage: ({ message, role }) => {
-          const text = stripAudioTags(message).trim();
+          const text = captionText(stripAudioTags(message));
           if (!text || !mounted.current) return;
           lineId.current += 1;
           const line: Line = { id: lineId.current, who: role, text };
