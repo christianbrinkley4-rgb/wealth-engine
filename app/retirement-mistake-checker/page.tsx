@@ -6,7 +6,10 @@ import { MedicareByline } from "@/app/components/MedicareByline";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
+import { voiceCheckerEnabled } from "@/lib/voiceChecker";
+
 import { CheckerForm } from "./CheckerForm";
+import { VoiceCheck } from "./VoiceCheck";
 
 /**
  * Retirement mistake checker. Logic and sources: lib/retirementChecker.ts.
@@ -18,6 +21,8 @@ const UPDATED = "2026-11-05";
 const TITLE = "Retirement Mistake Checker: Medicare, HSA, COBRA & IRMAA Traps";
 const DESCRIPTION =
   "Answer a few questions and see which costly Medicare, Social Security and tax traps apply to you: the Part B penalty, COBRA, HSA contributions, Roth conversions and IRMAA.";
+
+const VOICE_ON = voiceCheckerEnabled();
 
 const TRAPS = [
   {
@@ -34,7 +39,9 @@ const TRAPS = [
   },
   {
     q: "Is my information saved?",
-    a: "No. The checker runs on your own device. Nothing you enter is stored or sent anywhere.",
+    a: VOICE_ON
+      ? "No. The typed checker runs on your own device, and nothing you enter is stored or sent anywhere. If you use the voice assistant instead, your voice goes to ElevenLabs, our voice provider, only to run the conversation. It's set up not to record or keep it, and this site doesn't store it either."
+      : "No. The checker runs on your own device. Nothing you enter is stored or sent anywhere.",
   },
 ];
 
@@ -105,6 +112,11 @@ export default function RetirementMistakeCheckerPage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-2xl">
+          {VOICE_ON ? (
+            <div className="mb-12">
+              <VoiceCheck />
+            </div>
+          ) : null}
           <CheckerForm />
 
           <h2 className="text-28 mt-16 font-semibold">The traps it checks</h2>
