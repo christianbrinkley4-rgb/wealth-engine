@@ -284,6 +284,18 @@ export default function ServiceAreaPage() {
           </li>
         </ul>
       </section>
+      <section className="bg-white py-12">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Medicare questions from Charlotte?</h2>
+          <p className="text-17 mt-4 leading-relaxed">
+            I’m based in Greensboro, NC. If you live in Charlotte, you can start with the{" "}
+            <Link className="underline" href="/turning-65-medicare-charlotte-nc">turning 65 Medicare checklist for Charlotte residents</Link>
+            {" "}or read about a{" "}
+            <Link className="underline" href="/medicare-consultation-charlotte-nc">free Medicare phone consultation for Charlotte</Link>.
+            Your address matters when checking plan availability and doctors.
+          </p>
+        </div>
+      </section>
       <KitchenTableClose
         heading="Let’s talk about what matters to you."
         body="I can review your coverage, answer your questions, and discuss the next steps for you and your family. Your consultation is no cost, with no obligation to buy anything."

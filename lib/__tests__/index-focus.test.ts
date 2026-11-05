@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import sitemap from "@/app/sitemap";
 import { CHANGES_2027 } from "@/lib/changes2027";
@@ -28,6 +28,13 @@ const MONEY_PAGES = [
   "/answers/term-whole-or-universal-life-insurance-which-do-i-need",
   "/guides/medicare-automatic-renewal",
   "/guides/nc-state-health-plan-medicare",
+  "/wealth/tax-brackets-explained-plainly",
+  "/answers/what-is-a-target-date-fund",
+  "/answers/index-funds-or-actively-managed-funds-which-is-better",
+  "/turning-65-medicare-charlotte-nc",
+  "/medicare-consultation-charlotte-nc",
+  "/life-insurance-winston-salem-nc",
+  "/guides/72t-exceptions",
 ];
 
 describe("index focus", () => {
@@ -59,6 +66,28 @@ describe("index focus", () => {
       expect(rule?.headers).toEqual([{ key: "X-Robots-Tag", value: "noindex, follow" }]);
     }
     expect(rules.some((r) => r.source === "/wealth/:path*")).toBe(true);
+  });
+
+  it("restores the requested tax page after the section rule without exposing previews", () => {
+    const path = "/wealth/tax-brackets-explained-plainly";
+    expect(isOffTopicPath(`${path}/?ref=guide`)).toBe(false);
+    try {
+      vi.stubEnv("VERCEL_ENV", "production");
+      let rules = offTopicRobotsHeaders();
+      expect(rules.findLast((rule) => rule.source === path)?.headers[0].value).toBe(
+        "index, follow",
+      );
+      expect(rules.findIndex((rule) => rule.source === path)).toBeGreaterThan(
+        rules.findIndex((rule) => rule.source === "/wealth/:path*"),
+      );
+      vi.stubEnv("VERCEL_ENV", "preview");
+      rules = offTopicRobotsHeaders();
+      expect(rules.findLast((rule) => rule.source === path)?.headers[0].value).toBe(
+        "noindex, nofollow",
+      );
+    } finally {
+      vi.unstubAllEnvs();
+    }
   });
 
   it("sends every 2027 news card to an indexed page with a printed source", () => {

@@ -19,12 +19,32 @@ const LINK_PATTERN = /\[([^\]]+)\]\(([^)]+)\)/g;
  * anything unmatched goes to the Greensboro Medicare agent page.
  */
 const SERVICE_PAGES: Array<{ test: RegExp; href: string; label: string }> = [
-  { test: /long[- ]term care|nursing home|assisted living/i, href: "/long-term-care-insurance", label: "long-term care insurance in the Triad" },
-  { test: /life insurance|final expense|burial|beneficiar/i, href: "/life-insurance", label: "life insurance help in Greensboro" },
+  {
+    test: /long[- ]term care|nursing home|assisted living/i,
+    href: "/long-term-care-insurance",
+    label: "long-term care insurance in the Triad",
+  },
+  {
+    test: /life insurance|final expense|burial|beneficiar/i,
+    href: "/life-insurance",
+    label: "life insurance help in Greensboro",
+  },
   { test: /annuit/i, href: "/annuities", label: "annuity questions answered locally" },
-  { test: /turning 65|turn 65|initial enrollment|sign up for medicare|first time/i, href: "/turning-65", label: "turning 65 Medicare help in Greensboro" },
-  { test: /part d|prescription|drug plan|extra help/i, href: "/medicare-part-d-greensboro-nc", label: "Part D drug plan help in Greensboro" },
-  { test: /medigap|supplement|advantage vs|advantage or/i, href: "/medicare-advantage-vs-medigap-greensboro-nc", label: "Medicare Advantage vs Medigap in Greensboro" },
+  {
+    test: /turning 65|turn 65|initial enrollment|sign up for medicare|first time/i,
+    href: "/turning-65",
+    label: "turning 65 Medicare help in Greensboro",
+  },
+  {
+    test: /part d|prescription|drug plan|extra help/i,
+    href: "/medicare-part-d-greensboro-nc",
+    label: "Part D drug plan help in Greensboro",
+  },
+  {
+    test: /medigap|supplement|advantage vs|advantage or/i,
+    href: "/medicare-advantage-vs-medigap-greensboro-nc",
+    label: "Medicare Advantage vs Medigap in Greensboro",
+  },
 ];
 
 export function servicePageFor(article: Pick<Article, "title" | "keyword" | "slug">) {
@@ -32,7 +52,9 @@ export function servicePageFor(article: Pick<Article, "title" | "keyword" | "slu
   const match = SERVICE_PAGES.find((page) => page.test.test(haystack));
   if (match) return match;
   // Money articles for younger readers get no Medicare pitch (two-voice rule).
-  return /medicare|medigap|part [abd]|irmaa|enrollment|turning 65|social security|retire/i.test(haystack)
+  return /medicare|medigap|part [abd]|irmaa|enrollment|turning 65|social security|retire/i.test(
+    haystack,
+  )
     ? { href: "/medicare-agent-greensboro-nc", label: "a local Medicare agent in Greensboro" }
     : null;
 }
@@ -111,6 +133,9 @@ export function ArticleBody({
     .join(", ");
   const service = servicePageFor(article);
   const isBookingAction = isMedicareStartHref(article.startHref);
+  const isMedicareArticle = /medicare|medigap|part [abd]\b/i.test(
+    `${article.keyword} ${article.title}`,
+  );
   const outline = article.sections.map((section) => ({
     id: slugify(section.h2),
     title: section.h2,
@@ -202,9 +227,15 @@ export function ArticleBody({
                         <tbody>
                           {block.rows.map((row, ri) => (
                             <tr key={ri}>
-                              {row.map((cell, ci) => (
-                                <td key={ci}>{renderInline(cell)}</td>
-                              ))}
+                              {row.map((cell, ci) =>
+                                ci === 0 ? (
+                                  <th key={ci} scope="row">
+                                    {renderInline(cell)}
+                                  </th>
+                                ) : (
+                                  <td key={ci}>{renderInline(cell)}</td>
+                                ),
+                              )}
                             </tr>
                           ))}
                         </tbody>
@@ -237,7 +268,7 @@ export function ArticleBody({
                     {item.q}
                     <span className="faq-icon" aria-hidden />
                   </summary>
-                  <p>{item.a}</p>
+                  <p>{renderInline(item.a)}</p>
                 </details>
               ))}
             </div>
@@ -271,7 +302,11 @@ export function ArticleBody({
                 href={AGENT.phoneHref}
                 className={isBookingAction ? "btn btn-outline" : "btn"}
               >
-                <Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
+                <Phone size={18} aria-hidden />{" "}
+                <span>
+                  Call Christian&apos;s direct line:{" "}
+                  <span className="whitespace-nowrap">{AGENT.phone}</span>
+                </span>
               </a>
               <TrackedLink
                 href={isBookingAction ? ENGINE_BOOKING_URL : article.startHref}
@@ -288,6 +323,15 @@ export function ArticleBody({
                 </a>
               )}
             </div>
+            {!isBookingAction ? (
+              <p className="art-next-towns">
+                For an insurance question, you can also{" "}
+                <TrackedLink href={ENGINE_BOOKING_URL} ctaLocation="article_end">
+                  book a free 45-minute phone conversation
+                </TrackedLink>
+                . Tax and investing articles are educational, not personalized financial advice.
+              </p>
+            ) : null}
             <p className="art-next-towns">
               I meet people in {towns}, and the towns around them. Or I can talk by phone.
             </p>
@@ -295,12 +339,15 @@ export function ArticleBody({
               <p className="art-next-towns">
                 More on this: <Link href={service.href}>{service.label}</Link>. Reviewing coverage
                 for 2027? Start with the{" "}
-                <Link href="/aep">free Annual Enrollment review, open October 15 to December 7</Link>.
+                <Link href="/aep">
+                  free Annual Enrollment review, open October 15 to December 7
+                </Link>
+                .
               </p>
             ) : null}
           </aside>
 
-          <GuideCapture />
+          {isMedicareArticle ? <GuideCapture /> : null}
           <div className="art-refs">
             <div>
               <h2>Sources</h2>
@@ -315,15 +362,22 @@ export function ArticleBody({
               </ol>
             </div>
             <div>
-              <h2>Related Medicare guides</h2>
+              <h2>Keep reading</h2>
               <ul className="art-related">
                 {[
                   ...article.related,
-                  { href: "/medicare-agent-greensboro-nc", label: "Medicare agent in Greensboro" },
-                  {
-                    href: "/north-carolina-medicare-programs",
-                    label: "North Carolina Medicare assistance programs",
-                  },
+                  ...(service
+                    ? [
+                        {
+                          href: "/medicare-agent-greensboro-nc",
+                          label: "Prepare for a Greensboro Medicare consultation",
+                        },
+                        {
+                          href: "/north-carolina-medicare-programs",
+                          label: "North Carolina Medicare assistance programs",
+                        },
+                      ]
+                    : []),
                 ]
                   .filter(
                     (item, index, items) =>

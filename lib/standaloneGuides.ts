@@ -6,6 +6,16 @@ export const STANDALONE_GUIDES: Array<{
   related: Array<{ title: string; href: string }>;
 }> = [
   {
+    slug: "72t-exceptions",
+    title: "72(t) exceptions: IRA and workplace plan rules",
+    description: "Compare exceptions to the 10% additional tax by account type. Learn how a 72(t) payment schedule differs from the rule of 55 and other exceptions.",
+    related: [
+      { title: "401(k) early withdrawal exceptions", href: "/guides/401k-early-withdrawal-exceptions" },
+      { title: "Roth conversion ladder", href: "/guides/roth-conversion-ladder-explained" },
+      { title: "Federal tax brackets explained", href: "/wealth/tax-brackets-explained-plainly" },
+    ],
+  },
+  {
     slug: "what-medicare-does-not-cover",
     title: "What Medicare doesn't cover",
     description:

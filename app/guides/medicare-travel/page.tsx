@@ -1,252 +1,127 @@
-import { MedicareByline } from "@/app/components/MedicareByline";
-import { pageTwitter } from "@/lib/seo";
-import type { Metadata } from "next";
-import Link from "next/link";
+import { SeoGuidePage, seoGuideMetadata, type SeoGuideData } from "@/app/components/SeoGuidePage";
 
-import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { GuideTownLinks } from "@/app/components/GuideTownLinks";
-import { KitchenTableClose } from "@/app/components/KitchenTableClose";
-import { GuideCapture } from "@/app/components/GuideCapture";
-import { StandaloneRelatedLinks } from "@/app/components/StandaloneRelatedLinks";
-import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
-
-/**
- * Does Medicare work out of state? Travel and moving with Medicare.
- *
- * Targets "does medicare advantage work out of state" / "can I use medicare
- * in another state". Emergency/urgent nationwide rule, HMO vs PPO, the
- * 6-month service-area rule, moving SEP, foreign travel.
- */
-
-export const metadata: Metadata = {
-  title: {
-    absolute: "Does Medicare Work Out of State? Travel Rules Explained",
-  },
+const data: SeoGuideData = {
+  slug: "medicare-travel",
+  title: "Do Medicare Advantage plans cover out of state?",
+  metaTitle: "Do Medicare Advantage Plans Cover Out of State?",
   description:
-    "Original Medicare works in every state. Medicare Advantage depends on your plan type. Emergency care is covered nationwide; routine care is not. Read on.",
-  alternates: { canonical: "/guides/medicare-travel" },
-  openGraph: pageOpenGraph({
-    title: "Does Medicare work out of state?",
-    description:
-      "Traveling or moving with Medicare: what works in every state, the emergency rule every Advantage plan must follow, and what changes when you move.",
-    path: "/guides/medicare-travel",
-  }),
-  twitter: pageTwitter({
-    title: "Does Medicare work out of state?",
-    description:
-      "Traveling or moving with Medicare: what works in every state, the emergency rule every Advantage plan must follow, and what changes when you move.",
-    path: "/guides/medicare-travel",
-  }),
+    "Medicare Advantage covers emergency and urgently needed care while traveling in the US. Routine care depends on your plan. Check HMO and PPO rules.",
+  published: "2026-10-08",
+  reviewed: "2026-11-05",
+  answer:
+    "Medicare Advantage plans cover emergency and urgently needed care while you're traveling in the United States. Routine out-of-state visits depend on your plan's network, benefits, and approval rules, so don't assume a doctor who accepts Medicare is covered by your plan.",
+  sections: [
+    {
+      title: "What kind of care do you need?",
+      paragraphs: [
+        "HMO plans generally restrict routine care to their network, with specified exceptions. PPO plans generally allow out-of-network covered services at a different cost, but provider acceptance and plan terms still matter. Sources: [Medicare HMO rules](https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/HMO), [Medicare PPO rules](https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/PPO).",
+      ],
+      table: {
+        caption: "What kind of care do you need?",
+        headers: ["Care while away", "What to check"],
+        rows: [
+          [
+            "Emergency care",
+            "Seek needed emergency treatment; follow the plan's reporting and follow-up instructions",
+          ],
+          [
+            "Urgently needed care",
+            "Covered out-of-area care under the plan's Medicare rules; ordinary cost sharing can still apply",
+          ],
+          [
+            "Routine appointment",
+            "Network participation, out-of-network benefits, referrals, and authorization",
+          ],
+          [
+            "Dialysis while temporarily away",
+            "Arrange the facility and coverage with the plan before travel",
+          ],
+        ],
+      },
+    },
+    {
+      title: "Ask before a planned appointment",
+      paragraphs: [
+        "Give member services the provider's name, location, service, and date. Ask whether the visit is covered, whether approval is required, and what cost sharing applies. Confirm with the provider too. A carrier's logo on a website doesn't prove participation in your exact plan. Keep the answer and any confirmation number.",
+      ],
+    },
+    {
+      title: "A long visit isn't the same as a move",
+      paragraphs: [
+        "Plans have rules about how long you can remain outside the service area. Ask before an extended stay. If you're changing your permanent address, a move-related Special Enrollment Period may apply. Use the [Medicare enrollment guide](https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods), not a routine travel benefit, to check that situation.",
+      ],
+    },
+    {
+      title: "Original Medicare and foreign travel",
+      paragraphs: [
+        "Original Medicare generally allows covered care with Medicare-accepting providers across the US. Standard Medigap generally follows covered Medicare services, while Medicare SELECT policies can have network restrictions. Foreign care has different, limited rules; don't use an out-of-state answer as an overseas-coverage promise. Source: [Medicare foreign coverage guide](https://www.medicare.gov/publications/11037-medicare-coverage-outside-the-united-states.pdf).",
+      ],
+    },
+    {
+      title: "Pack a coverage checklist before leaving",
+      bullets: [
+        "Take your plan card and member services number. Keep medication names and doses available.",
+        "For planned treatment, confirm the exact doctor, facility, service, network status, and any approval.",
+        "Arrange recurring treatment, including dialysis, ahead of time. Ask what happens if a prescription needs a refill away from home.",
+        "For overseas travel, check the destination, covered emergencies, reimbursement process, exclusions, and whether you need separate travel medical coverage.",
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "Can I see a routine specialist in another state?",
+      a: "Check the exact provider and service with the plan. HMO, PPO, network, and authorization rules matter.",
+    },
+    {
+      q: "Is emergency care free because I'm traveling?",
+      a: "No. Coverage doesn't remove the plan's applicable cost sharing.",
+    },
+    {
+      q: "Can I use my Medicare in another state?",
+      a: "Original Medicare generally covers services from providers that accept Medicare across the US. Medicare Advantage covers emergency and urgently needed out-of-area care, but planned visits depend on the exact plan.",
+    },
+    {
+      q: "Can I see a doctor in another state with Medicare?",
+      a: "With Original Medicare, generally yes if the doctor accepts Medicare and the service is covered. With Medicare Advantage, confirm the doctor, service, network rules, and any approval before a planned appointment.",
+    },
+  ],
+  sources: [
+    {
+      label: "Medicare HMO rules",
+      href: "https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/HMO",
+    },
+    {
+      label: "Medicare PPO rules",
+      href: "https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/PPO",
+    },
+    {
+      label: "Medicare enrollment guide",
+      href: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods",
+    },
+    {
+      label: "Medicare foreign coverage guide",
+      href: "https://www.medicare.gov/publications/11037-medicare-coverage-outside-the-united-states.pdf",
+    },
+  ],
+  related: [
+    {
+      href: "/guides/moving-to-north-carolina-medicare",
+      label: "Moving permanently to North Carolina",
+    },
+    {
+      href: "/medicare-advantage-doctor-networks",
+      label: "Check a plan's provider network",
+    },
+    {
+      href: "/medicare-advantage-vs-medigap-greensboro-nc",
+      label: "Compare Medicare Advantage and Medigap",
+    },
+  ],
+  closing:
+    "I'm Christian Brinkley, a licensed NC insurance agent in Greensboro, NC. Bring your travel plans and coverage questions to a phone review. Confirm planned care with your insurer. (919) 408-6671",
 };
 
-const FAQS: ReadonlyArray<{ q: string; a: string }> = [
-  {
-    q: "Can I use my Medicare Advantage plan in another state?",
-    a: "For emergencies and urgent care, yes, at in-network rates, anywhere in the United States. For routine care, it depends on your plan type. HMOs generally cover only in-network providers in the plan's service area.",
-  },
-  {
-    q: "Does Original Medicare work in every state?",
-    a: "Yes. Original Medicare works with any doctor or hospital in the country that accepts Medicare. No referrals, no networks, no state lines to worry about.",
-  },
-  {
-    q: "What happens if I move to another state?",
-    a: "Moving out of your plan's service area opens a special enrollment period. Original Medicare and Medigap move with you automatically. A Medicare Advantage plan may not operate in your new area, so you pick a new plan.",
-  },
-  {
-    q: "Can I keep my Medicare Advantage plan if I travel for months?",
-    a: "Most plans disenroll you if you are outside the service area for more than 6 months at a time. Some allow up to a year. Check your plan's Evidence of Coverage before a long trip.",
-  },
-  {
-    q: "Does Medicare cover me on a cruise or abroad?",
-    a: "Original Medicare does not pay for care outside the United States except in rare border situations. Some Medigap plans include foreign travel emergency coverage. Some Advantage plans cover emergencies abroad. Check your plan.",
-  },
-  {
-    q: "Is a PPO better than an HMO for travelers?",
-    a: "PPOs generally cover out-of-network care at a higher cost share, which helps on the road. HMOs generally do not. If you travel often or split time between states, network flexibility deserves a hard look each fall.",
-  },
-];
-
-export default function MedicareTravelPage() {
-  return (
-    <main className="text-[var(--color-navy)]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([
-              { name: "Home", path: "/" },
-              { name: "Guides", path: "/guides/medicare-travel" },
-              { name: "Medicare and travel", path: "/guides/medicare-travel" },
-            ]),
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            articleJsonLd({
-              headline: "Does Medicare Work Out of State? Travel Rules Explained",
-              description:
-                "Medicare travel rules: nationwide coverage under Original Medicare, the emergency rule for Advantage plans, moving to a new state, and foreign travel.",
-              path: "/guides/medicare-travel",
-              datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
-            }),
-          ),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(FAQS)) }}
-      />
-
-      <ServiceHero
-        crumbs={[
-          { name: "Home", href: "/" },
-          { name: "Guides" },
-          { name: "Medicare and travel" },
-        ]}
-        eyebrow="Guide · Updated October 8, 2026"
-        title="Does Medicare work out of state?"
-        lede="Visiting grandkids in Florida? Snowbirding for the winter? Whether your coverage travels with you depends on which kind of Medicare you have."
-        secondaryHref="/start?topic=medicare&stage=already_on_medicare"
-        secondaryLabel="Get a free coverage review"
-      />
-
-      <section className="bg-white py-14">
-        <div className="measure-prose app-shell max-w-4xl">
-          <div className="rounded-xl border-2 border-[var(--color-navy)] bg-[var(--color-paper)] p-6">
-            <p className="text-19 font-semibold">In short</p>
-            <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-              A service area is the set of counties where your Medicare Advantage plan operates.
-              Original Medicare has no service area. It works with any provider that accepts
-              Medicare, in all 50 states. Advantage plans are local by design, with one federal
-              exception: emergencies.
-            </p>
-          </div>
-
-          <h2 className="text-28 mt-12 font-semibold">Can I use my Medicare in another state?</h2>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            With Original Medicare, yes. It works with any provider that accepts Medicare, in all
-            50 states, and a Medigap plan travels the same way. With a Medicare Advantage plan,
-            emergency and urgent care are covered anywhere in the United States, but routine care
-            depends on the plan network: HMO plans generally cover only in-network providers, while
-            PPO plans generally cover out-of-network care at a higher cost. Before a long trip or a
-            move, check each doctor and hospital against the plan for that year.
-          </p>
-
-          <h2 className="text-28 mt-12 font-semibold">Original Medicare and Medigap: fully portable</h2>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            With Original Medicare, your red, white, and blue card works the same in every state.
-            See any doctor or hospital that accepts Medicare. No referrals needed. Medigap follows
-            the same rules, so your supplement travels too. If you move, nothing changes except your
-            address on file.
-          </p>
-
-          <h2 className="text-28 mt-12 font-semibold">
-            Medicare Advantage: emergencies yes, routine care maybe
-          </h2>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Federal law requires every Medicare Advantage plan to cover emergency and urgent care
-            anywhere in the United States. No higher copays for going out of network in an
-            emergency. That part is simple and universal.
-          </p>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Routine care is where plan type matters:
-          </p>
-          <ul className="text-17 mt-4 flex list-disc flex-col gap-3 pl-6 leading-relaxed text-[var(--color-ink-muted)]">
-            <li>
-              <strong className="text-[var(--color-navy)]">HMO plans</strong> generally cover only
-              providers inside the plan&apos;s network and service area. A checkup in another state is
-              typically not covered.
-            </li>
-            <li>
-              <strong className="text-[var(--color-navy)]">PPO plans</strong> generally cover
-              out-of-network care, but you pay more than you would at home.
-            </li>
-            <li>
-              <strong className="text-[var(--color-navy)]">Travel benefits</strong> are add-ons some
-              plans offer for temporary out-of-area care. They vary widely. Ask about them before
-              you enroll.
-            </li>
-          </ul>
-
-          <h2 className="text-28 mt-12 font-semibold">Moving to a new state</h2>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            A move out of your plan&apos;s service area opens a special enrollment period, so you can
-            pick new coverage in your new home. Original Medicare and Medigap need no changes. With
-            Medicare Advantage, check whether your plan operates in the new area. If it does not,
-            you will need a new plan.
-          </p>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Snowbirds, take note: most Advantage plans disenroll you if you stay outside the
-            service area for more than 6 continuous months. Some plans allow up to a year. Read
-            your plan&apos;s Evidence of Coverage before an extended stay.
-          </p>
-
-          <h2 className="text-28 mt-12 font-semibold">Outside the United States</h2>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Original Medicare does not pay for care in another country, except in rare situations
-            near the border. Some Medigap plans include foreign travel emergency coverage. Some
-            Medicare Advantage plans cover emergencies abroad. For a cruise or an overseas trip, ask
-            your plan exactly what is covered before you board.
-          </p>
-          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Choosing between plan types with travel in mind?{" "}
-            <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
-              Here is Medicare Advantage vs. Medigap in plain English
-            </Link>
-            . Moving soon?{" "}
-            <Link href="/special-enrollment" className="underline underline-offset-2">
-              Here is how special enrollment periods work
-            </Link>
-            .
-          </p>
-          <GuideTownLinks />
-        </div>
-      </section>
-
-      <section className="bg-[var(--color-paper)] py-14">
-        <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Common questions</h2>
-          <dl className="mt-8 flex flex-col gap-6">
-            {FAQS.map((item) => (
-              <div key={item.q} className="border-t border-gray-300 pt-5">
-                <dt className="text-19 font-semibold">{item.q}</dt>
-                <dd className="text-17 mt-1 leading-relaxed text-[var(--color-ink-muted)]">
-                  {item.a}
-                </dd>
-              </div>
-            ))}
-          </dl>
-          <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-            Travel or planning a move? Call or text Christian Brinkley in Greensboro, NC at{" "}
-            {AGENT.phone}. The review is free, with no obligation.
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-white py-14">
-        <div className="measure-prose app-shell max-w-3xl">
-          <StandaloneRelatedLinks slug="medicare-travel" />
-          <GuideCapture />
-        </div>
-      </section>
-
-      <KitchenTableClose
-        heading="Make sure your plan fits your life on the road"
-        body={`Tell me where you travel and where you might move. I will check that your coverage travels with you. Call or text ${AGENT.phone}.`}
-        href="/start?topic=medicare&stage=already_on_medicare"
-        label="Request a free review"
-      />
-
-      <div className="measure-prose app-shell max-w-3xl pb-12">
-        <ComplianceDisclosure variant="medicare" />
-      </div>
-      <MedicareByline reviewed="2026-10-08" />
-    </main>
-  );
+export const metadata = seoGuideMetadata(data);
+export default function Page() {
+  return <SeoGuidePage data={data} />;
 }

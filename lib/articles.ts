@@ -192,261 +192,272 @@ export const ARTICLES: Article[] = [
 
   {
     slug: "are-medicare-supplement-plans-the-same",
-    title: "Are Medicare Supplement plans the same no matter the company?",
-    // Retitled Oct 29, 2026: page 1 (position 7.3) with 130 impressions and
-    // no clicks. The title now gives the answer and the reason to click.
-    metaTitle: "Medigap Plans Are the Same at Every Company. Prices Aren't.",
+    title: "Are Medicare Supplement plans the same?",
+    metaTitle: "Are Medicare Supplement Plans the Same? What Differs",
     description:
-      "Same letter, same coverage, whichever company sells it. What changes is the price, how fast it rises, and the extras. Here's how to compare before you switch.",
-    keyword: "are Medigap plans standardized by letter",
+      "Same-letter Medigap plans have the same standard benefits. Compare premiums, policy type, extras, and switching rules before choosing.",
+    keyword: "are medicare supplement plans the same",
     eyebrow: "Medicare questions, answered",
-    lede: "The letter tells you what is covered. The company decides the price and the extras.",
+    lede: "Same-letter Medigap plans have the same standard benefits in NC. Premiums, policy types, and switching protections still need a separate check.",
     published: "2026-10-01",
-    updated: "2026-10-01",
+    updated: "2026-11-05",
     intro:
-      "If you have a Medicare Supplement plan, you may have noticed that a neighbor’s plan looks different from yours. Or a benefit you liked has been dropped. Here is what is standard, what is not, and what to do when your plan changes.",
+      "In North Carolina, Medicare Supplement plans with the same letter have the same standardized benefits. A standard Plan G from one insurer has the same core coverage as a standard Plan G from another, but the premium can differ.",
     sections: [
       {
-        h2: "Medigap plans are standardized by letter",
+        h2: "Same letter versus different letters",
         blocks: [
-          p(
-            "Medicare Supplement plans are also called Medigap. In North Carolina, and in most states, each plan letter covers the same core benefits no matter which company sells it. A Plan G from one company covers the same things as a Plan G from another.",
-          ),
-          p(
-            "Medicare.gov says that for same-letter plans, price is the main difference. Massachusetts, Minnesota, and Wisconsin set up their plans differently, but that does not apply here.",
-          ),
-          p(
-            "The common letters are A, B, D, G, K, L, M, and N. Plans C and F are not sold to people who became eligible for Medicare on or after January 1, 2020. If you have one already, you can usually keep it. Medicare.gov has a chart that shows exactly what each letter covers, and it is worth reading before you compare anything.",
-          ),
+          {
+            kind: "table",
+            headers: ["Comparison", "What stays the same or changes"],
+            rows: [
+              [
+                "Standard Plan G from two insurers",
+                "Same standardized benefits; premiums can differ",
+              ],
+              ["Plan G versus Plan N", "Different standardized benefits and cost sharing"],
+              ["Standard Plan G versus high-deductible Plan G", "Different deductible arrangement"],
+              [
+                "Medigap versus Medicare Advantage",
+                "Different coverage paths, not interchangeable policies",
+              ],
+            ],
+          },
+          {
+            kind: "p",
+            text: "Use [Medicare's benefit chart](https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits) to compare letters. Massachusetts, Minnesota, and Wisconsin standardize policies differently.",
+          },
         ],
       },
       {
-        h2: "What does differ between companies",
+        h2: "What to compare between companies",
         blocks: [
-          p("Even with the same letter, two things can be very different:"),
-          ul(
-            "The monthly premium. Companies price the same plan differently, and they raise prices at different rates over the years.",
-            "How the price is set. Some companies price by the age you were when you bought it, some by your current age, and some charge the same rate at every age. That changes how the premium behaves over time, so it is worth asking.",
-            "Extras. Some companies add things outside the standard benefits, like fitness programs or discounts. Those extras are the company’s choice.",
-          ),
-          p(
-            "One thing Medigap can help with: the daily coinsurance for skilled nursing facility stays. [Does Medicare cover nursing homes](/answers/does-medicare-cover-nursing-homes) explains the 100-day rule and where Medigap fits in.",
-          ),
+          {
+            kind: "p",
+            text: "Compare the current premium, how the policy is priced, available discounts, and the policy's terms. Ask about past rate changes, but don't treat them as a prediction. Optional extras aren't standardized Medigap benefits and may change. Medicare SELECT policies can have network requirements, so don't assume every policy works exactly like a standard Medigap policy.",
+          },
         ],
       },
       {
-        h2: "Why a perk can disappear",
+        h2: "Switching is a separate question",
         blocks: [
-          p(
-            "Extras are not part of the standard plan, so a company can change or drop them. That is a company decision. It is not a Medicare rule.",
-          ),
-          p(
-            "Here is something that confuses a lot of people. The Annual Notice of Change is for Medicare Advantage and Part D plans. Those plans must send it by September 30, and it lists what changes on January 1. Medigap policies do not use that notice. Your Medigap company sends its own letters about premium changes and other updates.",
-          ),
-          p(
-            "If you are not sure which kind of plan you have, check your paperwork. A Medigap policy names a plan letter, such as Plan G, and you keep using your red, white, and blue Medicare card. A Medicare Advantage plan has its own plan name and its own member card.",
-          ),
+          {
+            kind: "p",
+            text: "Equal benefits don't mean automatic approval to switch insurers. Your six-month Medigap Open Enrollment Period starts when you're at least 65 and enrolled in Part B. Outside that period, medical underwriting may apply unless you have a guaranteed issue right. The fall Medicare enrollment window doesn't create a general right to change Medigap without health questions. Confirm approval and effective dates before canceling your current policy. See [Medicare's buying guidance](https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy).",
+          },
         ],
       },
       {
-        h2: "What to do when a notice arrives",
+        h2: "Compare two written quotes",
         blocks: [
-          ul(
-            "Read it all the way through, and note exactly what changed.",
-            "If it is a price increase, check what other companies charge for the same letter.",
-            "Do not cancel your current plan until a new one is approved. Outside your Medigap open enrollment window, a new company may ask health questions and can say no.",
-            "Ask someone you trust to read it with you. A second set of eyes catches things.",
-          ),
-          p(
-            "The October 15 to December 7 Annual Enrollment Period does not apply to Medigap the way it does to Advantage and Part D. If you have a Medicare Advantage or Part D plan as well, that is the window to review your Annual Notice of Change.",
-          ),
+          {
+            kind: "p",
+            text: "Put the quotes side by side with the same effective date, plan letter, and policy type. A standard Plan G quote shouldn't be compared with a high-deductible Plan G quote as if benefits start paying at the same point. Ask whether a quoted discount depends on another person living in the household and whether it can change. Keep the policy outline so the comparison doesn't depend on a sales headline.",
+          },
+          {
+            kind: "p",
+            text: "Check how the premium is rated: community-rated, issue-age-rated, or attained-age-rated. The rating method helps explain how age affects pricing, but none of these labels promises fixed premiums. Other permitted rate changes can still occur. A lower first premium doesn't establish the future total cost. Ask the insurer for the policy's terms and current rates, then compare using the same assumptions.",
+          },
+          {
+            kind: "p",
+            text: "If you're choosing between letters, compare the [Plan G and Plan N differences](/guides/medigap-plan-g-vs-plan-n-nc) first. Plan N doesn't include [Part B excess-charge coverage](/answers/what-are-medicare-part-b-excess-charges). These are coverage decisions, not just differences between companies. Compare prescription coverage separately because modern Medigap policies don't include Part D. Medigap supplements Original Medicare; it isn't a Medicare Advantage plan.",
+          },
+          {
+            kind: "p",
+            text: "Before switching, ask which enrollment protection applies to you and whether underwriting is required. Written approval matters more than an illustration of a possible premium. Check the effective date, the first payment, and when the old coverage ends. If you have Medicare Advantage now, returning to Original Medicare and obtaining Medigap are separate enrollment questions. Don't assume an Advantage election guarantees acceptance into a supplement. Keep notices that may establish a guaranteed issue right, and check its deadline. These protections depend on your circumstances, not simply the month you make the request.",
+          },
         ],
       },
     ],
     faq: [
       {
-        q: "What perks have been removed from Medicare Supplement plans?",
-        a: "It depends on the company. Extras like fitness programs and discounts are not part of the standard Medigap benefits, so each company can change them. Your plan’s letters and notices list what changed for your policy.",
-      },
-      {
         q: "Is Plan G the same with every company?",
-        a: "The core benefits are the same. Premiums, how the price is set, and any extras can differ from one company to the next.",
+        a: "The standardized benefits are the same when you're comparing the same policy type. Compare the premium and terms separately.",
       },
       {
-        q: "Why did my plan remove a benefit?",
-        a: "If the benefit was one of the extras a company adds, it is the company’s decision to keep or drop it. Standard Medigap benefits are set by the plan letter and do not change by company.",
+        q: "Is Plan N the same as Plan G?",
+        a: "No. Different letters have different benefits. For example, Plan N doesn't cover Part B excess charges.",
       },
       {
-        q: "Does Medigap get an Annual Notice of Change?",
-        a: "No. That notice goes to Medicare Advantage and Part D members. Medigap companies send their own notices about premiums and policy changes.",
+        q: "Can I switch Medigap every fall without health questions?",
+        a: "Not just because it's fall. Your enrollment protections and any guaranteed issue right determine that.",
       },
     ],
     sources: [
       {
-        label: "Medicare.gov: Medigap in Massachusetts, Minnesota, and Wisconsin",
-        href: "https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits/minnesota",
+        label: "Medicare's benefit chart",
+        href: "https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits",
       },
       {
-        label: "Medicare.gov: Plan Annual Notice of Change (ANOC)",
-        href: "https://www.medicare.gov/basics/forms-publications-mailings/mailings/costs-and-coverage/upcoming-plan-changes",
-      },
-      {
-        label: "Medicare.gov: Choosing a Medigap policy (PDF)",
-        href: "https://www.medicare.gov/publications/02110-medigap-guide-health-insurance.pdf",
+        label: "Medicare's buying guidance",
+        href: "https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy",
       },
     ],
     related: [
-      { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
-      { label: "Does Medicare cover nursing homes or in-home care?", href: "/answers/does-medicare-cover-nursing-homes" },
-      { label: "Turning 65 in North Carolina: your Medicare checklist", href: "/answers/turning-65-medicare-checklist-north-carolina" },
-      { label: "Medicare Advantage vs Medigap in the Triad", href: "/medicare-advantage-vs-medigap-greensboro-nc" },
-      { label: "Your Annual Notice of Change, explained", href: "/anoc" },
-      { label: "What Medicare costs in 2026", href: "/medicare-costs-2026" },
+      {
+        label: "Medigap premium increase",
+        href: "/guides/medigap-premium-increase",
+      },
+      {
+        label: "Medigap plan g vs plan n nc",
+        href: "/guides/medigap-plan-g-vs-plan-n-nc",
+      },
+      {
+        label: "What are medicare part b excess charges",
+        href: "/answers/what-are-medicare-part-b-excess-charges",
+      },
+      {
+        label: "Should I stay on Original Medicare or switch to Medicare Advantage?",
+        href: "/answers/original-medicare-or-medicare-advantage",
+      },
+      {
+        label: "Does Medicare cover nursing homes or in-home care?",
+        href: "/answers/does-medicare-cover-nursing-homes",
+      },
+      {
+        label: "Turning 65 in North Carolina: your Medicare checklist",
+        href: "/answers/turning-65-medicare-checklist-north-carolina",
+      },
     ],
     startHref: "/start?topic=medicare&stage=already_on_medicare",
   },
 
-{
+  {
     slug: "does-medicare-cover-nursing-homes",
-    title: "Does Medicare Cover Nursing Homes?",
-    metaTitle: "Does Medicare Cover Nursing Homes? 2026 Guide",
+    title: "Does Medicare cover nursing homes?",
+    metaTitle: "Does Medicare Cover Nursing Homes? Costs and Limits",
     description:
-      "Does Medicare cover nursing homes? Mostly no. Up to 100 days of skilled nursing after a hospital stay, but not long-term care. Read the plain-English guide.",
+      "Medicare generally doesn't pay for long-term nursing home care. Learn when skilled nursing qualifies, the 2026 costs, and what families should ask.",
     keyword: "does medicare cover nursing homes",
     eyebrow: "Medicare questions, answered",
-    lede: "The short answer is mostly no. Medicare covers up to 100 days of skilled nursing after a qualifying hospital stay. It does not pay for long-term custodial care.",
+    lede: "Medicare generally doesn't cover long-term custodial nursing home care. A limited skilled nursing stay can qualify under separate rules.",
     published: "2026-10-01",
-    updated: "2026-10-09",
+    updated: "2026-11-05",
     intro:
-      "If a parent is in the hospital right now, here is the short answer: mostly no. Medicare can pay for up to 100 days of skilled nursing after a qualifying 3-day inpatient stay, but only while daily skilled care is needed. Once the need becomes long-term custodial care (help with bathing, dressing, eating), Medicare stops paying. This page explains each piece. It is general education, not advice.",
+      "Medicare generally doesn't cover long-term nursing home care when you mainly need help with daily activities. Part A can cover a limited skilled nursing facility stay if you meet its conditions, but “up to 100 days” doesn't mean everyone receives 100 covered days.",
     sections: [
       {
-        h2: "The 100-day rule, explained",
+        h2: "Skilled care and personal care aren't the same",
         blocks: [
-          p(
-            "It is not 100 free days. Here is how the 2026 costs break down per benefit period:",
-          ),
-          ul(
-            "Days 1 to 20: $0 after the $1,736 Part A deductible. Already paid it for the hospital stay? You do not pay it again.",
-            "Days 21 to 100: $217 per day.",
-            "Day 101 and beyond: Medicare pays nothing.",
-          ),
-          p(
-            "Medicare Advantage plans set their own skilled nursing costs and rules. Check with the plan before a move.",
-          ),
+          {
+            kind: "p",
+            text: "Skilled care requires professional nursing or therapy. Custodial care is help with activities such as bathing, dressing, and eating. A nursing home can provide both, but the building's name doesn't determine Medicare coverage. Ask which services are being provided and why they qualify.",
+          },
         ],
       },
       {
-        h2: "What has to be true to qualify",
+        h2: "When a skilled nursing stay can qualify",
         blocks: [
-          p(
-            "Medicare Part A does not cover a nursing home stay just because someone needs help. All three of these have to be true:",
-          ),
-          ul(
-            "A medically necessary inpatient hospital stay of at least 3 days in a row. Time in the emergency room or under observation status does not count toward the 3 days.",
-            "Admission to the skilled nursing facility within a short window after leaving the hospital, generally 30 days.",
-            "A need for daily skilled care, meaning nursing or therapy that has to be done by trained professionals. A doctor has to order it.",
-          ),
-          p(
-            "Miss any one and Medicare does not cover the stay. Ask the hospital whether the stay counts as inpatient before discharge day. Observation status does not count.",
-          ),
+          {
+            kind: "p",
+            text: "Original Medicare generally requires a qualifying three-day inpatient hospital stay, admission to a Medicare-certified skilled nursing facility within about 30 days, and a need for daily skilled care. Observation time doesn't count toward the usual hospital-stay requirement. Certain approved ACO arrangements and Medicare Advantage plans can waive that three-day rule. Skilled care can qualify to maintain a condition or prevent deterioration, not only to produce improvement. Source: [Medicare skilled nursing coverage](https://www.medicare.gov/coverage/skilled-nursing-facility-care).",
+          },
         ],
       },
       {
-        h2: "Skilled care versus custodial care",
+        h2: "Original Medicare skilled nursing costs in 2026",
         blocks: [
-          p(
-            "This distinction decides everything. Skilled care is nursing or therapy that requires trained professionals, like wound care, IV medication, or physical therapy after surgery. Medicare can pay for skilled care for a limited time.",
-          ),
-          p(
-            "Custodial care is help with daily living: bathing, dressing, eating, using the bathroom, and getting in and out of bed. Most long stays in a nursing home are for custodial care. Medicare does not pay for custodial care when it is the only care needed.",
-          ),
-          p(
-            "Coverage ends when the need becomes custodial only, even if 100 days are not used up.",
-          ),
+          {
+            kind: "table",
+            headers: [
+              "Covered days in a benefit period",
+              "Patient cost listed by Medicare for 2026",
+            ],
+            rows: [
+              [
+                "1 through 20",
+                "$0 per day after any applicable $1,736 Part A deductible; no repeat deductible if already paid for the hospital care in that benefit period",
+              ],
+              ["21 through 100", "$217 per day"],
+              ["101 onward", "All costs"],
+            ],
+          },
+          {
+            kind: "p",
+            text: "These figures are for 2026, not a projection for 2027. Coverage can end earlier if the conditions aren't met. Medicare Advantage cost sharing can differ. Source: [Medicare's current SNF cost section](https://www.medicare.gov/coverage/skilled-nursing-facility-care).",
+          },
         ],
       },
       {
-        h2: "Medicare versus Medicaid for nursing homes",
+        h2: "What happens when long-term care is needed",
         blocks: [
-          p(
-            "People mix these two up, and the difference matters here. Medicare is federal health insurance, mostly for people 65 and older. It follows the rules above: limited skilled care, no long-term custodial coverage.",
-          ),
-          p(
-            "Medicaid is a joint federal and state program for people with limited income and assets. Unlike Medicare, Medicaid can pay for long-term nursing home care, including custodial care. Each state sets its own income and asset limits and its own application process.",
-          ),
-          p(
-            "[NC Medicaid](https://medicaid.nc.gov) explains who qualifies. I do not give advice on qualifying; an elder law attorney is the right person for that.",
-          ),
+          {
+            kind: "p",
+            text: "Ask about private payment, any existing long-term care policy, and Medicaid eligibility. NC Medicaid decides whether someone qualifies for its long-term-care coverage. An elder law attorney can explain legal and asset questions. Medicare can still cover eligible medical services while a person lives in a nursing home, even when it doesn't pay the residence's custodial-care bill. Source: [Medicare nursing-home payment guidance](https://www.medicare.gov/providers-services/original-medicare/nursing-homes/payment).",
+          },
         ],
       },
       {
-        h2: "What does pay for long-term care",
+        h2: "Questions for the hospital discharge team",
         blocks: [
-          p("When Medicare does not cover a long stay, families usually rely on a mix of these:"),
-          ul(
-            "Personal savings and income. This is the most common way long nursing home stays get paid.",
-            "Long-term care insurance, if someone bought a policy before the need arose. [Here is how that works.](/long-term-care-insurance)",
-            "Medicaid, for those who meet their state's income and asset limits.",
-            "Veterans benefits, for those who qualify through VA programs.",
-          ),
-          p(
-            "The right mix depends on savings, timing, and family situation. Understand the options before a crisis forces fast decisions.",
-          ),
-        ],
-      },
-      {
-        h2: "If a parent needs long-term care",
-        blocks: [
-          p(
-            "Plan while everyone is healthy. Once a parent is hospitalized, the 3-day and 30-day rules start counting fast. Ask the discharge planner whether the stay counts as inpatient, get the facility's daily rate after day 100, and talk to an elder law attorney early if long-term care looks likely. [Helping a parent with Medicare](/helping-a-parent) has more on this.",
-          ),
+          {
+            kind: "p",
+            text: "Before agreeing to a facility, ask whether it is Medicare-certified and has a bed for the prescribed care. Confirm the hospital admission status and dates. Ask who documents the daily skilled need, what the treatment plan includes, and which coverage rules apply. With Medicare Advantage, ask about the network and required authorization. Request a written coverage explanation when possible.",
+          },
+          {
+            kind: "p",
+            text: "A benefit period isn't simply a calendar year. Ask how the hospital and skilled nursing days fit into the same benefit period, including previously used days. A new year alone doesn't create another guaranteed 100 days. If you receive a notice saying covered care is ending, read its appeal instructions and deadlines promptly. A discharge date and coverage end date can raise different questions.",
+          },
+          {
+            kind: "p",
+            text: "Keep an estimate separating skilled care from room, board, personal care, and optional services. Ask what the facility charges if Medicare coverage ends while a person still needs somewhere to live. Read any existing long-term care policy's limits. [Helping a parent with Medicare](/helping-a-parent) can help organize questions, but the facility and coverage administrator must confirm the actual claim.",
+          },
+          {
+            kind: "p",
+            text: "Keep the facility's coverage notices with the hospital discharge records. They help explain the reason for a coverage decision and the steps available if you disagree.",
+          },
         ],
       },
     ],
     faq: [
       {
-        q: "Does Medicare cover nursing homes?",
-        a: "Mostly no. Medicare Part A can pay for up to 100 days in a skilled nursing facility after a qualifying 3-day inpatient hospital stay, but only while daily skilled nursing or therapy is needed. It does not pay for long-term custodial care.",
+        q: "Is 100 days guaranteed?",
+        a: "No. It's a maximum per benefit period while the coverage conditions remain satisfied.",
       },
       {
-        q: "How many days will Medicare pay for in a nursing home?",
-        a: "Up to 100 days per benefit period. In 2026, you pay $0 for days 1 to 20 after the $1,736 Part A deductible, then $217 per day for days 21 to 100. After day 100, Medicare pays nothing.",
+        q: "Does observation count toward the three inpatient days?",
+        a: "Not under the usual Original Medicare rule. Ask the hospital about your status and any applicable waiver.",
       },
       {
-        q: "What is the 100-day Medicare rule for skilled nursing?",
-        a: "After a qualifying 3-day inpatient hospital stay, Medicare covers up to 100 days of skilled nursing facility care per benefit period. Days 1 to 20 cost $0 after the Part A deductible, days 21 to 100 cost $217 per day in 2026, and coverage ends at day 101.",
-      },
-      {
-        q: "Does Medicare pay for long-term care in a nursing home?",
-        a: "No. Medicare does not cover long-term custodial care, which is help with daily living like bathing, dressing, and eating. Long-term nursing home stays are usually paid from savings, long-term care insurance, or Medicaid for those who qualify.",
-      },
-      {
-        q: "What is the difference between Medicare and Medicaid for nursing home care?",
-        a: "Medicare is federal health insurance for people 65 and older. It covers limited skilled nursing after a hospital stay but not long-term custodial care. Medicaid is a federal-state program for people with limited income that can pay for long-term nursing home care, including custodial care.",
+        q: "Does Medigap turn long-term custodial care into a covered service?",
+        a: "No. It may help with covered Medicare cost sharing, depending on the plan, but doesn't create Medicare coverage for custodial care.",
       },
     ],
     sources: [
       {
-        label: "Medicare.gov: Skilled nursing facility (SNF) care",
-        href: "https://www.medicare.gov/coverage/skilled-nursing-facility-snf-care",
+        label: "Medicare skilled nursing coverage",
+        href: "https://www.medicare.gov/coverage/skilled-nursing-facility-care",
       },
       {
-        label: "Medicare.gov: Home health services",
-        href: "https://www.medicare.gov/coverage/home-health-services",
-      },
-      {
-        label: "CMS: 2026 Medicare Parts A and B premiums and deductibles",
-        href: "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+        label: "Medicare nursing-home payment guidance",
+        href: "https://www.medicare.gov/providers-services/original-medicare/nursing-homes/payment",
       },
     ],
     related: [
-      { label: "Helping a parent with Medicare", href: "/helping-a-parent" },
-      { label: "Care and critical illness coverage", href: "/care-coverage" },
-      { label: "Long-term care insurance", href: "/long-term-care-insurance" },
-      { label: "What Medicare costs in 2026", href: "/medicare-costs-2026" },
-      { label: "Are Medicare Supplement plans the same?", href: "/answers/are-medicare-supplement-plans-the-same" },
-      { label: "Turning 65 in North Carolina: your Medicare checklist", href: "/answers/turning-65-medicare-checklist-north-carolina" },
+      {
+        label: "Helping a parent",
+        href: "/helping-a-parent",
+      },
+      {
+        label: "Observation status three day rule",
+        href: "/guides/observation-status-three-day-rule",
+      },
+      {
+        label: "Long term care insurance",
+        href: "/long-term-care-insurance",
+      },
+      {
+        label: "Care and critical illness coverage",
+        href: "/care-coverage",
+      },
+      {
+        label: "What Medicare costs in 2026",
+        href: "/medicare-costs-2026",
+      },
+      {
+        label: "Are Medicare Supplement plans the same?",
+        href: "/answers/are-medicare-supplement-plans-the-same",
+      },
     ],
     startHref: "/start?topic=care_coverage",
   },
@@ -1998,103 +2009,148 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=medicare&stage=turning_65_soon",
   },
+
   {
     slug: "how-to-apply-for-medicare",
-    title: "How do I apply for Medicare?",
-    metaTitle: "How to Apply for Medicare: Online, Phone, or In Person",
+    title: "How to apply for Medicare",
+    metaTitle: "How to Apply for Medicare: Official Steps and Links",
     description:
-      "Apply for Medicare online at ssa.gov, by phone, or at your local Social Security office. What you need, when to apply, and what happens next. Read on.",
-    keyword: "how do I apply for Medicare",
+      "Apply for Medicare through Social Security. Find the official online route, Part B-only steps, enrollment timing, and what to check after applying.",
+    keyword: "how to apply for medicare",
     eyebrow: "Medicare questions, answered",
-    lede: "Online at ssa.gov takes about ten minutes. Here is what you need, when to apply, and what happens after you submit.",
+    lede: "Apply for Medicare Parts A and B through Social Security. First check whether you're enrolled automatically and which enrollment window applies.",
     published: "2026-10-10",
-    updated: "2026-10-10",
+    updated: "2026-11-05",
     intro:
-      "The fastest way to apply for Medicare is online at ssa.gov, and it takes about ten minutes. You can also call Social Security at 1-800-772-1213 or visit your local office in person. If you already receive Social Security benefits when you turn 65, you do not need to apply at all. Enrollment in Parts A and B is automatic, and your card arrives in the mail. Everyone else should apply during the seven-month Initial Enrollment Period around their 65th birthday.",
+      "Apply for Medicare Parts A and B through Social Security at its official Medicare sign-up page, by phone, or through an arranged office appointment. Some people are enrolled automatically, so first check whether you need to apply and whether you're applying for both parts or Part B only.",
     sections: [
       {
-        h2: "Applying online: what you need",
+        h2: "Choose the right official route",
         blocks: [
-          p(
-            "Go to ssa.gov and find the Medicare application. You will need your Social Security number, your birth certificate or proof of citizenship, and information about any current health coverage. You do not need to visit an office or mail anything in most cases. If you are applying for Social Security retirement at the same time, the systems connect and one application can start both.",
-          ),
-          p(
-            "After you submit, Social Security mails your Medicare card with your Medicare number. Keep an eye out for it and store the card somewhere safe. Never laminate it. Use a protective sleeve instead.",
-          ),
+          {
+            kind: "table",
+            headers: ["Your situation", "Start here"],
+            rows: [
+              [
+                "Need Parts A and B, or Part A only",
+                "[SSA Medicare sign-up](https://www.ssa.gov/medicare/sign-up)",
+              ],
+              ["Have Part A and need Part B", "Use the Part B-only option on the same SSA page"],
+              [
+                "Unsure about automatic enrollment",
+                "[Medicare's sign-up questions](https://www.medicare.gov/basics/get-started-with-medicare/sign-up/how-do-i-sign-up-for-medicare)",
+              ],
+              ["Need Medicare because of ESRD", "Follow SSA's ESRD instructions and contact route"],
+            ],
+          },
+          {
+            kind: "p",
+            text: "You can apply for Medicare without starting Social Security retirement benefits. Choosing Medicare Advantage, Medigap, or Part D is a separate step from applying for Parts A and B.",
+          },
         ],
       },
       {
-        h2: "Applying by phone or in person",
+        h2: "Check timing before submitting",
         blocks: [
-          p(
-            "Call 1-800-772-1213, Monday through Friday. An agent takes the same application over the phone. If you prefer face to face, your local Social Security office takes walk-ins and appointments.",
-          ),
-          p(
-            "In Greensboro the office is at 6005 Landmark Center Boulevard, open Monday through Friday 9 to 4. Appointments are required for most visits now, so call the local number, 1-877-319-3075, before you go.",
-          ),
+          {
+            kind: "p",
+            text: "For most people turning 65, the Initial Enrollment Period starts three months before the birthday month and ends three months after it. Current work coverage can create a different enrollment path. First-day-of-month birthdays and eligibility before 65 need their own check. Use [Medicare's timing guide](https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-can-i-sign-up-for-medicare) rather than assuming every birthday produces the same dates.",
+          },
         ],
       },
       {
-        h2: "When to apply",
+        h2: "Prepare the information SSA requests",
         blocks: [
-          p(
-            "Apply during your Initial Enrollment Period: the three months before your 65th birthday month, your birthday month, and the three months after. Applying early means your coverage starts on time. Since 2023, if you apply in the last three months of the window, coverage starts the first of the next month instead of making you wait.",
-          ),
-          p(
-            "If you are delaying Part B because of employer coverage, you apply later during your Special Enrollment Period instead. The online application handles that path too.",
-          ),
+          {
+            kind: "p",
+            text: "Have your identifying details and current coverage information ready. If you're enrolling after delaying Part B because of work coverage, ask which proof of employment and coverage is required. SSA may need form CMS-L564, and Part B-only enrollment has its own instructions. Submit sensitive documents through official SSA channels, not a general agent contact form.",
+          },
         ],
       },
       {
-        h2: "After you apply: the card and the next steps",
+        h2: "After the application",
         blocks: [
-          p(
-            "Your red, white, and blue Medicare card arrives by mail with your Medicare number, which replaced Social Security numbers on cards years ago. Guard that number like you guarded your Social Security number. It is the key to your medical identity.",
-          ),
-          p(
-            "Once you have Parts A and B, you can add drug coverage, compare Medigap or Advantage options, and set up how you pay the Part B premium. If you take Social Security, the premium comes out of your check automatically. While you wait for the card, you can already compare drug plans and Medigap or Advantage options so you are ready to decide the day it arrives.",
-          ),
+          {
+            kind: "p",
+            text: "Keep the confirmation and check your application status with SSA. Verify the Part A and Part B effective dates when coverage is approved. Coordinate any separate plan enrollment with those dates. If you need an office visit, use SSA's appointment and office-locator information before traveling. Source: [SSA application instructions](https://www.ssa.gov/medicare/sign-up).",
+          },
+        ],
+      },
+      {
+        h2: "Check automatic enrollment and work coverage",
+        blocks: [
+          {
+            kind: "p",
+            text: "Automatic enrollment commonly applies when Social Security retirement benefits started at least four months before you turn 65. Railroad Retirement Board benefits have their own contact route. Check your enrollment notice and Medicare card rather than treating any retirement payment as proof that every part is active. Confirm whether Part B is included and what date it begins before changing other coverage.",
+          },
+          {
+            kind: "p",
+            text: "If you're still working, speak with the employer benefits administrator before deciding when to start Part B. Current employment coverage can matter for a Special Enrollment Period. The rules about which insurance pays first also matter. COBRA and retiree coverage don't work like current employment coverage for every enrollment rule. The [working past 65 guide](/guides/medicare-part-b-employer-coverage) explains what to ask. If you contribute to an HSA, check Medicare's effective date and possible retroactive coverage first.",
+          },
+          {
+            kind: "p",
+            text: "Use SSA's phone or appointment options if the online route doesn't fit. Don't assume a nearby office accepts walk-ins or has the same hours as another location. Respond to requests for missing information through official channels. An agent can explain coverage choices, but SSA handles the Parts A and B application and makes the enrollment determination.",
+          },
+          {
+            kind: "p",
+            text: "Check your name and coverage dates when the card arrives. Store the card and confirmation securely. Choosing separate prescription or health coverage requires another decision. Don't cancel existing coverage solely because you've submitted an application. Confirm approval and the date replacement coverage begins first.",
+          },
         ],
       },
     ],
     faq: [
       {
-        q: "Do I need to apply if I already get Social Security?",
-        a: "No. If you receive Social Security or Railroad Retirement benefits before 65, Parts A and B start automatically and your card arrives by mail.",
+        q: "Can I apply for Medicare without retiring?",
+        a: "Yes. Medicare enrollment and claiming Social Security retirement are separate decisions.",
       },
       {
-        q: "Can someone apply for me?",
-        a: "A trusted person can help you complete the application, and you can designate a representative to deal with Social Security on your behalf with the proper authorization.",
+        q: "Am I automatically enrolled if I receive Social Security?",
+        a: "It depends on when benefits began and your situation. Medicare's official questions explain whether automatic enrollment applies.",
       },
       {
-        q: "How long does the online application take?",
-        a: "About ten minutes for most people. You get a confirmation number, and your card arrives by mail in a few weeks.",
-      },
-      {
-        q: "What if I lose my Medicare card?",
-        a: "Request a free replacement by calling 1-800-MEDICARE or logging into your ssa.gov account. Do not laminate the card; use a protective sleeve.",
-      },
-      {
-        q: "Can I apply for Medicare before I turn 65?",
-        a: "Yes. Your Initial Enrollment Period opens three months before your 65th birthday month, and applying early means your coverage starts right on time.",
+        q: "Does applying for Parts A and B enroll me in a drug plan?",
+        a: "Don't assume so. Review your drug-coverage choices separately.",
       },
     ],
     sources: [
       {
-        label: "Social Security: Apply for Medicare",
-        href: "https://www.ssa.gov/medicare",
+        label: "SSA Medicare sign-up",
+        href: "https://www.ssa.gov/medicare/sign-up",
       },
       {
-        label: "Medicare.gov: Get started with Medicare",
-        href: "https://www.medicare.gov/basics/get-started-with-medicare",
+        label: "Medicare's sign-up questions",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/how-do-i-sign-up-for-medicare",
+      },
+      {
+        label: "Medicare's timing guide",
+        href: "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-can-i-sign-up-for-medicare",
       },
     ],
     related: [
-      { label: "Build your turning-65 timeline", href: "/turning-65" },
-      { label: "What if I miss my Initial Enrollment Period?", href: "/answers/missed-iep-penalties" },
-      { label: "Do I have to enroll at 65 if I am still working?", href: "/answers/working-past-65-medicare" },
-      { label: "Every 2026 Medicare cost, with its source", href: "/medicare-costs-2026" },
-      { label: "Medicare help near you", href: "/service-area" },
+      {
+        label: "Turning 65",
+        href: "/turning-65",
+      },
+      {
+        label: "Medicare part b employer coverage",
+        href: "/guides/medicare-part-b-employer-coverage",
+      },
+      {
+        label: "How does medicare part d drug coverage work",
+        href: "/answers/how-does-medicare-part-d-drug-coverage-work",
+      },
+      {
+        label: "What if I miss my Initial Enrollment Period?",
+        href: "/answers/missed-iep-penalties",
+      },
+      {
+        label: "Do I have to enroll at 65 if I am still working?",
+        href: "/answers/working-past-65-medicare",
+      },
+      {
+        label: "Every 2026 Medicare cost, with its source",
+        href: "/medicare-costs-2026",
+      },
     ],
     startHref: "/start?topic=medicare&stage=turning_65_soon",
   },
@@ -2542,93 +2598,154 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=medicare",
   },
+
   {
     slug: "how-does-medicare-part-d-drug-coverage-work",
-    title: "How does Medicare Part D drug coverage work?",
-    metaTitle: "How does Medicare Part D drug coverage work?",
-    description: "Medicare Part D explained in plain English. Learn how drug coverage works, what tiers mean, how the coverage gap works, and how to avoid the late enrollment",
-    keyword: "medicare part d explained",
+    title: "How does Medicare Part D work?",
+    metaTitle: "How Does Medicare Part D Work? 2026 and 2027",
+    description:
+      "Learn how Medicare Part D works, from drug lists and pharmacies to deductibles and the 2026 and 2027 out-of-pocket limits. See what to compare.",
+    keyword: "how does medicare part d work",
     eyebrow: "Medicare questions, answered",
-    lede: "Medicare Part D is the part of Medicare that covers prescription drugs. It is optional, but it matters.",
+    lede: "Medicare Part D covers outpatient prescription drugs through private plans. Each plan sets its covered drug list, pharmacy network, and costs.",
     published: "2026-10-14",
-    updated: "2026-10-14",
-    intro: "Medicare Part D is the part of Medicare that covers prescription drugs. It is optional, but it matters. Even if you take no prescriptions today, having Part D protects you from high drug costs later and from a penalty that sticks around. Part D plans are sold by private insurers approved by Medicare. You can get Part D as a stand alone plan with Original Medicare, or as part of most Medicare Advantage plans. Details vary by plan, but the structure is the same.",
+    updated: "2026-11-05",
+    intro:
+      "Medicare Part D helps cover outpatient prescription drugs through Medicare-approved private plans. Your plan's drug list, pharmacy network, coverage rules, and costs determine what you pay for each covered medicine.",
     sections: [
       {
-        h2: "How Part D Works",
+        h2: "Two ways to get drug coverage",
         blocks: [
-          p("Every Part D plan has a formulary, the list of covered drugs. The formulary says which drugs are covered, what tier each drug is on, and what rules apply, such as prior authorization or step therapy. If your drug is not on the formulary, the plan will not cover it unless you get an exception."),
+          {
+            kind: "p",
+            text: "You can get a standalone Part D plan with Original Medicare or drug coverage through many Medicare Advantage plans. Don't add a standalone drug plan to an Advantage plan without checking how that affects enrollment. Some combinations aren't allowed. Source: [Medicare Part D basics](https://www.medicare.gov/health-drug-plans/part-d).",
+          },
         ],
       },
       {
-        h2: "What Tiers Mean",
+        h2: "The current coverage stages",
         blocks: [
-          p("Tiers group drugs by cost. Lower tiers are cheaper. Higher tiers cost more."),
-          p("Tier 1 is usually preferred generics, the lowest cost. Tier 2 is usually generics, still low cost. Tier 3 is usually preferred brand drugs, which cost more. Tier 4 is usually non preferred drugs, costing more than Tier 3. Tier 5 is usually specialty drugs for complex conditions like cancer or rheumatoid arthritis, often with coinsurance where you pay a percentage rather than a flat copay."),
+          {
+            kind: "table",
+            headers: ["Feature", "2026", "2027"],
+            rows: [
+              ["Maximum Part D deductible", "$615", "$700"],
+              ["Annual out-of-pocket threshold for covered Part D drugs", "$2,100", "$2,400"],
+              [
+                "After reaching the threshold",
+                "No cost sharing for covered Part D drugs for the rest of the year",
+                "No cost sharing for covered Part D drugs for the rest of the year",
+              ],
+            ],
+          },
+          {
+            kind: "p",
+            text: "Plans generally have a deductible stage, initial coverage, and catastrophic coverage. A plan can use a smaller deductible, and some drugs have special cost-sharing protections. Premiums and drugs the plan doesn't cover aren't included in the drug out-of-pocket threshold. Don't add the deductible on top of the threshold as though they were separate annual caps. Source: [Medicare's current Part D cost guide](https://www.medicare.gov/health-drug-plans/part-d/basics/costs).",
+          },
         ],
       },
       {
-        h2: "The Coverage Phases",
+        h2: "Check each medicine, not just its tier",
         blocks: [
-          p("Part D moves through phases each year, resetting every January 1."),
-          p("First is the deductible phase, if your plan has one. You pay full cost until you meet the deductible. Some plans have no deductible or none for lower tiers."),
-          p("Next is the initial coverage phase. After the deductible, you pay copays or coinsurance and the plan pays its share, until total drug costs reach a set limit."),
+          {
+            kind: "p",
+            text: "A formulary is the list of covered drugs. A tier groups drugs for cost sharing, but tier names and amounts vary. Check the exact medicine, dose, quantity, pharmacy, and any prior authorization or step therapy. A drug not listed may need a formulary exception. Your prescriber and plan can explain the exception and appeal process.",
+          },
         ],
       },
       {
-        h2: "The Part D Late Enrollment Penalty",
+        h2: "Compare the full year",
         blocks: [
-          p("If you go 63 days or more without Part D or other creditable drug coverage after you are first eligible, you may owe a late enrollment penalty. Creditable coverage means drug coverage at least as good as standard Part D, such as from a current employer or the VA."),
-          p("The penalty is 1 percent of the national base beneficiary premium for each month you went without creditable coverage. It is added to your Part D premium every month, for as long as you have Part D. It is not a one time fee."),
+          {
+            kind: "p",
+            text: "Enter your medicines and pharmacy in [Medicare Plan Compare](https://www.medicare.gov/plan-compare/). Compare the annual estimate, not only the premium. Recheck each fall because plan costs and formularies can change. The Medicare Prescription Payment Plan spreads covered out-of-pocket drug costs across monthly bills; it doesn't reduce the total owed. See the site's [payment-plan guide](https://christianbrinkleync.com/guides/medicare-prescription-payment-plan).",
+          },
         ],
       },
       {
-        h2: "How to Pick a Part D Plan",
+        h2: "Understand late-enrollment rules",
         blocks: [
-          p("Use the Medicare Plan Finder at medicare.gov. Enter your exact drugs, dosages, and pharmacy. It shows your estimated total yearly cost per plan, including premium, deductible, copays, and gap costs."),
+          {
+            kind: "p",
+            text: "If you go 63 days or more without Part D or other creditable drug coverage after your applicable enrollment period, a penalty may apply. It generally uses 1% of the national base beneficiary premium for each full uncovered month. Extra Help can change the penalty rules. Source: [Medicare's penalty explanation](https://www.medicare.gov/basics/costs/medicare-costs/avoid-penalties).",
+          },
         ],
       },
       {
-        h2: "If Your Drug Is Not Covered",
+        h2: "Prepare an accurate medication list",
         blocks: [
-          p("You have options. Ask your doctor if a covered drug would work. Ask the plan for a formulary exception. Appeal if the exception is denied. Or switch plans during Annual Enrollment to one that covers your drug. If you get a denial, read the letter. It tells you how to appeal and the deadline."),
-        ],
-      },
-      {
-        h2: "Getting Help",
-        blocks: [
-          p("Your state SHIP program offers free, unbiased help. In North Carolina, it is called SHIIP. You can also call 1-800-MEDICARE or talk to a local licensed insurance agent who can run a Plan Finder comparison with your actual prescriptions."),
-          p("Remember: get Part D when first eligible or keep other creditable coverage, compare plans on your own drugs and pharmacy, and recheck every fall. Your drugs change and plans change. A quick check each year can save real money."),
-          p("This article is general information only. It is not personal advice or a recommendation about any specific plan."),
+          {
+            kind: "p",
+            text: "Write down every prescription's name, strength, quantity, and refill frequency. Include pharmacies you actually use, including mail order if relevant. A covered drug can cost differently at preferred and other network pharmacies. A comparison with a different dose or pharmacy may produce a different annual estimate. Check your saved list when a prescriber changes a medicine.",
+          },
+          {
+            kind: "p",
+            text: "Read plan and pharmacy notices. Prior authorization asks for approval before coverage under plan rules. Step therapy can require another treatment first. Neither means you should change a medicine yourself. Ask your prescriber about exceptions and appeals. [Extra Help and NC assistance programs](/guides/extra-help-medicare-savings-programs-nc) use separate eligibility rules and can affect drug costs.",
+          },
+          {
+            kind: "p",
+            text: "The plan premium is separate from the drug deductible and cost sharing. An income-related adjustment may also apply depending on your situation. Verify the correct coverage year when comparing figures. If you receive a notice from an employer or retiree plan about creditable drug coverage, keep it. That document can matter when you later enroll in Part D or question a penalty.",
+          },
         ],
       },
     ],
     faq: [
       {
-        q: "How does Part D work?",
-        a: "Every Part D plan has a formulary, the list of covered drugs. The formulary says which drugs are covered, what tier each drug is on, and what rules apply, such as prior authorization or step therapy. If your drug is not on the formulary, the plan will not cover it unless you get an exception.",
+        q: "Does the drug limit include my premiums?",
+        a: "No. The annual threshold applies to covered Part D drug spending that counts under Medicare's rules.",
       },
       {
-        q: "What do tiers mean?",
-        a: "Tiers group drugs by cost. Lower tiers are cheaper. Higher tiers cost more. Tier 1 is usually preferred generics, the lowest cost. Tier 2 is usually generics, still low cost. Tier 3 is usually preferred brand drugs, which cost more. Tier 4 is usually non preferred drugs, costing more than Tier 3.",
+        q: "Is every prescription covered?",
+        a: "No. Check the formulary and any coverage restrictions.",
       },
       {
-        q: "What are the coverage phases?",
-        a: "Part D moves through phases each year, resetting every January 1. First is the deductible phase, if your plan has one. You pay full cost until you meet the deductible. Some plans have no deductible or none for lower tiers. Next is the initial coverage phase.",
-      },
-      {
-        q: "What is the Part D late enrollment penalty?",
-        a: "If you go 63 days or more without Part D or other creditable drug coverage after you are first eligible, you may owe a late enrollment penalty. Creditable coverage means drug coverage at least as good as standard Part D, such as from a current employer or the VA.",
+        q: "Does spreading payments reduce the bill?",
+        a: "No. The payment program changes when you pay, not the total cost.",
       },
     ],
     sources: [
-      { label: "Medicare.gov", href: "https://www.medicare.gov/" },
-      { label: "Centers for Medicare & Medicaid Services", href: "https://www.cms.gov/" },
+      {
+        label: "Medicare Part D basics",
+        href: "https://www.medicare.gov/health-drug-plans/part-d",
+      },
+      {
+        label: "Medicare's current Part D cost guide",
+        href: "https://www.medicare.gov/health-drug-plans/part-d/basics/costs",
+      },
+      {
+        label: "Medicare Plan Compare",
+        href: "https://www.medicare.gov/plan-compare/",
+      },
+      {
+        label: "Medicare's penalty explanation",
+        href: "https://www.medicare.gov/basics/costs/medicare-costs/avoid-penalties",
+      },
     ],
     related: [
-      { label: "What changes during Medicare Annual Enrollment 2026?", href: "/answers/what-changes-during-medicare-annual-enrollment-2026" },
-      { label: "What should I do before, during, and after my 65th birthday?", href: "/answers/what-should-i-do-before-during-and-after-my-65th-birthday" },
-      { label: "Medigap or Medicare Advantage: which one fits me?", href: "/answers/medigap-or-medicare-advantage-which-one-fits-me" },
+      {
+        label: "Medicare part d plans",
+        href: "/medicare-part-d-plans",
+      },
+      {
+        label: "Extra help medicare savings programs nc",
+        href: "/guides/extra-help-medicare-savings-programs-nc",
+      },
+      {
+        label: "Medicare prescription payment plan",
+        href: "/guides/medicare-prescription-payment-plan",
+      },
+      {
+        label: "What changes during Medicare Annual Enrollment 2026?",
+        href: "/answers/what-changes-during-medicare-annual-enrollment-2026",
+      },
+      {
+        label: "What should I do before, during, and after my 65th birthday?",
+        href: "/answers/what-should-i-do-before-during-and-after-my-65th-birthday",
+      },
+      {
+        label: "Medigap or Medicare Advantage: which one fits me?",
+        href: "/answers/medigap-or-medicare-advantage-which-one-fits-me",
+      },
     ],
     startHref: "/start?topic=medicare",
   },
@@ -5555,68 +5672,164 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=insurance",
   },
+
   {
     slug: "how-does-disability-insurance-work",
     title: "How does disability insurance work?",
-    metaTitle: "How does disability insurance work?",
-    description: "Your ability to earn a paycheck is your biggest asset. Learn what disability insurance is, why it matters, and how short-term and long-term coverage work.",
-    keyword: "disability insurance",
+    metaTitle: "How Does Disability Insurance Work? Benefits and Rules",
+    description:
+      "Disability insurance can replace part of your income after a covered illness or injury. Learn definitions, waiting periods, benefit limits, and exclusions.",
+    keyword: "how does disability insurance work",
     eyebrow: "Insurance, explained",
-    lede: "When people think about insurance, they think about their car, their home, or their health. They rarely think about their paycheck.",
+    lede: "Disability insurance can replace part of your income after a covered illness or injury. The policy definition and benefit rules determine payment.",
     published: "2026-10-14",
-    updated: "2026-10-14",
-    intro: "When people think about insurance, they think about their car, their home, or their health. They rarely think about their paycheck. But your ability to work and earn is often your biggest financial asset. If you could not work for months because of an illness or injury, how would you pay rent, buy food, or cover bills? That is the gap disability insurance fills. Disability insurance pays you a portion of your income if you cannot work because of a covered illness or injury. It does not pay your full salary. It is designed to replace part of it, so you can keep paying for essentials while you recover. Without it, a long time away from work can drain savings fast and push people into debt.",
+    updated: "2026-11-05",
+    intro:
+      "Disability insurance can pay part of your income when a covered illness or injury prevents you from working under the policy's definition of disability. The waiting period, benefit amount, payment duration, exclusions, and claim requirements determine how that protection works.",
     sections: [
       {
-        h2: "Many people assume disability will not happen to them",
+        h2: "What triggers a disability claim",
         blocks: [
-          p("They picture disability as a car accident or a major injury. Those do happen. But many disability claims come from illnesses, not accidents. Back problems, cancer, heart conditions, mental health conditions, and complications from pregnancy can all keep people out of work. It can happen to anyone, at any age. And it does not have to be permanent. Even a few months without income can be a serious financial hit."),
-          p("There are two main types. Short-term disability and long-term disability. They work together, but they cover different timeframes."),
+          {
+            kind: "p",
+            text: "The insurer reviews the policy definition, medical evidence, and the duties of your occupation. A diagnosis alone doesn't prove that every policy will pay. The contract may define total disability, partial disability, or reduced earnings differently. Read the definition before relying on the benefit, and ask what evidence a claim requires.",
+          },
+          {
+            kind: "p",
+            text: "Keep the policy, benefit schedule, and claim instructions. Ask where to submit medical and employment records securely, what deadlines apply, and how to challenge a decision. An elimination period is a waiting requirement under the contract, not a promise that a claim will be approved by that date.",
+          },
         ],
       },
       {
-        h2: "Long-term disability, often called LTD, covers longer periods",
+        h2: "Short-term versus long-term coverage",
         blocks: [
-          p("It usually starts after STD ends, or after a longer elimination period, often 90 days. Then it can pay for years, or until retirement age, depending on the policy. LTD is the coverage that protects you from a long absence. If a serious illness kept you out of work for two years, LTD is what would help you keep paying bills through that stretch."),
-          p("Disability insurance can come from a few places. Many employers offer it as part of a benefits package. Some pay the full premium. Some share the cost with employees. Some offer it as a voluntary benefit you can buy through payroll. If your employer offers it, look at the details. What is the benefit amount? What is the elimination period? How long does it pay? What counts as disabled under the policy? Those details matter more than the name on the brochure."),
+          {
+            kind: "p",
+            text: "Short-term coverage generally addresses a shorter absence. Long-term coverage can provide benefits over a longer period if the claim continues to qualify. Neither label establishes one universal waiting period or payment duration. Compare the actual contract terms, including how one policy coordinates with another.",
+          },
+          {
+            kind: "table",
+            headers: ["Policy feature", "Short-term coverage", "Long-term coverage"],
+            rows: [
+              [
+                "Main purpose",
+                "Income support during a shorter covered absence",
+                "Income support for a longer qualifying disability",
+              ],
+              [
+                "When payments start",
+                "Contract waiting period applies",
+                "Contract waiting period applies",
+              ],
+              ["How long payments last", "Policy benefit period", "Policy benefit period"],
+              [
+                "What to compare",
+                "Definition, waiting period, limits, coordination",
+                "Definition changes, benefit duration, offsets, exclusions",
+              ],
+            ],
+          },
         ],
       },
       {
-        h2: "There are also government programs",
+        h2: "Own occupation and any occupation",
         blocks: [
-          p("Social Security Disability Insurance, or SSDI, pays benefits to people who have worked and paid into Social Security and who meet a strict definition of disability. It is hard to qualify for, and there is often a long wait. It is not a replacement for private disability insurance. It is a backstop for severe, long-term cases. Workers compensation covers injuries that happen at work. It does not cover illnesses or injuries that happen off the job. So do not count on either one to cover a typical disability."),
+          {
+            kind: "p",
+            text: "An own-occupation definition looks at the work described by the policy, while an any-occupation definition can use a broader work test. Wording varies, including what other employment is allowed and whether earnings affect payments. Some contracts change the definition after a stated period. Ask for that language rather than relying on the label alone.",
+          },
         ],
       },
       {
-        h2: "Premiums depend on your age, health, occupation, income",
+        h2: "Group versus individual policies",
         blocks: [
-          p("People in physically risky jobs usually pay more. Smokers usually pay more. Younger, healthier people usually pay less. The longer the benefit period and the shorter the elimination period, the higher the premium."),
-          p("How much coverage do you need? Start with your monthly essentials. Rent or mortgage, utilities, food, transportation, insurance premiums, loan payments, and any other must-pay bills. Your disability benefit should cover as much of that as possible. If your employer policy replaces 60 percent of your salary, ask if that is enough to cover your essentials. If not, you may want to supplement it with an individual policy. Also think about your savings. If you have a large emergency fund, you can handle a longer elimination period and a lower premium. If your savings are thin, a shorter elimination period may be worth the extra cost."),
+          {
+            kind: "p",
+            text: "Employer group coverage may have a maximum benefit, offsets for other income, and limits on continuation when employment ends. Individual coverage has its own underwriting and contract rules. Don't assume a workplace benefit follows you to another job or that two policies each pay the full stated amount. Ask how the policies coordinate.",
+          },
+        ],
+      },
+      {
+        h2: "Benefit amount, taxes, and the waiting period",
+        blocks: [
+          {
+            kind: "p",
+            text: "The stated benefit can be a portion of covered earnings, subject to a monthly cap and other contract limits. That isn't necessarily the net amount available to pay bills. Who paid the premiums and whether they were paid before or after tax can affect taxation. IRS guidance distinguishes employer-paid and personally paid coverage; mixed arrangements need their own review.",
+          },
+          {
+            kind: "p",
+            text: "Compare essential expenses with the money available during the waiting period. Include existing paid leave and emergency savings, but don't count the same dollars twice. Ask when benefits could begin if the claim qualifies and whether continuing proof is required. This is a planning question, not a prediction of approval or payment.",
+          },
+        ],
+      },
+      {
+        h2: "Private coverage, SSDI, and workers compensation",
+        blocks: [
+          {
+            kind: "p",
+            text: "Private disability policies, Social Security Disability Insurance, and workers compensation follow different eligibility rules. SSDI has a federal disability standard. Workers compensation can cover job-related injuries and qualifying occupational diseases under applicable law. It isn't accurate to say illnesses are always excluded. A private policy may offset another benefit, so check its coordination provisions.",
+          },
+        ],
+      },
+      {
+        h2: "Before buying or filing a claim",
+        blocks: [
+          {
+            kind: "p",
+            text: "Compare the definition of disability, exclusions, pre-existing-condition provisions, waiting period, benefit duration, maximum amount, and claim procedures. Ask about any limits for particular conditions. [Life insurance](/life-insurance) covers a different risk; it doesn't replace disability income protection. For an existing workplace plan, request the benefit booklet from the employer and the contract details from the insurer.",
+          },
         ],
       },
     ],
     faq: [
       {
-        q: "What should I know about disability insurance?",
-        a: "They picture disability as a car accident or a major injury. Those do happen. But many disability claims come from illnesses, not accidents. Back problems, cancer, heart conditions, mental health conditions, and complications from pregnancy can all keep people out of work. It can happen to anyone, at any age.",
+        q: "Will disability insurance replace my full salary?",
+        a: "Not necessarily. Benefits are limited by covered earnings, the contract maximum, coordination rules, and potentially taxes.",
       },
       {
-        q: "What does “many people assume disability will not happen to them” mean?",
-        a: "They picture disability as a car accident or a major injury. Those do happen. But many disability claims come from illnesses, not accidents. Back problems, cancer, heart conditions, mental health conditions, and complications from pregnancy can all keep people out of work. It can happen to anyone, at any age.",
+        q: "What is an elimination period?",
+        a: "It is the waiting period specified by the policy before qualifying benefits can begin. It is not an approval guarantee.",
       },
       {
-        q: "What does “long-term disability, often called LTD, covers longer periods” mean?",
-        a: "It usually starts after STD ends, or after a longer elimination period, often 90 days. Then it can pay for years, or until retirement age, depending on the policy. LTD is the coverage that protects you from a long absence.",
+        q: "Are disability benefits taxable?",
+        a: "Tax treatment depends in part on who paid premiums and whether those payments were pre-tax or after-tax.",
+      },
+      {
+        q: "Does employer coverage follow me when I leave?",
+        a: "Check the contract. Continuation or portability is not automatic.",
       },
     ],
     sources: [
-      { label: "National Association of Insurance Commissioners", href: "https://www.naic.org/" },
-      { label: "USA.gov", href: "https://www.usa.gov/" },
+      {
+        label: "NC DOI: Disability income insurance",
+        href: "https://www.ncdoi.gov/consumers/disability-income-insurance",
+      },
+      {
+        label: "IRS: Disability benefit tax treatment",
+        href: "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/life-insurance-disability-insurance-proceeds/life-insurance-disability-insurance-proceeds-1",
+      },
+      {
+        label: "NC Industrial Commission: Workers compensation and occupational diseases",
+        href: "https://documents.ic.nc.gov/ncic/pages/boletin.htm",
+      },
+      {
+        label: "SSA: Disability benefits",
+        href: "https://www.ssa.gov/disability",
+      },
     ],
     related: [
-      { label: "How much life insurance do I need?", href: "/answers/how-much-life-insurance-do-i-need" },
-      { label: "How do I choose a health insurance plan?", href: "/answers/how-do-i-choose-a-health-insurance-plan" },
-      { label: "What does homeowners insurance cover?", href: "/answers/what-does-homeowners-insurance-cover" },
+      {
+        label: "Questions to ask about disability coverage",
+        href: "/answers/do-i-need-disability-insurance",
+      },
+      {
+        label: "Life insurance covers a different risk",
+        href: "/life-insurance",
+      },
+      {
+        label: "Build an emergency fund",
+        href: "/wealth/emergency-fund-guide",
+      },
     ],
     startHref: "/start?topic=insurance",
   },
@@ -6685,102 +6898,143 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=investing",
   },
+
   {
     slug: "what-are-medicare-part-b-excess-charges",
     title: "What are Medicare Part B excess charges?",
-    // Retitled 2026-10-29: the page sat around position 23 for "part b excess
-    // charges" while skipping the two things searchers ask next (does NC allow
-    // them, which Medigap letters cover them).
-    metaTitle: "Part B Excess Charges: The 15% Rule, NC, and How to Avoid Them",
-    description: "Part B excess charges explained: who can bill them, the 15 percent limit, whether North Carolina allows them, and which Medigap plans pay them for you.",
-    keyword: "medicare part b excess charges",
+    metaTitle: "What Are Medicare Part B Excess Charges? NC Guide",
+    description:
+      "Understand Medicare Part B excess charges, the limiting charge, provider assignment, and what to check with Plan G or Plan N in North Carolina.",
+    keyword: "what are medicare part b excess charges",
     eyebrow: "Medicare questions, answered",
-    lede: "A Part B excess charge is the extra a doctor who doesn't take Medicare's approved amount can bill you, up to 15 percent more. North Carolina allows them.",
+    lede: "Part B excess charges are amounts certain non-participating providers can bill above Medicare's approved amount when they don't accept assignment.",
     published: "2026-10-14",
-    updated: "2026-10-29",
-    intro: "A Part B excess charge is the extra amount a doctor can bill you when they don't accept Medicare's approved amount as payment in full. Federal law caps it at 15 percent above that approved amount. North Carolina doesn't ban them, so they can show up here. You'll only see one with Original Medicare, from a doctor who doesn't accept assignment. Pick doctors who do, and you'll almost never get one.",
+    updated: "2026-11-05",
+    intro:
+      "Medicare Part B excess charges are amounts above Medicare's approved payment that some non-participating providers can bill when they don't accept assignment. In many cases, the limiting charge is 15% above the approved amount for a non-participating provider, in addition to your normal deductible and coinsurance.",
     sections: [
       {
-        h2: "What Excess Charges Actually Are",
+        h2: "Accepting Medicare and accepting assignment",
         blocks: [
-          p("Medicare sets an approved amount for every covered service. Think of it as the price Medicare thinks the service is worth. Normally, you pay 20 percent of that approved amount as coinsurance, and Medicare pays the other 80 percent. That is the standard split for Part B services after you meet your deductible."),
-          p("An excess charge is anything a provider bills above that approved amount. Only non-participating providers can do it."),
+          {
+            kind: "table",
+            headers: ["Provider status", "What it means for a covered service"],
+            rows: [
+              ["Participating", "Accepts assignment and can't add an excess charge"],
+              [
+                "Non-participating",
+                "May accept assignment case by case; an excess charge may apply when assignment isn't accepted",
+              ],
+              [
+                "Opted out",
+                "Private-contract rules apply; this isn't an ordinary excess-charge situation",
+              ],
+            ],
+          },
+          {
+            kind: "p",
+            text: "Ask the billing office: “Will this provider accept Medicare assignment for this service?” [Medicare explains the differences](https://www.medicare.gov/basics/costs/medicare-costs/provider-accept-Medicare).",
+          },
         ],
       },
       {
-        h2: "The 15 Percent Limit",
+        h2: "A clearly labeled example",
         blocks: [
-          p("The 15 percent limiting charge is set by federal law, and it's the most a provider can add anywhere in the country. A few states go further and ban or tighten it. North Carolina isn't one of them, so the federal 15 percent cap is the rule here. A provider can charge less than the limit if they want. Many don't."),
-          p("It helps to know the math. If the approved amount is 200 dollars, the most the provider can bill is 230 dollars. Your coinsurance is still based on the approved amount, so you would owe 40 dollars in coinsurance plus up to 30 dollars in excess charges."),
+          {
+            kind: "p",
+            text: "Suppose the Medicare-approved amount for the non-participating provider is $200, the deductible has been met, and the limiting-charge rule applies. A 15% excess charge would be $30. Normal 20% coinsurance would be $40, making the patient's share $70 before any supplemental coverage. This is hypothetical arithmetic, not a quote. Don't use a participating provider's fee-schedule amount as though it were automatically the same approved amount.",
+          },
         ],
       },
       {
-        h2: "Participating vs Non-Participating vs Opt-Out Providers",
+        h2: "What Medigap covers",
         blocks: [
-          p("Participating providers agree to accept Medicare's approved amount as payment in full. They accept assignment. You pay your 20 percent coinsurance and your deductible share. No excess charges, ever. This is the group you want."),
-          p("Non-participating providers still take Medicare patients, but they decide visit by visit whether to accept assignment. When they don't, they can bill you up to the 15 percent limit. You may also have to pay the whole bill up front and wait for Medicare to pay you back its share."),
-          p("Opt-out providers have left Medicare entirely. Excess charge limits don't apply, because Medicare doesn't pay them at all. You'd sign a private contract and pay the full price yourself. Neither Medicare nor a Medigap plan will chip in."),
+          {
+            kind: "p",
+            text: "Standard Plans F and G include Part B excess-charge coverage. Plan N doesn't. Plan F eligibility is restricted for people first eligible for Medicare on or after January 1, 2020. High-deductible versions have separate deductible rules. Compare the [official Medigap benefit chart](https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits).",
+          },
         ],
       },
       {
-        h2: "Which Medigap Plans Cover Excess Charges",
+        h2: "Check a bill before paying",
         blocks: [
-          p("Medigap Plan G covers Part B excess charges in full. So does Plan F, but only people who were eligible for Medicare before January 1, 2020 can buy it. Plan N and the other letters don't cover them."),
-          p("So if you're comparing Plan G and Plan N, this is one of the real differences. It matters most if you see specialists who don't accept assignment. If all your doctors do, it may never come up."),
-          p("If you're on a Medicare Advantage plan, excess charges work differently. Your plan's network and its own cost sharing decide what you pay, so check with the plan before you see a doctor outside it."),
+          {
+            kind: "p",
+            text: "Compare the provider bill with your Medicare Summary Notice. Ask the billing office to explain the approved amount, assignment status, and any excess charge. If something doesn't match, contact 1-800-MEDICARE or NC SHIIP. North Carolina residents shouldn't assume a state ban protects them from every excess charge. Your coverage and the provider's status still matter.",
+          },
         ],
       },
       {
-        h2: "How to Avoid Excess Charges",
+        h2: "Questions before a scheduled visit",
         blocks: [
-          p("The easiest way to avoid excess charges is to use participating providers. Most doctors are participating. Medicare's provider finder on medicare.gov lets you filter for providers who accept assignment."),
-          p("If you see a non-participating specialist because they are the best option for your condition, ask up front whether they will accept assignment for your visit. Some non-participating providers accept assignment on a case by case basis. Asking costs you nothing."),
-        ],
-      },
-      {
-        h2: "What to Do If You Get Billed Too Much",
-        blocks: [
-          p("Check the bill against your Medicare Summary Notice, which shows the approved amount. If the bill is higher than that plus 15 percent, call the billing office first. It's often a mistake. If they won't fix it, you can report it to 1-800-MEDICARE, because billing above the limit breaks the rule."),
-        ],
-      },
-      {
-        h2: "The Bottom Line",
-        blocks: [
-          p("Confirm the provider accepts assignment before the visit. And if you have Medigap, check whether your plan letter covers excess charges."),
-          p("This article is for general information only and is not legal, tax, or insurance advice. Medicare rules change and vary by state. For free, unbiased help, contact your State Health Insurance Assistance Program (SHIP), call 1-800-MEDICARE, or talk with a local licensed insurance agent who can review your specific situation."),
+          {
+            kind: "p",
+            text: "Give the billing office the exact provider's name and the expected service. Ask whether the provider participates in Medicare and accepts assignment for that service. A practice can include several clinicians. A general statement that the office takes Medicare doesn't answer every billing question. If another professional or facility bills separately, ask about that bill too. Keep the answer with your appointment notes.",
+          },
+          {
+            kind: "p",
+            text: "The limiting charge applies to certain services from non-participating providers. It isn't a promise that every amount above a Medicare payment is limited to 15%. Noncovered services and opt-out private contracts raise different questions. Medicare Advantage uses its own coverage, network, and cost-sharing rules. If you're enrolled in Advantage, check the plan's instructions rather than applying an Original Medicare example to your bill.",
+          },
+          {
+            kind: "p",
+            text: "Before assuming supplemental coverage pays, identify the plan letter and policy type. [Same-letter Medigap benefits are standardized](/answers/are-medicare-supplement-plans-the-same), but high-deductible arrangements affect when benefits begin. Ask how the insurer processes excess charges for a Medicare-covered service. Keep the date of service, itemized statement, Medicare Summary Notice, and payment explanation for a disputed bill. These records help the provider and Medicare check what happened.",
+          },
+          {
+            kind: "p",
+            text: "An estimate isn't the final Medicare payment determination. The actual service and claim can affect the approved amount. If a provider asks for payment up front, ask how reimbursement and later adjustments work. Save receipts. A written explanation helps you separate an excess charge from the ordinary deductible, coinsurance, or a service Medicare doesn't cover.",
+          },
         ],
       },
     ],
     faq: [
       {
-        q: "What is a Medicare Part B excess charge?",
-        a: "It's the extra amount a doctor who doesn't accept Medicare's approved amount can bill you, on top of your normal coinsurance. Federal law caps it at 15 percent above the approved amount. It only applies to Original Medicare.",
+        q: "Does taking Medicare mean a doctor accepts assignment?",
+        a: "Not always. Ask specifically about assignment for the service.",
       },
       {
-        q: "Does North Carolina allow Part B excess charges?",
-        a: "Yes. A few states ban or limit excess charges further, but North Carolina isn't one of them. Here the federal 15 percent cap is the limit.",
+        q: "Does Plan N pay excess charges?",
+        a: "No. They aren't a standardized Plan N benefit.",
       },
       {
-        q: "Does Medigap Plan G cover excess charges?",
-        a: "Yes. Plan G covers Part B excess charges in full. Plan F does too, but only people eligible for Medicare before January 1, 2020 can buy it. Plan N doesn't cover them.",
-      },
-      {
-        q: "How do I avoid excess charges?",
-        a: "Use doctors who accept assignment. Most do, and the provider finder on medicare.gov lets you check.",
-      },
-      {
-        q: "What if I'm billed more than the limit?",
-        a: "Compare the bill with your Medicare Summary Notice. If it's more than the approved amount plus 15 percent, call the billing office. It's often a mistake.",
+        q: "Does the 15% rule apply to an opt-out private contract?",
+        a: "Don't assume it does. Opt-out providers operate under different rules, and Medicare generally doesn't pay, apart from limited emergency exceptions.",
       },
     ],
     sources: [
-      { label: "Medicare.gov", href: "https://www.medicare.gov/" },
-      { label: "Centers for Medicare & Medicaid Services", href: "https://www.cms.gov/" },
+      {
+        label: "Medicare explains the differences",
+        href: "https://www.medicare.gov/basics/costs/medicare-costs/provider-accept-Medicare",
+      },
+      {
+        label: "official Medigap benefit chart",
+        href: "https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits",
+      },
     ],
     related: [
-      { label: "What changes during Medicare Annual Enrollment 2026?", href: "/answers/what-changes-during-medicare-annual-enrollment-2026" },
-      { label: "What should I do before, during, and after my 65th birthday?", href: "/answers/what-should-i-do-before-during-and-after-my-65th-birthday" },
-      { label: "Medigap or Medicare Advantage: which one fits me?", href: "/answers/medigap-or-medicare-advantage-which-one-fits-me" },
+      {
+        label: "Medigap plan g vs plan n nc",
+        href: "/guides/medigap-plan-g-vs-plan-n-nc",
+      },
+      {
+        label: "Are medicare supplement plans the same",
+        href: "/answers/are-medicare-supplement-plans-the-same",
+      },
+      {
+        label: "Keep my doctor",
+        href: "/keep-my-doctor",
+      },
+      {
+        label: "What changes during Medicare Annual Enrollment 2026?",
+        href: "/answers/what-changes-during-medicare-annual-enrollment-2026",
+      },
+      {
+        label: "What should I do before, during, and after my 65th birthday?",
+        href: "/answers/what-should-i-do-before-during-and-after-my-65th-birthday",
+      },
+      {
+        label: "Medigap or Medicare Advantage: which one fits me?",
+        href: "/answers/medigap-or-medicare-advantage-which-one-fits-me",
+      },
     ],
     startHref: "/start?topic=medicare",
   },
@@ -7214,89 +7468,151 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=medicare",
   },
+
   {
     slug: "what-does-it-mean-to-be-dual-eligible-for-medicare-and-medicaid",
-    title: "What does it mean to be dual eligible for Medicare and Medicaid?",
-    metaTitle: "What does it mean to be dual eligible for Medicare",
-    description: "Learn what dual eligibility means, how D-SNPs coordinate Medicare and Medicaid, and the extra help dual eligibles get with Part D drug costs.",
-    keyword: "dual eligible medicare medicaid",
+    title: "What does dual eligible mean with Medicare?",
+    metaTitle: "What Does Dual Eligible Mean With Medicare?",
+    description:
+      "Dual eligible means qualifying for Medicare and Medicaid assistance. Learn full versus partial eligibility, who pays first, and how D-SNPs differ.",
+    keyword: "what does dual eligible mean with medicare",
     eyebrow: "Medicare questions, answered",
-    lede: "Some people qualify for both Medicare and Medicaid at the same time. This is called dual eligibility.",
+    lede: "Dual eligible means qualifying for Medicare and Medicaid assistance together. Full benefits and partial cost assistance follow different rules.",
     published: "2026-10-14",
-    updated: "2026-10-14",
-    intro: "Some people qualify for both Medicare and Medicaid at the same time. This is called dual eligibility. If that is you, you have more help available than most Medicare beneficiaries realize. Your costs can be close to zero. But the system is confusing, and many dual eligibles never use all the benefits they qualify for. Here is how it works.",
+    updated: "2026-11-05",
+    intro:
+      "Dual eligible means you qualify for Medicare and Medicaid assistance at the same time. Some people receive full Medicaid benefits, while others receive limited help with Medicare costs through a Medicare Savings Program.",
     sections: [
       {
-        h2: "What Dual Eligibility Means",
+        h2: "Full and partial dual eligibility",
         blocks: [
-          p("Medicare is the federal health program for people 65 and older and for certain younger people with disabilities. Medicaid is the joint federal and state program for people with limited income and resources. They are separate programs with separate rules."),
-          p("Dual eligible means you qualify for both. Medicare is your primary coverage. Medicaid wraps around it, paying costs that Medicare leaves behind. Depending on your level of eligibility, Medicaid can pay your Medicare premiums, deductibles, copays, and coinsurance."),
+          {
+            kind: "table",
+            headers: ["Category", "What to understand"],
+            rows: [
+              [
+                "Full Medicaid plus Medicare",
+                "Medicaid may cover additional services and help with Medicare costs under state rules",
+              ],
+              [
+                "Partial dual eligibility",
+                "Assistance is limited to the benefits of the qualifying Medicare Savings Program",
+              ],
+            ],
+          },
+          {
+            kind: "p",
+            text: "The category affects the help available. A Medicaid or Medicare Savings Program approval letter is more useful than assuming everyone with two cards has identical benefits. Source: [CMS dual-eligibility fact sheet](https://www.cms.gov/files/document/beneficiaries-dually-eligible-medicare-medicaid.pdf).",
+          },
         ],
       },
       {
-        h2: "D-SNPs: Plans Built for Dual Eligibles",
+        h2: "Which program pays first",
         blocks: [
-          p("A D-SNP is a Dual Eligible Special Needs Plan. It is a type of Medicare Advantage plan designed specifically for people with both Medicare and Medicaid. D-SNPs coordinate the two programs so you are not juggling them yourself."),
-          p("Here is what D-SNPs typically offer:"),
-          p("Care coordination. You get a care team that manages your doctors, your medications, and your services across both programs. For people with complex health needs, this alone is worth a lot."),
-          p("Low or zero cost sharing. D-SNPs are built around minimal out-of-pocket costs. Many have zero dollar premiums and very low copays."),
-          p("Extra benefits. D-SNPs often include dental, vision, hearing, transportation to medical appointments, and over-the-counter allowances. The specific extras vary by plan and area."),
+          {
+            kind: "p",
+            text: "Medicare generally pays first for Medicare-covered services. Medicaid pays after Medicare and other liable insurance under its rules. Medicaid may also cover some services Medicare doesn't. The state decides Medicaid eligibility and coverage; having Medicare doesn't automatically qualify you. Source: [Medicare and Medicaid coordination](https://www.medicare.gov/basics/costs/help/medicaid).",
+          },
         ],
       },
       {
-        h2: "Extra Help With Part D",
+        h2: "A D-SNP is a plan choice",
         blocks: [
-          p("Dual eligibles automatically qualify for Extra Help, the federal program that pays for most of your prescription drug costs under Part D. You do not have to apply separately. If Medicaid shows you as eligible, the help is automatic."),
-          p("Extra Help covers your Part D premium up to a benchmark amount, your deductible, and most of your copays. Your drug copays drop to a few dollars per prescription. For many dual eligibles, this is the single biggest financial benefit of the whole system."),
+          {
+            kind: "p",
+            text: "A Dual Eligible Special Needs Plan is a type of Medicare Advantage plan for people in qualifying Medicaid categories. Being dual eligible doesn't by itself require choosing a D-SNP. If you're comparing one, check the plan's Medicaid eligibility requirement, doctors, drugs, and care coordination. Don't assume every plan offers the same extra benefits. Source: [Medicare SNP explanation](https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/SNP).",
+          },
         ],
       },
       {
-        h2: "Common Mistakes Dual Eligibles Make",
+        h2: "Read bills and assistance notices carefully",
         blocks: [
-          p("Not telling providers about both coverages. Show both your Medicare card and your Medicaid card. If a provider only bills Medicare, you might get a bill for cost sharing that Medicaid would have paid. Both cards, every visit."),
-          p("Paying bills without checking. If you get a medical bill and you are dual eligible, do not pay it reflexively. Medicaid may cover it. Call the provider's billing office and confirm they billed both programs."),
-          p("Skipping Annual Enrollment. Your needs change. Plans change. D-SNP benefits change. Even with great coverage, a yearly check makes sense. Your dual eligible special enrollment period gives you flexibility, but an annual review keeps you from drifting."),
+          {
+            kind: "p",
+            text: "QMB has a specific protection against being billed for Medicare-covered deductibles, coinsurance, and copayments. That isn't a blanket statement that all bills are prohibited for everyone described as dual eligible. Show the appropriate coverage cards and ask the billing office to check your exact category before paying a disputed Medicare cost-sharing bill. Source: [CMS QMB guidance in the fact sheet](https://www.cms.gov/files/document/beneficiaries-dually-eligible-medicare-medicaid.pdf).",
+          },
         ],
       },
       {
-        h2: "How to Get Help",
+        h2: "Getting help in North Carolina",
         blocks: [
-          p("This system has a lot of moving parts. You do not have to figure it out alone."),
-          p("Your State Health Insurance Assistance Program offers free, unbiased counseling. They can check your dual eligibility level, compare D-SNPs, and screen you for Extra Help."),
-          p("Your state Medicaid office handles eligibility questions. If you think you qualify for Medicaid but are not enrolled, start there."),
-          p("Medicare's plan finder on medicare.gov lets you compare D-SNPs in your area. Filter for Special Needs Plans to see your options."),
+          {
+            kind: "p",
+            text: "Contact NC Medicaid or county DSS about eligibility. NC SHIIP can explain the coverage and assistance programs. Full Medicaid and certain Medicare Savings Programs also provide automatic Extra Help with Part D costs. Check any eligibility or renewal notice rather than assuming every benefit renews with Medicare.",
+          },
         ],
       },
       {
-        h2: "The Bottom Line",
+        h2: "Use your approval letter to check details",
         blocks: [
-          p("Dual eligibility means Medicare and Medicaid work together, with Medicaid covering much of what Medicare leaves behind. D-SNPs coordinate the two programs into one plan with care coordination and extra benefits. Extra Help slashes your drug costs automatically. If you qualify for both programs, make sure you are using everything available to you."),
-          p("This article is for general information only and is not legal, tax, or insurance advice. Medicaid rules vary by state and change over time. For free, unbiased help, contact your State Health Insurance Assistance Program (SHIP), call 1-800-MEDICARE, or talk with a local licensed insurance agent who can review your specific situation."),
+          {
+            kind: "p",
+            text: "Find the program name and effective dates on the state notice. Full Medicaid, QMB, SLMB, and QI describe different assistance. A card alone may not explain every covered cost. Ask county DSS or NC Medicaid which category you have and what it pays. Keep the answer with your plan information so a billing office can check the right benefits.",
+          },
+          {
+            kind: "p",
+            text: "Report address and household changes through the required state process and respond to renewal requests. Medicare enrollment and a health plan's annual continuation don't replace Medicaid renewal. Changes in assistance can affect benefits or eligibility for a special needs plan. Read notices and ask about enrollment rights before changing coverage. Avoid canceling a policy while an eligibility question remains unresolved.",
+          },
+          {
+            kind: "p",
+            text: "For pharmacy questions, check your Part D plan and Extra Help status. For medical bills, check whether the service is Medicare-covered and which assistance applies. The [NC assistance guide](/guides/extra-help-medicare-savings-programs-nc) separates these programs. Bring notices and bills to anyone helping. Don't share Medicare numbers or medical records through public comments or ordinary website contact fields.",
+          },
+          {
+            kind: "p",
+            text: "If you receive conflicting billing answers, ask the office to verify your eligibility for the date the service was provided. Current status may differ from coverage on an earlier service date.",
+          },
         ],
       },
     ],
     faq: [
       {
-        q: "What do dual eligibility mean?",
-        a: "Medicare is the federal health program for people 65 and older and for certain younger people with disabilities. Medicaid is the joint federal and state program for people with limited income and resources. They are separate programs with separate rules. Dual eligible means you qualify for both. Medicare is your primary coverage.",
+        q: "Does dual eligible mean every service is free?",
+        a: "No. Your eligibility category, covered services, and plan rules determine what help applies.",
       },
       {
-        q: "How do I get help?",
-        a: "This system has a lot of moving parts. You do not have to figure it out alone. Your State Health Insurance Assistance Program offers free, unbiased counseling. They can check your dual eligibility level, compare D-SNPs, and screen you for Extra Help. Your state Medicaid office handles eligibility questions.",
+        q: "Do I have to join a D-SNP?",
+        a: "Dual eligibility itself doesn't require that choice. Review your available Medicare options.",
       },
       {
-        q: "What should I know about D-SNPs?",
-        a: "A D-SNP is a Dual Eligible Special Needs Plan. It is a type of Medicare Advantage plan designed specifically for people with both Medicare and Medicaid. D-SNPs coordinate the two programs so you are not juggling them yourself. Here is what D-SNPs typically offer: Care coordination.",
+        q: "Does Medicare enrollment automatically give me Medicaid?",
+        a: "No. Medicaid has a separate eligibility process.",
       },
     ],
     sources: [
-      { label: "Medicare.gov", href: "https://www.medicare.gov/" },
-      { label: "Centers for Medicare & Medicaid Services", href: "https://www.cms.gov/" },
+      {
+        label: "CMS dual-eligibility fact sheet",
+        href: "https://www.cms.gov/files/document/beneficiaries-dually-eligible-medicare-medicaid.pdf",
+      },
+      {
+        label: "Medicare and Medicaid coordination",
+        href: "https://www.medicare.gov/basics/costs/help/medicaid",
+      },
+      {
+        label: "Medicare SNP explanation",
+        href: "https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/SNP",
+      },
     ],
     related: [
-      { label: "What changes during Medicare Annual Enrollment 2026?", href: "/answers/what-changes-during-medicare-annual-enrollment-2026" },
-      { label: "What should I do before, during, and after my 65th birthday?", href: "/answers/what-should-i-do-before-during-and-after-my-65th-birthday" },
-      { label: "Medigap or Medicare Advantage: which one fits me?", href: "/answers/medigap-or-medicare-advantage-which-one-fits-me" },
+      {
+        label: "Extra help medicare savings programs nc",
+        href: "/guides/extra-help-medicare-savings-programs-nc",
+      },
+      {
+        label: "Medicare dual eligible snp triad",
+        href: "/guides/medicare-dual-eligible-snp-triad",
+      },
+      {
+        label: "What changes during Medicare Annual Enrollment 2026?",
+        href: "/answers/what-changes-during-medicare-annual-enrollment-2026",
+      },
+      {
+        label: "What should I do before, during, and after my 65th birthday?",
+        href: "/answers/what-should-i-do-before-during-and-after-my-65th-birthday",
+      },
+      {
+        label: "Medigap or Medicare Advantage: which one fits me?",
+        href: "/answers/medigap-or-medicare-advantage-which-one-fits-me",
+      },
     ],
     startHref: "/start?topic=medicare",
   },
@@ -7769,74 +8085,134 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=taxes",
   },
+
   {
     slug: "how-do-roth-conversion-ladders-work",
     title: "How do Roth conversion ladders work?",
-    metaTitle: "How do Roth conversion ladders work?",
-    description: "How Roth conversion ladders work for early retirement, converting traditional retirement funds to Roth in low-income years, and the 5-year rule.",
-    keyword: "roth conversion ladder",
+    metaTitle: "How Do Roth Conversion Ladders Work? Timing and Tax",
+    description:
+      "Roth conversion ladders use conversions across tax years. Understand taxable portions, separate five-year rules, and the records needed before withdrawing.",
+    keyword: "how do roth conversion ladders work",
     eyebrow: "Taxes, explained",
-    lede: "If you want to retire early, you run into an awkward problem.",
+    lede: "A Roth conversion ladder moves retirement money into a Roth IRA across tax years. Conversion tax and withdrawal timing must be checked separately.",
     published: "2026-10-14",
-    updated: "2026-10-14",
-    intro: "If you want to retire early, you run into an awkward problem. Most of your retirement money is locked in accounts you cannot touch until age 59 and a half without paying a penalty. Your 401(k) and traditional IRA are full of money you need, and the door has a lock on it. The Roth conversion ladder is the most popular workaround. It is not a loophole or a trick. It is just a careful reading of the rules, used in the right order.",
+    updated: "2026-11-05",
+    intro:
+      "A Roth ladder uses a series of conversions to move retirement money into a Roth IRA over time. The taxable portion of each conversion can create income tax, and early withdrawals can face additional tax unless the timing and ordering rules are satisfied.",
     sections: [
       {
-        h2: "Here is the core idea",
+        h2: "What the ladder is designed to do",
         blocks: [
-          p("You can convert money from a traditional IRA to a Roth IRA any time you want. When you convert, you pay income tax on the amount converted, because traditional IRA money has never been taxed. That sounds bad, but here is the key: you get to choose when the conversion happens. If you do it in a year when your income is low, you pay tax at a low rate."),
-          p("So the ladder works like this. You retire early. In your first year of early retirement, your income drops way down, because you are not working anymore. You convert a chunk of your traditional IRA to a Roth IRA. You pay tax on that chunk, but at your new low rate instead of the high rate you paid while working. Then you wait. Then you spend it."),
+          {
+            kind: "p",
+            text: "A ladder spreads conversions across tax years so that converted amounts have different timing records. It can be part of an early-retirement plan, but it does not guarantee tax savings, accessible income, or sufficient retirement assets. Before using it, distinguish the money converted from later investment earnings and identify the funds that would pay living expenses during the waiting period.",
+          },
+          {
+            kind: "p",
+            text: "For the worked timing example, comparison, and detailed checklist, read the [Roth ladder timing and tax rules](/guides/roth-conversion-ladder-explained). This answer explains the central mechanics. It is general education, not a personalized instruction to convert retirement money.",
+          },
         ],
       },
       {
-        h2: "That is why it is called a ladder",
+        h2: "The taxable portion of a conversion",
         blocks: [
-          p("You convert in year one, and that money is available in year six. You convert in year two, available in year seven. Each year you add a new rung, and five years later a rung matures into spendable money. After the first five years, you have a steady pipeline of penalty-free withdrawals, one rung maturing every year."),
-          p("During those first five years, you live on other money. Taxable brokerage accounts are the usual bridge, since you can sell from those any time. Roth IRA contributions you made over the years can also be withdrawn any time, because you already paid tax on them. Some people use cash savings. The plan only works if you have five years of spending money outside the traditional accounts."),
+          {
+            kind: "p",
+            text: "Pre-tax retirement money generally creates income when converted to a Roth IRA. After-tax basis can make part of a conversion nontaxable. For traditional IRAs, the calculation can involve aggregated traditional, SEP, and SIMPLE IRA balances rather than a chosen account alone. Form 8606 is used when applicable. Ask a tax professional to check your records; do not assume the entire conversion is always taxable or that after-tax money can always be isolated.",
+          },
         ],
       },
       {
-        h2: "The real magic is the rate arbitrage",
+        h2: "Two five-year rules with different purposes",
         blocks: [
-          p("While you were working, your marginal tax rate might have been 22 or 24 percent or higher. Every dollar you put in the traditional 401(k) dodged tax at that rate. In early retirement, with no paycheck, you might fill up only the lowest brackets. Converting at 10 or 12 percent, or even zero if you stay under the standard deduction, means you permanently locked in a lower rate on that money. You dodged high tax going in and paid low tax coming out."),
+          {
+            kind: "p",
+            text: "Each conversion has a separate five-tax-year period relevant to the additional tax on certain early distributions of converted taxable amounts. The period begins January 1 of the conversion year. Qualified Roth IRA distributions follow another five-tax-year rule measured from the first tax year for which a contribution was made to a Roth IRA for you, plus a qualifying condition such as age 59½. Completing a conversion clock does not by itself make early earnings withdrawals qualified.",
+          },
         ],
       },
       {
-        h2: "And the five-year clocks are per conversion, not per account",
+        h2: "Which dollars come out first",
         blocks: [
-          p("Each year's conversion starts its own clock on January 1 of the year you converted. Miss this detail and you can withdraw too early and owe the penalty you were trying to avoid. Keep a simple log: year converted, amount, available date."),
-          p("One more thing people miss: you cannot do this well without knowing your income picture each year. Interest, dividends, side income, a spouse's income, all of it fills up those low brackets before your conversion does. The ladder is a year-by-year calculation, not a set-it-and-forget-it plan."),
-          p("Is it worth the complexity? For someone retiring in their 40s or 50s with most of their money in traditional accounts, often yes. It is one of the few strategies that turns the low-income years of early retirement into a genuine tax advantage instead of just a spending problem."),
+          {
+            kind: "p",
+            text: "For nonqualified Roth IRA distributions, IRS ordering rules generally treat regular contributions as coming out first, then conversions and rollovers in order, then earnings. Within a conversion, the taxable portion generally comes out before the nontaxable portion. Apply these rules across the Roth IRAs as directed by the IRS. A separate account label does not allow you to choose earnings or a particular conversion ahead of the ordering rules.",
+          },
         ],
       },
       {
-        h2: "This is general information, not tax advice",
+        h2: "A hypothetical timing example, without investment assumptions",
         blocks: [
-          p("The 5-year rule has details and exceptions I did not cover here, and tax brackets change yearly. Talk to a tax professional before you start converting."),
+          {
+            kind: "p",
+            text: "For a conversion made in tax year 2026, the separate conversion period starts January 1, 2026. Its five tax years are 2026 through 2030. A later conversion in 2027 has its own period starting January 1, 2027. This example only illustrates the clocks. Age, exceptions, distribution ordering, basis, and the separate earnings rules still determine the tax treatment of an actual withdrawal.",
+          },
+        ],
+      },
+      {
+        h2: "Funding the wait and checking other income effects",
+        blocks: [
+          {
+            kind: "p",
+            text: "Identify how expenses would be funded before planned converted amounts are available under the relevant rules. Conversion income can affect tax brackets and income-tested items, including some credits, health coverage assistance, and Medicare income-related premiums. These effects depend on the applicable tax year and household circumstances. Do not convert simply because a headline calls a year low-income. Compare the full return and coverage effects with a qualified professional.",
+          },
+        ],
+      },
+      {
+        h2: "Records and reporting",
+        blocks: [
+          {
+            kind: "p",
+            text: "Keep conversion dates, amounts, account statements, after-tax basis records, prior Forms 8606, and distribution records. Confirm when the custodian actually completed the conversion. A request submitted near year-end does not establish the completion year by itself. Check reporting forms against those records, and ask a tax professional to evaluate the plan before starting or changing a series of conversions.",
+          },
         ],
       },
     ],
     faq: [
       {
-        q: "What should I know about the core idea?",
-        a: "You can convert money from a traditional IRA to a Roth IRA any time you want. When you convert, you pay income tax on the amount converted, because traditional IRA money has never been taxed. That sounds bad, but here is the key: you get to choose when the conversion happens.",
+        q: "Does every conversion have a clock?",
+        a: "Each conversion has its own five-tax-year period for the relevant early-distribution additional-tax rule. Age and other exceptions can affect whether that rule results in tax.",
       },
       {
-        q: "What should I know about roth conversion ladder?",
-        a: "You convert in year one, and that money is available in year six. You convert in year two, available in year seven. Each year you add a new rung, and five years later a rung matures into spendable money. After the first five years, you have a steady pipeline of penalty-free withdrawals, one rung maturing every year.",
+        q: "Is the full conversion always taxable?",
+        a: "No. After-tax basis can affect the taxable portion. The applicable calculation may involve more than one IRA.",
       },
       {
-        q: "What should I know about the five?",
-        a: "Each year's conversion starts its own clock on January 1 of the year you converted. Miss this detail and you can withdraw too early and owe the penalty you were trying to avoid. Keep a simple log: year converted, amount, available date. One more thing people miss: you cannot do this well without knowing your income picture each year.",
+        q: "Can I withdraw earnings tax-free after five years regardless of age?",
+        a: "No. The qualified-distribution rule also requires a qualifying condition. A conversion clock alone does not qualify earnings.",
+      },
+      {
+        q: "How does a ladder differ from 72(t) payments?",
+        a: "A conversion ladder and substantially equal periodic payments use different rules. The latter generally require a continuing payment schedule and can impose consequences for an impermissible change.",
       },
     ],
     sources: [
-      { label: "Internal Revenue Service", href: "https://www.irs.gov/" },
+      {
+        label: "IRS Publication 590-B: Distributions from IRAs",
+        href: "https://www.irs.gov/publications/p590b",
+      },
+      {
+        label: "IRS Publication 590-A: Contributions to IRAs",
+        href: "https://www.irs.gov/publications/p590a",
+      },
+      {
+        label: "IRS: Substantially equal periodic payments",
+        href: "https://www.irs.gov/retirement-plans/substantially-equal-periodic-payments",
+      },
     ],
     related: [
-      { label: "How do tax deductions work?", href: "/answers/how-do-tax-deductions-work" },
-      { label: "How do tax credits work?", href: "/answers/how-do-tax-credits-work" },
-      { label: "How do I file taxes for the first time?", href: "/answers/how-do-i-file-taxes-for-the-first-time" },
+      {
+        label: "Roth ladder timing and tax rules",
+        href: "/guides/roth-conversion-ladder-explained",
+      },
+      {
+        label: "Roth ladder calculator",
+        href: "/tools/roth-conversion-ladder",
+      },
+      {
+        label: "401(k) early withdrawal exceptions",
+        href: "/guides/401k-early-withdrawal-exceptions",
+      },
     ],
     startHref: "/start?topic=taxes",
   },
@@ -8252,105 +8628,136 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=taxes",
   },
+
   {
     slug: "what-is-a-target-date-fund",
     title: "What is a target date fund?",
-    metaTitle: "What is a target date fund?",
-    description: "A target date fund picks your investments and adjusts them as you age, so this guide explains how the glide path works and whether one fits your retirement",
-    keyword: "target date fund",
+    metaTitle: "What Is a Target Date Fund? Risks, Fees, and Basics",
+    description:
+      "A target date fund adjusts its investment mix over time. Learn what the year means, how glide paths differ, and why the date doesn't guarantee a result.",
+    keyword: "what is a target date fund",
     eyebrow: "Investing, explained",
-    lede: "",
+    lede: "A target date fund adjusts its investment mix around a target year, often retirement. That date doesn't guarantee a balance or retirement income.",
     published: "2026-10-14",
-    updated: "2026-10-14",
-    intro: "",
+    updated: "2026-11-05",
+    intro:
+      "A target date fund holds a mix of investments and adjusts that mix over time around a target year, often an expected retirement year. The fund handles allocation changes, but the date doesn't guarantee your balance, income, or readiness to retire.",
     sections: [
       {
-        h2: "The Fund That Picks for You",
+        h2: "What the year tells you",
         blocks: [
-          p("Open a 401(k) enrollment packet and you will probably see a list of funds with years in their names. Target Date 2045. Target Date 2055. Target Date 2060. These are target date funds, and they are one of the most popular options in workplace retirement plans."),
+          {
+            kind: "p",
+            text: "The year is a starting point for the fund's investment schedule. It isn't a maturity date or a promise that the account will reach a certain value. Read the fund's objective and current holdings rather than choosing by the year alone. Source: [SEC target date fund bulletin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin).",
+          },
         ],
       },
       {
-        h2: "What the Year in the Name Means",
+        h2: "To retirement and through retirement",
         blocks: [
-          p("The year is the “target date,” the approximate year the investor plans to retire or start withdrawing money. If you are 25 in 2026 and plan to retire around age 65, that puts your retirement near 2066. The 2060 or 2065 fund would be the closest match."),
+          {
+            kind: "table",
+            headers: ["Approach", "What to look for"],
+            rows: [
+              ["To retirement", "Allocation generally reaches its target mix at the target date"],
+              ["Through retirement", "Allocation changes continue beyond the target date"],
+            ],
+          },
+          {
+            kind: "p",
+            text: "The schedule is called a glide path. Two funds with the same year can hold different stock and bond mixes and take different risks. Source: [SEC explanation of glide paths](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin).",
+          },
         ],
       },
       {
-        h2: "The Glide Path: How the Mix Changes",
+        h2: "What's inside and what you control",
         blocks: [
-          p("The defining feature of a target date fund is the glide path. That is the schedule the fund follows to shift from aggressive to conservative over time."),
-          p("Early on, when retirement is decades away, the fund holds mostly stocks. Stocks are more volatile, but they have higher long term growth potential, and a young investor has time to ride out the rough years."),
+          {
+            kind: "p",
+            text: "A fund can use index strategies, active strategies, or a blend. Many hold other funds. You own shares in the combined investment, rather than choosing which underlying component to sell each time. Adding separate funds changes your overall mix, so review the holdings across all accounts. Source: [Fidelity's explanation of target date structures](https://www.fidelity.com/learning-center/personal-finance/what-is-a-target-date-fund).",
+          },
         ],
       },
       {
-        h2: "What Is Inside a Target Date Fund",
+        h2: "Check risk and fees",
         blocks: [
-          p("Most target date funds are funds of funds. They do not buy individual stocks and bonds. They buy shares of other funds, usually index funds run by the same company: a U.S. stock index fund, an international stock fund, a bond fund, and sometimes others."),
-          p("That gives you instant diversification across thousands of companies and many bonds in a single holding. One fund, one contribution, and your money spreads across the market."),
+          {
+            kind: "p",
+            text: "Read the current stock and bond mix, the planned mix at and after the date, expenses, and the investment objective. A target date fund can lose money before, at, and after its target date. Automatic management doesn't make the investment personalized. Consider other assets and expected withdrawals before deciding whether the fund fits your situation. Source: [Schwab's benefits and risks explanation](https://www.schwab.com/learn/story/target-date-funds-benefits-risks-and-more).",
+          },
         ],
       },
       {
-        h2: "The Pros",
+        h2: "Read the fund documents in this order",
         blocks: [
-          p("Simplicity is the big one. You make one choice and the fund manages your allocation for decades. For most people, that is worth a lot."),
-          p("Diversification comes built in. Instead of guessing which three funds to combine, you get a professionally designed mix in one step."),
-        ],
-      },
-      {
-        h2: "The Cons",
-        blocks: [
-          p("A target date fund is designed for an average investor. You are not average. Your risk tolerance, other accounts, income, and debts are your own. The fund does not know about any of them."),
-          p("If you also have a Roth IRA, an old 401(k), or a taxable account, the target date fund only sees itself. Your overall allocation across all accounts might end up very different from what you intend. The fund cannot coordinate with money it cannot see."),
-        ],
-      },
-      {
-        h2: "How to Pick One (If You Decide To)",
-        blocks: [
-          p("First, find the fund whose target year is closest to your planned retirement. Then look at two things: the expense ratio and the current mix of stocks and bonds."),
-          p("Check the expense ratio on the fund company's site or your plan's fund list. Lower is generally better, since fees come straight out of your returns. If your plan offers target date funds from more than one company, compare the fees before you pick."),
-        ],
-      },
-      {
-        h2: "Who They Fit Best",
-        blocks: [
-          p("Target date funds fit beginners who want a reasonable default and will otherwise do nothing. A decent fund you actually contribute to beats a perfect allocation you never set up."),
-          p("They also fit busy people who know they will not rebalance on their own. If the choice is between a target date fund and a random mix you picked once and forgot, the target date fund usually wins."),
-        ],
-      },
-      {
-        h2: "The Bottom Line",
-        blocks: [
-          p("A target date fund is the autopilot option for retirement investing. Pick the year, contribute regularly, and let the glide path handle the shifting mix as you age. Check the fees, know the mix, and consider your other accounts."),
-          p("This is general educational information, not financial advice. Retirement choices depend on your full situation, so talk to a qualified professional before making big moves."),
+          {
+            kind: "p",
+            text: "Start with the investment objective and current allocation. Check how much is in stocks, bonds, and other assets today. Then look at the schedule for the target date and afterward. Two funds with the same year can reach different allocations. That year alone can't explain the risk you're taking or how the investment responds to withdrawals.",
+          },
+          {
+            kind: "p",
+            text: "Next, read the expenses. If the target date fund holds other funds, its documents explain the applicable fees and expenses. Review the combined investment's cost information rather than assuming automatic allocation is free. A workplace plan may have separate administrative charges. Compare costs on the same basis, and don't choose from recent performance alone.",
+          },
+          {
+            kind: "p",
+            text: "Finally, compare the fund with your other accounts. Owning a target date fund plus stock funds can create more stock exposure than its published mix suggests. Other savings, expected pension income, retirement timing, and withdrawals also affect the decision. The fund doesn't know these details. Our [index and active strategy comparison](/answers/index-funds-or-actively-managed-funds-which-is-better) explains another difference to check in the holdings.",
+          },
+          {
+            kind: "p",
+            text: "A target date fund isn't a guaranteed income product. Values can fall during the years when you plan to withdraw money. Rebalancing follows the stated approach; it doesn't promise a minimum balance. Read the prospectus and discuss the actual fund with a qualified investment professional before relying on it for retirement planning.",
+          },
+          {
+            kind: "p",
+            text: "The target year also doesn't automatically determine when you must retire or withdraw. Retirement-account withdrawal and required distribution rules are separate from the investment's allocation schedule.",
+          },
         ],
       },
     ],
     faq: [
       {
-        q: "What are the fund that picks for you?",
-        a: "Open a 401(k) enrollment packet and you will probably see a list of funds with years in their names. Target Date 2045. Target Date 2055. Target Date 2060. These are target date funds, and they are one of the most popular options in workplace retirement plans.",
+        q: "Does the fund turn into cash in its target year?",
+        a: "Don't assume that. Its prospectus describes the intended allocation and any changes after that date.",
       },
       {
-        q: "What do the year in the name mean?",
-        a: "The year is the “target date,” the approximate year the investor plans to retire or start withdrawing money. If you are 25 in 2026 and plan to retire around age 65, that puts your retirement near 2066. The 2060 or 2065 fund would be the closest match. The year is a rough guide, not a rule.",
+        q: "Can funds with the same year have different risks?",
+        a: "Yes. Compare holdings, glide paths, costs, and objectives.",
       },
       {
-        q: "What are the glide path: how the mix changes?",
-        a: "The defining feature of a target date fund is the glide path. That is the schedule the fund follows to shift from aggressive to conservative over time. Early on, when retirement is decades away, the fund holds mostly stocks.",
-      },
-      {
-        q: "What is inside a target date fund?",
-        a: "Most target date funds are funds of funds. They do not buy individual stocks and bonds. They buy shares of other funds, usually index funds run by the same company: a U.S. stock index fund, an international stock fund, a bond fund, and sometimes others.",
+        q: "Can I sell just the bonds inside my target date fund?",
+        a: "You generally sell shares of the combined fund, not a chosen underlying holding.",
       },
     ],
     sources: [
-      { label: "Investor.gov", href: "https://investor.gov/" },
+      {
+        label: "SEC target date fund bulletin",
+        href: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin",
+      },
     ],
     related: [
-      { label: "How do I start investing?", href: "/answers/how-do-i-start-investing" },
-      { label: "What is an index fund?", href: "/answers/what-is-an-index-fund" },
-      { label: "How does compound interest work?", href: "/answers/how-does-compound-interest-work" },
+      {
+        label: "How does a 401k work",
+        href: "/answers/how-does-a-401k-work",
+      },
+      {
+        label: "Index funds or actively managed funds which is better",
+        href: "/answers/index-funds-or-actively-managed-funds-which-is-better",
+      },
+      {
+        label: "Wealth",
+        href: "/wealth",
+      },
+      {
+        label: "How do I start investing?",
+        href: "/answers/how-do-i-start-investing",
+      },
+      {
+        label: "What is an index fund?",
+        href: "/answers/what-is-an-index-fund",
+      },
+      {
+        label: "How does compound interest work?",
+        href: "/answers/how-does-compound-interest-work",
+      },
     ],
     startHref: "/start?topic=investing",
   },
@@ -8934,104 +9341,146 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=investing",
   },
+
   {
     slug: "index-funds-or-actively-managed-funds-which-is-better",
-    title: "Index funds or actively managed funds: which is better?",
-    metaTitle: "Index funds or actively managed funds: which is better?",
-    description: "Index funds and actively managed funds take opposite approaches to beating the market, so here is what long term research tends to show about costs",
+    title: "Index funds vs actively managed funds",
+    metaTitle: "Index Funds vs Actively Managed Funds: Key Differences",
+    description:
+      "Compare index funds and actively managed funds by strategy, fees, risk, and taxes. Learn what a benchmark comparison can and can't tell you.",
     keyword: "index funds vs actively managed funds",
     eyebrow: "Investing, explained",
-    lede: "",
+    lede: "Index funds track a chosen index. Active funds use a manager's investment decisions. Compare the actual holdings, fees, and risks of each.",
     published: "2026-10-14",
-    updated: "2026-10-14",
-    intro: "",
+    updated: "2026-11-05",
+    intro:
+      "Index funds aim to track a chosen market index, while actively managed funds use a manager's decisions to pursue a stated investment objective. Neither approach guarantees a return, so compare the actual fund's holdings, costs, risks, and purpose rather than the label alone.",
     sections: [
       {
-        h2: "Two Philosophies of Investing",
+        h2: "Compare the approaches",
         blocks: [
-          p("Every mutual fund and ETF follows one of two philosophies. Active funds hire professional managers to research companies, pick stocks, and try to beat the market. Index funds skip all of that and simply hold the stocks in a market index, matching the market instead of trying to beat it."),
-          p("Active management sounds better. Who would not want a smart professional picking winners for them? But decades of evidence tell a humbling story, and it is worth understanding before you choose."),
+          {
+            kind: "table",
+            headers: ["Question", "Index fund", "Actively managed fund"],
+            rows: [
+              [
+                "How are investments selected?",
+                "Tracks an index using full holdings or a sample",
+                "Manager selects investments under the fund's mandate",
+              ],
+              [
+                "What can performance differ from?",
+                "Its index because of fees, trading, and tracking differences",
+                "Its benchmark because of selections, positioning, and costs",
+              ],
+              [
+                "What should you read?",
+                "Index methodology, prospectus, holdings, expenses",
+                "Investment objective, prospectus, holdings, expenses",
+              ],
+              ["Can it lose money?", "Yes", "Yes"],
+            ],
+          },
+          {
+            kind: "p",
+            text: "Source: [SEC investor bulletin on index funds](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-26).",
+          },
         ],
       },
       {
-        h2: "What Active Funds Promise",
+        h2: "Costs matter, but compare actual costs",
         blocks: [
-          p("An actively managed fund employs analysts and portfolio managers who study companies, meet executives, build models, and make judgments. The promise is skill: these experts will find undervalued stocks, avoid losers, and deliver returns above the market average."),
+          {
+            kind: "p",
+            text: "Index strategies often have lower expenses, but don't assume every active fund costs more than every index fund. Read each fund's expense ratio and other fees. Compare funds investing in similar markets. A narrow sector index and a diversified bond fund don't answer the same investment need. Source: [Vanguard's strategy comparison](https://investor.vanguard.com/investor-resources-education/understanding-investment-types/index-funds-vs-actively-managed-funds).",
+          },
         ],
       },
       {
-        h2: "What Index Funds Do Instead",
+        h2: "How to read performance research",
         blocks: [
-          p("An index fund does not try to be smart. It holds every stock in an index, like the S&P 500, in the same proportions as the index. When the index changes, the fund changes. No research team, no predictions, no star manager."),
-          p("The result is market performance, minus a tiny fee. If the market gains 8 percent and the fund charges 0.05 percent, you get roughly 7.95 percent. Boring, predictable, and cheap."),
+          {
+            kind: "p",
+            text: "Check the category, benchmark, date range, and whether results include fees. Ask how the research handles funds that closed or merged. A historical result doesn't identify next year's winning manager or show what every investor should buy. The [Rice research summary](https://business.rice.edu/wisdom/peer-reviewed-research/should-you-invest-index-funds-or-active-funds) is one named starting point, not a personal recommendation.",
+          },
         ],
       },
       {
-        h2: "What the Long-Term Evidence Tends to Show",
+        h2: "An ETF isn't automatically an index fund",
         blocks: [
-          p("Independent researchers have tracked active fund performance against benchmarks for decades. The best known of these scorecards is published regularly by S&P Dow Jones Indices under the name SPIVA. Its findings have been remarkably consistent over the years."),
-          p("The broad pattern: over short periods, a decent share of active funds beats the market. Over longer periods, that share shrinks substantially. Measured across ten or fifteen years, the majority of actively managed funds in most categories underperform their benchmark index after fees."),
+          {
+            kind: "p",
+            text: "ETF and mutual fund describe investment structures. Either structure can use an index or active strategy. Check how the particular fund operates and how its costs and trading work. Don't assume diversification, low risk, or tax efficiency just from the initials.",
+          },
         ],
       },
       {
-        h2: "Why Costs Explain Most of It",
+        h2: "Use a fair comparison checklist",
         blocks: [
-          p("Here is the least controversial part of the whole debate. Active funds charge more than index funds. That is not a judgment, it is arithmetic: research teams, trading, and marketing cost money."),
-          p("Every year, an active fund starts behind by the difference in fees. To beat an index fund tracking the same market, the active manager must outperform by more than that fee gap, after all trading costs, year after year."),
-        ],
-      },
-      {
-        h2: "The Case Active Managers Still Make",
-        blocks: [
-          p("Active management is not defenseless, and a fair account should include its arguments."),
-          p("In less efficient markets, skill may matter more. U.S. large company stocks are followed by thousands of analysts, and prices reflect available information quickly. Smaller companies, emerging markets, and certain bond markets get less attention, which may leave more room for skilled managers to find mispriced securities."),
-        ],
-      },
-      {
-        h2: "What This Means for Your Choices",
-        blocks: [
-          p("For the core of a long term portfolio, broad market index funds are the default recommendation of most independent financial educators, and the evidence is why. Low cost, diversified, and no reliance on picking a winning manager."),
-        ],
-      },
-      {
-        h2: "A Note on ETFs",
-        blocks: [
-          p("You will see both philosophies sold as ETFs as well as mutual funds. Most ETFs are index funds, but actively managed ETFs exist and are growing. The wrapper does not determine the philosophy. An active ETF has the same challenge as an active mutual fund: beating the market by more than its costs, consistently."),
-        ],
-      },
-      {
-        h2: "The Bottom Line",
-        blocks: [
-          p("Active funds try to beat the market. Index funds settle for matching it at low cost. Long term research tends to show that most active funds trail their benchmarks after fees, mainly because fees are certain and outperformance is not."),
-          p("This is general educational information, not financial advice. Fund choices depend on your full situation, so talk to a qualified professional before making big moves."),
+          {
+            kind: "p",
+            text: "Start with the investment's purpose. A stock fund, bond fund, and sector fund can respond differently to the same market even when all three track indexes. Compare funds with similar objectives and exposures before reading a return chart. Read the benchmark description. It should identify the market being measured, rather than suggest that every fund tries to deliver the same result.",
+          },
+          {
+            kind: "p",
+            text: "Separate the fund's expenses from account costs. An expense ratio, advisory charge, and trading or account fees can be different items. Ask which costs a quoted return includes and which are charged separately. A low expense ratio doesn't remove investment risk. An active management fee doesn't guarantee better decisions or protection in a downturn. Compare the written fee disclosures rather than a general claim about either strategy.",
+          },
+          {
+            kind: "p",
+            text: "Consider the account holding the investment. Taxable accounts and retirement accounts don't apply identical tax rules to transactions and distributions. A fund can distribute taxable amounts even when an investor hasn't sold shares, depending on the account and circumstances. Read its tax information rather than assuming an index strategy is tax-free. A qualified professional can evaluate your particular accounts.",
+          },
+          {
+            kind: "p",
+            text: "Also read [what a target date fund does](/answers/what-is-a-target-date-fund). That fund describes an allocation approach over time and can use active or index building blocks. Its name alone doesn't reveal the portfolio. Review the underlying holdings alongside other investments. This is general education, not a recommendation to buy or sell a fund.",
+          },
+          {
+            kind: "p",
+            text: "Check concentration as well as the number of holdings. Many securities can still share the same industry, country, or other source of risk.",
+          },
         ],
       },
     ],
     faq: [
       {
-        q: "What active funds promise?",
-        a: "An actively managed fund employs analysts and portfolio managers who study companies, meet executives, build models, and make judgments. The promise is skill: these experts will find undervalued stocks, avoid losers, and deliver returns above the market average. Some of the time, some of them do.",
+        q: "Do index funds always match the index?",
+        a: "No. Fees, trading costs, sampling, and tracking differences can affect results.",
       },
       {
-        q: "What index funds do instead?",
-        a: "An index fund does not try to be smart. It holds every stock in an index, like the S&P 500, in the same proportions as the index. When the index changes, the fund changes. No research team, no predictions, no star manager. The result is market performance, minus a tiny fee.",
+        q: "Are all ETFs passive?",
+        a: "No. Active ETFs also exist.",
       },
       {
-        q: "What the long-Term evidence tends to show?",
-        a: "Independent researchers have tracked active fund performance against benchmarks for decades. The best known of these scorecards is published regularly by S&P Dow Jones Indices under the name SPIVA. Its findings have been remarkably consistent over the years.",
-      },
-      {
-        q: "Why costs explain most of it?",
-        a: "Here is the least controversial part of the whole debate. Active funds charge more than index funds. That is not a judgment, it is arithmetic: research teams, trading, and marketing cost money. Every year, an active fund starts behind by the difference in fees.",
+        q: "Which approach is better?",
+        a: "That depends on the actual funds and the investor's situation. This article explains the tradeoffs without selecting an investment for you.",
       },
     ],
     sources: [
-      { label: "Investor.gov", href: "https://investor.gov/" },
+      {
+        label: "SEC investor bulletin on index funds",
+        href: "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-26",
+      },
     ],
     related: [
-      { label: "How do I start investing?", href: "/answers/how-do-i-start-investing" },
-      { label: "What is an index fund?", href: "/answers/what-is-an-index-fund" },
-      { label: "How does compound interest work?", href: "/answers/how-does-compound-interest-work" },
+      {
+        label: "What is a target date fund",
+        href: "/answers/what-is-a-target-date-fund",
+      },
+      {
+        label: "Wealth",
+        href: "/wealth",
+      },
+      {
+        label: "How do I start investing?",
+        href: "/answers/how-do-i-start-investing",
+      },
+      {
+        label: "What is an index fund?",
+        href: "/answers/what-is-an-index-fund",
+      },
+      {
+        label: "How does compound interest work?",
+        href: "/answers/how-does-compound-interest-work",
+      },
     ],
     startHref: "/start?topic=investing",
   },

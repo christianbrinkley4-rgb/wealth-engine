@@ -1,4 +1,5 @@
 import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
+import { SEARCH_LANDING_PAGES } from "@/lib/searchLandingPages";
 import { ASK_QUESTIONS } from "@/lib/askWall";
 import {
   AGENT,
@@ -70,6 +71,7 @@ export const dynamic = "force-static";
 
 /** New hub pages (Oct 2026): wealth library, tools, AI guides, SEO guides. */
 const NEW_GUIDE_PAGES = [
+  ...SEARCH_LANDING_PAGES,
   ...TRAFFIC_GUIDES.map((guide) => ({ path: `/guides/${guide.slug}`, title: guide.title, blurb: guide.answer })),
   { path: "/guides", title: "Money, tax, and Medicare guides", blurb: "Browse practical guides by question." },
   { path: "/wealth/money-moves-in-your-20s", title: "Five money moves for your 20s", blurb: "The five money moves that matter most in your 20s, in plain English." },

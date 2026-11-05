@@ -3,7 +3,13 @@ import Link from "next/link";
 import { AGENT, hasPublishableNpn } from "@/lib/agent";
 import { formatArticleDate } from "@/app/components/ArticleBody";
 
-export function MedicareByline({ reviewed }: { reviewed: string }) {
+export function MedicareByline({
+  reviewed,
+  scope = "medicare",
+}: {
+  reviewed: string;
+  scope?: "medicare" | "general";
+}) {
   return (
     <aside className="shell flex items-center gap-4 py-6" aria-label="About the author">
       <Image
@@ -23,7 +29,7 @@ export function MedicareByline({ reviewed }: { reviewed: string }) {
         {hasPublishableNpn() ? ` (NPN ${AGENT.npn})` : ""}.
         <br />
         Last reviewed <time dateTime={reviewed}>{formatArticleDate(reviewed)}</time>. Personal
-        Medicare help in {AGENT.city}, {AGENT.state}.
+        {scope === "medicare" ? "Medicare" : "insurance"} help in {AGENT.city}, {AGENT.state}.
       </p>
     </aside>
   );

@@ -26,8 +26,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, howToJsonLd, pageOpenGraph 
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Keep Your Doctor on Medicare Advantage | Greensboro",
+    absolute: "Keep Your Doctor on Medicare Advantage | Greensboro",
   },
   description:
     "Check whether your doctors are in a Medicare Advantage network before enrolling. Get practical steps from Christian Brinkley, a licensed Greensboro agent.",
@@ -90,7 +89,7 @@ const FAQ = [
   },
   {
     q: "Can you check my doctors for me?",
-    a: "Yes, bring your doctor list to a free review and I’ll verify each one against the plans you're considering.",
+    a: "Yes. Bring your doctor list to a free review. We can check each doctor against the plans you're considering and confirm with the plan and provider. (919) 408-6671",
   },
 ] as const;
 
@@ -195,7 +194,10 @@ export default function DoctorNetworksPage() {
               accepts Medicare assignment takes it, anywhere in the country. That&apos;s one of the
               genuine tradeoffs between the two paths, and it&apos;s worth understanding before you
               choose.{" "}
-              <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
+              <Link
+                href="/medicare-advantage-vs-medigap-greensboro-nc"
+                className="underline underline-offset-2"
+              >
                 Here&apos;s how Advantage and Medigap compare
               </Link>
               .
@@ -264,10 +266,9 @@ export default function DoctorNetworksPage() {
               doesn&apos;t.
             </p>
             <p>
-              And if this feels like a lot of phone calls: that&apos;s part of what I do.
-              When folks sit down with me for a fall review, I check each doctor against the
-              plan’s network. It&apos;s free, and it&apos;s one of the most useful steps in the whole
-              process.{" "}
+              And if this feels like a lot of phone calls: that&apos;s part of what I do. When folks
+              sit down with me for a fall review, I check each doctor against the plan’s network.
+              It&apos;s free, and it&apos;s one of the most useful steps in the whole process.{" "}
               <Link href="/start?topic=medicare&quick=1" className="underline underline-offset-2">
                 Request a review here
               </Link>
@@ -278,8 +279,8 @@ export default function DoctorNetworksPage() {
               for everything else the fall window covers.
             </p>
             <p>
-              Call me at {AGENT.phone}, Monday to Saturday 9:00 to 5:00, you&apos;ll reach me,
-              not a call center.
+              Call me at {AGENT.phone}, Monday to Saturday 9:00 to 5:00, you&apos;ll reach me, not a
+              call center.
             </p>
           </div>
 
@@ -289,21 +290,7 @@ export default function DoctorNetworksPage() {
               <div key={item.q} className="border-t border-gray-300 pt-6">
                 <dt className="text-19 font-semibold">{item.q}</dt>
                 <dd className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                  {item.q === "Can you check my doctors for me?" ? (
-                    <>
-                      Yes,{" "}
-                      <Link
-                        href="/start?topic=medicare&quick=1"
-                        className="underline underline-offset-2"
-                      >
-                        bring your doctor list to a free review
-                      </Link>{" "}
-                      and I&apos;ll verify each one against the plans you&apos;re considering. Call
-                      or text {AGENT.phone}.
-                    </>
-                  ) : (
-                    item.a
-                  )}
+                  {item.a}
                 </dd>
               </div>
             ))}

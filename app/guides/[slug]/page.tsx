@@ -8,7 +8,7 @@ import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { GuideCapture } from "@/app/components/GuideCapture";
 import { AGENT } from "@/lib/agent";
 import { ConsultationActions } from "@/app/components/ConsultationActions";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { findTrafficGuide, TRAFFIC_GUIDES, TRAFFIC_GUIDE_DATE } from "@/lib/trafficGuides";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -22,11 +22,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const guide = findTrafficGuide((await params).slug);
   if (!guide) notFound();
   return {
-    title: { absolute: guide.title },
+    title: { absolute: guide.metaTitle ?? guide.title },
     description: guide.description,
     alternates: { canonical: `/guides/${guide.slug}` },
     openGraph: pageOpenGraph({
-      title: guide.title,
+      title: guide.metaTitle ?? guide.title,
+      description: guide.description,
+      path: `/guides/${guide.slug}`,
+    }),
+    twitter: pageTwitter({
+      title: guide.metaTitle ?? guide.title,
       description: guide.description,
       path: `/guides/${guide.slug}`,
     }),
@@ -75,7 +80,10 @@ export default async function TrafficGuidePage({ params }: Props) {
             : "Federal rules for readers across the U.S."}
         </p>
         <h1 className="text-40 mt-3 font-semibold">{guide.title}</h1>
-        <MedicareByline reviewed={guide.dateModified ?? TRAFFIC_GUIDE_DATE} />
+        <MedicareByline
+          reviewed={guide.dateModified ?? TRAFFIC_GUIDE_DATE}
+          scope={guide.scope === "medicare" ? "medicare" : "general"}
+        />
         <ConsultationActions
           href={guide.scope === "medicare" ? "/start?topic=medicare&quick=1" : "/start"}
           label="Ask me an insurance question"
@@ -190,7 +198,8 @@ export default async function TrafficGuidePage({ params }: Props) {
         <aside className="mt-10 rounded-xl bg-[var(--color-paper)] p-6">
           <h2 className="text-28 font-semibold">Have an insurance question?</h2>
           <p className="text-17 mt-3">
-            If this brings up an insurance question, call me or send a request. No obligation to enroll or buy.
+            If this brings up an insurance question, call me or send a request. No obligation to
+            enroll or buy.
           </p>
           <ConsultationActions
             href={guide.scope === "medicare" ? "/start?topic=medicare&quick=1" : "/start"}
@@ -198,8 +207,7 @@ export default async function TrafficGuidePage({ params }: Props) {
             location="page_close"
           />
           <address className="text-17 mt-4 not-italic">
-            Christian Brinkley · Greensboro, NC ·{" "}
-            {AGENT.licenseLine}
+            Christian Brinkley · Greensboro, NC · {AGENT.licenseLine}
             <br />
           </address>
         </aside>

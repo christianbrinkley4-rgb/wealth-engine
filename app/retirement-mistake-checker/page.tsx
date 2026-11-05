@@ -121,7 +121,7 @@ export default function RetirementMistakeCheckerPage() {
 
           <h2 className="text-28 mt-16 font-semibold">The traps it checks</h2>
           <div className="mt-4 space-y-6">
-            {TRAPS.slice(0, 3).map((item) => (
+            {TRAPS.map((item) => (
               <div key={item.q}>
                 <h3 className="text-19 font-semibold">{item.q}</h3>
                 <p className={`${P} mt-2`}>{item.a}</p>
