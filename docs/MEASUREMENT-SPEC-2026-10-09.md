@@ -62,7 +62,7 @@ Status: **Live** means it is in `MEASURED_EVENTS` today. **New** is added by tic
 
 Allowed values:
 
-- `tool_id`: `roth_vs_traditional`, `emergency_fund`, `debt_payoff`, `retirement_projector`, `take_home_pay`, `life_insurance_needs`, `compound_interest`, `budget`, `roth_conversion_ladder`.
+- `tool_id`: `roth_vs_traditional`, `emergency_fund`, `debt_payoff`, `retirement_projector`, `take_home_pay`, `life_insurance_needs`, `compound_interest`, `budget`, `roth_conversion_ladder`, `retirement_checker` (typed mistake checker), `retirement_checker_voice` (its voice mode).
 - `quiz_id` (extended): `plan_check`, `help_request`, plus `medigap_or_advantage`, `roth_conversion`, `cd_or_savings` for the three quizzes under `/tools` that report nothing today.
 - `destination`: `medicare_plan_compare`, `medicare_gov`, `ssa_gov`, `nc_shiip`.
 - `list_id`: `guides`, `drops`.

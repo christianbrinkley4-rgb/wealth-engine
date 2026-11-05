@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
-import { AGENT } from "@/lib/agent";
+import { trackEvent } from "@/app/components/Analytics";
 import {
   checkRetirement,
   type CheckerInputs,
@@ -11,6 +10,8 @@ import {
   type Finding,
   type MedicareStatus,
 } from "@/lib/retirementChecker";
+
+import { CheckerResults } from "./CheckerResults";
 
 const MONTHS = [
   "January",
@@ -93,6 +94,13 @@ export function CheckerForm() {
   const [irmaa, setIrmaa] = useState<"yes" | "no">("no");
   const [lifeChange, setLifeChange] = useState<"yes" | "no">("no");
   const [results, setResults] = useState<Finding[] | null>(null);
+  const started = useRef(false);
+
+  function markStarted() {
+    if (started.current) return;
+    started.current = true;
+    trackEvent("tool_start", { tool_id: "retirement_checker" });
+  }
 
   function run(event: React.FormEvent) {
     event.preventDefault();
@@ -117,11 +125,17 @@ export function CheckerForm() {
       wagesThisYear: ss === "yes" ? num(wages) : null,
     };
     setResults(checkRetirement(inputs));
+    trackEvent("tool_complete", { tool_id: "retirement_checker" });
     window.setTimeout(() => document.getElementById("checker-results")?.focus(), 0);
   }
 
   return (
-    <form onSubmit={run} className="mt-6 space-y-8" aria-describedby="checker-privacy">
+    <form
+      onSubmit={run}
+      onChangeCapture={markStarted}
+      className="mt-6 space-y-8"
+      aria-describedby="checker-privacy"
+    >
       <p id="checker-privacy" className="text-16 text-[var(--color-ink-muted)]">
         Your answers stay on this page. Nothing is saved or sent anywhere.
       </p>
@@ -328,62 +342,7 @@ export function CheckerForm() {
         Check my situation
       </button>
 
-      {results && (
-        <div id="checker-results" tabIndex={-1} aria-live="polite" className="outline-none">
-          <h2 className="text-28 font-semibold">
-            {results.length === 0
-              ? "Nothing jumped out"
-              : `${results.length} thing${results.length === 1 ? "" : "s"} to look at`}
-          </h2>
-          {results.length === 0 && (
-            <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-              Based on your answers, none of the common traps apply right now. That&apos;s not a
-              full review, so it&apos;s still worth checking your plan each fall.
-            </p>
-          )}
-          <div className="mt-4 space-y-4">
-            {results.map((f) => (
-              <div
-                key={f.id}
-                className={`rounded-xl border-2 p-5 ${f.severity === "act_now" ? "border-[#9a3412] bg-[#fff7ed]" : "border-[var(--color-navy)] bg-white"}`}
-              >
-                <p className="text-15 font-semibold tracking-wide uppercase">
-                  {f.severity === "act_now" ? "Act soon" : "Worth checking"}
-                </p>
-                <h3 className="text-19 mt-1 font-semibold">{f.title}</h3>
-                <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-                  {f.detail}
-                </p>
-                <p className="text-17 mt-2 leading-relaxed">
-                  <strong>What to do:</strong> {f.action}
-                </p>
-                <p className="text-16 mt-3">
-                  <Link href={f.learnMore.href} className="underline underline-offset-2">
-                    {f.learnMore.label}
-                  </Link>
-                  {" · "}
-                  <a
-                    href={f.source.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline underline-offset-2"
-                  >
-                    Source: {f.source.label}
-                  </a>
-                </p>
-              </div>
-            ))}
-          </div>
-          <p className="text-17 mt-6 leading-relaxed">
-            Want a second set of eyes? I&apos;m a licensed agent in Greensboro and I help North
-            Carolina households with exactly these questions. Call or text{" "}
-            <a href={AGENT.phoneHref} className="font-semibold underline">
-              {AGENT.phone}
-            </a>
-            .
-          </p>
-        </div>
-      )}
+      {results && <CheckerResults findings={results} id="checker-results" />}
     </form>
   );
 }

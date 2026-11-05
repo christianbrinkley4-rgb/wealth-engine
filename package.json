@@ -14,7 +14,6 @@
     "check": "npm run lint && npm test && npm run build"
   },
   "dependencies": {
-    "@elevenlabs/client": "1.35.0",
     "@neondatabase/serverless": "1.2.0",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-label": "^2.1.8",

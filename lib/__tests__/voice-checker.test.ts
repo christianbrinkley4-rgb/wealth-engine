@@ -3,44 +3,44 @@ import { join } from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import {
-  captionText,
-  VOICE_AGENT_ID,
-  VOICE_DISCLOSURE,
-  voiceCheckerEnabled,
-} from "@/lib/voiceChecker";
+import { VOICE_DISCLOSURE, voiceCheckerEnabled } from "@/lib/voiceChecker";
 
 const root = join(__dirname, "..", "..");
 const src = (path: string) => readFileSync(join(root, path), "utf8");
 const EM = String.fromCharCode(0x2014);
-const EN = String.fromCharCode(0x2013);
+const VOICE_FILES = [
+  "app/retirement-mistake-checker/VoiceCheck.tsx",
+  "app/retirement-mistake-checker/browserSpeech.ts",
+  "lib/voiceScript.ts",
+  "lib/voiceChecker.ts",
+];
 
 describe("voice checker", () => {
   it("stays off unless approved or previewed locally", () => {
-    expect(voiceCheckerEnabled({})).toBe(false);
-    expect(voiceCheckerEnabled({ NEXT_PUBLIC_VOICE_PREVIEW: "0" })).toBe(false);
     expect(voiceCheckerEnabled({ NEXT_PUBLIC_VOICE_PREVIEW: "1" })).toBe(true);
+    const approved = /const APPROVED_FOR_LIVE = (true|false);/.exec(
+      src("lib/voiceChecker.ts"),
+    )?.[1];
+    expect(voiceCheckerEnabled({})).toBe(approved === "true");
   });
 
-  it("points at the ElevenLabs agent", () => {
-    expect(VOICE_AGENT_ID).toMatch(/^agent_[a-z0-9]+$/);
-  });
-
-  it("discloses AI, the voice provider, no PII and no advice before start", () => {
+  it("discloses who handles speech, no personal details and no advice before start", () => {
     const text = VOICE_DISCLOSURE.join(" ");
     expect(text).toMatch(/not Christian/);
-    expect(text).toMatch(/ElevenLabs/);
+    expect(text).toMatch(/Google, Apple or Microsoft/);
+    expect(text).toMatch(/never receives or keeps your voice or your answers/);
     expect(text).toMatch(/Medicare number/);
     expect(text).toMatch(/not plan, tax or legal advice/);
     expect(text).not.toContain(EM);
   });
 
-  it("loads the ElevenLabs SDK only after a tap", () => {
-    const code = src("app/retirement-mistake-checker/VoiceCheck.tsx");
-    const staticImports = code.match(/^import (?!type ).*from "@elevenlabs\/client";$/gm) ?? [];
-    expect(staticImports).toEqual([]);
-    expect(code).toContain('await import("@elevenlabs/client")');
-    expect(code).not.toContain(EM);
+  it("sends nothing anywhere: no network calls and no third-party voice service", () => {
+    for (const file of VOICE_FILES) {
+      const code = src(file);
+      expect(code, file).not.toMatch(/\bfetch\(|XMLHttpRequest|sendBeacon|WebSocket\(/);
+      expect(code, file).not.toMatch(/elevenlabs|openai|anthropic/i);
+      expect(code, file).not.toContain(EM);
+    }
   });
 
   it("renders the voice card and its privacy answer only behind the flag", () => {
@@ -49,12 +49,10 @@ describe("voice checker", () => {
     expect(page).toMatch(/a: VOICE_ON\s*\?/);
   });
 
-  it("cleans dashes and markdown out of captions", () => {
-    expect(captionText(`traps people miss${EM}things like deadlines`)).toBe(
-      "traps people miss, things like deadlines",
-    );
-    expect(captionText(`one ${EN} two`)).toBe("one, two");
-    expect(captionText("**Act soon:** sign up")).toBe("Act soon: sign up");
-    expect(captionText("  ok  ")).toBe("ok");
+  it("measures only that the tool was used, never the answers", () => {
+    const code = src("app/retirement-mistake-checker/VoiceCheck.tsx");
+    const calls = code.match(/trackEvent\([^)]*\)/g) ?? [];
+    expect(calls.length).toBeGreaterThan(0);
+    for (const call of calls) expect(call).toMatch(/tool_id: "retirement_checker_voice"/);
   });
 });

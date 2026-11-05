@@ -40,7 +40,7 @@ const TRAPS = [
   {
     q: "Is my information saved?",
     a: VOICE_ON
-      ? "No. The typed checker runs on your own device, and nothing you enter is stored or sent anywhere. If you use the voice assistant instead, your voice goes to ElevenLabs, our voice provider, only to run the conversation. It's set up not to record or keep it, and this site doesn't store it either."
+      ? "No. The checker runs on your own device, and nothing you enter or say is sent to this site or stored. If you answer out loud, your browser turns your speech into text; depending on your browser, its maker, such as Google, Apple or Microsoft, may handle that step."
       : "No. The checker runs on your own device. Nothing you enter is stored or sent anywhere.",
   },
 ];
@@ -73,6 +73,12 @@ const APP_JSON_LD = {
   isAccessibleForFree: true,
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   description: DESCRIPTION,
+  featureList: [
+    "Checks the Part B late penalty, COBRA, HSA, Medigap, Marketplace, IRMAA, Roth conversion and Social Security earnings-test traps",
+    "Every result links to its official source",
+    ...(VOICE_ON ? ["Answer out loud or by tapping, with questions and results read aloud"] : []),
+    "Runs in your browser; nothing is stored",
+  ],
 };
 
 const P = "text-17 leading-relaxed text-[var(--color-ink-muted)]";

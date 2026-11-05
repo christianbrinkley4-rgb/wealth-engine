@@ -85,7 +85,7 @@ export function isReviewSource(value: unknown): value is ReviewSource {
   return typeof value === "string" && (REVIEW_SOURCES as readonly string[]).includes(value);
 }
 
-export const TOOL_IDS = ["roth_vs_traditional", "emergency_fund", "debt_payoff", "retirement_projector", "take_home_pay", "life_insurance_needs", "compound_interest", "budget", "roth_conversion_ladder"] as const;
+export const TOOL_IDS = ["roth_vs_traditional", "emergency_fund", "debt_payoff", "retirement_projector", "take_home_pay", "life_insurance_needs", "compound_interest", "budget", "roth_conversion_ladder", "retirement_checker", "retirement_checker_voice"] as const;
 export type ToolId = (typeof TOOL_IDS)[number];
 export const CTA_IDS = ["plan_check", "ask_question", "book_time"] as const;
 export const CTA_LOCATIONS = ["header", "hero", "sticky_bar", "page_close", "article_end", "inline", "menu", "tool_result"] as const;

@@ -1,20 +1,15 @@
 /**
- * Voice version of the retirement mistake checker.
+ * Voice mode for the retirement mistake checker.
  *
- * The ElevenLabs agent below asks the checker's questions out loud, then calls
- * POST /api/retirement-check (the same tested rules as the typed form) and
- * reads back only what that returns. It never answers from its own knowledge.
- *
- * Agent settings live in the ElevenLabs dashboard, not in this repo:
- * zero-retention mode, voice recording off, file uploads off, runs only from
- * christianbrinkleync.com, 3 conversations at once, 40 a day, 10 minutes each.
+ * Runs entirely in the visitor's browser: the browser's built-in speech reads
+ * the questions and listens for answers, a fixed script (lib/voiceScript.ts)
+ * matches what was said, and the same tested checkRetirement() produces the
+ * results. No AI, no paid service, nothing sent to this site.
  */
 
-export const VOICE_AGENT_ID = "agent_8401m6nyb6awfm7s921y5z9pwny1";
-
 /**
- * The voice button stays hidden until Christian approves the disclosure
- * wording below (CLAUDE.md: ask before changing what a visitor agrees to).
+ * The voice card stays hidden until Christian approves the disclosure wording
+ * below (CLAUDE.md: ask before changing what a visitor agrees to).
  * NEXT_PUBLIC_VOICE_PREVIEW=1 shows it in a local build for testing.
  */
 const APPROVED_FOR_LIVE = false;
@@ -25,28 +20,10 @@ export function voiceCheckerEnabled(
   return APPROVED_FOR_LIVE || env.NEXT_PUBLIC_VOICE_PREVIEW === "1";
 }
 
-/** Shown before anyone can start. Keep in step with the agent's first message and widget terms. */
+/** Shown before anyone can start. */
 export const VOICE_DISCLOSURE = [
-  "It's an automated assistant, not Christian and not a person.",
-  "Your voice goes to ElevenLabs, our voice provider, only to run the conversation. It's set up not to record or keep it.",
-  "Please don't share your name, Medicare number, Social Security number or health details. You don't need them.",
+  "It's an automated voice, not Christian. It asks the same questions as the form below and reads back the same results.",
+  "Your browser does the listening and the reading aloud. Depending on your browser, its maker, such as Google, Apple or Microsoft, may handle that speech. This site never receives or keeps your voice or your answers.",
+  "Please don't say your name, Medicare number, Social Security number or health details. You don't need them.",
   "Results are educational, not plan, tax or legal advice.",
 ] as const;
-
-/**
- * Caption text for the on-page transcript. The agent is told to speak plain
- * sentences, but models slip, and the site never shows em or en dashes or
- * markdown. Dashes become commas; asterisks and stray hashes are dropped.
- */
-// Built from a string so the escapes survive formatting (en dash, em dash).
-const DASHES = new RegExp("\\s*[\\u2013\\u2014]\\s*", "g");
-
-export function captionText(text: string): string {
-  return text
-    .replace(DASHES, ", ")
-    .replace(/[*#]+/g, "")
-    .replace(/\s+,/g, ",")
-    .replace(/,\s*,/g, ",")
-    .replace(/\s{2,}/g, " ")
-    .trim();
-}
