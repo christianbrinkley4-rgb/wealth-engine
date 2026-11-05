@@ -290,6 +290,7 @@ ${articleLines}
 
 ## Free tools
 
+- [Retirement mistake checker](${SITE_URL}/retirement-mistake-checker): a free, private (nothing stored) check for costly collisions between Medicare, Social Security, taxes and health coverage: the Part B late penalty, COBRA and retiree coverage not counting, small employers where Medicare pays first, HSA contributions near Medicare (stop 6 months before applying), Marketplace savings ending with Part A, Roth conversions raising IRMAA two years later, SSA-44 appeals after a life change, and the one-time Medigap window. Every result cites Medicare.gov, HealthCare.gov or SSA.
 - [2027 Medicare Advantage plans by NC county](${SITE_URL}/medicare-2027-by-county): plan counts, $0-premium plans, PPO and HMO options and typical out-of-pocket limits for all 100 North Carolina counties, 2026 compared with 2027, from the CMS Landscape files. Counts only, no plan or insurer names.
 - [NC Medicare Atlas](${SITE_URL}/nc-medicare-atlas): the same county data as a free embeddable tool that libraries, churches, senior centers and news sites can add to their own pages with one copy and paste. No ads, tracking or sign-up.
 - [Medicare enrollment dates](${SITE_URL}/turning-65#enrollment-dates): find estimated enrollment dates, print them, or save them to a personal calendar without providing contact information. Includes the first-of-month birthday adjustment.

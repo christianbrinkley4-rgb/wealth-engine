@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import { GET as llmsTxtGet } from "@/app/llms.txt/route";
+import {
+  RETIREMENT_MCP_TOOLS,
+  runCheckRetirementTraps,
+  runNcCountyMedicare,
+} from "@/lib/mcpRetirementTools";
 import { SITE_URL } from "@/lib/seo";
 
 import { guideMarkdown, mcpToolCatalog, numbers2027Markdown, searchMcpDocs } from "./content";
@@ -18,7 +23,7 @@ import { guideMarkdown, mcpToolCatalog, numbers2027Markdown, searchMcpDocs } fro
 export const dynamic = "force-dynamic";
 
 const SERVER_NAME = "christianbrinkleync-content";
-const SERVER_VERSION = "1.0.0";
+const SERVER_VERSION = "1.1.0";
 const SUPPORTED_PROTOCOLS = ["2025-06-18", "2024-11-05"] as const;
 
 type JsonRpcId = string | number | null;
@@ -34,10 +39,7 @@ function jsonRpcResult(id: JsonRpcId, result: unknown): NextResponse {
 }
 
 function jsonRpcError(id: JsonRpcId, code: number, message: string, status = 200): NextResponse {
-  return NextResponse.json(
-    { jsonrpc: "2.0", id, error: { code, message } },
-    { status },
-  );
+  return NextResponse.json({ jsonrpc: "2.0", id, error: { code, message } }, { status });
 }
 
 const MCP_TOOLS = [
@@ -49,8 +51,17 @@ const MCP_TOOLS = [
     inputSchema: {
       type: "object",
       properties: {
-        query: { type: "string", description: "What the user is asking about, e.g. 'Roth IRA' or 'Part D cap'." },
-        limit: { type: "integer", description: "Max results to return.", minimum: 1, maximum: 20, default: 8 },
+        query: {
+          type: "string",
+          description: "What the user is asking about, e.g. 'Roth IRA' or 'Part D cap'.",
+        },
+        limit: {
+          type: "integer",
+          description: "Max results to return.",
+          minimum: 1,
+          maximum: 20,
+          default: 8,
+        },
       },
       required: ["query"],
       additionalProperties: false,
@@ -84,13 +95,17 @@ const MCP_TOOLS = [
       "The key 2027 Medicare figures (Part D deductible and cap, Part B projections, key dates), each labeled final or projected with its source. Notes that 2027 tax figures are not announced yet.",
     inputSchema: { type: "object", properties: {}, additionalProperties: false },
   },
+  ...RETIREMENT_MCP_TOOLS,
 ];
 
 function toolResultText(text: string) {
   return { content: [{ type: "text" as const, text }] };
 }
 
-async function handleToolCall(params: Record<string, unknown> | undefined, id: JsonRpcId): Promise<NextResponse> {
+async function handleToolCall(
+  params: Record<string, unknown> | undefined,
+  id: JsonRpcId,
+): Promise<NextResponse> {
   const name = params?.["name"];
   const args = (params?.["arguments"] ?? {}) as Record<string, unknown>;
   if (typeof name !== "string") {
@@ -116,7 +131,9 @@ async function handleToolCall(params: Record<string, unknown> | undefined, id: J
       if (!guide) {
         return jsonRpcResult(
           id,
-          toolResultText(`No guide found for slug "${args["slug"]}". Try search_guides to find the right one.`),
+          toolResultText(
+            `No guide found for slug "${args["slug"]}". Try search_guides to find the right one.`,
+          ),
         );
       }
       return jsonRpcResult(id, toolResultText(guide.markdown));
@@ -125,14 +142,32 @@ async function handleToolCall(params: Record<string, unknown> | undefined, id: J
       return jsonRpcResult(id, toolResultText(JSON.stringify(mcpToolCatalog(), null, 2)));
     case "get_2027_numbers":
       return jsonRpcResult(id, toolResultText(numbers2027Markdown()));
+    case "check_retirement_traps": {
+      const text = runCheckRetirementTraps(args);
+      return text.startsWith("ERROR:")
+        ? jsonRpcError(id, -32602, text.slice(7))
+        : jsonRpcResult(id, toolResultText(text));
+    }
+    case "get_nc_county_medicare": {
+      const text = runNcCountyMedicare(args);
+      return text.startsWith("ERROR:")
+        ? jsonRpcError(id, -32602, text.slice(7))
+        : jsonRpcResult(id, toolResultText(text));
+    }
     default:
       return jsonRpcError(id, -32602, `Unknown tool: ${name}.`);
   }
 }
 
-function handleInitialize(params: Record<string, unknown> | undefined, id: JsonRpcId): NextResponse {
-  const clientProtocol = typeof params?.["protocolVersion"] === "string" ? params["protocolVersion"] : undefined;
-  const protocolVersion = SUPPORTED_PROTOCOLS.includes(clientProtocol as (typeof SUPPORTED_PROTOCOLS)[number])
+function handleInitialize(
+  params: Record<string, unknown> | undefined,
+  id: JsonRpcId,
+): NextResponse {
+  const clientProtocol =
+    typeof params?.["protocolVersion"] === "string" ? params["protocolVersion"] : undefined;
+  const protocolVersion = SUPPORTED_PROTOCOLS.includes(
+    clientProtocol as (typeof SUPPORTED_PROTOCOLS)[number],
+  )
     ? clientProtocol
     : SUPPORTED_PROTOCOLS[0];
   return jsonRpcResult(id, {
@@ -140,11 +175,14 @@ function handleInitialize(params: Record<string, unknown> | undefined, id: JsonR
     capabilities: { tools: {}, resources: {} },
     serverInfo: { name: SERVER_NAME, version: SERVER_VERSION },
     instructions:
-      "Public content from christianbrinkleync.com: Medicare and money guides, wealth articles, free calculators, and 2027 figures. Everything is educational, never personal financial, tax, legal, or investment advice. Verify changing rules against official sources.",
+      "Public content from christianbrinkleync.com: Medicare and money guides, wealth articles, free calculators, 2027 figures, a retirement mistake checker (check_retirement_traps) and six years of North Carolina county Medicare Advantage data (get_nc_county_medicare). Everything is educational, never personal financial, tax, legal, or investment advice. Verify changing rules against official sources.",
   });
 }
 
-async function handleResourcesRead(params: Record<string, unknown> | undefined, id: JsonRpcId): Promise<NextResponse> {
+async function handleResourcesRead(
+  params: Record<string, unknown> | undefined,
+  id: JsonRpcId,
+): Promise<NextResponse> {
   const uri = params?.["uri"];
   if (typeof uri !== "string") {
     return jsonRpcError(id, -32602, "resources/read requires a string 'uri' param.");

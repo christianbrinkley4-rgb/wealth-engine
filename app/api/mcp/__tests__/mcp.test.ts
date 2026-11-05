@@ -12,19 +12,24 @@ const post = (body: unknown) =>
     headers: { "Content-Type": "application/json" },
   });
 
-const rpc = async (body: unknown) => (await POST(post(body))).json() as Promise<{
-  jsonrpc: string;
-  id: number | null;
-  result?: Record<string, unknown>;
-  error?: { code: number; message: string };
-}>;
+const rpc = async (body: unknown) =>
+  (await POST(post(body))).json() as Promise<{
+    jsonrpc: string;
+    id: number | null;
+    result?: Record<string, unknown>;
+    error?: { code: number; message: string };
+  }>;
 
 const initialize = () =>
   rpc({
     jsonrpc: "2.0",
     id: 1,
     method: "initialize",
-    params: { protocolVersion: "2025-06-18", capabilities: {}, clientInfo: { name: "test", version: "0" } },
+    params: {
+      protocolVersion: "2025-06-18",
+      capabilities: {},
+      clientInfo: { name: "test", version: "0" },
+    },
   });
 
 describe("MCP initialize handshake", () => {
@@ -34,7 +39,10 @@ describe("MCP initialize handshake", () => {
     expect(response.id).toBe(1);
     const result = response.result as Record<string, unknown>;
     expect(result.protocolVersion).toBe("2025-06-18");
-    expect(result.serverInfo).toMatchObject({ name: "christianbrinkleync-content", version: "1.0.0" });
+    expect(result.serverInfo).toMatchObject({
+      name: "christianbrinkleync-content",
+      version: "1.1.0",
+    });
     expect((result.capabilities as Record<string, unknown>).tools).toBeDefined();
     expect((result.capabilities as Record<string, unknown>).resources).toBeDefined();
   });
@@ -48,11 +56,18 @@ describe("MCP initialize handshake", () => {
 });
 
 describe("MCP tools", () => {
-  it("lists the four content tools", async () => {
+  it("lists the content and retirement tools", async () => {
     const response = await rpc({ jsonrpc: "2.0", id: 2, method: "tools/list", params: {} });
     const tools = (response.result as { tools: Array<{ name: string }> }).tools;
     expect(tools.map((tool) => tool.name).sort()).toEqual(
-      ["get_2027_numbers", "get_guide", "list_tools", "search_guides"].sort(),
+      [
+        "check_retirement_traps",
+        "get_2027_numbers",
+        "get_guide",
+        "get_nc_county_medicare",
+        "list_tools",
+        "search_guides",
+      ].sort(),
     );
     const search = tools.find((tool) => tool.name === "search_guides");
     expect(search?.inputSchema).toMatchObject({ required: ["query"] });
@@ -69,7 +84,11 @@ describe("MCP tools", () => {
     const results = JSON.parse(text) as Array<{ slug: string; title: string; url: string }>;
     expect(results.length).toBeGreaterThan(0);
     expect(results.some((r) => r.slug.includes("roth"))).toBe(true);
-    expect(results[0]).toMatchObject({ slug: expect.any(String), title: expect.any(String), url: expect.stringContaining("http") });
+    expect(results[0]).toMatchObject({
+      slug: expect.any(String),
+      title: expect.any(String),
+      url: expect.stringContaining("http"),
+    });
   });
 
   it("search_guides finds Medicare content too", async () => {
@@ -160,7 +179,10 @@ describe("MCP resources", () => {
   it("lists the llms.txt index and the 2027 numbers resources", async () => {
     const response = await rpc({ jsonrpc: "2.0", id: 11, method: "resources/list", params: {} });
     const resources = (response.result as { resources: Array<{ uri: string }> }).resources;
-    expect(resources.map((r) => r.uri)).toEqual(["site:///llms.txt", "site:///medicare-numbers-2027"]);
+    expect(resources.map((r) => r.uri)).toEqual([
+      "site:///llms.txt",
+      "site:///medicare-numbers-2027",
+    ]);
   });
 
   it("reads the real llms.txt content", async () => {
@@ -182,7 +204,8 @@ describe("MCP resources", () => {
       method: "resources/read",
       params: { uri: "site:///medicare-numbers-2027" },
     });
-    const contents = (response.result as { contents: Array<{ mimeType: string; text: string }> }).contents;
+    const contents = (response.result as { contents: Array<{ mimeType: string; text: string }> })
+      .contents;
     expect(contents[0].mimeType).toBe("text/markdown");
     expect(contents[0].text).toContain("2027 Medicare numbers");
   });
@@ -225,5 +248,64 @@ describe("MCP error handling", () => {
     const response = await GET();
     const body = (await response.json()) as { endpoint: string };
     expect(body.endpoint).toContain("/api/mcp");
+  });
+});
+
+describe("MCP retirement tools", () => {
+  it("check_retirement_traps returns cited findings for a COBRA trap", async () => {
+    const response = await rpc({
+      jsonrpc: "2.0",
+      id: 40,
+      method: "tools/call",
+      params: {
+        name: "check_retirement_traps",
+        arguments: { birthMonth: 6, birthYear: 1958, medicare: "part_a_only", coverage: "cobra" },
+      },
+    });
+    const text = (response.result as { content: Array<{ text: string }> }).content[0].text;
+    const body = JSON.parse(text) as {
+      findings: Array<{ title: string; source: string }>;
+      note: string;
+    };
+    expect(body.findings.some((f) => f.title.includes("COBRA"))).toBe(true);
+    expect(body.findings.every((f) => f.source.startsWith("https://"))).toBe(true);
+    expect(body.note).toContain("North Carolina only");
+  });
+
+  it("check_retirement_traps rejects missing required facts", async () => {
+    const response = await rpc({
+      jsonrpc: "2.0",
+      id: 41,
+      method: "tools/call",
+      params: { name: "check_retirement_traps", arguments: { birthYear: 1958 } },
+    });
+    expect(response.error?.code).toBe(-32602);
+  });
+
+  it("get_nc_county_medicare returns six years for Guilford", async () => {
+    const response = await rpc({
+      jsonrpc: "2.0",
+      id: 42,
+      method: "tools/call",
+      params: { name: "get_nc_county_medicare", arguments: { county: "guilford county" } },
+    });
+    const text = (response.result as { content: Array<{ text: string }> }).content[0].text;
+    const body = JSON.parse(text) as {
+      county: string;
+      years: Array<{ year: number; plans: number }>;
+    };
+    expect(body.county).toBe("Guilford County, North Carolina");
+    expect(body.years.map((y) => y.year)).toEqual([2022, 2023, 2024, 2025, 2026, 2027]);
+    expect(body.years.at(-1)?.plans).toBe(57);
+  });
+
+  it("get_nc_county_medicare rejects a county outside NC", async () => {
+    const response = await rpc({
+      jsonrpc: "2.0",
+      id: 43,
+      method: "tools/call",
+      params: { name: "get_nc_county_medicare", arguments: { county: "Atlantis" } },
+    });
+    expect(response.error?.code).toBe(-32602);
   });
 });

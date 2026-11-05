@@ -205,6 +205,7 @@ const STATIC_ROUTES: Array<{
     "/guides/moving-to-north-carolina-medicare",
     "/guides/medicare-advantage-plans-leaving-nc-2027",
     "/medicare-nc-history",
+    "/retirement-mistake-checker",
     "/guides/medigap-plan-g-vs-plan-n-nc",
     "/guides/turning-65-aca-marketplace-plan",
     "/guides/zero-premium-medicare-advantage-free",
