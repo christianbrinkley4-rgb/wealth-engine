@@ -289,6 +289,8 @@ ${articleLines}
 
 ## Free tools
 
+- [2027 Medicare Advantage plans by NC county](${SITE_URL}/medicare-2027-by-county): plan counts, $0-premium plans, PPO and HMO options and typical out-of-pocket limits for all 100 North Carolina counties, 2026 compared with 2027, from the CMS Landscape files. Counts only, no plan or insurer names.
+- [NC Medicare Atlas](${SITE_URL}/nc-medicare-atlas): the same county data as a free embeddable tool that libraries, churches, senior centers and news sites can add to their own pages with one copy and paste. No ads, tracking or sign-up.
 - [Medicare enrollment dates](${SITE_URL}/turning-65#enrollment-dates): find estimated enrollment dates, print them, or save them to a personal calendar without providing contact information. Includes the first-of-month birthday adjustment.
 - [Save Medicare dates](${SITE_URL}/remind-me): the same calendar tool; this page does not offer automatic reminder emails.
 - [2026 Medicare Part B estimate](${SITE_URL}/medicare): an estimate using published 2026 rates.

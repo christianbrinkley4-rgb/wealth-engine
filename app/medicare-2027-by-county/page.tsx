@@ -194,6 +194,13 @@ export default function MedicareByCountyPage() {
             Those three checks are what a plan review is for: your doctors, your drugs, your budget.
             Annual Enrollment ends December 7, 2026.
           </p>
+          <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
+            Run a website for a library, church, senior center or newsroom?{" "}
+            <Link href="/nc-medicare-atlas" className="underline underline-offset-2">
+              Add this county lookup to your site for free
+            </Link>
+            .
+          </p>
           <p className="text-15 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Source: Centers for Medicare &amp; Medicaid Services, CY2027 Medicare Advantage and Part D
             Landscape file (data updated October 18, 2026) and CY2026 Landscape file. Counts include
