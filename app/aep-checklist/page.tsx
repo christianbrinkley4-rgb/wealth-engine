@@ -183,7 +183,7 @@ export default function AepChecklistPage() {
           <h2 className="text-28 font-semibold">Before you start, grab three things</h2>
           <ul className="text-18 mt-6 flex list-disc flex-col gap-3 pl-6 leading-relaxed">
             <li>
-              <strong>Your ANOC letter.</strong> That&apos;s the Annual Notice of Change your plan
+              <strong>Your ANOC letter.</strong>{" "}That&apos;s the Annual Notice of Change your plan
               mailed you in September.{" "}
               <Link href="/anoc" className="underline underline-offset-2">
                 Here&apos;s how to read it
@@ -195,7 +195,7 @@ export default function AepChecklistPage() {
               take it.
             </li>
             <li>
-              <strong>Your doctors.</strong> Names of your primary care doctor, your specialists,
+              <strong>Your doctors.</strong>{" "}Names of your primary care doctor, your specialists,
               and the hospital you&apos;d want to use.
             </li>
           </ul>

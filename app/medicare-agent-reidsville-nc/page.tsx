@@ -153,7 +153,7 @@ export default function MedicareAgentReidsvillePage() {
           <h2 className="text-28 font-semibold">Where I can Meet</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
-              <strong>The Reidsville library.</strong> A quiet public spot to go through
+              <strong>The Reidsville library.</strong>{" "}A quiet public spot to go through
               your paperwork face to face, if you&apos;d rather not do it over the
               phone.
             </p>

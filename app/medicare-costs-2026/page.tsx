@@ -326,7 +326,7 @@ export default function MedicareCosts2026Page() {
             demonstration. Keep in mind it is an average. What you would pay depends on the plan.
           </p>
           <p>
-            <strong>What to do with all this.</strong> Nothing, for now. There is no decision to
+            <strong>What to do with all this.</strong>{" "}Nothing, for now. There is no decision to
             make today based on projected numbers. When fall comes, it is worth sitting down to
             check your doctors and prescriptions against next year&apos;s plan documents. That way
             you can see how things look for 2027 and make any changes before the December 7

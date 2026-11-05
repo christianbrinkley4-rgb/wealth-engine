@@ -153,7 +153,7 @@ export default function MedicareAgentThomasvillePage() {
           <h2 className="text-28 font-semibold">Where I can Meet</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
-              <strong>The Thomasville library.</strong> A comfortable public spot to sit
+              <strong>The Thomasville library.</strong>{" "}A comfortable public spot to sit
               down with your paperwork in person, if you&apos;d rather do it face to
               face.
             </p>
