@@ -5,7 +5,7 @@ import { ArticleBody } from "@/app/components/ArticleBody";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { ARTICLES, getArticle } from "@/lib/articles";
-import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
+import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 /**
  * Question-led articles, one per real question a neighbor asked. The copy
@@ -37,6 +37,7 @@ export async function generateMetadata({
       description: article.description,
       path,
     }),
+    twitter: pageTwitter({ title: article.metaTitle, description: article.description, path }),
   };
 }
 
@@ -81,6 +82,8 @@ export default async function AnswerPage({ params }: { params: Promise<{ slug: s
       />
 
       <ServiceHero
+        variant="info"
+        hidePhoneCta
         crumbs={[
           { name: "Home", href: "/" },
           { name: "Answers", href: "/answers" },
@@ -89,12 +92,16 @@ export default async function AnswerPage({ params }: { params: Promise<{ slug: s
         eyebrow={article.eyebrow}
         title={article.title}
         lede={article.lede}
-        secondaryHref={article.startHref}
-        secondaryLabel="Ask me your question"
       />
 
       <ArticleBody article={article}>
-        <ComplianceDisclosure variant="medicare" />
+        <ComplianceDisclosure
+          variant={
+            /medicare|medigap|part [abd]\b/i.test(`${article.keyword} ${article.title}`)
+              ? "medicare"
+              : "general"
+          }
+        />
       </ArticleBody>
     </main>
   );

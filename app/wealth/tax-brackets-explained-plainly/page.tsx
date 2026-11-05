@@ -1,48 +1,32 @@
-import type { Metadata } from "next";
+import { SeoGuidePage, seoGuideMetadata, type SeoGuideData } from "@/app/components/SeoGuidePage";
 
-import { wealthMetadata } from "@/lib/wealth/seo";
-import { WealthArticlePage, type ArticleData } from "@/app/wealth/catch-up-contributions-after-50/article";
-
-const ARTICLE: ArticleData = {
+const data: SeoGuideData = {
+  slug: "tax-brackets-explained-plainly",
   path: "/wealth/tax-brackets-explained-plainly",
-  title: "Tax Brackets, Explained Plainly",
+  scope: "general",
+  title: "Tax brackets explained with a 2026 example",
+  metaTitle: "Tax Brackets Explained: 2026 Rates and an Example",
   description:
-    "How 2026 federal tax brackets really work, with a worked example. Only your last dollars face the top rate. Explore the steps in Christian Brinkley's guide.",
-  eyebrow: "Tax basics",
-  readMinutes: 6,
+    "See tax brackets explained with 2026 federal rates and a worked example. Learn marginal versus effective rates and why a raise doesn't retax all income.",
+  published: "2026-10-08",
   answer:
-    "Tax brackets slice your income into layers. Each layer is taxed at its own rate. A raise never taxes your whole paycheck at the higher rate.",
+    "Federal income tax brackets apply different rates to different layers of taxable income. Entering a higher bracket doesn't apply that higher rate to all your income, only the portion in that bracket.",
   sections: [
     {
-      heading: "Marginal vs effective rate",
+      title: "Taxable income comes first",
       paragraphs: [
-        "Your marginal rate is the rate on your last dollar of income. Your effective rate is total tax divided by total income.",
-        "The effective rate always lands below the marginal rate. That gap is the whole point of brackets.",
+        "Your paycheck and taxable income aren't necessarily the same. Adjustments and deductions can change the amount subject to the bracket calculation. This explanation covers ordinary federal income tax. Payroll taxes, state taxes, and some investment income follow separate rules.",
+        "Your marginal bracket is the rate on your highest layer of ordinary taxable income. An effective rate is a ratio of tax to an income measure. Say whether the denominator is gross income, adjusted gross income, or taxable income before comparing percentages.",
       ],
-      linkRow: {
-        intro: "Keep reading:",
-        links: [{ href: "/wealth/first-tax-return-guide", label: "Your first tax return, explained" }],
-      },
     },
     {
-      heading: "A worked example",
+      title: "The 2026 federal income tax brackets",
       paragraphs: [
-        "Take a single filer earning $60,000 in 2026. Subtract the $16,100 standard deduction first, leaving $43,900 of taxable income.",
-        "The first $12,400 is taxed at 10%, which is $1,240. The next $31,500 is taxed at 12%, which is $3,780.",
-        "Total federal tax is $5,020. The marginal rate is 12%, and the effective rate is about 11.4%.",
-      ],
-      linkRow: {
-        intro: "Keep reading:",
-        links: [{ href: "/tools/take-home-pay", label: "Take-home pay calculator" }],
-      },
-    },
-    {
-      heading: "The 2026 federal brackets",
-      paragraphs: [
-        "These rates apply to taxable income for tax year 2026. Find your filing status and read down the rows.",
+        "Use these thresholds for tax year 2026, including returns filed in 2027. The table shows whole-dollar ranges for single and married filing jointly. Head of household and married filing separately have different schedules in the [IRS 2026 rate guidance](https://www.irs.gov/irb/2025-45_IRB).",
+        "Read each row as another layer. A single filer's income above $50,400 can enter the 22% bracket without changing the 10% and 12% rates on earlier layers. The table doesn't calculate credits, additional taxes, or special rates for certain investment income.",
       ],
       table: {
-        caption: "2026 federal income tax brackets",
+        caption: "2026 ordinary federal income tax brackets by taxable income",
         headers: ["Rate", "Single", "Married filing jointly"],
         rows: [
           ["10%", "$0 to $12,400", "$0 to $24,800"],
@@ -56,63 +40,90 @@ const ARTICLE: ArticleData = {
       },
     },
     {
-      heading: "The standard deduction subtracts first",
+      title: "A $60,000 example, with each step shown",
       paragraphs: [
-        "Brackets apply to taxable income, not total income. The standard deduction comes off before any bracket math.",
-        "For 2026 that is $16,100 single and $32,200 married filing jointly. Itemizing only helps when deductions top those numbers.",
+        "Assume a single filer under 65 has $60,000 of wage income, no adjustments, no additional deductions, and no credits. The 2026 standard deduction of $16,100 leaves $43,900 of taxable income.",
+        "The marginal bracket in this example is 12%. Both 8.4% and 11.4% below describe a ratio, but they use different denominators. This example excludes payroll and state taxes. It isn't a personalized return calculation.",
       ],
-      linkRow: {
-        intro: "Keep reading:",
-        links: [{ href: "/guides/standard-deduction-seniors-2026", label: "2026 standard deduction for seniors" }],
+      table: {
+        caption: "Illustrative 2026 federal income tax before credits",
+        headers: ["Step", "Calculation", "Result"],
+        rows: [
+          ["Taxable income", "$60,000 minus $16,100", "$43,900"],
+          ["First layer", "$12,400 × 10%", "$1,240"],
+          ["Remaining layer", "$31,500 × 12%", "$3,780"],
+          ["Federal income tax", "$1,240 plus $3,780", "$5,020"],
+          ["Tax divided by gross income", "$5,020 ÷ $60,000", "About 8.4%"],
+          ["Tax divided by taxable income", "$5,020 ÷ $43,900", "About 11.4%"],
+        ],
       },
     },
-  ],
-  panel: {
-    eyebrow: "Go deeper · Article",
-    title: "Your First Tax Return, Explained",
-    blurb: "W-2s, 1099s, refunds, and free filing, all in plain English.",
-    href: "/wealth/first-tax-return-guide",
-    cta: "Read the guide",
-  },
-  sources: [
     {
-      label: "IRS: 2026 tax inflation adjustments (IR-2025-103)",
-      href: "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+      title: "The standard deduction changes the starting point",
+      paragraphs: [
+        "For 2026, the standard deduction is $16,100 for single filers and $32,200 for married couples filing jointly. Eligibility, filing circumstances, and additional deductions can change the result. Itemizing requires a comparison with the deductions actually available to you.",
+        "Older taxpayers may have additional deduction questions. Read the [2026 deduction guide for seniors](/guides/standard-deduction-seniors-2026) rather than applying the under-65 example unchanged. The IRS source below provides the tax-year amounts.",
+      ],
+    },
+    {
+      title: "A higher bracket isn't the whole benefit calculation",
+      paragraphs: [
+        "The bracket system doesn't retax earlier income layers at the new rate. If another dollar falls in the 22% ordinary-income bracket, that fact alone doesn't make every earlier dollar subject to 22%.",
+        "Credits, deductions, and income-tested benefits can still change when income rises. Don't use the bracket rule as a promise about every household's take-home pay. A tax professional can check the full return, especially before a retirement withdrawal or Roth conversion.",
+      ],
     },
   ],
   faqs: [
     {
-      q: "Will a raise push all my income into a higher bracket?",
-      a: "No. Only the dollars above the bracket line face the higher rate. A raise always raises take-home pay.",
+      q: "Does a raise put all my income in the higher bracket?",
+      a: "No. The higher ordinary-income rate applies only to income in that layer. Credits, deductions, and benefits can have separate income rules.",
     },
     {
-      q: "Do these brackets include state tax?",
-      a: "No. These are federal brackets. North Carolina adds a flat 3.99% on income.",
+      q: "Do these brackets include North Carolina tax?",
+      a: "No. They are federal ordinary-income brackets for tax year 2026. State tax and payroll taxes require separate calculations.",
     },
     {
-      q: "What is taxable income?",
-      a: "Income left after subtractions like the standard deduction. Brackets apply to that number.",
+      q: "Why is the example's effective rate 8.4%, not 11.4%?",
+      a: "The 8.4% figure divides $5,020 of tax by $60,000 of gross income. The 11.4% figure divides the same tax by $43,900 of taxable income. The label needs to identify the denominator.",
     },
     {
-      q: "How do I find my marginal rate?",
-      a: "Find your taxable income in the table. The rate on its row is your marginal rate.",
+      q: "Are these the brackets for a return I file in 2026?",
+      a: "Use these brackets for tax year 2026, including a 2026 return filed in 2027. A return for tax year 2025 uses that year's rules even if you file it during 2026.",
+    },
+    {
+      q: "Is my marginal bracket my total tax rate?",
+      a: "No. It describes the rate on the highest layer of ordinary taxable income. It doesn't mean every dollar is taxed at that rate, and it doesn't include every other tax or credit.",
     },
   ],
-  nextLinks: [
-    { href: "/wealth", label: "Wealth hub", kind: "Hub" },
+  sources: [
     {
-      href: "/wealth/first-tax-return-guide",
-      label: "Your First Tax Return, Explained",
-      kind: "Article",
+      label: "IRS: Federal income tax rates and brackets",
+      href: "https://www.irs.gov/filing/federal-income-tax-rates-and-brackets",
     },
-    { href: "/wealth/roth-vs-traditional-taxes", label: "Roth vs Traditional: The Tax Trade", kind: "Article" },
+    {
+      label: "IRS: Revenue Procedure 2025-32, 2026 inflation adjustments",
+      href: "https://www.irs.gov/irb/2025-45_IRB",
+    },
+    {
+      label: "IRS: Tax provisions for individuals and workers",
+      href: "https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers",
+    },
   ],
+  related: [
+    { label: "Your first tax return, explained", href: "/wealth/first-tax-return-guide" },
+    {
+      label: "Additional deduction questions for older taxpayers",
+      href: "/guides/standard-deduction-seniors-2026",
+    },
+    { label: "Roth versus traditional: the tax trade", href: "/wealth/roth-vs-traditional-taxes" },
+    { label: "Retirement withdrawal exceptions", href: "/guides/72t-exceptions" },
+  ],
+  closing:
+    "Written by Christian Brinkley, a licensed NC insurance agent in Greensboro, NC. This is general education, not personalized tax advice. For an insurance question, book a conversation or call (919) 408-6671.",
+  bookingLabel: "Book an insurance conversation",
 };
 
-export function generateMetadata(): Metadata {
-  return wealthMetadata({ title: ARTICLE.title, description: ARTICLE.description, path: ARTICLE.path });
-}
-
-export default function TaxBracketsExplainedPage() {
-  return <WealthArticlePage article={ARTICLE} />;
+export const metadata = seoGuideMetadata(data);
+export default function Page() {
+  return <SeoGuidePage data={data} />;
 }

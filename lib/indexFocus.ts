@@ -18,6 +18,9 @@
 /** Whole sections: the path itself and everything under it. */
 export const OFF_TOPIC_PREFIXES = ["/wealth", "/ai"] as const;
 
+/** Explicit targets Christian asked to restore to search on November 5. */
+export const SEARCH_TARGET_EXCEPTIONS = ["/wealth/tax-brackets-explained-plainly"] as const;
+
 /** Single pages. */
 export const OFF_TOPIC_PATHS: readonly string[] = [
   // Calculators for everyday budgeting rather than retirement or coverage
@@ -89,14 +92,12 @@ export const OFF_TOPIC_PATHS: readonly string[] = [
   "/answers/child-tax-credit-or-dependent-care-credit-which-do-i-get",
   "/answers/do-i-need-to-pay-estimated-quarterly-taxes",
   "/answers/how-are-capital-gains-taxed",
-  "/answers/what-is-a-target-date-fund",
   "/answers/what-is-an-expense-ratio",
   "/answers/should-i-dollar-cost-average-or-invest-a-lump-sum",
   "/answers/how-do-bonds-work",
   "/answers/how-do-i-rebalance-my-portfolio",
   "/answers/how-are-dividends-taxed",
   "/answers/should-i-use-a-brokerage-account-or-a-retirement-account",
-  "/answers/index-funds-or-actively-managed-funds-which-is-better",
   "/answers/what-is-the-difference-between-risk-tolerance-and-risk-capacity",
   "/answers/how-do-i-start-investing-with-100",
   "/answers/do-i-need-umbrella-insurance",
@@ -117,6 +118,7 @@ const PATH_SET = new Set(OFF_TOPIC_PATHS);
 /** True when a site path (no origin, no query) should stay out of Google. */
 export function isOffTopicPath(path: string): boolean {
   const clean = path.replace(/[?#].*$/, "").replace(/\/+$/, "") || "/";
+  if (SEARCH_TARGET_EXCEPTIONS.some((target) => target === clean)) return false;
   if (PATH_SET.has(clean)) return true;
   return OFF_TOPIC_PREFIXES.some((p) => clean === p || clean.startsWith(`${p}/`));
 }
@@ -130,5 +132,15 @@ export function offTopicRobotsHeaders() {
       { source: `${p}/:path*`, headers: header },
     ]),
     ...OFF_TOPIC_PATHS.map((source) => ({ source, headers: header })),
+    // Next uses the last matching value for a header. Preserve preview noindex.
+    ...SEARCH_TARGET_EXCEPTIONS.map((source) => ({
+      source,
+      headers: [
+        {
+          key: "X-Robots-Tag",
+          value: process.env.VERCEL_ENV === "preview" ? "noindex, nofollow" : "index, follow",
+        },
+      ],
+    })),
   ];
 }

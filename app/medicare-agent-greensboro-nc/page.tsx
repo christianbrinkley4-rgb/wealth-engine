@@ -24,9 +24,9 @@ import {
 } from "@/lib/seo";
 
 const path = "/medicare-agent-greensboro-nc";
-const title = "Medicare Agent in Greensboro, NC | Free Local Medicare Help";
+const title = "Greensboro Medicare Consultation: What to Bring";
 const description =
-  "Christian Brinkley, a licensed Medicare agent in Greensboro, NC (NPN 22217190). Free help comparing Guilford County plans, doctors, and prescriptions.";
+  "Prepare for a free Greensboro Medicare consultation with Christian Brinkley. Bring your doctors, medicines, coverage notices, and enrollment questions.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -49,7 +49,7 @@ export default function MedicareAgentGreensboroPage() {
           description,
           path,
           datePublished: "2026-10-12",
-          dateModified: "2026-11-04",
+          dateModified: "2026-11-05",
         }),
         serviceJsonLd({ name: "Free Medicare consultation in Greensboro", description, path }),
         faqJsonLd(GREENSBORO_MEDICARE_FAQ),
@@ -64,7 +64,7 @@ export default function MedicareAgentGreensboroPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare agent in Greensboro" }]}
         eyebrow="Greensboro and Guilford County"
-        title="Medicare agent in Greensboro, NC"
+        title="Prepare for your Greensboro Medicare consultation"
         lede="Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. I can review your doctors, prescriptions, enrollment dates, and the plans I represent. Meet at home or talk by phone. There's no obligation to enroll."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free Medicare conversation"
