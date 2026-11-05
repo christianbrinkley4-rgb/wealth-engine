@@ -286,6 +286,7 @@ ${articleLines}
 - [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.
 - [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the $2,400 Part D out-of-pocket cap works in 2027.
 - Medicare's negotiated prices for 15 drugs take effect January 1, 2027.
+- [Medicare Advantage Index](${SITE_URL}/medicare-index): six years (2022-2027) of CMS Landscape data for every state, Washington DC and Puerto Rico, with a state and county lookup. Shows plan counts, $0-premium plans with drug coverage and the typical (median) in-network out-of-pocket maximum by year, and which states saw the biggest increases. Raw data: ${SITE_URL}/data/us-medicare/index.json (statewide) and /data/us-medicare/{STATE}.json (counties). Christian Brinkley is licensed in North Carolina only.
 - [North Carolina Medicare Advantage, 2022-2027](${SITE_URL}/medicare-nc-history): six years of CMS Landscape data for all 100 NC counties. Plan counts, $0-premium plans with drug coverage, star ratings and the typical (median) out-of-pocket maximum by year, plus statewide stand-alone Part D plan counts and lowest premiums. Counts only, no plan or insurer names.
 
 ## Free tools
