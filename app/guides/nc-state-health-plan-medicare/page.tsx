@@ -73,7 +73,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "What happens if I'm on the 70/30 plan and do nothing for 2027?",
-    a: "According to the State Health Plan, retirees in the 70/30 plan who take no action during open enrollment are moved to the Base Medicare Advantage plan for 2027. If you want to stay on the 70/30 plan, you have to choose it before November 6, 2026.",
+    a: "According to the State Health Plan, retirees in the 70/30 plan who take no action during open enrollment are moved to the Base Medicare Advantage plan for 2027. If you want to stay on the 70/30 plan, you have to choose it by November 6, 2026.",
   },
   {
     q: "Is Atrium Health in network for state retirees in 2027?",
@@ -158,7 +158,7 @@ export default function NcStateHealthPlanMedicarePage() {
             <li>
               <strong className="text-[var(--color-navy)]">On the 70/30 plan and do nothing?</strong>{" "}
               You&apos;re moved to the Base Medicare Advantage plan for 2027. To stay on the 70/30
-              plan, you have to pick it before November 6.
+              plan, you have to pick it by November 6.
             </li>
             <li>
               <strong className="text-[var(--color-navy)]">Already on a Medicare Advantage plan?</strong>{" "}
@@ -166,9 +166,10 @@ export default function NcStateHealthPlanMedicarePage() {
             </li>
             <li>
               <strong className="text-[var(--color-navy)]">Higher out-of-pocket limits.</strong>{" "}
-              The most you can pay in a year goes from $4,000 to $4,500 on the Base plan and from
-              $3,300 to $3,700 on the Enhanced plan, and there&apos;s a new $50 copay for Part B
-              drugs.
+              The medical out-of-pocket limit, the most you can pay for medical care in a year,
+              goes from $4,000 to $4,500 on the Base plan and from $3,300 to $3,700 on the Enhanced
+              plan. Drug costs have a separate out-of-pocket limit, and there&apos;s a new $50 copay
+              for Part B drugs on both plans.
             </li>
             <li>
               <strong className="text-[var(--color-navy)]">A new network setup on the 70/30 plan.</strong>{" "}
@@ -272,6 +273,11 @@ export default function NcStateHealthPlanMedicarePage() {
             do, compare the total cost: premiums, copays, drug coverage, and your doctors. For most
             retirees with 20-plus years of service, the state option wins on price. Run the numbers
             for your situation before deciding.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            <strong className="text-[var(--color-navy)]">Warning:</strong> if you join a Medicare
+            Advantage plan or a Part D drug plan outside the State Health Plan, your State Health
+            Plan Medicare Advantage coverage is cancelled and you are moved to the 70/30 plan.
           </p>
 
           <h2 className="text-28 mt-12 font-semibold">Key dates and contacts</h2>

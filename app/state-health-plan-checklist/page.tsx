@@ -6,6 +6,7 @@ import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { AGENT } from "@/lib/agent";
+import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { ChecklistActions, DeadlineNote } from "./ChecklistActions";
@@ -36,11 +37,11 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
     ),
   },
   {
-    title: "On the 70/30 plan? Decide before November 6",
+    title: "On the 70/30 plan? Decide by November 6",
     body: (
       <>
         If you&apos;re on the 70/30 plan and do nothing, you&apos;re moved to the Base Medicare
-        Advantage plan for 2027. To stay on the 70/30 plan, you have to choose it before November 6.
+        Advantage plan for 2027. To stay on the 70/30 plan, you have to choose it by November 6.
       </>
     ),
   },
@@ -60,9 +61,10 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
         The 70/30 plan uses a three-tier provider network in 2027, and the tier your doctor is in
         can change what you pay. Atrium Health update, October 27: Atrium and the State Health Plan
         reached an agreement, so all Atrium doctors and hospitals, including Atrium Health Wake
-        Forest Baptist, are in network for 2027 in the plan&apos;s middle &ldquo;access&rdquo; tier.
-        Not sure how your plan treats your doctors? Call the State Health Plan Medicare Support
-        Center at <span className="whitespace-nowrap">833-429-5003</span>.
+        Forest Baptist, are in network for 2027 in the plan&apos;s middle &ldquo;access&rdquo; tier,
+        at about today&apos;s costs. Not sure how your plan treats your doctors? Call the State
+        Health Plan Medicare Support Center at <span className="whitespace-nowrap">833-429-5003</span>{" "}
+        before November 6.
       </>
     ),
   },
@@ -70,8 +72,10 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
     title: "Check what you could pay",
     body: (
       <>
-        The most you can pay in a year goes from $4,000 to $4,500 on the Base plan and from $3,300
-        to $3,700 on the Enhanced plan. There&apos;s also a new $50 copay for Part B drugs.
+        The medical out-of-pocket limit, the most you can pay for medical care in a year, goes
+        from $4,000 to $4,500 on the Base plan and from $3,300 to $3,700 on the Enhanced plan. Drug
+        costs have a separate out-of-pocket limit. There&apos;s also a new $50 copay for Part B
+        drugs on both plans.
       </>
     ),
   },
@@ -181,6 +185,12 @@ export default function StateHealthPlanChecklistPage() {
             ))}
           </ol>
 
+          <p className="text-17 mt-6 rounded-xl border-2 border-[var(--color-navy)] bg-white p-4 leading-relaxed">
+            <strong>Warning:</strong> if you join a Medicare Advantage plan or a Part D drug plan
+            outside the State Health Plan, your State Health Plan Medicare Advantage coverage is
+            cancelled and you are moved to the 70/30 plan.
+          </p>
+
           <ChecklistActions />
 
           <p className="text-17 mt-10 leading-relaxed text-[var(--color-ink-muted)]">
@@ -212,7 +222,7 @@ export default function StateHealthPlanChecklistPage() {
         <KitchenTableClose
           heading="Want someone to go through it with you?"
           body={`Book a free phone review and I'll walk through the three options with you before November 6. Call or text ${AGENT.phone}.`}
-          href="/start?topic=medicare&quick=1"
+          href={ENGINE_BOOKING_URL}
           label="Request a free review"
         />
       </div>

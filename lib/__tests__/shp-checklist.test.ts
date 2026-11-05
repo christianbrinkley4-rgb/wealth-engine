@@ -17,7 +17,7 @@ describe("State Health Plan Nov 6 checklist", () => {
   });
 
   it("only states facts the verified guide also states", () => {
-    for (const fact of ["833-429-5003", "855-859-0966", "$4,000 to $4,500", "$3,300 to $3,700", "three-tier provider network", "$50 copay", "access", "January 1, 2021"]) {
+    for (const fact of ["833-429-5003", "855-859-0966", "$4,000 to $4,500", "$3,300 to $3,700", "three-tier provider network", "$50 copay", "access", "January 1, 2021", "medical out-of-pocket limit", "separate out-of-pocket limit", "$50 copay for Part B drugs on both plans", "at about today", "before November 6", "by November 6", "outside the State Health Plan", "Medicare Advantage coverage is cancelled", "moved to the 70/30 plan"]) {
       expect(page, fact).toContain(fact);
       expect(guide, fact).toContain(fact);
     }
@@ -26,6 +26,6 @@ describe("State Health Plan Nov 6 checklist", () => {
   it("never says Atrium is out of network and never names an insurer", () => {
     expect(page).not.toMatch(/out-of-network tier|out of network for 2027/i);
     expect(page).not.toMatch(/humana|aetna|united ?health|blue ?cross|wellcare|devoted|healthteam|cigna|anthem/i);
-    expect(page).not.toMatch(/—/);
+    expect(page).not.toMatch(/\u2014/);
   });
 });
