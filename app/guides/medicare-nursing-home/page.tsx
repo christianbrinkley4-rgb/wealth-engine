@@ -136,8 +136,10 @@ export default function MedicareNursingHomePage() {
             decides everything.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            Second, you must enter the facility within 30 days of leaving the hospital, for the same
-            condition that put you there.
+            Second, you must enter the facility within 30 days of leaving the hospital, and you
+            must need skilled care for an ongoing condition that was also treated during that
+            hospital stay, even if it was not the reason you were admitted. A new condition that
+            started while you were getting skilled care for that condition can also qualify.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Third, the facility must be Medicare certified, and a doctor must certify that you need
@@ -192,7 +194,10 @@ export default function MedicareNursingHomePage() {
             coinsurance in full. Plans C, D, F, G, M, and N pay 100 percent of the skilled nursing
             coinsurance, according to Medicare.gov&rsquo;s Medigap comparison chart. That turns a
             potential $17,360 bill into $0 for the coinsurance part. It does not extend the 100
-            days, and it does not pay for custodial care.
+            days, and it does not pay for custodial care. One exception: the high-deductible
+            versions of Plans F and G pay nothing until you have paid $2,950 in Medicare-covered
+            costs in 2026, so if you have one of those, the coinsurance is not covered until that
+            deductible is met.
           </p>
 
           <h2 className="text-28 mt-12 font-semibold">So who pays for a long stay?</h2>
