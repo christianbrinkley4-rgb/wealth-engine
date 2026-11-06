@@ -38,6 +38,10 @@ export const LOCATION_CONSOLIDATIONS: Record<string, string> = {
   "/medicare-agent-thomasville-nc": "/medicare-nc-towns#davidson-county",
   "/medicare-in/greensboro": "/medicare-agent-greensboro-nc",
   "/medicare-in/greensboro-nc": "/medicare-agent-greensboro-nc",
+  // Content consolidation, not a location alias: the answers article is
+  // superseded by the full guide, so its URL redirects permanently and
+  // drops from the sitemap (see the consolidation test).
+  "/answers/does-medicare-cover-nursing-homes": "/guides/medicare-nursing-home",
 };
 
 export function canonicalMedicareLocation(path: string): string {

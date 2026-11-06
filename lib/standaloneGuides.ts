@@ -249,6 +249,17 @@ export const STANDALONE_GUIDES: Array<{
     ],
   },
   {
+    slug: "medicare-nursing-home",
+    title: "Does Medicare pay for a nursing home?",
+    description:
+      "Medicare pays for short-term rehab after a hospital stay. It does not pay for living in a nursing home long term. What it covers, what it costs in 2026, and who pays when it stops.",
+    related: [
+      { title: "Does Medicare pay for in-home care?", href: "/guides/medicare-in-home-care" },
+      { title: "Observation status and the 3-day rule", href: "/guides/observation-status-three-day-rule" },
+      { title: "Annual Enrollment review", href: "/aep" },
+    ],
+  },
+  {
     slug: "extra-help-medicare-savings-programs-nc",
     title: "Extra Help and Medicare Savings Programs in NC",
     description:

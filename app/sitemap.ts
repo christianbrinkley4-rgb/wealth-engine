@@ -516,6 +516,9 @@ const STATIC_ROUTES: Array<{
     priority: 0.8,
     lastModified: "2026-10-29",
   },
+  // Published 2026-11-05; kept out of the shared 2026-10-08 guides list so
+  // its lastmod stays truthful.
+  { path: "/guides/medicare-nursing-home", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-11-05" },
   ...PERSONALITIES.map((type) => ({
     path: `/wealth/quiz/money-personality/${type.id}`,
     changeFrequency: "monthly" as const,
