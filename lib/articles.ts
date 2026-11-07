@@ -12020,7 +12020,7 @@ export const ARTICLES: Article[] = [
     published: "2026-11-07",
     updated: "2026-11-07",
     intro:
-      "Losing a job usually means losing the health plan that came with it. Two doors open at once. COBRA lets you keep the employer plan you already have, at the full price. The Marketplace lets you buy a new plan, often with a tax credit that lowers the premium. Both doors have a 60-day clock.",
+      "Losing a job usually means losing the health plan that came with it. Two options are open at once. COBRA lets you keep the employer plan you already have, at the full price. The Marketplace lets you buy a new plan, often with a tax credit that lowers the premium. Both options have a 60-day clock.",
     sections: [
       {
         h2: "What COBRA actually is",
@@ -12029,7 +12029,7 @@ export const ARTICLES: Article[] = [
             "COBRA is a federal law that lets you keep your employer health plan after a qualifying event, such as a job loss or a cut in hours. It generally applies to employers with 20 or more employees. You keep the same plan, the same doctors, and the same deductible progress. Coverage usually lasts up to 18 months after a termination or a reduction in hours. Divorce or the death of the covered employee can extend coverage to 36 months for spouses and dependent children.",
           ),
           p(
-            "The catch is the price. Your employer stops paying its share, so you pay the full premium: your share plus the employer share, plus a 2 percent administration fee. Federal rules cap the charge at 102 percent of the plan's cost. You have 60 days to elect COBRA, counted from the later of your coverage ending or your notice arriving, and 45 days after electing to make the first payment. Electing on time restores coverage retroactively to the date it ended. Disability can extend coverage to 29 months, at up to 150 percent of the premium.",
+            "The trade-off is the price. Your employer stops paying its share, so you pay the full premium: your share plus the employer share, plus a 2 percent administration fee. Federal rules cap the charge at 102 percent of the plan's cost. You have 60 days to elect COBRA, counted from the later of your coverage ending or your notice arriving, and 45 days after electing to make the first payment. Electing on time restores coverage retroactively to the date it ended. Disability can extend coverage to 29 months, at up to 150 percent of the premium.",
           ),
         ],
       },
@@ -12057,7 +12057,7 @@ export const ARTICLES: Article[] = [
             ],
           ),
           p(
-            "COBRA usually costs more per month, because you pay the employer's share too. The Marketplace usually costs less per month for people who qualify for a credit, but a new deductible and network can eat the savings mid-treatment. Add the full year, not one month, before you decide.",
+            "COBRA usually costs more per month, because you pay the employer's share too. The Marketplace usually costs less per month for people who qualify for a credit, but a new deductible and network can erase those savings during treatment. Add the full year, not one month, before you decide.",
           ),
         ],
       },
@@ -12068,10 +12068,10 @@ export const ARTICLES: Article[] = [
             "COBRA fits a short gap. You are between jobs, your treatment is underway, your deductible is mostly met, and a new job or Medicare is months away. It also fits when your doctors are in no Marketplace network in your county. You pay more per month, but nothing about your care changes.",
           ),
           p(
-            "The Marketplace fits a longer gap, or a lower income. Your income qualifies for a tax credit, your doctors are in a Marketplace network, or you expect to be without employer coverage for a year or more. It also fits when COBRA's price is out of reach, which it often is once the employer share lands on you.",
+            "The Marketplace fits a longer gap, or a lower income. Your income qualifies for a tax credit, your doctors are in a Marketplace network, or you expect to be without employer coverage for a year or more. It also fits when COBRA's price is out of reach, which it often is once you pay the employer share too.",
           ),
           p(
-            "Two deadline traps matter. Dropping COBRA voluntarily does not open a Marketplace enrollment period, but losing COBRA because it ran out does open a 60-day window. And COBRA does not delay Medicare: if you are 65 or older, enroll in Part B on time, because COBRA does not count as employer coverage for the late enrollment penalty.",
+            "Two deadlines deserve attention. Dropping COBRA voluntarily does not open a Marketplace enrollment period, but losing COBRA because it ran out does open a 60-day window. And COBRA does not delay Medicare: if you are 65 or older, enroll in Part B on time, because COBRA does not count as employer coverage for the late enrollment penalty.",
           ),
           ul(
             "Price COBRA from the election notice.",
