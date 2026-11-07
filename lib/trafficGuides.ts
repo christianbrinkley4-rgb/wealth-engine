@@ -2445,6 +2445,510 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "Medicare help in the Triad", href: "/medicare" },
     ],
   },
+  {
+    slug: "how-to-compare-medicare-advantage-plans-2027-nc",
+    title: "How to Compare Medicare Advantage Plans 2027 NC",
+    description:
+      "Compare 2027 Medicare Advantage plans in North Carolina by network, drugs, costs, and star ratings. A county-by-county method, no rankings and no hype.",
+    query: "how to compare medicare advantage plans 2027 north carolina",
+    opportunity:
+      "County-level comparison method for 2027, with star ratings and the new out-of-pocket ceiling, without ranking carriers or naming a best plan.",
+    intent: "informational",
+    scope: "medicare",
+    answer:
+      "Start with your county, your doctors, and your drugs. Compare the same facts on every plan: network, drug list, total yearly cost, and the CMS star rating. No single plan fits everyone in North Carolina.",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+    sections: [
+      {
+        title: "Start with your county, not the state",
+        body: "CMS lists 179 Medicare Advantage plans in North Carolina for 2027 in its landscape file, up from 175 in 2026. That statewide count misleads more than it helps. Plans are approved county by county, so the list you can actually join is set by your home address. Guilford County and Wake County do not offer the same plans. Run every comparison at your ZIP code, in the Medicare plan finder at medicare.gov, before you compare anything else.",
+      },
+      {
+        title: "Check your doctors and your drugs first",
+        body: "A plan that excludes your doctor or drops your drug is the wrong plan at any premium. Ask three questions of every plan: is each of my doctors in network, and what do I pay if one is not; is each of my drugs on the formulary, and on which tier; and is my pharmacy preferred or standard. HMO plans generally require in-network care except in emergencies. PPO plans cover some out-of-network care at higher cost. Get the answers in writing from the plan's own documents, not from an advertisement.",
+      },
+      {
+        title: "Read the total year, not the premium",
+        body: "A $0 premium plan is not a $0 plan. You still pay the Part B premium, plus copays, coinsurance, and any drug deductible when you use care. Add 12 months of premium to your expected copays and drug costs, then compare that yearly total. CMS caps what a 2027 plan can set as its in-network out-of-pocket limit at $9,850, up from $9,250 in 2026, and at $14,800 counting in-network and out-of-network care combined for PPO plans. The median in-network limit rose to $6,600 in 2027 from $5,900 in 2026, in an analysis of the CMS landscape files. CMS projects the average Advantage premium at about $12 a month in 2027, down from $14.37 in 2026. Averages describe the market, not your plan. Your Annual Notice of Change has your plan's real numbers.",
+      },
+      {
+        title: "What the star ratings do and do not tell you",
+        body: "CMS rates Medicare Advantage contracts from 1 to 5 stars each fall, on quality and performance measures such as preventive care, chronic condition management, and member experience. The ratings published in October 2026 apply to 2027 plans. In North Carolina, 172 of the 179 plans have a 2027 rating, 125 are rated 4 stars or more, and 2 are rated 5 stars. Ratings are per contract, so every plan under one contract shares its rating, and a new or small contract may have no rating yet. A 5-star rating does not mean your doctor is in network or your drug is covered. Use ratings as a quality check after the network and drug checks pass, not before.",
+      },
+      {
+        title: "Extra benefits are real but secondary",
+        body: "Many Advantage plans add dental, vision, hearing, over-the-counter allowances, and fitness benefits. These extras have their own limits, networks, and rules, and they change every year. A grocery allowance never outweighs a plan that excludes your cardiologist or drops your prescription. Compare extras last, after network, drugs, and yearly cost.",
+      },
+      {
+        title: "Your 2027 decision dates",
+        body: "Annual Enrollment runs October 15 through December 7, 2026, for coverage starting January 1, 2027. If you are already in a Medicare Advantage plan, the Medicare Advantage Open Enrollment Period runs January 1 through March 31, 2027, and gives you one change. A move, a plan leaving your county, or losing other coverage can open a Special Enrollment Period outside those windows. North Carolina enrollment help is local: Christian walks Triad residents through the comparison at no charge, and the state's free SHIIP counselors do the same in every county.",
+      },
+    ],
+    comparison: {
+      caption: "Compare the same facts on every plan",
+      headers: ["What to check", "Why it matters"],
+      rows: [
+        ["Doctors in network", "Out-of-network care can cost more than the premium saves"],
+        ["Drugs on the formulary", "A drug off the list, or on a high tier, changes your year"],
+        ["Yearly out-of-pocket limit", "The ceiling on covered in-network care, at most $9,850 in 2027"],
+        ["Star rating", "A quality signal for the contract, not a guarantee of fit"],
+        ["Extra benefits", "Nice to have, never the deciding factor"],
+      ],
+    },
+    checklist: [
+      "List every doctor, drug, dose, and pharmacy before you compare.",
+      "Confirm each doctor is in network for the 2027 plan, not the 2026 one.",
+      "Price your full drug list under each plan's tiers.",
+      "Add 12 months of premium to expected copays and drug costs.",
+      "Read the Annual Notice of Change before December 7.",
+    ],
+    faqs: [
+      {
+        q: "How many Medicare Advantage plans are in North Carolina for 2027?",
+        a: "CMS lists 179 plans statewide in its 2027 landscape file, up from 175 in 2026. Your county list is much smaller, because plans are approved county by county. Check your ZIP code in the Medicare plan finder.",
+      },
+      {
+        q: "What is the highest out-of-pocket limit a 2027 plan can set?",
+        a: "CMS caps the in-network limit at $9,850 for 2027, up from $9,250 in 2026. For PPO plans, the combined in-network and out-of-network limit is capped at $14,800. Most plans set lower limits, so read your plan's number.",
+      },
+      {
+        q: "Do star ratings rank plans from best to worst?",
+        a: "No. Star ratings measure a contract's quality and performance, from 1 to 5 stars, on measures such as preventive care and member experience. They do not measure whether your doctor is in network or your drug is covered.",
+      },
+      {
+        q: "Is a $0 premium Medicare Advantage plan free?",
+        a: "No. You still pay the Part B premium, and you pay copays, coinsurance, and drug costs when you use care. A $0 premium plan can still cost thousands in a heavy year, up to its out-of-pocket limit.",
+      },
+      {
+        q: "When can I change my Medicare Advantage plan for 2027?",
+        a: "During Annual Enrollment, October 15 through December 7, 2026, for coverage starting January 1, 2027. If you are already in an Advantage plan, the Medicare Advantage Open Enrollment Period, January 1 through March 31, 2027, gives you one change.",
+      },
+    ],
+    sources: [
+      {
+        title: "CMS: CY2027 Medicare Advantage and Part D Rate Announcement",
+        url: "https://www.cms.gov/medicare/payment/medicare-advantage-rates-statistics/announcements-and-documents",
+      },
+      {
+        title: "Medicare: Find health and drug plans",
+        url: "https://www.medicare.gov/plan-compare",
+      },
+      {
+        title: "Medicare: Your coverage options",
+        url: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/your-coverage-options",
+      },
+    ],
+    related: [
+      { title: "Medicare Advantage in North Carolina", href: "/medicare-advantage-north-carolina" },
+      { title: "Medicare Part D plans in North Carolina for 2027", href: "/guides/medicare-part-d-plans-2027-nc" },
+      { title: "Medicare Advantage Open Enrollment, January through March", href: "/guides/medicare-advantage-open-enrollment-period" },
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap" },
+      { title: "Medicare Annual Enrollment", href: "/aep" },
+    ],
+  },
+  {
+    slug: "medicare-part-d-plans-2027-nc",
+    title: "Medicare Part D Plans 2027: North Carolina Guide",
+    description:
+      "North Carolina has 11 standalone Part D plans for 2027. The $700 deductible, the $2,400 cap, the $35 insulin limit, and how to compare them fairly in 2027.",
+    query: "medicare part d plans 2027 north carolina",
+    opportunity:
+      "NC plan count from the CMS landscape file plus the final 2027 benefit numbers, with the insulin cap, coverage phases, and Extra Help as sections.",
+    intent: "informational",
+    scope: "medicare",
+    answer:
+      "North Carolina has 11 standalone Part D plans for 2027. Every one follows the same federal limits: a deductible of no more than $700, a $2,400 yearly cap on covered drug costs, and no more than $35 a month for each covered insulin.",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+    sections: [
+      {
+        title: "The 2027 numbers are final",
+        body: "CMS finalized the 2027 Part D standard benefit in its Rate Announcement on April 6, 2026. The maximum deductible rises to $700, from $615 in 2026. The annual out-of-pocket cap rises to $2,400, from $2,100. The national base beneficiary premium is $41.33 a month, up from $38.99. These are final figures, not projections. The deductible, copays, and coinsurance you pay for covered drugs count toward the $2,400 cap. Premiums do not. Once your out-of-pocket costs for covered drugs reach the cap, you pay $0 for covered drugs for the rest of the year.",
+      },
+      {
+        title: "North Carolina's 11 plans",
+        body: "North Carolina has 11 standalone Part D plans for 2027, down from 12 in 2026, according to the state's SHIIP program. Part D plans are sold by region, not by county, so everyone in North Carolina sees the same standalone list. CMS puts the lowest standalone premium at $5.30 a month in most states for 2027, and projects the average standalone premium at about $36 a month. KFF found a different number for people who stay in the same plan: an average of $51 a month nationally. The federal program that held standalone premiums down ends after 2026, so premiums can move more freely for 2027. Your plan's own premium is the only one that matters, and it is in your Annual Notice of Change.",
+      },
+      {
+        title: "How to compare: your drugs, your pharmacy, your year",
+        body: "Take the premium off the table first. Multiply it by 12, then add what your drugs cost under each plan's rules: deductible, copays or coinsurance by tier, and whether your pharmacy is preferred. The plan with the lowest premium often loses on the total. Then check the formulary itself. Plans change which drugs they cover and which tier each drug sits in every year. Enter your exact drugs, doses, and pharmacy into the Medicare plan finder at medicare.gov to see your real total by plan. A plan that covers your neighbor's drugs well can still be the wrong plan for yours.",
+      },
+      {
+        title: "The $35 insulin cap",
+        body: "A month's supply of each Part D-covered insulin costs no more than $35, and the Part D deductible does not apply to insulin. The cap applies per insulin product, per month, so if you take two insulins, each one has its own $35 ceiling. It applies in every coverage phase, and it applies to people with Extra Help too. Insulin used with a traditional pump covered under Part B is also capped at $35 for a month's supply. The cap covers insulin on your plan's formulary. If your insulin is not covered, ask your doctor about a formulary alternative or an exception.",
+      },
+      {
+        title: "Coverage phases in 2027",
+        body: "A Part D year has three phases in 2027. First, the deductible phase: you pay the plan price for covered drugs until you meet the deductible, which can be no more than $700. Some plans charge no deductible, or none for lower tiers. Second, initial coverage: in the standard benefit you pay 25 percent coinsurance until your out-of-pocket costs reach $2,400. Third, catastrophic coverage: you pay $0 for covered drugs for the rest of the year. There is no coverage gap phase. The gap, once called the donut hole, ended with the $2,000 cap in 2025 and stays gone in 2027.",
+      },
+      {
+        title: "Extra Help and benchmark plans",
+        body: "Extra Help, also called the Low Income Subsidy, pays part or all of the Part D premium, deductible, and copays for people with limited income and resources. Each year CMS sets a benchmark premium amount for each region. If you have full Extra Help, a plan with a premium at or below the benchmark costs you $0 in premium. Plans above the benchmark cost you the difference. You apply for Extra Help through Social Security, and North Carolina's SHIIP counselors can walk through the application with you at no charge.",
+      },
+      {
+        title: "Smoothing payments across the year",
+        body: "The Medicare Prescription Payment Plan lets you spread out-of-pocket drug costs into monthly payments across the year instead of paying large amounts in January and February. It is optional, it costs nothing to join, and it is not a discount: the total you owe stays the same. It helps most when your drug costs pile up early in the year. Ask your plan about it during Open Enrollment, before December 7.",
+      },
+    ],
+    comparison: {
+      caption: "Part D limits, 2026 and 2027",
+      headers: ["Part D feature", "2026 / 2027"],
+      rows: [
+        ["Maximum standard deductible", "$615 / $700"],
+        ["Annual out-of-pocket cap", "$2,100 / $2,400"],
+        ["Insulin, per month's supply", "$35 / $35"],
+        ["Coverage gap phase", "Gone in 2025 / Still gone"],
+      ],
+    },
+    checklist: [
+      "Bring your full drug list, doses, and pharmacy name.",
+      "Read the Annual Notice of Change before you compare anything.",
+      "Enter your exact drugs into the Medicare plan finder.",
+      "Add 12 months of premium to your drug costs for each plan.",
+      "Check insulin, deductible, and tier rules for your drugs.",
+    ],
+    faqs: [
+      {
+        q: "How many standalone Part D plans does North Carolina have for 2027?",
+        a: "Eleven, down from 12 in 2026, according to the state's SHIIP program. Part D plans are sold by region, so the same 11 plans are offered across the state. Medicare Advantage plans with drug coverage are separate, and their drug lists differ.",
+      },
+      {
+        q: "What are the 2027 Part D deductible and out-of-pocket cap?",
+        a: "CMS finalized them in the CY2027 Rate Announcement on April 6, 2026: the standard deductible rises to a $700 maximum, from $615, and the annual out-of-pocket cap rises to $2,400, from $2,100. Once your out-of-pocket costs for covered drugs reach the cap, you pay $0 for covered drugs the rest of the year.",
+      },
+      {
+        q: "Does the $35 insulin cap apply if I have Extra Help?",
+        a: "Yes. Medicare.gov states the $35 limit applies to everyone who takes insulin, even with Extra Help. The cap is $35 for a one-month supply of each covered insulin, with no deductible, in every coverage phase.",
+      },
+      {
+        q: "What is a benchmark plan?",
+        a: "Each year CMS sets a benchmark premium amount for each region. If you have full Extra Help, a plan priced at or below the benchmark costs you $0 in premium. A plan above it costs you the difference between its premium and the benchmark.",
+      },
+      {
+        q: "When can I change my Part D plan for 2027?",
+        a: "During Open Enrollment, October 15 through December 7, 2026. Changes take effect January 1, 2027. Outside that window you generally need a Special Enrollment Period, such as a move or losing other drug coverage.",
+      },
+    ],
+    sources: [
+      {
+        title: "CMS: CY2027 Medicare Advantage and Part D Rate Announcement",
+        url: "https://www.cms.gov/files/document/2027-announcement.pdf",
+      },
+      {
+        title: "Medicare: Insulin costs",
+        url: "https://www.medicare.gov/coverage/insulin",
+      },
+      {
+        title: "Medicare: Find health and drug plans",
+        url: "https://www.medicare.gov/plan-compare",
+      },
+    ],
+    related: [
+      { title: "How do I compare Medicare drug plans during Open Enrollment?", href: "/answers/compare-part-d-plans-open-enrollment-2027" },
+      { title: "Do I need Medicare drug coverage?", href: "/answers/do-i-need-medicare-drug-coverage" },
+      { title: "The Part D late enrollment penalty", href: "/answers/medicare-part-d-late-penalty" },
+      { title: "The Part D cap, explained", href: "/medicare-part-d-donut-hole-2027" },
+      { title: "Every 2027 Medicare cost, final vs projected", href: "/medicare-costs-2027" },
+    ],
+  },
+  {
+    slug: "medicare-enrollment-periods-iep-gep-sep-aep",
+    title: "Medicare Enrollment Periods: IEP, GEP, SEP, AEP",
+    description:
+      "Four Medicare enrollment windows, mapped: the 7-month Initial period, General Enrollment, Special Enrollment, and Annual Enrollment, with dates and penalties.",
+    query: "medicare enrollment periods iep gep sep aep explained",
+    opportunity:
+      "One page mapping all four enrollment periods with dates and penalties, with the 7-month Initial Enrollment window as a section.",
+    intent: "informational",
+    scope: "medicare",
+    answer:
+      "Most people get one seven-month window when they turn 65. Miss it without employer coverage and you wait for General Enrollment, pay a penalty, and risk months without coverage.",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+    sections: [
+      {
+        title: "Initial Enrollment Period: your seven months",
+        body: "Your Initial Enrollment Period runs for seven months: the three months before the month you turn 65, your birthday month, and the three months after. If you sign up in the three months before you turn 65, coverage can start the first day of your birthday month. If your birthday falls on the first of the month, the window shifts one month earlier. If you already receive Social Security benefits, Medicare enrolls you automatically in Parts A and B. Everyone else must sign up. This is the only window with no penalty for signing up on time.",
+      },
+      {
+        title: "General Enrollment Period: January 1 to March 31",
+        body: "General Enrollment runs January 1 through March 31 each year, for people who missed their Initial Enrollment Period and do not qualify for a Special Enrollment Period. Coverage starts the month after you sign up. That start date changed in 2023. Before then, coverage waited until July 1. Late enrollment penalties can still apply, and the months you went without coverage are months you pay for yourself.",
+      },
+      {
+        title: "Annual Enrollment Period: October 15 to December 7",
+        body: "Annual Enrollment, also called Open Enrollment, runs October 15 through December 7 each year. It is the window to join, switch, or drop a Medicare Advantage plan or a Part D drug plan, for coverage starting January 1. It is not the window to join Part B for the first time. That is what the Initial and General Enrollment Periods are for. If your plan still fits, you do not have to do anything, but read the Annual Notice of Change first, because premiums, drug lists, and networks change every year.",
+      },
+      {
+        title: "Medicare Advantage Open Enrollment: January 1 to March 31",
+        body: "If you are already in a Medicare Advantage plan, the Medicare Advantage Open Enrollment Period runs January 1 through March 31. It gives you one change: switch to another Advantage plan, or return to Original Medicare and add a Part D drug plan. Coverage starts the first day of the month after the plan receives your request. You cannot use this window to join an Advantage plan from Original Medicare.",
+      },
+      {
+        title: "Special Enrollment Periods: life changes",
+        body: "A Special Enrollment Period opens when life changes. A move to a new service area, losing employer coverage, a plan leaving your county, and gaining or losing Medicaid can each open one. The length varies by event. Most last two months after the event. The workhorse is the employer rule: if you had group health coverage through current employment with 20 or more employees, you get eight months to join Part B after that employment or coverage ends, with no late penalty. COBRA and Marketplace plans do not count as employer coverage for this rule, so they do not delay the penalty.",
+      },
+      {
+        title: "The penalties for waiting",
+        body: "The Part B penalty adds 10 percent to your monthly premium for each full 12-month period you went without Part B or employer group coverage, and it generally lasts as long as you have Part B. The Part D penalty adds 1 percent of the national base beneficiary premium for each month you went without creditable drug coverage, and it also generally lasts as long as you have Part D. For 2027 the base beneficiary premium is $41.33 a month, so a year without drug coverage adds about $5 a month to your premium. Penalties are the reason the first window matters most.",
+      },
+    ],
+    comparison: {
+      caption: "The four windows at a glance",
+      headers: ["Window", "When it runs"],
+      rows: [
+        ["Initial Enrollment Period", "7 months around your 65th birthday"],
+        ["General Enrollment Period", "January 1 to March 31"],
+        ["Annual Enrollment Period", "October 15 to December 7"],
+        ["Medicare Advantage Open Enrollment", "January 1 to March 31, one change"],
+      ],
+    },
+    checklist: [
+      "Mark your 65th birthday month and count three months back.",
+      "Confirm whether your employer coverage counts for a delay.",
+      "Keep proof of employer coverage from the day it ends.",
+      "Read the Annual Notice of Change every September.",
+      "Ask about a Special Enrollment Period before you assume you must wait.",
+    ],
+    faqs: [
+      {
+        q: "When should I sign up for Medicare?",
+        a: "In the three months before the month you turn 65, so coverage can start the first day of your birthday month. If you already receive Social Security, Medicare enrolls you automatically. If you have employer coverage from a job with 20 or more employees, you can delay Part B without penalty.",
+      },
+      {
+        q: "What happens if I miss my Initial Enrollment Period?",
+        a: "You generally wait for General Enrollment, January 1 through March 31, and coverage starts the month after you sign up. A late enrollment penalty can apply to Part B and Part D, unless you had employer group coverage or another qualifying event.",
+      },
+      {
+        q: "Can I change plans outside Annual Enrollment?",
+        a: "Only with a qualifying event that opens a Special Enrollment Period, such as a move or losing employer coverage, or during the Medicare Advantage Open Enrollment Period, January 1 through March 31, if you are already in an Advantage plan.",
+      },
+      {
+        q: "Does COBRA delay the Part B penalty?",
+        a: "No. COBRA and Marketplace plans do not count as employer group coverage for Medicare's delay rules. If you are 65 or older and relying on COBRA, enroll in Part B on time or the penalty can apply.",
+      },
+      {
+        q: "How long does the Part B penalty last?",
+        a: "Generally as long as you have Part B. It adds 10 percent to your premium for each full 12-month period you went without Part B or employer group coverage.",
+      },
+    ],
+    sources: [
+      {
+        title: "Medicare: When you can join, switch, or drop a plan",
+        url: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan",
+      },
+      {
+        title: "Medicare: Special Enrollment Periods",
+        url: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods",
+      },
+      {
+        title: "SSA: Medicare premiums",
+        url: "https://www.ssa.gov/benefits/medicare/medicare-premiums.html",
+      },
+    ],
+    related: [
+      { title: "Missed Medicare enrollment", href: "/guides/missed-medicare-enrollment" },
+      { title: "Medicare Advantage Open Enrollment, January through March", href: "/guides/medicare-advantage-open-enrollment-period" },
+      { title: "Medicare automatic renewal", href: "/guides/medicare-automatic-renewal" },
+      { title: "Turning 65 in North Carolina", href: "/turning-65" },
+      { title: "Medicare Annual Enrollment", href: "/aep" },
+    ],
+  },
+  {
+    slug: "what-is-medigap-medicare-supplement-nc",
+    title: "What Is Medigap? Medicare Supplement in NC",
+    description:
+      "Medigap fills the gaps Original Medicare leaves: deductibles, coinsurance, excess charges. The ten standardized plans, what they do not cover, and NC timing.",
+    query: "what is medigap medicare supplement north carolina",
+    opportunity:
+      "Medigap hub for North Carolina: standardized plans, what it pays, what it never covers, and the 6-month guaranteed-issue window at 65.",
+    intent: "informational",
+    scope: "medicare",
+    answer:
+      "Medigap is private insurance that pays some of the costs Original Medicare leaves you, like deductibles and 20 percent coinsurance. It works only with Original Medicare, and it never includes drug coverage.",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+    sections: [
+      {
+        title: "What Medigap pays",
+        body: "Original Medicare leaves you with real bills. The Part A hospital deductible is $1,736 per benefit period in 2026. Part B pays 80 percent of most outpatient care and leaves you the other 20 percent, with no yearly limit. A skilled nursing stay costs $217 a day for days 21 through 100 in 2026. Medigap pays some or all of these gaps, depending on the plan letter: the Part A deductible, Part A and Part B coinsurance, the first three pints of blood, hospice coinsurance, and skilled nursing coinsurance. Some plans also pay Part B excess charges and 80 percent of emergency care abroad, after a $250 deductible, up to a $50,000 lifetime limit.",
+      },
+      {
+        title: "The ten standardized letters",
+        body: "Federal law standardizes ten Medigap plans: A, B, C, D, F, G, K, L, M, and N. A Plan G from one company covers exactly what a Plan G from another company covers. Only the premium and the service differ. Every plan covers Part A coinsurance and 365 extra hospital days. Plans C and F are closed to anyone who became eligible for Medicare on or after January 1, 2020, because they cover the Part B deductible. Plan G is the most complete plan open to new enrollees: it covers everything Plan F did except the Part B deductible. Plan N covers most of what G covers, with copays of up to $20 for some office visits and up to $50 for an emergency room visit that does not lead to admission, and no excess-charge coverage. Plans K and L pay 50 percent and 75 percent of most benefits, with an annual out-of-pocket limit.",
+      },
+      {
+        title: "What Medigap does not cover",
+        body: "No Medigap plan covers prescription drugs. Policies sold since 2006 have no drug coverage, so nearly everyone with Medigap also buys a separate Part D plan. No plan covers routine dental or vision care, eyeglasses, hearing aids, private-duty nursing, or long-term custodial care. Medigap also cannot be paired with a Medicare Advantage plan. The two are mutually exclusive: you either have Original Medicare plus Medigap, or you have a Medicare Advantage plan, not both.",
+      },
+      {
+        title: "When to buy in North Carolina",
+        body: "Your best window is the six-month Medigap Open Enrollment Period that starts the month you turn 65 and enroll in Part B. During it, insurers must sell you any plan they offer, with no health questions and no higher premium for health reasons. Outside that window, North Carolina insurers can ask health questions, charge higher premiums, and turn you down. That is why the decision belongs in the months around 65, not years later. People under 65 on disability face different rules in North Carolina, so check with the state's free SHIIP counselors before assuming a plan is available.",
+      },
+      {
+        title: "What it costs",
+        body: "A Medigap premium is separate from the Part B premium, and it is separate from any Part D premium. Nationally, Medigap policyholders paid an average of $244 a month in 2025, according to KFF, up 7 percent from the year before. Your premium depends on your age, your ZIP code, the plan letter, and how the insurer sets rates. Some insurers raise premiums as you age. Others set the rate by your age at purchase. No page can quote your price, and this one does not try. Compare the same letter across companies, and ask how the premium has changed over the past five years.",
+      },
+    ],
+    comparison: {
+      caption: "Medigap or Medicare Advantage, the core trade",
+      headers: ["Choice", "What you get"],
+      rows: [
+        ["Original Medicare plus Medigap", "Any doctor who takes Medicare, predictable costs, separate drug plan"],
+        ["Medicare Advantage", "One plan with network rules, a yearly out-of-pocket limit, drug coverage often built in"],
+        ["Original Medicare alone", "No yearly limit on your 20 percent share of Part B"],
+      ],
+    },
+    checklist: [
+      "Enroll in Parts A and B first. Medigap needs both.",
+      "Buy inside the six-month window at 65, when no health questions apply.",
+      "Compare the same letter across companies, not different letters.",
+      "Add a separate Part D plan for prescriptions.",
+      "Ask how the premium is rated and how it has changed.",
+    ],
+    faqs: [
+      {
+        q: "Does Medigap cover prescription drugs?",
+        a: "No. No Medigap policy sold since 2006 includes drug coverage. You need a separate Part D plan for outpatient prescriptions, and the Part D deductible and $2,400 cap for 2027 apply to that plan.",
+      },
+      {
+        q: "Can I have Medigap and a Medicare Advantage plan?",
+        a: "No. Medigap works only with Original Medicare. If you join a Medicare Advantage plan, you cannot use a Medigap policy to pay its copays, and you cannot buy one to go with it.",
+      },
+      {
+        q: "When is the best time to buy Medigap?",
+        a: "During the six-month Medigap Open Enrollment Period that starts the month you turn 65 and enroll in Part B. Insurers must sell you any plan they offer, with no health questions. Outside that window, insurers in North Carolina can use underwriting.",
+      },
+      {
+        q: "Is Plan G the same from every company?",
+        a: "Yes, in benefits. Federal law standardizes the plans, so a Plan G from one company covers exactly what a Plan G from another covers. Premiums, rate history, and service differ, so compare those.",
+      },
+      {
+        q: "Does my Medigap policy follow me if I move?",
+        a: "Yes. A Medigap policy travels with you anywhere in the United States, as long as you keep Original Medicare. Tell your insurer your new address. Your premium may change with the move.",
+      },
+    ],
+    sources: [
+      {
+        title: "Medicare: What is Medicare Supplement Insurance (Medigap)?",
+        url: "https://www.medicare.gov/supplements-other-insurance/whats-medicare-supplement-insurance-medigap",
+      },
+      {
+        title: "Medicare: Your coverage options",
+        url: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/your-coverage-options",
+      },
+      {
+        title: "CMS: CY2027 Medicare Advantage and Part D Rate Announcement",
+        url: "https://www.cms.gov/medicare/payment/medicare-advantage-rates-statistics/announcements-and-documents",
+      },
+    ],
+    related: [
+      { title: "Plan G vs Plan N in North Carolina", href: "/guides/medigap-plan-g-vs-plan-n-nc" },
+      { title: "Medigap or Medicare Advantage: which one fits me?", href: "/answers/medigap-or-medicare-advantage-which-one-fits-me" },
+      { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap" },
+      { title: "Switching from Medicare Advantage to Medigap in NC", href: "/guides/switching-medicare-advantage-to-medigap-nc" },
+      { title: "Every 2027 Medicare cost, final vs projected", href: "/medicare-costs-2027" },
+    ],
+  },
+  {
+    slug: "health-insurance-marketplace-north-carolina",
+    title: "Health Insurance Marketplace North Carolina 2027",
+    description:
+      "North Carolina uses HealthCare.gov. Open Enrollment runs November 1, 2026 to January 15, 2027. Metal tiers, subsidies, and the five 2027 insurers statewide.",
+    query: "health insurance marketplace north carolina",
+    opportunity:
+      "NC marketplace hub for 2027: how it works, metal tiers, open and special enrollment, cost by tier and age, and subsidies with the 400% cliff back.",
+    intent: "informational",
+    answer:
+      "North Carolina uses the federal Marketplace at HealthCare.gov. Open Enrollment for 2027 runs November 1, 2026 to January 15, 2027, and December 15 is the last day to enroll for coverage starting January 1.",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+    sections: [
+      {
+        title: "How the Marketplace works in North Carolina",
+        body: "North Carolina has no state exchange. Residents buy individual and family coverage through the federal Marketplace at HealthCare.gov, by phone, or with a licensed agent. One application checks Marketplace coverage and, in North Carolina, Medicaid, since the state expanded Medicaid to adults earning up to 138 percent of the federal poverty level. Plans on the Marketplace cover essential health benefits, cannot turn you down for a pre-existing condition, and cannot charge you more for being sick. Your price depends on your income, age, household size, county, and the plan you pick.",
+      },
+      {
+        title: "Open Enrollment dates for 2027",
+        body: "Open Enrollment for 2027 coverage runs November 1, 2026 through January 15, 2027. Enroll by December 15, 2026 for coverage starting January 1, 2027. Enroll December 16 through January 15 and coverage starts February 1. Outside Open Enrollment you generally need a qualifying life event, such as losing job-based coverage, moving, marrying, or having a child. That opens a Special Enrollment Period, usually 60 days from the event. Missing the window without a qualifying event generally means waiting for the next Open Enrollment.",
+      },
+      {
+        title: "Metal tiers: Bronze, Silver, Gold, Platinum",
+        body: "Marketplace plans come in four metal tiers that describe how costs split between you and the insurer. Bronze plans pay about 60 percent of average costs, Silver about 70 percent, Gold about 80 percent, and Platinum about 90 percent. Bronze has the lowest monthly premium and the highest costs when you need care. Platinum is the reverse. Silver is the middle ground, and it is the only tier with cost-sharing reductions, which lower deductibles and copays for people who qualify. Pick the tier by how much care you expect to use, not by the premium alone.",
+      },
+      {
+        title: "Health insurance cost: what drives your price",
+        body: "Four things move your price most: your age, your tier, your county, and whether you use tobacco. Under federal rules an older adult can be charged up to three times what a younger adult pays for the same plan. In 2026 the average Marketplace enrollee paid $178 a month after tax credits, up 58 percent from $113 in 2025, according to a KFF analysis of actual enrollment data from May 2026. The average deductible rose 37 percent to $3,786 in 2026. For 2027, North Carolina's average approved rate increase is about 14.1 percent, and KFF found insurers proposed a median increase of 15 percent nationally. Your price on HealthCare.gov is the only one that counts. Run your own income and household size before you decide anything.",
+      },
+      {
+        title: "Subsidies: premium tax credits and cost-sharing reductions",
+        body: "Two kinds of help exist. The premium tax credit lowers your monthly premium, and cost-sharing reductions lower what you pay at the visit. The credit is set by the price of the benchmark plan in your area, the second-lowest-cost Silver plan, and your household income. For 2027 coverage the credit is available to households earning 100 to 400 percent of the federal poverty level. The enhanced credits that removed the income ceiling expired on December 31, 2025, so the 400 percent cliff is back: earn a dollar over 400 percent, about $63,840 for one person or $86,560 for a couple in 2027, and the credit drops to zero. You can take the credit in advance each month, but you reconcile it on Form 8962 with your tax return, and a 2025 federal law removed the cap on repaying excess advance credit for tax year 2026 onward. Report income changes to the Marketplace as they happen. Cost-sharing reductions are available only on Silver plans, for income up to 250 percent of poverty.",
+      },
+      {
+        title: "North Carolina's 2027 insurers",
+        body: "Five insurers offer Marketplace plans in North Carolina for 2027: Ambetter of North Carolina, AmeriHealth Caritas North Carolina, Blue Cross and Blue Shield of NC, Oscar, and UnitedHealthcare. Blue Cross and Blue Shield of NC is the only insurer with plans in all 100 counties. Availability varies by county, so check your ZIP code. Cigna is leaving the individual market after 2026, and Aetna left after 2025. Approved 2027 rate increases from the state filings include 8.4 percent for Ambetter, 15.8 percent for Blue Cross and Blue Shield of NC, and 27.4 percent for UnitedHealthcare. Those are averages across each insurer's plans, not your premium.",
+      },
+      {
+        title: "Self-employed and between jobs",
+        body: "If you are self-employed, estimate your annual income for the year ahead and update it when work changes, because your credit is set by that estimate. If you lose job-based coverage, you have two doors at once: COBRA, which keeps your employer plan for up to 18 months at up to 102 percent of the full premium, and a Marketplace plan through a 60-day Special Enrollment Period. Compare both before the 60 days run out. At 65 the Marketplace hands off to Medicare. A Marketplace plan does not replace Medicare, and keeping one past 65 can cost you a late enrollment penalty, so plan the switch in the months before your 65th birthday.",
+      },
+    ],
+    comparison: {
+      caption: "Metal tiers at a glance",
+      headers: ["Tier", "What it means"],
+      rows: [
+        ["Bronze", "Lowest premium, highest costs when you need care"],
+        ["Silver", "Middle ground, and the only tier with cost-sharing reductions"],
+        ["Gold", "Higher premium, lower costs at the visit"],
+        ["Platinum", "Highest premium, lowest costs at the visit"],
+      ],
+    },
+    checklist: [
+      "Check your ZIP code: plans and prices vary by county.",
+      "Enroll by December 15, 2026 for coverage starting January 1.",
+      "Run your income and household size on HealthCare.gov before you pick a tier.",
+      "Compare the total year, premium plus deductible, not the premium alone.",
+      "Report income changes to the Marketplace as they happen.",
+    ],
+    faqs: [
+      {
+        q: "When is Open Enrollment for 2027 in North Carolina?",
+        a: "November 1, 2026 through January 15, 2027, on HealthCare.gov. Enroll by December 15, 2026 for coverage starting January 1, 2027. Enrollments from December 16 through January 15 start February 1.",
+      },
+      {
+        q: "Do I still get a subsidy in 2027?",
+        a: "Yes, if your household income is between 100 and 400 percent of the federal poverty level. The enhanced credits expired on December 31, 2025, so above 400 percent, about $63,840 for one person in 2027, the premium tax credit drops to zero.",
+      },
+      {
+        q: "What is the cheapest Marketplace plan?",
+        a: "Bronze plans have the lowest monthly premiums, but they also have the highest deductibles and out-of-pocket costs. If you expect regular care, a Silver plan with cost-sharing reductions can cost less over the year, even with a higher premium.",
+      },
+      {
+        q: "What if I miss Open Enrollment?",
+        a: "You generally wait for the next Open Enrollment unless a qualifying life event opens a Special Enrollment Period, usually 60 days from the event. Losing job-based coverage, moving, marrying, and having a child are common qualifying events.",
+      },
+      {
+        q: "Can I keep a Marketplace plan after I turn 65?",
+        a: "You can, but it is usually the wrong move. At 65 Medicare becomes your coverage, and a Marketplace plan does not replace it. Keeping Marketplace coverage past 65 can cost you a Medicare late enrollment penalty, so plan the switch before your 65th birthday.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: The premium tax credit",
+        url: "https://www.irs.gov/affordable-care-act/individuals-and-families/the-premium-tax-credit",
+      },
+      {
+        title: "Medicare: When you can join, switch, or drop a plan",
+        url: "https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan",
+      },
+    ],
+    related: [
+      { title: "COBRA vs Marketplace health insurance", href: "/answers/cobra-vs-marketplace-health-insurance" },
+      { title: "COBRA vs Medicare at 65", href: "/guides/cobra-vs-medicare-at-65" },
+      { title: "Turning 65 and the Marketplace", href: "/guides/turning-65-aca-marketplace-plan" },
+      { title: "Turning 65 in North Carolina", href: "/turning-65" },
+      { title: "Special enrollment", href: "/special-enrollment" },
+    ],
+  },
 ];
 
 export function findTrafficGuide(slug: string) {
