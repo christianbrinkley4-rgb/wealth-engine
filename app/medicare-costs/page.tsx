@@ -219,7 +219,12 @@ export default function MedicareCostsPage() {
           >
             Does Medicare cover nursing homes
           </Link>{" "}
-          breaks down the 100-day rule and what it does not cover.
+          breaks down the 100-day rule and what it does not cover. If you want someone local
+          to put real numbers on your situation, talk with a{" "}
+          <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
+            Medicare agent in Greensboro
+          </Link>
+          .
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>

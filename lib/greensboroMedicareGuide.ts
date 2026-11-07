@@ -331,4 +331,12 @@ export const GREENSBORO_MEDICARE_FAQ = [
     q: "Is an appointment with Christian Brinkley free?",
     a: "Christian's initial Medicare consultation is free with no obligation to enroll. Insurance companies pay him a commission if you choose a plan through him.",
   },
+  {
+    q: "What does a local Medicare agent do?",
+    a: "A local Medicare agent reviews your doctors, prescriptions, enrollment dates, and the plans he represents, then helps you apply if you decide to enroll.",
+  },
+  {
+    q: "What should I bring to a Medicare review?",
+    a: "Bring the names of your doctors and hospitals, a list of your prescriptions, and details of your current coverage and enrollment dates.",
+  },
 ] as const;
