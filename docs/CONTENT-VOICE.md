@@ -34,7 +34,7 @@ Last updated September 10, 2026, following Christian’s request for more natura
 
 Christian’s standing rule for everything public — social posts, captions, ads, text, photos, tags: nothing may look AI-generated.
 
-- **Text:** No em dashes (use hyphens or commas). Short, uneven sentences. Contractions. No marketing fluff (“once-a-year chance,” “that sort of thing,” “game-changer,” “in today’s world,” “delve”). Write like a 21-year-old local talking to a neighbor, cleaned up one notch. Keep his real lines (“No call centers, just me”).
+- **Text:** No em dashes (use hyphens or commas). Short, uneven sentences. Contractions. No marketing fluff (“once-a-year chance,” “that sort of thing,” “game-changer,” “in today’s world,” “delve”). Write like a mature, trustworthy local professional speaking to older adults, plain and steady, one register all the way through. Keep his real lines (“No call centers, just me”).
 - **Photos:** AI-generated is fine as long as it’s not AI slop. The bar: quality and professional for a T65 audience — clean, trustworthy, warm, readable. No distorted text, no uncanny faces, no meme energy, nothing with the generic “AI look.” His real headshot for anything personal or face-forward; branded navy/gold graphics for covers and post images. (Yelp cover reviewed Sep 21, 2026 — passes, keeping it.)
 - **Tags:** No hashtag blocks. On Nextdoor and Facebook, skip hashtags entirely or use at most one plain one. Real neighbors don’t hashtag.
 - **Substance:** Local specifics over generic claims — Triad, Greensboro, Creedmoor, real dates (Oct 15 – Dec 7). Never invent experience, clients, reviews, stats, or guarantees.
