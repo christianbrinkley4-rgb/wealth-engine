@@ -219,7 +219,11 @@ export function EmailResultsCapture({
         stored?: boolean;
       };
 
-      if (!res.ok || data?.success !== true || data?.stored !== true) {
+      // Success means the request is saved or already in Christian's inbox.
+      // The API can answer success with stored:false when the database write
+      // failed and the email alert went out instead, so stored must not
+      // decide whether the visitor sees a confirmation.
+      if (!res.ok || data?.success !== true) {
         resetFormCheck();
         const configFail = data.code === "storage_unavailable" || res.status === 503;
         setError(

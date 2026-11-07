@@ -539,7 +539,11 @@ export function HelpQuiz() {
         stored?: boolean;
       } | null;
 
-      if (!res.ok || data?.success !== true || data?.stored !== true) {
+      // Success means the request is saved or already in Christian's inbox.
+      // The API can answer success with stored:false when the database write
+      // failed and the email alert went out instead, so stored must not
+      // decide whether the visitor sees a confirmation.
+      if (!res.ok || data?.success !== true) {
         // Siteverify consumes a token even if saving or another server check fails.
         // Always get a new one before the visitor retries the request.
         resetFormCheck();

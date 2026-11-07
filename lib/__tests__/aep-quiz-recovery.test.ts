@@ -163,6 +163,19 @@ describe("quiz progress and submission recovery", () => {
     expect(readAepProgress(localStorage.getItem(AEP_PROGRESS_KEY))?.phase).toBe("capture");
     expect(api.reset).toHaveBeenCalled();
   });
+  it("shows the result when the request reached the inbox without a database row", async () => {
+    // The API answers success with stored:false when the database write
+    // failed and the email alert went out instead. The lead arrived, so the
+    // visitor gets the result, not an error.
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue(Response.json({ success: true, stored: false })),
+    );
+    await contact();
+    submit();
+    await screen.findByText("Your result");
+    expect(screen.queryByRole("alert")).toBeNull();
+  });
   it("recovers from a network failure and clears progress only after confirmation", async () => {
     const fetch = vi
       .fn()
