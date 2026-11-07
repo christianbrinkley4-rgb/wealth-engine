@@ -23,8 +23,8 @@ describe("traffic guide publishing contract", () => {
   it("makes every generated guide discoverable once in the sitemap and both text indexes", async () => {
     const paths = sitemap().map((entry) => new URL(entry.url).pathname);
     const indexes = await Promise.all([shortIndex().text(), fullIndex().text()]);
-    expect(generateStaticParams()).toHaveLength(54);
-    expect(new Set(TRAFFIC_GUIDES.map((guide) => guide.slug)).size).toBe(54);
+    expect(generateStaticParams()).toHaveLength(60);
+    expect(new Set(TRAFFIC_GUIDES.map((guide) => guide.slug)).size).toBe(60);
     for (const guide of TRAFFIC_GUIDES) {
       const path = `/guides/${guide.slug}`;
       // Off-topic guides stay live but out of the sitemap (lib/indexFocus.ts).

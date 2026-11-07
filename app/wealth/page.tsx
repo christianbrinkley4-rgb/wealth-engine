@@ -394,6 +394,12 @@ export default function WealthHome() {
           "federal-tax-brackets-2026",
           "north-carolina-taxes-on-retirement-income",
           "how-to-improve-credit-score",
+          "how-much-does-term-life-insurance-cost",
+          "best-term-life-insurance-companies",
+          "life-insurance-for-seniors",
+          "how-much-does-whole-life-insurance-cost",
+          "final-expense-insurance-for-seniors-over-70",
+          "how-much-does-disability-insurance-cost",
         ]}
       />
     </main>
