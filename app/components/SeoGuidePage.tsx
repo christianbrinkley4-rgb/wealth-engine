@@ -6,7 +6,6 @@ import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { formatArticleDate } from "@/app/components/ArticleBody";
-import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
@@ -37,7 +36,7 @@ export type SeoGuideData = {
 function Copy({ text }: { text: string }) {
   return text.split(/(\[[^\]]+\]\([^\s)]+\)|\*\*[^*]+\*\*)/g).map((part, index) => {
     const link = /^\[([^\]]+)\]\(([^\s)]+)\)$/.exec(part);
-    if (link && /^(?:https:\/\/|\/(?!\/))/.test(link[2])) {
+    if (link && /^(?:https:\/\/|tel:|\/(?!\/))/.test(link[2])) {
       return (
         <Link key={index} href={link[2]} className="underline underline-offset-2">
           {link[1]}
@@ -85,6 +84,12 @@ export function SeoGuidePage({ data }: { data: SeoGuideData }) {
       ? [faqJsonLd(data.faqs.map(({ q, a }) => ({ q: plainCopy(q), a: plainCopy(a) })))]
       : []),
   ];
+  // The closing phone number is plain text in the guide data, so render it
+  // as a real tel: link here instead of through Copy. Visible text unchanged.
+  const closingPhoneAt = data.closing.lastIndexOf(AGENT.phone);
+  const closingBefore = closingPhoneAt >= 0 ? data.closing.slice(0, closingPhoneAt) : data.closing;
+  const closingAfter =
+    closingPhoneAt >= 0 ? data.closing.slice(closingPhoneAt + AGENT.phone.length) : "";
   return (
     <main className="bg-white text-[var(--color-navy)]">
       <script
@@ -114,6 +119,27 @@ export function SeoGuidePage({ data }: { data: SeoGuideData }) {
             Educational information, not personalized tax, legal, or investment advice.
           </p>
         ) : null}
+        <aside
+          aria-label="Book a free phone review"
+          className="my-8 rounded-xl border border-gray-300 bg-[var(--color-paper)] p-5"
+        >
+          <p className="text-17 leading-relaxed">
+            Want help with your situation? Talk through it with a licensed local agent, free, no
+            obligation to enroll.
+          </p>
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <TrackedLink href="/aep" className="btn" ctaLocation="inline">
+              Book a free 45-minute phone review
+            </TrackedLink>
+            <a
+              href={AGENT.phoneHref}
+              data-cta-location="inline"
+              className="btn btn-outline"
+            >
+              Call {AGENT.phone}
+            </a>
+          </div>
+        </aside>
         <nav
           aria-label="On this page"
           className="my-8 rounded-xl border border-gray-300 bg-[var(--color-paper)] p-5"
@@ -238,10 +264,16 @@ export function SeoGuidePage({ data }: { data: SeoGuideData }) {
         >
           <h2 className="text-28 font-semibold">Talk through your questions</h2>
           <p className="text-17 mt-4 leading-relaxed">
-            <Copy text={data.closing} />
+            <Copy text={closingBefore} />
+            {closingPhoneAt >= 0 ? (
+              <a href={AGENT.phoneHref} className="underline underline-offset-2">
+                {AGENT.phone}
+              </a>
+            ) : null}
+            <Copy text={closingAfter} />
           </p>
           <p className="mt-5">
-            <TrackedLink href={ENGINE_BOOKING_URL} className="btn" ctaLocation="page_close">
+            <TrackedLink href="/aep" className="btn" ctaLocation="page_close">
               {data.bookingLabel ?? "Book a free 45-minute phone review"}
             </TrackedLink>
           </p>

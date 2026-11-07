@@ -8,7 +8,6 @@ import StatePlanPage, {
   revalidate,
 } from "@/app/guides/nc-state-health-plan-medicare/page";
 import { SHP_METADATA_REVERT_AT } from "@/lib/shpMetadata";
-import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 
 const fixture: SeoGuideData = {
   slug: "test-guide",
@@ -73,11 +72,18 @@ describe("reviewed editorial guide renderer", () => {
     expect(root.querySelector("caption")?.textContent).toBe("An accessible comparison");
     expect(root.querySelector("th[scope=col]")?.textContent).toBe("Option");
     expect(root.querySelector('a[href="https://www.irs.gov/"]')).not.toBeNull();
+    // Top CTA strip plus bottom close both route through /aep, never
+    // straight to the calendar; the closing phone number is a tel: link.
     const bookingLinks = [...root.querySelectorAll("a")].filter(
-      (a) => a.getAttribute("href") === ENGINE_BOOKING_URL,
+      (a) => a.getAttribute("href") === "/aep",
     );
-    expect(bookingLinks).toHaveLength(1);
-    expect(bookingLinks[0].dataset.ctaLocation).toBe("page_close");
+    expect(bookingLinks).toHaveLength(2);
+    expect(bookingLinks.map((a) => a.dataset.ctaLocation)).toEqual([
+      "inline",
+      "page_close",
+    ]);
+    expect(root.querySelector('a[href="tel:+19194086671"]')).not.toBeNull();
+    expect(root.querySelectorAll('a[href="tel:+19194086671"]')).toHaveLength(3);
     expect(root.textContent?.trim().endsWith("(919) 408-6671")).toBe(true);
     expect(root.textContent).not.toContain("Personal Medicare help");
     expect(root.querySelector('[aria-label="Required disclosures"]')).not.toBeNull();

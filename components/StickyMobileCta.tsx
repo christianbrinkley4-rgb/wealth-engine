@@ -40,6 +40,10 @@ const HIDE_PREFIXES = [
 ];
 
 const DISMISS_KEY = "we-scta-dismissed";
+// A dismissal lasts about 7 days, then the bar comes back. Stored as the
+// dismissal timestamp (milliseconds). A legacy bare "1" has no timestamp,
+// so it is treated as expired rather than permanent.
+const DISMISS_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 const FIELD_SELECTOR = "input, select, textarea";
 
@@ -48,8 +52,8 @@ const FIELD_SELECTOR = "input, select, textarea";
  *
  * It stays tucked until the hero's own buttons have scrolled away, and it
  * hides while someone is typing so it cannot cover a form field. A visitor
- * can dismiss it once; that choice stays in localStorage across tabs and
- * later visits.
+ * can dismiss it; that choice stays in localStorage for about 7 days, then
+ * the bar comes back on a later visit.
  */
 export function StickyMobileCta() {
   const pathname = usePathname() ?? "/";
@@ -62,9 +66,12 @@ export function StickyMobileCta() {
 
   useEffect(() => {
     try {
-      // Read the persisted browser preference after hydration, preserving dismissal behavior.
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      if (localStorage.getItem(DISMISS_KEY) === "1") setDismissed(true);
+      // Read the persisted dismissal timestamp after hydration. A dismissal
+      // older than about 7 days has expired, so the bar comes back.
+      const dismissedAt = Number(localStorage.getItem(DISMISS_KEY));
+      if (Number.isFinite(dismissedAt) && Date.now() - dismissedAt < DISMISS_TTL_MS)
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setDismissed(true);
     } catch {
       // Private browsing can block storage. The bar still works.
     }
@@ -119,7 +126,7 @@ export function StickyMobileCta() {
   function dismiss() {
     setDismissed(true);
     try {
-      localStorage.setItem(DISMISS_KEY, "1");
+      localStorage.setItem(DISMISS_KEY, String(Date.now()));
     } catch {
       // The bar is already gone for this view.
     }

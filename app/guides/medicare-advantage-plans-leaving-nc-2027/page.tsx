@@ -73,6 +73,7 @@ const data: SeoGuideData = {
       title: "Enrollment dates for the 2027 transition",
       paragraphs: [
         "Medicare Open Enrollment runs October 15 through December 7, 2026 for changes effective January 1, 2027. Medicare also lists a December 8 through February 28 Special Enrollment Period for certain nonrenewals. Other termination situations have different windows. Check the category in your notice and confirm the new plan's start date. Waiting can leave you without the coverage you expected. Source: [Medicare enrollment periods](https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods).",
+        "If your plan is ending and you want help reading the notice, [book a free 45-minute phone review](/aep) or call (919) 408-6671. Bring the letter and we will work through what it says, with no obligation to enroll.",
       ],
     },
     {

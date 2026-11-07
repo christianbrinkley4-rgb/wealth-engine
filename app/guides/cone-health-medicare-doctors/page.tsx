@@ -214,6 +214,18 @@ export default function ConeHealthMedicareDoctorsPage() {
             the network. It is not guaranteed, but it is worth asking about, especially for
             ongoing cancer treatment or a scheduled surgery.
           </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            If your Cone Health doctor is the reason you are checking, a free 45-minute phone
+            review can walk through your plan&apos;s 2027 directory with you.{" "}
+            <Link href="/aep" className="underline underline-offset-2">
+              Book a phone review
+            </Link>{" "}
+            or call{" "}
+            <a href={AGENT.phoneHref} className="underline underline-offset-2">
+              {AGENT.phone}
+            </a>
+            .
+          </p>
 
           <h2 className="text-28 mt-12 font-semibold">The Medigap alternative</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -272,7 +284,11 @@ export default function ConeHealthMedicareDoctorsPage() {
           </dl>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             Want help checking your doctors against next year&apos;s plans? Call or text Christian
-            Brinkley in Greensboro, NC at {AGENT.phone}. The review is free, with no obligation.
+            Brinkley in Greensboro, NC at{" "}
+            <a href={AGENT.phoneHref} className="underline underline-offset-2">
+              {AGENT.phone}
+            </a>
+            . The review is free, with no obligation.
             Or talk to a{" "}
             <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
               Medicare agent in Greensboro
