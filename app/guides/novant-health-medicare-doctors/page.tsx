@@ -95,7 +95,7 @@ export default function NovantHealthMedicareDoctorsPage() {
                 "How to check whether your Novant Health doctors are in your Medicare plan's network for 2027, and the questions to ask before Annual Enrollment ends.",
               path: PATH,
               datePublished: "2026-10-27",
-              dateModified: "2026-10-27",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -213,7 +213,14 @@ export default function NovantHealthMedicareDoctorsPage() {
           </dl>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             Want help checking your doctors against next year&apos;s plans? Call or text Christian
-            Brinkley at {AGENT.phone}. The review is free, with no obligation.
+            Brinkley at {AGENT.phone}. The review is free, with no obligation. Or talk to a{" "}
+            <Link
+              href="/medicare-agent-winston-salem-nc"
+              className="underline underline-offset-2"
+            >
+              Medicare agent in Winston-Salem
+            </Link>
+            .
           </p>
         </div>
       </section>
@@ -235,7 +242,7 @@ export default function NovantHealthMedicareDoctorsPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-27" />
+      <MedicareByline reviewed="2026-11-07" />
     </main>
   );
 }

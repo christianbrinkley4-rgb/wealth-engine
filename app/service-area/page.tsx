@@ -134,7 +134,7 @@ export default function ServiceAreaPage() {
                       href={canonicalMedicareLocation(`/medicare-in/${place.slug}`)}
                       className="inline-flex min-h-11 items-center rounded-lg px-2 underline underline-offset-2"
                     >
-                      Medicare
+                      {place.slug === "greensboro" ? "Medicare agent in Greensboro" : "Medicare"}
                     </Link>
                     <Link
                       href={`/life-insurance-in/${place.slug}`}

@@ -370,7 +370,7 @@ export function ArticleBody({
                     ? [
                         {
                           href: "/medicare-agent-greensboro-nc",
-                          label: "Prepare for a Greensboro Medicare consultation",
+                          label: "Medicare agent in Greensboro",
                         },
                         {
                           href: "/north-carolina-medicare-programs",

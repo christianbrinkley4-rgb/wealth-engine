@@ -64,7 +64,7 @@ export default function MedicareGreensboroPage() {
           description,
           path,
           datePublished: "2026-10-24",
-          dateModified: "2026-10-24",
+          dateModified: "2026-11-07",
         }),
         serviceJsonLd({ name: "Free Medicare consultation in Greensboro", description, path }),
         faqJsonLd(FAQ),
@@ -84,14 +84,18 @@ export default function MedicareGreensboroPage() {
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free Medicare conversation"
       />
-      <MedicareByline reviewed="2026-10-24" />
+      <MedicareByline reviewed="2026-11-07" />
 
       <section className="measure-prose app-shell max-w-3xl py-8">
         <h2 className="text-28 font-semibold">Medicare in Greensboro at a Glance</h2>
         <p className="text-18 mt-4">
           Medicare is a federal program. The rules are the same here as they are in any other state.
           But the help around it can be local, and that matters when you are sorting through your
-          choices.
+          choices. The{" "}
+          <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
+            Medicare agent in Greensboro
+          </Link>{" "}
+          page carries the Guilford County plan numbers and the Cone Health doctor check.
         </p>
         <p className="text-17 mt-4 leading-relaxed">
           I am Christian Brinkley, a licensed NC insurance agent based in Greensboro. I work with

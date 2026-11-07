@@ -32,7 +32,7 @@ import { GOOGLE_REVIEWS, hasTestimonials, visibleRatedReviews } from "@/lib/test
 import { canonicalMedicareLocation } from "@/lib/locationConsolidation";
 import { featuredPlaces } from "@/lib/triad";
 
-const title = "Medicare Agent Greensboro | Christian Brinkley";
+const title = "Medicare Agent in Greensboro, NC | Free Local Help from Christian Brinkley";
 const description =
   "Meet Christian Brinkley, a licensed NC insurance agent in Greensboro. Get free help with Medicare choices, doctors, prescriptions, and enrollment dates.";
 export const metadata: Metadata = {
@@ -148,10 +148,13 @@ export default function HomePage() {
             <p className="eyebrow hx-eyebrow">Medicare help · Greensboro &amp; the Triad</p>
             <h1 id="hx-title" className="hx-title">
               <span className="split-line">
-                <span style={{ "--i": 0 } as React.CSSProperties}>Medicare agent</span>
+                <span style={{ "--i": 0 } as React.CSSProperties}>Christian Brinkley,</span>
               </span>{" "}
               <span className="split-line">
-                <span style={{ "--i": 1 } as React.CSSProperties}>
+                <span style={{ "--i": 1 } as React.CSSProperties}>Medicare agent</span>
+              </span>{" "}
+              <span className="split-line">
+                <span style={{ "--i": 2 } as React.CSSProperties}>
                   <em>in Greensboro, NC.</em>
                 </span>
               </span>
@@ -601,9 +604,9 @@ export default function HomePage() {
               <Link href="/medicare-agent-burlington-nc" className="underline underline-offset-2">
                 Burlington
               </Link>{" "}
-              get the same free, no-pressure help as everyone in{" "}
+              get the same free, no-pressure help as everyone who talks to a{" "}
               <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
-                Greensboro
+                Medicare agent in Greensboro
               </Link>
               .
             </p>

@@ -24,6 +24,36 @@ const HOSPITAL_GUIDES: Partial<Record<PriorityMedicareCity, Array<{ label: strin
   burlington: [CONE],
 };
 
+/** Neighboring agent hubs, with city-named anchor text. Granville County has none. */
+const NEARBY_AGENT_PAGES: Partial<
+  Record<PriorityMedicareCity, Array<{ name: string; href: string }>>
+> = {
+  "high-point": [
+    { name: "Greensboro", href: "/medicare-agent-greensboro-nc" },
+    { name: "Winston-Salem", href: "/medicare-agent-winston-salem-nc" },
+    { name: "Kernersville", href: "/medicare-agent-kernersville-nc" },
+    { name: "Burlington", href: "/medicare-agent-burlington-nc" },
+  ],
+  "winston-salem": [
+    { name: "Greensboro", href: "/medicare-agent-greensboro-nc" },
+    { name: "High Point", href: "/medicare-agent-high-point-nc" },
+    { name: "Kernersville", href: "/medicare-agent-kernersville-nc" },
+    { name: "Burlington", href: "/medicare-agent-burlington-nc" },
+  ],
+  kernersville: [
+    { name: "Greensboro", href: "/medicare-agent-greensboro-nc" },
+    { name: "Winston-Salem", href: "/medicare-agent-winston-salem-nc" },
+    { name: "High Point", href: "/medicare-agent-high-point-nc" },
+    { name: "Burlington", href: "/medicare-agent-burlington-nc" },
+  ],
+  burlington: [
+    { name: "Greensboro", href: "/medicare-agent-greensboro-nc" },
+    { name: "High Point", href: "/medicare-agent-high-point-nc" },
+    { name: "Winston-Salem", href: "/medicare-agent-winston-salem-nc" },
+    { name: "Kernersville", href: "/medicare-agent-kernersville-nc" },
+  ],
+};
+
 export function priorityCityMetadata(slug: PriorityMedicareCity): Metadata {
   const city = PRIORITY_MEDICARE_CITIES[slug];
   const path = `/medicare-agent-${slug}-nc`;
@@ -143,6 +173,20 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
           </div>
         ))}
       </section>
+      {NEARBY_AGENT_PAGES[slug] && (
+        <nav className="app-shell max-w-3xl py-8" aria-label="Nearby Medicare agent pages">
+          <h2 className="text-24 font-semibold">Medicare agent pages nearby</h2>
+          <ul className="text-17 mt-4 space-y-3">
+            {NEARBY_AGENT_PAGES[slug]!.map((hub) => (
+              <li key={hub.href}>
+                <Link className="underline" href={hub.href}>
+                  {hub.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
       <nav className="app-shell max-w-3xl py-8" aria-label="Medicare tools">
         <h2 className="text-24 font-semibold">Tools to prepare for your conversation</h2>
         <ul className="text-17 mt-4 space-y-3">

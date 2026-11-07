@@ -27,6 +27,10 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
       },
       { label: "Medicare Plan Compare", href: "https://www.medicare.gov/plan-compare/" },
     ],
+    related: {
+      label: "See Medicare Advantage plans in Greensboro",
+      href: "/medicare-advantage-plans-greensboro-nc",
+    },
   },
   {
     id: "counties",
@@ -123,7 +127,10 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
         href: "https://www.medicare.gov/health-drug-plans/health-plans/your-coverage-options",
       },
     ],
-    related: { label: "Check doctors and hospital networks", href: "/keep-my-doctor" },
+    related: {
+      label: "Cone Health doctors and Medicare networks",
+      href: "/guides/cone-health-medicare-doctors",
+    },
   },
   {
     id: "prescriptions",
@@ -235,6 +242,23 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
     ],
   },
   {
+    id: "shiip",
+    heading: "Where can I get free, independent Medicare counseling in Greensboro?",
+    answer:
+      "NC SHIIP offers free, unbiased Medicare counseling. Call SHIIP at 855-408-1212, or contact the Guilford County counselor through Senior Resources of Guilford.",
+    paragraphs: [
+      "SHIIP counselors help you understand Medicare, Medicare Advantage, prescription drug coverage, Medicare supplements, and long-term care insurance. They do not sell or endorse insurance products. That is the difference between SHIIP and an agent: SHIIP explains your options without representing a company, while I explain the plans I represent and help with the application if you decide to enroll.",
+      "In Guilford County, SHIIP counseling runs through Senior Resources of Guilford at 1401 Benjamin Parkway, Greensboro, NC 27408. Call (336) 373-4816, extension 253. Ask the county counselor what enrollment assistance is available for your situation.",
+      "Use both if it helps. Talk through the choices with SHIIP first, then bring your doctor list and prescriptions to a review with me, or the other way around. Either way, keep your Medicare number and payment details out of online forms.",
+    ],
+    sources: [
+      {
+        label: "NC DOI: SHIIP, checked November 7, 2026",
+        href: "https://www.ncdoi.gov/consumers/medicare-and-seniors-health-insurance-information-program-shiip",
+      },
+    ],
+  },
+  {
     id: "appointment",
     heading: "What should I bring to a free Medicare appointment?",
     answer:
@@ -248,6 +272,10 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
 ] as const;
 
 export const GREENSBORO_MEDICARE_FAQ = [
+  {
+    q: "Are you a Medicare insurance agent in Greensboro?",
+    a: "Yes. I am Christian Brinkley, a licensed insurance agent in Greensboro. I help Guilford County residents with Medicare questions, at home or by phone.",
+  },
   {
     q: "Where can I get Medicare help in Greensboro, NC?",
     a: "Christian Brinkley offers free Medicare consultations in Greensboro. NC SHIIP provides independent counseling in Guilford County; both can help you understand your coverage choices.",
