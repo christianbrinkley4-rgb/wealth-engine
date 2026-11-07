@@ -383,6 +383,17 @@ export default function WealthHome() {
           "sep-ira-vs-solo-401k",
           "social-security-survivor-benefits",
           "hard-inquiry-vs-soft-inquiry",
+          "401k-contribution-limits-2026",
+          "social-security-spousal-benefits",
+          "roth-ira-contribution-limits-2026",
+          "qualified-charitable-distribution-qcd",
+          "capital-gains-tax-rates-2026",
+          "roth-conversion-taxes",
+          "average-401k-balance-by-age",
+          "how-much-emergency-fund",
+          "federal-tax-brackets-2026",
+          "north-carolina-taxes-on-retirement-income",
+          "how-to-improve-credit-score",
         ]}
       />
     </main>
