@@ -214,6 +214,18 @@ export default function AtriumWakeForestBaptistMedicareDoctorsPage() {
             </Link>{" "}
             have their own guides.
           </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            If keeping your Wake Forest Baptist doctors is the deciding factor, a free 45-minute
+            phone review can check them against next year&apos;s plans with you.{" "}
+            <Link href="/aep" className="underline underline-offset-2">
+              Book a phone review
+            </Link>{" "}
+            or call{" "}
+            <a href={AGENT.phoneHref} className="underline underline-offset-2">
+              {AGENT.phone}
+            </a>
+            .
+          </p>
           <GuideTownLinks />
         </div>
       </section>
@@ -231,7 +243,11 @@ export default function AtriumWakeForestBaptistMedicareDoctorsPage() {
           </dl>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             Want help checking your doctors against next year&apos;s plans? Call or text Christian
-            Brinkley at {AGENT.phone}. The review is free, with no obligation. Or talk to a{" "}
+            Brinkley at{" "}
+            <a href={AGENT.phoneHref} className="underline underline-offset-2">
+              {AGENT.phone}
+            </a>
+            . The review is free, with no obligation. Or talk to a{" "}
             <Link
               href="/medicare-agent-winston-salem-nc"
               className="underline underline-offset-2"

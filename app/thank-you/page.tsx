@@ -148,10 +148,13 @@ function ThankYouInner() {
             {headline}
           </h1>
           <p className="text-18 mt-4 leading-relaxed text-[var(--color-navy)]">{lede}</p>
-          <div id="page-hero-actions" className="mt-6">
+          <div id="page-hero-actions" className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a data-cta-location="hero" href={AGENT.phoneHref} className="btn">
               <Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
             </a>
+            <Link href="/aep" data-cta-location="hero" className="btn btn-outline">
+              Book a 45-minute phone review
+            </Link>
           </div>
         </div>
 
