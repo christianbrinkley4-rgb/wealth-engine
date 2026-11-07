@@ -239,3 +239,21 @@ describe("internal links to pages Search Console found orphaned (Oct 29)", () =>
     expect(city).toContain('href="/questions-to-ask-medicare-agent"');
   });
 });
+
+describe("capture-lead confirmation (conversion audit, Nov 7)", () => {
+  it("never gates the visitor confirmation on the stored flag", () => {
+    // /api/capture-lead answers success with stored:false when the database
+    // write failed and the email alert went out instead. The lead reached
+    // Christian's inbox, so every form that posts to it must confirm on
+    // success alone. The /api/quiz-lead form (EngineContact) is excluded:
+    // that API has no alert-only fallback and only succeeds when stored.
+    for (const file of [
+      "app/start/HelpQuiz.tsx",
+      "app/plan-check/PlanCheckQuiz.tsx",
+      "app/aep-quiz/AepQuiz.tsx",
+      "components/EmailResultsCapture.tsx",
+      "components/TimelineEmailCapture.tsx",
+    ])
+      expect(readFileSync(file, "utf8"), file).not.toContain("stored !== true");
+  });
+});

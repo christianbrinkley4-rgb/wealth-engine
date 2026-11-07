@@ -373,7 +373,11 @@ function CaptureForm({
         }),
       });
       const data = (await res.json().catch(() => null)) as { error?: string; success?: boolean; stored?: boolean } | null;
-      if (!res.ok || data?.success !== true || data?.stored !== true) {
+      // Success means the request is saved or already in Christian's inbox.
+      // The API can answer success with stored:false when the database write
+      // failed and the email alert went out instead, so stored must not
+      // decide whether the visitor sees a confirmation.
+      if (!res.ok || data?.success !== true) {
         reset();
         setError(data?.error ?? "Something went wrong on my end. Please try again, or call me.");
         setSending(false);
@@ -556,7 +560,11 @@ function PhoneFollowUp({
         }),
       });
       const receipt = await res.json().catch(() => null);
-      if (!res.ok || receipt?.success !== true || receipt?.stored !== true) {
+      // Success means the request is saved or already in Christian's inbox.
+      // The API can answer success with stored:false when the database write
+      // failed and the email alert went out instead, so stored must not
+      // decide whether the visitor sees a confirmation.
+      if (!res.ok || receipt?.success !== true) {
         reset();
         setError("Something went wrong. You can also just call or text me directly.");
         setSending(false);
