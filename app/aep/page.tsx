@@ -511,6 +511,27 @@ export default function AepPage() {
           If you live in Greensboro, start with the{" "}
           <Link href="/medicare-greensboro-nc">Greensboro Medicare hub</Link>.
         </p>
+        <p>
+          New for 2027: learn{" "}
+          <Link href="/guides/how-to-compare-medicare-advantage-plans-2027-nc">
+            how to compare Medicare Advantage plans
+          </Link>
+          , read the{" "}
+          <Link href="/guides/medicare-part-d-plans-2027-nc">
+            Part D plans guide for North Carolina
+          </Link>
+          , map the{" "}
+          <Link href="/guides/medicare-enrollment-periods-iep-gep-sep-aep">
+            four enrollment periods
+          </Link>
+          , understand{" "}
+          <Link href="/guides/what-is-medigap-medicare-supplement-nc">what Medigap is</Link>, and
+          see how the{" "}
+          <Link href="/guides/health-insurance-marketplace-north-carolina">
+            Marketplace works in North Carolina
+          </Link>
+          .
+        </p>
         <ChecklistPointer />
       </ReadNext>
 

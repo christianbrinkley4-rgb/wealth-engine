@@ -11718,10 +11718,121 @@ export const ARTICLES: Article[] = [
       { label: "Do I need Medicare drug coverage?", href: "/answers/do-i-need-medicare-drug-coverage" },
       { label: "How does Medicare Part D drug coverage work?", href: "/answers/how-does-medicare-part-d-drug-coverage-work" },
       { label: "The Part D late enrollment penalty", href: "/answers/medicare-part-d-late-penalty" },
+      { label: "Medicare Part D plans in North Carolina for 2027", href: "/guides/medicare-part-d-plans-2027-nc" },
       { label: "Switching Medicare Advantage plans during AEP", href: "/answers/switching-medicare-advantage-plans-aep" },
       { label: "Every 2027 Medicare cost, final vs projected", href: "/medicare-costs-2027" },
     ],
     startHref: "/start?topic=medicare&stage=already_on_medicare",
+  },
+  {
+    slug: "cobra-vs-marketplace-health-insurance",
+    title: "COBRA vs Marketplace Health Insurance: Which Costs Less?",
+    metaTitle: "COBRA vs Marketplace Health Insurance After Job Loss",
+    description:
+      "Lost your job-based coverage? Compare COBRA and Marketplace plans on cost, doctors, and deadlines, and learn which one fits a short gap or a long one.",
+    keyword: "cobra vs marketplace health insurance",
+    eyebrow: "Health insurance questions, answered",
+    lede: "COBRA keeps the plan you know. The Marketplace may cut the price. The pick depends on income, doctors, and how long the gap lasts.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro:
+      "Losing a job usually means losing the health plan that came with it. Two doors open at once. COBRA lets you keep the employer plan you already have, at the full price. The Marketplace lets you buy a new plan, often with a tax credit that lowers the premium. Both doors have a 60-day clock.",
+    sections: [
+      {
+        h2: "What COBRA actually is",
+        blocks: [
+          p(
+            "COBRA is a federal law that lets you keep your employer health plan after a qualifying event, such as a job loss or a cut in hours. It generally applies to employers with 20 or more employees. You keep the same plan, the same doctors, and the same deductible progress. Coverage usually lasts up to 18 months after a termination or a reduction in hours. Divorce or the death of the covered employee can extend coverage to 36 months for spouses and dependent children.",
+          ),
+          p(
+            "The catch is the price. Your employer stops paying its share, so you pay the full premium: your share plus the employer share, plus a 2 percent administration fee. Federal rules cap the charge at 102 percent of the plan's cost. You have 60 days to elect COBRA, counted from the later of your coverage ending or your notice arriving, and 45 days after electing to make the first payment. Electing on time restores coverage retroactively to the date it ended. Disability can extend coverage to 29 months, at up to 150 percent of the premium.",
+          ),
+        ],
+      },
+      {
+        h2: "What the Marketplace offers instead",
+        blocks: [
+          p(
+            "The Marketplace is where you buy individual health insurance, in North Carolina through HealthCare.gov. Losing job-based coverage opens a Special Enrollment Period, usually 60 days from the loss, so you can enroll outside Open Enrollment. Open Enrollment for 2027 runs November 1, 2026 through January 15, 2027. Plans come in Bronze, Silver, Gold, and Platinum tiers, and your county decides which insurers sell there.",
+          ),
+          p(
+            "The Marketplace's edge is the premium tax credit. If your household income is between 100 and 400 percent of the federal poverty level, the credit lowers your monthly premium. For 2027 coverage, 400 percent is about $63,840 for one person and $86,560 for a couple. The enhanced credits that removed that ceiling expired on December 31, 2025, so above the line the credit drops to zero. In 2026 the average enrollee paid $178 a month after credits, according to a KFF analysis, up from $113 in 2025. Your price depends on your income, age, household size, and county.",
+          ),
+        ],
+      },
+      {
+        h2: "The cost comparison, side by side",
+        blocks: [
+          table(
+            ["Factor", "COBRA", "Marketplace"],
+            [
+              ["Monthly cost", "Up to 102% of the full group premium", "Premium minus any tax credit"],
+              ["Doctors", "Same network you already have", "A new network, check yours first"],
+              ["Deductible", "Progress you already made carries over", "Starts from zero on your start date"],
+              ["How long it lasts", "Usually up to 18 months", "As long as you keep paying, year to year"],
+            ],
+          ),
+          p(
+            "COBRA usually costs more per month, because you pay the employer's share too. The Marketplace usually costs less per month for people who qualify for a credit, but a new deductible and network can eat the savings mid-treatment. Add the full year, not one month, before you decide.",
+          ),
+        ],
+      },
+      {
+        h2: "Who each one fits",
+        blocks: [
+          p(
+            "COBRA fits a short gap. You are between jobs, your treatment is underway, your deductible is mostly met, and a new job or Medicare is months away. It also fits when your doctors are in no Marketplace network in your county. You pay more per month, but nothing about your care changes.",
+          ),
+          p(
+            "The Marketplace fits a longer gap, or a lower income. Your income qualifies for a tax credit, your doctors are in a Marketplace network, or you expect to be without employer coverage for a year or more. It also fits when COBRA's price is out of reach, which it often is once the employer share lands on you.",
+          ),
+          p(
+            "Two deadline traps matter. Dropping COBRA voluntarily does not open a Marketplace enrollment period, but losing COBRA because it ran out does open a 60-day window. And COBRA does not delay Medicare: if you are 65 or older, enroll in Part B on time, because COBRA does not count as employer coverage for the late enrollment penalty.",
+          ),
+          ul(
+            "Price COBRA from the election notice.",
+            "Price a Marketplace plan with your income.",
+            "Check your doctors in both networks.",
+            "Compare the full year, deductible included.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can I get a subsidy while I am on COBRA?",
+        a: "No. Months you are covered by COBRA do not qualify for a premium tax credit. If you turn COBRA down, you may qualify for a credit on a Marketplace plan.",
+      },
+      {
+        q: "How long do I have to choose?",
+        a: "Sixty days for both. COBRA gives you 60 days from the later of your coverage ending or your election notice arriving. Losing job-based coverage gives you a 60-day Marketplace Special Enrollment Period. The clocks run together, so compare before either expires.",
+      },
+      {
+        q: "What happens when COBRA runs out?",
+        a: "Losing COBRA because the coverage period ended opens a 60-day Marketplace Special Enrollment Period. Dropping it early does not. Plan the switch before the last month.",
+      },
+      {
+        q: "I am turning 65. Should I take COBRA or Medicare?",
+        a: "Take Medicare. COBRA does not count as employer coverage for Medicare's rules, so it does not delay the Part B penalty. Enroll in Part B around your 65th birthday, and compare a drug plan and any supplement then.",
+      },
+    ],
+    sources: [
+      {
+        label: "U.S. Department of Labor: FAQs on COBRA Continuation Health Coverage",
+        href: "http://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/faqs/cobra-continuation-health-coverage-workers",
+      },
+      {
+        label: "IRS: The premium tax credit",
+        href: "https://www.irs.gov/affordable-care-act/individuals-and-families/the-premium-tax-credit",
+      },
+    ],
+    related: [
+      { label: "Health Insurance Marketplace in North Carolina", href: "/guides/health-insurance-marketplace-north-carolina" },
+      { label: "COBRA vs Medicare at 65", href: "/guides/cobra-vs-medicare-at-65" },
+      { label: "Turning 65 in North Carolina", href: "/turning-65" },
+      { label: "Special enrollment", href: "/special-enrollment" },
+    ],
+    startHref: "/start?topic=insurance",
   },
 ];
 
