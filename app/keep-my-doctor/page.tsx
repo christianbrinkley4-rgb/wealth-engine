@@ -258,7 +258,12 @@ export default function KeepMyDoctorPage() {
           <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
             Medicare Advantage compared with Medigap
           </Link>{" "}
-          explains the main differences and questions to consider.
+          explains the main differences and questions to consider. If you want help checking your
+          own doctors against a plan, a{" "}
+          <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
+            Medicare agent in Greensboro
+          </Link>{" "}
+          can go through the list with you.
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>

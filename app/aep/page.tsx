@@ -381,7 +381,11 @@ export default function AepPage() {
             <Link href="/about" className="underline underline-offset-2">
               Christian Brinkley
             </Link>
-            , a licensed insurance agent here in Greensboro and an accounting student at UNCG.
+            , a{" "}
+            <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
+              licensed insurance agent here in Greensboro
+            </Link>{" "}
+            and an accounting student at UNCG.
             I&apos;m one person, not a call center, and I personally answer every inquiry.
           </p>
         </div>
@@ -394,7 +398,11 @@ export default function AepPage() {
           </h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
-              I am based in Greensboro and serve Guilford County and nearby communities. We can
+              I am based in{" "}
+              <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
+                Greensboro
+              </Link>{" "}
+              and serve Guilford County and nearby communities. We can
               arrange a conversation in person or by phone. If you are in{" "}
               <Link href="/medicare-agent-high-point-nc" className="underline underline-offset-2">
                 High Point
@@ -509,7 +517,8 @@ export default function AepPage() {
           <Link href="/medicare-advantage-vs-medigap">Medicare Advantage vs Medigap guide</Link> and
           read the <Link href="/medicare-part-d-plans">Part D prescription drug plans guide</Link>.
           If you live in Greensboro, start with the{" "}
-          <Link href="/medicare-greensboro-nc">Greensboro Medicare hub</Link>.
+          <Link href="/medicare-greensboro-nc">Greensboro Medicare hub</Link>. You can also talk
+          it through with a <Link href="/medicare-agent-greensboro-nc">Medicare agent in Greensboro</Link>.
         </p>
         <p>
           New for 2027: learn{" "}

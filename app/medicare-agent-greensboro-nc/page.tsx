@@ -27,7 +27,7 @@ import {
 const path = "/medicare-agent-greensboro-nc";
 const title = "Medicare Agent in Greensboro, NC | Christian Brinkley";
 const description =
-  "Free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local agent. Check your doctors, prescriptions, and Guilford County plans. Call (919) 408-6671.";
+  "Free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local agent. Check your doctors, prescriptions, and plans. Call (919) 408-6671.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -66,7 +66,7 @@ export default function MedicareAgentGreensboroPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare agent in Greensboro" }]}
         eyebrow="Greensboro and Guilford County"
         title="A Medicare agent in Greensboro, NC"
-        lede="Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. I can review your doctors, prescriptions, enrollment dates, and the plans I represent. Meet at home or talk by phone. There's no obligation to enroll."
+        lede="Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. I can review your doctors, prescriptions, enrollment dates, and the plans I represent. Call (919) 408-6671, book a 45-minute phone review, or send a question. Meet at home or talk by phone. There's no obligation to enroll."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free Medicare conversation"
       />
