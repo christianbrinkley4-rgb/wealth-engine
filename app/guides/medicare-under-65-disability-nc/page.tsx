@@ -86,7 +86,7 @@ export default function MedicareUnder65DisabilityNcPage() {
               description: "On SSDI in North Carolina? Medicare usually starts after 24 months. NC law gives you a six-month window to buy a Medigap Plan A, D, or G. Here's how it works.",
               path: PATH,
               datePublished: "2026-10-13",
-              dateModified: "2026-10-13",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -98,7 +98,7 @@ export default function MedicareUnder65DisabilityNcPage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Guides" }, { name: "Medicare under 65 in NC" }]}
-        eyebrow="Guide · Updated October 13, 2026"
+        eyebrow="Guide · Updated November 7, 2026"
         title={"Medicare under 65 on disability (SSDI) in North Carolina"}
         lede={"Medicare isn't only for people 65 and older. If you're on Social Security Disability, it's coming, usually after two years. North Carolina also gives you a right that many states don't."}
         secondaryHref="/start?topic=medicare&quick=1"
@@ -143,7 +143,7 @@ export default function MedicareUnder65DisabilityNcPage() {
             </Link>
             {"."}
           </p>
-          <h2 className="text-28 mt-12 font-semibold">{"What North Carolina adds"}</h2>
+          <h2 className="text-28 mt-12 font-semibold">{"Medigap under 65 in North Carolina"}</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {"Federal law doesn't require companies to sell Medicare Supplement policies to people under 65. North Carolina law does. Under state law, if you're eligible for Medicare because of a disability, you have a guaranteed right to buy certain plans."}
           </p>
@@ -167,6 +167,13 @@ export default function MedicareUnder65DisabilityNcPage() {
           </ul>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {"Six months goes quickly when you're dealing with a health condition. If a supplement is something you want, put that date on the calendar when your Medicare card arrives."}
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            {"If Plan G is on your list, compare it against Plan N before you buy: G costs more per month and covers more of the gaps, while N costs less and adds copays and no coverage for excess charges. I compare the two in "}
+            <Link href="/guides/medigap-plan-g-vs-plan-n-nc" className="underline underline-offset-2">
+              {"Medigap Plan G vs Plan N in North Carolina"}
+            </Link>
+            {"."}
           </p>
           <h2 className="text-28 mt-12 font-semibold">{"If you lose other coverage later"}</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -235,7 +242,7 @@ export default function MedicareUnder65DisabilityNcPage() {
             {". A family member or caregiver is welcome to join. For free counseling from someone who doesn't sell insurance, call NC SHIIP at 1-855-408-1212."}
           </p>
           <p className="text-16 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-            {"Sources, checked October 13, 2026: "}
+            {"Sources, checked November 7, 2026: "}
             <a href="https://www.ncdoi.gov/consumers/medicare-and-seniors-health-insurance-information-program-shiip/medicare-supplement-medigap-plans" rel="noopener" className="underline underline-offset-2">
               {"NC Department of Insurance: Medicare supplement plans"}
             </a>
@@ -286,7 +293,7 @@ export default function MedicareUnder65DisabilityNcPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-13" />
+      <MedicareByline reviewed="2026-11-07" />
     </main>
   );
 }

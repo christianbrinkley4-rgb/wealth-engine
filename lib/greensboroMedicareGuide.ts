@@ -11,6 +11,17 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
     ],
   },
   {
+    id: "near-me",
+    heading: "Looking for a Medicare agent near me in Greensboro?",
+    answer:
+      "If you are searching for a Medicare agent near me or enrollment help near me in Greensboro, Christian Brinkley offers free consultations at home, by phone, or at a public meeting place across Guilford County.",
+    paragraphs: [
+      "Most people who type medicare agent near me want someone local who will sit down with their actual doctors and prescriptions, not a call center. That is the work: check your doctors, your prescriptions, and the plans available at your home address, then talk through the tradeoffs in plain English.",
+      "I serve Greensboro and the Guilford County towns around it: High Point, Jamestown, Summerfield, Oak Ridge, Stokesdale, Pleasant Garden, Gibsonville, Whitsett, McLeansville, Colfax, and Sedalia. If you live in one of those towns, the plan list at your address is what matters, and I check it before recommending anything.",
+      "Enrollment help near me means the same thing in every town: a free conversation, no obligation to enroll, and a clear next step. Bring your Medicare card, your prescription list, and any letter that worries you. Call or text (919) 408-6671 to set it up.",
+    ],
+  },
+  {
     id: "guilford-2027",
     heading: "Guilford County Medicare Advantage: 2027 by the numbers",
     answer:
@@ -275,6 +286,10 @@ export const GREENSBORO_MEDICARE_FAQ = [
   {
     q: "Are you a Medicare insurance agent in Greensboro?",
     a: "Yes. I am Christian Brinkley, a licensed insurance agent in Greensboro. I help Guilford County residents with Medicare questions, at home or by phone.",
+  },
+  {
+    q: "Is there a Medicare agent near me in Greensboro?",
+    a: "Yes. Christian Brinkley is a licensed Medicare agent in Greensboro offering free consultations at home, by phone, or at a public place in Guilford County.",
   },
   {
     q: "Where can I get Medicare help in Greensboro, NC?",

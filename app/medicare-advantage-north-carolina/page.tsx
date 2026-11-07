@@ -165,7 +165,7 @@ export default function MedicareAdvantageNCPage() {
                 "How Medicare Advantage carriers compare in NC, what differs by county, and the local detail national rankings miss.",
               path: "/medicare-advantage-north-carolina",
               datePublished: "2026-10-12",
-              dateModified: "2026-10-12",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -183,9 +183,29 @@ export default function MedicareAdvantageNCPage() {
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <p className="text-15 font-medium uppercase tracking-wide text-[var(--color-ink-muted)]">
-            By {AGENT.name}, {AGENT.licenseLine} · Updated October 2026
+            By {AGENT.name}, {AGENT.licenseLine} · Updated November 2026
           </p>
-          <h2 className="text-28 font-semibold mt-6">How the major carriers score in NC</h2>
+          <h2 className="text-28 font-semibold mt-6">What is Medicare Advantage (Part C)?</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Medicare Advantage, also called Part C, is an alternative way to get your Medicare
+            coverage. Instead of Original Medicare paying your claims directly, a private insurer
+            approved by Medicare provides your Part A hospital and Part B medical benefits, usually
+            with Part D drug coverage built into the same plan.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Most Advantage plans have a network of doctors and hospitals, and they can add extra
+            benefits Original Medicare does not cover, like dental, vision, hearing, and fitness
+            memberships. In exchange, you usually pay copays as you go, and the plan sets a yearly
+            out-of-pocket maximum that caps what you pay for covered medical care. For 2027, CMS
+            caps what a plan can set as that in-network maximum at $9,850. You still pay your Part
+            B premium on top of any plan premium.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            The rest of this page is about how to compare those plans in North Carolina: what the
+            scores mean, what changes by county, and which local details decide whether a plan
+            actually works for you.
+          </p>
+          <h2 className="text-28 font-semibold mt-12">How the major carriers score in NC</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The J.D. Power 2025 U.S. Medicare Advantage Study scores carriers on a 1,000-point scale
             for member satisfaction. Here is how the major carriers in North Carolina compare.{" "}
@@ -282,6 +302,33 @@ export default function MedicareAdvantageNCPage() {
         </div>
       </section>
 
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Star ratings: what they measure and what they miss</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            CMS rates every Medicare Advantage plan from 1 to 5 stars each fall. The ratings pull
+            together dozens of measures: how well the plan manages chronic conditions, how members
+            rate their care and customer service, how often members stay on their drugs, and how
+            the plan handles complaints and appeals. A 5-star plan is the top rating; most plans
+            land between 3 and 4.5 stars.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Ratings are useful for one thing: comparing plan quality in general. They do not
+            measure whether your doctors are in the network, whether your drugs are on the
+            formulary, or what your costs will be with your health conditions. A 5-star plan that
+            excludes your cardiologist is the wrong plan for you, and a 3.5-star plan that covers
+            every doctor you see can be the right one. Ratings also change every year, so check
+            the current rating for the coverage year, not last year&apos;s.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            One practical use: if you are already on a 5-star plan, you get a special enrollment
+            period to switch into another 5-star plan once a year, outside the fall window. Check
+            the star rating on Medicare Plan Finder at medicare.gov before you treat it as a
+            deciding factor, and always run the doctors, drugs, and costs checks alongside it.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Key dates and numbers</h2>
@@ -308,6 +355,14 @@ export default function MedicareAdvantageNCPage() {
               <tr>
                 <td className="py-3 pr-4">2026 Part B premium (standard)</td>
                 <td className="py-3">$202.90 / month (CMS)</td>
+              </tr>
+              <tr>
+                <td className="py-3 pr-4">2027 MA out-of-pocket maximum (highest allowed, in-network)</td>
+                <td className="py-3">$9,850 (CMS, Final CY 2027 Part C memo)</td>
+              </tr>
+              <tr>
+                <td className="py-3 pr-4">2027 Part D out-of-pocket cap</td>
+                <td className="py-3">$2,400 (CMS, final)</td>
               </tr>
             </tbody>
           </ResponsiveTable>
@@ -384,14 +439,14 @@ export default function MedicareAdvantageNCPage() {
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <p className="text-sm text-gray-600">
-          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated October 2026.
+          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated November 2026.
         </p>
         <p className="text-sm text-gray-600">
           Sources: <a href="https://www.medicare.gov" className="underline underline-offset-2" target="_blank" rel="noopener">Medicare.gov</a>, <a href="https://www.cms.gov" className="underline underline-offset-2" target="_blank" rel="noopener">CMS.gov</a>, <a href="https://www.jdpower.com/business/healthcare/us-medicare-advantage-study" className="underline underline-offset-2" target="_blank" rel="noopener">J.D. Power</a>
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-12" />
+      <MedicareByline reviewed="2026-11-07" />
       <RelatedMedicareGuides />
     </main>
   );

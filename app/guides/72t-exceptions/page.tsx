@@ -65,6 +65,34 @@ const data: SeoGuideData = {
       ],
     },
     {
+      title: "The three SEPP methods",
+      paragraphs: [
+        "The IRS recognizes three methods for calculating the payments, described in IRS Notice 2022-6. The choice matters because two of the methods lock in a fixed annual payment, while the third recalculates every year. Picking the wrong method for your situation is hard to undo without consequences.",
+        "IRS guidance also permits one one-time switch, from a fixed amortization or fixed annuitization method to the required minimum distribution method. That switch is the only method change the guidance allows without triggering recapture. Have a qualified tax professional check the schedule before starting.",
+      ],
+      table: {
+        caption: "The three SEPP calculation methods (IRS Notice 2022-6)",
+        headers: ["Method", "How the payment is set", "Does it change?"],
+        rows: [
+          [
+            "Required minimum distribution",
+            "Divide the account balance by your life expectancy factor each year",
+            "Yes, recalculated every year",
+          ],
+          [
+            "Fixed amortization",
+            "A fixed annual amount based on the balance, life expectancy, and an interest rate",
+            "No, stays the same",
+          ],
+          [
+            "Fixed annuitization",
+            "A fixed annual amount based on an annuity factor for your age",
+            "No, stays the same",
+          ],
+        ],
+      },
+    },
+    {
       title: "How long must SEPP payments continue?",
       paragraphs: [
         "The usual restriction lasts until the later of the fifth anniversary of the first payment or the date you reach age 59½. Reaching 59½ alone doesn't end a series that hasn't lasted long enough. Starting young can mean a much longer commitment than five years.",
