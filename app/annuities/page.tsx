@@ -2,6 +2,7 @@ import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
 import { MedicareByline } from "@/app/components/MedicareByline";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
@@ -157,6 +158,29 @@ export default function AnnuitiesPage() {
             Before considering a contract, think about the income you already have, what you need
             for everyday expenses, and the savings you want to keep available. I can review those
             questions together.{" "}
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">The five types at a glance</h2>
+          <p className="text-18 mt-4 leading-relaxed">
+            A fixed annuity pays a rate the contract states. A fixed indexed annuity links interest
+            to a market index, limited by a cap or participation rate, with principal protected from
+            market loss. An immediate annuity turns one lump sum into income right away, often for
+            life. A deferred annuity grows first and pays income later. A variable annuity invests
+            in the market, so its value can fall, and it is a security outside my license.
+          </p>
+          <p className="text-18 mt-4 leading-relaxed">
+            <Link href="/guides/types-of-annuities" className="underline underline-offset-4">
+              Read the types of annuities guide
+            </Link>{" "}
+            for the full walkthrough, or{" "}
+            <Link href="/guides/annuity-rates" className="underline underline-offset-4">
+              see current sample annuity rates
+            </Link>
+            .
           </p>
         </div>
       </section>

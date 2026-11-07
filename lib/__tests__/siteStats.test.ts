@@ -35,7 +35,7 @@ describe("SITE_STATS trust band counts", () => {
   });
 
   it("guides matches TRAFFIC_GUIDES plus the standalone /guides pages", () => {
-    expect(TRAFFIC_GUIDES).toHaveLength(60);
+    expect(TRAFFIC_GUIDES).toHaveLength(66);
     expect(STANDALONE_GUIDES).toHaveLength(33);
     expect(SITE_STATS.guides).toBe(TRAFFIC_GUIDES.length + STANDALONE_GUIDES.length);
   });

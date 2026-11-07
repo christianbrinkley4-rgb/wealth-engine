@@ -400,6 +400,9 @@ export default function WealthHome() {
           "how-much-does-whole-life-insurance-cost",
           "final-expense-insurance-for-seniors-over-70",
           "how-much-does-disability-insurance-cost",
+          "how-much-does-long-term-care-cost",
+          "hybrid-long-term-care-insurance",
+          "health-insurance-before-medicare-62-to-65",
         ]}
       />
     </main>

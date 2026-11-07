@@ -39,6 +39,10 @@ export const CARE_GUIDES: CareGuide[] = [
         heading: "Consider the premium over time",
         text: "A policy needs to fit your budget today and during retirement. Ask whether premiums can change, what options you would have if they became difficult to afford, and what happens if you stop paying. If you already own coverage, bring it to the review before considering a replacement.",
       },
+      {
+        heading: "What care can cost, and what Medicare does not pay",
+        text: "Care costs are the reason to plan early. In 2025, the national median for a private nursing home room was $129,575 a year, assisted living was $74,400 a year, and a home caregiver at 44 hours a week was about $80,080 a year, per the CareScout Cost of Care Survey. Medicare does not pay for ongoing help with everyday activities. It covers skilled nursing facility care up to 100 days per benefit period, with no coinsurance for days 1 to 20 and $217 a day for days 21 to 100 in 2026. The cost guide walks through care costs and insurance premiums by age.",
+      },
     ],
     questions: [
       "Where can I receive covered care?",
@@ -80,6 +84,9 @@ export const CARE_GUIDES: CareGuide[] = [
       },
     ],
     related: [
+      { title: "How much does long-term care cost?", href: "/guides/how-much-does-long-term-care-cost" },
+      { title: "Do I need long-term care insurance?", href: "/answers/do-i-need-long-term-care-insurance" },
+      { title: "Hybrid long-term care insurance", href: "/guides/hybrid-long-term-care-insurance" },
       { title: "Short-term care insurance", href: "/short-term-care-insurance" },
       { title: "Critical illness insurance", href: "/critical-illness-insurance" },
       { title: "What Medicare doesn't cover", href: "/guides/what-medicare-does-not-cover" },
