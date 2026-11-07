@@ -520,7 +520,7 @@ export default function AepPage() {
           <Link href="/guides/medicare-part-d-plans-2027-nc">
             Part D plans guide for North Carolina
           </Link>
-          , map the{" "}
+          , read the guide to the{" "}
           <Link href="/guides/medicare-enrollment-periods-iep-gep-sep-aep">
             four enrollment periods
           </Link>

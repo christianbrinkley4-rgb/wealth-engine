@@ -2466,7 +2466,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     sections: [
       {
         title: "Start with your county, not the state",
-        body: "CMS lists 179 Medicare Advantage plans in North Carolina for 2027 in its landscape file, up from 175 in 2026. That statewide count misleads more than it helps. Plans are approved county by county, so the list you can actually join is set by your home address. Guilford County and Wake County do not offer the same plans. Run every comparison at your ZIP code, in the Medicare plan finder at medicare.gov, before you compare anything else.",
+        body: "CMS lists 179 Medicare Advantage plans in North Carolina for 2027 in its landscape file, up from 175 in 2026. That statewide count misleads more than it helps. Plans are approved county by county, so the list you can actually join is set by your home address. Guilford County and Wake County do not offer the same plans. Check every plan at your ZIP code, in the Medicare plan finder at medicare.gov, before you compare anything else.",
       },
       {
         title: "Check your doctors and your drugs first",
@@ -2576,7 +2576,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "How to compare: your drugs, your pharmacy, your year",
-        body: "Take the premium off the table first. Multiply it by 12, then add what your drugs cost under each plan's rules: deductible, copays or coinsurance by tier, and whether your pharmacy is preferred. The plan with the lowest premium often loses on the total. Then check the formulary itself. Plans change which drugs they cover and which tier each drug sits in every year. Enter your exact drugs, doses, and pharmacy into the Medicare plan finder at medicare.gov to see your real total by plan. A plan that covers your neighbor's drugs well can still be the wrong plan for yours.",
+        body: "Set the premium aside first. Multiply it by 12, then add what your drugs cost under each plan's rules: deductible, copays or coinsurance by tier, and whether your pharmacy is preferred. The plan with the lowest premium often loses on the total. Then check the formulary itself. Plans change which drugs they cover and which tier each drug sits in every year. Enter your exact drugs, doses, and pharmacy into the Medicare plan finder at medicare.gov to see your real total by plan. A plan that suits someone else's prescriptions can still be the wrong plan for yours.",
       },
       {
         title: "The $35 insulin cap",
@@ -2592,7 +2592,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "Smoothing payments across the year",
-        body: "The Medicare Prescription Payment Plan lets you spread out-of-pocket drug costs into monthly payments across the year instead of paying large amounts in January and February. It is optional, it costs nothing to join, and it is not a discount: the total you owe stays the same. It helps most when your drug costs pile up early in the year. Ask your plan about it during Open Enrollment, before December 7.",
+        body: "The Medicare Prescription Payment Plan lets you spread out-of-pocket drug costs into monthly payments across the year instead of paying large amounts in January and February. It is optional, it costs nothing to join, and it is not a discount: the total you owe stays the same. It helps most when your drug costs are highest early in the year. Ask your plan about it during Open Enrollment, before December 7.",
       },
     ],
     comparison: {
@@ -2689,7 +2689,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "Special Enrollment Periods: life changes",
-        body: "A Special Enrollment Period opens when life changes. A move to a new service area, losing employer coverage, a plan leaving your county, and gaining or losing Medicaid can each open one. The length varies by event. Most last two months after the event. The workhorse is the employer rule: if you had group health coverage through current employment with 20 or more employees, you get eight months to join Part B after that employment or coverage ends, with no late penalty. COBRA and Marketplace plans do not count as employer coverage for this rule, so they do not delay the penalty.",
+        body: "A Special Enrollment Period opens when life changes. A move to a new service area, losing employer coverage, a plan leaving your county, and gaining or losing Medicaid can each open one. The length varies by event. Most last two months after the event. The rule most people use is the employer rule: if you had group health coverage through current employment with 20 or more employees, you get eight months to join Part B after that employment or coverage ends, with no late penalty. COBRA and Marketplace plans do not count as employer coverage for this rule, so they do not delay the penalty.",
       },
       {
         title: "The penalties for waiting",
@@ -2790,7 +2790,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "What it costs",
-        body: "A Medigap premium is separate from the Part B premium, and it is separate from any Part D premium. Nationally, Medigap policyholders paid an average of $244 a month in 2025, according to KFF, up 7 percent from the year before. Your premium depends on your age, your ZIP code, the plan letter, and how the insurer sets rates. Some insurers raise premiums as you age. Others set the rate by your age at purchase. No page can quote your price, and this one does not try. Compare the same letter across companies, and ask how the premium has changed over the past five years.",
+        body: "A Medigap premium is separate from the Part B premium, and it is separate from any Part D premium. Nationally, Medigap policyholders paid an average of $244 a month in 2025, according to KFF, up 7 percent from the year before. Your premium depends on your age, your ZIP code, the plan letter, and how the insurer sets rates. Some insurers raise premiums as you age. Others set the rate by your age at purchase. No page can quote your price. Compare the same letter across companies, and ask how the premium has changed over the past five years.",
       },
     ],
     comparison: {
@@ -2881,7 +2881,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "Health insurance cost: what drives your price",
-        body: "Four things move your price most: your age, your tier, your county, and whether you use tobacco. Under federal rules an older adult can be charged up to three times what a younger adult pays for the same plan. In 2026 the average Marketplace enrollee paid $178 a month after tax credits, up 58 percent from $113 in 2025, according to a KFF analysis of actual enrollment data from May 2026. The average deductible rose 37 percent to $3,786 in 2026. For 2027, North Carolina's average approved rate increase is about 14.1 percent, and KFF found insurers proposed a median increase of 15 percent nationally. Your price on HealthCare.gov is the only one that counts. Run your own income and household size before you decide anything.",
+        body: "Four things move your price most: your age, your tier, your county, and whether you use tobacco. Under federal rules an older adult can be charged up to three times what a younger adult pays for the same plan. In 2026 the average Marketplace enrollee paid $178 a month after tax credits, up 58 percent from $113 in 2025, according to a KFF analysis of actual enrollment data from May 2026. The average deductible rose 37 percent to $3,786 in 2026. For 2027, North Carolina's average approved rate increase is about 14.1 percent, and KFF found insurers proposed a median increase of 15 percent nationally. Your price on HealthCare.gov is the only one that counts. Enter your own income and household size there before you decide anything.",
       },
       {
         title: "Subsidies: premium tax credits and cost-sharing reductions",
@@ -2893,7 +2893,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "Self-employed and between jobs",
-        body: "If you are self-employed, estimate your annual income for the year ahead and update it when work changes, because your credit is set by that estimate. If you lose job-based coverage, you have two doors at once: COBRA, which keeps your employer plan for up to 18 months at up to 102 percent of the full premium, and a Marketplace plan through a 60-day Special Enrollment Period. Compare both before the 60 days run out. At 65 the Marketplace hands off to Medicare. A Marketplace plan does not replace Medicare, and keeping one past 65 can cost you a late enrollment penalty, so plan the switch in the months before your 65th birthday.",
+        body: "If you are self-employed, estimate your annual income for the year ahead and update it when work changes, because your credit is set by that estimate. If you lose job-based coverage, you have two doors at once: COBRA, which keeps your employer plan for up to 18 months at up to 102 percent of the full premium, and a Marketplace plan through a 60-day Special Enrollment Period. Compare both before the 60 days run out. At 65, Medicare becomes your coverage. A Marketplace plan does not replace Medicare, and keeping one past 65 can cost you a late enrollment penalty, so plan the switch in the months before your 65th birthday.",
       },
     ],
     comparison: {
@@ -2909,7 +2909,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     checklist: [
       "Check your ZIP code: plans and prices vary by county.",
       "Enroll by December 15, 2026 for coverage starting January 1.",
-      "Run your income and household size on HealthCare.gov before you pick a tier.",
+      "Enter your income and household size on HealthCare.gov before you pick a tier.",
       "Compare the total year, premium plus deductible, not the premium alone.",
       "Report income changes to the Marketplace as they happen.",
     ],
@@ -2932,7 +2932,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         q: "Can I keep a Marketplace plan after I turn 65?",
-        a: "You can, but it is usually the wrong move. At 65 Medicare becomes your coverage, and a Marketplace plan does not replace it. Keeping Marketplace coverage past 65 can cost you a Medicare late enrollment penalty, so plan the switch before your 65th birthday.",
+        a: "You can, but it is usually not the right choice. At 65 Medicare becomes your coverage, and a Marketplace plan does not replace it. Keeping Marketplace coverage past 65 can cost you a Medicare late enrollment penalty, so plan the switch before your 65th birthday.",
       },
     ],
     sources: [
