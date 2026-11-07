@@ -12343,6 +12343,242 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=insurance",
   },
+  {
+    slug: "fixed-annuity-vs-indexed-annuity",
+    title: "Fixed Annuity vs Indexed Annuity: Which Fits?",
+    metaTitle: "Fixed vs Indexed Annuity: Caps, Rates, Tradeoffs",
+    description:
+      "Fixed and indexed annuities compared: guaranteed rates versus index-linked credits, caps and participation rates, surrender periods, and who each one fits.",
+    keyword: "fixed annuity vs indexed annuity",
+    eyebrow: "Retirement income, answered",
+    lede: "One pays a rate the contract states. The other credits interest from an index, with limits. The difference decides who each one fits.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro:
+      "A fixed annuity pays a stated rate. An indexed annuity credits interest from a market index, with limits. The two look nothing alike on paper, and they are not alike. One trades growth for certainty. The other trades some upside for protection. Here is how each one works, so you can see which trade fits you.",
+    sections: [
+      {
+        h2: "The one difference that matters",
+        blocks: [
+          p(
+            "A fixed annuity credits interest at a rate the contract states, for a set term. A multi-year guaranteed annuity, often called a MYGA, is the common form: you know the rate, you know the term, and the insurer carries the risk. A fixed indexed annuity credits interest based on a market index, such as the S&P 500, and the credit is limited by a cap, a participation rate, or a spread. The index can rise and your credit can still be small. That is the tradeoff.",
+          ),
+          p(
+            "Both are insurance contracts, not bank deposits, and neither is FDIC-insured. Both grow tax-deferred until you take money out. The difference is only how the interest is figured.",
+          ),
+        ],
+      },
+      {
+        h2: "How caps and participation rates work",
+        blocks: [
+          p(
+            "Three terms decide what an indexed annuity credits. A cap is the most you can be credited in a period. A participation rate is the share of the index gain you receive. A spread is an amount taken off the gain before crediting. A contract uses one or more of these, and the figures can change from one period to the next.",
+          ),
+          table(
+            ["If the index gains 10% in a year", "What a $100,000 contract is credited"],
+            [
+              ["Cap of 6%", "$6,000, for a value of $106,000"],
+              ["Participation rate of 80%", "$8,000, for a value of $108,000"],
+              ["Spread of 2%", "$8,000, for a value of $108,000"],
+              ["Index falls 12%", "$0, and the value stays $100,000 before any fees or riders"],
+            ],
+          ),
+          p(
+            "This example uses round numbers to show the mechanics. It is not a real contract, and no contract promises these credits. Caps, participation rates, and spreads vary by contract and by period, so read the ones in the contract in front of you.",
+          ),
+        ],
+      },
+      {
+        h2: "What happens when the index falls",
+        blocks: [
+          p(
+            "When the index falls, a fixed indexed annuity typically credits zero for that period rather than a negative amount. The principal is protected from market loss. That protection is real, and it is the reason many people choose this type. The cost is the cap: in a strong market year, the credit stops at the cap while the index keeps rising. Over many years, the credited interest usually lands well below the index return itself.",
+          ),
+          p(
+            "A fixed annuity has no such tradeoff. The rate is the rate, in up years and down years alike. The risk is different: if prices rise faster than the rate, the money loses buying power, and if rates rise elsewhere, your money is locked at the old rate until the term ends.",
+          ),
+        ],
+      },
+      {
+        h2: "Surrender periods and access to your money",
+        blocks: [
+          p(
+            "Both types usually carry a surrender charge period, often 5 to 10 years and sometimes longer. Taking out more than the contract allows during that period triggers a charge that declines over time. Many contracts allow a limited free withdrawal each year, and the contract states the amount.",
+          ),
+          p(
+            "Taxes add a second layer. Growth is tax-deferred, and withdrawals are taxed as ordinary income. A taxable withdrawal before age 59 and a half can face a 10 percent additional federal tax. Keep money you may need soon out of either type.",
+          ),
+        ],
+      },
+      {
+        h2: "Who each one fits",
+        blocks: [
+          p(
+            "A fixed annuity fits a saver who wants a stated rate, no surprises, and no market risk, and who can leave the money alone for the full term. An indexed annuity fits a saver who wants a link to market gains, accepts that the link is capped, and values principal protection more than the highest possible return.",
+          ),
+          p(
+            "Neither fits money you may need in the next few years, or a person whose main goal is growth. If you want market returns, ask a licensed securities professional, and compare investments on their own terms.",
+          ),
+          ul(
+            "Ask which figures are guaranteed and which are illustrated.",
+            "Ask for the cap, participation rate, and spread in writing.",
+            "Ask for the surrender schedule and the free withdrawal amount.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Which pays more, a fixed or an indexed annuity?",
+        a: "It depends on the years in question. A fixed annuity pays its stated rate every year. An indexed annuity can pay more in a strong year, up to its cap, and zero in a down year. Over time, the fixed rate is predictable and the indexed credit is not.",
+      },
+      {
+        q: "Can I lose money in a fixed indexed annuity?",
+        a: "Not from the market: a down year typically credits zero, so the principal is protected from market loss. Surrender charges, rider fees, and taxes can still reduce what you take out early.",
+      },
+      {
+        q: "Are caps and participation rates fixed?",
+        a: "No. They are set by the contract and can change from one crediting period to the next. Read the current figures in the contract, not the ones in an old illustration.",
+      },
+      {
+        q: "Can I switch from one type to the other later?",
+        a: "You cannot change a contract's type after it is issued. You can put new money into a different contract, but replacing an existing annuity can trigger surrender charges and taxes, so review the old contract before moving anything.",
+      },
+    ],
+    sources: [
+      {
+        label: "NAIC: Annuities",
+        href: "https://content.naic.org/insurance-topics/annuities",
+      },
+      {
+        label: "IRS: Topic 558, additional tax on early distributions",
+        href: "https://www.irs.gov/taxtopics/tc558",
+      },
+    ],
+    related: [
+      { label: "Types of annuities", href: "/guides/types-of-annuities" },
+      { label: "Annuity rates, dated samples", href: "/guides/annuity-rates" },
+      { label: "Should I buy an annuity? Pros and cons", href: "/guides/should-i-buy-an-annuity-pros-and-cons" },
+      { label: "Annuities and retirement income", href: "/annuities" },
+    ],
+    startHref: "/start?topic=financial_planning",
+  },
+  {
+    slug: "do-i-need-long-term-care-insurance",
+    title: "Do I Need Long-Term Care Insurance?",
+    metaTitle: "Do I Need Long-Term Care Insurance? Who It Fits",
+    description:
+      "Who needs long-term care insurance, who can self-fund, what Medicare does not pay, and what age to buy, with 2025 premium and care cost figures.",
+    keyword: "do i need long-term care insurance",
+    eyebrow: "Care planning, answered",
+    lede: "Most people who reach 65 will need some care. Whether insurance is the answer depends on your savings, your family, and your age.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro:
+      "It is the question behind every long-term care conversation: will I need care, and can I pay for it without a policy? Care is likely, and the answer is personal. Here are the numbers that decide it, the ages that matter, and the cases where a policy helps and where it does not.",
+    sections: [
+      {
+        h2: "The odds, with context",
+        blocks: [
+          p(
+            "The U.S. Department of Health and Human Services studied adults who reach 65 and found that about 70% develop severe long-term care needs before they die, and 48% receive some paid care. Women need care longer on average, about 3.7 years, compared with about 2.2 years for men. About one in five people who need care need it for more than five years.",
+          ),
+          p(
+            "Those figures cover a wide range, from a few weeks of help at home after a hospital stay to years in a nursing home. Averages cannot tell you which you will be. They can tell you that planning as if no care will be needed leaves the largest gap.",
+          ),
+        ],
+      },
+      {
+        h2: "What Medicare does not pay for",
+        blocks: [
+          p(
+            "Medicare does not pay for ongoing help with everyday activities, such as bathing, dressing, or eating, when that is the only care needed. It covers skilled nursing facility care up to 100 days per benefit period, with no coinsurance for days 1 to 20 and $217 a day for days 21 to 100 in 2026. It covers skilled home health care in limited circumstances, not round-the-clock help at home.",
+          ),
+          p(
+            "That leaves three ways to pay for the rest: savings, a policy, or Medicaid if you qualify. Medicaid has strict income and asset rules, and it is not a plan for protecting savings. Check eligibility with NC Medicaid rather than assuming.",
+          ),
+        ],
+      },
+      {
+        h2: "Who needs a policy, and who can self-fund",
+        blocks: [
+          p(
+            "Start with the cost of care. In 2025, the national median for a private nursing home room was $129,575 a year, assisted living was $74,400 a year, and a home caregiver at 44 hours a week was about $80,080 a year. CareScout calculated that $250,000 covers about 2.8 years of care on average nationally. If your savings could absorb several years at those rates and still leave your spouse comfortable, you may be able to self-fund.",
+          ),
+          p(
+            "A policy usually fits when care would drain savings your spouse still needs, when you want to choose where care happens, or when family would otherwise carry the load. It usually does not fit when premiums would strain the budget, or when income and assets are low enough that Medicaid is the realistic payer. There is no single right answer, only the math for your household.",
+          ),
+        ],
+      },
+      {
+        h2: "What age to buy",
+        blocks: [
+          p(
+            "The AALTCI 2025 Price Index prices a standard policy with a $165,000 benefit pool growing 3% a year. A healthy man paid on average $2,200 a year at 55, $2,610 at 60, and $3,280 at 65. A healthy woman paid $3,750 at 55, $4,550 at 60, and $5,290 at 65. A couple both the same age paid $5,050 at 55, $5,800 at 60, and $7,150 at 65 combined.",
+          ),
+          p(
+            "AALTCI recommends shopping between ages 52 and 64, when approval is most likely and rates are still moderate. Buying at 55 instead of 65 saves a healthy man $1,080 a year on the same coverage, and it locks in coverage before health changes can narrow the options. After 70, underwriting tightens and some people can no longer qualify.",
+          ),
+        ],
+      },
+      {
+        h2: "What to check before you buy",
+        blocks: [
+          p(
+            "Check the benefit pool, the daily or monthly benefit, and how long benefits last. Check the elimination period, the waiting time before benefits start, and what triggers benefits, usually needing help with two everyday activities or a cognitive impairment. Check whether benefits grow with inflation, whether premiums can rise, and what happens if you stop paying.",
+          ),
+          ul(
+            "Ask for the full premium history of the policy, not just the first year.",
+            "Compare the same benefit pool and inflation growth across insurers.",
+            "Bring any policy you already own to the review before replacing it.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Does Medicare cover long-term care?",
+        a: "No, not ongoing custodial care. Medicare covers skilled nursing up to 100 days per benefit period and limited skilled home health care. Daily help with bathing, dressing, and eating is not covered.",
+      },
+      {
+        q: "What age should I buy long-term care insurance?",
+        a: "Most buyers shop between 52 and 64, when approval is most likely and premiums are still moderate. A healthy 55-year-old man paid about $2,200 a year in the 2025 AALTCI index, against $3,280 at 65 for the same coverage.",
+      },
+      {
+        q: "What if I buy a policy and never need care?",
+        a: "A standalone policy pays nothing back if care is never needed. That is the tradeoff. A hybrid policy pairs life insurance with care benefits, so beneficiaries receive a death benefit if care is never used, but it costs more per year.",
+      },
+      {
+        q: "Can premiums go up after I buy?",
+        a: "Yes, on a traditional policy, premiums can rise if the insurer raises rates for a group of policyholders. Ask for the policy's premium history and what choices you would have if premiums became hard to afford.",
+      },
+    ],
+    sources: [
+      {
+        label: "HHS ASPE: lifetime risk of needing long-term services and supports",
+        href: "https://aspe.hhs.gov/reports/what-lifetime-risk-needing-receiving-long-term-services-supports",
+      },
+      {
+        label: "Medicare.gov: long-term care coverage",
+        href: "https://www.medicare.gov/coverage/long-term-care",
+      },
+      {
+        label: "AALTCI: 2025 Long-Term Care Insurance Price Index",
+        href: "https://www.aaltci.org/long-term-care-insurance/learning-center/ltcfacts-2025.php",
+      },
+      {
+        label: "CareScout: Cost of Care Survey 2025",
+        href: "https://www.carescout.com/cost-of-care",
+      },
+    ],
+    related: [
+      { label: "How much does long-term care cost?", href: "/guides/how-much-does-long-term-care-cost" },
+      { label: "Hybrid long-term care insurance", href: "/guides/hybrid-long-term-care-insurance" },
+      { label: "Long-term care insurance in the Triad", href: "/long-term-care-insurance" },
+      { label: "Does Medicare cover nursing homes or in-home care?", href: "/answers/does-medicare-cover-nursing-homes" },
+    ],
+    startHref: "/start?topic=care_coverage",
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {

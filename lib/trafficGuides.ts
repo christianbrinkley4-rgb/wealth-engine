@@ -4353,6 +4353,663 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     datePublished: "2026-11-07",
     dateModified: "2026-11-07",
   },
+  {
+    slug: "types-of-annuities",
+    title: "Types of Annuities: Fixed, Indexed, Immediate, Deferred",
+    metaTitle: "Types of Annuities Explained: Fixed, Indexed, Immediate",
+    description:
+      "Fixed, indexed, immediate, deferred, and variable annuities explained in plain terms, with who each fits, surrender periods, and the license line that matters.",
+    answer:
+      "An annuity is a contract with an insurance company that can pay income now or later. Fixed and indexed annuities are insurance products. Variable annuities are securities, and they sit outside a North Carolina life insurance license.",
+    sections: [
+      {
+        title: "Start with two questions",
+        body: "First, when do you want the income to start: now, or years from now? Second, is the growth rate set in the contract, or tied to a market index? Those two answers sort nearly every annuity into its type. Everything else, the fees, the access rules, the guarantees, follows from them.",
+      },
+      {
+        title: "Immediate annuities pay income right away",
+        body: "An immediate annuity, often called a single premium immediate annuity, trades one lump sum for income payments that start within a year, often for the rest of your life. The tradeoff is commitment: once the money goes in, you generally cannot take it back out as a lump sum. It fits a person who has a sum set aside and wants a steady check more than flexibility.",
+      },
+      {
+        title: "Deferred annuities build first, then pay",
+        body: "A deferred annuity has two phases. During the accumulation phase your money grows, either at a set rate or tied to an index. During the payout phase you turn the balance into income. You choose when the second phase starts, which is why this type suits people still years from retirement.",
+      },
+      {
+        title: "A QLAC is a deferred income annuity inside a retirement account",
+        body: "A qualified longevity annuity contract, called a QLAC, is a deferred income annuity bought inside a retirement account. It has to sit in a traditional IRA or an employer plan such as a 401(k). You move part of the account into the contract, and the income starts later, on a date you choose. It cannot start later than the month after you turn 85. Until the income starts, the money in the QLAC is left out of the balance used to figure your required minimum distributions. Your RMDs are smaller in the meantime. The limit for 2026 is $210,000 in premiums per person, across all your accounts, under IRS Notice 2025-67. The old rule that also capped a QLAC at 25 percent of your account balance is gone. A QLAC only delays the tax. When the income starts, the payments are taxed as ordinary income, and they count toward the RMD on the QLAC itself. It fits a person who wants income late in life, and a smaller RMD in the meantime. This is general information, not advice about your own accounts. A QLAC cannot be a variable or indexed contract, and the contract has to meet the IRS rules to qualify.",
+      },
+      {
+        title: "Fixed annuities pay a set rate",
+        body: "A fixed deferred annuity, including a multi-year guaranteed annuity, credits a guaranteed interest rate for a set term, often 3, 5, 7, or 10 years. The rate is stated in the contract. The insurer, not the market, carries the growth risk. Current sample rates are in the annuity rates guide.",
+      },
+      {
+        title: "Indexed annuities link interest to an index",
+        body: "A fixed indexed annuity credits interest based on a market index, such as the S&P 500, with a cap, a participation rate, or a spread limiting the credit. When the index falls, the credit is typically zero rather than negative, so the principal is protected from market loss. The tradeoff is that the credit is usually less than the index gain itself. A worked example is in the fixed versus indexed guide.",
+      },
+      {
+        title: "Variable annuities are securities, and I do not offer them",
+        body: "A variable annuity puts your money into subaccounts that invest in the market, so the value can fall as well as rise. Variable annuities are registered securities. Selling them requires a securities license, which is outside a North Carolina life insurance license. If that is what you need, I refer you to a licensed securities professional who explains their own services and fees first. I do not earn anything from the referral.",
+      },
+      {
+        title: "Surrender periods limit early access",
+        body: "Most deferred annuities have a surrender charge period, often 5 to 10 years and sometimes longer, during which taking out more than the contract allows triggers a charge. The charge usually declines over time. On top of that, a taxable withdrawal before age 59 and a half can face a 10 percent additional federal tax. Keep money you may need soon out of an annuity.",
+      },
+      {
+        title: "Who each type fits",
+        body: "Fixed fits a saver who wants a stated rate and no market risk. Indexed fits a saver who wants some link to market gains with principal protection. Immediate fits a retiree who wants a check for life and can commit the sum. Deferred fits a person years from retirement who wants tax-deferred growth. Variable fits an investor who accepts market risk and works with a securities professional.",
+      },
+    ],
+    comparison: {
+      caption: "The five annuity types at a glance",
+      headers: ["Annuity type", "How it works and who it fits"],
+      rows: [
+        [
+          "Fixed (MYGA)",
+          "Guaranteed rate for a set term. Fits a saver who wants a stated rate and no market risk.",
+        ],
+        [
+          "Fixed indexed",
+          "Interest linked to an index, limited by a cap or participation rate. Principal protected from market loss.",
+        ],
+        [
+          "Immediate (SPIA)",
+          "One lump sum becomes income within a year, often for life. Fits a retiree who can commit the money.",
+        ],
+        [
+          "Deferred",
+          "Money grows first, income starts later. Fits a person years from retirement who wants tax-deferred growth.",
+        ],
+        [
+          "Variable",
+          "Money invested in market subaccounts; value can fall. A security, outside a life license. Ask a securities professional.",
+        ],
+      ],
+    },
+    checklist: [
+      "Decide when you want income: now or years from now.",
+      "Ask whether the rate is guaranteed or linked to an index, and what limits the credit.",
+      "Read the surrender period and the charge for taking money out early.",
+      "Ask what is guaranteed, what is illustrated, and what the contract pays if you die.",
+      "Check that the money can stay untouched for the full surrender period.",
+    ],
+    faqs: [
+      {
+        q: "What is an annuity in simple terms?",
+        a: "A contract with an insurance company. You pay a lump sum or premiums, and the company pays income now or later, on the terms the contract states.",
+      },
+      {
+        q: "What is the difference between a fixed and an indexed annuity?",
+        a: "A fixed annuity credits a rate the contract states. An indexed annuity credits interest based on a market index, limited by a cap or participation rate, with principal protected from market loss.",
+      },
+      {
+        q: "Can I lose money in an annuity?",
+        a: "In a fixed or indexed annuity, the principal is protected from market loss, but surrender charges and taxes can still reduce what you take out early. In a variable annuity, the value can fall with the market.",
+      },
+      {
+        q: "Do you sell variable annuities?",
+        a: "No. Variable annuities are securities and need a securities license. I offer fixed and fixed indexed insurance products, and I refer securities questions to a licensed professional.",
+      },
+    ],
+    sources: [
+      {
+        title: "NAIC: Annuities",
+        url: "https://content.naic.org/insurance-topics/annuities",
+      },
+      {
+        title: "IRS Publication 590-B: Distributions from IRAs",
+        url: "https://www.irs.gov/publications/p590b",
+      },
+      {
+        title: "IRS: Topic 558, additional tax on early distributions",
+        url: "https://www.irs.gov/taxtopics/tc558",
+      },
+    ],
+    related: [
+      { title: "Annuity rates, dated samples", href: "/guides/annuity-rates" },
+      {
+        title: "Should I buy an annuity? Pros and cons",
+        href: "/guides/should-i-buy-an-annuity-pros-and-cons",
+      },
+      { title: "Fixed annuity vs indexed annuity", href: "/answers/fixed-annuity-vs-indexed-annuity" },
+      { title: "Annuities and retirement income", href: "/annuities" },
+    ],
+    query: "types of annuities",
+    opportunity:
+      "Sort the five types in plain terms and draw the license line clearly; most competing pages blur fixed, indexed, and variable together.",
+    intent: "informational",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "annuity-rates",
+    title: "Annuity Rates: Fixed and Indexed Samples",
+    metaTitle: "Annuity Rates: Current Fixed Annuity Samples",
+    description:
+      "Dated sample annuity rates for November 2026: fixed annuity ranges by term, how indexed annuity credits work, and why the top rate is not the whole story.",
+    answer:
+      "As of November 6, 2026, the highest published 5-year fixed annuity rates ran about 6.05% to 6.40%, and 3-year rates about 5.75% to 6.10%. These are dated samples from a rate board, not a quote, and carriers reprice them regularly.",
+    sections: [
+      {
+        title: "Read this first: a sample, not a quote",
+        body: "Rates below come from the Annuity.com rate board, which draws on the Cannex feed, and were current on November 6, 2026. They are a dated sample to show the range, not a quote for you. Rates change when carriers reprice, and they vary by state, premium amount, and the carrier's financial strength rating. Ask for current rates before deciding anything.",
+      },
+      {
+        title: "Fixed annuity sample rates by term",
+        body: "On November 6, 2026, the highest 3-year fixed annuity rate on the board was 6.10% from Revol One, rated B++ by AM Best, while Athene, rated A+, paid 5.75%. The highest 5-year rate was 6.40% from Wichita National Life, rated B+, while Aspida, rated A-, paid 6.30% and Athene paid 6.05%. The spread between the highest rate and the highest A-rated rate was small, which is the point: a top rate from a lower-rated carrier is not automatically the better contract.",
+      },
+      {
+        title: "Why two rate boards disagree",
+        body: "Some boards quote simple interest, which can print a higher headline number that works out lower when compounded over the term. The figures above are True Blended Yield, the annualized rate across the full term. Boards also update on different days and filter by different minimum premiums. Compare the same term, the same rate basis, and the same date.",
+      },
+      {
+        title: "Indexed annuity rates work differently",
+        body: "A fixed indexed annuity has no stated interest rate to quote. Interest is credited from the performance of an index, limited by a cap, a participation rate, or a spread. A cap is the most you can be credited in a period. A participation rate is the share of the index gain you receive. A spread is an amount taken off the gain before crediting. The credit for a past period says nothing about the next one.",
+      },
+      {
+        title: "What moves annuity rates",
+        body: "Fixed annuity rates follow Treasury yields and the carrier's own pricing, so they rise and fall with interest rates. Longer terms and larger premiums can pay more. A carrier with a stronger financial strength rating may pay a little less, because buyers pay for the strength. Rates are set by the insurer, not by the agent.",
+      },
+      {
+        title: "Surrender charges and taxes still apply",
+        body: "A fixed annuity rate is guaranteed only for its term, and taking money out during the surrender period, often 5 to 10 years, can trigger a charge. Growth is tax-deferred until withdrawal, and a taxable withdrawal before age 59 and a half can face a 10 percent additional federal tax. Annuities are insurance contracts, not bank deposits, and they are not FDIC-insured.",
+      },
+    ],
+    comparison: {
+      caption: "Sample fixed annuity rates, November 6, 2026",
+      headers: ["Term", "Sample rate range"],
+      rows: [
+        ["3-year fixed (MYGA)", "5.75% to 6.10%"],
+        ["5-year fixed (MYGA)", "6.05% to 6.40%"],
+        [
+          "Fixed indexed",
+          "No fixed rate. Credit depends on the index, the cap, and the participation rate.",
+        ],
+      ],
+    },
+    checklist: [
+      "Note the date on any rate you compare. A rate from last month is not today's rate.",
+      "Compare the same term and the same rate basis, compounded or simple interest.",
+      "Check the carrier's AM Best rating next to the rate.",
+      "Ask for the surrender period and the free withdrawal amount in writing.",
+      "Confirm the rate is guaranteed for the full term, and what happens when the term ends.",
+    ],
+    faqs: [
+      {
+        q: "Are these annuity rates guaranteed?",
+        a: "The sample rates were guaranteed for their terms when published, but the board changes as carriers reprice. A rate is only locked when the contract is issued.",
+      },
+      {
+        q: "Why does another site show a higher top rate?",
+        a: "Boards differ in update timing, minimum premiums, and whether they quote simple or compounded interest. Compare the same term, basis, and date before judging.",
+      },
+      {
+        q: "Does the highest rate mean the best annuity?",
+        a: "No. The rate is one term among many. Surrender period, free withdrawal terms, insurer strength, and how the rate resets after the term matter as much.",
+      },
+      {
+        q: "How often do annuity rates change?",
+        a: "Carriers reprice regularly as Treasury yields move. In the week ending November 6, 2026, 28 fixed annuity rates from 7 carriers took effect on the Annuity.com board.",
+      },
+    ],
+    sources: [
+      {
+        title: "Annuity.com: MYGA rates (Cannex feed)",
+        url: "https://www.annuity.com/tools/myga-rates",
+      },
+      {
+        title: "NAIC: Annuities",
+        url: "https://content.naic.org/insurance-topics/annuities",
+      },
+      {
+        title: "IRS: Topic 558, additional tax on early distributions",
+        url: "https://www.irs.gov/taxtopics/tc558",
+      },
+    ],
+    related: [
+      { title: "Types of annuities", href: "/guides/types-of-annuities" },
+      {
+        title: "Should I buy an annuity? Pros and cons",
+        href: "/guides/should-i-buy-an-annuity-pros-and-cons",
+      },
+      { title: "Fixed annuity vs indexed annuity", href: "/answers/fixed-annuity-vs-indexed-annuity" },
+      { title: "Annuities and retirement income", href: "/annuities" },
+    ],
+    query: "annuity rates",
+    opportunity:
+      "Publish a dated sample range with the rate basis stated, where competitors post undated numbers as if they were quotes.",
+    intent: "informational",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "should-i-buy-an-annuity-pros-and-cons",
+    title: "Should I Buy an Annuity? Pros and Cons",
+    metaTitle: "Should I Buy an Annuity? Pros and Cons Explained",
+    description:
+      "Annuity pros and cons in plain terms, by type, plus annuity vs CD, surrender charges, taxes, and the situations where an annuity is the wrong fit for you.",
+    answer:
+      "An annuity can fit when you want income you cannot outlive and can leave the money alone for years. It is the wrong fit when you may need the money soon, want market growth, or would put most of your savings into one contract.",
+    sections: [
+      {
+        title: "The pros, plainly stated",
+        body: "The strongest case is income for life: an immediate annuity, or a deferred annuity turned into income, can pay as long as you live. Fixed and indexed annuities protect principal from market loss. Growth is tax-deferred until you withdraw it. Payments are predictable, which suits a household that wants a floor under its retirement income.",
+      },
+      {
+        title: "The cons, plainly stated",
+        body: "The money is hard to reach. Surrender charges apply during a period that often runs 5 to 10 years. Indexed credits are capped, so you share in gains only up to a limit. A fixed payment loses buying power if prices rise. Withdrawals are taxed as ordinary income, with a possible 10 percent additional tax before age 59 and a half. Some contracts add riders and fees that need a line-by-line read.",
+      },
+      {
+        title: "Pros and cons by type",
+        body: "A fixed annuity trades growth for certainty: a stated rate, no market risk, modest returns. An indexed annuity trades some upside for protection: a link to index gains, capped, with principal protected. An immediate annuity trades flexibility for income: a check for life, little access to the lump sum. A variable annuity trades protection for market exposure, and it is a security outside a life license.",
+      },
+      {
+        title: "Annuity vs CD: the honest comparison",
+        body: "A certificate of deposit is a bank deposit, FDIC-insured up to $250,000 per depositor per bank, with a set term and a stated rate. An annuity is an insurance contract, not FDIC-insured, with tax-deferred growth and the option of lifetime income. A CD usually lets you reach the money sooner with a smaller penalty. An annuity usually ties money up longer and can pay income for life. Neither one beats the other in general. Compare the term, the access rules, the tax treatment, and what happens if you need the money early.",
+      },
+      {
+        title: "Who it fits, and who it does not",
+        body: "It fits a person with a gap between guaranteed income and spending, with savings beyond the annuity, and with years to leave the money alone. It does not fit money you may need for emergencies, a home repair, or care in the next few years. It does not fit a person whose main goal is growth, or who would put most of what they have into a single contract.",
+      },
+      {
+        title: "The surrender-charge disclosure",
+        body: "Read this before signing. Most deferred annuities have a surrender charge period, often 5 to 10 years and sometimes longer. Taking out more than the contract allows during that period triggers a charge that usually declines year by year. Many contracts allow a limited free withdrawal each year, and the contract states the amount. Ask for the full surrender schedule in writing, and check what happens to the rate when the guarantee term ends.",
+      },
+    ],
+    comparison: {
+      caption: "Questions that decide whether an annuity fits",
+      headers: ["Question to ask", "Why it matters"],
+      rows: [
+        [
+          "When do I need income?",
+          "Immediate income needs a different contract than growth for later.",
+        ],
+        [
+          "Can this money stay untouched?",
+          "Surrender charges punish early access during the surrender period.",
+        ],
+        [
+          "What is guaranteed?",
+          "A stated rate, a cap, and an income amount are different promises. Ask which is which.",
+        ],
+        [
+          "What does it cost to exit?",
+          "Surrender charges, market value adjustments, and taxes all reduce early withdrawals.",
+        ],
+        [
+          "How strong is the insurer?",
+          "An annuity is only as strong as the company behind it. Check its AM Best rating.",
+        ],
+        [
+          "What happens if I die?",
+          "Death benefits vary. Some contracts pay the balance, others keep the remainder.",
+        ],
+      ],
+    },
+    checklist: [
+      "Write down the income gap the annuity would fill, in dollars per month.",
+      "Confirm the surrender period and the charge schedule in writing.",
+      "Ask which figures are guaranteed and which are illustrations.",
+      "Compare the same money in a CD for term, access, and tax treatment.",
+      "Keep emergency savings outside the annuity.",
+    ],
+    faqs: [
+      {
+        q: "Is an annuity a good investment?",
+        a: "It is not an investment in the usual sense. It is an insurance contract that can guarantee income or a rate. Judge it on income and protection, not on beating the market.",
+      },
+      {
+        q: "What is the catch with annuities?",
+        a: "Access. The money is committed for years, surrender charges apply to early withdrawals, and taxes can add up. Read the surrender schedule before signing.",
+      },
+      {
+        q: "Can an annuity lose money?",
+        a: "A fixed or indexed annuity protects principal from market loss. A variable annuity can lose value with the market. Surrender charges and taxes can still reduce early withdrawals from any type.",
+      },
+      {
+        q: "Should I put all my retirement savings in an annuity?",
+        a: "No. An annuity works best as one part of a plan, next to savings you can reach, Social Security, and other income. Putting most of your savings into one contract leaves no room for surprises.",
+      },
+    ],
+    sources: [
+      {
+        title: "NAIC: Annuities",
+        url: "https://content.naic.org/insurance-topics/annuities",
+      },
+      {
+        title: "IRS: Topic 558, additional tax on early distributions",
+        url: "https://www.irs.gov/taxtopics/tc558",
+      },
+    ],
+    related: [
+      { title: "Types of annuities", href: "/guides/types-of-annuities" },
+      { title: "Annuity rates, dated samples", href: "/guides/annuity-rates" },
+      { title: "Fixed annuity vs indexed annuity", href: "/answers/fixed-annuity-vs-indexed-annuity" },
+      { title: "Annuities and retirement income", href: "/annuities" },
+    ],
+    query: "should i buy an annuity pros and cons",
+    opportunity:
+      "Give the honest no cases, not just the sales pitch; the CD comparison and surrender disclosure are the trust gap.",
+    intent: "informational",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "how-much-does-long-term-care-cost",
+    title: "How Much Does Long-Term Care Cost?",
+    metaTitle: "How Much Does Long-Term Care Cost? 2025 Figures",
+    description:
+      "Long-term care costs for 2025: care by setting from the CareScout survey, insurance premiums by age from AALTCI, and what Medicare does and does not pay.",
+    answer:
+      "In 2025, the national median for a private nursing home room was $129,575 a year and assisted living was $74,400 a year, per the CareScout Cost of Care Survey. A traditional long-term care policy for a healthy 55-year-old averaged $2,200 a year for a man and $3,750 for a woman.",
+    sections: [
+      {
+        title: "What care costs in 2025",
+        body: "The CareScout Cost of Care Survey, data collected July through November 2025, gives national medians. A non-medical caregiver at home costs $35 an hour, about $80,080 a year at 44 hours a week. Adult day health care costs $95 a day. An assisted living community costs $6,200 a month, or $74,400 a year. A semi-private nursing home room costs $9,581 a month, or $114,975 a year. A private room costs $10,798 a month, or $129,575 a year. Medians hide wide local differences, so treat these as a starting point, not a budget for Greensboro.",
+      },
+      {
+        title: "What insurance premiums look like by age",
+        body: "The AALTCI 2025 Price Index prices a standard policy: a $165,000 initial benefit pool, select health, benefits growing 3% a year, calculated January 2025 for Illinois. The table below shows the average yearly premium. Waiting raises the price: the same man's premium rises from $2,200 at 55 to $3,280 at 65, and a couple's combined premium rises from $5,050 to $7,150.",
+      },
+      {
+        title: "What Medicare covers, and what it does not",
+        body: "Medicare does not pay for ongoing help with everyday activities, such as bathing or dressing, when that is the only care needed. It covers skilled nursing facility care up to 100 days per benefit period, with no coinsurance for days 1 to 20 and $217 a day for days 21 to 100 in 2026. It covers skilled home health care in limited circumstances, not round-the-clock home care. Anything beyond that is paid from savings, a policy, or Medicaid if you qualify.",
+      },
+      {
+        title: "How long savings last",
+        body: "CareScout calculated that $250,000 covers about 2.8 years of long-term care on average nationally: 3.4 years of assisted living, 3.1 years of home caregiving, and 2.2 years in a semi-private nursing home room. A long need can outlast a lifetime of saving, which is the risk a policy is meant to cover.",
+      },
+      {
+        title: "What changes the price",
+        body: "Age and health at purchase matter most, then gender, because women use care longer on average. A larger benefit pool, a longer benefit period, and inflation growth all raise the premium. A longer elimination period, the waiting time before benefits start, lowers it. Prices vary by state and by insurer: for a couple both 65, the AALTCI index found top-three insurer prices from $7,137 to $12,250 a year for near-identical coverage.",
+      },
+    ],
+    comparison: {
+      caption: "Average yearly premium, $165,000 pool growing 3% a year (AALTCI 2025)",
+      headers: ["Buyer at purchase age", "Average yearly premium"],
+      rows: [
+        ["Single man, 55", "$2,200"],
+        ["Single man, 60", "$2,610"],
+        ["Single man, 65", "$3,280"],
+        ["Single woman, 55", "$3,750"],
+        ["Single woman, 60", "$4,550"],
+        ["Single woman, 65", "$5,290"],
+        ["Couple, both 55", "$5,050 combined"],
+        ["Couple, both 60", "$5,800 combined"],
+        ["Couple, both 65", "$7,150 combined"],
+      ],
+    },
+    checklist: [
+      "Price care in your own area, not just the national median.",
+      "Decide how many years of care you want a policy to cover.",
+      "Ask what the elimination period is and what triggers benefits.",
+      "Compare the same benefit pool and inflation growth across insurers.",
+      "Check what Medicare will and will not pay before counting on it.",
+    ],
+    faqs: [
+      {
+        q: "Does Medicare pay for long-term care?",
+        a: "No, not for ongoing custodial care. Medicare covers skilled nursing up to 100 days per benefit period and limited skilled home health care. Daily help with bathing, dressing, and eating is not covered.",
+      },
+      {
+        q: "How much does long-term care insurance cost at 65?",
+        a: "Per the AALTCI 2025 Price Index, a healthy 65-year-old paid on average $3,280 a year for a man and $5,290 for a woman, for a $165,000 pool growing 3% a year. A couple both 65 paid $7,150 combined.",
+      },
+      {
+        q: "Is home care cheaper than a nursing home?",
+        a: "At a few hours a week, yes. At 44 hours a week, a home caregiver cost about $80,080 a year in 2025, between assisted living at $74,400 and a semi-private nursing home room at $114,975. Round-the-clock home care costs more than a facility.",
+      },
+      {
+        q: "What happens if I wait to buy a policy?",
+        a: "Premiums rise with age, and health changes can make a policy harder to get or more expensive. The same coverage that cost a healthy 55-year-old man $2,200 a year cost $3,280 at 65.",
+      },
+    ],
+    sources: [
+      {
+        title: "CareScout: Cost of Care Survey 2025",
+        url: "https://www.carescout.com/cost-of-care",
+      },
+      {
+        title: "AALTCI: 2025 Long-Term Care Insurance Price Index",
+        url: "https://www.aaltci.org/long-term-care-insurance/learning-center/ltcfacts-2025.php",
+      },
+      {
+        title: "Medicare.gov: Long-term care coverage",
+        url: "https://www.medicare.gov/coverage/long-term-care",
+      },
+    ],
+    related: [
+      { title: "Do I need long-term care insurance?", href: "/answers/do-i-need-long-term-care-insurance" },
+      { title: "Hybrid long-term care insurance", href: "/guides/hybrid-long-term-care-insurance" },
+      { title: "Long-term care insurance in the Triad", href: "/long-term-care-insurance" },
+      { title: "What Medicare does not cover", href: "/guides/what-medicare-does-not-cover" },
+    ],
+    query: "how much does long-term care cost",
+    opportunity:
+      "Merge insurance premiums and care costs on one page with dated sources; competitors split them and quote undated figures.",
+    intent: "informational",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "hybrid-long-term-care-insurance",
+    title: "Hybrid Long-Term Care Insurance Explained",
+    metaTitle: "Hybrid Long-Term Care Insurance: How It Works",
+    description:
+      "Hybrid long-term care insurance pairs life insurance with care benefits in one contract. How it works, what it costs, and who it fits, with priced examples.",
+    answer:
+      "A hybrid policy pairs life insurance with long-term care benefits in one contract. Care is paid from a long-term care benefit pool, and the policy also carries a separate death benefit for beneficiaries. Care used can reduce the death benefit, down to a stated minimum. It usually costs more per year than a standalone policy.",
+    sections: [
+      {
+        title: "How a hybrid policy works",
+        body: "A hybrid, or linked-benefit, policy starts with life insurance. If you need care, the policy pays for it from the long-term care benefit pool. The death benefit is a separate amount: in the AALTCI example, the pool was $180,000 and the minimum death benefit was $120,000. Care used reduces the death benefit, and if care uses the whole pool, the death benefit can fall to the contract's stated minimum. If you never need care, your beneficiaries receive the full death benefit. Premiums can be paid over years or as a single lump sum.",
+      },
+      {
+        title: "Standalone vs hybrid, side by side",
+        body: "The comparison below is the decision in one table. A standalone policy buys the most care per premium dollar and nothing if care is never needed. A hybrid buys less care per dollar but returns something either way. Neither is better in general. The right one depends on whether you can live with paying premiums for coverage you may never use.",
+      },
+      {
+        title: "The cost tradeoff, with real numbers",
+        body: "AALTCI compared a traditional policy with a $165,000 pool against a linked-benefit policy with a $180,000 pool and a $120,000 minimum death benefit, both priced in January 2024 with no inflation growth. A 55-year-old man paid $900 a year for the traditional policy and $3,540 a year for the linked-benefit version. A 55-year-old woman paid $1,500 and $3,265. A single premium for the linked-benefit version was $52,753 for a man and $54,022 for a woman. AALTCI warns the comparison is not apples to apples, because linked-benefit products vary widely.",
+      },
+      {
+        title: "Who it fits",
+        body: "It fits a person who dislikes the idea of paying for years and getting nothing back, who has a lump sum to place, or who wants one contract to answer two questions at once. It fits less well when the budget is tight, when the goal is the most care per dollar, or when the money is needed for other plans.",
+      },
+      {
+        title: "Questions before you buy",
+        body: "Ask what triggers benefits, how long the elimination period runs, whether benefits grow with inflation, and what happens when the pool runs out. Ask whether premiums are guaranteed or can change, and what happens if you stop paying. Ask a tax professional about the tax treatment of premiums and benefits before deciding.",
+      },
+    ],
+    comparison: {
+      caption: "Standalone vs hybrid long-term care insurance",
+      headers: ["Feature", "Standalone vs hybrid"],
+      rows: [
+        [
+          "Care per premium dollar",
+          "Standalone buys more care for the same premium. Hybrid buys less care per dollar.",
+        ],
+        [
+          "If care is never needed",
+          "Standalone pays nothing back. Hybrid pays a death benefit to beneficiaries.",
+        ],
+        [
+          "Premiums",
+          "Standalone is usually lower per year. Hybrid is usually higher, or takes a single lump sum.",
+        ],
+        [
+          "Death benefit",
+          "Standalone has none. Hybrid pays a separate death benefit, reduced by care used down to a stated minimum.",
+        ],
+        [
+          "Premium changes",
+          "Standalone premiums can rise. Ask whether hybrid premiums are guaranteed.",
+        ],
+      ],
+    },
+    checklist: [
+      "Decide whether a death benefit matters to you, or only the care.",
+      "Compare the same benefit pool and the same inflation growth.",
+      "Ask what happens when the care pool runs out.",
+      "Check whether premiums are guaranteed or can change.",
+      "Ask a tax professional about premiums and benefits before deciding.",
+    ],
+    faqs: [
+      {
+        q: "What is hybrid long-term care insurance?",
+        a: "A life insurance policy with long-term care benefits built in. Care is paid from a long-term care benefit pool, and the policy carries a separate death benefit for beneficiaries.",
+      },
+      {
+        q: "Is hybrid long-term care insurance worth it?",
+        a: "It depends on what bothers you more: paying for coverage you may never use, or paying more per dollar of care. A hybrid answers the first worry. A standalone policy buys more care per premium dollar.",
+      },
+      {
+        q: "What happens to the death benefit if I use care?",
+        a: "Care used reduces the death benefit by the amount paid for care, down to the contract's stated minimum. The death benefit is a separate amount from the care pool, so what beneficiaries receive is the remaining death benefit, not the unused care pool.",
+      },
+      {
+        q: "Can I pay for a hybrid policy with one lump sum?",
+        a: "Many hybrid policies offer a single premium option. AALTCI priced a single premium of $52,753 for a 55-year-old man and $54,022 for a woman in January 2024, for a $180,000 pool with a $120,000 minimum death benefit.",
+      },
+    ],
+    sources: [
+      {
+        title: "AALTCI: 2025 Long-Term Care Insurance Price Index",
+        url: "https://www.aaltci.org/long-term-care-insurance/learning-center/ltcfacts-2025.php",
+      },
+      {
+        title: "NAIC: Understanding long-term care insurance",
+        url: "https://content.naic.org/consumer/long-term-care-insurance.htm",
+      },
+      {
+        title: "Medicare.gov: Long-term care coverage",
+        url: "https://www.medicare.gov/coverage/long-term-care",
+      },
+    ],
+    related: [
+      { title: "How much does long-term care cost?", href: "/guides/how-much-does-long-term-care-cost" },
+      { title: "Do I need long-term care insurance?", href: "/answers/do-i-need-long-term-care-insurance" },
+      { title: "Long-term care insurance in the Triad", href: "/long-term-care-insurance" },
+      { title: "Short-term care insurance", href: "/short-term-care-insurance" },
+    ],
+    query: "hybrid long-term care insurance",
+    opportunity:
+      "Explain the linked-benefit tradeoff with priced examples; most pages describe hybrids without showing what the death benefit costs.",
+    intent: "informational",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "health-insurance-before-medicare-62-to-65",
+    title: "Health Insurance Before Medicare at 62 to 65",
+    metaTitle: "Health Insurance Before Medicare at 62 to 65",
+    description:
+      "Health insurance from 62 to 65: marketplace, COBRA, a spouse's plan, and Medicaid, with 2026 costs by age, subsidy limits, and the Medicare handoff at 65.",
+    answer:
+      "Between 62 and 65 you have four main routes: the marketplace, COBRA, a spouse's plan, or Medicaid. In 2026 a 60-year-old paid about $15,914 a year for a benchmark silver marketplace plan before subsidies, and COBRA averaged about $833 a month for one person.",
+    sections: [
+      {
+        title: "The four routes at a glance",
+        body: "Most people in this gap use one of four routes. The marketplace sells individual plans, with tax credits if your income qualifies. COBRA continues your old employer plan for up to 18 months at full price. A spouse's employer plan can cover you if their employer offers it. Medicaid covers adults with low income in North Carolina. The right route depends on your income, your doctors, and how long you need coverage.",
+      },
+      {
+        title: "What the marketplace costs at 60 to 64",
+        body: "Age is the biggest price driver: federal rules let insurers charge a 64-year-old up to three times what a 21-year-old pays for the same plan. KFF put the 2026 national average benchmark silver premium at $625 a month for a 40-year-old. For a 60-year-old, the 2026 national average was $11,625 a year for the lowest-cost bronze plan, $15,914 for the benchmark silver plan, and $15,672 for the lowest-cost gold plan, all before subsidies. Average deductibles in 2026 were $7,476 for bronze, $5,304 for silver, and $1,722 for gold. KFF's October 30, 2026 analysis put the 2027 benchmark average at $703 a month for a 40-year-old, up 13%.",
+      },
+      {
+        title: "Subsidies now stop at 400% of poverty",
+        body: "The enhanced premium tax credits expired on December 31, 2025. For 2027 coverage, tax credits run from 100% to 400% of the federal poverty level, which is $15,960 to $63,840 a year for one person. You are expected to pay 2.15% to 10.22% of your income toward the benchmark plan, and the credit covers the rest. Above 400%, there is no credit. One exception matters in North Carolina: if your income qualifies you for Medicaid, you cannot also claim a marketplace tax credit. KFF found that a 60-year-old earning $65,000 pays $10,389 more a year, about $865 a month, than when the enhanced credits were in place.",
+      },
+      {
+        title: "COBRA: the same plan at full price",
+        body: "COBRA lets you keep your employer plan for up to 18 months after leaving a job, but you pay the whole premium plus up to a 2% fee. At the KFF 2026 employer survey averages, that is about $833 a month for one person and $2,406 a month for a family. You have 60 days to elect COBRA after leaving. COBRA has no subsidies, and it does not count as current employer coverage for Medicare's Part B enrollment rules, so read the COBRA versus Medicare guide before you turn 65.",
+      },
+      {
+        title: "A spouse's plan and Medicaid",
+        body: "A spouse's employer plan is often the cheapest route when it is available, because the employer still pays part of the premium. Check whether your spouse's open enrollment or a qualifying life event lets you join. North Carolina expanded Medicaid on December 1, 2023. Adults ages 19 through 64 qualify with household income up to 138% of the federal poverty level, about $1,835 a month for one person under the 2026 figures. Starting January 1, 2027, most expansion adults must meet a work or community engagement requirement to keep coverage.",
+      },
+      {
+        title: "Dates, and the Medicare handoff at 65",
+        body: "Open enrollment for 2027 marketplace coverage runs November 1, 2026 through January 15, 2027 on HealthCare.gov. Enroll by December 15, 2026 for coverage starting January 1, 2027. Medicare starts at 65: your initial enrollment period begins three months before the month you turn 65. Mark the month you turn 64 and a half, and line up the Medicare side early, because a gap between your bridge coverage ending and Medicare starting can leave medical bills with no coverage behind them.",
+      },
+    ],
+    comparison: {
+      caption: "Four routes from 62 to 65",
+      headers: ["Route", "Cost and how long it lasts"],
+      rows: [
+        [
+          "Marketplace",
+          "About $15,914 a year for a 60-year-old benchmark silver plan in 2026, before subsidies. Renews yearly.",
+        ],
+        [
+          "COBRA",
+          "About $833 a month for one person at 2026 averages. Lasts up to 18 months. No subsidies.",
+        ],
+        [
+          "Spouse's plan",
+          "Often the cheapest route when available. Employer still pays part of the premium.",
+        ],
+        [
+          "Medicaid",
+          "No premium for most who qualify. Adults 19 to 64 up to 138% of poverty, about $1,835 a month for one person.",
+        ],
+      ],
+    },
+    checklist: [
+      "Price the marketplace for your age and county before assuming COBRA is cheaper.",
+      "Check whether your income qualifies for a tax credit, and where the 400% line falls.",
+      "Confirm your doctors are in the plan's network before enrolling.",
+      "Put your 65th birthday month on the calendar and start the Medicare steps three months before.",
+      "If you are on COBRA, check the Medicare Part B rules before you turn 65.",
+    ],
+    faqs: [
+      {
+        q: "What is the cheapest health insurance before Medicare?",
+        a: "It depends on income. With a low income, Medicaid or a subsidized marketplace plan is usually cheapest. With a higher income, a spouse's plan often wins. COBRA is rarely the cheapest, but it keeps your doctors and plan.",
+      },
+      {
+        q: "Can I get a subsidy at 62?",
+        a: "Yes, if your household income is between 100% and 400% of the federal poverty level and you do not qualify for Medicaid or other qualifying coverage. For 2027 coverage that is $15,960 to $63,840 a year for one person. In North Carolina, adults with income up to 138% of poverty generally qualify for Medicaid instead, and Medicaid coverage means no marketplace tax credit. Above 400%, there is no credit.",
+      },
+      {
+        q: "Does COBRA count for Medicare enrollment?",
+        a: "No. COBRA does not count as coverage based on current employment for Medicare Part B, so it does not open a special enrollment period. Check the COBRA versus Medicare guide before you turn 65.",
+      },
+      {
+        q: "When should I start planning for Medicare at 65?",
+        a: "Three months before the month you turn 65, when your initial enrollment period opens. If you are on a bridge plan, line up the switch early so coverage does not gap.",
+      },
+    ],
+    sources: [
+      {
+        title: "KFF: Marketplace average benchmark premiums",
+        url: "https://www.kff.org/affordable-care-act/state-indicator/marketplace-average-benchmark-premiums/",
+      },
+      {
+        title: "KFF: How the loss of enhanced premium tax credits affects older adults",
+        url: "https://www.kff.org/affordable-care-act/how-will-the-loss-of-enhanced-premium-tax-credits-affect-older-adults/",
+      },
+      {
+        title: "Medicare.gov: When does Medicare coverage start",
+        url: "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start",
+      },
+      {
+        title: "NC Medicaid: Eligibility",
+        url: "https://medicaid.ncdhhs.gov/eligibility",
+      },
+    ],
+    related: [
+      { title: "COBRA vs Medicare at 65", href: "/guides/cobra-vs-medicare-at-65" },
+      { title: "Turning 65 with a marketplace plan", href: "/guides/turning-65-aca-marketplace-plan" },
+      { title: "Your Medicare checklist for turning 65", href: "/turning-65" },
+      { title: "What Medicare does not cover", href: "/guides/what-medicare-does-not-cover" },
+    ],
+    query: "health insurance before medicare 62 to 65",
+    opportunity:
+      "Bridge years carry the highest unsubsidized premiums in the market; answer with dated costs and the 400% subsidy line.",
+    intent: "informational",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
 ];
 
 export function findTrafficGuide(slug: string) {

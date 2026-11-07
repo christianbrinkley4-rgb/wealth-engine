@@ -23,8 +23,8 @@ describe("traffic guide publishing contract", () => {
   it("makes every generated guide discoverable once in the sitemap and both text indexes", async () => {
     const paths = sitemap().map((entry) => new URL(entry.url).pathname);
     const indexes = await Promise.all([shortIndex().text(), fullIndex().text()]);
-    expect(generateStaticParams()).toHaveLength(60);
-    expect(new Set(TRAFFIC_GUIDES.map((guide) => guide.slug)).size).toBe(60);
+    expect(generateStaticParams()).toHaveLength(66);
+    expect(new Set(TRAFFIC_GUIDES.map((guide) => guide.slug)).size).toBe(66);
     for (const guide of TRAFFIC_GUIDES) {
       const path = `/guides/${guide.slug}`;
       // Off-topic guides stay live but out of the sitemap (lib/indexFocus.ts).
@@ -78,6 +78,15 @@ describe("traffic guide publishing contract", () => {
           "www.treasurydirect.gov",
           "www.fdic.gov",
           "www.consumerfinance.gov",
+          // PR 8 sources: the annuity, long-term care, and marketplace figures
+          // live with their publishers, not on a federal domain. Each host
+          // below is cited for one named dataset, verified against the source.
+          "content.naic.org",
+          "www.aaltci.org",
+          "www.carescout.com",
+          "www.annuity.com",
+          "www.kff.org",
+          "medicaid.ncdhhs.gov",
         ]).toContain(new URL(source.url).hostname);
         expect(html).toContain(source.url);
       }

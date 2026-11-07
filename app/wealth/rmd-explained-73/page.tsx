@@ -234,7 +234,7 @@ export default function RmdExplainedPage() {
           { href: "/wealth/529-vs-roth-for-college", label: "529 vs. Roth IRA for College", kind: "Article" },
         ]}
       />
-    <TrafficGuideLinks slugs={["inherited-ira-ten-year-rule", "roth-conversion-ladder-explained", "roth-ira-five-year-rule", "qualified-charitable-distribution-qcd", "roth-conversion-taxes"]} />
+    <TrafficGuideLinks slugs={["inherited-ira-ten-year-rule", "roth-conversion-ladder-explained", "roth-ira-five-year-rule", "qualified-charitable-distribution-qcd", "roth-conversion-taxes", "types-of-annuities", "annuity-rates", "should-i-buy-an-annuity-pros-and-cons"]} />
     </main>
   );
 }
