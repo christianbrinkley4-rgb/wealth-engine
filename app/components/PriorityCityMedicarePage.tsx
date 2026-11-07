@@ -40,6 +40,36 @@ const NEARBY_AGENT_PAGES: Partial<
     { name: "Kernersville", href: "/medicare-agent-kernersville-nc" },
     { name: "Burlington", href: "/medicare-agent-burlington-nc" },
   ],
+  "wake-forest": [
+    { name: "Raleigh", href: "/medicare-agent-raleigh-nc" },
+    { name: "Youngsville", href: "/medicare-agent-youngsville-nc" },
+    { name: "Franklinton", href: "/medicare-agent-franklinton-nc" },
+    { name: "Greensboro", href: "/medicare-agent-greensboro-nc" },
+  ],
+  raleigh: [
+    { name: "Wake Forest", href: "/medicare-agent-wake-forest-nc" },
+    { name: "Franklinton", href: "/medicare-agent-franklinton-nc" },
+    { name: "Youngsville", href: "/medicare-agent-youngsville-nc" },
+    { name: "Greensboro", href: "/medicare-agent-greensboro-nc" },
+  ],
+  asheboro: [
+    { name: "Greensboro", href: "/medicare-agent-greensboro-nc" },
+    { name: "High Point", href: "/medicare-agent-high-point-nc" },
+    { name: "Winston-Salem", href: "/medicare-agent-winston-salem-nc" },
+    { name: "Kernersville", href: "/medicare-agent-kernersville-nc" },
+  ],
+  franklinton: [
+    { name: "Youngsville", href: "/medicare-agent-youngsville-nc" },
+    { name: "Wake Forest", href: "/medicare-agent-wake-forest-nc" },
+    { name: "Raleigh", href: "/medicare-agent-raleigh-nc" },
+    { name: "Granville County", href: "/medicare-agent-granville-county-nc" },
+  ],
+  youngsville: [
+    { name: "Franklinton", href: "/medicare-agent-franklinton-nc" },
+    { name: "Wake Forest", href: "/medicare-agent-wake-forest-nc" },
+    { name: "Raleigh", href: "/medicare-agent-raleigh-nc" },
+    { name: "Granville County", href: "/medicare-agent-granville-county-nc" },
+  ],
   kernersville: [
     { name: "Greensboro", href: "/medicare-agent-greensboro-nc" },
     { name: "Winston-Salem", href: "/medicare-agent-winston-salem-nc" },
@@ -76,8 +106,8 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
           headline: city.heading,
           description: city.description,
           path,
-          datePublished: "2026-10-10",
-          dateModified: "2026-10-13",
+          datePublished: "datePublished" in city ? city.datePublished : "2026-10-10",
+          dateModified: "dateModified" in city ? city.dateModified : "2026-10-13",
         }),
         breadcrumbJsonLd([
           { name: "Home", path: "/" },
@@ -101,7 +131,7 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free conversation"
       />
-      <MedicareByline reviewed="2026-10-13" />
+      <MedicareByline reviewed={"reviewed" in city ? city.reviewed : "2026-10-13"} />
       <section className="measure-prose app-shell max-w-3xl py-10">
         <h2 className="text-28 font-semibold">{city.localHeading}</h2>
         {city.paragraphs.map((p) => (
@@ -110,7 +140,7 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
           </p>
         ))}
         <p className="text-16 mt-6">
-          Local sources checked October 12, 2026:{" "}
+          Local sources checked {"sourcesChecked" in city ? city.sourcesChecked : "October 12, 2026"}:{" "}
           {city.sources.map((s, i) => (
             <span key={s.href}>
               {i ? "; " : ""}
