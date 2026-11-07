@@ -3837,6 +3837,518 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     datePublished: "2026-11-07",
     dateModified: "2026-11-07",
   },
+  {
+    slug: "how-much-does-term-life-insurance-cost",
+    title: "How Much Does Term Life Insurance Cost?",
+    description:
+      "Term life cost by age, coverage amount, and term length, with published 2026 sample rates for a healthy nonsmoker. See what moves the price before you shop.",
+    query: "how much does term life insurance cost per month",
+    opportunity:
+      "High-volume cost question with thin national answers; dated sample rates with a stated profile beat generic ranges.",
+    intent: "informational",
+    answer:
+      "For a healthy nonsmoker, a $500,000 20-year term policy runs about $15 to $27 a month at ages 30 to 40 in NerdWallet's October 2026 sample rates, and about $53 to $68 a month at 50. Your own price depends on age, health, smoking, coverage amount, and term length.",
+    sections: [
+      {
+        title: "What term life costs at each age",
+        body: "NerdWallet's average rates, published October 1, 2026 from LifeStein.com data, use a $500,000 20-year term policy for a nonsmoker in preferred health, averaging the three lowest rates at each age. Annual premiums for men are $209 at 20, $213 at 30, $321 at 40, $810 at 50, and $2,335 at 60. For women they are $175, $182, $278, $636, and $1,640. As monthly equivalents that is about $17, $18, $27, $68, and $195 for men, and about $15, $15, $23, $53, and $137 for women. These are sample averages, not quotes, and your price will differ by insurer, health, and state.",
+      },
+      {
+        title: "What coverage amount does to the price",
+        body: "MoneyGeek's September 2026 survey of quotes from 21 carriers, for a 40-year-old nonsmoker in average health on a 20-year term, puts monthly premiums at $28 for $250,000, $47 for $500,000, and $86 for $1 million for women, and $35, $59, and $109 for men. Doubling the coverage does not double the price, because part of the premium covers the insurer's fixed costs. If you are choosing between $250,000 and $500,000, ask for both prices before you decide.",
+      },
+      {
+        title: "10 vs 20 vs 30 years",
+        body: "NerdWallet's October 2026 rates for a healthy 40-year-old nonsmoker on a $500,000 policy show the tradeoff clearly. A 10-year term runs $200 a year for a man and $175 for a woman. A 20-year term runs $321 and $278. A 30-year term runs $574 and $451. The longer term costs more each year but locks the rate in for longer. Match the term to the need: the years left on a mortgage, or the years until your kids are grown. A 30-year term bought at 50 is rarely offered, so older buyers usually choose 10 or 20 years.",
+      },
+      {
+        title: "What happens when the term expires",
+        body: "If you outlive the term, the policy ends and pays nothing. That is the deal with term life, and it is why the price is low. Many policies let you renew year by year after the term, but the renewal premium is set at your older age and is usually much higher. Some policies let you convert to permanent coverage during a stated window without a new medical exam. Read the conversion and renewal language before you buy, not after the term runs out.",
+      },
+      {
+        title: "What moves your price most",
+        body: "Age is the biggest driver, and the curve steepens after 50. Smoking is next: a 40-year-old man who smokes averages $1,448 a year for the same $500,000 20-year policy that costs a nonsmoker $321, in NerdWallet's October 2026 data. Health class matters too. For that same 40-year-old man, the annual premium is $321 in the best health class, $405 in preferred, and $631 in standard. Women pay less than men at the same age because women live longer on average. Term length and coverage amount round out the list.",
+      },
+    ],
+    comparison: {
+      caption: "Longer terms cost more per year but lock the rate in longer",
+      headers: ["Term length", "Annual premium at 40, $500,000"],
+      rows: [
+        ["10 years", "$200 a year for a man, $175 for a woman"],
+        ["20 years", "$321 a year for a man, $278 for a woman"],
+        ["30 years", "$574 a year for a man, $451 for a woman"],
+      ],
+    },
+    checklist: [
+      "Decide the coverage amount from your debts, income to replace, and mortgage, not from a round number.",
+      "Match the term length to the years the money is actually needed.",
+      "Compare the same coverage, term, and health class across insurers.",
+      "Check renewal and conversion language before you buy.",
+    ],
+    faqs: [
+      {
+        q: "What is the cheapest age to buy term life insurance?",
+        a: "Your 20s, when a $500,000 20-year policy runs about $15 to $18 a month for a healthy nonsmoker in NerdWallet's October 2026 sample rates. The price rises with every birthday, and it rises fastest after 50.",
+      },
+      {
+        q: "Does my term life premium change during the term?",
+        a: "On a level term policy, no. The premium stays the same for the full 10, 20, or 30 years as long as you keep paying. Renewal after the term is priced at your older age.",
+      },
+      {
+        q: "Can I renew term life after the term ends?",
+        a: "Many policies allow annual renewal, but the premium jumps to reflect your age at renewal. Some policies also let you convert to permanent coverage within a stated window. Check both options in the contract.",
+      },
+      {
+        q: "Is $500,000 of term life enough?",
+        a: "It depends on your income, mortgage, debts, and how many years your family would need support. A family earning $65,000 with a $220,000 mortgage and college ahead usually needs more than $500,000. Run the numbers with the DIME method first.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: Life insurance and disability insurance proceeds",
+        url: "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/life-insurance-disability-insurance-proceeds/life-insurance-disability-insurance-proceeds",
+      },
+      {
+        title: "SSA: Survivor benefits",
+        url: "https://www.ssa.gov/benefits/survivors/",
+      },
+    ],
+    related: [
+      { title: "Life insurance needs calculator", href: "/tools/life-insurance-needs" },
+      { title: "Life insurance help in the Triad", href: "/life-insurance" },
+      { title: "How much does whole life insurance cost?", href: "/guides/how-much-does-whole-life-insurance-cost" },
+      { title: "How much life insurance do I need?", href: "/answers/how-much-life-insurance-do-i-need" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "best-term-life-insurance-companies",
+    title: "How to Compare Term Life Insurance Companies",
+    description:
+      "No single carrier is best for everyone. Compare term life companies on financial strength, complaints, price for the same profile, term lengths, and conversion.",
+    query: "best term life insurance companies",
+    opportunity:
+      "Comparison framing for a ranking query; reports published rankings with method, never a carrier recommendation.",
+    intent: "informational",
+    answer:
+      "Compare insurers on the same profile and the same policy, then check financial strength and complaint records. Published 2026 rankings name the same few strong companies, but the right one for you depends on your health, age, and term length. This page reports what the rankings say. It does not recommend a carrier.",
+    sections: [
+      {
+        title: "Start with the same profile, not the same ad",
+        body: "A price only means something next to an identical price. Get quotes for the same coverage amount, the same term length, and the same health class from each insurer, then compare. In NerdWallet's October 2026 term list, sample monthly rates for the same healthy nonsmoking 40-year-old on a $500,000 20-year policy ranged from $31 to $40 for men and $26 to $38 for women across the five companies named. The spread is real money over 20 years, and it is why comparing matters more than picking a name.",
+      },
+      {
+        title: "How published rankings score companies",
+        body: "NerdWallet's 2026 life insurance ratings reviewed 445 insurers, assessed 210 policies, and analyzed 1,515 data points. Financial strength counts for 35 percent, using AM Best ratings to confirm an insurer can pay claims decades from now. Consumer complaints count for 35 percent, using National Association of Insurance Commissioners data on complaints to state regulators over three years. Consumer experience counts for 20 percent, and transparency counts for 10 percent. Knowing the weights keeps a ranking in perspective: a company can top a list on service and strength while another beats it on price.",
+      },
+      {
+        title: "What the 2026 rankings actually show",
+        body: "NerdWallet's October 2026 term life list names five companies, all scoring 4.9 or 5.0 out of 5. Guardian scores 5.0 and is noted for applicants with health conditions, with term lengths of 1, 10, 15, 20, or 30 years and sample rates of $31 a month for a man and $26 for a woman. New York Life scores 4.9 and is noted for annual renewable term, at $36 and $30. USAA scores 5.0 and is noted for military members, at $32 and $37. Northwestern Mutual scores 4.9 and is noted for customer experience, at $40 and $38. Thrivent scores 5.0 and is noted for conversion options, at $37 and $31, and its policies require a Christian affiliation. Sample rates assume a $500,000 20-year term policy for a healthy nonsmoking 40-year-old. These are NerdWallet's picks, not a recommendation from this site.",
+      },
+      {
+        title: "Read the AM Best rating and the NAIC complaint index",
+        body: "AM Best grades financial strength. A++ and A+ mean Superior, and A and A- mean Excellent. A strong grade says the insurer is built to pay claims far in the future. The NAIC complaint index compares a company's complaints to what is expected for a company its size. An index of 1.0 is the expected level. Below 1.0 means fewer complaints than expected. MoneyGeek's September 2026 analysis gives an example of the range: Banner Life at 0.16 and Transamerica at 3.86, while all seven companies in its list hold AM Best ratings of A- or higher. Check the current rating and complaint index for the company that would issue your policy before you buy.",
+      },
+      {
+        title: "Six things to compare before you choose",
+        body: "First, price for the same profile, coverage, and term. Second, term lengths: 10, 15, 20, or 30 years, or an annual renewable policy. Third, conversion: can you switch to permanent coverage later without a new exam, and until what age. Fourth, no-exam limits: how much coverage you can buy without a medical exam. Fifth, renewal terms: what happens when the term ends. Sixth, riders: waiver of premium, accelerated death benefit, and child riders, and what each one adds to the premium.",
+      },
+    ],
+    comparison: {
+      caption: "Six checks before you pick a term life company",
+      headers: ["Check", "What to look for"],
+      rows: [
+        ["AM Best rating", "A++ or A+ (Superior), or A (Excellent)"],
+        ["NAIC complaint index", "Below 1.0 means fewer complaints than expected for its size"],
+        ["Price", "Same coverage amount, term length, and health class"],
+        ["Term lengths", "10, 15, 20, or 30 years, or annual renewable"],
+        ["Conversion", "Can you switch to permanent coverage without a new exam"],
+        ["No-exam limit", "How much coverage you can buy without a medical exam"],
+      ],
+    },
+    checklist: [
+      "Get quotes for identical coverage, term, and health class.",
+      "Check the AM Best rating and the NAIC complaint index.",
+      "Confirm conversion and renewal terms in writing.",
+      "Compare the total 20-year cost, not just the first year.",
+    ],
+    faqs: [
+      {
+        q: "Is there one best term life insurance company?",
+        a: "No. Published 2026 rankings name the same few strong companies, but the lowest price for your age, health, and term length changes from person to person. Compare on your own profile.",
+      },
+      {
+        q: "What does an AM Best rating measure?",
+        a: "Financial strength: the insurer's ability to pay claims far into the future. A++ and A+ are labeled Superior, and A and A- are labeled Excellent.",
+      },
+      {
+        q: "What is a good NAIC complaint index?",
+        a: "Below 1.0 means the company drew fewer complaints than expected for a company its size. Above 1.0 means more than expected. Check the index for the company that would issue your policy.",
+      },
+      {
+        q: "Should I just pick the cheapest quote?",
+        a: "Not on price alone. A cheap quote with no conversion option, a short term, or a weak complaint record can cost more later. Compare price, term, conversion, and complaint history together.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: Life insurance and disability insurance proceeds",
+        url: "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/life-insurance-disability-insurance-proceeds/life-insurance-disability-insurance-proceeds",
+      },
+      {
+        title: "SSA: Survivor benefits",
+        url: "https://www.ssa.gov/benefits/survivors/",
+      },
+    ],
+    related: [
+      { title: "How much does term life insurance cost?", href: "/guides/how-much-does-term-life-insurance-cost" },
+      { title: "Term life with no medical exam", href: "/answers/term-life-insurance-no-medical-exam" },
+      { title: "Life insurance help in the Triad", href: "/life-insurance" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "life-insurance-for-seniors",
+    title: "Life Insurance for Seniors: Options After 60",
+    description:
+      "Term, whole life, and final expense options for people in their 60s, 70s, and 80s, with published cost ranges by age and guaranteed issue tradeoffs explained.",
+    query: "life insurance for seniors",
+    opportunity:
+      "Senior hub for term at 60-69, final expense at 70+, and guaranteed issue as last resort; cost by age anchors the page.",
+    intent: "informational",
+    answer:
+      "After 60, term still works for a time-limited need, final expense fits a small lifelong need, and guaranteed issue is a last resort with higher premiums and a waiting period. Costs rise fast with age, so the cheapest time to buy was years ago and the second cheapest is now.",
+    sections: [
+      {
+        title: "Term life at 60 to 69",
+        body: "Term still works at 60 when the need has an end date, like a mortgage or income for a spouse. NerdWallet's October 2026 sample rates for a $500,000 20-year term policy for a preferred-health nonsmoker put a 60-year-old man at $2,335 a year, about $195 a month, and a woman at $1,640 a year, about $137 a month. At 70 the same policy jumps to $9,702 a year for a man and $7,934 for a woman. A 20-year term bought at 70 also runs past the need for most families, so a 10-year term usually fits better at that age, and fewer insurers offer long terms to older applicants.",
+      },
+      {
+        title: "Final expense at 70 and older",
+        body: "Final expense is a small whole life policy, usually $5,000 to $25,000, meant to cover funeral and burial costs. MoneyGeek's September 2026 averages for a $10,000 simplified-issue policy for a non-tobacco applicant put monthly premiums at $64 for a 70-year-old woman and $84 for a man, $87 and $113 at 75, and $125 and $164 at 80. Premiums stay level for life once the policy is issued. The benefit goes to whoever you name, and they can use it for the funeral, burial or cremation, and the smaller bills that follow.",
+      },
+      {
+        title: "Guaranteed issue as a last resort",
+        body: "Guaranteed issue means no health questions and no medical exam. That access comes with tradeoffs you should understand before you apply. Premiums run higher than simplified issue for the same benefit, maximums are smaller, often around $25,000, and most policies carry a graded death benefit. That usually means a two-year waiting period: if death comes from illness in the first two years, the beneficiary typically gets back the premiums paid plus interest, often about 10 percent, instead of the full face amount. Accidental death usually pays the full benefit from day one, and after the waiting period the full benefit applies for any cause. Some policies use a three-year period instead of two.",
+      },
+      {
+        title: "What coverage costs by age",
+        body: "The price curve is steep. For a man, NerdWallet's October 2026 term rates rise from $321 a year at 40 to $2,335 at 60, more than seven times as much for the same $500,000 20-year policy. Final expense roughly doubles between 70 and 80 in MoneyGeek's September 2026 averages. That is why buying earlier matters, and why comparing a smaller policy now beats waiting for a better health picture that may not come.",
+      },
+      {
+        title: "What to ask before you buy",
+        body: "Ask whether the premium can change, whether there is a waiting period before the full benefit pays, what health questions the application asks, who receives the benefit and how fast it is paid, and what happens if you stop paying premiums. Bring any policy you already have to the conversation. If what you have already covers the need, the right answer may be to keep it.",
+      },
+    ],
+    comparison: {
+      caption: "Which option fits which need after 60",
+      headers: ["Option", "Who it fits"],
+      rows: [
+        ["Term life", "A large need with a clear end date, like a mortgage or income for a spouse"],
+        ["Whole life", "A lifelong need with a level premium and cash value"],
+        ["Final expense", "A small lifelong need, mainly funeral and burial costs"],
+        ["Guaranteed issue", "When health questions would turn you down elsewhere, with the waiting period understood"],
+      ],
+    },
+    checklist: [
+      "Name the need first: income for a spouse, a mortgage, or funeral costs.",
+      "Compare term for a time-limited need and final expense for a small lifelong need.",
+      "Read the waiting period on any guaranteed issue policy.",
+      "Review beneficiaries after every big family change.",
+    ],
+    faqs: [
+      {
+        q: "Can I get term life insurance at 70?",
+        a: "Often yes, but it is expensive and long terms are harder to find. A $500,000 20-year term policy averages $9,702 a year for a 70-year-old man and $7,934 for a woman in NerdWallet's October 2026 sample rates. A 10-year term or a final expense policy usually fits better.",
+      },
+      {
+        q: "What does final expense insurance cover?",
+        a: "It is a small whole life policy, usually $5,000 to $25,000, that pays a lump sum to whoever you name. Families use it for the funeral, burial or cremation, and smaller end-of-life bills.",
+      },
+      {
+        q: "What is a graded death benefit?",
+        a: "It means the full face amount does not apply right away. On most guaranteed issue policies, a death from illness in the first two years returns the premiums paid plus interest, often about 10 percent, instead of the full benefit. Accidental death usually pays in full from day one.",
+      },
+      {
+        q: "Is it too late to buy life insurance at 80?",
+        a: "Not necessarily. Final expense policies are commonly available into the 80s. MoneyGeek's September 2026 averages put a $10,000 policy at about $125 a month for an 80-year-old woman and $164 for a man. Eligibility, cost, and benefit amounts depend on age, health answers, and the policy.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: Life insurance and disability insurance proceeds",
+        url: "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/life-insurance-disability-insurance-proceeds/life-insurance-disability-insurance-proceeds",
+      },
+      {
+        title: "SSA: Survivor benefits",
+        url: "https://www.ssa.gov/benefits/survivors/",
+      },
+    ],
+    related: [
+      { title: "Final expense insurance for seniors over 70", href: "/guides/final-expense-insurance-for-seniors-over-70" },
+      { title: "Final expense insurance in Greensboro", href: "/final-expense-insurance" },
+      { title: "How much does term life insurance cost?", href: "/guides/how-much-does-term-life-insurance-cost" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "how-much-does-whole-life-insurance-cost",
+    title: "How Much Does Whole Life Insurance Cost?",
+    description:
+      "Whole life cost by age for a $500,000 policy, why it costs about ten times term at 40, how cash value works, and when it fits better than term coverage.",
+    query: "how much does whole life insurance cost",
+    opportunity:
+      "Cost anchor for the permanent side; the ten-times-term multiple at 40 is the memorable frame.",
+    intent: "informational",
+    answer:
+      "A $500,000 whole life policy runs about $237 to $265 a month for a healthy 40-year-old nonsmoker in NerdWallet's October 2026 sample rates, roughly ten times the cost of 20-year term for the same death benefit. You pay for lifelong coverage and cash value.",
+    sections: [
+      {
+        title: "Whole life cost by age",
+        body: "NerdWallet's average rates, published October 1, 2026 from LifeStein.com data, use a $500,000 whole life policy for a nonsmoker in preferred health, averaging the three lowest rates at each age. Annual premiums for men are $1,539 at 20, $2,207 at 30, $3,180 at 40, $4,983 at 50, and $8,335 at 60. For women they are $1,345, $1,929, $2,849, $4,317, and $7,304. As monthly equivalents that is about $128, $184, $265, $415, and $695 for men, and about $112, $161, $237, $360, and $609 for women. These are sample averages, not quotes, and your price will differ by insurer, health, and policy design.",
+      },
+      {
+        title: "Why it costs so much more than term",
+        body: "Two features drive the price. First, whole life is designed to last your entire life if premiums are paid, so the insurer expects to pay the claim eventually. Second, part of each premium builds cash value. At 40, a man pays $3,180 a year for whole life against $321 a year for a 20-year term policy with the same $500,000 death benefit, about 9.9 times as much. The gap is structural, not a markup quirk: term only pays if you die inside the term, while whole life pays whenever you die.",
+      },
+      {
+        title: "Cash value in plain terms",
+        body: "Cash value is the savings side of the policy. Part of each premium goes toward the death benefit, and part builds a cash value that grows at a rate the insurer sets, on a tax-deferred basis. You can borrow against it or surrender the policy for it, but both reduce what your beneficiaries receive, and a large unpaid loan can cause the policy to lapse. Cash value builds slowly in the early years, so a policy surrendered after two or three years may return little. It is an asset inside the policy, not an extra death benefit stacked on top of the face amount.",
+      },
+      {
+        title: "When whole life fits, and when term fits better",
+        body: "Whole life fits a genuine lifelong need: a dependent who will always need support, final expenses you want covered no matter when you die, or estate liquidity. Term fits a temporary need: income replacement while kids grow up, or a mortgage that ends in 20 years. A common mistake is buying a small permanent policy when the real risk is the next 20 years. A properly sized term policy covers the big temporary need for far less, and a smaller permanent policy can sit alongside it if a lifelong need truly exists.",
+      },
+      {
+        title: "Is whole life insurance worth it?",
+        body: "It is worth it when you have a lifelong need, the premium fits comfortably for decades, and you understand the cash value grows slowly at first. It is not worth it when the need ends in 15 or 20 years, when the premium crowds out saving, or when a bigger term policy would protect your family better for the same money. The IRS notes that life insurance proceeds paid to a beneficiary because of the insured person's death generally are not included in gross income, though interest on the proceeds and cash value taken out above what you paid in can be taxable. Talk with a tax professional before counting on any tax angle.",
+      },
+    ],
+    comparison: {
+      caption: "Term vs whole life for the same $500,000 at 40",
+      headers: ["Feature", "Term vs whole life"],
+      rows: [
+        ["Monthly premium", "Term about $23 to $27; whole life about $237 to $265"],
+        ["How long it lasts", "Term ends after 10, 20, or 30 years; whole life lasts for life if premiums are paid"],
+        ["Cash value", "Term has none; whole life builds cash value you can borrow against"],
+        ["Best for", "Term fits a temporary need; whole life fits a lifelong need"],
+      ],
+    },
+    checklist: [
+      "Name the need and how long it lasts before choosing a type.",
+      "Compare the 20-year total cost, not just the monthly premium.",
+      "Ask how fast cash value builds in the first five years.",
+      "Check what happens to the death benefit if you borrow against cash value.",
+    ],
+    faqs: [
+      {
+        q: "Why is whole life insurance so expensive?",
+        a: "It is designed to last your whole life and it builds cash value. At 40, a $500,000 whole life policy costs about $237 to $265 a month in NerdWallet's October 2026 sample rates, against about $23 to $27 for 20-year term.",
+      },
+      {
+        q: "Does cash value add to the death benefit?",
+        a: "Usually not. Cash value is an asset inside the policy. If you borrow against it or surrender the policy, the death benefit your beneficiaries receive is reduced. Read the policy to see how the two interact.",
+      },
+      {
+        q: "Can whole life premiums change?",
+        a: "On a traditional whole life policy the premium stays level. What changes is the cash value, which grows over time. Some permanent policies with flexible premiums can require more money later if the cash value does not earn enough.",
+      },
+      {
+        q: "Is the death benefit taxed?",
+        a: "Generally no. The IRS says life insurance proceeds paid to a beneficiary because of the insured person's death generally are not included in gross income. Interest on the proceeds is taxable, and other exceptions can apply.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: Life insurance and disability insurance proceeds",
+        url: "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/life-insurance-disability-insurance-proceeds/life-insurance-disability-insurance-proceeds",
+      },
+      {
+        title: "SSA: Survivor benefits",
+        url: "https://www.ssa.gov/benefits/survivors/",
+      },
+    ],
+    related: [
+      { title: "How much does term life insurance cost?", href: "/guides/how-much-does-term-life-insurance-cost" },
+      { title: "Term, whole, or universal life: which do I need?", href: "/answers/term-whole-or-universal-life-insurance-which-do-i-need" },
+      { title: "Universal life vs whole life insurance", href: "/answers/universal-life-vs-whole-life-insurance" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "final-expense-insurance-for-seniors-over-70",
+    title: "Final Expense Insurance for Seniors Over 70",
+    description:
+      "Final expense options at 70, 75, 80, and 85, with published monthly costs for a $10,000 policy, simplified vs guaranteed issue, and the two-year waiting period.",
+    query: "final expense insurance for seniors over 70",
+    opportunity:
+      "Over-70 final expense page with cost by age and the graded-benefit disclosure front and center.",
+    intent: "informational",
+    answer:
+      "A $10,000 final expense policy runs about $64 to $84 a month at 70 and about $125 to $164 a month at 80 in MoneyGeek's September 2026 averages for non-tobacco simplified issue coverage. Guaranteed issue costs more and usually pays only premiums back plus interest if death comes from illness in the first two years.",
+    sections: [
+      {
+        title: "What final expense covers",
+        body: "Final expense insurance, also called burial insurance, is a small whole life policy, usually $5,000 to $25,000, that pays a lump sum to whoever you name. Families use it for the funeral, burial or cremation, and the smaller bills that follow. The National Funeral Directors Association's 2023 General Price List Study put the national median at $8,300 for a funeral with viewing and burial and $6,280 for a funeral with viewing and cremation. Those medians do not include the cemetery plot, the grave marker, or cash advances like flowers and obituaries, so the full bill is often higher.",
+      },
+      {
+        title: "Cost by age",
+        body: "MoneyGeek's final expense rate analysis, updated September 22, 2026, gives monthly averages for a $10,000 simplified-issue policy for a non-tobacco applicant. At 70, a woman averages $64 a month and a man $84. At 75, it is $87 and $113. At 80, it is $125 and $164. At 85, the averages run about $155 for a woman and $203 for a man. Women pay less at every age, and tobacco use typically adds 25 to 30 percent. These are market averages, not quotes. Your premium is set by the insurer after the application and health questions.",
+      },
+      {
+        title: "Options at 70, 75, 80, and 85",
+        body: "Simplified issue asks health questions but usually requires no medical exam, and most simplified issue policies pay the full benefit from day one. Guaranteed issue asks no health questions at all, which makes it the option of last resort when health would turn you down elsewhere. It costs more for the same benefit, and maximums are smaller, often around $25,000. Most insurers stop issuing new final expense policies at 85, though a few extend eligibility to 89 with modified underwriting.",
+      },
+      {
+        title: "The two-year waiting period on guaranteed issue",
+        body: "Most guaranteed issue policies carry a graded death benefit, usually a two-year waiting period. If death comes from illness in the first two years, the beneficiary typically gets back the premiums paid plus interest, often about 10 percent, instead of the full face amount. Accidental death usually pays the full benefit from day one. After the waiting period ends, the full benefit applies for any cause. Some policies use a three-year period instead of two. Read the graded benefit language in the actual policy before you buy, and ask what the policy pays in year one and year two for a death from illness.",
+      },
+      {
+        title: "How much coverage to buy",
+        body: "Start with what you want covered. Ten thousand to $15,000 covers a basic funeral at the national median. Fifteen thousand to $25,000 covers a funeral with cemetery costs on top. Twenty-five thousand to $40,000 leaves something beyond the funeral for small bills or family. Pick the amount from the bill you want handled, not from a round number, and ask for the funeral home's general price list before you decide. Under the FTC Funeral Rule, the funeral home must give you that written price list and let you buy only the items you want.",
+      },
+    ],
+    comparison: {
+      caption: "Simplified issue vs guaranteed issue",
+      headers: ["Feature", "Simplified vs guaranteed issue"],
+      rows: [
+        ["Health questions", "Simplified asks health questions; guaranteed issue asks none"],
+        ["Full benefit", "Simplified usually pays in full from day one; guaranteed issue usually waits two years for illness"],
+        ["Monthly cost", "Simplified costs less for the same benefit; guaranteed issue costs more"],
+        ["Who it fits", "Simplified fits most seniors; guaranteed issue fits those who cannot pass health questions"],
+      ],
+    },
+    checklist: [
+      "Decide what you want covered: funeral, cemetery, or something left over.",
+      "Ask for the funeral home's general price list before choosing an amount.",
+      "Compare simplified issue first; use guaranteed issue only if health questions block you.",
+      "Read the graded benefit language for year one and year two.",
+    ],
+    faqs: [
+      {
+        q: "How much final expense insurance do I need at 75?",
+        a: "A basic funeral runs about $8,300 at the national median, so $10,000 to $15,000 covers the funeral itself. Add cemetery costs and you are looking at $15,000 to $25,000. Choose the amount from the bill you want handled.",
+      },
+      {
+        q: "Does final expense insurance cover cremation?",
+        a: "Yes. The benefit is a lump sum your beneficiary can use for burial or cremation, whichever you prefer. The national median for a funeral with viewing and cremation was $6,280 in the NFDA's 2023 study.",
+      },
+      {
+        q: "What happens if I die in the first two years?",
+        a: "On a simplified issue policy, the full benefit usually pays. On a guaranteed issue policy, a death from illness in the first two years typically returns the premiums paid plus interest, often about 10 percent. Accidental death usually pays the full benefit from day one.",
+      },
+      {
+        q: "Can I get final expense coverage at 85?",
+        a: "Often yes. MoneyGeek's 2026 averages put a $10,000 policy at about $155 a month for an 85-year-old woman and $203 for a man. Most insurers stop issuing new policies at 85, though a few go to 89.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: Life insurance and disability insurance proceeds",
+        url: "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/life-insurance-disability-insurance-proceeds/life-insurance-disability-insurance-proceeds",
+      },
+      {
+        title: "SSA: Survivor benefits",
+        url: "https://www.ssa.gov/benefits/survivors/",
+      },
+    ],
+    related: [
+      { title: "Final expense insurance in Greensboro", href: "/final-expense-insurance" },
+      { title: "Life insurance for seniors", href: "/guides/life-insurance-for-seniors" },
+      { title: "Term life with no medical exam", href: "/answers/term-life-insurance-no-medical-exam" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "how-much-does-disability-insurance-cost",
+    title: "How Much Does Disability Insurance Cost?",
+    description:
+      "Disability insurance usually costs 1 to 3 percent of your income. See ranges by salary, what moves the price, group vs individual, and short vs long term.",
+    query: "how much does disability insurance cost per month",
+    opportunity:
+      "Cost question with a stable published rule of thumb; merged short vs long term comparison answers the follow-up in one page.",
+    intent: "informational",
+    answer:
+      "Individual long-term disability insurance usually costs 1 to 3 percent of annual income, or about $42 to $125 a month on a $50,000 salary and $83 to $250 a month on $100,000, per Policygenius's July 2026 calculator guide. Group coverage through work usually costs less.",
+    sections: [
+      {
+        title: "The 1 to 3 percent rule",
+        body: "Policygenius's disability insurance calculator guide, updated July 20, 2026, puts individual long-term disability insurance at about 1 to 3 percent of annual income. That works out to roughly $42 to $125 a month on a $50,000 salary, $63 to $188 on $75,000, and $83 to $250 on $100,000. Treat the range as a planning estimate, not a quote. Your actual premium depends on your age, health, occupation, benefit amount, waiting period, and the riders you choose.",
+      },
+      {
+        title: "Cost by benefit amount and age",
+        body: "Most policies replace 40 to 70 percent of gross income, and Policygenius suggests targeting about 60 percent, which usually lines up with after-tax pay. A $60,000 salary with a 60 percent benefit means about $3,000 a month while the claim qualifies. Younger buyers pay less because they lock in a lower rate for longer. Occupation matters too: desk work costs less to insure than manual labor, because the risk of a disabling injury is lower.",
+      },
+      {
+        title: "Group vs individual coverage",
+        body: "Group coverage through an employer is usually much cheaper, because the insurer spreads the risk across the whole workforce and does not individually underwrite each person. It often costs a few dollars per paycheck, and the employer sometimes pays part or all of it. The tradeoff is control. Group coverage usually has a maximum benefit, offsets for other income like Social Security, and limits on continuation when you leave the job. Individual coverage costs more but follows you, and you choose the definition, waiting period, and benefit period yourself.",
+      },
+      {
+        title: "Short vs long term",
+        body: "Short-term disability covers the first weeks or months, typically 13 to 26 weeks, replacing 40 to 70 percent of income. Long-term disability picks up after that, often after a 90-day elimination period, and can pay for years, often to age 65. The average long-term disability claim lasts almost three years, according to the Council for Disability Awareness. That length is the point: short-term coverage handles a rough few months, while long-term coverage protects the years when savings would run out. The Social Security Administration notes that more than one in four of today's 20-year-olds will become disabled before reaching retirement age.",
+      },
+      {
+        title: "What moves your price",
+        body: "Age at purchase, health, and occupation class set the base. Then the contract choices move it: a higher monthly benefit costs more, a longer elimination period costs less, a longer benefit period costs more, and riders add cost. Own-occupation coverage and a cost-of-living adjustment are the two riders that add the most. Ask for the price with and without each rider so you can see what it costs before you decide.",
+      },
+    ],
+    comparison: {
+      caption: "Short-term vs long-term disability coverage",
+      headers: ["Topic", "Short-term and long-term"],
+      rows: [
+        ["How long it pays", "Short-term pays for weeks to months, often 13 to 26 weeks; long-term can pay for years, often to age 65"],
+        ["When it starts", "Short-term starts after a short wait, often days to weeks; long-term starts after a longer elimination period, often 90 days"],
+        ["What it replaces", "Both replace part of income, usually 40 to 70 percent; long-term usually targets about 60 percent"],
+        ["Where you get it", "Short-term often comes through work; long-term is often bought individually to fill the gap"],
+      ],
+    },
+    checklist: [
+      "Find your monthly benefit target: about 60 percent of gross income.",
+      "Check what your employer plan covers and what it caps.",
+      "Compare elimination periods: a longer wait means a lower premium.",
+      "Confirm the definition of disability and the benefit period in writing.",
+    ],
+    faqs: [
+      {
+        q: "How much disability insurance do I need?",
+        a: "Most policies target about 60 percent of gross income, which usually lines up with after-tax pay. On a $60,000 salary that means about $3,000 a month. Subtract what your employer plan would pay before buying more.",
+      },
+      {
+        q: "Does Social Security replace private disability insurance?",
+        a: "No. Social Security Disability Insurance has a strict federal definition, a five-month waiting period, and an average benefit of about $1,634 a month for a disabled worker in early 2026. It is a safety net, not income replacement.",
+      },
+      {
+        q: "Is employer disability coverage enough?",
+        a: "Sometimes it is a good start, rarely the whole answer. Group coverage usually caps the benefit, offsets other income, and may not follow you to another job. Check the benefit booklet for the cap and the definition before you rely on it.",
+      },
+      {
+        q: "Are disability benefits taxed?",
+        a: "It depends on who paid the premiums and whether they were pre-tax or after-tax. Benefits from a policy you paid for with after-tax dollars are generally not taxable, while benefits from employer-paid pre-tax coverage generally are. The IRS FAQ on life and disability proceeds covers the rules.",
+      },
+    ],
+    sources: [
+      {
+        title: "SSA: Disability",
+        url: "https://www.ssa.gov/disability",
+      },
+      {
+        title: "IRS: Life insurance and disability insurance proceeds",
+        url: "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/life-insurance-disability-insurance-proceeds/life-insurance-disability-insurance-proceeds",
+      },
+    ],
+    related: [
+      { title: "Do I need disability insurance?", href: "/answers/do-i-need-disability-insurance" },
+      { title: "How does disability insurance work?", href: "/answers/how-does-disability-insurance-work" },
+      { title: "Life insurance help in the Triad", href: "/life-insurance" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
 ];
 
 export function findTrafficGuide(slug: string) {
