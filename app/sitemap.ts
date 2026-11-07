@@ -39,7 +39,7 @@ const STATIC_ROUTES: Array<{
   { path: "/long-term-care-insurance", changeFrequency: "monthly", priority: 0.85 },
   { path: "/short-term-care-insurance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/critical-illness-insurance", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/turning-65", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-24" },
+  { path: "/turning-65", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-11-07" },
   { path: "/medicare-costs", changeFrequency: "monthly", priority: 0.9 },
   { path: "/numbers", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
   {
@@ -52,7 +52,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-plans-ending-2027",
     changeFrequency: "weekly",
     priority: 0.95,
-    lastModified: "2026-10-26",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-plans-ending-2027/guilford-county",
@@ -101,7 +101,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-advantage-vs-medigap-greensboro-nc",
     changeFrequency: "monthly",
     priority: 0.9,
-    lastModified: "2026-10-08",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-greensboro-nc",
@@ -113,13 +113,13 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-advantage-vs-medigap",
     changeFrequency: "monthly",
     priority: 0.9,
-    lastModified: "2026-10-24",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-part-d-plans",
     changeFrequency: "monthly",
     priority: 0.9,
-    lastModified: "2026-10-24",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medigap-plans-greensboro-nc",
@@ -152,15 +152,15 @@ const STATIC_ROUTES: Array<{
     lastModified: "2026-10-09",
   },
   { path: "/special-enrollment", changeFrequency: "monthly", priority: 0.85 },
-  { path: "/aep", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-24" },
+  { path: "/aep", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-11-07" },
   { path: "/aep-quiz", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-10-12" },
   {
     path: "/questions-to-ask-medicare-agent",
     changeFrequency: "monthly",
     priority: 0.85,
-    lastModified: "2026-10-13",
+    lastModified: "2026-11-07",
   },
-  { path: "/anoc", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/anoc", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-11-07" },
   { path: "/medicare-creedmoor-nc", changeFrequency: "weekly", priority: 0.9 },
   {
     path: "/medicare-asheboro-nc",
@@ -202,7 +202,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-butner-nc",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-10-04",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-graham-nc",
@@ -293,7 +293,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-advantage-doctor-networks",
     changeFrequency: "monthly",
     priority: 0.9,
-    lastModified: "2026-10-29",
+    lastModified: "2026-11-07",
   },
   { path: "/social-security-timing", changeFrequency: "monthly", priority: 0.9 },
   { path: "/keep-my-doctor", changeFrequency: "monthly", priority: 0.9 },
@@ -338,7 +338,7 @@ const STATIC_ROUTES: Array<{
     path: "/part-b-penalty",
     changeFrequency: "monthly",
     priority: 0.9,
-    lastModified: "2026-11-04",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-costs-2026",
@@ -571,15 +571,23 @@ const CONTENT_LAST_REVIEWED = "2026-10-01";
 const SEO_REVIEWED_PATHS = new Set([
   "/guides",
   "/life-insurance",
-  "/guides/medicare-advantage-plans-leaving-nc-2027",
   "/guides/nc-state-health-plan-medicare",
-  "/guides/extra-help-medicare-savings-programs-nc",
   "/guides/chronic-condition-special-needs-plans",
-  "/guides/medicare-automatic-renewal",
   "/guides/moving-to-north-carolina-medicare",
+  "/wealth/tax-brackets-explained-plainly",
+]);
+
+// Pages genuinely edited in PR 3 (rankings rewrites plus Batch 2 content
+// fixes), reviewed 2026-11-07. Kept separate so the 2026-11-05 bulk stamp
+// above stays truthful for pages this PR did not touch.
+const SEO_REVIEWED_2026_11_07 = new Set([
+  "/guides/medicare-automatic-renewal",
   "/guides/medicare-part-b-employer-coverage",
   "/guides/medicare-travel",
-  "/wealth/tax-brackets-explained-plainly",
+  "/guides/medicare-advantage-plans-leaving-nc-2027",
+  "/guides/extra-help-medicare-savings-programs-nc",
+  "/guides/cobra-vs-medicare-at-65",
+  "/guides/what-medicare-does-not-cover",
 ]);
 
 const NEW_SEARCH_PATHS = [
@@ -607,7 +615,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       // Next emits the homepage canonical as the origin with no trailing slash.
       // Every other path already matches its canonical.
       url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
-      lastModified: SEO_REVIEWED_PATHS.has(path) ? "2026-11-05" : (own ?? lastModified),
+      lastModified: SEO_REVIEWED_2026_11_07.has(path)
+        ? "2026-11-07"
+        : SEO_REVIEWED_PATHS.has(path)
+          ? "2026-11-05"
+          : (own ?? lastModified),
       changeFrequency,
       priority,
     })),

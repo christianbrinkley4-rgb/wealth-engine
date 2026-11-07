@@ -2,15 +2,22 @@ import { SeoGuidePage, seoGuideMetadata, type SeoGuideData } from "@/app/compone
 
 const data: SeoGuideData = {
   slug: "medicare-part-b-employer-coverage",
-  title: "Do I need Medicare Part B if I am still working?",
-  metaTitle: "Do I Need Medicare Part B If I Am Still Working?",
+  title: "When should I apply for Medicare Part B if I am still working?",
+  metaTitle: "When to Apply for Medicare Part B If You Are Still Working",
   description:
-    "Still working at 65? Check current job coverage, employer size, who pays first, and Part B enrollment timing before deciding whether to delay.",
+    "Still working at 65? Learn when to apply for Part B, the 8-month window after work coverage ends, and who pays first.",
   published: "2026-10-08",
-  reviewed: "2026-11-05",
+  reviewed: "2026-11-07",
   answer:
-    "You may be able to delay Medicare Part B if you have group health coverage through your or your spouse's current employment. Check who pays first and whether you qualify for a Special Enrollment Period before delaying, because working by itself isn't enough.",
+    "If you have group coverage through your own or your spouse's current job, you can usually wait to apply for Part B until that work or coverage ends. After it ends you generally have 8 months to apply under a Special Enrollment Period, and coverage usually starts the month after you apply. Do not wait the full 8 months if coverage is ending now.",
   sections: [
+    {
+      title: "When to apply for Part B while you are still working",
+      paragraphs: [
+        "There are three timing cases, and which one applies depends on your coverage. First, your Initial Enrollment Period, the 7 months around your 65th birthday, if you do not have qualifying coverage through current work. Second, the 8-month Special Enrollment Period after current employment or qualifying group coverage ends, whichever happens first. Third, General Enrollment, January 1 through March 31, with coverage generally starting the month after you sign up, if no Special Enrollment Period applies.",
+        "Check who pays first before you decide to wait. If the employer plan pays first, waiting is usually safe. If Medicare pays first, delaying Part B can leave a gap. Ask your benefits office for the answers in writing.",
+      ],
+    },
     {
       title: "Two questions to ask your benefits office",
       paragraphs: [
@@ -44,7 +51,7 @@ const data: SeoGuideData = {
     {
       title: "COBRA and retiree coverage need a separate check",
       paragraphs: [
-        "They generally aren't current-employment coverage for delaying Part B. An eight-month Special Enrollment Period generally runs after employment or qualifying group coverage ends, whichever happens first. Don't wait eight months if coverage is ending now. Coordinate the Medicare start date before losing the coverage paying your bills. Sources: [SSA's work-coverage explanation](https://www.ssa.gov/faqs/en/questions/KA-02983.html), [Medicare working past 65](https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/working-past-65).",
+        "They generally aren't current-employment coverage for delaying Part B. Don't wait the full 8 months if coverage is ending now. Coordinate the Medicare start date before losing the coverage paying your bills. Sources: [SSA's work-coverage explanation](https://www.ssa.gov/faqs/en/questions/KA-02983.html), [Medicare working past 65](https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/working-past-65).",
       ],
     },
     {
@@ -56,7 +63,7 @@ const data: SeoGuideData = {
     {
       title: "If you missed your enrollment period",
       paragraphs: [
-        "Ask whether a Special Enrollment Period applies. General Enrollment runs January 1 through March 31, and coverage generally begins the month after you sign up. Source: [CMS's enrollment guidance](https://www.cms.gov/training-education/find-provider-type/employers-unions/top-five-medicare-enrollment).",
+        "If none of the three timing cases above fits your situation, ask Social Security whether a Special Enrollment Period applies to you. The fallback is General Enrollment, January 1 through March 31, with coverage generally starting the month after you sign up. Source: [CMS's enrollment guidance](https://www.cms.gov/training-education/find-provider-type/employers-unions/top-five-medicare-enrollment).",
       ],
     },
     {
@@ -68,6 +75,10 @@ const data: SeoGuideData = {
     },
   ],
   faqs: [
+    {
+      q: "Do I need Part B if I am still working?",
+      a: "Not always right at 65. If you have group coverage through current employment, yours or your spouse's, you can usually delay Part B without a penalty, but check who pays first and confirm the coverage counts before you wait.",
+    },
     {
       q: "Does a small employer mean a Part B penalty is automatic?",
       a: "No. Who pays first and whether an enrollment exception applies are different questions. Confirm both before delaying.",

@@ -7,6 +7,7 @@ import Page, { generateMetadata, generateStaticParams } from "@/app/guides/[slug
 import sitemap from "@/app/sitemap";
 import { GET as shortIndex } from "@/app/llms.txt/route";
 import { GET as fullIndex } from "@/app/llms-full.txt/route";
+import { ARTICLES } from "@/lib/articles";
 import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
 
@@ -30,7 +31,12 @@ describe("traffic guide publishing contract", () => {
       expect(paths.filter((value) => value === path)).toHaveLength(isOffTopicPath(path) ? 0 : 1);
       for (const index of indexes) expect(index).toContain(path);
       for (const link of guide.related) {
-        const dynamic = TRAFFIC_GUIDES.some((item) => link.href === `/guides/${item.slug}`);
+        // Related links resolve to a traffic guide, an answers article
+        // (dynamic [slug] route, so no static page file exists), or a
+        // static page file.
+        const dynamic =
+          TRAFFIC_GUIDES.some((item) => link.href === `/guides/${item.slug}`) ||
+          ARTICLES.some((item) => link.href === `/answers/${item.slug}`);
         expect(dynamic || existsSync(resolve(`app${link.href}/page.tsx`))).toBe(true);
       }
     }

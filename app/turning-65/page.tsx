@@ -120,7 +120,7 @@ export default function Turning65Page() {
                 "The seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window you generally get once.",
               path: "/turning-65",
               datePublished: "2026-08-31",
-              dateModified: "2026-10-12",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -246,7 +246,11 @@ export default function Turning65Page() {
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             If your seven-month window has already passed, there is a General Enrollment Period
             every year from January 1 through March 31, and Part B coverage starts the month after
-            you sign up. A late penalty can still apply,{" "}
+            you sign up. If you are still working, see{" "}
+            <Link href="/guides/medicare-part-b-employer-coverage" className="font-medium underline underline-offset-2">
+              when to apply for Part B while still working
+            </Link>
+            . A late penalty can still apply,{" "}
             <Link href="/part-b-penalty" className="font-medium underline underline-offset-2">
               work out what it would cost in your case
             </Link>,
@@ -263,6 +267,10 @@ export default function Turning65Page() {
             >
               Medicare.gov explains when coverage starts
             </a>
+            . And once you are enrolled,{" "}
+            <Link href="/guides/medicare-automatic-renewal" className="font-medium underline underline-offset-2">
+              coverage usually renews automatically
+            </Link>
             .
           </p>
         </div>
@@ -494,7 +502,7 @@ export default function Turning65Page() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-12" />
+      <MedicareByline reviewed="2026-11-07" />
       <RelatedMedicareGuides />
     </main>
   );

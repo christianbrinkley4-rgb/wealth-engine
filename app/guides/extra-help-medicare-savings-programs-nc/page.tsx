@@ -7,7 +7,7 @@ const data: SeoGuideData = {
   description:
     "Compare Extra Help and Medicare Savings Programs in NC. See what each program covers, where to apply, and which financial limits need checking.",
   published: "2026-10-08",
-  reviewed: "2026-11-05",
+  reviewed: "2026-11-07",
   answer:
     "Extra Help assists with Medicare Part D drug costs, while Medicare Savings Programs assist with certain Medicare premiums and, for QMB, covered medical cost sharing. In North Carolina, Social Security handles Extra Help applications, and NC Medicaid or county social services handles Medicare Savings Program applications.",
   sections: [
@@ -96,7 +96,7 @@ const data: SeoGuideData = {
   related: [
     {
       href: "/answers/what-does-it-mean-to-be-dual-eligible-for-medicare-and-medicaid",
-      label: "How Medicare and Medicaid work together",
+      label: "What dual eligible means",
     },
     {
       href: "/medicare-help-directory",

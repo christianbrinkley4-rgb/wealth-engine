@@ -68,7 +68,7 @@ export default function PartDPlansPage() {
           description,
           path,
           datePublished: "2026-10-24",
-          dateModified: "2026-10-24",
+          dateModified: "2026-11-07",
         }),
         serviceJsonLd({ name: "Free Medicare consultation in Greensboro", description, path }),
         faqJsonLd(FAQ),
@@ -88,7 +88,26 @@ export default function PartDPlansPage() {
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free conversation"
       />
-      <MedicareByline reviewed="2026-10-24" />
+      <MedicareByline reviewed="2026-11-07" />
+
+      <section className="measure-prose app-shell max-w-3xl py-8">
+        <h2 className="text-28 font-semibold">The National Rules First</h2>
+        <p className="text-17 mt-4 leading-relaxed">
+          Part D is a federal program, so the framework below works the same in every state. The
+          deductible ceiling, the out-of-pocket cap, the late penalty, and the fall enrollment
+          window are all set nationally.
+        </p>
+        <p className="text-17 mt-4 leading-relaxed">
+          What changes by place is the plan list. Each Part D plan sets its own formulary, tiers,
+          premiums, and pharmacy network, and the plans offered in your county are the only ones
+          you can buy. So use this page for the comparison framework, then check your exact drugs
+          against the plans available at your home address. If you live in the Triad, the{" "}
+          <Link href="/medicare-part-d-greensboro-nc" className="underline underline-offset-2">
+            Greensboro Part D guide
+          </Link>{" "}
+          adds the local detail.
+        </p>
+      </section>
 
       <section className="measure-prose app-shell max-w-3xl py-8">
         <h2 className="text-28 font-semibold">How does Medicare Part D work?</h2>

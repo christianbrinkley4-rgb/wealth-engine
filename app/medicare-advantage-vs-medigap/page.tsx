@@ -102,7 +102,7 @@ export default function AdvantageVsMedigapPage() {
           description,
           path,
           datePublished: "2026-10-24",
-          dateModified: "2026-10-24",
+          dateModified: "2026-11-07",
         }),
         serviceJsonLd({ name: "Free Medicare consultation in Greensboro", description, path }),
         faqJsonLd(FAQ),
@@ -122,7 +122,29 @@ export default function AdvantageVsMedigapPage() {
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free conversation"
       />
-      <MedicareByline reviewed="2026-10-24" />
+      <MedicareByline reviewed="2026-11-07" />
+
+      <section className="measure-prose app-shell max-w-3xl py-8">
+        <h2 className="text-28 font-semibold">The National Rules First</h2>
+        <p className="text-17 mt-4 leading-relaxed">
+          The rules below are federal, so they work the same in every state. Medicare Advantage is
+          a bundled alternative to Original Medicare, Medigap fills gaps around Original Medicare,
+          and the enrollment windows and late penalties are set nationally.
+        </p>
+        <p className="text-17 mt-4 leading-relaxed">
+          What changes by place is the plan list. Advantage and Part D plans are sold by county,
+          and Medigap premiums vary by insurer, age, and where you live. So use this page for the
+          comparison framework, then check the exact plans at your home address. If you live in the
+          Triad, the{" "}
+          <Link
+            href="/medicare-advantage-vs-medigap-greensboro-nc"
+            className="underline underline-offset-2"
+          >
+            local coverage comparison for Greensboro
+          </Link>{" "}
+          adds the county detail.
+        </p>
+      </section>
 
       <section className="measure-prose app-shell max-w-3xl py-8">
         <h2 className="text-28 font-semibold">Start With Original Medicare</h2>
@@ -197,6 +219,14 @@ export default function AdvantageVsMedigapPage() {
             </tbody>
           </ResponsiveTable>
         </div>
+        <p className="text-17 mt-4 leading-relaxed">
+          Traveling?{" "}
+          <Link href="/guides/medicare-travel" className="underline underline-offset-2">
+            Medicare Advantage covers emergency care out of state, but routine care depends on the
+            plan
+          </Link>
+          .
+        </p>
       </section>
 
       <section className="measure-prose app-shell max-w-3xl py-8">

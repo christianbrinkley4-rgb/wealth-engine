@@ -7,14 +7,23 @@ const data: SeoGuideData = {
   description:
     "Medicare Advantage covers emergency and urgently needed care while traveling in the US. Routine care depends on your plan. Check HMO and PPO rules.",
   published: "2026-10-08",
-  reviewed: "2026-11-05",
+  reviewed: "2026-11-07",
   answer:
     "Medicare Advantage plans cover emergency and urgently needed care while you're traveling in the United States. Routine out-of-state visits depend on your plan's network, benefits, and approval rules, so don't assume a doctor who accepts Medicare is covered by your plan.",
   sections: [
     {
-      title: "What kind of care do you need?",
+      title: "Can I use my Medicare in another state?",
       paragraphs: [
+        "Yes, with Original Medicare you can generally use any provider that accepts Medicare, anywhere in the United States. Medicare Advantage works differently, so the answer depends on which kind of coverage you have.",
+        "Original Medicare generally allows covered care with Medicare-accepting providers across the US. Standard Medigap generally follows covered Medicare services, while Medicare SELECT policies can have network restrictions. Foreign care has different, limited rules; don't use an out-of-state answer as an overseas-coverage promise. Source: [Medicare foreign coverage guide](https://www.medicare.gov/publications/11037-medicare-coverage-outside-the-united-states.pdf).",
+      ],
+    },
+    {
+      title: "Do Medicare Advantage plans cover out of state?",
+      paragraphs: [
+        "Medicare Advantage plans cover emergency and urgently needed care while you're traveling in the United States. Routine care depends on your plan's network, benefits, and approval rules, so don't assume a doctor who accepts Medicare is covered by your plan.",
         "HMO plans generally restrict routine care to their network, with specified exceptions. PPO plans generally allow out-of-network covered services at a different cost, but provider acceptance and plan terms still matter. Sources: [Medicare HMO rules](https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/HMO), [Medicare PPO rules](https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options/PPO).",
+        "Give member services the provider's name, location, service, and date before a planned appointment. Ask whether the visit is covered, whether approval is required, and what cost sharing applies. Confirm with the provider too. A carrier's logo on a website doesn't prove participation in your exact plan. Keep the answer and any confirmation number.",
       ],
       table: {
         caption: "What kind of care do you need?",
@@ -40,21 +49,16 @@ const data: SeoGuideData = {
       },
     },
     {
-      title: "Ask before a planned appointment",
-      paragraphs: [
-        "Give member services the provider's name, location, service, and date. Ask whether the visit is covered, whether approval is required, and what cost sharing applies. Confirm with the provider too. A carrier's logo on a website doesn't prove participation in your exact plan. Keep the answer and any confirmation number.",
-      ],
-    },
-    {
       title: "A long visit isn't the same as a move",
       paragraphs: [
-        "Plans have rules about how long you can remain outside the service area. Ask before an extended stay. If you're changing your permanent address, a move-related Special Enrollment Period may apply. Use the [Medicare enrollment guide](https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods), not a routine travel benefit, to check that situation.",
+        "Plans have rules about how long you can remain outside the service area. If you have not moved but have been out of your Medicare Advantage plan's service area for more than 6 months in a row, the plan must disenroll you. The exception is a plan that offers a visitor or traveler benefit: it can let you stay enrolled while you are out of the service area but still in the US for more than 6 months and less than 12 months, with disenrollment on the first day of the 13th month. Check whether your plan offers that benefit before an extended stay. Source: [42 CFR 422.74, disenrollment by the MA organization](https://www.ecfr.gov/api/renderer/v1/content/enhanced/2024-04-25/title-42?chapter=IV&subchapter=B&part=422&subpart=B&section=422.74).",
+        "If you're changing your permanent address, a move-related Special Enrollment Period may apply. Use the [Medicare enrollment guide](https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods), not a routine travel benefit, to check that situation.",
       ],
     },
     {
       title: "Original Medicare and foreign travel",
       paragraphs: [
-        "Original Medicare generally allows covered care with Medicare-accepting providers across the US. Standard Medigap generally follows covered Medicare services, while Medicare SELECT policies can have network restrictions. Foreign care has different, limited rules; don't use an out-of-state answer as an overseas-coverage promise. Source: [Medicare foreign coverage guide](https://www.medicare.gov/publications/11037-medicare-coverage-outside-the-united-states.pdf).",
+        "Foreign care has different, limited rules. Original Medicare generally does not pay for care outside the United States except in rare situations near the border. Don't use an out-of-state answer as an overseas-coverage promise. Source: [Medicare foreign coverage guide](https://www.medicare.gov/publications/11037-medicare-coverage-outside-the-united-states.pdf).",
       ],
     },
     {
@@ -101,6 +105,10 @@ const data: SeoGuideData = {
     {
       label: "Medicare foreign coverage guide",
       href: "https://www.medicare.gov/publications/11037-medicare-coverage-outside-the-united-states.pdf",
+    },
+    {
+      label: "42 CFR 422.74: Disenrollment by the MA organization",
+      href: "https://www.ecfr.gov/api/renderer/v1/content/enhanced/2024-04-25/title-42?chapter=IV&subchapter=B&part=422&subpart=B&section=422.74",
     },
   ],
   related: [

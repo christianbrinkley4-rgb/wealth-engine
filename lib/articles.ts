@@ -7479,7 +7479,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Dual eligible means qualifying for Medicare and Medicaid assistance together. Full benefits and partial cost assistance follow different rules.",
     published: "2026-10-14",
-    updated: "2026-11-05",
+    updated: "2026-11-07",
     intro:
       "Dual eligible means you qualify for Medicare and Medicaid assistance at the same time. Some people receive full Medicaid benefits, while others receive limited help with Medicare costs through a Medicare Savings Program.",
     sections: [
@@ -7488,21 +7488,46 @@ export const ARTICLES: Article[] = [
         blocks: [
           {
             kind: "table",
-            headers: ["Category", "What to understand"],
+            headers: ["Category", "What it pays for", "Income limit"],
             rows: [
               [
-                "Full Medicaid plus Medicare",
-                "Medicaid may cover additional services and help with Medicare costs under state rules",
+                "QMB (Qualified Medicare Beneficiary)",
+                "Pays Part A and Part B premiums, plus Medicare deductibles, coinsurance, and copays. Providers may not bill you for Medicare cost sharing",
+                "Up to 100% of the federal poverty level. 2026: $1,350 a month for one person, $1,824 for a couple",
               ],
               [
-                "Partial dual eligibility",
-                "Assistance is limited to the benefits of the qualifying Medicare Savings Program",
+                "SLMB (Specified Low-Income Medicare Beneficiary)",
+                "Pays the Part B premium only",
+                "100% to 120% of the federal poverty level. 2026: $1,616 a month for one person, $2,184 for a couple",
+              ],
+              [
+                "QI (Qualifying Individual)",
+                "Pays the Part B premium only, when the state has slots available. Federal funding is capped and first come, first served",
+                "120% to less than 135% of the federal poverty level. 2026: $1,816 a month for one person, $2,455 for a couple",
+              ],
+              [
+                "Full dual eligible",
+                "Full Medicaid benefits on top of Medicare, plus help with Medicare premiums and cost sharing. What Medicaid covers beyond Medicare varies by state",
+                "Set by the state, not by a single federal income limit",
               ],
             ],
           },
           {
             kind: "p",
-            text: "The category affects the help available. A Medicaid or Medicare Savings Program approval letter is more useful than assuming everyone with two cards has identical benefits. Source: [CMS dual-eligibility fact sheet](https://www.cms.gov/files/document/beneficiaries-dually-eligible-medicare-medicaid.pdf).",
+            text: "The category affects the help available. A Medicaid or Medicare Savings Program approval letter is more useful than assuming everyone with two cards has identical benefits. The 2026 federal resource limit for QMB, SLMB, and QI is $9,950 for one person and $14,910 for a couple. States can set higher income and resource limits, and some states do not count resources at all, so check with NC Medicaid or your county DSS office. Source: [CMS dual-eligibility fact sheet](https://www.cms.gov/files/document/dual-eligible-categories.pdf-0).",
+          },
+        ],
+      },
+      {
+        h2: "Full dual eligible vs partial dual eligible",
+        blocks: [
+          {
+            kind: "p",
+            text: "Full dual eligible means you have Medicare plus full Medicaid benefits. Medicaid covers services Medicare does not, like long-term care and some dental and vision care, and helps with Medicare premiums and cost sharing. People with QMB Plus, SLMB Plus, or other full-benefit Medicaid fall in this group.",
+          },
+          {
+            kind: "p",
+            text: "Partial dual eligible means you have Medicare plus a Medicare Savings Program that pays some Medicare costs, but not full Medicaid. QMB Only, SLMB Only, and QI are partial categories. QMB is the most generous of the three because it also covers Medicare deductibles, coinsurance, and copays. SLMB and QI cover the Part B premium only.",
           },
         ],
       },
@@ -7529,7 +7554,7 @@ export const ARTICLES: Article[] = [
         blocks: [
           {
             kind: "p",
-            text: "QMB has a specific protection against being billed for Medicare-covered deductibles, coinsurance, and copayments. That isn't a blanket statement that all bills are prohibited for everyone described as dual eligible. Show the appropriate coverage cards and ask the billing office to check your exact category before paying a disputed Medicare cost-sharing bill. Source: [CMS QMB guidance in the fact sheet](https://www.cms.gov/files/document/beneficiaries-dually-eligible-medicare-medicaid.pdf).",
+            text: "QMB has a specific protection against being billed for Medicare-covered deductibles, coinsurance, and copayments. That isn't a blanket statement that all bills are prohibited for everyone described as dual eligible. Show the appropriate coverage cards and ask the billing office to check your exact category before paying a disputed Medicare cost-sharing bill. Source: [CMS QMB guidance in the fact sheet](https://www.cms.gov/files/document/dual-eligible-categories.pdf-0).",
           },
         ],
       },
@@ -7581,7 +7606,7 @@ export const ARTICLES: Article[] = [
     sources: [
       {
         label: "CMS dual-eligibility fact sheet",
-        href: "https://www.cms.gov/files/document/beneficiaries-dually-eligible-medicare-medicaid.pdf",
+        href: "https://www.cms.gov/files/document/dual-eligible-categories.pdf-0",
       },
       {
         label: "Medicare and Medicaid coordination",

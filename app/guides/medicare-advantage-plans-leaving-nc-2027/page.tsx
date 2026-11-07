@@ -7,7 +7,7 @@ const data: SeoGuideData = {
   description:
     "Check whether your NC Medicare Advantage plan is ending or being replaced for 2027. Learn which notices, deadlines, and coverage choices matter.",
   published: "2026-10-08",
-  reviewed: "2026-11-05",
+  reviewed: "2026-11-07",
   answer:
     "Some Medicare Advantage plans in North Carolina won't continue in 2027, but a carrier name alone can't tell you whether your coverage is ending. Check your exact plan ID, county, and notice to find out whether your plan is terminating, leaving your area, or moving members into another plan.",
   sections: [
@@ -16,6 +16,7 @@ const data: SeoGuideData = {
       paragraphs: [
         "The examples below were checked against CMS's October 1, 2026 Plan Crosswalk for 2027. The 2026 county examples come from CMS's September 2026 landscape. This is a selected list, not every plan change in North Carolina. A change to one plan doesn't mean the insurance company is leaving the state.",
         "CMS lists the two HumanaChoice plans below as terminated with no receiving plan in that crosswalk. It lists the UHC example as a consolidated renewal with a receiving plan. Read your own notice to confirm what happens to your enrollment. Don't treat a consolidation as a termination or assume another plan has the same doctors, drugs, or costs.",
+        "Most plans [renew automatically](/guides/medicare-automatic-renewal). A nonrenewal letter is the exception, not the rule.",
       ],
       table: {
         caption: "Selected CMS-verified 2026 to 2027 changes, checked November 5, 2026",

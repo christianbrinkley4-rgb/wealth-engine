@@ -93,7 +93,7 @@ export default function WhatMedicareDoesNotCoverPage() {
                 "Every major Medicare coverage gap in one place: dental, vision, hearing, long-term care, foreign travel, and cost-sharing with no cap.",
               path: "/guides/what-medicare-does-not-cover",
               datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -177,6 +177,15 @@ export default function WhatMedicareDoesNotCoverPage() {
               Chiropractic care is covered only to correct a spinal subluxation.
             </li>
           </ul>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            One service people ask about is ambulance rides. Original Medicare covers them only
+            when other transportation would endanger your health, and the Part B deductible and
+            20 percent cost sharing apply. See{" "}
+            <Link href="/answers/does-medicare-cover-ambulance" className="underline underline-offset-2">
+              does Medicare cover ambulance rides
+            </Link>{" "}
+            for the medical-necessity test and what you pay.
+          </p>
 
           <h2 className="text-28 mt-12 font-semibold">The cost-sharing gaps</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -327,7 +336,7 @@ export default function WhatMedicareDoesNotCoverPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-08" />
+      <MedicareByline reviewed="2026-11-07" />
     </main>
   );
 }
