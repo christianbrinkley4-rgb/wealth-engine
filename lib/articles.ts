@@ -5564,19 +5564,19 @@ export const ARTICLES: Article[] = [
       {
         h2: "The 10x income rule, as a quick check",
         blocks: [
-          p("Multiply your annual income by 10. A $65,000 income means $650,000 of coverage. It is fast, and it is rough. It ignores your mortgage and debts. Use it as a gut check, then run DIME for a number that fits your life."),
+          p("Multiply your annual income by 10. A $65,000 income means $650,000 of coverage. It is fast, and it is rough. It ignores your mortgage and debts. Use it as a rough check, then run DIME for a number that fits your life."),
         ],
       },
       {
-        h2: "If you stay home with the kids",
+        h2: "If you stay home with the children",
         blocks: [
           p("A stay-at-home parent earns no paycheck, but replacing the work costs real money: childcare, meals, cleaning, and everything else that keeps a household going. Price that work as if you had to hire it out, then add final expenses and any debts. A $250,000 to $500,000 term policy is a common starting point, and the right number comes from the same DIME math."),
         ],
       },
       {
-        h2: "If you are single with no kids",
+        h2: "If you are single with no children",
         blocks: [
-          p("You may need less, but rarely none. Cover your debts, your final expenses, and anyone who depends on you, like a parent you help support. A small term policy can do that for a few dollars a month when you are young."),
+          p("You may need less, but rarely none. Cover your debts, your final expenses, and anyone who depends on you, like a parent you help support. A small term policy can do that for a few dollars a month."),
         ],
       },
       {
@@ -5589,7 +5589,7 @@ export const ARTICLES: Article[] = [
         h2: "Here is a practical checklist if you are thinking about buying",
         blocks: [
           p("First, figure out who depends on you and what they would need. Second, decide how long you need coverage. Third, compare term quotes from more than one company. Fourth, read the policy: term length, death benefit, premium, and whether the premium can change. Fifth, name your beneficiaries carefully and review them after big life events."),
-          p("Life insurance is not exciting. It is a safety net. You hope your family never needs it. Start with your needs, keep it simple, and get coverage that fits your life and your budget. That is the whole point."),
+          p("Life insurance is a safety net. You hope your family never needs it. Start with your needs, keep it simple, and get coverage that fits your life and your budget."),
         ],
       },
     ],
@@ -10890,12 +10890,12 @@ export const ARTICLES: Article[] = [
     lede: "Life insurance has a simple job. If you die, it pays money to the people you name. That is it.",
     published: "2026-10-14",
     updated: "2026-11-07",
-    intro: "Life insurance has a simple job. If you die, it pays money to the people you name. That is it. But the way policies do that job varies a lot, and the three main types get confused constantly. Here is each one explained the way I would explain it sitting across a kitchen table.",
+    intro: "Life insurance has a simple job. If you die, it pays money to the people you name. That is it. But the way policies do that job varies a lot, and the three main types get confused constantly. Here is how each one works.",
     sections: [
       {
         h2: "What life insurance is for",
         blocks: [
-          p("Before the types, the purpose. Life insurance replaces income that disappears when you do. If people depend on your paycheck, your business, or your caregiving, a policy makes sure they are not left scrambling. Common reasons people buy it: covering a mortgage so the family keeps the house, replacing income for a spouse or kids, paying off debts, covering final expenses, or leaving something behind. The right type depends on how long you need that protection and what else you want the policy to do."),
+          p("Before the types, the purpose. Life insurance replaces income that disappears when you do. If people depend on your paycheck, your business, or your caregiving, a policy makes sure they can keep going. Common reasons people buy it: covering a mortgage so the family keeps the house, replacing income for a spouse or children, paying off debts, covering final expenses, or leaving something behind. The right type depends on how long you need that protection and what else you want the policy to do."),
         ],
       },
       {
@@ -10942,13 +10942,13 @@ export const ARTICLES: Article[] = [
         h2: "How to choose",
         blocks: [
           p("Start with two questions. First, how much protection does your family need and for how long: mortgage, debts, years of income to replace, and future costs like college. Second, what is your budget. A smaller permanent policy does not beat a properly sized term policy when the real risk is the next 20 years."),
-          p("A common approach: buy term for the big temporary need, like income replacement while kids grow up, and add a smaller permanent policy only for a genuine lifelong need. Do not buy permanent coverage just because someone called term “renting.” Renting a big enough roof beats owning a dollhouse."),
+          p("A common approach: buy term for the big temporary need, like income replacement while children are growing up, and add a smaller permanent policy only for a genuine lifelong need. Do not buy permanent coverage just because someone called term “renting.” A term policy large enough to cover the need protects your family better than a small permanent policy that does not."),
         ],
       },
       {
         h2: "The bottom line",
         blocks: [
-          p("None of these is the best type in the abstract. The best type matches your need, your timeline, and your budget. Most working families with young kids land on term, and that is a perfectly good answer. The mistake is not picking the wrong type. The mistake is putting it off while you research."),
+          p("None of these is the best type in the abstract. The best type matches your need, your timeline, and your budget. Most working families with young children choose term, and that is a sound answer. The mistake is not picking the wrong type. The mistake is putting it off while you research."),
           p("I am a licensed insurance agent in North Carolina, and I walk people through exactly this comparison. If you want help figuring out how much coverage you need and which type fits, call or text (919) 408-6671. No pressure, just straight answers."),
         ],
       },
@@ -10956,11 +10956,11 @@ export const ARTICLES: Article[] = [
     faq: [
       {
         q: "What life insurance is for?",
-        a: "Before the types, the purpose. Life insurance replaces income that disappears when you do. If people depend on your paycheck, your business, or your caregiving, a policy makes sure they are not left scrambling.",
+        a: "Before the types, the purpose. Life insurance replaces income that disappears when you do. If people depend on your paycheck, your business, or your caregiving, a policy makes sure they can keep going.",
       },
       {
         q: "What is the quick comparison?",
-        a: "Term: temporary, cheapest, no cash value, biggest death benefit per dollar. Whole: permanent, most expensive, guaranteed cash value, set it and forget it. Universal: permanent, middle to higher cost, flexible premiums, needs monitoring.",
+        a: "Term: temporary, lowest cost, no cash value, biggest death benefit per dollar. Whole: permanent, most expensive, guaranteed cash value, little to manage. Universal: permanent, middle to higher cost, flexible premiums, needs monitoring.",
       },
       {
         q: "How do I choose?",
@@ -10985,10 +10985,10 @@ export const ARTICLES: Article[] = [
     description: "Disability insurance protects your paycheck, not your stuff. Learn why it is the most overlooked coverage, what own-occupation means, and how group",
     keyword: "disability insurance",
     eyebrow: "Insurance, explained",
-    lede: "Ask a room of people what insurance they have, and you will hear car, home, health, maybe life. Almost nobody says disability.",
+    lede: "Most people carry car, home, health, and life insurance. Almost nobody carries disability insurance.",
     published: "2026-10-14",
     updated: "2026-11-07",
-    intro: "Ask a room of people what insurance they have, and you will hear car, home, health, maybe life. Almost nobody says disability. That is strange, because your ability to earn a paycheck is the engine behind everything else you insure. The house, the car, the retirement savings: all of it runs on income. Disability insurance is the policy that protects the engine itself.",
+    intro: "Most people carry car, home, health, and life insurance. Almost nobody carries disability insurance. That is worth a second look, because your ability to earn a paycheck supports everything else you insure. The house, the car, the retirement savings all run on income. Disability insurance is the policy that protects that income.",
     sections: [
       {
         h2: "Why it is the most overlooked coverage",
@@ -11011,7 +11011,7 @@ export const ARTICLES: Article[] = [
       {
         h2: "Group vs individual coverage",
         blocks: [
-          p("Many employers offer group disability insurance, often short term and sometimes long term. It is usually cheap or free to the employee, and that makes it an easy yes. Take it. But know its limits."),
+          p("Many employers offer group disability insurance, often short term and sometimes long term. It is usually low cost or free to the employee, and it is worth taking. But know its limits."),
         ],
       },
       {
@@ -11023,7 +11023,7 @@ export const ARTICLES: Article[] = [
       {
         h2: "Who needs it most",
         blocks: [
-          p("If anyone depends on your income, including future you, you are a candidate. It matters most for people in their prime earning years, people with specialized skills, business owners with no employer plan to fall back on, and anyone whose family would face real hardship after a few months without a paycheck. If you have six months of expenses saved and no dependents, your need is smaller. If you have a mortgage, kids, and a job that requires your body or your specific expertise, your need is large."),
+          p("If anyone depends on your income, now or later, you are a candidate. It matters most for people in their prime earning years, people with specialized skills, business owners with no employer plan to fall back on, and anyone whose family would face real hardship after a few months without a paycheck. If you have six months of expenses saved and no dependents, your need is smaller. If you have a mortgage, children, and a job that requires your body or your specific expertise, your need is large."),
         ],
       },
       {
@@ -11035,7 +11035,7 @@ export const ARTICLES: Article[] = [
       {
         h2: "The bottom line",
         blocks: [
-          p("You insure your car against a fender bender. Your income deserves at least the same respect. Disability insurance is not exciting, and that is exactly why it gets skipped. But it is the policy that keeps every other part of your financial life standing when you cannot work."),
+          p("You insure your car against an accident. Your income deserves at least the same care. Disability insurance draws little attention, and that is exactly why it gets skipped. But it is the policy that keeps every other part of your financial life standing when you cannot work."),
           p("I am a licensed insurance agent in North Carolina. If you want to see what your employer plan actually covers and whether an individual policy makes sense to fill the gaps, call or text (919) 408-6671 or visit christianbrinkleync.com. We will look at the definitions together, in plain English."),
         ],
       },
@@ -11043,7 +11043,7 @@ export const ARTICLES: Article[] = [
     faq: [
       {
         q: "Why it is the most overlooked coverage?",
-        a: "People skip disability insurance for a few predictable reasons. First, nobody likes picturing themselves unable to work. Death feels abstract and noble. Disability feels scary and specific, so people look away. Second, most people assume it will not happen to them.",
+        a: "People skip disability insurance for a few predictable reasons. First, nobody likes picturing themselves unable to work. Death feels distant. Disability feels close and specific, so people look away. Second, most people assume it will not happen to them.",
       },
       {
         q: "What it actually does?",
@@ -12130,7 +12130,7 @@ export const ARTICLES: Article[] = [
     published: "2026-11-07",
     updated: "2026-11-07",
     intro:
-      "Whole life and universal life are both permanent insurance, designed to last your whole life if you keep paying, and they both build cash value. The difference is control. Whole life keeps the moving parts fixed: one premium, one death benefit, one guaranteed growth rate on the cash value. Universal life separates the parts and lets you adjust them within limits. That flexibility is the whole point of universal life. It is also why universal life needs more attention than whole life.",
+      "Whole life and universal life are both permanent insurance, designed to last your whole life if you keep paying, and they both build cash value. The difference is control. Whole life keeps the moving parts fixed: one premium, one death benefit, one guaranteed growth rate on the cash value. Universal life separates the parts and lets you adjust them within limits. That flexibility is what universal life is built for. It is also why universal life needs more attention than whole life.",
     sections: [
       {
         h2: "Whole life: fixed and predictable",
@@ -12141,10 +12141,10 @@ export const ARTICLES: Article[] = [
         ],
       },
       {
-        h2: "Universal life: flexible, with a catch",
+        h2: "Universal life: flexible, with a tradeoff",
         blocks: [
           p(
-            "Universal life splits the policy into a death benefit and a cash value account, and lets you adjust both within limits. The cash value earns interest at a rate the insurer sets, with a guaranteed minimum floor. The catch is that the policy charges for the insurance itself every month, and those charges rise as you age. If you underpay, the cash value covers the gap. If the cash value runs out, the policy lapses.",
+            "Universal life splits the policy into a death benefit and a cash value account, and lets you adjust both within limits. The cash value earns interest at a rate the insurer sets, with a guaranteed minimum floor. The tradeoff is that the policy charges for the insurance itself every month, and those charges rise as you age. If you underpay, the cash value covers the gap. If the cash value runs out, the policy lapses.",
           ),
         ],
       },
@@ -12160,12 +12160,12 @@ export const ARTICLES: Article[] = [
         h2: "Cash value: how each one grows",
         blocks: [
           p(
-            "Whole life cash value grows at a guaranteed rate, steady even when markets fall. Universal life cash value earns interest the insurer credits, with a guaranteed floor. Indexed universal life ties growth to a market index with caps, and variable universal life ties it to funds you choose, which adds risk. Cash value is not a second death benefit. Borrow against it or surrender the policy, and the death benefit falls.",
+            "Whole life cash value grows at a guaranteed rate, steady even when markets fall. Universal life cash value earns interest the insurer credits, with a guaranteed floor. [Indexed universal life](/answers/indexed-universal-life-insurance) ties growth to a market index with caps, and variable universal life ties it to funds you choose, which adds risk. Cash value is not a second death benefit. Borrow against it or surrender the policy, and the death benefit falls.",
           ),
         ],
       },
       {
-        h2: "The lapse risk nobody explains",
+        h2: "The lapse risk to understand",
         blocks: [
           p(
             "Whole life rarely lapses on its own, because the level premium is designed to carry the policy for life. Universal life can lapse quietly. If premiums stay low while insurance charges rise with age, the cash value drains, and the policy ends with no payout. That is the real tradeoff of flexibility: you have to watch the annual statement and fund the policy when it needs money. Ask the insurer for an in-force illustration every few years, and ask what premium keeps the policy going to the age you need.",
@@ -12182,7 +12182,7 @@ export const ARTICLES: Article[] = [
               ["Death benefit", "Level", "Adjustable within limits"],
               ["Cash value", "Guaranteed growth", "Interest credited, with a floor"],
               ["Lapse risk", "Low if premiums are paid", "Higher if underfunded"],
-              ["Best for", "Set it and forget it", "Hands-on owners"],
+              ["Best for", "Little to manage", "People who monitor the policy"],
             ],
           ),
         ],
@@ -12228,6 +12228,7 @@ export const ARTICLES: Article[] = [
       { label: "Term, whole, or universal life: which do I need?", href: "/answers/term-whole-or-universal-life-insurance-which-do-i-need" },
       { label: "How much life insurance do I need?", href: "/answers/how-much-life-insurance-do-i-need" },
       { label: "How much does whole life insurance cost?", href: "/guides/how-much-does-whole-life-insurance-cost" },
+      { label: "What is indexed universal life insurance?", href: "/answers/indexed-universal-life-insurance" },
     ],
     startHref: "/start?topic=insurance",
   },
@@ -12239,11 +12240,11 @@ export const ARTICLES: Article[] = [
       "No-exam term life skips the medical exam, but it costs more and caps coverage. Compare simplified issue, accelerated underwriting, and guaranteed issue.",
     keyword: "no medical exam life insurance",
     eyebrow: "Insurance, explained",
-    lede: "Skipping the medical exam sounds easy. It is, but you pay for the convenience in price and in limits.",
+    lede: "Skipping the medical exam saves time. It costs more, and it caps how much coverage you can buy.",
     published: "2026-11-07",
     updated: "2026-11-07",
     intro:
-      "No-exam term life skips the blood draw, the urine sample, and the nurse visit. You answer health questions instead, and the insurer decides from those answers plus the records it can check. Coverage can start in days instead of weeks. That speed has a price. No-exam policies usually cost more than fully underwritten ones, and they cap how much coverage you can buy. This page covers the three ways to skip the exam, what each one costs, and who should take the exam anyway.",
+      "No-exam term life skips the medical exam. You answer health questions instead, and the insurer decides from those answers plus the records it can check. Coverage can start in days instead of weeks. That speed has a price. No-exam policies usually cost more than fully underwritten ones, and they cap how much coverage you can buy. This page covers the three ways to skip the exam, what each one costs, and who should take the exam anyway.",
     sections: [
       {
         h2: "Three ways to skip the exam",
@@ -12273,7 +12274,7 @@ export const ARTICLES: Article[] = [
         h2: "Who it fits",
         blocks: [
           p(
-            "No-exam term fits people who need coverage fast, who dislike needles and nurse visits, or who have a straightforward health picture and a moderate coverage need. It also fits smaller policies meant to cover final expenses. It fits less well when you are young, healthy, and buying a large policy, because the exam buys you the lowest price for the next 20 or 30 years. A 30-minute exam can save hundreds of dollars a year on a big policy.",
+            "No-exam term fits people who need coverage fast, who would rather avoid a medical exam, or who have a straightforward health picture and a moderate coverage need. It also fits smaller policies meant to cover final expenses. It fits less well when you are young, healthy, and buying a large policy, because the exam buys you the lowest price for the next 20 or 30 years. A 30-minute exam can save hundreds of dollars a year on a big policy.",
           ),
         ],
       },
@@ -12462,6 +12463,100 @@ export const ARTICLES: Article[] = [
       { label: "Annuities and retirement income", href: "/annuities" },
     ],
     startHref: "/start?topic=financial_planning",
+  },
+  {
+    slug: "indexed-universal-life-insurance",
+    title: "What is indexed universal life insurance?",
+    metaTitle: "What Is Indexed Universal Life Insurance (IUL)?",
+    description:
+      "Indexed universal life ties cash value growth to a stock index, with a cap, a participation rate, and a floor. How crediting works and the lapse risk.",
+    keyword: "indexed universal life insurance",
+    eyebrow: "Insurance, explained",
+    lede: "Indexed universal life ties your cash value to a stock index. Your money never enters the market, and the limits on the upside matter as much as the floor.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro:
+      "Indexed universal life, usually shortened to IUL, is permanent life insurance. It pays a death benefit like other permanent policies, and it builds a cash value account. The difference is how that cash value grows. Instead of a rate the insurer declares, growth follows a stock market index, usually the S&P 500, capped on the upside and floored at zero. You do not own the index or any shares. The index is only a measuring stick for the interest credited.",
+    sections: [
+      {
+        h2: "How the cash value is credited",
+        blocks: [
+          p("Each premium goes in after the insurer takes out its charges for the insurance itself. What is left goes into the cash value account. That account is measured against a stock index over a set period, often a year. At the end of the period, the insurer credits interest based on the index move, within the limits below. The gain, once credited, is locked in. Your money is never invested in the market. The insurer keeps it in its own general account and uses the index only to calculate the credit, and dividends are usually not counted."),
+        ],
+      },
+      {
+        h2: "Caps, participation rates, and the floor",
+        blocks: [
+          p("Three numbers decide how much interest your cash value earns. The cap is the most the insurer will credit, no matter how far the index rises. Caps on S&P 500 accounts commonly run about 8 to 12 percent in 2026 carrier guides. The participation rate is the share of the index gain that counts toward your credit, usually from 50 percent to over 100 percent. The floor is the lowest rate credited, usually 0 percent."),
+          table(
+            ["", "What it does", "Example"],
+            [
+              ["Cap", "The most interest credited in one period", "Index rises 15%, cap is 9%: credited 9%"],
+              ["Participation rate", "The share of the index gain that counts", "Index rises 8%, participation is 75%: credited 6%"],
+              ["Floor", "The lowest rate credited, usually 0%", "Index falls 20%: credited 0%"],
+            ],
+          ),
+          p("Say the index rises 12 percent, participation is 80 percent, and the cap is 9 percent. Participation brings the gain to 9.6 percent, and the cap brings it to 9 percent. These are round figures to show the math, not rates from any insurer."),
+        ],
+      },
+      {
+        h2: "What the floor does and does not do",
+        blocks: [
+          p("The floor is often misunderstood. It sets a floor on the interest credited, not on the account itself. When the index falls, the policy credits nothing, but monthly charges still come out. The account can fall in a flat year, even with a 0 percent floor. Only the floor is usually guaranteed. The insurer can lower the cap and participation rate over time, down to the guaranteed minimums. A spread is a flat percentage subtracted from the index gain before crediting."),
+        ],
+      },
+      {
+        h2: "The lapse risk",
+        blocks: [
+          p("An IUL can lapse quietly. The cost of insurance rises with age and comes out every month, whatever the index does. If you pay the minimum and the credits come in lower than illustrated, the cash value drains to cover the charges. When it runs out, the policy ends with no payout. In 2019, New York regulators reported owners who paid for years and found their policies had lapsed with little or no value. An illustration is a projection, not a promise. Actuarial Guideline 49-A tightened the rules for illustrations on policies sold on or after December 14, 2020. Ask for an in-force illustration every few years."),
+        ],
+      },
+      {
+        h2: "Who it fits, and who it does not",
+        blocks: [
+          p("An IUL can fit someone who needs permanent coverage for life, wants some cash value growth, and accepts capped growth and a policy that needs attention. It is not a retirement account or a substitute for a 401(k) or an IRA. As an investment alone, it usually grows more slowly than money invested directly, because charges come out first and caps limit the upside. Surrender charges cut what you can take out early, so it fits poorly for short-term needs."),
+        ],
+      },
+      {
+        h2: "Questions to ask before you buy",
+        blocks: [
+          p("Ask what the cap, participation rate, floor, and spread are today, and the guaranteed minimums if the insurer lowers them. Ask for the cost-of-insurance schedule, to see how charges rise with age. Ask how long surrender charges last, and ask to see the illustration at guaranteed rates. And ask what premium keeps the policy in force to age 90 or 100."),
+          p("I am a licensed insurance agent in North Carolina. If you are weighing indexed universal life against whole life or guaranteed universal life, call or text (919) 408-6671."),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can I lose money in an indexed universal life policy?",
+        a: "The floor protects the interest credit, not the account value. Charges come out every month, so the cash value can fall in years with little or no index credit, and surrender charges can reduce what you could take out early.",
+      },
+      {
+        q: "Is indexed universal life the same as investing in the S&P 500?",
+        a: "No. You own no shares and receive no dividends. The index is only a measuring stick for the credit, and the credit is capped.",
+      },
+      {
+        q: "Is indexed universal life a good investment?",
+        a: "It is insurance first. As an investment it usually grows more slowly than money invested directly, because insurance charges come out first and caps limit the upside.",
+      },
+      {
+        q: "What happens if I stop paying premiums?",
+        a: "The cash value covers the monthly charges for a time. When it runs out, the policy lapses. Loans left unpaid can also leave a tax bill.",
+      },
+    ],
+    sources: [
+      {
+        label: "IRS: Life insurance and disability insurance proceeds",
+        href: "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/life-insurance-disability-insurance-proceeds/life-insurance-disability-insurance-proceeds",
+      },
+      { label: "National Association of Insurance Commissioners", href: "https://www.naic.org/" },
+    ],
+    related: [
+      { label: "Universal life vs whole life insurance", href: "/answers/universal-life-vs-whole-life-insurance" },
+      { label: "How much does whole life insurance cost?", href: "/guides/how-much-does-whole-life-insurance-cost" },
+      { label: "Term, whole, or universal life: which do I need?", href: "/answers/term-whole-or-universal-life-insurance-which-do-i-need" },
+      { label: "How much life insurance do I need?", href: "/answers/how-much-life-insurance-do-i-need" },
+    ],
+    startHref: "/start?topic=insurance",
   },
   {
     slug: "do-i-need-long-term-care-insurance",
