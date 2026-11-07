@@ -183,7 +183,7 @@ export default function MedicareCosts2027Page() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare costs 2027" }]}
         eyebrow="Checked November 7, 2026 · Official CMS figures only, projections labeled"
         title="Medicare costs 2027"
-        lede="Here's what CMS has officially published for 2027, and what it hasn't. The Part D numbers are final. The Part A, Part B, and IRMAA numbers aren't out yet, so I show the 2026 amounts with the year on every one, plus the Trustees projections in their own section, labeled projected. No estimates dressed up as finals."
+        lede="Here's what CMS has officially published for 2027, and what it hasn't. The Part D numbers are final. The Part A, Part B, and IRMAA numbers aren't out yet, so I show the 2026 amounts with the year on every one, plus the Trustees projections in their own section, labeled projected. Projections are labeled as projections."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free consultation →"
       />

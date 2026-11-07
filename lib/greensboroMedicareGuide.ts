@@ -16,7 +16,7 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
     answer:
       "If you are searching for a Medicare agent near me or enrollment help near me in Greensboro, Christian Brinkley offers free consultations at home, by phone, or at a public meeting place across Guilford County.",
     paragraphs: [
-      "Most people who type medicare agent near me want someone local who will sit down with their actual doctors and prescriptions, not a call center. That is the work: check your doctors, your prescriptions, and the plans available at your home address, then talk through the tradeoffs in plain English.",
+      "If you are looking for a Medicare agent nearby, you probably want someone local who will sit down with your actual doctors and prescriptions, not a call center. The work is checking your doctors, your prescriptions, and the plans available at your home address, then talking through the tradeoffs in plain English.",
       "I serve Greensboro and the Guilford County towns around it: High Point, Jamestown, Summerfield, Oak Ridge, Stokesdale, Pleasant Garden, Gibsonville, Whitsett, McLeansville, Colfax, and Sedalia. If you live in one of those towns, the plan list at your address is what matters, and I check it before recommending anything.",
       "Enrollment help near me means the same thing in every town: a free conversation, no obligation to enroll, and a clear next step. Bring your Medicare card, your prescription list, and any letter that worries you. Call or text (919) 408-6671 to set it up.",
     ],

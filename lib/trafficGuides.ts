@@ -2194,7 +2194,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     sections: [
       {
         title: "What dual eligible means",
-        body: "You have Medicare and full Medicaid at the same time. Medicare pays first for Medicare-covered services, and Medicaid pays last, after Medicare and any other insurance you have. Your prescription drug coverage comes through Medicare, not Medicaid. In North Carolina, you can check your Medicaid status with your county Department of Social Services. Full dual eligible and partial dual eligible are different categories; the related link below explains what dual eligible means.",
+        body: "You have Medicare and full Medicaid at the same time. Medicare pays first for Medicare-covered services, and Medicaid pays last, after Medicare and any other insurance you have. Your prescription drug coverage comes through Medicare, not Medicaid. In North Carolina, you can check your Medicaid status with your county Department of Social Services. Full dual eligible and partial dual eligible are different categories; the answer to what dual eligible means explains the difference.",
       },
       {
         title: "What a D-SNP actually is",

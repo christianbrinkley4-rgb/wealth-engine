@@ -597,11 +597,11 @@ export const ARTICLES: Article[] = [
       "Original Medicare skips routine dental, vision, and hearing. Many Medicare Advantage plans add some of each, but the details vary. What to check first.",
     keyword: "does Medicare Advantage cover dental",
     eyebrow: "Medicare questions, answered",
-    lede: "Original Medicare does not cover routine dental, vision, or hearing. Many Advantage plans add some of each. Here is what the benefits usually include, and where people get surprised.",
+    lede: "Original Medicare does not cover routine dental, vision, or hearing. Many Advantage plans add some of each. Here is what the benefits usually include, and what to check before you count on them.",
     published: "2026-10-02",
     updated: "2026-11-07",
     intro:
-      "This one comes up in almost every kitchen-table conversation I have: does Medicare cover dental, vision, or hearing, and if not, does a Medicare Advantage plan? The short answer is that Original Medicare skips routine dental, vision, and hearing care, and many Advantage plans add some of each back in. The long answer is where the money is, because no two plans define these benefits the same way.",
+      "This is a question I hear often: does Medicare cover dental, vision, or hearing, and if not, does a Medicare Advantage plan? The short answer is that Original Medicare skips routine dental, vision, and hearing care, and many Advantage plans add some of each back in. The details matter, because no two plans define these benefits the same way.",
     sections: [
       {
         h2: "What Original Medicare covers (almost nothing dental)",
@@ -991,7 +991,7 @@ export const ARTICLES: Article[] = [
     published: "2026-10-05",
     updated: "2026-11-07",
     intro:
-      "Most people pay the standard Medicare Part B premium. Above a set income limit, Medicare adds a surcharge called IRMAA, short for Income-Related Monthly Adjustment Amount, to Part B and Part D. The surprise is the timing: the number comes from your tax return two years back.",
+      "Most people pay the standard Medicare Part B premium. Above a set income limit, Medicare adds a surcharge called IRMAA, short for Income-Related Monthly Adjustment Amount, to Part B and Part D. The timing is what matters most: the number comes from your tax return two years back.",
     sections: [
       {
         h2: "What IRMAA actually is",
@@ -1011,7 +1011,7 @@ export const ARTICLES: Article[] = [
         h2: "The two-year lookback",
         blocks: [
           p(
-            "Your 2026 premiums come from your 2024 MAGI; 2027 comes from 2025. That two-year lag is a timing trap: one high-income year follows you.",
+            "Your 2026 premiums come from your 2024 MAGI; 2027 comes from 2025. That two-year lag means one high-income year can raise your premiums well after the money is gone.",
           ),
           p(
             "The usual triggers are a large Roth conversion, a property or investment sale at a gain, a big retirement account withdrawal, required minimum distributions, or an inherited IRA payout. Any of these can push one tax year over a threshold, and the surcharge shows up two years later.",
@@ -1071,7 +1071,7 @@ export const ARTICLES: Article[] = [
             "A life-changing event can lower your IRMAA. Qualifying events include stopping work or cutting hours, marriage, divorce, or the death of a spouse. If one cut your income after the tax year Medicare used, ask Social Security to use your current income instead.",
           ),
           p(
-            "The request goes on Form SSA-44, filed with your local Social Security office, with proof of the event and your lower income. It is a standard process, not a loophole, and it exists exactly for this situation. [The full appeal walkthrough](/answers/what-is-irmaa-and-how-do-i-appeal-it) covers each step.",
+            "The request goes on Form SSA-44, filed with your local Social Security office, with proof of the event and your lower income. It is a standard process, and it exists for exactly this situation. [The full appeal walkthrough](/answers/what-is-irmaa-and-how-do-i-appeal-it) covers each step.",
           ),
           p(
             "IRMAA is recalculated every year. If this year's surcharge came from an old high-income year, next year's letter may already fix itself. Still appeal when you qualify.",
@@ -3203,7 +3203,7 @@ export const ARTICLES: Article[] = [
     lede: "If your employer has 20 or more employees, you can usually delay Part B without a penalty. The 8-month window starts when that coverage ends.",
     published: "2026-11-07",
     updated: "2026-11-07",
-    intro: "Turning 65 while you still work raises a timing question, not just a coverage question. Take Part B at 65, or wait until the job ends? The answer turns on the size of your employer and whether its coverage counts as creditable. Get the timing wrong and you can face a late penalty or a gap with no coverage. Here is how to decide.",
+    intro: "Turning 65 while you still work raises a timing question, not just a coverage question. Take Part B at 65, or wait until the job ends? The answer turns on the size of your employer and whether its coverage counts as creditable. The timing matters, because signing up late can mean a penalty or a gap with no coverage. Here is how to decide.",
     sections: [
       {
         h2: "When should I apply for Medicare?",
@@ -3253,7 +3253,7 @@ export const ARTICLES: Article[] = [
       },
       {
         q: "Do I need Part A while still working?",
-        a: "Most people should take premium-free Part A at 65, but check one thing first: if you contribute to a health savings account, enrolling in any part of Medicare ends your ability to make HSA contributions.",
+        a: "Premium-free Part A is usually worth taking at 65, but check one thing first: if you contribute to a health savings account, enrolling in any part of Medicare ends your ability to make HSA contributions.",
       },
       {
         q: "How do I prove I had employer coverage?",
@@ -7886,10 +7886,10 @@ export const ARTICLES: Article[] = [
     description: "Moving to another state? Learn how Original Medicare, Medicare Advantage service areas, Medigap portability, and special enrollment periods work when you",
     keyword: "medicare moving to another state",
     eyebrow: "Medicare questions, answered",
-    lede: "A move across state lines shakes up a lot of things. Your Medicare coverage is one of them.",
+    lede: "A move across state lines brings a long list of changes. Your Medicare coverage is one of them.",
     published: "2026-10-14",
     updated: "2026-11-07",
-    intro: "A move across state lines shakes up a lot of things. Your Medicare coverage is one of them. What happens depends on what kind of Medicare coverage you have. Some of it follows you automatically. Some of it does not. Here is what to expect before and after the move.",
+    intro: "A move across state lines brings a long list of changes. Your Medicare coverage is one of them. What happens depends on what kind of Medicare coverage you have. Some of it follows you automatically. Some of it does not. Here is what to expect before and after the move.",
     sections: [
       {
         h2: "Original Medicare: It Moves With You",
