@@ -122,7 +122,7 @@ export default function DoctorNetworksPage() {
                 'Why "takes Medicare" and "in my plan\'s network" are different things, and five steps to verify your doctors before you enroll.',
               path: "/medicare-advantage-doctor-networks",
               datePublished: "2026-09-19",
-              dateModified: "2026-09-19",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -248,7 +248,11 @@ export default function DoctorNetworksPage() {
               Which brings up the shakiest way to pick a plan: “my neighbor loves hers.” Your
               neighbor sees different doctors, takes different prescriptions, and goes to different
               facilities. The right plan is the one whose network includes <em>your</em> doctors,
-              which is exactly what the five steps above verify.
+              which is exactly what the five steps above verify. And if you travel, check{" "}
+              <Link href="/guides/medicare-travel" className="underline underline-offset-2">
+                traveling out of state
+              </Link>{" "}
+              before you go, since routine care away from home depends on the plan.
             </p>
           </div>
 
@@ -320,7 +324,7 @@ export default function DoctorNetworksPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-09-19" />
+      <MedicareByline reviewed="2026-11-07" />
       <RelatedMedicareGuides />
     </main>
   );

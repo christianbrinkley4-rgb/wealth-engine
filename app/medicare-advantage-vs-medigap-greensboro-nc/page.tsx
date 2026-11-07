@@ -106,7 +106,7 @@ export default function AdvantageVsMedigapGreensboroPage() {
                 "Doctors, monthly costs, and switching rules for choosing between Medicare Advantage and Medigap in Greensboro.",
               path: "/medicare-advantage-vs-medigap-greensboro-nc",
               datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -138,8 +138,8 @@ export default function AdvantageVsMedigapGreensboroPage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             For the full national comparison, see{" "}
-            <Link href="/medicare-advantage-vs-medigap-greensboro-nc" className="underline underline-offset-2">
-              Medicare Advantage vs Medigap across the Triad
+            <Link href="/medicare-advantage-vs-medigap" className="underline underline-offset-2">
+              Medicare Advantage vs Medigap across the country
             </Link>
             .
           </p>
@@ -190,7 +190,12 @@ export default function AdvantageVsMedigapGreensboroPage() {
             When I compare, I use your home address and check the doctors and hospitals you
             actually use. If you see specialists at Cone Health, get prescriptions at a particular
             pharmacy, or spend part of the year elsewhere, bring that up so I review how each
-            option handles it.
+            option handles it. Planning a trip?{" "}
+            <Link href="/guides/medicare-travel" className="underline underline-offset-2">
+              Medicare Advantage covers emergency care out of state, but routine care depends on
+              the plan
+            </Link>
+            .
           </p>
           <GuideTownLinks />
         </div>
@@ -226,7 +231,7 @@ export default function AdvantageVsMedigapGreensboroPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-08" />
+      <MedicareByline reviewed="2026-11-07" />
       <RelatedMedicareGuides />
     </main>
   );

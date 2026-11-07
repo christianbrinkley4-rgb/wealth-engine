@@ -438,6 +438,10 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         body: "For a non-eligible designated beneficiary, a traditional IRA owner's death on or after the required beginning date generally means annual distributions plus the tenth-year deadline. Death before that date generally permits no annual minimum in years one through nine under the 10-year rule. The balance must still be distributed by December 31 of the tenth year after death.",
       },
       {
+        title: "An example ten-year timeline",
+        body: "Say the owner dies in 2026. The tenth year after death is 2036, so the account must be empty by December 31, 2036. If the owner died on or after the required beginning date, annual distributions generally apply in 2027 through 2035, with the rest out by the 2036 deadline. If the owner died before that date, there is generally no annual minimum in 2027 through 2035, but the full balance still has to come out by December 31, 2036. Waiting until the last year can push a large amount into one tax year, so ask a tax professional about spreading withdrawals before you decide.",
+      },
+      {
         title: "Bring the facts before choosing a withdrawal",
         body: "Ask the custodian to confirm the account type, beneficiary category, annual requirement, and final deadline in writing. Gather the death date, prior year-end balance, and distributions already taken. Ask a qualified tax professional how a withdrawal affects your return. This page doesn't choose an amount or an investment for you.",
       },
@@ -686,6 +690,8 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     ],
     related: [
       { title: "Medicare automatic renewal", href: "/guides/medicare-automatic-renewal" },
+      { title: "Medicare Advantage Open Enrollment, January through March", href: "/guides/medicare-advantage-open-enrollment-period" },
+      { title: "Medicare Advantage plan cancelled: what it means", href: "/answers/medicare-advantage-plan-cancelled" },
       { title: "Special enrollment", href: "/special-enrollment" },
       { title: "Annual enrollment", href: "/aep" },
     ],
@@ -852,13 +858,21 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         title: "Roth IRA basics",
         href: "/wealth/roth-ira-explained",
       },
+      {
+        title: "401(k) early withdrawal exceptions",
+        href: "/guides/401k-early-withdrawal-exceptions",
+      },
+      {
+        title: "Inherited IRA ten-year rule",
+        href: "/guides/inherited-ira-ten-year-rule",
+      },
     ],
     query: "roth ladder",
     opportunity:
       "A primary-source explanation with distinct timing rules. Broader financial visibility needs useful original teaching and trusted references.",
     intent: "informational",
     datePublished: "2026-10-08",
-    dateModified: "2026-11-05",
+    dateModified: "2026-11-07",
   },
   {
     slug: "hsa-triple-tax-advantage",
@@ -1391,7 +1405,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     sections: [
       {
         title: "Common exceptions and their limits",
-        body: "Other exceptions can cover certain births or adoptions, emergencies, disasters, domestic abuse, and other qualifying circumstances. Check the current IRS chart for account type, limits, dates, and documentation. This table is a starting point, not an exhaustive eligibility test.",
+        body: "The table below lists the dollar limits for the exceptions people ask about most. The figures come from the current IRS exceptions chart. An exception removes the 10% additional tax, not the income tax, and your plan still has to allow the distribution. Check the current IRS chart for account type, limits, dates, and documentation.",
       },
       {
         title: "The rule of 55 uses the calendar year",
@@ -1399,7 +1413,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "A hardship withdrawal isn't automatically penalty-free",
-        body: "Hardship rules can permit access. A separate exception determines whether the additional tax is waived. A plan loan is also different from a distribution and depends on the plan allowing loans and the loan meeting its rules. Source: IRS hardships, withdrawals, and loans.",
+        body: "Hardship rules can permit access. A separate exception determines whether the additional tax is waived. A hardship withdrawal lets the plan release the money. It does not by itself remove the 10 percent additional tax. A plan loan is also different from a distribution and depends on the plan allowing loans and the loan meeting its rules. Source: IRS hardships, withdrawals, and loans.",
       },
       {
         title: "Roth 401(k) isn't Roth IRA contribution ordering",
@@ -1415,23 +1429,37 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
     ],
     comparison: {
-      caption: "Common exceptions and their limits",
-      headers: ["Situation", "Key qualification"],
+      caption: "401k early withdrawal exceptions and their limits",
+      headers: ["Situation", "The limit"],
       rows: [
         [
-          "Separation from service",
-          "Generally during or after the calendar year you turn 55, from the qualifying employer's plan",
+          "Birth or adoption",
+          "Up to $5,000 per birth or adoption, from a qualifying plan",
+        ],
+        [
+          "Emergency personal expense",
+          "Up to $1,000, one distribution per calendar year",
+        ],
+        [
+          "Domestic abuse victim distribution",
+          "The lesser of $10,000 or 50 percent of the vested balance. The $10,000 figure is indexed for inflation, so confirm the current amount on the IRS chart",
+        ],
+        [
+          "Terminal illness",
+          "No dollar cap stated. Requires physician certification",
+        ],
+        [
+          "Qualified disaster recovery distribution",
+          "Up to $22,000, for a federally declared disaster where you live",
+        ],
+        [
+          "Separation from service in or after the year you turn 55",
+          "The rule of 55, covered in its own section below. No fixed dollar amount",
         ],
         [
           "Substantially equal periodic payments",
-          "A qualifying payment schedule, with special conditions for employer plans",
+          "No fixed dollar amount. The schedule must run until the later of 5 years or age 59 and a half",
         ],
-        ["Disability or death", "The statutory conditions must be met"],
-        [
-          "Qualified domestic relations order",
-          "Specific workplace-plan rules, not a blanket divorce exception",
-        ],
-        ["Certain unreimbursed medical costs", "Only the amount meeting the applicable AGI test"],
       ],
     },
     checklist: [
@@ -1453,6 +1481,10 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       {
         q: "Can I take Roth 401(k) contributions first?",
         a: "Don't apply Roth IRA ordering rules. A nonqualified Roth 401(k) distribution generally includes contributions and earnings proportionally.",
+      },
+      {
+        q: "How much can I withdraw penalty-free for a birth or adoption?",
+        a: "Up to $5,000 per birth or adoption from a qualifying plan, if the plan allows it. Income tax can still apply. Verify the current rule on the IRS exceptions chart before withdrawing.",
       },
     ],
     sources: [
@@ -1496,7 +1528,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       "Clarify the actual rules, answer directly, and link readers to primary sources. Ranking improvement remains uncertain.",
     intent: "informational",
     datePublished: "2026-10-08",
-    dateModified: "2026-11-05",
+    dateModified: "2026-11-07",
   },
   {
     slug: "roth-ira-five-year-rule",
@@ -2218,6 +2250,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
     ],
     related: [
+      { title: "What dual eligible means", href: "/answers/what-does-it-mean-to-be-dual-eligible-for-medicare-and-medicaid" },
       { title: "Medicare Annual Enrollment", href: "/aep" },
       { title: "When your Medicare plan is not renewing", href: "/guides/medicare-plan-not-renewing-triad" },
       { title: "Medicare help in the Triad", href: "/medicare" },

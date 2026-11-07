@@ -89,7 +89,7 @@ export default function CobraVsMedicareAt65Page() {
                 "Why COBRA does not protect you from Medicare late penalties, the 8-month rule that trips people up, and what to do when you turn 65 with COBRA.",
               path: "/guides/cobra-vs-medicare-at-65",
               datePublished: "2026-10-13",
-              dateModified: "2026-10-13",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -151,7 +151,12 @@ export default function CobraVsMedicareAt65Page() {
             covered. When COBRA ends the following July, you discover you missed your window.
             Now you wait for the next general enrollment period, and the late penalty has been
             building the whole time. People end up with a permanent 10% penalty per year of
-            delay, plus months of no Part B coverage exactly when they need it.
+            delay, plus months of no Part B coverage exactly when they need it. If you still have
+            active employer coverage, see{" "}
+            <Link href="/guides/medicare-part-b-employer-coverage" className="underline underline-offset-2">
+              when to apply for Part B if you are still working
+            </Link>
+            .
           </p>
 
           <h2 className="text-28 mt-12 font-semibold">What COBRA actually costs vs. Medicare</h2>
@@ -251,7 +256,7 @@ export default function CobraVsMedicareAt65Page() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-13" />
+      <MedicareByline reviewed="2026-11-07" />
     </main>
   );
 }

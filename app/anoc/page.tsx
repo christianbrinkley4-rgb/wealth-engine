@@ -97,7 +97,7 @@ export default function AnocPage() {
                 "What the Annual Notice of Change is, why most people never read it, and how to get a free plain-English translation from a licensed local agent.",
               path: "/anoc",
               datePublished: "2026-09-21",
-              dateModified: "2026-10-06",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -259,7 +259,7 @@ export default function AnocPage() {
 
       <ReadNext>
         <p>
-          Compare your notice with the <Link href="/medicare-changes-2027">2027 changes</Link> and the <Link href="/medicare-part-d-donut-hole-2027">Part D cap explanation</Link>. Use the <Link href="/medicare-annual-enrollment-2026-checklist">fall checklist</Link> to organize your questions.
+          Compare your notice with the <Link href="/medicare-changes-2027">2027 changes</Link> and the <Link href="/medicare-part-d-donut-hole-2027">Part D cap explanation</Link>. Use the <Link href="/medicare-annual-enrollment-2026-checklist">fall checklist</Link> to organize your questions. Most plans <Link href="/guides/medicare-automatic-renewal">renew automatically each year</Link>, so a notice is usually a change to review, not a form to file.
         </p>
         <ChecklistPointer />
       </ReadNext>
@@ -274,7 +274,7 @@ export default function AnocPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-06" />
+      <MedicareByline reviewed="2026-11-07" />
       <RelatedMedicareGuides />
     </main>
   );

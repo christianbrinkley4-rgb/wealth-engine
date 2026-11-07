@@ -24,7 +24,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter 
  * rechecked when the premium changes.
  */
 
-const UPDATED = "2026-11-04";
+const UPDATED = "2026-11-07";
 const PREMIUM = STANDARD_BASE_PREMIUM_2026;
 const ONE_PERIOD = Math.round(PREMIUM * 0.1 * 100) / 100;
 
@@ -257,7 +257,11 @@ export default function PartBPenaltyPage() {
           </h2>
           <p className={P} style={PS}>
             <strong>You had job-based coverage from current work.</strong> If you or your spouse are
-            still working and covered by that employer’s plan, you can usually wait. Once the job or
+            still working and covered by that employer’s plan,{" "}
+            <Link href="/guides/medicare-part-b-employer-coverage" className="home-link">
+              when to apply for Part B while still working
+            </Link>{" "}
+            is usually after the job or the coverage ends. Once the job or
             the coverage ends, whichever comes first, you get an 8-month Special Enrollment Period.
             Sign up inside those 8 months and there’s usually no penalty.
           </p>

@@ -194,7 +194,7 @@ export default function PlanEndingHubPhaseAPage() {
                 "If you got a letter saying your plan is ending, find what to do next, the dates that matter, and local help in the Triad. Plan year 2027.",
               path: PAGE_PATH,
               datePublished: "2026-10-26",
-              dateModified: "2026-10-26",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -329,6 +329,14 @@ export default function PlanEndingHubPhaseAPage() {
             . For 2027 changes in general, see{" "}
             <Link href="/medicare-changes-2027" className="underline underline-offset-2">
               Medicare changes for 2027
+            </Link>
+            . If you are already in a Medicare Advantage plan, the January through March window
+            is the{" "}
+            <Link
+              href="/guides/medicare-advantage-open-enrollment-period"
+              className="underline underline-offset-2"
+            >
+              Medicare Advantage Open Enrollment Period
             </Link>
             .
           </p>

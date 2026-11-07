@@ -161,7 +161,7 @@ export default function AepPage() {
                 "What a free fall review covers: your plan's 2027 changes, prescriptions, doctors, and total costs, with a licensed local agent.",
               path: "/aep",
               datePublished: "2026-09-19",
-              dateModified: "2026-10-15",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -291,6 +291,22 @@ export default function AepPage() {
               That&apos;s what a fall review is for. I go through that letter with you, line by
               line, and you decide whether your plan still fits, or whether something else fits
               better. No obligation either way.
+            </p>
+            <p>
+              And remember,{" "}
+              <Link href="/guides/medicare-automatic-renewal" className="underline underline-offset-2">
+                you usually do not have to renew Medicare each year
+              </Link>
+              . The fall review is about catching changes, not filing a renewal form. If you have
+              both Medicare and Medicaid, check{" "}
+              <Link href="/answers/what-does-it-mean-to-be-dual-eligible-for-medicare-and-medicaid" className="underline underline-offset-2">
+                what dual eligible means
+              </Link>{" "}
+              for your costs. Planning winter travel? Check whether your plan{" "}
+              <Link href="/guides/medicare-travel" className="underline underline-offset-2">
+                covers care out of state
+              </Link>
+              .
             </p>
             <p>
               New to how the fall window works?{" "}
@@ -426,6 +442,14 @@ export default function AepPage() {
               year, so if you want to review your plan, the fall window is the time to do it.
             </p>
             <p>
+              One more window follows in the new year. If you are already in a Medicare Advantage
+              plan, the{" "}
+              <Link href="/guides/medicare-advantage-open-enrollment-period" className="underline underline-offset-2">
+                Medicare Advantage Open Enrollment Period
+              </Link>{" "}
+              runs January 1 through March 31, and it gives you one change.
+            </p>
+            <p>
               If a life change, a move, losing employer coverage, already opened a window for you,
               you may not need to wait for fall.{" "}
               <Link href="/special-enrollment" className="underline underline-offset-2">
@@ -500,7 +524,7 @@ export default function AepPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-12" />
+      <MedicareByline reviewed="2026-11-07" />
       <TrafficGuideLinks
         slugs={[
           "medicare-plan-not-renewing-triad",

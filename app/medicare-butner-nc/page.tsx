@@ -92,7 +92,7 @@ export default function MedicareButnerPage() {
                 "Plain-English Medicare help for Butner and Granville County from Christian Brinkley, a licensed agent who lives just up the road in Creedmoor.",
               path: "/medicare-butner-nc",
               datePublished: "2026-10-04",
-              dateModified: "2026-10-04",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -162,6 +162,14 @@ export default function MedicareButnerPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Local Resources Worth Knowing</h2>
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
+            <p>
+              <strong className="text-[var(--color-navy)]">
+                Butner Town Hall
+              </strong>,
+              415 Central Ave, Butner, (919) 575-3032. The town office in the middle of Butner,
+              open weekdays 8:00 to 5:00. A handy landmark if we are meeting in town, and the
+              place to ask about anything the town itself runs.
+            </p>
             <p>
               <strong className="text-[var(--color-navy)]">
                 South Granville Public Library
@@ -278,7 +286,7 @@ export default function MedicareButnerPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-04" />
+      <MedicareByline reviewed="2026-11-07" />
       <RelatedMedicareGuides />
     </main>
   );
