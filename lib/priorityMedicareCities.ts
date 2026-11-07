@@ -346,6 +346,410 @@ export const PRIORITY_MEDICARE_CITIES = {
       },
     ],
   },
+  "wake-forest": {
+    name: "Wake Forest",
+    county: "Wake and Franklin counties",
+    title: "Medicare Agent in Wake Forest, NC | Christian Brinkley",
+    heading: "A Medicare agent for Wake Forest and northern Wake County",
+    description:
+      "Free Medicare help in Wake Forest, NC. A licensed local agent who checks your WakeMed North doctors and your county before you pick a plan.",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+    reviewed: "2026-11-07",
+    sourcesChecked: "November 7, 2026",
+    localHeading: "In Wake Forest, your county line can change your plan list",
+    paragraphs: [
+      "Wake Forest sits just north of Raleigh, and it is growing fast. At the 2020 census the town had 47,601 residents, up from 30,117 in 2010. Most of Wake Forest is in Wake County, with a small part of town in Franklin County. Medicare Advantage and Part D plans are offered by county, so the plan list for your address depends on which side of that line you live on. Your mailing address will not tell you. Check your home county first. Wake Forest Town Hall is at 301 S. Brooks St., and the town's main number is (919) 435-9400, Monday through Friday, 8 a.m. to 4 p.m.",
+      "WakeMed North Hospital, at 10000 Falls of Neuse Road in Raleigh, is the closest hospital to most Wake Forest homes. WakeMed describes it as serving the northern part of the county near Wake Forest and Rolesville. Many Wake Forest residents also see doctors at Duke Raleigh Hospital or UNC Rex Hospital in Raleigh. Put each doctor and office on your list separately. The hospital name alone does not prove a plan covers your whole care team.",
+      "I am Christian Brinkley, a licensed insurance agent in North Carolina. I help people in Wake Forest, Rolesville, and the rest of northern Wake County sort this out at home or over the phone. You talk to me, not a call center. It is free, and there is no obligation to enroll.",
+      "What a meeting looks like in Wake Forest: bring a list of your doctors, including any specialists in Raleigh, plus your prescriptions and the pharmacy you use. I check each one with you for next year, so you see what I see. If a plan you are considering drops one of your doctors, you know before you sign anything, not after.",
+      "If you would like a second opinion from someone who does not sell insurance, North Carolina's SHIIP program offers free, unbiased Medicare counseling. Call SHIIP statewide at 1-855-408-1212, Monday through Friday. I am glad to help before or after you talk with them.",
+      "If you are turning 65 in Wake Forest and still working, bring your employer coverage notice and the date that coverage is expected to end. Ask your benefits administrator how the employer plan coordinates with Medicare before you cancel anything. Your seven-month Initial Enrollment Period runs around your 65th birthday, and I can map out your exact dates with you.",
+      "For a fall review in Wake Forest, bring your current plan's Annual Notice of Change, the letter that lists what changes next year. Make a separate list of the medications you fill, the doses, and the pharmacy you prefer. If you moved here from another county, tell your current plan about the move and keep the move date. A change of address can open a Special Enrollment Period, and I will check whether one applies to you.",
+    ],
+    hospitalsHeading: "WakeMed North, Duke Raleigh, UNC Rex, and your Medicare plan",
+    hospitals: [
+      {
+        name: "WakeMed North Hospital",
+        note: "The closest hospital to most Wake Forest homes, at 10000 Falls of Neuse Road in Raleigh. If it is where you would want to go, put it on your list along with each doctor you see there.",
+        url: "https://www.wakemed.org/location/north-hospital",
+      },
+      {
+        name: "Duke Raleigh Hospital",
+        note: "At 3400 Wake Forest Road in Raleigh. Many north Raleigh specialists practice here, so list the office where you actually go, not just the hospital name.",
+        url: "https://www.wakemed.org/location/duke-raleigh-hospital",
+      },
+      {
+        name: "UNC Rex Hospital",
+        note: "At 4420 Lake Boone Trail in Raleigh. If your cardiologist or surgeon is at Rex, that office belongs on your list too.",
+      },
+    ],
+    hospitalTakeaway:
+      "Original Medicare, alone or with a Medicare Supplement, works with any doctor or hospital that accepts Medicare. Medicare Advantage plans use networks, so check the hospital and each of your doctors by name for next year.",
+    hospitalNote: "Not affiliated with or endorsed by WakeMed, Duke Health, or UNC Health.",
+    sources: [
+      {
+        label: "Town of Wake Forest: Town Hall",
+        href: "https://www.wakeforestnc.gov/town-hall",
+      },
+      {
+        label: "WakeMed: North Hospital",
+        href: "https://www.wakemed.org/location/north-hospital",
+      },
+      {
+        label: "Town of Wake Forest: history",
+        href: "https://www.wakeforestnc.gov/history",
+      },
+    ],
+    provider: "WakeMed North Hospital, Raleigh, NC",
+    ctaHeading: "Check your Wake Forest doctors before December 7",
+    ctaLine:
+      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+    faq: [
+      {
+        q: "Is Wake Forest in Wake County or Franklin County for Medicare plans?",
+        a: "Most of Wake Forest is in Wake County, with a small part in Franklin County. Plan lists follow your home county, so check your address.",
+      },
+      {
+        q: "Does WakeMed North accept my Medicare Advantage plan?",
+        a: "It depends on the plan and the year. Check the hospital and each of your doctors by name with the plan before you enroll.",
+      },
+      {
+        q: "Is there a Medicare agent near me in Wake Forest?",
+        a: "Yes. I meet at homes across Wake Forest, Rolesville, and northern Wake County, or by phone. The review is free with no obligation to enroll.",
+      },
+      {
+        q: "I see specialists in Raleigh. Can one plan cover them all?",
+        a: "Sometimes. Original Medicare works with any doctor who accepts Medicare. Advantage networks vary, so I check every office on your list.",
+      },
+      {
+        q: "Where can I get free Medicare counseling near Wake Forest?",
+        a: "NC SHIIP offers free, unbiased Medicare counseling at 1-855-408-1212, Monday through Friday. Counselors do not sell insurance, and I can help too.",
+      },
+    ],
+  },
+  raleigh: {
+    name: "Raleigh",
+    county: "Wake County",
+    title: "Medicare Agent in Raleigh, NC | Christian Brinkley",
+    heading: "A Medicare agent for Raleigh and Wake County",
+    description:
+      "Free Medicare help in Raleigh, NC. A licensed local agent who checks your WakeMed, Duke Raleigh, and UNC Rex doctors before you pick a plan.",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+    reviewed: "2026-11-07",
+    sourcesChecked: "November 7, 2026",
+    localHeading: "In Raleigh, three hospital systems can mean three different networks",
+    paragraphs: [
+      "Raleigh is the state capital and the county seat of Wake County, and the largest city in the area. Three hospital systems serve it: WakeMed, Duke Health, and UNC Health. A Medicare Advantage plan can include one of them, two of them, or all three, and that can change from one year to the next. That is the first thing to sort out for Medicare in Raleigh, because a plan that works well for your WakeMed doctor does not always work for your UNC Rex specialist.",
+      "The hospitals to put on your list: WakeMed Raleigh Campus at 3000 New Bern Avenue, WakeMed North Hospital at 10000 Falls of Neuse Road, Duke Raleigh Hospital at 3400 Wake Forest Road, and UNC Rex Hospital at 4420 Lake Boone Trail. List each doctor by the office where you see them, not just by the hospital system. Two doctors in the same system can sit in different networks for the same plan.",
+      "I am Christian Brinkley, a licensed insurance agent in North Carolina. I help people in Raleigh, Cary, Garner, Knightdale, Wendell, and the rest of Wake County sort this out at home or over the phone. You talk to me, not a call center. It is free, and there is no obligation to enroll.",
+      "What a meeting looks like in Raleigh: bring a list of every doctor you see and where you see them, plus your prescriptions and the pharmacy you use. I check each one with you for next year, so you see what I see. If a plan you are considering leaves out your cardiologist at Rex or your surgeon at Duke Raleigh, you know before you sign anything, not after.",
+      "Most Raleigh addresses are in Wake County, with small parts of the city in Durham County. Medicare Advantage and Part D plans are offered by county, so the plan list for your address depends on your home county. Your mailing address will not tell you. Check your county before you compare plans.",
+      "If you would like a second opinion from someone who does not sell insurance, North Carolina's SHIIP program offers free, unbiased Medicare counseling. Call SHIIP statewide at 1-855-408-1212, Monday through Friday. I am glad to help before or after you talk with them.",
+      "For a fall review in Raleigh, bring your current plan's Annual Notice of Change, the letter that lists what changes on January 1. If you are turning 65 and still working, bring your employer coverage notice and ask your benefits office how that plan works with Medicare before you cancel anything. I can map out your enrollment dates with you.",
+    ],
+    hospitalsHeading: "WakeMed, Duke Raleigh, UNC Rex, and your Medicare plan",
+    hospitals: [
+      {
+        name: "WakeMed Raleigh Campus",
+        note: "WakeMed's main campus at 3000 New Bern Avenue, with a Level 1 Trauma Center. If it is your hospital, put it on your list along with each doctor you see there.",
+        url: "https://www.wakemed.org/location/wakemed-raleigh-campus",
+      },
+      {
+        name: "WakeMed North Hospital",
+        note: "At 10000 Falls of Neuse Road in north Raleigh, near Wake Forest and Rolesville. List it separately from the Raleigh Campus, since networks can treat them differently.",
+        url: "https://www.wakemed.org/location/north-hospital",
+      },
+      {
+        name: "Duke Raleigh Hospital",
+        note: "At 3400 Wake Forest Road in Raleigh. Many north Raleigh specialists practice here, so list the office where you actually go.",
+        url: "https://www.wakemed.org/location/duke-raleigh-hospital",
+      },
+      {
+        name: "UNC Rex Hospital",
+        note: "At 4420 Lake Boone Trail in Raleigh. If your cardiologist or surgeon is at Rex, that office belongs on your list too.",
+      },
+    ],
+    hospitalTakeaway:
+      "Here is why the list matters: Original Medicare, alone or with a Medicare Supplement, works with any doctor or hospital that accepts Medicare. Medicare Advantage plans use networks. A plan might include WakeMed, Duke Health, and UNC Health doctors, or only some of them, and networks can change every year.",
+    hospitalNote: "Not affiliated with or endorsed by WakeMed, Duke Health, or UNC Health.",
+    sources: [
+      {
+        label: "WakeMed: Raleigh Campus",
+        href: "https://www.wakemed.org/location/wakemed-raleigh-campus",
+      },
+      {
+        label: "WakeMed: North Hospital",
+        href: "https://www.wakemed.org/location/north-hospital",
+      },
+      {
+        label: "Hospitals in Raleigh, NC",
+        href: "https://www.countyoffice.org/raleigh-nc-hospitals/",
+      },
+    ],
+    provider: "WakeMed Raleigh Campus, Raleigh, NC",
+    ctaHeading: "Sort out your Raleigh doctors before December 7",
+    ctaLine:
+      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+    faq: [
+      {
+        q: "Will a Medicare plan cover WakeMed, Duke Raleigh, and UNC Rex?",
+        a: "Original Medicare covers any Medicare-accepting doctor at all three. Advantage networks vary by plan and year, so check each doctor by name.",
+      },
+      {
+        q: "Is Raleigh in Wake County for Medicare plans?",
+        a: "Most Raleigh addresses are in Wake County, with small parts in Durham County. Plan lists follow your home county, so check your address first.",
+      },
+      {
+        q: "Is there a Medicare agent near me in Raleigh?",
+        a: "Yes. I meet at homes across Raleigh and nearby Wake County towns, or by phone. The review is free with no obligation to enroll.",
+      },
+      {
+        q: "My doctors are split between WakeMed and UNC Rex. What should I check?",
+        a: "List every doctor and office, then check each one against the plan for next year. A plan can cover one system and not the other.",
+      },
+      {
+        q: "Where can I get free Medicare counseling in Raleigh?",
+        a: "NC SHIIP offers free, unbiased Medicare counseling at 1-855-408-1212, Monday through Friday. Counselors do not sell insurance, and I can help too.",
+      },
+    ],
+  },
+  asheboro: {
+    name: "Asheboro",
+    county: "Randolph County",
+    title: "Medicare Agent in Asheboro, NC | Christian Brinkley",
+    heading: "A Medicare agent for Asheboro and Randolph County",
+    description:
+      "Free Medicare help in Asheboro, NC. A licensed local agent who checks your Randolph Health doctors and your county before you pick a plan.",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+    reviewed: "2026-11-07",
+    sourcesChecked: "November 7, 2026",
+    localHeading: "Asheboro is the county seat, and your doctors may be in two directions",
+    paragraphs: [
+      "Asheboro is the county seat of Randolph County and the medical hub for the county. Randolph Health, at 364 White Oak Street, is the hospital in town, and Cone Health HeartCare has a cardiology office at 542 White Oak Street. Folks drive in from Ramseur, Liberty, Franklinville, and Seagrove for shopping, for doctors, for just about everything. If you are on Medicare anywhere in Randolph County, Asheboro is probably where a lot of your healthcare happens.",
+      "Because Asheboro is the county's medical hub, network questions here cut both ways. If your doctors are all in Asheboro, most plans built for this area will cover them fine. But if you see specialists in Greensboro or High Point, that is where people get surprised. A plan can be great for your Asheboro doctor and still treat your Greensboro cardiologist as out of network. Check before you commit.",
+      "I am Christian Brinkley, a licensed insurance agent in North Carolina. I help people across Randolph County, including Archdale, Randleman, Liberty, Ramseur, Trinity, Franklinville, Seagrove, and Staley. We can meet at your home or talk by phone. You talk to me, not a call center. It is free, and there is no obligation to enroll.",
+      "What a meeting looks like in Asheboro: bring a list of your doctors, including any specialists in Greensboro or High Point, plus your prescriptions and the pharmacy you use. I check each one with you for next year, so you see what I see. If a plan you are considering drops one of your doctors, you know before you sign anything, not after.",
+      "If you would like a second opinion from someone who does not sell insurance, North Carolina's SHIIP program offers free, unbiased Medicare counseling. Call SHIIP statewide at 1-855-408-1212, Monday through Friday. I am glad to help before or after you talk with them.",
+      "Randolph County also has a lot of folks who have been on the same plan for years without ever rechecking it. Plans change their drug lists and costs every year, and the plan that was perfect three years ago might not be anymore. For a fall review, bring your current plan's Annual Notice of Change and your prescription list. Twenty minutes, free, and if your plan is already fine I will tell you so.",
+      "If you are turning 65 in Asheboro and still working, bring your employer coverage notice and the date that coverage is expected to end. Ask your benefits administrator how the employer plan coordinates with Medicare before you cancel anything. Your seven-month Initial Enrollment Period runs around your 65th birthday, and I can map out your exact dates with you.",
+    ],
+    hospitalsHeading: "Randolph Health and your Medicare plan",
+    hospitals: [
+      {
+        name: "Randolph Health",
+        note: "The hospital in Asheboro, at 364 White Oak Street. If it is your preferred hospital, include it in your doctor list along with the office where you see your primary care provider.",
+        url: "http://www.randolphhospital.org/",
+      },
+      {
+        name: "Cone Health HeartCare at Asheboro",
+        note: "A cardiology office at 542 White Oak Street, part of Cone Health. If your cardiologist practices here, list that office separately from the hospital.",
+        url: "https://www.conehealth.com/locations/profile/cone-health-heartcare-at-asheboro/",
+      },
+    ],
+    hospitalTakeaway:
+      "Original Medicare, alone or with a Medicare Supplement, works with any doctor or hospital that accepts Medicare. Medicare Advantage plans use networks, so check the hospital and each of your doctors by name for next year.",
+    hospitalNote: "Not affiliated with or endorsed by Randolph Health or Cone Health.",
+    sources: [
+      {
+        label: "Randolph Health",
+        href: "http://www.randolphhospital.org/",
+      },
+      {
+        label: "Cone Health HeartCare at Asheboro",
+        href: "https://www.conehealth.com/locations/profile/cone-health-heartcare-at-asheboro/",
+      },
+    ],
+    provider: "Randolph Health, Asheboro, NC",
+    ctaHeading: "Check your Asheboro doctors before December 7",
+    ctaLine:
+      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+    faq: [
+      {
+        q: "Does Randolph Health accept my Medicare Advantage plan?",
+        a: "It depends on the plan and the year. Check the hospital and each of your doctors by name with the plan before you enroll.",
+      },
+      {
+        q: "My specialists are in Greensboro. Does that matter for my plan?",
+        a: "Yes. List every Greensboro specialist with your Asheboro doctors, then check each one against the plan for next year before enrolling.",
+      },
+      {
+        q: "Is there a Medicare agent near me in Asheboro?",
+        a: "Yes. I meet at homes across Asheboro and Randolph County, or by phone. The review is free with no obligation to enroll.",
+      },
+      {
+        q: "Do you cover the rest of Randolph County?",
+        a: "Yes. Archdale, Randleman, Liberty, Ramseur, Trinity, Franklinville, Seagrove, and Staley are all in my area, by phone or in person.",
+      },
+      {
+        q: "Where can I get free Medicare counseling near Asheboro?",
+        a: "NC SHIIP offers free, unbiased Medicare counseling at 1-855-408-1212, Monday through Friday. Counselors do not sell insurance, and I can help too.",
+      },
+    ],
+  },
+  franklinton: {
+    name: "Franklinton",
+    county: "Franklin County",
+    title: "Medicare Agent in Franklinton, NC | Christian Brinkley",
+    heading: "A Medicare agent for Franklinton and Franklin County",
+    description:
+      "Free Medicare help in Franklinton, NC. A licensed local agent who checks your Maria Parham doctors and your county before you pick a plan.",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+    reviewed: "2026-11-07",
+    sourcesChecked: "November 7, 2026",
+    localHeading: "In Franklinton, your hospital is up the road, and your specialists may be in Raleigh",
+    paragraphs: [
+      "Franklinton is a town in Franklin County, just north of Wake Forest and south of Louisburg, the county seat. Town Hall is at 101 North Main Street, and the town's main number is (919) 494-2520, weekdays 8:30 a.m. to 5 p.m. It is a small town where most people know their neighbors, and a lot of folks here split their care between local doctors and specialists down in Raleigh.",
+      "The closest emergency care is Maria Parham Franklin, at 100 Hospital Drive in Louisburg, which offers 24/7 emergency care, diagnostic services, and behavioral health services. The nearest full hospital is Maria Parham Health, a Duke LifePoint hospital at 566 Ruin Creek Road in Henderson. Many Franklinton residents also see specialists at WakeMed in Raleigh, about a straight shot down U.S. 1. List each doctor by the office where you see them, not just by the hospital name.",
+      "I am Christian Brinkley, a licensed insurance agent in North Carolina. I grew up in Creedmoor, in Granville County right next door, so Franklin County is home ground, not a sales territory. I help people in Franklinton, Louisburg, Youngsville, and Bunn sort this out at home or over the phone. You talk to me, not a call center. It is free, and there is no obligation to enroll.",
+      "What a meeting looks like in Franklinton: bring a list of your doctors, including any specialists in Raleigh or Henderson, plus your prescriptions and the pharmacy you use. I check each one with you for next year, so you see what I see. If a plan you are considering drops one of your doctors, you know before you sign anything, not after.",
+      "Plan availability follows your county, not your mailing address habits. If you live in Franklinton, I compare plans offered in Franklin County. A plan a relative in Raleigh has may not be offered here, or may cost something different. I check what is real for your address before I talk about anything else.",
+      "If you would like a second opinion from someone who does not sell insurance, North Carolina's SHIIP program offers free, unbiased Medicare counseling. Call SHIIP statewide at 1-855-408-1212, Monday through Friday. I am glad to help before or after you talk with them.",
+      "For a fall review in Franklinton, bring your current plan's Annual Notice of Change, the letter that lists what changes next year. If you are turning 65 and still working, bring your employer coverage notice and ask your benefits office how that plan works with Medicare before you cancel anything. I can map out your enrollment dates with you.",
+    ],
+    hospitalsHeading: "Maria Parham Franklin, Maria Parham Health, and your Medicare plan",
+    hospitals: [
+      {
+        name: "Maria Parham Franklin",
+        note: "The emergency department in Louisburg, at 100 Hospital Drive, serving Franklin County with 24/7 emergency care, diagnostic services, and behavioral health services.",
+        url: "https://www.mariaparham.com/maria-parham-franklin",
+      },
+      {
+        name: "Maria Parham Health",
+        note: "The full hospital in Henderson, at 566 Ruin Creek Road, part of Duke LifePoint. If it is where you would want to go for a hospital stay, put it on your list.",
+        url: "https://www.mariaparham.com/maria-parham-health",
+      },
+    ],
+    hospitalTakeaway:
+      "Original Medicare, alone or with a Medicare Supplement, works with any doctor or hospital that accepts Medicare. Medicare Advantage plans use networks, so check the hospital and each of your doctors by name for next year.",
+    hospitalNote: "Not affiliated with or endorsed by Maria Parham Health.",
+    sources: [
+      {
+        label: "Town of Franklinton",
+        href: "https://www.franklintonnc.gov/",
+      },
+      {
+        label: "Maria Parham Franklin",
+        href: "https://www.mariaparham.com/maria-parham-franklin",
+      },
+      {
+        label: "Maria Parham Health",
+        href: "https://www.mariaparham.com/maria-parham-health",
+      },
+    ],
+    provider: "Maria Parham Franklin, Louisburg, NC",
+    ctaHeading: "Check your Franklin County doctors before December 7",
+    ctaLine:
+      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+    faq: [
+      {
+        q: "Where is the nearest hospital to Franklinton?",
+        a: "Maria Parham Franklin in Louisburg has 24/7 emergency care. The nearest full hospital is Maria Parham Health in Henderson, with WakeMed in Raleigh.",
+      },
+      {
+        q: "Does Maria Parham accept my Medicare Advantage plan?",
+        a: "It depends on the plan and the year. Check the hospital and each of your doctors by name with the plan before you enroll.",
+      },
+      {
+        q: "Is there a Medicare agent near me in Franklinton?",
+        a: "Yes. I meet at homes across Franklinton and Franklin County, or by phone. The review is free with no obligation to enroll.",
+      },
+      {
+        q: "My specialists are in Raleigh. Can one plan cover them all?",
+        a: "Sometimes. Original Medicare works with any doctor who accepts Medicare. Advantage networks vary, so I check every office on your list.",
+      },
+      {
+        q: "Where can I get free Medicare counseling near Franklinton?",
+        a: "NC SHIIP offers free, unbiased Medicare counseling at 1-855-408-1212, Monday through Friday. Counselors do not sell insurance, and I can help too.",
+      },
+    ],
+  },
+  youngsville: {
+    name: "Youngsville",
+    county: "Franklin County",
+    title: "Medicare Agent in Youngsville, NC | Christian Brinkley",
+    heading: "A Medicare agent for Youngsville and Franklin County",
+    description:
+      "Free Medicare help in Youngsville, NC. A licensed local agent who checks your Maria Parham doctors and your county before you pick a plan.",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+    reviewed: "2026-11-07",
+    sourcesChecked: "November 7, 2026",
+    localHeading: "In Youngsville, your doctors may be in Louisburg, Raleigh, or Henderson",
+    paragraphs: [
+      "Youngsville is a town in Franklin County on U.S. 1A, just north of Wake Forest. Town Hall is at 134 U.S. 1A South, and the town's main number is (919) 925-3401, Monday through Friday, 8:30 a.m. to 4 p.m. It is a small town that has grown fast as Wake Forest has grown, and a lot of folks here split their care between local doctors and specialists down in Raleigh.",
+      "The closest emergency care is Maria Parham Franklin, at 100 Hospital Drive in Louisburg, which offers 24/7 emergency care, diagnostic services, and behavioral health services. The nearest full hospital is Maria Parham Health, a Duke LifePoint hospital at 566 Ruin Creek Road in Henderson. WakeMed North Hospital, at 10000 Falls of Neuse Road in north Raleigh, is the closest large hospital to the south. List each doctor by the office where you see them, not just by the hospital name.",
+      "I am Christian Brinkley, a licensed insurance agent in North Carolina. I grew up in Creedmoor, in Granville County right next door, so Franklin County is home ground, not a sales territory. I help people in Youngsville, Franklinton, Louisburg, and Bunn sort this out at home or over the phone. You talk to me, not a call center. It is free, and there is no obligation to enroll.",
+      "What a meeting looks like in Youngsville: bring a list of your doctors, including any specialists in Raleigh or Henderson, plus your prescriptions and the pharmacy you use. I check each one with you for next year, so you see what I see. If a plan you are considering drops one of your doctors, you know before you sign anything, not after.",
+      "Plan availability follows your county, not your mailing address habits. If you live in Youngsville, I compare plans offered in Franklin County. A plan a relative in Raleigh has may not be offered here, or may cost something different. I check what is real for your address before I talk about anything else.",
+      "If you would like a second opinion from someone who does not sell insurance, North Carolina's SHIIP program offers free, unbiased Medicare counseling. Call SHIIP statewide at 1-855-408-1212, Monday through Friday. I am glad to help before or after you talk with them.",
+      "For a fall review in Youngsville, bring your current plan's Annual Notice of Change, the letter that lists what changes next year. If you are turning 65 and still working, bring your employer coverage notice and ask your benefits office how that plan works with Medicare before you cancel anything. I can map out your enrollment dates with you.",
+    ],
+    hospitalsHeading: "Maria Parham Franklin, Maria Parham Health, and your Medicare plan",
+    hospitals: [
+      {
+        name: "Maria Parham Franklin",
+        note: "The emergency department in Louisburg, at 100 Hospital Drive, serving Franklin County with 24/7 emergency care, diagnostic services, and behavioral health services.",
+        url: "https://www.mariaparham.com/maria-parham-franklin",
+      },
+      {
+        name: "Maria Parham Health",
+        note: "The full hospital in Henderson, at 566 Ruin Creek Road, part of Duke LifePoint. If it is where you would want to go for a hospital stay, put it on your list.",
+        url: "https://www.mariaparham.com/maria-parham-health",
+      },
+      {
+        name: "WakeMed North Hospital",
+        note: "At 10000 Falls of Neuse Road in north Raleigh, near Wake Forest and Rolesville. The closest large hospital to the south for many Youngsville residents.",
+        url: "https://www.wakemed.org/location/north-hospital",
+      },
+    ],
+    hospitalTakeaway:
+      "Original Medicare, alone or with a Medicare Supplement, works with any doctor or hospital that accepts Medicare. Medicare Advantage plans use networks, so check the hospital and each of your doctors by name for next year.",
+    hospitalNote: "Not affiliated with or endorsed by Maria Parham Health or WakeMed.",
+    sources: [
+      {
+        label: "Town of Youngsville",
+        href: "http://www.townofyoungsville.org/",
+      },
+      {
+        label: "Maria Parham Franklin",
+        href: "https://www.mariaparham.com/maria-parham-franklin",
+      },
+      {
+        label: "Maria Parham Health",
+        href: "https://www.mariaparham.com/maria-parham-health",
+      },
+    ],
+    provider: "Maria Parham Franklin, Louisburg, NC",
+    ctaHeading: "Check your Franklin County doctors before December 7",
+    ctaLine:
+      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+    faq: [
+      {
+        q: "Where is the nearest hospital to Youngsville?",
+        a: "Maria Parham Franklin in Louisburg has 24/7 emergency care. The nearest full hospital is Maria Parham Health in Henderson, with WakeMed North nearby.",
+      },
+      {
+        q: "Does Maria Parham accept my Medicare Advantage plan?",
+        a: "It depends on the plan and the year. Check the hospital and each of your doctors by name with the plan before you enroll.",
+      },
+      {
+        q: "Is there a Medicare agent near me in Youngsville?",
+        a: "Yes. I meet at homes across Youngsville and Franklin County, or by phone. The review is free with no obligation to enroll.",
+      },
+      {
+        q: "My specialists are in Raleigh. Can one plan cover them all?",
+        a: "Sometimes. Original Medicare works with any doctor who accepts Medicare. Advantage networks vary, so I check every office on your list.",
+      },
+      {
+        q: "Where can I get free Medicare counseling near Youngsville?",
+        a: "NC SHIIP offers free, unbiased Medicare counseling at 1-855-408-1212, Monday through Friday. Counselors do not sell insurance, and I can help too.",
+      },
+    ],
+  },
 } as const;
 
 export type PriorityMedicareCity = keyof typeof PRIORITY_MEDICARE_CITIES;
