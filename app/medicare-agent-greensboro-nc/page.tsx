@@ -225,7 +225,7 @@ export default function MedicareAgentGreensboroPage() {
           What Greensboro clients say on Google
         </h2>
         <p className="text-17 mt-4">
-          My Google Business Profile shows 5.0 stars from 5 reviews, all 5 stars. Read them on{" "}
+          My Google Business Profile shows 5.0 stars from 6 reviews, all 5 stars. Read them on{" "}
           <a
             className="underline"
             href={GOOGLE_MAPS_PROFILE_URL}
