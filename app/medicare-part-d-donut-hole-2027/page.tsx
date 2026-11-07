@@ -99,7 +99,7 @@ export default function DonutHole2027Page() {
                 "The donut hole ended in 2025. How Part D's three stages and the $2,400 cap work in 2027.",
               path: "/medicare-part-d-donut-hole-2027",
               datePublished: "2026-10-08",
-              dateModified: "2026-10-08",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -149,8 +149,10 @@ export default function DonutHole2027Page() {
             ))}
           </ol>
           <p className="text-16 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-            Source: CMS Part D announcements for 2027. The $700 deductible is a maximum; plans may
-            set it lower. The $2,400 cap applies to covered drugs.
+            Source: CMS, Announcement of Calendar Year 2027 Medicare Advantage Capitation Rates
+            and Part C and Part D Payment Policies (April 6, 2026), which set the $700 maximum
+            deductible and the $2,400 out-of-pocket cap. The $700 deductible is a maximum; plans
+            may set it lower. The $2,400 cap applies to covered drugs.
           </p>
         </div>
       </section>
@@ -206,7 +208,7 @@ export default function DonutHole2027Page() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-08" />
+      <MedicareByline reviewed="2026-11-07" />
       <RelatedMedicareGuides />
     </main>
   );

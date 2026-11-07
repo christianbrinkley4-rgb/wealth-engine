@@ -66,7 +66,7 @@ export default function MedicareAgentGreensboroPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare agent in Greensboro" }]}
         eyebrow="Greensboro and Guilford County"
         title="A Medicare agent in Greensboro, NC"
-        lede="Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. I can review your doctors, prescriptions, enrollment dates, and the plans I represent. Meet at home or talk by phone. There's no obligation to enroll."
+        lede="Looking for a Medicare agent near me or enrollment help near me? Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. I can review your doctors, prescriptions, enrollment dates, and the plans I represent. Meet at home or talk by phone. There's no obligation to enroll."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free Medicare conversation"
       />

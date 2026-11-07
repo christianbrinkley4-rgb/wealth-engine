@@ -79,7 +79,7 @@ const COMPARISON: [string, string, string][] = [
   ],
   [
     "Yearly out-of-pocket limit",
-    "Ask each plan what its yearly limit is.",
+    "Ask each plan what its yearly limit is. For 2027, CMS caps what a plan can set at $9,850 for in-network care, though most plans set a lower one.",
     "Original Medicare's 20 percent has no yearly ceiling of its own. Medigap helps pay some of those costs, depending on the letter.",
   ],
   [

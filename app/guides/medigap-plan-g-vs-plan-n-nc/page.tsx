@@ -16,9 +16,10 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  * Medigap Plan G vs Plan N in North Carolina.
  *
  * Targets "medigap plan g vs plan n north carolina". Educational
- * comparison using standardized Medigap benefit definitions. No premium
- * figures quoted (they vary by carrier, age, and rating method). No
- * carrier names. The excess-charge difference is the key decision point.
+ * comparison using standardized Medigap benefit definitions. NC premium
+ * ranges are sample ranges from published sources (NCDOI database, October
+ * 2026), labeled with the profile they assume, never a quote. No carrier
+ * names. The excess-charge difference is the key decision point.
  */
 
 export const metadata: Metadata = {
@@ -54,6 +55,14 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   {
     q: "Is Plan N worth the lower premium?",
     a: "It can be. If you are healthy, see your doctors a few times a year, and your doctors accept Medicare assignment, Plan N often costs less over a full year even with the copays. If you see specialists often, travel a lot, or want the most predictable costs, Plan G is usually the calmer choice. The math depends on your actual doctor visits.",
+  },
+  {
+    q: "How much does Plan G cost in North Carolina?",
+    a: "In the NC Department of Insurance premium database viewed in October 2026, Plan G for a non-smoking man age 65 ranged from about $111 to $266 a month, with a median of about $140. Your price depends on your age, gender, tobacco use, zip code, and the carrier's rating method. These are sample ranges, not a quote.",
+  },
+  {
+    q: "What is High Deductible Plan G?",
+    a: "It is the same standardized Plan G benefit, but you pay Medicare-covered costs yourself until you reach a yearly deductible of $3,050 in 2027, set by CMS. After that it pays like standard Plan G. The monthly premium is much lower, which fits people who are healthy and want catastrophic-style coverage.",
   },
   {
     q: "Can I switch from Plan N to Plan G later in North Carolina?",
@@ -94,7 +103,7 @@ export default function PlanGVsPlanNPage() {
                 "The real differences between the two most popular Medigap plans: excess charges, copays, and the cost tradeoff.",
               path: "/guides/medigap-plan-g-vs-plan-n-nc",
               datePublished: "2026-10-13",
-              dateModified: "2026-10-13",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -110,7 +119,7 @@ export default function PlanGVsPlanNPage() {
           { name: "Guides" },
           { name: "Plan G vs Plan N" },
         ]}
-        eyebrow="Guide · Updated October 13, 2026"
+        eyebrow="Guide · Updated November 7, 2026"
         title="Medigap Plan G vs Plan N in North Carolina"
         lede="The two most popular Medigap plans look almost identical. Three differences decide which one fits you."
         secondaryHref="/start?topic=medicare&quick=1"
@@ -168,6 +177,13 @@ export default function PlanGVsPlanNPage() {
             Not dramatic. But if you are in and out of specialists, the copays add up, and they
             add unpredictability. Every visit is a small bill to think about.
           </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Plan N has one more gap worth knowing. It does not cover Part B excess charges at all,
+            so a doctor who does not accept Medicare assignment can bill you up to 15 percent
+            above the Medicare-approved amount on top of the copay. If your doctors all
+            accept assignment and you rarely travel, that gap may never touch you. If you see
+            specialists who do not, Plan N can cost more than the premium savings suggest.
+          </p>
 
           <h2 className="text-28 mt-12 font-semibold">Difference 3: the monthly premium</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -182,6 +198,50 @@ export default function PlanGVsPlanNPage() {
             based on your actual doctor visits. If you are healthy and see doctors a few times
             a year, Plan N usually wins that math. If you are in specialists&apos; offices
             monthly, Plan G often wins, and it wins on peace of mind too.
+          </p>
+
+          <h2 className="text-28 mt-12 font-semibold">What Plan G costs in North Carolina</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Sample ranges, not a quote. In the North Carolina Department of Insurance premium
+            database viewed in October 2026, Plan G for a non-smoking man age 65 ranged from
+            about $111 to $266 a month across carriers, with a median of about $140. A separate
+            analysis of 2026 Medicare.gov pricing put the statewide average Plan G premium at
+            about $198 a month for a 65-year-old. The spread is the point: the same standardized
+            benefit can cost twice as much from one company as from another.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Your price depends on your age, gender, tobacco use, zip code, and the carrier&apos;s
+            rating method. North Carolina carriers generally use attained-age rating, which means
+            the premium rises as you get older, so the price at 65 is a starting point, not a
+            lifetime rate. Plan N typically runs lower than Plan G; in the same Medicare.gov
+            analysis, the lowest Plan N rate for a 65-year-old in North Carolina was $94 a month.
+            Get a current quote for your own profile before deciding, and compare the same plan
+            letter across companies.
+          </p>
+
+          <h2 className="text-28 mt-12 font-semibold">High Deductible Plan G: the lower-premium option</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            High Deductible Plan G has the same standardized benefits as regular Plan G, but you
+            pay Medicare-covered costs yourself until you reach a yearly deductible of $3,050 in
+            2027, set by CMS in October 2026 and up from $2,950 in 2026. After that, it pays
+            exactly like standard Plan G for the rest of the calendar year. The Part B deductible
+            you pay counts toward the $3,050, even though the plan never pays any part of the
+            Part B deductible itself.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            The tradeoff is simple: a much lower monthly premium in exchange for paying the first
+            $3,050 of Medicare-covered costs yourself in a bad year. It fits healthy people who
+            rarely use care and want catastrophic-style protection, and it fits badly anyone who
+            expects regular specialist visits or a hospital stay. Like standard Plan G, it does
+            not cover prescription drugs, so you still need a separate Part D plan.{" "}
+            <a
+              href="https://www.cms.gov/medicare/health-drug-plans/medigap/f-g-j-deductible-announcements"
+              rel="noopener"
+              className="underline underline-offset-2"
+            >
+              CMS: high deductible amounts for 2027
+            </a>
+            .
           </p>
 
           <h2 className="text-28 mt-12 font-semibold">The switching risk nobody mentions</h2>
@@ -257,7 +317,7 @@ export default function PlanGVsPlanNPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-13" />
+      <MedicareByline reviewed="2026-11-07" />
     </main>
   );
 }

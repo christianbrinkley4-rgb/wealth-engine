@@ -1486,6 +1486,10 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         q: "How much can I withdraw penalty-free for a birth or adoption?",
         a: "Up to $5,000 per birth or adoption from a qualifying plan, if the plan allows it. Income tax can still apply. Verify the current rule on the IRS exceptions chart before withdrawing.",
       },
+      {
+        q: "What is the rule of 55?",
+        a: "If you leave your employer during or after the year you turn 55, distributions from that employer's plan may avoid the 10% additional tax. Rolling the money into an IRA can remove that option, so check before you roll over.",
+      },
     ],
     sources: [
       {
@@ -2190,7 +2194,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     sections: [
       {
         title: "What dual eligible means",
-        body: "You have Medicare and full Medicaid at the same time. Medicare pays first for Medicare-covered services, and Medicaid pays last, after Medicare and any other insurance you have. Your prescription drug coverage comes through Medicare, not Medicaid. In North Carolina, you can check your Medicaid status with your county Department of Social Services.",
+        body: "You have Medicare and full Medicaid at the same time. Medicare pays first for Medicare-covered services, and Medicaid pays last, after Medicare and any other insurance you have. Your prescription drug coverage comes through Medicare, not Medicaid. In North Carolina, you can check your Medicaid status with your county Department of Social Services. Full dual eligible and partial dual eligible are different categories; the related link below explains what dual eligible means.",
       },
       {
         title: "What a D-SNP actually is",

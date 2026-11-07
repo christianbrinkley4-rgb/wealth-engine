@@ -59,6 +59,13 @@ const data: SeoGuideData = {
       ],
     },
     {
+      title: "Annual Enrollment: October 15 to December 7",
+      paragraphs: [
+        "Annual Enrollment Period, or AEP, runs October 15 through December 7 each year. It is the main window to join, switch, or drop a Medicare Advantage or Part D plan for coverage starting January 1. You do not need to renew Original Medicare during AEP, and nothing about AEP asks you to reapply for Medicare itself.",
+        "Use the window to check the Annual Notice of Change, not to assume last year's plan still fits. Premiums, drug lists, and networks change every year. See [the Annual Enrollment guide](/aep) for the dates and the review checklist.",
+      ],
+    },
+    {
       title: "Medicaid paperwork is separate",
       paragraphs: [
         "If you also have Medicaid or help with Medicare costs, answer renewal or information requests from the agency handling that benefit. Medicare continuing doesn't mean every assistance program continues without paperwork. Keep your address current with your coverage providers.",

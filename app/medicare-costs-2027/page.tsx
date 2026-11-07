@@ -24,11 +24,14 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 /**
  * Medicare Costs 2027: the reference page.
  *
- * Official CMS figures only. As of the review date below, CMS has published
- * the 2027 Part D deductible and out-of-pocket cap (CY 2027 Rate Announcement,
- * April 6, 2026) but NOT the 2027 Part A, Part B, or IRMAA figures. Those rows
- * show the 2026 amounts, labeled 2026, read from the same constants the 2026
- * cost page uses. No projections appear on this page.
+ * Official CMS figures only, plus Trustees projections clearly labeled as
+ * projected. As of the review date below, CMS has published the 2027 Part D
+ * deductible and out-of-pocket cap (CY 2027 Rate Announcement, April 6,
+ * 2026) but NOT the 2027 Part A, Part B, or IRMAA figures. Those rows show
+ * the 2026 amounts, labeled 2026, read from the same constants the 2026
+ * cost page uses. The separate projected section shows the 2026 Medicare
+ * Trustees Report estimates ($209.50 Part B premium, $292 Part B deductible,
+ * $1,788 Part A deductible), each labeled projected until CMS announces.
  *
  * When CMS publishes the 2027 Parts A & B fact sheet, replace the "Not
  * announced yet" cells, the IRMAA table, and REVIEWED in one commit.
@@ -37,7 +40,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 const PATH = "/medicare-costs-2027";
 
 /** The day every figure here was checked against its CMS source. */
-const REVIEWED = "2026-10-13";
+const REVIEWED = "2026-11-07";
 
 const CMS_2027_RATE_ANNOUNCEMENT = {
   title: "CMS: Announcement of Calendar Year 2027 Medicare Advantage Capitation Rates and Part C and Part D Payment Policies (April 6, 2026)",
@@ -118,7 +121,7 @@ const COST_ROWS = [
 const FAQ = [
   {
     q: "Has the 2027 Medicare Part B premium been announced?",
-    a: `Not yet. As of October 13, 2026, CMS has not published the 2027 Part B premium or deductible. CMS released the 2026 figures on November 14, 2025, so the 2027 numbers usually come out in the fall. Until then, the only official amounts are the 2026 ones: ${formatMoney(STANDARD_BASE_PREMIUM_2026)} a month for the standard premium and ${whole(PART_B_2026.annualDeductible)} for the yearly deductible.`,
+    a: `Not yet. As of November 7, 2026, CMS has not published the 2027 Part B premium or deductible. CMS released the 2026 figures on November 14, 2025, so the 2027 numbers usually come out in the fall. Until then, the only official amounts are the 2026 ones: ${formatMoney(STANDARD_BASE_PREMIUM_2026)} a month for the standard premium and ${whole(PART_B_2026.annualDeductible)} for the yearly deductible.`,
   },
   {
     q: "Which Medicare costs are final for 2027?",
@@ -178,9 +181,9 @@ export default function MedicareCosts2027Page() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare costs 2027" }]}
-        eyebrow="Checked October 13, 2026 · Official CMS figures only"
+        eyebrow="Checked November 7, 2026 · Official CMS figures only, projections labeled"
         title="Medicare costs 2027"
-        lede="Here's what CMS has officially published for 2027, and what it hasn't. The Part D numbers are final. The Part A, Part B, and IRMAA numbers aren't out yet, so I show the 2026 amounts with the year on every one. No estimates."
+        lede="Here's what CMS has officially published for 2027, and what it hasn't. The Part D numbers are final. The Part A, Part B, and IRMAA numbers aren't out yet, so I show the 2026 amounts with the year on every one, plus the Trustees projections in their own section, labeled projected. No estimates dressed up as finals."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free consultation →"
       />
@@ -246,6 +249,90 @@ export default function MedicareCosts2027Page() {
               {CMS_2027_RATE_ANNOUNCEMENT.title}
             </a>{" "}
             for the Part D deductible and out-of-pocket cap in both years.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-[var(--color-paper)] py-14">
+        <div className="measure-prose app-shell max-w-4xl">
+          <h2 className="text-28 font-semibold">Part A in 2027: what we know so far</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Part A covers hospital stays, skilled nursing facility care, hospice, and some home
+            health care. Most people pay no monthly premium for Part A. What they do pay is the
+            hospital deductible, charged per benefit period, not per year, so a second hospital
+            stay in a new benefit period can mean a second deductible.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            CMS has not announced the 2027 Part A deductible yet. The 2026 amount is $1,736 per
+            benefit period, and the 2026 Medicare Trustees Report projects $1,788 for 2027. That
+            projection is labeled projected in the table below, and this page switches to the
+            official figure the day CMS publishes it.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-4xl">
+          <h2 className="text-28 font-semibold">The three deductibles, side by side</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Each part of Medicare has its own deductible, and they work differently. Part A is per
+            benefit period. Part B is once a year. Part D is the most a drug plan can charge, and
+            many plans charge less or waive it for lower drug tiers.
+          </p>
+          <div className="mt-8 overflow-x-auto">
+            <ResponsiveTable className="w-full border-collapse text-left">
+              <caption className="sr-only">
+                The three Medicare deductibles: final 2026 amounts next to the 2027 amounts, with
+                projections labeled
+              </caption>
+              <thead>
+                <tr className="border-b-2 border-[var(--color-navy)]">
+                  <th scope="col" className="text-16 py-3 pr-4 font-semibold">
+                    Deductible
+                  </th>
+                  <th scope="col" className="text-16 py-3 pr-4 font-semibold">
+                    2026 (final)
+                  </th>
+                  <th scope="col" className="text-16 py-3 font-semibold">
+                    2027
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-gray-300 align-top">
+                  <th scope="row" className="text-16 py-4 pr-3 font-semibold">
+                    Part A hospital deductible, per benefit period
+                  </th>
+                  <td className="text-16 py-4 pr-3 whitespace-nowrap">
+                    {whole(PART_A_2026.inpatientDeductible)}
+                  </td>
+                  <td className="text-16 py-4">~$1,788 (projected)</td>
+                </tr>
+                <tr className="border-b border-gray-300 align-top">
+                  <th scope="row" className="text-16 py-4 pr-3 font-semibold">
+                    Part B annual deductible
+                  </th>
+                  <td className="text-16 py-4 pr-3 whitespace-nowrap">
+                    {whole(PART_B_2026.annualDeductible)}
+                  </td>
+                  <td className="text-16 py-4">~$292 (projected)</td>
+                </tr>
+                <tr className="border-b border-gray-300 align-top">
+                  <th scope="row" className="text-16 py-4 pr-3 font-semibold">
+                    Part D deductible, the most a plan can charge
+                  </th>
+                  <td className="text-16 py-4 pr-3 whitespace-nowrap">
+                    {whole(PART_D_2026.maximumDeductible)}
+                  </td>
+                  <td className="text-16 py-4 font-semibold">$700 (final)</td>
+                </tr>
+              </tbody>
+            </ResponsiveTable>
+          </div>
+          <p className="text-16 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
+            Projected figures come from the 2026 Medicare Trustees Report. CMS announces the final
+            Part A and Part B amounts in the fall, usually in November. The Part D figure is final,
+            set by CMS in its 2027 Rate Announcement on April 6, 2026.
           </p>
         </div>
       </section>

@@ -591,17 +591,17 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "medicare-advantage-dental-coverage",
-    title: "Does Medicare Advantage cover dental?",
-    metaTitle: "Does Medicare Advantage Cover Dental? What to Check",
+    title: "Does Medicare Advantage cover dental, vision, and hearing?",
+    metaTitle: "Does Medicare Advantage Cover Dental, Vision, Hearing?",
     description:
-      "Original Medicare skips routine dental. Many Medicare Advantage plans add some dental, but the details vary. What to check before you count on it. Read on.",
+      "Original Medicare skips routine dental, vision, and hearing. Many Medicare Advantage plans add some of each, but the details vary. What to check first.",
     keyword: "does Medicare Advantage cover dental",
     eyebrow: "Medicare questions, answered",
-    lede: "Original Medicare does not cover routine dental. Many Advantage plans add some. Here is what the benefit usually includes, and where people get surprised.",
+    lede: "Original Medicare does not cover routine dental, vision, or hearing. Many Advantage plans add some of each. Here is what the benefits usually include, and where people get surprised.",
     published: "2026-10-02",
-    updated: "2026-10-02",
+    updated: "2026-11-07",
     intro:
-      "This one comes up in almost every kitchen-table conversation I have: does Medicare cover dental, and if not, does a Medicare Advantage plan? The short answer is that Original Medicare skips routine dental entirely, and many Advantage plans add some dental back in. The long answer is where the money is, because no two plans define dental the same way.",
+      "This one comes up in almost every kitchen-table conversation I have: does Medicare cover dental, vision, or hearing, and if not, does a Medicare Advantage plan? The short answer is that Original Medicare skips routine dental, vision, and hearing care, and many Advantage plans add some of each back in. The long answer is where the money is, because no two plans define these benefits the same way.",
     sections: [
       {
         h2: "What Original Medicare covers (almost nothing dental)",
@@ -644,6 +644,22 @@ export const ARTICLES: Article[] = [
           ),
           p(
             "Third, recheck every fall. Dental benefits can shrink from one year to the next, and the change shows up in the Annual Notice of Change your plan mails each fall. I have seen neighbors learn at the dentist's front desk that their plan now covers preventive care only. Ten minutes with the ANOC avoids that.",
+          ),
+        ],
+      },
+      {
+        h2: "What about vision?",
+        blocks: [
+          p(
+            "Original Medicare covers almost no routine vision care: no eye exams for glasses, no glasses, and no contact lenses, except one pair after cataract surgery with an implanted lens. Many Medicare Advantage plans add a routine eye exam and an annual allowance for glasses or contacts, with a set dollar limit. Check the allowance amount, whether your eye doctor is in the network, and whether the benefit renews each year.",
+          ),
+        ],
+      },
+      {
+        h2: "What about hearing?",
+        blocks: [
+          p(
+            "Original Medicare does not cover routine hearing exams or hearing aids, except diagnostic hearing tests ordered by a doctor. Many Medicare Advantage plans add a hearing exam and an allowance toward hearing aids, often with a limit per ear or per year, and some include a set copay per aid. Ask which hearing aid brands and providers are covered, what the allowance is, and what you pay if the aid costs more than the allowance.",
           ),
         ],
       },
@@ -968,26 +984,26 @@ export const ARTICLES: Article[] = [
     title: "Will Medicare cost me more because of my income?",
     metaTitle: "IRMAA Explained: When Income Raises Medicare Costs",
     description:
-      "Earn over $109K single or $218K joint? IRMAA adds surcharges to Medicare Part B and Part D. How the two-year lookback works, and how to appeal. Read on.",
+      "IRMAA adds surcharges to Medicare Part B and Part D when income crosses a limit. How the two-year lookback works, the 2027 brackets, and how to appeal.",
     keyword: "what is irmaa medicare income related monthly adjustment amount",
     eyebrow: "Medicare questions, answered",
-    lede: "Your 2024 tax return sets your 2026 Medicare premiums. Here is how the income surcharge works, and what to do if your income has dropped since.",
+    lede: "Your 2025 tax return sets your 2027 Medicare premiums. Here is how the surcharge works, and what to do if your income has dropped.",
     published: "2026-10-05",
-    updated: "2026-10-05",
+    updated: "2026-11-07",
     intro:
-      "Most people pay the standard Medicare Part B premium. But if your income is above a set limit, Medicare adds a surcharge called IRMAA, short for Income-Related Monthly Adjustment Amount. It applies to Part B and to Part D drug coverage. The surprise is the timing: the number comes from your tax return two years back, so a high-income year can raise your premiums long after the money is gone.",
+      "Most people pay the standard Medicare Part B premium. Above a set income limit, Medicare adds a surcharge called IRMAA, short for Income-Related Monthly Adjustment Amount, to Part B and Part D. The surprise is the timing: the number comes from your tax return two years back.",
     sections: [
       {
         h2: "What IRMAA actually is",
         blocks: [
           p(
-            "IRMAA is an extra monthly charge added to your Part B premium and your Part D premium when your income crosses set thresholds. It is tiered, not gradual: cross a threshold by one dollar and you pay the full surcharge for that tier.",
+            "IRMAA is an extra monthly charge on your Part B and Part D premiums when your income crosses set thresholds. It is tiered: cross a threshold by one dollar and you pay the full surcharge for that tier.",
           ),
           p(
-            "The income measure is called MAGI, modified adjusted gross income. For IRMAA that means your adjusted gross income plus any tax-exempt interest. It is not the same MAGI formula used for other programs, which trips people up.",
+            "The income measure is MAGI, modified adjusted gross income: your adjusted gross income plus any tax-exempt interest. It is not the same MAGI formula other programs use.",
           ),
           p(
-            "Social Security sends a letter when IRMAA applies, showing the income year they used and the new premium. If your income has dropped since, do not just accept it. There is an appeal path.",
+            "Social Security sends a letter when IRMAA applies, showing the income year they used and the new premium. If your income has dropped since, there is an appeal path.",
           ),
         ],
       },
@@ -995,13 +1011,13 @@ export const ARTICLES: Article[] = [
         h2: "The two-year lookback",
         blocks: [
           p(
-            "Your 2026 premiums come from your 2024 MAGI; 2027 will come from 2025. That two-year lag is a timing trap: a single high-income year follows you.",
+            "Your 2026 premiums come from your 2024 MAGI; 2027 comes from 2025. That two-year lag is a timing trap: one high-income year follows you.",
           ),
           p(
-            "The usual triggers are a large Roth conversion, selling property or investments at a gain, a big retirement account withdrawal, required minimum distributions kicking in, or a payout from an inherited IRA. Any of these can push one tax year over a threshold, and the surcharge shows up two years later.",
+            "The usual triggers are a large Roth conversion, a property or investment sale at a gain, a big retirement account withdrawal, required minimum distributions, or an inherited IRA payout. Any of these can push one tax year over a threshold, and the surcharge shows up two years later.",
           ),
           p(
-            "Even if your income falls back to normal the next year, you pay the higher premium until the lookback catches up. That is why the timing of big income events matters as much as the amount.",
+            "Even if your income falls back the next year, you pay the higher premium until the lookback catches up. That is why the timing of big income events matters as much as the amount.",
           ),
         ],
       },
@@ -1009,31 +1025,56 @@ export const ARTICLES: Article[] = [
         h2: "The 2026 brackets",
         blocks: [
           p(
-            "Below the first threshold you pay the standard Part B premium, $202.90 a month for 2026, with no Part D surcharge. Above it, five tiers step up. These are the official CMS figures for 2026, based on 2024 income.",
+            "Below the first threshold you pay the standard $202.90 Part B premium for 2026, with no Part D surcharge. Above it, five tiers step up. These are the official CMS figures.",
           ),
-          ul(
-            "Single $109,001 to $137,000 (joint $218,001 to $274,000): Part B $284.10, Part D adds $14.50",
-            "Single $137,001 to $171,000 (joint $274,001 to $342,000): Part B $405.80, Part D adds $37.50",
-            "Single $171,001 to $205,000 (joint $342,001 to $410,000): Part B $527.50, Part D adds $60.40",
-            "Single $205,001 to $499,999 (joint $410,001 to $749,999): Part B $649.20, Part D adds $83.30",
-            "Single $500,000 or more (joint $750,000 or more): Part B $689.90, Part D adds $91.00",
-          ),
+          {
+            kind: "table",
+            headers: ["Single (2024 MAGI)", "Joint (2024 MAGI)", "Part B / month", "Part D add-on"],
+            rows: [
+              ["$109,001 to $137,000", "$218,001 to $274,000", "$284.10", "+$14.50"],
+              ["$137,001 to $171,000", "$274,001 to $342,000", "$405.80", "+$37.50"],
+              ["$171,001 to $205,000", "$342,001 to $410,000", "$527.50", "+$60.40"],
+              ["$205,001 to $499,999", "$410,001 to $749,999", "$649.20", "+$83.30"],
+              ["$500,000 or more", "$750,000 or more", "$689.90", "+$91.00"],
+            ],
+          },
           p(
-            "Married filing separately has its own tighter thresholds. And these numbers move most years, so check the current table rather than trusting last year's.",
+            "Married filing separately has tighter thresholds.",
           ),
+        ],
+      },
+      {
+        h2: "The 2027 brackets, calculated",
+        blocks: [
+          {
+            kind: "table",
+            headers: ["Tier", "Single (2025 MAGI)", "Joint (2025 MAGI)", "Part B / month", "Part D add-on"],
+            rows: [
+              ["Standard", "$112,000 or less", "$224,000 or less", "$209.50", "$0"],
+              ["1", "$112,001 to $141,000", "$224,001 to $282,000", "$293.30", "+$15.40"],
+              ["2", "$141,001 to $176,000", "$282,001 to $352,000", "$419.00", "+$39.70"],
+              ["3", "$176,001 to $211,000", "$352,001 to $422,000", "$544.70", "+$64.00"],
+              ["4", "$211,001 to $499,999", "$422,001 to $749,999", "$670.40", "+$88.30"],
+              ["5", "$500,000 or more", "$750,000 or more", "$712.30", "+$96.40"],
+            ],
+          },
+          {
+            kind: "p",
+            text: "Calculated, pending CMS. CMS has not published the official 2027 table yet. The thresholds come from the formula in the law, 42 U.S.C. 1395r(i)(5), which indexes them to inflation; the same formula reproduces every CMS threshold for 2024, 2025, and 2026. Part B amounts use the Trustees Report projection of a $209.50 standard premium, so they move when CMS announces the final premium. Middle tier boundaries could come in $1,000 higher. Source: [2026 Medicare Trustees Report](https://www.cms.gov/oact/tr/2026).",
+          },
         ],
       },
       {
         h2: "If your income dropped, appeal it",
         blocks: [
           p(
-            "A life-changing event can get your IRMAA lowered. The qualifying events include stopping work or cutting hours, marriage, divorce, or the death of a spouse. If one of those cut your income after the tax year Medicare used, you can ask Social Security to use your current income instead.",
+            "A life-changing event can lower your IRMAA. Qualifying events include stopping work or cutting hours, marriage, divorce, or the death of a spouse. If one cut your income after the tax year Medicare used, ask Social Security to use your current income instead.",
           ),
           p(
-            "The request goes on Form SSA-44, filed with your local Social Security office, with proof of the event and your lower income. It is a standard process, not a loophole, and it exists exactly for this situation.",
+            "The request goes on Form SSA-44, filed with your local Social Security office, with proof of the event and your lower income. It is a standard process, not a loophole, and it exists exactly for this situation. [The full appeal walkthrough](/answers/what-is-irmaa-and-how-do-i-appeal-it) covers each step.",
           ),
           p(
-            "One thing people miss: IRMAA is recalculated every year. If this year's surcharge came from an old high-income year, next year's letter may already fix itself. Still appeal when you qualify. Do not wait on the calendar.",
+            "IRMAA is recalculated every year. If this year's surcharge came from an old high-income year, next year's letter may already fix itself. Still appeal when you qualify.",
           ),
         ],
       },
@@ -1041,13 +1082,10 @@ export const ARTICLES: Article[] = [
         h2: "Planning around it",
         blocks: [
           p(
-            "You cannot change the lookback, but you can plan inside it. Spreading a large Roth conversion across low-income years, timing property sales, and using qualified charitable distributions from an IRA after age 70 and a half can keep a single year from spiking over a threshold.",
+            "You cannot change the lookback, but you can plan inside it. Spreading a Roth conversion across low-income years, timing property sales, and using qualified charitable distributions from an IRA after age 70 and a half can keep one year from spiking over a threshold.",
           ),
           p(
-            "This is tax planning, not just Medicare planning. Run the timing past a tax professional before you move money. A conversion that saves on lifetime taxes can still cost you two years of IRMAA, and you want both sides of that math.",
-          ),
-          p(
-            "If you are helping a parent with Medicare and their premiums look wrong, check the IRMAA letter first. It names the income year. Half the time the mystery is just the two-year lag.",
+            "This is tax planning, not just Medicare planning. Run the timing past a tax professional before you move money. A conversion that saves lifetime taxes can still cost two years of IRMAA.",
           ),
         ],
       },
@@ -1055,15 +1093,19 @@ export const ARTICLES: Article[] = [
     faq: [
       {
         q: "What income triggers IRMAA in 2026?",
-        a: "For 2026, IRMAA starts when your 2024 MAGI is more than $109,000 filing single or more than $218,000 filing jointly. Below that you pay the standard Part B premium of $202.90 a month with no Part D surcharge.",
+        a: "For 2026, IRMAA starts when your 2024 MAGI is more than $109,000 single or $218,000 jointly. Below that you pay the standard $202.90 Part B premium with no Part D surcharge.",
       },
       {
         q: "Can I appeal IRMAA if I retired?",
-        a: "Yes. Stopping work or reducing hours is a qualifying life-changing event. File Form SSA-44 with Social Security, with proof of the event and your current lower income, and ask them to base your premium on this year instead of the old tax year.",
+        a: "Yes. Stopping work or reducing hours qualifies. File Form SSA-44 with Social Security, with proof of the event and your lower income, and ask them to use this year instead of the old tax year.",
       },
       {
         q: "Does a Roth conversion trigger IRMAA?",
-        a: "It can. A Roth conversion counts as income in the year you do it, and that year's MAGI sets your premiums two years later. Large conversions in a single year are one of the most common IRMAA triggers.",
+        a: "It can. A Roth conversion counts as income in the year you do it, and that year's MAGI sets your premiums two years later. Large conversions in one year are a common trigger.",
+      },
+      {
+        q: "What income triggers IRMAA in 2027?",
+        a: "Calculated, pending CMS: IRMAA starts when your 2025 MAGI is more than $112,000 single or $224,000 jointly. Below that you pay the standard premium, projected at $209.50 a month, with no Part D surcharge.",
       },
       {
         q: "Does IRMAA go away on its own?",
@@ -1074,6 +1116,14 @@ export const ARTICLES: Article[] = [
       {
         label: "Medicare.gov: What Medicare Costs",
         href: "https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/what-does-medicare-cost",
+      },
+      {
+        label: "2026 Medicare Trustees Report",
+        href: "https://www.cms.gov/oact/tr/2026",
+      },
+      {
+        label: "42 U.S.C. 1395r(i): IRMAA income thresholds",
+        href: "https://www.law.cornell.edu/uscode/text/42/1395r",
       },
       {
         label: "Medicare Advocates: 2026 IRMAA Brackets and Income Limits",
@@ -1089,6 +1139,7 @@ export const ARTICLES: Article[] = [
       },
     ],
     related: [
+      { label: "What is IRMAA and how do I appeal it?", href: "/answers/what-is-irmaa-and-how-do-i-appeal-it" },
       { label: "What should I check before switching Medicare Advantage plans?", href: "/answers/switching-medicare-advantage-plans-aep" },
       { label: "Should I stay on Original Medicare or switch to Medicare Advantage?", href: "/answers/original-medicare-or-medicare-advantage" },
       { label: "Build your turning-65 timeline", href: "/turning-65" },
@@ -2517,7 +2568,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "One of the first big choices in Medicare is Medigap versus Medicare Advantage. They both work with Medicare, but in very different ways.",
     published: "2026-10-14",
-    updated: "2026-10-14",
+    updated: "2026-11-07",
     intro: "One of the first big choices in Medicare is Medigap versus Medicare Advantage. They both work with Medicare, but in very different ways. You cannot have both for the same coverage. Understanding the difference helps you pick the path that fits your health, your doctors, and your budget.",
     sections: [
       {
@@ -2539,7 +2590,7 @@ export const ARTICLES: Article[] = [
         blocks: [
           p("Doctor choice: Original Medicare plus Medigap lets you see any doctor who accepts Medicare, anywhere, with no referrals. Medicare Advantage usually limits you to the plan network, and you may need referrals."),
           p("Drug coverage: with Medigap, you buy a separate Part D plan. With Medicare Advantage, drug coverage is usually built in."),
-          p("Monthly cost: Medigap plus Part D means higher monthly premiums but lower costs at the point of care. Medicare Advantage means lower premiums but copays as you go, up to the out of pocket maximum."),
+          p("Monthly cost: Medigap plus Part D means higher monthly premiums but lower costs at the point of care. Medicare Advantage means lower premiums but copays as you go, up to the out of pocket maximum. For 2027, CMS caps what a Medicare Advantage plan can set as its in-network out of pocket maximum at $9,850, and the Part D out of pocket cap is $2,400 for the year."),
         ],
       },
       {
@@ -2592,6 +2643,7 @@ export const ARTICLES: Article[] = [
       { label: "Centers for Medicare & Medicaid Services", href: "https://www.cms.gov/" },
     ],
     related: [
+      { label: "Medicare Advantage vs Medigap: the full comparison", href: "/medicare-advantage-vs-medigap" },
       { label: "What changes during Medicare Annual Enrollment 2026?", href: "/answers/what-changes-during-medicare-annual-enrollment-2026" },
       { label: "What should I do before, during, and after my 65th birthday?", href: "/answers/what-should-i-do-before-during-and-after-my-65th-birthday" },
       { label: "How does Medicare Part D drug coverage work?", href: "/answers/how-does-medicare-part-d-drug-coverage-work" },
@@ -2790,7 +2842,7 @@ export const ARTICLES: Article[] = [
       {
         h2: "Appealing After a Life Changing Event",
         blocks: [
-          p("If your income has fallen since the tax year Social Security used, you may be able to appeal based on a life changing event. Social Security defines specific qualifying events."),
+          p("If your income has fallen since the tax year Social Security used, you may be able to appeal based on a life changing event. Social Security defines specific qualifying events. For the income thresholds behind the surcharge, see [will Medicare cost me more because of my income](/answers/medicare-irmaa-income-premiums)."),
         ],
       },
       {
@@ -2837,6 +2889,7 @@ export const ARTICLES: Article[] = [
       { label: "Centers for Medicare & Medicaid Services", href: "https://www.cms.gov/" },
     ],
     related: [
+      { label: "Will Medicare cost me more because of my income?", href: "/answers/medicare-irmaa-income-premiums" },
       { label: "What changes during Medicare Annual Enrollment 2026?", href: "/answers/what-changes-during-medicare-annual-enrollment-2026" },
       { label: "What should I do before, during, and after my 65th birthday?", href: "/answers/what-should-i-do-before-during-and-after-my-65th-birthday" },
       { label: "Medigap or Medicare Advantage: which one fits me?", href: "/answers/medigap-or-medicare-advantage-which-one-fits-me" },
@@ -3139,6 +3192,84 @@ export const ARTICLES: Article[] = [
       { label: "Medigap or Medicare Advantage: which one fits me?", href: "/answers/medigap-or-medicare-advantage-which-one-fits-me" },
     ],
     startHref: "/start?topic=medicare",
+  },
+  {
+    slug: "when-should-i-apply-for-medicare-part-b-if-still-working",
+    title: "When should I apply for Medicare Part B if still working?",
+    metaTitle: "When to Apply for Medicare Part B If Still Working",
+    description: "Still working past 65? When to take Part B, when to delay it, the 8-month enrollment window, and the two forms Social Security asks for.",
+    keyword: "when should i apply for medicare part b if still working",
+    eyebrow: "Medicare questions, answered",
+    lede: "If your employer has 20 or more employees, you can usually delay Part B without a penalty. The 8-month window starts when that coverage ends.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro: "Turning 65 while you still work raises a timing question, not just a coverage question. Take Part B at 65, or wait until the job ends? The answer turns on the size of your employer and whether its coverage counts as creditable. Get the timing wrong and you can face a late penalty or a gap with no coverage. Here is how to decide.",
+    sections: [
+      {
+        h2: "When should I apply for Medicare?",
+        blocks: [
+          p("In general, apply during your Initial Enrollment Period, the seven months around your 65th birthday: the three months before your birthday month, your birthday month, and the three months after. If you are still working and covered by a large employer's plan, you can usually delay Part B without a penalty, and that delay is the exception most people ask about."),
+        ],
+      },
+      {
+        h2: "The 20-employee rule",
+        blocks: [
+          p("The rule turns on employer size. If you work for an employer with 20 or more employees, or your spouse does, the employer plan usually pays first and Medicare pays second. You can delay Part B while that coverage continues, with no late penalty. If the employer has fewer than 20 employees, Medicare pays first, and you should take Part B at 65 even if you keep working. Ask your benefits office which side of the line your employer falls on."),
+        ],
+      },
+      {
+        h2: "The 8-month Special Enrollment Period",
+        blocks: [
+          p("When the job or the employer coverage ends, you get an eight-month Special Enrollment Period to sign up for Part B without a penalty. The clock starts the month after your employment ends or your employer coverage ends, whichever comes first. Coverage starts the month after you sign up. Do not wait until the eighth month: sign up early so there is no gap between the employer plan ending and Medicare starting."),
+        ],
+      },
+      {
+        h2: "The two forms: CMS-40B and CMS-L564",
+        blocks: [
+          p("Social Security asks for two forms. Form CMS-40B is your application for Part B. Form CMS-L564 is the employer's proof that you had creditable group health coverage: your employer fills in the dates and signs it. Send both to Social Security together. If the employer has closed or will not sign, Social Security can accept other proof of coverage, such as pay stubs or a letter from the plan."),
+        ],
+      },
+      {
+        h2: "What does not count as employer coverage",
+        blocks: [
+          p("COBRA and marketplace plans do not count as employer coverage for this rule. If you leave the job and take COBRA, the eight-month window still runs from when the employment ended, not from when COBRA ends. Waiting out COBRA and then signing up can leave you with a late penalty and months without Part B. The same applies to retiree coverage and a spouse's marketplace plan."),
+        ],
+      },
+      {
+        h2: "A simple timeline",
+        blocks: [
+          p("Two months before your 65th birthday, confirm your employer size and whether the plan is creditable. If it is, you can delay Part B and keep the employer plan. When the job ends, get Form CMS-L564 signed, file it with Form CMS-40B, and sign up in the first month of your eight-month window. Then check drug coverage separately, because delaying Part D has its own penalty rules."),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can I delay Part B while working?",
+        a: "Yes, if you have creditable coverage through an employer with 20 or more employees. You can sign up later during the eight-month Special Enrollment Period without a late penalty. With a smaller employer, take Part B at 65.",
+      },
+      {
+        q: "What is the Part B late penalty?",
+        a: "If you delay Part B without creditable coverage, you pay an extra 10 percent of the standard premium for every full 12 months you waited. The penalty usually lasts as long as you have Part B.",
+      },
+      {
+        q: "Do I need Part A while still working?",
+        a: "Most people should take premium-free Part A at 65, but check one thing first: if you contribute to a health savings account, enrolling in any part of Medicare ends your ability to make HSA contributions.",
+      },
+      {
+        q: "How do I prove I had employer coverage?",
+        a: "Your employer completes Form CMS-L564 with your coverage dates. Send it to Social Security with Form CMS-40B. If the employer cannot sign, other proof such as pay stubs or a plan letter can work.",
+      },
+    ],
+    sources: [
+      { label: "Social Security: Plan for Medicare", href: "https://www.ssa.gov/medicare/" },
+      { label: "Medicare.gov: When does Medicare coverage start", href: "https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start" },
+    ],
+    related: [
+      { label: "Working past 65 and Medicare", href: "/answers/working-past-65-medicare" },
+      { label: "Should I enroll in Medicare if I am still working?", href: "/answers/should-i-enroll-in-medicare-if-i-am-still-working" },
+      { label: "Missed your enrollment window?", href: "/answers/missed-iep-penalties" },
+    ],
+    startHref: "/start?topic=medicare&stage=turning_65_soon",
   },
   {
     slug: "how-do-i-spot-a-medicare-scam-call",
@@ -7244,13 +7375,13 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Your Part D drug plan does not charge you the same amount all year. Your costs move through phases as your spending adds up.",
     published: "2026-10-14",
-    updated: "2026-10-14",
+    updated: "2026-11-07",
     intro: "Your Part D drug plan does not charge you the same amount all year. Your costs move through phases as your spending adds up. The phase you are in decides what you pay at the pharmacy counter. There are three main phases. The dollar figures that define each phase change every year, so check medicare.gov for the current year numbers. The concepts below stay the same year to year.",
     sections: [
       {
         h2: "Phase 1: The Deductible",
         blocks: [
-          p("At the start of each year, you are in the deductible phase. During this phase, you pay the full cost of your covered drugs until you have spent enough to satisfy the plan's deductible."),
+          p("At the start of each year, you are in the deductible phase. During this phase, you pay the full cost of your covered drugs until you have spent enough to satisfy the plan's deductible. For 2027, no Part D plan can set a deductible above $700."),
           p("Some plans have no deductible, or they waive the deductible for certain drug tiers. Many plans charge no deductible for generic drugs on the lowest tiers. Check your plan's details to see how your deductible works."),
           p("The deductible resets every January 1. Whatever you paid toward it in December does not carry over. January starts fresh."),
         ],
@@ -7265,8 +7396,8 @@ export const ARTICLES: Article[] = [
       {
         h2: "Phase 3: Catastrophic Coverage",
         blocks: [
-          p("Once your total drug costs cross the threshold, you enter catastrophic coverage. This is the final phase, and it lasts for the rest of the year."),
-          p("In catastrophic coverage, your costs drop to a small amount. Medicare sets the rules for what you pay in this phase. For the current year, check medicare.gov, because the structure of catastrophic coverage has been changing under recent law."),
+          p("Once your out-of-pocket spending on covered drugs reaches the yearly cap, you enter catastrophic coverage. This is the final phase, and it lasts for the rest of the year. There is no coverage gap phase anymore. The old donut hole was eliminated on January 1, 2025, so Part D now has three phases, not four."),
+          p("In catastrophic coverage in 2027, you pay $0 for covered drugs for the rest of the year. The cap is $2,400 for 2027, up from $2,100 in 2026. CMS set both the $700 deductible limit and the $2,400 cap in its 2027 Rate Announcement on April 6, 2026."),
           p("The point of this phase is protection. It caps what you pay for drugs in a year. Without it, someone on a 10,000 dollar a month specialty drug would face ruinous costs. Catastrophic coverage is the backstop."),
         ],
       },
@@ -7757,8 +7888,8 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "A move across state lines shakes up a lot of things. Your Medicare coverage is one of them.",
     published: "2026-10-14",
-    updated: "2026-10-14",
-    intro: "A move across state lines shakes up a lot of things. Your Medicare coverage is one of them. What happens depends on what kind of Medicare coverage you have. Some of it follows you automatically. Some of it does not. Here is what to expect and what to do before, during, and after the move.",
+    updated: "2026-11-07",
+    intro: "A move across state lines shakes up a lot of things. Your Medicare coverage is one of them. What happens depends on what kind of Medicare coverage you have. Some of it follows you automatically. Some of it does not. Here is what to expect before and after the move.",
     sections: [
       {
         h2: "Original Medicare: It Moves With You",
@@ -7787,7 +7918,7 @@ export const ARTICLES: Article[] = [
         h2: "Medigap: The Portable One",
         blocks: [
           p("Medigap is the most move-friendly coverage you can have. Medigap policies are portable. You keep your policy when you move to another state. The company cannot cancel it because you moved."),
-          p("Your premium may change. Medigap premiums are often based on your zip code, your age, and local pricing. Moving from a low-cost area to a high-cost area can raise your premium. Moving the other direction can lower it. Ask your company what your new premium will be."),
+          p("Your premium may change. Medigap premiums are often based on your zip code, age, and local pricing. Moving to a higher-cost area can raise it; moving the other way can lower it. Ask your company what your new premium will be."),
         ],
       },
       {
@@ -7802,8 +7933,8 @@ export const ARTICLES: Article[] = [
       {
         h2: "Your Moving Checklist",
         blocks: [
-          p("Two months before the move: look up plans in your new zip code on medicare.gov. Compare Medicare Advantage options and Part D plans. Check networks and formularies."),
-          p("One month before: notify your current Medicare Advantage or Part D plan of your upcoming move and your new address. Ask about your coverage end date."),
+          p("Two months before the move: look up plans in your zip code on medicare.gov. Compare Advantage and Part D options, and check networks and formularies."),
+          p("One month before: tell your current Advantage or Part D plan about the move and your new address. Ask about your coverage end date."),
           p("Before moving day: enroll in your new plan if you are switching. Confirm the start date. Make sure there is no gap."),
         ],
       },
@@ -7812,6 +7943,12 @@ export const ARTICLES: Article[] = [
         blocks: [
           p("If you split time between two states but keep one as your primary residence, you generally do not trigger a move-based special enrollment period. Your plan is tied to your permanent address."),
           p("But your coverage away from home needs attention. Original Medicare works everywhere. Medicare Advantage HMO plans generally cover only emergency and urgent care outside the service area. PPO plans cover out-of-network care at higher cost sharing. If you spend months away, make sure your plan type fits that lifestyle."),
+        ],
+      },
+      {
+        h2: "Travel is not the same as a move",
+        blocks: [
+          p("A trip is different from a move. Original Medicare works the same in every state, so a vacation changes nothing. A Medicare Advantage plan usually covers emergency and urgent care while you travel, but routine care outside its service area is a different question. HMO plans generally cover only emergency and urgent care away from home; PPO plans cover out-of-network care at higher cost sharing. Read [do Medicare Advantage plans cover out of state](/answers/do-medicare-advantage-plans-cover-out-of-state) before a long trip."),
         ],
       },
       {
@@ -7840,9 +7977,94 @@ export const ARTICLES: Article[] = [
       { label: "Centers for Medicare & Medicaid Services", href: "https://www.cms.gov/" },
     ],
     related: [
+      { label: "Do Medicare Advantage plans cover out of state?", href: "/answers/do-medicare-advantage-plans-cover-out-of-state" },
       { label: "What changes during Medicare Annual Enrollment 2026?", href: "/answers/what-changes-during-medicare-annual-enrollment-2026" },
       { label: "What should I do before, during, and after my 65th birthday?", href: "/answers/what-should-i-do-before-during-and-after-my-65th-birthday" },
       { label: "Medigap or Medicare Advantage: which one fits me?", href: "/answers/medigap-or-medicare-advantage-which-one-fits-me" },
+    ],
+    startHref: "/start?topic=medicare",
+  },
+  {
+    slug: "do-medicare-advantage-plans-cover-out-of-state",
+    title: "Do Medicare Advantage plans cover out of state?",
+    metaTitle: "Do Medicare Advantage Plans Cover Out of State?",
+    description: "Can I use my Medicare in another state? How Medicare Advantage, Original Medicare, and Medigap handle care away from home, travel, and moves.",
+    keyword: "do medicare advantage plans cover out of state",
+    eyebrow: "Medicare questions, answered",
+    lede: "Yes, for emergencies. For routine care, it depends on your plan type and where you go.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro: "You live in North Carolina, but life does not always stay inside state lines. A grandchild in Florida, a winter in Arizona, a specialist two states over. Whether your Medicare Advantage plan follows you depends on the plan type, the kind of care, and how long you stay away. Here is how it works.",
+    sections: [
+      {
+        h2: "Can I use my Medicare in another state?",
+        blocks: [
+          p("Yes, for emergencies, and it depends for everything else. Original Medicare works the same in every state, because it is a federal program with no networks. Any doctor or hospital that accepts Medicare can treat you. Medicare Advantage is different. Each plan serves a specific area, usually a set of counties, and its network lives inside that area."),
+        ],
+      },
+      {
+        h2: "Emergencies are covered everywhere",
+        blocks: [
+          p("Every Medicare Advantage plan must cover emergency and urgent care anywhere in the United States, with no prior authorization and no network restriction. That rule comes from federal law. If you end up in an emergency room out of state, the plan pays as if you were in network. Urgently needed care while you are temporarily away is covered the same way. Routine care is not."),
+        ],
+      },
+      {
+        h2: "Routine care: HMO vs PPO",
+        blocks: [
+          p("For routine care, the plan type decides. An HMO generally covers only emergency and urgent care outside its service area, so a routine visit out of state usually comes out of your pocket. A PPO covers out-of-network care too, but you pay more for it, and the plan has a separate, higher out-of-pocket maximum for care outside the network. For 2027, CMS caps the combined in-network and out-of-network maximum for PPO plans at $14,800. Check your plan's Evidence of Coverage for the exact rules."),
+        ],
+      },
+      {
+        h2: "Travel benefits and visitor programs",
+        blocks: [
+          p("Some plans offer a travel or visitor benefit that lets you see doctors in other areas for a limited time, often through a partner network. The details vary widely: some cover only certain regions, some limit which services count, and some charge more when you use them. Ask the plan what its travel benefit covers before you count on it, and get the answer in writing if the trip is long."),
+        ],
+      },
+      {
+        h2: "Staying away too long can end your plan",
+        blocks: [
+          p("A Medicare Advantage plan can disenroll you if you leave its service area for more than six consecutive months without moving. Plans with a visitor or traveler program can extend that to twelve months. If you split the year between two states, this rule matters more than any single benefit. Original Medicare plus Medigap has no such limit, which is one reason frequent travelers often choose that path."),
+        ],
+      },
+      {
+        h2: "Moving is different from traveling",
+        blocks: [
+          p("A permanent move out of your plan's service area is not a travel problem. It gives you a special enrollment period to join a new plan where you live, or return to Original Medicare with a Part D plan. Tell your current plan your new address, and enroll before the old coverage ends so there is no gap. Read [what happens to my Medicare if I move to another state](/answers/what-happens-to-my-medicare-if-i-move-to-another-state) for the moving checklist."),
+        ],
+      },
+      {
+        h2: "What to check before a trip",
+        blocks: [
+          p("Before a long trip, check three things: whether your plan has a travel benefit and what it covers, where the nearest in-network urgent care is at your destination, and how to reach the plan while you are away. Bring your member card and the plan's phone number. If you take prescriptions, make sure you can fill them at a pharmacy near where you are staying."),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Can I use my Medicare Advantage plan in another state?",
+        a: "For emergencies and urgent care, yes, anywhere in the United States. For routine care, it depends on your plan type. HMO plans generally cover only emergency and urgent care outside their service area. PPO plans cover out-of-network care at higher cost sharing.",
+      },
+      {
+        q: "Does Original Medicare work out of state?",
+        a: "Yes. Original Medicare is federal and works the same in every state. Any doctor or hospital that accepts Medicare can treat you, with no network and no referral.",
+      },
+      {
+        q: "What if I spend winters in another state?",
+        a: "If you are away more than six consecutive months, your Medicare Advantage plan can disenroll you, unless it has a visitor program that extends the limit to twelve months. Check your plan's rules before the season starts.",
+      },
+      {
+        q: "Does my plan cover care outside the United States?",
+        a: "Original Medicare generally does not pay for care outside the United States, with only narrow exceptions. Some Medigap plans include a foreign travel emergency benefit. Check your coverage before you travel abroad.",
+      },
+    ],
+    sources: [
+      { label: "Medicare.gov: Your health plan options", href: "https://www.medicare.gov/health-drug-plans/health-plans/your-health-plan-options" },
+      { label: "Centers for Medicare & Medicaid Services", href: "https://www.cms.gov/" },
+    ],
+    related: [
+      { label: "What happens to my Medicare if I move to another state?", href: "/answers/what-happens-to-my-medicare-if-i-move-to-another-state" },
+      { label: "Medigap or Medicare Advantage: which one fits me?", href: "/answers/medigap-or-medicare-advantage-which-one-fits-me" },
+      { label: "Medicare travel: what your plan covers away from home", href: "/guides/medicare-travel" },
     ],
     startHref: "/start?topic=medicare",
   },
@@ -8692,7 +8914,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Investing, explained",
     lede: "A target date fund adjusts its investment mix around a target year, often retirement. That date doesn't guarantee a balance or retirement income.",
     published: "2026-10-14",
-    updated: "2026-11-05",
+    updated: "2026-11-07",
     intro:
       "A target date fund holds a mix of investments and adjusts that mix over time around a target year, often an expected retirement year. The fund handles allocation changes, but the date doesn't guarantee your balance, income, or readiness to retire.",
     sections: [
@@ -8706,19 +8928,28 @@ export const ARTICLES: Article[] = [
         ],
       },
       {
+        h2: "What a glide path looks like in practice",
+        blocks: [
+          {
+            kind: "p",
+            text: "The glide path is the fund's schedule for shifting from stocks toward bonds and other steadier holdings as the target year approaches. One common pattern: a fund aimed at a year 35 years away might hold about 90 percent in stocks, then fall to about 50 percent stocks around the target date, then keep drifting lower in retirement. Those are typical figures, not a rule. Each fund family sets its own schedule, so two funds with the same year can be far apart at the same age. Read the fund's own glide path chart in its prospectus rather than assuming the year tells you the mix. Source: [SEC target date fund bulletin](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin).",
+          },
+        ],
+      },
+      {
         h2: "To retirement and through retirement",
         blocks: [
           {
             kind: "table",
             headers: ["Approach", "What to look for"],
             rows: [
-              ["To retirement", "Allocation generally reaches its target mix at the target date"],
-              ["Through retirement", "Allocation changes continue beyond the target date"],
+              ["To retirement", "Allocation generally reaches its most conservative target mix at the target date, then stays there"],
+              ["Through retirement", "Allocation keeps shifting toward steadier holdings for years after the target date"],
             ],
           },
           {
             kind: "p",
-            text: "The schedule is called a glide path. Two funds with the same year can hold different stock and bond mixes and take different risks. Source: [SEC explanation of glide paths](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin).",
+            text: "The schedule is called a glide path. Two funds with the same year can hold different stock and bond mixes and take different risks. A through fund can still hold a large stock share at the target date, which matters if you plan to withdraw heavily in the first years of retirement. Source: [SEC explanation of glide paths](https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/target-date-funds-investor-bulletin).",
           },
         ],
       },
@@ -8737,6 +8968,10 @@ export const ARTICLES: Article[] = [
           {
             kind: "p",
             text: "Read the current stock and bond mix, the planned mix at and after the date, expenses, and the investment objective. A target date fund can lose money before, at, and after its target date. Automatic management doesn't make the investment personalized. Consider other assets and expected withdrawals before deciding whether the fund fits your situation. Source: [Schwab's benefits and risks explanation](https://www.schwab.com/learn/story/target-date-funds-benefits-risks-and-more).",
+          },
+          {
+            kind: "p",
+            text: "Fees have two layers to check. The fund itself charges an expense ratio, and because many target date funds hold other funds, those underlying funds charge their own expenses too. The prospectus shows the total. Index-based target date funds usually cost less than actively managed ones, and a small yearly difference compounds over decades. Compare funds on total cost for the same target year, not on the headline expense ratio alone.",
           },
         ],
       },

@@ -4,17 +4,17 @@ import type { Article } from "./articles";
 export const RELEASE_ARTICLES: Article[] = [
   {
     slug: "glp1-medicare-coverage-2026",
-    title: "Does Medicare cover GLP-1 drugs for $50 in 2026?",
-    metaTitle: "Medicare GLP-1 Coverage in 2026: The $50 Bridge",
+    title: "Does Medicare cover GLP-1 drugs in 2027?",
+    metaTitle: "Medicare GLP-1 Coverage in 2027: Prices and the Bridge",
     description:
-      "The Medicare GLP-1 Bridge offers certain drugs to eligible people for $50 a month. How it differs from Part D and what to check before AEP ends.",
-    keyword: "GLP-1 Medicare coverage 2026",
+      "Medicare negotiated prices start January 1, 2027, and the $50 GLP-1 Bridge runs through December 31, 2027. What each route covers and what to check.",
+    keyword: "GLP-1 Medicare coverage 2027",
     eyebrow: "Medicare drug coverage, explained",
     lede: "The $50 program is real. It is temporary, has eligibility rules, and is separate from your ordinary Part D coverage.",
     published: "2026-10-16",
-    updated: "2026-10-16",
+    updated: "2026-11-07",
     intro:
-      "A headline about $50 weight-loss drugs can leave you with a practical question: does that apply to my prescription? Start by finding out which coverage route is involved. A drug covered through your regular Medicare drug plan and a drug supplied through the Medicare GLP-1 Bridge follow different rules. Don't change your treatment or switch plans based on the headline alone. Your prescriber and pharmacist can help identify the route for your prescription.",
+      "A headline about $50 weight-loss drugs can leave you with a practical question: does that apply to my prescription? Start by finding out which coverage route is involved. A drug covered through your regular Medicare drug plan and a drug supplied through the Medicare GLP-1 Bridge follow different rules. From January 1, 2027, Medicare's negotiated prices for some of these drugs are a third factor. Don't change your treatment or switch plans based on the headline alone. Your prescriber and pharmacist can help identify the route for your prescription.",
     sections: [
       {
         h2: "What changed in 2026",
@@ -65,15 +65,28 @@ export const RELEASE_ARTICLES: Article[] = [
         ],
       },
       {
+        h2: "Negotiated prices start January 1, 2027",
+        blocks: [
+          {
+            kind: "p",
+            text: "CMS negotiated prices for 15 Part D drugs, announced in November 2025, take effect January 1, 2027. Ozempic, Rybelsus, and Wegovy share a negotiated price of $274 for a 30-day supply, against a 2024 list price of $959. That is the price Medicare pays, not your copay: what you pay still depends on your plan's tier, deductible, and pharmacy. The negotiated price does not change the weight-loss exclusion. Medicare still does not cover a drug prescribed only for weight loss, except through the Bridge below. Source: [CMS negotiated prices for 2027](https://www.cms.gov/files/document/fact-sheet-negotiated-prices-ipay-2027.pdf).",
+          },
+          {
+            kind: "p",
+            text: "For type 2 diabetes, the negotiated price should lower what the plan pays for a covered semaglutide prescription, which can show up as a lower tier or lower cost sharing over time. Check your plan's 2027 formulary and tier for your exact drug and dose first.",
+          },
+        ],
+      },
+      {
         h2: "How does this relate to the Part D cap?",
         blocks: [
           {
             kind: "p",
-            text: "In 2026, the annual out-of-pocket limit for covered Part D drugs is $2,100. Bridge payments stay outside that calculation. A covered prescription under your ordinary drug plan follows that plan's rules instead. [Review Medicare drug coverage costs](https://www.medicare.gov/health-drug-plans/part-d/basics/costs) and the [CMS Bridge FAQ](https://www.cms.gov/files/document/medicare-glp-1-bridge-expectations-faqs.pdf).",
+            text: "In 2027, the annual out-of-pocket limit for covered Part D drugs is $2,400, up from $2,100 in 2026. Bridge payments stay outside that calculation. A covered prescription under your ordinary drug plan follows that plan's rules instead. [Review Medicare drug coverage costs](https://www.medicare.gov/health-drug-plans/part-d/basics/costs) and the [CMS Bridge FAQ](https://www.cms.gov/files/document/medicare-glp-1-bridge-expectations-faqs.pdf).",
           },
           {
             kind: "p",
-            text: "Keep these two questions separate when you call: how is this prescription covered, and which payments count toward my drug-plan limit? Ask for a written explanation if the answers are unclear.",
+            text: "Keep these two questions separate when you call: how is this prescription covered, and which payments count toward my drug-plan limit?",
           },
         ],
       },
@@ -135,6 +148,10 @@ export const RELEASE_ARTICLES: Article[] = [
       {
         label: "Medicare: covered Bridge drugs, eligibility and costs",
         href: "https://www.medicare.gov/coverage/weight-loss-drugs",
+      },
+      {
+        label: "CMS: Negotiated prices for 2027",
+        href: "https://www.cms.gov/files/document/fact-sheet-negotiated-prices-ipay-2027.pdf",
       },
       {
         label: "CMS: Medicare GLP-1 Bridge",
