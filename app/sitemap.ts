@@ -23,7 +23,7 @@ const STATIC_ROUTES: Array<{
     priority: 0.9,
     lastModified: "2026-10-12",
   },
-  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-11-04" },
+  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-11-07" },
   {
     path: "/insurance-services",
     changeFrequency: "monthly",
@@ -86,6 +86,18 @@ const STATIC_ROUTES: Array<{
     lastModified: "2026-10-29",
   },
   {
+    path: "/medicare-advantage-north-carolina",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-10-12",
+  },
+  {
+    path: "/turning-65-medicare-guide",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-10-12",
+  },
+  {
     path: "/medicare-advantage-vs-medigap-greensboro-nc",
     changeFrequency: "monthly",
     priority: 0.9,
@@ -95,7 +107,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-greensboro-nc",
     changeFrequency: "weekly",
     priority: 0.95,
-    lastModified: "2026-10-24",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-advantage-vs-medigap",
@@ -126,6 +138,12 @@ const STATIC_ROUTES: Array<{
     changeFrequency: "monthly",
     priority: 0.9,
     lastModified: "2026-10-09",
+  },
+  {
+    path: "/greensboro-medicare-cost-calculator",
+    changeFrequency: "monthly",
+    priority: 0.8,
+    lastModified: "2026-10-10",
   },
   {
     path: "/medicare-costs-north-carolina",
@@ -208,67 +226,31 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-agent-high-point-nc",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-10-24",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-agent-greensboro-nc",
     changeFrequency: "weekly",
     priority: 0.95,
-    lastModified: "2026-11-04",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-agent-winston-salem-nc",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-10-24",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-agent-kernersville-nc",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-10-24",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-agent-burlington-nc",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-10-24",
-  },
-  {
-    path: "/medicare-agent-reidsville-nc",
-    changeFrequency: "weekly",
-    priority: 0.9,
-    lastModified: "2026-10-10",
-  },
-  {
-    path: "/medicare-agent-thomasville-nc",
-    changeFrequency: "weekly",
-    priority: 0.9,
-    lastModified: "2026-10-10",
-  },
-  {
-    path: "/medicare-agent-lexington-nc",
-    changeFrequency: "weekly",
-    priority: 0.9,
-    lastModified: "2026-10-10",
-  },
-  {
-    path: "/medicare-agent-stem-nc",
-    changeFrequency: "weekly",
-    priority: 0.9,
-    lastModified: "2026-10-10",
-  },
-  {
-    path: "/medicare-agent-creedmoor-nc",
-    changeFrequency: "weekly",
-    priority: 0.9,
-    lastModified: "2026-10-24",
-  },
-  {
-    path: "/medicare-agent-oxford-nc",
-    changeFrequency: "weekly",
-    priority: 0.9,
-    lastModified: "2026-10-12",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-agent-granville-county-nc",
@@ -302,6 +284,12 @@ const STATIC_ROUTES: Array<{
   },
   { path: "/plan-check", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-04" },
   {
+    path: "/plan-checklist-tool",
+    changeFrequency: "monthly",
+    priority: 0.8,
+    lastModified: "2026-10-09",
+  },
+  {
     path: "/medicare-advantage-doctor-networks",
     changeFrequency: "monthly",
     priority: 0.9,
@@ -311,7 +299,7 @@ const STATIC_ROUTES: Array<{
   { path: "/keep-my-doctor", changeFrequency: "monthly", priority: 0.9 },
   { path: "/helping-a-parent", changeFrequency: "monthly", priority: 0.9 },
   { path: "/irmaa-appeal", changeFrequency: "monthly", priority: 0.85 },
-  { path: "/service-area", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/service-area", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-11-07" },
   {
     path: "/medicare-help-directory",
     changeFrequency: "monthly",
@@ -476,11 +464,8 @@ const STATIC_ROUTES: Array<{
     "/guides/medicare-travel",
     "/guides/irmaa-brackets-2026",
     "/guides/standard-deduction-seniors-2026",
-    "/guides/cone-health-medicare-doctors",
     "/medicare-2027-by-county",
     "/nc-medicare-atlas",
-    "/guides/atrium-wake-forest-baptist-medicare-doctors",
-    "/guides/novant-health-medicare-doctors",
     "/guides/nc-state-health-plan-medicare",
     "/state-health-plan-checklist",
     "/guides/moving-to-north-carolina-medicare",
@@ -515,6 +500,27 @@ const STATIC_ROUTES: Array<{
     changeFrequency: "weekly",
     priority: 0.8,
     lastModified: "2026-10-29",
+  },
+  // Doctor-network guides, given a closing agent-page link on 2026-11-07
+  // (PR 1); kept out of the shared 2026-10-08 guides list so their lastmod
+  // stays truthful.
+  {
+    path: "/guides/cone-health-medicare-doctors",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    lastModified: "2026-11-07",
+  },
+  {
+    path: "/guides/atrium-wake-forest-baptist-medicare-doctors",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    lastModified: "2026-11-07",
+  },
+  {
+    path: "/guides/novant-health-medicare-doctors",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    lastModified: "2026-11-07",
   },
   ...PERSONALITIES.map((type) => ({
     path: `/wealth/quiz/money-personality/${type.id}`,
@@ -563,10 +569,7 @@ const STATIC_ROUTES: Array<{
 const CONTENT_LAST_REVIEWED = "2026-10-01";
 
 const SEO_REVIEWED_PATHS = new Set([
-  "/",
-  "/medicare-agent-greensboro-nc",
   "/guides",
-  "/service-area",
   "/life-insurance",
   "/guides/medicare-advantage-plans-leaving-nc-2027",
   "/guides/nc-state-health-plan-medicare",

@@ -10,6 +10,7 @@ import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { ShiipAndAgent } from "@/app/components/ShiipAndAgent";
 import { MedicareGuideTools } from "@/components/MedicareGuideTools";
+import { GOOGLE_MAPS_PROFILE_URL } from "@/lib/agent";
 import {
   GREENSBORO_MEDICARE_FAQ,
   GREENSBORO_MEDICARE_SECTIONS,
@@ -24,9 +25,9 @@ import {
 } from "@/lib/seo";
 
 const path = "/medicare-agent-greensboro-nc";
-const title = "Greensboro Medicare Consultation: What to Bring";
+const title = "Medicare Agent in Greensboro, NC | Christian Brinkley";
 const description =
-  "Prepare for a free Greensboro Medicare consultation with Christian Brinkley. Bring your doctors, medicines, coverage notices, and enrollment questions.";
+  "Free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local agent. Check your doctors, prescriptions, and Guilford County plans. Call (919) 408-6671.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -49,9 +50,9 @@ export default function MedicareAgentGreensboroPage() {
           description,
           path,
           datePublished: "2026-10-12",
-          dateModified: "2026-11-05",
+          dateModified: "2026-11-07",
         }),
-        serviceJsonLd({ name: "Free Medicare consultation in Greensboro", description, path }),
+        serviceJsonLd({ name: "Medicare agent in Greensboro, NC", description, path }),
         faqJsonLd(GREENSBORO_MEDICARE_FAQ),
       ].map((data, i) => (
         <script
@@ -64,12 +65,12 @@ export default function MedicareAgentGreensboroPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare agent in Greensboro" }]}
         eyebrow="Greensboro and Guilford County"
-        title="Prepare for your Greensboro Medicare consultation"
+        title="A Medicare agent in Greensboro, NC"
         lede="Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. I can review your doctors, prescriptions, enrollment dates, and the plans I represent. Meet at home or talk by phone. There's no obligation to enroll."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free Medicare conversation"
       />
-      <MedicareByline reviewed="2026-11-04" />
+      <MedicareByline reviewed="2026-11-07" />
       <nav className="app-shell max-w-3xl py-6" aria-label="In this Greensboro guide">
         <ul className="space-y-2">
           {GREENSBORO_MEDICARE_SECTIONS.map((s) => (
@@ -140,6 +141,56 @@ export default function MedicareAgentGreensboroPage() {
         </section>
       ))}
       <MedicareFactBlock heading="Medicare facts for 2026, with sources" />
+      <section
+        className="measure-prose app-shell max-w-3xl py-10"
+        aria-labelledby="greensboro-more-help"
+      >
+        <h2 id="greensboro-more-help" className="text-28 font-semibold">
+          More Greensboro Medicare help
+        </h2>
+        <ul className="text-17 mt-4 space-y-3">
+          <li>
+            <Link className="underline" href="/medicare-greensboro-nc">
+              Medicare in Greensboro: costs, enrollment dates, and local help
+            </Link>
+          </li>
+          <li>
+            <Link className="underline" href="/medicare-advantage-vs-medigap-greensboro-nc">
+              Medicare Advantage vs. Medigap in Greensboro
+            </Link>
+          </li>
+          <li>
+            <Link className="underline" href="/medicare-advantage-plans-greensboro-nc">
+              Medicare Advantage plans in Greensboro
+            </Link>
+          </li>
+          <li>
+            <Link className="underline" href="/medigap-plans-greensboro-nc">
+              Medigap plans in Greensboro
+            </Link>
+          </li>
+          <li>
+            <Link className="underline" href="/medicare-part-d-greensboro-nc">
+              Medicare Part D drug plans in Greensboro
+            </Link>
+          </li>
+          <li>
+            <Link className="underline" href="/keep-my-doctor">
+              Check whether you can keep your doctors
+            </Link>
+          </li>
+          <li>
+            <Link className="underline" href="/turning-65">
+              Turning 65: your enrollment dates
+            </Link>
+          </li>
+          <li>
+            <Link className="underline" href="/service-area">
+              Every town I serve
+            </Link>
+          </li>
+        </ul>
+      </section>
       <ShiipAndAgent />
       <MedicareGuideTools currentYear={new Date().getFullYear()} />
       <section
@@ -164,6 +215,26 @@ export default function MedicareAgentGreensboroPage() {
             NC DOI: Part D enrollment assistance through SHIIP
           </a>
           .
+        </p>
+      </section>
+      <section
+        className="measure-prose app-shell max-w-3xl py-10"
+        aria-labelledby="greensboro-reviews"
+      >
+        <h2 id="greensboro-reviews" className="text-28 font-semibold">
+          What Greensboro clients say on Google
+        </h2>
+        <p className="text-17 mt-4">
+          My Google Business Profile shows 5.0 stars from 5 reviews, all 5 stars. Read them on{" "}
+          <a
+            className="underline"
+            href={GOOGLE_MAPS_PROFILE_URL}
+            target="_blank"
+            rel="noopener"
+          >
+            my Google Business Profile
+          </a>
+          . If I have helped you, a review there is the best way to help the next family find me.
         </p>
       </section>
       <section className="app-shell max-w-3xl py-8">

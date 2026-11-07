@@ -90,7 +90,7 @@ export default function ConeHealthMedicareDoctorsPage() {
                 "How to check whether your Cone Health doctor is in your Medicare plan's network, why networks change every fall, and the questions to ask before Annual Enrollment.",
               path: "/guides/cone-health-medicare-doctors",
               datePublished: "2026-10-13",
-              dateModified: "2026-10-13",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -273,6 +273,11 @@ export default function ConeHealthMedicareDoctorsPage() {
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             Want help checking your doctors against next year&apos;s plans? Call or text Christian
             Brinkley in Greensboro, NC at {AGENT.phone}. The review is free, with no obligation.
+            Or talk to a{" "}
+            <Link href="/medicare-agent-greensboro-nc" className="underline underline-offset-2">
+              Medicare agent in Greensboro
+            </Link>
+            .
           </p>
         </div>
       </section>
@@ -294,7 +299,7 @@ export default function ConeHealthMedicareDoctorsPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-13" />
+      <MedicareByline reviewed="2026-11-07" />
     </main>
   );
 }

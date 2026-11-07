@@ -97,7 +97,7 @@ export default function AtriumWakeForestBaptistMedicareDoctorsPage() {
                 "How to check whether your Atrium Health Wake Forest Baptist doctors are in your Medicare plan's network for 2027, and what NC state retirees should know about the State Health Plan change.",
               path: PATH,
               datePublished: "2026-10-27",
-              dateModified: "2026-10-27",
+              dateModified: "2026-11-07",
             }),
           ),
         }}
@@ -231,7 +231,14 @@ export default function AtriumWakeForestBaptistMedicareDoctorsPage() {
           </dl>
           <p className="text-17 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
             Want help checking your doctors against next year&apos;s plans? Call or text Christian
-            Brinkley at {AGENT.phone}. The review is free, with no obligation.
+            Brinkley at {AGENT.phone}. The review is free, with no obligation. Or talk to a{" "}
+            <Link
+              href="/medicare-agent-winston-salem-nc"
+              className="underline underline-offset-2"
+            >
+              Medicare agent in Winston-Salem
+            </Link>
+            .
           </p>
         </div>
       </section>
@@ -253,7 +260,7 @@ export default function AtriumWakeForestBaptistMedicareDoctorsPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-27" />
+      <MedicareByline reviewed="2026-11-07" />
     </main>
   );
 }
