@@ -11973,7 +11973,7 @@ export const ARTICLES: Article[] = [
         h2: "What it costs",
         blocks: [
           p(
-            "NerdWallet's October 2026 no-exam rates for a $500,000 20-year term policy show the gap. For a 40-year-old man in the best health class, no-exam costs $329 a year against $321 with an exam. In preferred health it is $409 against $405, and in standard health $639 against $631. For a 40-year-old woman the no-exam figures are $279, $339, and $494 against $278, $336, and $491. The gap is small at the best health levels and grows as health worsens. Rates are averages of the three lowest quotes from LifeStein.com data, valid October 1, 2026, and your price will differ by insurer and state.",
+            "NerdWallet's October 2026 no-exam rates for a $500,000 20-year term policy show the gap. For a 40-year-old man in the best health class, no-exam costs $329 a year against $321 with an exam. In preferred health it is $409 against $405, and in standard health $639 against $631. For a 40-year-old woman the no-exam figures are $279, $339, and $494 against $278, $336, and $491. The gap is small at the best health levels and grows as health worsens. Rates are averages of the three lowest quotes from LifeStein.com data, valid October 1, 2026.",
           ),
         ],
       },
@@ -11981,7 +11981,7 @@ export const ARTICLES: Article[] = [
         h2: "The limits",
         blocks: [
           p(
-            "No-exam coverage caps out lower than fully underwritten coverage. Published 2026 surveys report no-exam limits as high as $4 million at some insurers, while others cap far lower, so the limit depends on the company. Age matters too: no-exam options narrow as you get older, and some health conditions still block simplified issue even without an exam. If you need several million dollars of coverage, expect the insurer to ask for an exam.",
+            "No-exam coverage caps out lower than fully underwritten coverage. Published 2026 surveys report no-exam limits as high as $4 million at some insurers, while others cap far lower, so the limit depends on the company. No-exam options narrow with age, and some health conditions still block simplified issue. If you need several million dollars of coverage, expect the insurer to ask for an exam.",
           ),
         ],
       },
@@ -11989,7 +11989,7 @@ export const ARTICLES: Article[] = [
         h2: "Who it fits",
         blocks: [
           p(
-            "No-exam term fits people who need coverage fast, who dislike needles and nurse visits, or who have a straightforward health picture and a moderate coverage need. It also fits people buying a smaller policy to cover final expenses. It fits less well when you are young, healthy, and buying a large policy, because the exam buys you the lowest price for the next 20 or 30 years. A 30-minute exam can save hundreds of dollars a year on a big policy.",
+            "No-exam term fits people who need coverage fast, who dislike needles and nurse visits, or who have a straightforward health picture and a moderate coverage need. It also fits smaller policies meant to cover final expenses. It fits less well when you are young, healthy, and buying a large policy, because the exam buys you the lowest price for the next 20 or 30 years. A 30-minute exam can save hundreds of dollars a year on a big policy.",
           ),
         ],
       },
@@ -12019,7 +12019,7 @@ export const ARTICLES: Article[] = [
         h2: "The bottom line",
         blocks: [
           p(
-            "Skipping the exam is worth it when speed matters more than the lowest price, or when a smaller policy covers the need. It is not worth it when you are young and healthy and buying a large policy, because the exam is a short appointment that locks in a lower rate for decades. Start with the coverage amount your family needs, then choose the underwriting path that fits your health, your timeline, and your budget.",
+            "Skipping the exam is worth it when speed matters more than the lowest price, or when a smaller policy covers the need. It is not worth it when you are young and healthy and buying a large policy, because the exam is a short appointment that locks in a lower rate for decades. Start with the coverage amount your family needs, then choose the path that fits your health and timeline.",
           ),
           p(
             "I am a licensed insurance agent in North Carolina. If you want to see what no-exam term would cost for your age and health, and what the same coverage costs with an exam, call or text (919) 408-6671 or visit christianbrinkleync.com. We will compare both, in plain English.",
