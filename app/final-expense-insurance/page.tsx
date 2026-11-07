@@ -138,8 +138,8 @@ export default function FinalExpenseInsurancePage() {
               When someone passes, the family gets a funeral bill within days. Final
               expense insurance is a small whole life policy that pays a lump sum to
               whoever you name, so they can cover the funeral, burial or cremation,
-              and the smaller costs that pile up, without reaching into savings or
-              passing a hat.
+              and the smaller costs that pile up, without reaching into savings or asking family
+              to cover it.
             </p>
             <p>
               Policies are usually between $5,000 and $25,000. That is smaller than
@@ -157,7 +157,7 @@ export default function FinalExpenseInsurancePage() {
           <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
             <p>
               People who want to leave things settled. If your savings would take a
-              hit from a $10,000 funeral, or if you do not want your kids arguing
+              hit from a $10,000 funeral, or if you do not want your children arguing
               about who pays, a small policy answers the question in advance.
             </p>
             <p>

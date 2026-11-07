@@ -3863,11 +3863,11 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "10 vs 20 vs 30 years",
-        body: "NerdWallet's October 2026 rates for a healthy 40-year-old nonsmoker on a $500,000 policy show the tradeoff clearly. A 10-year term runs $200 a year for a man and $175 for a woman. A 20-year term runs $321 and $278. A 30-year term runs $574 and $451. The longer term costs more each year but locks the rate in for longer. Match the term to the need: the years left on a mortgage, or the years until your kids are grown. A 30-year term bought at 50 is rarely offered, so older buyers usually choose 10 or 20 years.",
+        body: "NerdWallet's October 2026 rates for a healthy 40-year-old nonsmoker on a $500,000 policy show the tradeoff clearly. A 10-year term runs $200 a year for a man and $175 for a woman. A 20-year term runs $321 and $278. A 30-year term runs $574 and $451. The longer term costs more each year but locks the rate in for longer. Match the term to the need: the years left on a mortgage, or the years until your children are grown. A 30-year term bought at 50 is rarely offered, so older buyers usually choose 10 or 20 years.",
       },
       {
         title: "What happens when the term expires",
-        body: "If you outlive the term, the policy ends and pays nothing. That is the deal with term life, and it is why the price is low. Many policies let you renew year by year after the term, but the renewal premium is set at your older age and is usually much higher. Some policies let you convert to permanent coverage during a stated window without a new medical exam. Read the conversion and renewal language before you buy, not after the term runs out.",
+        body: "If you outlive the term, the policy ends and pays nothing. That is how term life works, and it is why the price is low. Many policies let you renew year by year after the term, but the renewal premium is set at your older age and is usually much higher. Some policies let you convert to permanent coverage during a stated window without a new medical exam. Read the conversion and renewal language before you buy, not after the term runs out.",
       },
       {
         title: "What moves your price most",
@@ -3892,7 +3892,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     faqs: [
       {
         q: "What is the cheapest age to buy term life insurance?",
-        a: "Your 20s, when a $500,000 20-year policy runs about $15 to $18 a month for a healthy nonsmoker in NerdWallet's October 2026 sample rates. The price rises with every birthday, and it rises fastest after 50.",
+        a: "In your 20s. A $500,000 20-year policy runs about $15 to $18 a month for a healthy nonsmoker in NerdWallet's October 2026 sample rates. The price rises with every birthday, and it rises fastest after 50.",
       },
       {
         q: "Does my term life premium change during the term?",
@@ -3992,7 +3992,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         q: "Should I just pick the cheapest quote?",
-        a: "Not on price alone. A cheap quote with no conversion option, a short term, or a weak complaint record can cost more later. Compare price, term, conversion, and complaint history together.",
+        a: "Not on price alone. A low-priced quote with no conversion option, a short term, or a weak complaint record can cost more later. Compare price, term, conversion, and complaint history together.",
       },
     ],
     sources: [
@@ -4023,7 +4023,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       "Senior hub for term at 60-69, final expense at 70+, and guaranteed issue as last resort; cost by age anchors the page.",
     intent: "informational",
     answer:
-      "After 60, term still works for a time-limited need, final expense fits a small lifelong need, and guaranteed issue is a last resort with higher premiums and a waiting period. Costs rise fast with age, so the cheapest time to buy was years ago and the second cheapest is now.",
+      "After 60, term still works for a time-limited need, final expense fits a small lifelong need, and guaranteed issue is a last resort with higher premiums and a waiting period. Costs rise fast with age, so waiting rarely helps.",
     sections: [
       {
         title: "Term life at 60 to 69",
@@ -4039,7 +4039,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "What coverage costs by age",
-        body: "The price curve is steep. For a man, NerdWallet's October 2026 term rates rise from $321 a year at 40 to $2,335 at 60, more than seven times as much for the same $500,000 20-year policy. Final expense roughly doubles between 70 and 80 in MoneyGeek's September 2026 averages. That is why buying earlier matters, and why comparing a smaller policy now beats waiting for a better health picture that may not come.",
+        body: "The price curve is steep. For a man, NerdWallet's October 2026 term rates rise from $321 a year at 40 to $2,335 at 60, more than seven times as much for the same $500,000 20-year policy. Final expense roughly doubles between 70 and 80 in MoneyGeek's September 2026 averages. That is why buying earlier matters, and why a smaller policy now is usually better than waiting for a health picture that may not improve.",
       },
       {
         title: "What to ask before you buy",
@@ -4116,7 +4116,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "Why it costs so much more than term",
-        body: "Two features drive the price. First, whole life is designed to last your entire life if premiums are paid, so the insurer expects to pay the claim eventually. Second, part of each premium builds cash value. At 40, a man pays $3,180 a year for whole life against $321 a year for a 20-year term policy with the same $500,000 death benefit, about 9.9 times as much. The gap is structural, not a markup quirk: term only pays if you die inside the term, while whole life pays whenever you die.",
+        body: "Two features drive the price. First, whole life is designed to last your entire life if premiums are paid, so the insurer expects to pay the claim eventually. Second, part of each premium builds cash value. At 40, a man pays $3,180 a year for whole life against $321 a year for a 20-year term policy with the same $500,000 death benefit, about 9.9 times as much. The gap is structural, not a markup: term only pays if you die inside the term, while whole life pays whenever you die.",
       },
       {
         title: "Cash value in plain terms",
@@ -4124,7 +4124,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "When whole life fits, and when term fits better",
-        body: "Whole life fits a genuine lifelong need: a dependent who will always need support, final expenses you want covered no matter when you die, or estate liquidity. Term fits a temporary need: income replacement while kids grow up, or a mortgage that ends in 20 years. A common mistake is buying a small permanent policy when the real risk is the next 20 years. A properly sized term policy covers the big temporary need for far less, and a smaller permanent policy can sit alongside it if a lifelong need truly exists.",
+        body: "Whole life fits a genuine lifelong need: a dependent who will always need support, final expenses you want covered no matter when you die, or estate liquidity. Term fits a temporary need: income replacement while your children are growing up, or a mortgage that ends in 20 years. A common mistake is buying a small permanent policy when the real risk is the next 20 years. A properly sized term policy covers the big temporary need for far less, and a smaller permanent policy can sit alongside it if a lifelong need truly exists.",
       },
       {
         title: "Is whole life insurance worth it?",
@@ -4179,6 +4179,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "How much does term life insurance cost?", href: "/guides/how-much-does-term-life-insurance-cost" },
       { title: "Term, whole, or universal life: which do I need?", href: "/answers/term-whole-or-universal-life-insurance-which-do-i-need" },
       { title: "Universal life vs whole life insurance", href: "/answers/universal-life-vs-whole-life-insurance" },
+      { title: "What is indexed universal life insurance?", href: "/answers/indexed-universal-life-insurance" },
     ],
     datePublished: "2026-11-07",
     dateModified: "2026-11-07",
@@ -4294,7 +4295,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "Short vs long term",
-        body: "Short-term disability covers the first weeks or months, typically 13 to 26 weeks, replacing 40 to 70 percent of income. Long-term disability picks up after that, often after a 90-day elimination period, and can pay for years, often to age 65. The average long-term disability claim lasts almost three years, according to the Council for Disability Awareness. That length is the point: short-term coverage handles a rough few months, while long-term coverage protects the years when savings would run out. The Social Security Administration notes that more than one in four of today's 20-year-olds will become disabled before reaching retirement age.",
+        body: "Short-term disability covers the first weeks or months, typically 13 to 26 weeks, replacing 40 to 70 percent of income. Long-term disability picks up after that, often after a 90-day elimination period, and can pay for years, often to age 65. The average long-term disability claim lasts almost three years, according to the Council for Disability Awareness. That length is what long-term coverage is for. Short-term coverage handles a difficult few months, while long-term coverage protects the years when savings would run out. The Social Security Administration notes that more than one in four of today's 20-year-olds will become disabled before reaching retirement age.",
       },
       {
         title: "What moves your price",
