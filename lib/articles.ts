@@ -5409,33 +5409,56 @@ export const ARTICLES: Article[] = [
     eyebrow: "Insurance, explained",
     lede: "Life insurance is one of those topics people avoid. It is about death, and nobody likes to think about that.",
     published: "2026-10-14",
-    updated: "2026-10-14",
-    intro: "Life insurance is one of those topics people avoid. It is about death, and nobody likes to think about that. But at its core, life insurance is simple. It is a contract that pays money to people you choose if you pass away while the policy is in force. That money is called a death benefit. It can help your family pay bills, keep their home, and stay on their feet during a hard time. Why do people buy it? The main reason is to replace income. If people depend on your paycheck, life insurance can replace some of that paycheck if you are gone. It can also pay for final expenses, like a funeral. It can pay off debts, like a mortgage. It can fund a child's education. It can leave money to a charity or a cause you care about. It is not about you. It is about the people you would leave behind.",
+    updated: "2026-11-07",
+    intro: "Life insurance is one of those topics people avoid, because it is about death. At its core it is simple. It is a contract that pays money to people you choose if you pass away while the policy is in force. That money is called a death benefit. It can help your family pay bills and keep their home. The main reason people buy it is to replace income. It can also pay for final expenses, pay off a mortgage, or fund a child's education. It is not about you. It is about the people you would leave behind.",
     sections: [
       {
         h2: "There are two broad types of life insurance",
         blocks: [
-          p("Term life and permanent life. Term is the simpler one. Permanent includes whole life and universal life. Let us walk through each."),
-          p("Term life insurance covers you for a set period, or term. Common terms are 10, 20, or 30 years. If you pass away during that term, the policy pays the death benefit to your beneficiaries. If you outlive the term, the policy ends and pays nothing. You can often renew it, but the premium usually goes up a lot as you get older. Some term policies let you convert to permanent coverage later. Term is usually the most affordable type, especially when you are young and healthy. That is why it is a common choice for families who need a lot of coverage on a budget."),
+          p("Term life covers you for a set period, usually 10, 20, or 30 years. If you pass away during the term, it pays the death benefit. If you outlive it, the policy ends and pays nothing. Term is usually the most affordable type, which is why families who need a lot of coverage on a budget often start there. Permanent life, whole and universal, is designed to last your whole life and builds cash value."),
         ],
       },
       {
         h2: "Universal life is another type of permanent insurance",
         blocks: [
-          p("It also has a death benefit and cash value, but it is more flexible. You can often adjust your premiums and your death benefit within limits. That flexibility can be useful, but it also makes the policy more complex. If you do not pay enough, the cash value can run low and the policy can lapse. Universal life comes in several variations, including indexed and variable types that tie cash value growth to market performance. Those add risk and complexity. For most people who just need straightforward protection, term is easier to understand and compare."),
+          p("Universal life also has a death benefit and cash value, but it is more flexible. You can often adjust your premiums and your death benefit within limits. That flexibility is useful, but it makes the policy more complex. If you do not pay enough, the cash value can run low and the policy can lapse. For most people who just need straightforward protection, term is easier to understand and compare."),
         ],
       },
       {
-        h2: "The best way to think about it is to add up the pieces",
+        h2: "The DIME method, with a worked example",
         blocks: [
-          p("Start with debts you want covered. Add income replacement for the years your family would need it. Add future costs like college. Then subtract what you already have, like savings, existing insurance, and any benefits from work. What is left is a rough sense of the gap. An insurance agent or financial professional can walk through this with you. You do not have to guess alone."),
+          p("DIME adds four numbers. D is debts, not counting the mortgage. I is income to replace, your annual income times the years your family would need it. M is the mortgage balance. E is future education costs. Using the [life insurance needs calculator](/tools/life-insurance-needs) starting numbers: $65,000 of income times 10 years is $650,000, plus $15,000 of debts, plus a $220,000 mortgage, plus $50,000 for education, for a starting point of $935,000. Then subtract savings and existing coverage."),
+        ],
+      },
+      {
+        h2: "The 10x income rule, as a quick check",
+        blocks: [
+          p("Multiply your annual income by 10. A $65,000 income means $650,000 of coverage. It is fast, and it is rough. It ignores your mortgage and debts. Use it as a gut check, then run DIME for a number that fits your life."),
+        ],
+      },
+      {
+        h2: "If you stay home with the kids",
+        blocks: [
+          p("A stay-at-home parent earns no paycheck, but replacing the work costs real money: childcare, meals, cleaning, and everything else that keeps a household going. Price that work as if you had to hire it out, then add final expenses and any debts. A $250,000 to $500,000 term policy is a common starting point, and the right number comes from the same DIME math."),
+        ],
+      },
+      {
+        h2: "If you are single with no kids",
+        blocks: [
+          p("You may need less, but rarely none. Cover your debts, your final expenses, and anyone who depends on you, like a parent you help support. A small term policy can do that for a few dollars a month when you are young."),
+        ],
+      },
+      {
+        h2: "If you have a mortgage",
+        blocks: [
+          p("The mortgage is usually the biggest single number in the DIME math, and it sets the term length too. A $220,000 balance with 20 years left points to a 20-year term policy of at least that amount. Match the balance and the remaining years, and the house is covered."),
         ],
       },
       {
         h2: "Here is a practical checklist if you are thinking about buying",
         blocks: [
-          p("First, figure out who depends on you and what they would need. Second, decide how long you need coverage. Third, compare term quotes from more than one company. Fourth, read the policy. Check the term length, the death benefit, the premium, and whether the premium can change. Fifth, name your beneficiaries carefully and review them after big life events like marriage, divorce, or a new child."),
-          p("Life insurance is not exciting. It is not supposed to be. It is a safety net. You hope your family never needs it. You buy it so that if the worst happens, they have one less thing to worry about. Start with your needs, keep it simple, and get coverage that fits your life and your budget. That is the whole point."),
+          p("First, figure out who depends on you and what they would need. Second, decide how long you need coverage. Third, compare term quotes from more than one company. Fourth, read the policy: term length, death benefit, premium, and whether the premium can change. Fifth, name your beneficiaries carefully and review them after big life events."),
+          p("Life insurance is not exciting. It is a safety net. You hope your family never needs it. Start with your needs, keep it simple, and get coverage that fits your life and your budget. That is the whole point."),
         ],
       },
     ],
@@ -5683,7 +5706,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Insurance, explained",
     lede: "Disability insurance can replace part of your income after a covered illness or injury. The policy definition and benefit rules determine payment.",
     published: "2026-10-14",
-    updated: "2026-11-05",
+    updated: "2026-11-07",
     intro:
       "Disability insurance can pay part of your income when a covered illness or injury prevents you from working under the policy's definition of disability. The waiting period, benefit amount, payment duration, exclusions, and claim requirements determine how that protection works.",
     sections: [
@@ -5729,6 +5752,7 @@ export const ARTICLES: Article[] = [
               ],
             ],
           },
+          p("In practice, short-term coverage often lasts 13 to 26 weeks. Long-term coverage often starts after a 90-day elimination period, with benefit periods of two years, five years, or to age 65. The average long-term disability claim lasts almost three years, according to the Council for Disability Awareness. Most policies replace 40 to 70 percent of gross income, so check the percentage, not just the monthly benefit."),
         ],
       },
       {
@@ -5760,6 +5784,10 @@ export const ARTICLES: Article[] = [
             kind: "p",
             text: "Compare essential expenses with the money available during the waiting period. Include existing paid leave and emergency savings, but don't count the same dollars twice. Ask when benefits could begin if the claim qualifies and whether continuing proof is required. This is a planning question, not a prediction of approval or payment.",
           },
+          {
+            kind: "p",
+            text: "Taxes depend on who paid the premiums. Benefits from a policy you paid for with after-tax dollars are generally not taxable. Benefits from employer-paid coverage, where premiums were pre-tax, generally are taxable. Mixed arrangements need their own review, and the IRS FAQ on life and disability insurance proceeds covers the rules. Do not assume the stated benefit is the amount that reaches your bank account.",
+          },
         ],
       },
       {
@@ -5776,7 +5804,7 @@ export const ARTICLES: Article[] = [
         blocks: [
           {
             kind: "p",
-            text: "Compare the definition of disability, exclusions, pre-existing-condition provisions, waiting period, benefit duration, maximum amount, and claim procedures. Ask about any limits for particular conditions. [Life insurance](/life-insurance) covers a different risk; it doesn't replace disability income protection. For an existing workplace plan, request the benefit booklet from the employer and the contract details from the insurer.",
+            text: "Compare the definition of disability, exclusions, pre-existing-condition provisions, waiting period, benefit duration, maximum amount, and claim procedures. Ask about any limits for particular conditions. [Life insurance](/life-insurance) covers a different risk; it doesn't replace disability income protection. For an existing workplace plan, request the benefit booklet from the employer and the contract details from the insurer. See typical costs in the [disability insurance cost guide](/guides/how-much-does-disability-insurance-cost).",
           },
         ],
       },
@@ -10626,7 +10654,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Insurance, explained",
     lede: "Life insurance has a simple job. If you die, it pays money to the people you name. That is it.",
     published: "2026-10-14",
-    updated: "2026-10-14",
+    updated: "2026-11-07",
     intro: "Life insurance has a simple job. If you die, it pays money to the people you name. That is it. But the way policies do that job varies a lot, and the three main types get confused constantly. Here is each one explained the way I would explain it sitting across a kitchen table.",
     sections: [
       {
@@ -10638,40 +10666,55 @@ export const ARTICLES: Article[] = [
       {
         h2: "Term life insurance: simple and affordable",
         blocks: [
-          p("Term life is the simplest version. You pick a length of time, usually 10, 20, or 30 years. You pay a fixed premium during that term. If you die during the term, your beneficiaries get the death benefit. If you outlive the term, the policy ends and nothing is paid out. There is no savings account attached to it. It is pure protection."),
+          p("Term life is the simplest version. You pick a length of time, usually 10, 20, or 30 years, and pay a fixed premium during that term. If you die during the term, your beneficiaries get the death benefit. If you outlive the term, the policy ends and nothing is paid out. There is no savings account attached to it. It is pure protection."),
         ],
       },
       {
         h2: "Whole life insurance: permanent with a savings side",
         blocks: [
-          p("Whole life covers you for your entire life, as long as premiums get paid. The premium stays level. Part of each payment goes toward the death benefit, and part builds cash value that grows at a guaranteed rate set by the insurer. You can borrow against that cash value or surrender the policy for its cash value, though both reduce what your beneficiaries receive."),
+          p("Whole life covers you for your entire life, as long as premiums get paid. The premium stays level. Part of each payment builds cash value that grows at a guaranteed rate set by the insurer. You can borrow against that cash value or surrender the policy for it, though both reduce what your beneficiaries receive."),
         ],
       },
       {
         h2: "Universal life insurance: permanent with flexibility",
         blocks: [
           p("Universal life is also permanent, but it separates the moving parts. You have a death benefit and a cash value account, and you get flexibility on both. You can usually adjust your premium payments within limits and sometimes adjust the death benefit. The cash value earns interest based on rates the insurer sets, with a guaranteed minimum floor."),
-          p("That flexibility cuts both ways. If you underpay premiums in years when the cash value is not earning enough, the policy can eat its own cash value and eventually lapse. People buy universal life for the flexibility and then forget the policy needs attention. It requires more monitoring than whole life."),
+          p("That flexibility cuts both ways. If you underpay in years when the cash value is not earning enough, the policy can eat its own cash value and eventually lapse. People buy universal life for the flexibility and then forget it needs attention."),
         ],
       },
       {
         h2: "The quick comparison",
         blocks: [
-          p("Term: temporary, cheapest, no cash value, biggest death benefit per dollar. Whole: permanent, most expensive, guaranteed cash value, set it and forget it. Universal: permanent, middle to higher cost, flexible premiums, needs monitoring."),
+          table(
+            ["", "Term", "Whole", "Universal"],
+            [
+              ["Monthly premium at 40, $500,000", "About $23 to $27", "About $237 to $265", "Varies; often between term and whole"],
+              ["How long it lasts", "10, 20, or 30 years", "For life, if premiums are paid", "For life, if funded well enough"],
+              ["Cash value", "None", "Guaranteed growth", "Interest credited, with a floor"],
+              ["Premiums", "Level during the term", "Level for life", "Flexible within limits"],
+            ],
+          ),
+          p("Sample premiums are NerdWallet's October 2026 averages for a healthy 40-year-old nonsmoker. Universal life has no single standard price."),
+        ],
+      },
+      {
+        h2: "A verdict framework",
+        blocks: [
+          p("Answer three questions. First, how long is the need: years, or for life. Second, is there a lifelong need, like a dependent who will always need support. Third, what premium can you pay comfortably for decades. Term wins when the need ends. Whole wins when it never ends and you want nothing to manage. Universal wins when it never ends and your income varies."),
         ],
       },
       {
         h2: "How to choose",
         blocks: [
-          p("Start with two questions. First, how much protection does your family need and for how long. Add up the mortgage, debts, years of income to replace, and future costs like college. That gives you a coverage target and a time horizon. Second, what is your budget. A smaller permanent policy does not beat a properly sized term policy when the real risk is the next 20 years."),
-          p("A common approach: buy term for the big temporary need, like income replacement while kids grow up, and consider a smaller permanent policy only if you have a genuine lifelong need. Do not buy permanent coverage just because someone told you term is “renting.” Renting a big enough roof beats owning a dollhouse."),
+          p("Start with two questions. First, how much protection does your family need and for how long: mortgage, debts, years of income to replace, and future costs like college. Second, what is your budget. A smaller permanent policy does not beat a properly sized term policy when the real risk is the next 20 years."),
+          p("A common approach: buy term for the big temporary need, like income replacement while kids grow up, and add a smaller permanent policy only for a genuine lifelong need. Do not buy permanent coverage just because someone called term “renting.” Renting a big enough roof beats owning a dollhouse."),
         ],
       },
       {
         h2: "The bottom line",
         blocks: [
-          p("None of these is the best type in the abstract. The best type is the one that matches your need, your timeline, and your budget. Most working families with young kids land on term, and that is a perfectly good answer. The mistake is not picking the wrong type. The mistake is putting it off while you research."),
-          p("I am a licensed insurance agent in North Carolina, and I walk people through exactly this comparison on real calls. If you want help figuring out how much coverage you need and which type fits, call or text (919) 408-6671 or visit christianbrinkleync.com. No pressure, just straight answers."),
+          p("None of these is the best type in the abstract. The best type matches your need, your timeline, and your budget. Most working families with young kids land on term, and that is a perfectly good answer. The mistake is not picking the wrong type. The mistake is putting it off while you research."),
+          p("I am a licensed insurance agent in North Carolina, and I walk people through exactly this comparison. If you want help figuring out how much coverage you need and which type fits, call or text (919) 408-6671. No pressure, just straight answers."),
         ],
       },
     ],
@@ -10709,13 +10752,13 @@ export const ARTICLES: Article[] = [
     eyebrow: "Insurance, explained",
     lede: "Ask a room of people what insurance they have, and you will hear car, home, health, maybe life. Almost nobody says disability.",
     published: "2026-10-14",
-    updated: "2026-10-14",
+    updated: "2026-11-07",
     intro: "Ask a room of people what insurance they have, and you will hear car, home, health, maybe life. Almost nobody says disability. That is strange, because your ability to earn a paycheck is the engine behind everything else you insure. The house, the car, the retirement savings: all of it runs on income. Disability insurance is the policy that protects the engine itself.",
     sections: [
       {
         h2: "Why it is the most overlooked coverage",
         blocks: [
-          p("People skip disability insurance for a few predictable reasons. First, nobody likes picturing themselves unable to work. Death feels abstract and noble. Disability feels scary and specific, so people look away. Second, most people assume it will not happen to them. Illness and injury that keep you out of work for months are more common than most people think, especially over a full working lifetime. Third, people assume their employer or the government has them covered. Sometimes that is partly true, and it is almost never fully true."),
+          p("People skip disability insurance for a few predictable reasons. First, nobody likes picturing themselves unable to work, so people look away. Second, most people assume it will not happen to them, but illness and injury that keep you out of work for months are more common than most people think over a full working lifetime. The Social Security Administration notes that more than one in four of today's 20-year-olds will become disabled before reaching retirement age. Third, people assume their employer or the government has them covered. Sometimes that is partly true, and it is almost never fully true."),
         ],
       },
       {
@@ -10739,13 +10782,19 @@ export const ARTICLES: Article[] = [
       {
         h2: "What to look at when comparing",
         blocks: [
-          p("A few contract features separate good policies from thin ones. The definition of disability, as covered above. The benefit period, meaning how long payments last: two years, five years, or to a set age. The elimination period, meaning how long you wait after becoming disabled before checks start: longer waits mean lower premiums. Whether benefits adjust for inflation over a long claim. And whether the policy is non-cancelable, meaning the insurer cannot raise your premium or change terms as long as you pay."),
+          p("A few contract features separate good policies from thin ones: the definition of disability, the benefit period (two years, five years, or to a set age), the elimination period (longer waits mean lower premiums), whether benefits adjust for inflation, and whether the policy is non-cancelable, meaning the insurer cannot raise your premium or change terms as long as you pay."),
         ],
       },
       {
         h2: "Who needs it most",
         blocks: [
           p("If anyone depends on your income, including future you, you are a candidate. It matters most for people in their prime earning years, people with specialized skills, business owners with no employer plan to fall back on, and anyone whose family would face real hardship after a few months without a paycheck. If you have six months of expenses saved and no dependents, your need is smaller. If you have a mortgage, kids, and a job that requires your body or your specific expertise, your need is large."),
+        ],
+      },
+      {
+        h2: "If you are self-employed",
+        blocks: [
+          p("Self-employed workers have no employer plan to fall back on, no paid sick leave, and no HR department to file the claim. An individual policy is the only backstop, and the benefit is based on your income history, so keep clean records of what you earn. A separate business overhead policy can pay rent and salaries while you recover. It costs more than an employee policy for the same benefit, because the insurer underwrites one person instead of a group. See what it runs in the [disability insurance cost guide](/guides/how-much-does-disability-insurance-cost)."),
         ],
       },
       {

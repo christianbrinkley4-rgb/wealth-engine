@@ -195,6 +195,47 @@ export default function LifeInsurancePage() {
         </div>
       </section>
 
+      <section className="bg-[var(--color-paper)] py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">How to get a life insurance quote</h2>
+          <p className="text-18 mt-4 leading-relaxed">
+            A quote starts with a short conversation, not a form that sells your
+            number. I ask for your age, your health and tobacco use, how much
+            coverage you need, and how long you need it, whether that is a set
+            term or for life. That is enough to compare real options side by side.
+          </p>
+          <ol className="mt-6 flex flex-col gap-5 text-[18px] leading-relaxed">
+            <li>
+              <strong>Work out the amount first.</strong> Use the{" "}
+              <Link href="/tools/life-insurance-needs" className="underline">
+                life insurance needs calculator
+              </Link>{" "}
+              to run the DIME method on your debts, income, mortgage, and
+              education costs, or bring your own numbers and we will run them
+              together.
+            </li>
+            <li>
+              <strong>Talk through term and permanent.</strong> We compare what
+              each type costs for your age and health, what happens when a term
+              ends, and whether a smaller permanent policy fits alongside term.
+            </li>
+            <li>
+              <strong>Decide in your own time.</strong> The consultation is free
+              and there is no obligation to buy anything. If your current
+              coverage still meets your needs, you may decide to keep it.
+            </li>
+          </ol>
+          <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
+            Call or text (919) 408-6671, or{" "}
+            <Link href="/start?topic=life_insurance" className="underline underline-offset-2">
+              start the conversation online
+            </Link>
+            . You will talk to me directly, not a call center, and your questions
+            are not sold to other agents.
+          </p>
+        </div>
+      </section>
+
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Questions people ask me</h2>
