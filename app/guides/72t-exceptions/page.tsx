@@ -67,7 +67,7 @@ const data: SeoGuideData = {
     {
       title: "The three SEPP methods",
       paragraphs: [
-        "The IRS recognizes three methods for calculating the payments, described in IRS Notice 2022-6. The choice matters because two of the methods lock in a fixed annual payment, while the third recalculates every year. Picking the wrong method for your situation is hard to undo without consequences.",
+        "The IRS recognizes three methods for calculating the payments, described in IRS Notice 2022-6. The choice matters because two of the methods lock in a fixed annual payment, while the third recalculates every year. Choosing the wrong method is difficult to correct later.",
         "IRS guidance also permits one one-time switch, from a fixed amortization or fixed annuitization method to the required minimum distribution method. That switch is the only method change the guidance allows without triggering recapture. Have a qualified tax professional check the schedule before starting.",
       ],
       table: {

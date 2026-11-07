@@ -188,9 +188,8 @@ export default function PlanGVsPlanNPage() {
           <h2 className="text-28 mt-12 font-semibold">Difference 3: the monthly premium</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Plan N premiums are generally lower than Plan G premiums. The gap varies by carrier,
-            your age, and how the carrier sets rates. I am not going to quote you a number here
-            because it would be outdated by the time you read it and wrong for your situation
-            anyway.
+            your age, and how the carrier sets rates. I am not going to quote a number here,
+            because it would be outdated by the time you read it and wrong for your situation.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The honest way to compare: take the annual premium difference between the two plans
@@ -206,7 +205,7 @@ export default function PlanGVsPlanNPage() {
             database viewed in October 2026, Plan G for a non-smoking man age 65 ranged from
             about $111 to $266 a month across carriers, with a median of about $140. A separate
             analysis of 2026 Medicare.gov pricing put the statewide average Plan G premium at
-            about $198 a month for a 65-year-old. The spread is the point: the same standardized
+            about $198 a month for a 65-year-old. The same standardized
             benefit can cost twice as much from one company as from another.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
@@ -231,7 +230,7 @@ export default function PlanGVsPlanNPage() {
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             The tradeoff is simple: a much lower monthly premium in exchange for paying the first
             $3,050 of Medicare-covered costs yourself in a bad year. It fits healthy people who
-            rarely use care and want catastrophic-style protection, and it fits badly anyone who
+            rarely use care and want catastrophic-style protection. It is a poor fit for anyone who
             expects regular specialist visits or a hospital stay. Like standard Plan G, it does
             not cover prescription drugs, so you still need a separate Part D plan.{" "}
             <a
