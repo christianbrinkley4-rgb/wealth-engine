@@ -48,6 +48,8 @@ export const OFF_TOPIC_PATHS: readonly string[] = [
   "/guides/tax-filing-mistakes-first-timers",
   "/guides/child-tax-credit-2026",
   "/guides/hard-inquiry-vs-soft-inquiry",
+  "/guides/how-much-emergency-fund",
+  "/guides/how-to-improve-credit-score",
   "/guides/fsa-vs-hsa-which-is-better",
   // Answers: student loans, cars, budgeting, credit, general tax, investing basics, home and renters
   "/answers/which-student-loan-repayment-plan-is-right-for-me",

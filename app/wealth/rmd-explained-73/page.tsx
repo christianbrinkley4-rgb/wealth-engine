@@ -31,6 +31,10 @@ const faqItems: Array<{ q: string; a: string }> = [
     q: "What if I am still working at 73?",
     a: "You can delay RMDs from your current employer's plan until you retire, if the plan allows it. IRA RMDs still start at 73.",
   },
+  {
+    q: "Can my RMD raise my Medicare premium?",
+    a: "It can, two years later. RMDs count as income, and Medicare sets Part B and Part D surcharges from your modified adjusted gross income from two years earlier. A large RMD that pushes income over the first IRMAA threshold adds $81.20 a month to Part B in 2026, plus $14.50 on Part D.",
+  },
 ];
 
 const sources: Array<{ label: string; href?: string }> = [
@@ -42,6 +46,10 @@ const sources: Array<{ label: string; href?: string }> = [
     label: "SECURE 2.0 Act of 2022 (RMD age raised to 73)",
     href: "https://www.congress.gov/bill/117th-congress/house-bill/2617",
   },
+  {
+    label: "CMS: 2026 Medicare Parts A and B premiums and deductibles",
+    href: "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+  },
 ];
 
 export default function RmdExplainedPage() {
@@ -52,8 +60,8 @@ export default function RmdExplainedPage() {
           headline: title,
           description,
           path,
-          datePublished: "2026-10-08",
-          dateModified: "2026-10-08",
+          datePublished: "2026-11-07",
+          dateModified: "2026-11-07",
         })}
       />
       <PageHead
@@ -64,7 +72,7 @@ export default function RmdExplainedPage() {
       >
         <ul className="w-meta">
           <li>6 min read</li>
-          <li>Updated October 8, 2026</li>
+          <li>Updated November 7, 2026</li>
           <li>By Christian Brinkley</li>
         </ul>
       </PageHead>
@@ -121,6 +129,34 @@ export default function RmdExplainedPage() {
               <p>
                 You can always withdraw more than the minimum. Extra withdrawals do not reduce
                 future RMDs.
+              </p>
+            </section>
+
+            <section>
+              <h2>How an RMD can raise your Medicare premium two years later</h2>
+              <p>
+                RMDs count as income, and Medicare sets your Part B and Part D surcharges, called
+                IRMAA, from your modified adjusted gross income two years earlier. A required
+                withdrawal can push your income over a threshold and raise your premiums for a
+                whole year.
+              </p>
+              <p>
+                Here is the arithmetic with round numbers. Take a single filer with a $1,000,000
+                balance at age 73. The IRS Uniform Lifetime Table factor at 73 is 26.5, so the RMD
+                is $1,000,000 divided by 26.5, or $37,736. If that filer&apos;s other income sits just
+                under the first IRMAA threshold of $109,000, the $37,736 RMD pushes total income
+                over it. Two years later, the first-tier surcharge adds $81.20 a month to Part B,
+                plus $14.50 a month on Part D, for the full year.
+              </p>
+              <p>
+                It is total income that matters, not the RMD alone. A filer already well over the
+                threshold pays the surcharge whether or not they take the RMD, and a filer well
+                under it may owe nothing extra. The thresholds are adjusted for inflation, so the
+                figures above are the 2026 table, based on 2024 income. A qualified charitable
+                distribution can keep income lower: money sent directly from an IRA to a charity
+                counts toward the RMD without entering adjusted gross income. See the{" "}
+                <Link href="/guides/qualified-charitable-distribution-qcd">QCD guide</Link> and
+                the <Link href="/guides/irmaa-brackets-2026">2026 IRMAA brackets</Link>.
               </p>
             </section>
 
@@ -198,7 +234,7 @@ export default function RmdExplainedPage() {
           { href: "/wealth/529-vs-roth-for-college", label: "529 vs. Roth IRA for College", kind: "Article" },
         ]}
       />
-    <TrafficGuideLinks slugs={["inherited-ira-ten-year-rule", "roth-conversion-ladder-explained", "roth-ira-five-year-rule"]} />
+    <TrafficGuideLinks slugs={["inherited-ira-ten-year-rule", "roth-conversion-ladder-explained", "roth-ira-five-year-rule", "qualified-charitable-distribution-qcd", "roth-conversion-taxes"]} />
     </main>
   );
 }

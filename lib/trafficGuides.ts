@@ -2949,6 +2949,894 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "Special enrollment", href: "/special-enrollment" },
     ],
   },
+  {
+    slug: "401k-contribution-limits-2026",
+    title: "401(k) Contribution Limits for 2026",
+    description:
+      "Check the 2026 401(k) limits: $24,500 under 50, $32,500 at 50 and older, $35,750 at 60 to 63, and $72,000 with employer money. See the Roth catch-up rule too.",
+    query: "401k contribution limits 2026",
+    opportunity:
+      "The 2026 limits are fresh from IRS Notice 2025-67. A plain table by age answers the question directly, with the new Roth catch-up rule as the differentiator.",
+    intent: "informational",
+    answer:
+      "For 2026 you can defer $24,500 of your own pay into a 401(k). The limit rises to $32,500 at age 50 and older, and to $35,750 if you turn 60, 61, 62, or 63 during the year. With employer money included, the total cap is $72,000.",
+    sections: [
+      {
+        title: "The 2026 limits at a glance",
+        body: "The employee deferral limit is $24,500 for 2026, up from $23,500 in 2025. The standard catch-up for age 50 and older is $8,000, which brings the total to $32,500. The larger catch-up for ages 60 to 63 is $11,250, which brings the total to $35,750. The overall annual additions limit, employee plus employer contributions, is $72,000 or 100 percent of compensation, whichever is lower. These figures come from IRS Notice 2025-67, published November 13, 2025.",
+      },
+      {
+        title: "The age 60 to 63 catch-up replaces the regular one",
+        body: "The $11,250 catch-up for people who turn 60, 61, 62, or 63 during the year replaces the $8,000 catch-up. It does not stack on top of it. So the most you can defer at those ages is $24,500 plus $11,250, or $35,750. The test is the age you reach during the calendar year, not your age on January 1. Your plan has to offer the larger catch-up, so confirm it with your plan administrator.",
+      },
+      {
+        title: "The Roth catch-up rule for higher earners",
+        body: "Starting in 2026, if your wages from the employer sponsoring the plan were more than $150,000 in the prior year, any catch-up contribution must go into a Roth account. That means the catch-up is after tax, with no upfront deduction. The $150,000 test counts wages from that one employer only, not all of your income. If your plan has no Roth option, you may not be able to make a catch-up contribution at all. Ask your plan administrator how your plan handles it.",
+      },
+      {
+        title: "How much should you contribute",
+        body: "The limit is a ceiling, not a target. A common first step is contributing enough to get the full employer match, since that is money your employer adds for participating. After that, many savers raise the percentage a little each year or when pay rises. What fits depends on your debts, your emergency fund, and your other goals. This guide is educational only. It does not recommend a contribution amount for your situation.",
+      },
+    ],
+    comparison: {
+      caption: "2026 401(k) limits by age",
+      headers: ["Your age in 2026", "Most you can defer"],
+      rows: [
+        ["Under 50", "$24,500"],
+        ["50 to 59, and 64 and older", "$32,500"],
+        ["60 to 63", "$35,750"],
+        ["Any age, with employer contributions", "$72,000 total, or 100 percent of pay if lower"],
+      ],
+    },
+    checklist: [
+      "Confirm your plan's deferral limit and whether it offers the age 60 to 63 catch-up.",
+      "Check whether your prior-year wages from that employer were over $150,000, which makes catch-ups Roth.",
+      "Set your deferral percentage before the year's last payroll if you want to use the full limit.",
+      "Keep your pay stubs and plan statements showing what you deferred.",
+      "If you have two 401(k)s, remember the $24,500 limit applies across all of them combined.",
+    ],
+    faqs: [
+      {
+        q: "Does the $24,500 limit include my employer's match?",
+        a: "No. The $24,500 is your own deferrals only. Employer contributions count toward the separate $72,000 total.",
+      },
+      {
+        q: "Can I contribute to a 401(k) and an IRA in the same year?",
+        a: "Yes. The limits are separate. For 2026 you can put up to $7,500 in an IRA, or $8,600 at 50 and older, in addition to your 401(k) deferrals.",
+      },
+      {
+        q: "What happens if I contribute too much?",
+        a: "Tell your plan administrator right away. Excess deferrals generally need to come out by April 15 of the next year to avoid double taxation. Ask a tax professional how to report it.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: 2026 limits (IR-2025-111)",
+        url: "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+      },
+      {
+        title: "IRS: 401(k) contribution limits",
+        url: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits",
+      },
+    ],
+    related: [
+      { title: "401(k) early withdrawal exceptions", href: "/guides/401k-early-withdrawal-exceptions" },
+      { title: "401(k) rollover after leaving a job", href: "/guides/401k-rollover-after-leaving-job" },
+      { title: "How a 401(k) works", href: "/wealth/401k-explained" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "social-security-spousal-benefits",
+    title: "Social Security Spousal Benefits Explained",
+    description:
+      "A spouse can collect up to half of a worker's full retirement benefit. See the 2026 maximum, the cost of claiming at 62, and the rules for divorced spouses.",
+    query: "social security spousal benefits how much",
+    opportunity:
+      "Spousal rules are widely misunderstood, especially the 50 percent base and the early-claiming cut. A short guide with the 2026 maximum answers the question directly.",
+    intent: "informational",
+    answer:
+      "A spouse can collect up to 50 percent of the worker's primary insurance amount, which is the monthly benefit the worker would receive at full retirement age. In 2026 the highest possible spousal benefit is $2,076 a month. Claiming early cuts it for good, and waiting past full retirement age does not raise it.",
+    sections: [
+      {
+        title: "The 50 percent rule, and what it is 50 percent of",
+        body: "The spousal benefit is based on the worker's primary insurance amount, not on the check the worker actually receives. If the worker claimed early, your spousal benefit is still figured from the full retirement age amount. If the worker delayed past full retirement age, your spousal benefit does not grow with the delayed credits. The maximum primary insurance amount at full retirement age in 2026 is $4,152 a month, so the highest possible spousal benefit is half of that, $2,076 a month. Most couples see less, because the worker's earnings record sets the number.",
+      },
+      {
+        title: "Claiming early shrinks it for good",
+        body: "You can claim a spousal benefit as early as 62, but the reduction is permanent. With a full retirement age of 67, claiming at 62 leaves you with about 32.5 percent of the worker's primary insurance amount instead of 50 percent. The reduction is 25/36 of one percent per month for the first 36 months early, then 5/12 of one percent per month after that. Unlike a worker's own benefit, a spousal benefit does not grow if you wait past full retirement age, so there is no reason to delay past that age for the spousal benefit alone.",
+      },
+      {
+        title: "You get whichever benefit is higher",
+        body: "Social Security does not pay both amounts stacked together. If you worked enough to earn your own retirement benefit, the agency pays your own benefit first, then adds a spousal top-up only if the spousal amount is higher. Many people with a solid work record find their own benefit is the larger one. Check your own record at ssa.gov/myaccount before deciding when to claim.",
+      },
+      {
+        title: "Divorced spouses and working while collecting",
+        body: "A divorced spouse can claim on an ex-spouse's record if the marriage lasted at least 10 years, you are unmarried, and you are 62 or older. Your ex-spouse does not need to have claimed, and your claim does not reduce what your ex-spouse or their current spouse receives. If you claim before full retirement age and keep working, the earnings test applies: in 2026 Social Security withholds $1 in benefits for every $2 earned above $24,480. The withheld money is not lost forever; your benefit is recalculated at full retirement age.",
+      },
+    ],
+    comparison: {
+      caption: "Spousal benefit by claiming age, full retirement age 67",
+      headers: ["You claim at", "Share of the worker's PIA"],
+      rows: [
+        ["62", "About 32.5 percent"],
+        ["63", "About 35 percent"],
+        ["64", "About 37.5 percent"],
+        ["65", "About 41.7 percent"],
+        ["67, full retirement age", "50 percent"],
+        ["68 to 70", "Still 50 percent, it does not grow"],
+      ],
+    },
+    checklist: [
+      "Find the worker's primary insurance amount on their Social Security statement.",
+      "Confirm your own full retirement age, 67 if you were born in 1960 or later.",
+      "Compare your own benefit with the spousal amount before choosing a claiming age.",
+      "If divorced, check the 10-year marriage rule and your current marital status.",
+      "If you will keep working, check the 2026 earnings limit of $24,480.",
+    ],
+    faqs: [
+      {
+        q: "Can I collect a spousal benefit if my spouse has not claimed yet?",
+        a: "Yes, if your spouse is at least 62 and eligible, you can claim a spousal benefit even if your spouse has not filed. A divorced spouse can also claim if the ex-spouse is 62 or older.",
+      },
+      {
+        q: "Does my spousal benefit grow if I wait until 70?",
+        a: "No. Spousal benefits top out at 50 percent of the worker's primary insurance amount at your full retirement age. Delayed retirement credits do not apply to spousal benefits.",
+      },
+      {
+        q: "What if my spouse dies?",
+        a: "Survivor benefits follow different rules and can be higher than a spousal benefit. A widow or widower can receive up to 100 percent of the worker's benefit. See the survivor benefits guide for the details.",
+      },
+    ],
+    sources: [
+      {
+        title: "SSA: Benefits for spouses",
+        url: "https://www.ssa.gov/benefits/retirement/planner/applying7.html",
+      },
+      {
+        title: "SSA: Early retirement reduction",
+        url: "https://www.ssa.gov/benefits/retirement/planner/agereduction.html",
+      },
+      {
+        title: "SSA: Working while collecting benefits",
+        url: "https://www.ssa.gov/benefits/retirement/planner/whileworking.html",
+      },
+    ],
+    related: [
+      { title: "Social Security at 62 or 70", href: "/guides/social-security-62-vs-70" },
+      { title: "Social Security survivor benefits", href: "/guides/social-security-survivor-benefits" },
+      { title: "Social Security, explained", href: "/wealth/social-security-explained" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "roth-ira-contribution-limits-2026",
+    title: "Roth IRA Contribution Limits 2026",
+    description:
+      "Put up to $7,500 in a Roth IRA for 2026, or $8,600 at 50 and older, if your income fits. Check the income phase-out ranges and the April 15, 2027 deadline.",
+    query: "roth ira contribution limits 2026",
+    opportunity:
+      "The 2026 limits are fresh from IRS Notice 2025-67. A plain table of limits and phase-outs answers the question in one screen.",
+    intent: "informational",
+    answer:
+      "For 2026 you can contribute up to $7,500 to a Roth IRA, or $8,600 if you are 50 or older by December 31. The limit is shared across all your IRAs, and your income has to fit under the phase-out ranges. You have until April 15, 2027 to contribute for 2026.",
+    sections: [
+      {
+        title: "The 2026 limits",
+        body: "The IRA limit for 2026 is $7,500 if you are under 50, and $8,600 if you are 50 or older, which includes a $1,100 catch-up. The limit applies per person, not per account, and it covers all your traditional and Roth IRAs combined. You also need at least that much taxable compensation for the year. The figures come from IRS Notice 2025-67, published November 13, 2025.",
+      },
+      {
+        title: "The income phase-outs",
+        body: "Your ability to contribute directly to a Roth IRA depends on modified adjusted gross income. For single filers and heads of household, the full contribution is available below $153,000, it shrinks between $153,000 and $168,000, and no direct contribution is allowed at $168,000 or more. For married couples filing jointly, the range is $242,000 to $252,000. Married filing separately has a $0 to $10,000 range. The IRS worksheet in Publication 590-A works out the exact reduced amount.",
+      },
+      {
+        title: "What to do if your income is too high",
+        body: "If your income is above the phase-out, a direct Roth IRA contribution is not allowed. Some people contribute to a traditional IRA and then convert it, which is often called a backdoor Roth IRA. That path has its own rules, including the pro-rata rule if you hold other pre-tax IRA money. It also creates a taxable event in the year of the conversion. This is educational information, not tax advice. Talk with a tax professional before using it.",
+      },
+    ],
+    comparison: {
+      caption: "2026 Roth IRA limits and phase-outs",
+      headers: ["Your situation", "The 2026 limit"],
+      rows: [
+        ["Under 50", "$7,500"],
+        ["50 or older", "$8,600"],
+        ["Single, full contribution", "Modified AGI below $153,000"],
+        ["Single, phased out", "No direct contribution at $168,000 or more"],
+        ["Joint, full contribution", "Modified AGI below $242,000"],
+        ["Joint, phased out", "No direct contribution at $252,000 or more"],
+      ],
+    },
+    checklist: [
+      "Confirm your taxable compensation covers the amount you plan to contribute.",
+      "Check your modified AGI against the phase-out range for your filing status.",
+      "Remember the $7,500 covers all your IRAs combined, not each one.",
+      "Note the deadline: April 15, 2027 for 2026 contributions.",
+      "If you already contributed and your income came in too high, ask a tax professional about fixing it before the deadline.",
+    ],
+    faqs: [
+      {
+        q: "Can I contribute to a Roth IRA and a 401(k) in the same year?",
+        a: "Yes. The IRA and 401(k) limits are separate, so a 401(k) does not reduce your Roth IRA limit. Your income still has to fit the Roth phase-out.",
+      },
+      {
+        q: "Is there an age limit for Roth IRA contributions?",
+        a: "No. There is no maximum age. You need taxable compensation, and your income has to fit the phase-out ranges.",
+      },
+      {
+        q: "Does the limit apply per account or per person?",
+        a: "Per person. The $7,500 or $8,600 is the total across every traditional and Roth IRA you own.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: 2026 limits (IR-2025-111)",
+        url: "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+      },
+      {
+        title: "IRS: IRA contribution limits",
+        url: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-ira-contribution-limits",
+      },
+      {
+        title: "IRS: Roth IRAs",
+        url: "https://www.irs.gov/retirement-plans/roth-iras",
+      },
+    ],
+    related: [
+      { title: "Backdoor Roth IRA steps", href: "/guides/backdoor-roth-ira-steps" },
+      { title: "The Roth IRA five-year rule", href: "/guides/roth-ira-five-year-rule" },
+      { title: "Roth IRA, explained", href: "/wealth/roth-ira-explained" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "qualified-charitable-distribution-qcd",
+    title: "Qualified Charitable Distribution (QCD)",
+    description:
+      "Give up to $111,000 from your IRA straight to charity in 2026 without it counting as taxable income. See the age 70 and a half rule and how it covers your RMD.",
+    query: "qualified charitable distribution qcd rules 2026",
+    opportunity:
+      "QCDs sit at the overlap of RMDs, charitable giving, and IRMAA. The 2026 cap is fresh, and the RMD page already draws readers who need this.",
+    intent: "informational",
+    answer:
+      "A qualified charitable distribution lets you send up to $111,000 in 2026 directly from your IRA to a charity, without any of it counting as taxable income. You must be at least 70 and a half when the distribution happens. It counts toward your required minimum distribution and can keep your income lower for Medicare premiums.",
+    sections: [
+      {
+        title: "Who can make one",
+        body: "You must have actually reached age 70 and a half on the date of the distribution, not just during that calendar year. The money has to come from an IRA: a traditional, rollover, or inherited IRA. A distribution from a 401(k) or other workplace plan does not qualify. The transfer must go directly from the IRA custodian to the charity. If the money passes through your hands first, it is an ordinary taxable distribution.",
+      },
+      {
+        title: "The 2026 limit",
+        body: "The annual cap for 2026 is $111,000 per person, up from $108,000 in 2025, and it is indexed for inflation. A married couple where each spouse has an IRA and each meets the age rule can exclude up to $222,000 combined. There is also a once-in-a-lifetime election to direct up to $55,000 of a year's QCD to a split-interest entity such as a charitable remainder trust or a charitable gift annuity, and that counts against the $111,000 cap. If you made deductible IRA contributions after turning 70 and a half, those contributions reduce the amount you can exclude.",
+      },
+      {
+        title: "How it helps with RMDs and IRMAA",
+        body: "If you are 73 or older and owe a required minimum distribution, a QCD counts toward it dollar for dollar, up to the cap. The difference from taking the RMD and then donating is that the QCD never enters your adjusted gross income at all. That matters because adjusted gross income drives how much of your Social Security is taxed and whether you owe IRMAA surcharges on Medicare Part B and Part D two years later. A QCD also helps if you take the standard deduction, since you get the benefit without needing to itemize.",
+      },
+      {
+        title: "What does not count",
+        body: "The charity must be a public charity eligible for tax-deductible contributions. Donor-advised funds, private foundations, and supporting organizations are excluded. You cannot receive goods or services in return. The QCD must be completed by December 31 of the tax year. This is educational information, not tax advice. Confirm the charity's status and your own situation with a tax professional before making one.",
+      },
+    ],
+    comparison: {
+      caption: "QCD or take the RMD and donate",
+      headers: ["Choice", "How it is taxed"],
+      rows: [
+        ["Qualified charitable distribution", "Never enters adjusted gross income, up to $111,000 in 2026"],
+        ["Take the RMD, then donate", "The RMD is taxable income first; a deduction only helps if you itemize"],
+        ["QCD and the standard deduction", "Still helps, no itemizing needed"],
+        ["QCD and Medicare premiums", "Lower income can mean lower IRMAA two years later"],
+      ],
+    },
+    checklist: [
+      "Confirm you are 70 and a half on the date of the transfer.",
+      "Ask your IRA custodian to send the money directly to the charity.",
+      "Confirm the charity is a qualifying public charity, not a donor-advised fund or private foundation.",
+      "Complete the transfer by December 31 for it to count that tax year.",
+      "Check your Form 1099-R and tell your tax preparer, since custodians often do not code QCDs separately.",
+    ],
+    faqs: [
+      {
+        q: "Does a QCD count toward my required minimum distribution?",
+        a: "Yes. A QCD counts toward your RMD dollar for dollar, up to the $111,000 annual cap, as long as you meet the age and direct-transfer rules.",
+      },
+      {
+        q: "Can I make a QCD from a 401(k)?",
+        a: "No. QCDs can only come from IRAs. You would need to roll the money into an IRA first, and that rollover has its own rules and timing.",
+      },
+      {
+        q: "Can my spouse and I each make a QCD?",
+        a: "Yes, if each of you has an IRA and each meets the age rule. The $111,000 cap is per person, so a couple can exclude up to $222,000 combined in 2026.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: RMD FAQs",
+        url: "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+      },
+      {
+        title: "IRS Publication 590-B",
+        url: "https://www.irs.gov/publications/p590b",
+      },
+      {
+        title: "IRS Topic 451, IRAs",
+        url: "https://www.irs.gov/taxtopics/tc451",
+      },
+    ],
+    related: [
+      { title: "RMDs at 73, explained", href: "/wealth/rmd-explained-73" },
+      { title: "IRMAA brackets 2026", href: "/guides/irmaa-brackets-2026" },
+      { title: "Roth conversion taxes", href: "/guides/roth-conversion-taxes" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "capital-gains-tax-rates-2026",
+    title: "Capital Gains Tax Rates 2026",
+    description:
+      "Long-term gains are taxed at 0, 15, or 20 percent based on total taxable income. See the 2026 thresholds, the 3.8 percent surtax, and how gains stack.",
+    query: "capital gains tax rates 2026",
+    opportunity:
+      "The 2026 thresholds are fresh from Rev. Proc. 2025-32. Retirees selling investments need the stacking rule, not just the rates.",
+    intent: "informational",
+    answer:
+      "Long-term capital gains are taxed at 0, 15, or 20 percent, based on your total taxable income. For 2026 the 0 percent rate reaches $49,450 for single filers and $98,900 for married couples filing jointly. A separate 3.8 percent surtax can apply above $200,000 of modified AGI, or $250,000 jointly.",
+    sections: [
+      {
+        title: "Long-term or short-term",
+        body: "The holding period decides the rate. Sell an asset you held more than one year and the gain is long-term, taxed at 0, 15, or 20 percent. Sell within a year and the gain is short-term, taxed as ordinary income at rates from 10 to 37 percent. The clock runs from the day after you buy to the day you sell. Losses can offset gains, and up to $3,000 of net capital losses can offset ordinary income each year, or $1,500 if married filing separately.",
+      },
+      {
+        title: "The 2026 thresholds",
+        body: "The rate depends on your total taxable income, not on the size of the gain alone. Your wages, pension, and IRA withdrawals fill the lower bands first, and the gain stacks on top. For 2026 the 0 percent rate applies to taxable income up to $49,450 single or $98,900 joint. The 15 percent rate runs to $545,500 single or $613,700 joint, and 20 percent applies above that. Heads of household get 0 percent up to $66,200 and 15 percent up to $579,600. These figures come from IRS Revenue Procedure 2025-32.",
+      },
+      {
+        title: "The 3.8 percent net investment income tax",
+        body: "On top of the capital gains rates, a 3.8 percent net investment income tax can apply to the lesser of your net investment income or the amount of modified AGI above $200,000 single or $250,000 joint. Those thresholds are fixed by law and are not adjusted for inflation. That can bring the top federal rate on a long-term gain to 23.8 percent. This is educational information, not tax advice. A tax professional can work out how the surtax applies to your return.",
+      },
+      {
+        title: "How gains stack on other income",
+        body: "Retirement income fills the bands first. Required minimum distributions, pensions, and part-time wages all count as taxable income before your gain is figured. That is why a retiree with a modest gain can still owe 15 percent: the RMDs and Social Security already used up the 0 percent room. Selling in a year with lower other income, or spreading sales across years, changes which band the gain lands in. Run the numbers before you sell, not after.",
+      },
+    ],
+    comparison: {
+      caption: "2026 long-term capital gains rates",
+      headers: ["Your taxable income", "The rate"],
+      rows: [
+        ["Single, up to $49,450", "0 percent"],
+        ["Single, $49,451 to $545,500", "15 percent"],
+        ["Single, above $545,500", "20 percent"],
+        ["Joint, up to $98,900", "0 percent"],
+        ["Joint, $98,901 to $613,700", "15 percent"],
+        ["Joint, above $613,700", "20 percent"],
+      ],
+    },
+    checklist: [
+      "Check whether you held the asset more than one year.",
+      "Add up your other taxable income first, since it fills the lower bands.",
+      "Check the 3.8 percent surtax thresholds of $200,000 single or $250,000 joint.",
+      "Keep purchase records and sale confirmations for your cost basis.",
+      "Ask a tax professional before selling, especially if the sale is large.",
+    ],
+    faqs: [
+      {
+        q: "Do I pay capital gains tax if my income is low?",
+        a: "Possibly nothing. If your total taxable income stays under $49,450 single or $98,900 joint in 2026, long-term gains are taxed at 0 percent federally. State tax can still apply.",
+      },
+      {
+        q: "Are short-term gains taxed the same way?",
+        a: "No. Gains on assets held one year or less are taxed as ordinary income, at rates from 10 to 37 percent in 2026.",
+      },
+      {
+        q: "Does North Carolina tax capital gains at 0 percent too?",
+        a: "No. North Carolina taxes capital gains as ordinary income at its flat 3.99 percent rate for 2026. The federal 0 percent rate does not carry over to the state return.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS Topic 409, capital gains and losses",
+        url: "https://www.irs.gov/taxtopics/tc409",
+      },
+      {
+        title: "IRS: Net investment income tax",
+        url: "https://www.irs.gov/individuals/net-investment-income-tax",
+      },
+      {
+        title: "IRS: 2026 inflation adjustments (IR-2025-103)",
+        url: "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+      },
+    ],
+    related: [
+      { title: "Tax-loss harvesting and the wash sale rule", href: "/guides/tax-loss-harvesting-wash-sale" },
+      { title: "Federal tax brackets 2026", href: "/guides/federal-tax-brackets-2026" },
+      { title: "How are capital gains taxed", href: "/answers/how-are-capital-gains-taxed" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "roth-conversion-taxes",
+    title: "Roth Conversion Taxes, Explained",
+    description:
+      "A Roth conversion is taxed as ordinary income in the year you convert. See how it can lift your bracket, raise IRMAA later, and when the 5-year rule applies.",
+    query: "roth conversion taxes how much",
+    opportunity:
+      "Conversions are the top Roth question after contribution limits. The IRMAA ripple is the part most guides skip.",
+    intent: "informational",
+    answer:
+      "A Roth conversion moves pre-tax money from a traditional IRA or 401(k) into a Roth account, and the converted amount is taxed as ordinary income in the year you convert. It stacks on top of your other income, so it can push you into a higher bracket and raise your Medicare premiums two years later. The conversion itself carries no 10 percent early withdrawal penalty.",
+    sections: [
+      {
+        title: "How the tax works",
+        body: "The amount you convert is added to your taxable income for the year, and taxed at your ordinary rates, from 10 to 37 percent in 2026. There is no 10 percent early withdrawal penalty on the conversion itself, even if you are under 59 and a half. But if you withdraw converted money within five years and you are under 59 and a half, the 10 percent penalty can apply to that withdrawal. After-tax basis in the account is not taxed again, which is where the pro-rata rule comes in.",
+      },
+      {
+        title: "The pro-rata rule",
+        body: "If your IRA holds both pre-tax and after-tax money, you cannot convert only the after-tax part. Each conversion is treated as a proportional mix of the two. The IRS looks at all your traditional, SEP, and SIMPLE IRAs together when it works out the mix. That surprises people who made nondeductible contributions expecting to convert them tax-free. Form 8606 is where the basis is tracked, so keep it current.",
+      },
+      {
+        title: "The IRMAA and Social Security ripple",
+        body: "A conversion raises your modified adjusted gross income, and that number is what sets your Medicare premiums two years later. A conversion that pushes income over $109,000 single or $218,000 joint can add the first IRMAA tier, $81.20 a month on Part B in 2026, plus $14.50 on Part D. It can also make more of your Social Security taxable. A conversion in a low-income year, such as the years between retiring and starting Social Security, usually costs less tax than the same conversion in a high-income year.",
+      },
+      {
+        title: "What to check before converting",
+        body: "Your required minimum distribution for the year has to come out before any conversion, and the RMD itself cannot be converted. There is no income limit on conversions and no age limit, and a conversion cannot be undone once it is done. This is educational information, not tax advice. Run the numbers with a tax professional, including the IRMAA effect two years out, before converting.",
+      },
+    ],
+    comparison: {
+      caption: "What gets taxed in a Roth conversion",
+      headers: ["The money", "How it is taxed"],
+      rows: [
+        ["Pre-tax IRA or 401(k) dollars", "Ordinary income in the year you convert"],
+        ["After-tax basis", "Not taxed again, but the pro-rata rule mixes it with pre-tax money"],
+        ["Earnings after the conversion", "Tax-free if the withdrawal is qualified"],
+        ["The required minimum distribution", "Must come out first and cannot be converted"],
+      ],
+    },
+    checklist: [
+      "Take your RMD for the year before converting anything.",
+      "Estimate the tax on the converted amount at your marginal rate.",
+      "Check whether the conversion pushes your income over an IRMAA threshold.",
+      "Track your after-tax basis on Form 8606.",
+      "Ask a tax professional to model the conversion before you do it.",
+    ],
+    faqs: [
+      {
+        q: "Is there an income limit on Roth conversions?",
+        a: "No. Anyone can convert, whatever their income. The income limits apply to Roth IRA contributions, not conversions.",
+      },
+      {
+        q: "Can I undo a Roth conversion?",
+        a: "No. Recharacterization of conversions ended with the 2017 tax law. Once a conversion is done, it stays done.",
+      },
+      {
+        q: "Does a conversion avoid the 10 percent early withdrawal penalty?",
+        a: "The conversion itself has no 10 percent penalty. But withdrawing converted money within five years before age 59 and a half can trigger the penalty on that withdrawal.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS Topic 451, IRAs",
+        url: "https://www.irs.gov/taxtopics/tc451",
+      },
+      {
+        title: "IRS: Roth IRAs",
+        url: "https://www.irs.gov/retirement-plans/roth-iras",
+      },
+      {
+        title: "IRS: RMD FAQs",
+        url: "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+      },
+    ],
+    related: [
+      { title: "Roth conversion ladder, explained", href: "/guides/roth-conversion-ladder-explained" },
+      { title: "Backdoor Roth IRA steps", href: "/guides/backdoor-roth-ira-steps" },
+      { title: "RMDs at 73, explained", href: "/wealth/rmd-explained-73" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "average-401k-balance-by-age",
+    title: "Average 401(k) Balance by Age",
+    description:
+      "The average 401(k) balance is $167,970 and the median is $44,115, per Vanguard's 2026 report. Compare your balance by age and see why the median matters more.",
+    query: "average 401k balance by age",
+    opportunity:
+      "Vanguard's 2026 report is fresh and widely cited. The median-versus-average framing is the honest angle other roundups skip.",
+    intent: "informational",
+    answer:
+      "Vanguard's How America Saves 2026 report, with balances as of December 31, 2025, puts the average 401(k) balance at $167,970 and the median at $44,115. For ages 55 to 64 the average is $305,006 and the median is $107,269. The median is the better benchmark, because a few very large accounts pull the average up.",
+    sections: [
+      {
+        title: "Average or median, which one matters",
+        body: "The average is pulled up by a small number of very large accounts. The median is the balance held by the participant right in the middle, half above and half below, so it describes a typical saver far better. Across all Vanguard participants the average is $167,970 and the median is $44,115, which means the typical balance is about a quarter of the average. Compare yourself with the median for your age, not the average.",
+      },
+      {
+        title: "The balances by age",
+        body: "Balances rise with age, because older workers have had more years to contribute and more years of growth. Workers under 25 average $7,259 with a median of $2,234. Ages 25 to 34 average $50,261 with a median of $18,732. Ages 35 to 44 average $120,742 with a median of $46,919. Ages 45 to 54 average $214,991 with a median of $78,730. Ages 55 to 64 average $305,006 with a median of $107,269. At 65 and older the average is $330,186 with a median of $103,202. These figures cover about 4.6 million participants in the plans Vanguard administers.",
+      },
+      {
+        title: "Why your balance may look different",
+        body: "Vanguard's figures count only the money in one employer's plan. They leave out IRAs, former employers' plans, pensions, and home equity, so they understate many people's total retirement savings. They also reflect one provider's participants, not the whole country. Tenure matters too: a worker who changed jobs often may hold several smaller balances instead of one large one. The numbers are a yardstick, not a verdict.",
+      },
+      {
+        title: "What to do with the comparison",
+        body: "If your balance is below the median for your age, the useful question is what you can change: your contribution rate, whether you capture the full employer match, and whether old accounts are tracked in one place. If you are above the median, the same questions still apply, because the balance has to last through retirement. This guide is educational only. It does not recommend a savings target for your situation.",
+      },
+    ],
+    comparison: {
+      caption: "Average and median 401(k) balances by age",
+      headers: ["Age group", "Average and median"],
+      rows: [
+        ["Under 25", "$7,259 average, $2,234 median"],
+        ["25 to 34", "$50,261 average, $18,732 median"],
+        ["35 to 44", "$120,742 average, $46,919 median"],
+        ["45 to 54", "$214,991 average, $78,730 median"],
+        ["55 to 64", "$305,006 average, $107,269 median"],
+        ["65 and older", "$330,186 average, $103,202 median"],
+      ],
+    },
+    checklist: [
+      "Compare your balance with the median for your age, not the average.",
+      "Add up every 401(k) from former employers, not just the current one.",
+      "Check whether you are capturing the full employer match.",
+      "Remember IRAs and pensions sit outside these figures.",
+      "Recheck each year, since Vanguard publishes the report annually.",
+    ],
+    faqs: [
+      {
+        q: "What is the average 401(k) balance overall?",
+        a: "Vanguard's How America Saves 2026 report puts the average at $167,970 and the median at $44,115, with balances as of December 31, 2025.",
+      },
+      {
+        q: "Why is the median so much lower than the average?",
+        a: "A small number of very large accounts pulls the average up. The median describes the middle participant, which is the better yardstick for most people.",
+      },
+      {
+        q: "Do these figures include my IRA?",
+        a: "No. They count only money inside the 401(k) or defined contribution plan Vanguard administers. IRAs, pensions, and other savings sit outside them.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: 401(k) plans",
+        url: "https://www.irs.gov/retirement-plans/401k-plans",
+      },
+      {
+        title: "IRS: 401(k) contribution limits",
+        url: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits",
+      },
+    ],
+    related: [
+      { title: "401(k) contribution limits for 2026", href: "/guides/401k-contribution-limits-2026" },
+      { title: "401(k) early withdrawal exceptions", href: "/guides/401k-early-withdrawal-exceptions" },
+      { title: "How a 401(k) works", href: "/wealth/401k-explained" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "how-much-emergency-fund",
+    title: "How Much Emergency Fund Do You Need?",
+    description:
+      "Start with one month of expenses, build to three to six, and keep it in a separate insured savings account. The 50/30/20 budget rule shows how to fund it.",
+    query: "how much emergency fund do i need",
+    opportunity:
+      "The 50/30/20 rule and the where-to-keep-it question are the two follow-ups every emergency fund search raises. One page answers both.",
+    intent: "informational",
+    answer:
+      "Most households should aim for three to six months of essential expenses in a separate savings account. Start with one month, which covers most car repairs and insurance deductibles, then build from there. Single-income households and people with variable pay should aim for the higher end.",
+    sections: [
+      {
+        title: "Start with one month, then build to three to six",
+        body: "One month of essential expenses is the first goal. It covers the surprises that come up most: a car repair, a broken appliance, a health insurance deductible. Three months is a solid cushion for a two-income household with steady pay. Six months fits a single-income household, a self-employed worker, or anyone whose job search would take a while. More than six months makes sense if your income is seasonal or your industry hires slowly.",
+      },
+      {
+        title: "The 50/30/20 budget rule",
+        body: "The 50/30/20 rule splits after-tax income into three buckets: about 50 percent for needs such as housing, food, transport, and insurance; about 30 percent for wants such as eating out, travel, and hobbies; and about 20 percent for savings and extra debt payments. Your emergency fund comes out of the 20 percent bucket. If needs take more than half your income, that is common, and the fix is to shrink the wants bucket first rather than skipping savings entirely. Even 5 percent toward the fund beats nothing.",
+      },
+      {
+        title: "Where to keep it",
+        body: "Keep the fund in a separate savings account or money market account, away from everyday spending money, so it is there when you need it and not tempting when you do not. It should be reachable within a few days without selling anything. A high-yield savings account pays more interest than a basic one, but the rate is not the point: ready access and safety are. Look for an account insured by the FDIC or NCUA, which protects deposits up to $250,000 per depositor, per insured bank, for each account ownership category. Do not invest the emergency fund in stocks, because it can fall right when you need it.",
+      },
+      {
+        title: "When to use it, and how to rebuild",
+        body: "Use the fund for true surprises: a job loss, a major repair, a medical bill you did not plan for. A sale, a vacation, or a holiday is not an emergency, and pulling from the fund for those leaves you exposed. After you use it, rebuild it before raising other spending again, even if that means small transfers for a while. If you carry high-interest debt, build the one-month cushion first, then split extra money between the fund and the debt.",
+      },
+    ],
+    comparison: {
+      caption: "How much emergency fund fits your household",
+      headers: ["Your situation", "A good target"],
+      rows: [
+        ["First goal, everyone", "One month of essential expenses"],
+        ["Two incomes, steady pay", "Three months of essential expenses"],
+        ["One income or variable pay", "Six months of essential expenses"],
+        ["Seasonal income or slow hiring", "More than six months"],
+        ["High-interest debt", "One month first, then split extra money with the debt"],
+      ],
+    },
+    checklist: [
+      "Add up one month of essential expenses: housing, food, transport, insurance, minimum debt payments.",
+      "Open a separate savings account so the fund is not mixed with spending money.",
+      "Set an automatic transfer, even a small one, on payday.",
+      "Check that the account is FDIC or NCUA insured.",
+      "After any withdrawal, rebuild the fund before raising other spending.",
+    ],
+    faqs: [
+      {
+        q: "Is three months enough, or do I need six?",
+        a: "Three months fits a two-income household with steady pay. Six months fits a single income, variable pay, or a job that would take a while to replace.",
+      },
+      {
+        q: "Should I keep my emergency fund in a high-yield savings account?",
+        a: "That is a reasonable place for it: insured, reachable in a few days, and paying more interest than a basic account. The rate matters less than ready access and safety.",
+      },
+      {
+        q: "Should I pay off debt or build the fund first?",
+        a: "Build one month of expenses first, so a surprise does not go back on a card. Then split extra money between the fund and the debt.",
+      },
+    ],
+    sources: [
+      {
+        title: "CFPB: An essential guide to building an emergency fund",
+        url: "https://www.consumerfinance.gov/an-essential-guide-to-building-an-emergency-fund/",
+      },
+      {
+        title: "FDIC: Deposit insurance",
+        url: "https://www.fdic.gov/resources/deposit-insurance/",
+      },
+    ],
+    related: [
+      { title: "High-yield savings or money market", href: "/guides/hysa-vs-money-market-account" },
+      { title: "How much should I have in an emergency fund", href: "/answers/how-much-should-i-have-in-an-emergency-fund" },
+      { title: "The broke money reset plan", href: "/wealth/broke-money-reset-plan" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "federal-tax-brackets-2026",
+    title: "Federal Tax Brackets 2026",
+    description:
+      "Seven federal rates, 10 to 37 percent, apply slice by slice to taxable income. See the full 2026 thresholds, the standard deduction, and a worked example.",
+    query: "federal tax brackets 2026",
+    opportunity:
+      "The 2026 brackets are fresh from Rev. Proc. 2025-32. The worked example corrects the most common misunderstanding, that the top bracket taxes everything.",
+    intent: "informational",
+    answer:
+      "Federal income tax uses seven marginal rates, 10, 12, 22, 24, 32, 35, and 37 percent. For 2026 a single filer pays 10 percent on the first $12,400 of taxable income and reaches 37 percent only above $640,600. The standard deduction is $16,100 single or $32,200 joint.",
+    sections: [
+      {
+        title: "Marginal means slice by slice",
+        body: "Your top bracket is not the rate you pay on all your income. Each rate applies only to the slice of taxable income inside that bracket. A single filer with $100,000 of taxable income in 2026 owes $16,712: $1,240 on the first $12,400, plus 12 percent of the next $38,000, plus 22 percent of the remaining $49,600. That is an effective rate of about 16.7 percent, not 22 percent. Taxable income is what is left after the standard or itemized deduction, not your gross pay.",
+      },
+      {
+        title: "The 2026 thresholds",
+        body: "The rates are unchanged from 2025 and were made permanent. Only the thresholds moved, for inflation. For single filers the brackets run: 10 percent to $12,400, 12 percent to $50,400, 22 percent to $105,700, 24 percent to $201,775, 32 percent to $256,225, 35 percent to $640,600, and 37 percent above that. For married couples filing jointly: 10 percent to $24,800, 12 percent to $100,800, 22 percent to $211,400, 24 percent to $403,550, 32 percent to $512,450, 35 percent to $768,700, and 37 percent above that. These figures come from IRS Revenue Procedure 2025-32.",
+      },
+      {
+        title: "The standard deduction",
+        body: "Before any bracket applies, you subtract the standard deduction or your itemized deductions. For 2026 the standard deduction is $16,100 for single filers, $32,200 for married couples filing jointly, and $24,150 for heads of household. There is also a new $6,000 additional deduction for taxpayers 65 and older. North Carolina has its own standard deduction, $12,750 single or $25,500 joint, which is separate from the federal figures.",
+      },
+      {
+        title: "How retirement income moves you between brackets",
+        body: "Required minimum distributions, pensions, and Roth conversions all land in taxable income, so they can push you into a higher bracket in a year you did not expect. That is why the same withdrawal can cost 12 percent one year and 22 percent the next. Spreading withdrawals or conversions across low-income years keeps more of each dollar in the lower brackets. This is educational information, not tax advice. A tax professional can model your brackets before you withdraw or convert.",
+      },
+    ],
+    comparison: {
+      caption: "2026 federal tax brackets, single and joint",
+      headers: ["Bracket", "Taxable income up to"],
+      rows: [
+        ["10 percent rate", "Single to $12,400, joint to $24,800"],
+        ["12 percent rate", "Single to $50,400, joint to $100,800"],
+        ["22 percent rate", "Single to $105,700, joint to $211,400"],
+        ["24 percent rate", "Single to $201,775, joint to $403,550"],
+        ["32 percent rate", "Single to $256,225, joint to $512,450"],
+        ["35 percent rate", "Single to $640,600, joint to $768,700"],
+        ["37 percent rate", "Single above $640,600, joint above $768,700"],
+      ],
+    },
+    checklist: [
+      "Figure your taxable income first: gross income minus the standard or itemized deduction.",
+      "Find your marginal bracket, then remember your effective rate is lower.",
+      "Check the $6,000 additional deduction if you are 65 or older.",
+      "Before a large withdrawal or conversion, check which bracket it lands in.",
+      "Ask a tax professional if your income crosses a bracket line this year.",
+    ],
+    faqs: [
+      {
+        q: "If I am in the 22 percent bracket, do I pay 22 percent on everything?",
+        a: "No. Only the income inside the 22 percent slice is taxed at 22 percent. The income below it is taxed at 10 and 12 percent.",
+      },
+      {
+        q: "What is the standard deduction for 2026?",
+        a: "$16,100 for single filers, $32,200 for married couples filing jointly, and $24,150 for heads of household, per IRS Revenue Procedure 2025-32.",
+      },
+      {
+        q: "Do the 2026 brackets apply to the return I file in 2026?",
+        a: "No. The 2026 brackets apply to income earned in 2026, reported on the return you file in early 2027.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: 2026 inflation adjustments (IR-2025-103)",
+        url: "https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill",
+      },
+      {
+        title: "IRS Topic 409, capital gains and losses",
+        url: "https://www.irs.gov/taxtopics/tc409",
+      },
+    ],
+    related: [
+      { title: "Capital gains tax rates 2026", href: "/guides/capital-gains-tax-rates-2026" },
+      { title: "Roth conversion taxes", href: "/guides/roth-conversion-taxes" },
+      { title: "How tax brackets work", href: "/wealth/tax-brackets-explained-plainly" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "north-carolina-taxes-on-retirement-income",
+    title: "North Carolina Taxes on Retirement Income",
+    description:
+      "North Carolina taxes retirement income at a flat 3.99 percent in 2026, but Social Security is fully exempt. See the Bailey settlement and what a retiree pays.",
+    query: "north carolina taxes on retirement income",
+    opportunity:
+      "The local angle: a flat 3.99 percent rate, full Social Security exemption, and the Bailey settlement are exactly what Triad retirees ask about.",
+    intent: "informational",
+    answer:
+      "North Carolina taxes income at a flat 3.99 percent for 2026, down from 4.25 percent in 2025. Social Security benefits are fully exempt from state tax. Most 401(k), IRA, and pension income is taxed at 3.99 percent, with an exemption for qualifying government retirees under the Bailey settlement.",
+    sections: [
+      {
+        title: "The flat 3.99 percent rate",
+        body: "North Carolina charges one flat rate on taxable income, not graduated brackets. For tax years beginning after 2025 the rate is 3.99 percent. Before the rate applies, you subtract the North Carolina standard deduction, $12,750 for single filers or $25,500 for married couples filing jointly, or your North Carolina itemized deductions. North Carolina starts from your federal adjusted gross income, then applies its own additions and subtractions.",
+      },
+      {
+        title: "Social Security is not taxed by North Carolina",
+        body: "Social Security benefits are fully exempt from North Carolina income tax, whatever your other income. If Social Security was included in your federal adjusted gross income, you subtract the full amount on your state return. Railroad retirement benefits get the same treatment. That is a real difference from the federal return, where up to 85 percent of Social Security can be taxable.",
+      },
+      {
+        title: "The Bailey settlement, and who it covers",
+        body: "The Bailey settlement, from the North Carolina Supreme Court decision in Bailey v. State of North Carolina, exempts retirement benefits for certain government retirees. It covers retirees of North Carolina state and local government systems and federal civilian and military systems, including the Teachers' and State Employees' Retirement System and the federal Civil Service and Federal Employees' Retirement Systems, if they had five or more years of creditable service as of August 12, 1989. Military retirement pay is also fully exempt for retirees with 20 or more years of service or a medical retirement. Private pensions, 401(k) distributions, and IRA withdrawals outside Bailey are taxed at 3.99 percent.",
+      },
+      {
+        title: "What a typical retiree pays",
+        body: "Take a single retiree with $40,000 of 401(k) withdrawals and $24,000 of Social Security. North Carolina subtracts the $24,000 of Social Security entirely, leaving $40,000, then subtracts the $12,750 standard deduction, leaving $27,250 of taxable income. At 3.99 percent the state tax is $1,087. A Bailey-covered retiree with the same numbers would owe nothing on the pension itself. This is educational information, not tax advice. Confirm your own figures with the North Carolina Department of Revenue or a tax professional.",
+      },
+    ],
+    comparison: {
+      caption: "How North Carolina treats retirement income in 2026",
+      headers: ["Income", "North Carolina treatment"],
+      rows: [
+        ["Social Security benefits", "Fully exempt"],
+        ["401(k) and IRA withdrawals", "Taxed at 3.99 percent after deductions"],
+        ["Private pensions", "Taxed at 3.99 percent after deductions"],
+        ["Bailey-covered government pensions", "Exempt if vested by August 12, 1989"],
+        ["Military retirement pay", "Exempt with 20 or more years of service or a medical retirement"],
+      ],
+    },
+    checklist: [
+      "Subtract your full Social Security amount from federal AGI on the state return.",
+      "Check whether your pension qualifies under the Bailey settlement.",
+      "Use the North Carolina standard deduction, $12,750 single or $25,500 joint, not the federal one.",
+      "Remember the rate is 3.99 percent for 2026, down from 4.25 percent in 2025.",
+      "Ask a tax professional before assuming any retirement income is exempt.",
+    ],
+    faqs: [
+      {
+        q: "Does North Carolina tax Social Security?",
+        a: "No. Social Security benefits are fully exempt from North Carolina income tax. Subtract the full amount included in your federal AGI on your state return.",
+      },
+      {
+        q: "What is the Bailey settlement?",
+        a: "A court settlement that exempts retirement benefits for certain state, local, and federal government retirees who had five or more years of creditable service as of August 12, 1989.",
+      },
+      {
+        q: "Do I pay North Carolina tax on a 401(k) withdrawal?",
+        a: "Generally yes, at the flat 3.99 percent rate for 2026, after the standard deduction. The exceptions are Bailey-covered pensions and qualifying military retirement pay.",
+      },
+    ],
+    sources: [
+      {
+        title: "SSA: Income taxes and Social Security",
+        url: "https://www.ssa.gov/benefits/retirement/planner/taxes.html",
+      },
+      {
+        title: "IRS: RMD FAQs",
+        url: "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+      },
+    ],
+    related: [
+      { title: "Federal tax brackets 2026", href: "/guides/federal-tax-brackets-2026" },
+      { title: "IRMAA brackets 2026", href: "/guides/irmaa-brackets-2026" },
+      { title: "RMDs at 73, explained", href: "/wealth/rmd-explained-73" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "how-to-improve-credit-score",
+    title: "How to Improve Your Credit Score",
+    description:
+      "Pay on time, keep card balances low, and give it time. See the FICO bands, the five factors and their weights, and how to build a first score from zero.",
+    query: "how to improve my credit score",
+    opportunity:
+      "Credit is the most-searched money topic in this batch. The utilization lever and the starting-from-zero path are the two answers readers actually need.",
+    intent: "informational",
+    answer:
+      "Pay every bill on time, keep credit card balances low, and give it time. Payment history is 35 percent of a FICO score and amounts owed are 30 percent, so those two factors carry nearly two-thirds of the weight. The national average FICO score is about 715, which sits in the good range.",
+    sections: [
+      {
+        title: "What is a good credit score",
+        body: "Most lenders use FICO scores, which run from 300 to 850. The bands are: 300 to 579 poor, 580 to 669 fair, 670 to 739 good, 740 to 799 very good, and 800 to 850 exceptional. The national average FICO score was about 715 in 2025, per Experian, which sits in the good range. Lenders set their own cutoffs, so a good score helps but does not guarantee approval or a particular rate.",
+      },
+      {
+        title: "The five factors and their weights",
+        body: "FICO builds a score from five categories in your credit report. Payment history counts for about 35 percent: on-time payments help, and a payment 30 or more days late hurts. Amounts owed counts for about 30 percent, driven mostly by credit card balances compared with limits. Length of credit history is about 15 percent. New credit is about 10 percent, including hard inquiries and recently opened accounts. Credit mix is about 10 percent.",
+      },
+      {
+        title: "The only fast lever: utilization under 10 percent",
+        body: "Utilization is your card balances divided by your limits. If your limits total $10,000 and your balances total $3,000, utilization is 30 percent. Paying balances down before the statement closes, not just before the due date, is what moves the number, because the statement balance is usually what gets reported. Under 30 percent is the usual guidance, and under 10 percent is where the best scores cluster. It is the one factor you can change in a single billing cycle.",
+      },
+      {
+        title: "Starting from zero",
+        body: "With no credit file, there is nothing to score. A secured credit card, where you put down a deposit that becomes your limit, is the usual first step. Becoming an authorized user on a family member's card with a long, clean history can add that history to your file. A first score usually appears after about six months of activity on an account. Keep the oldest card open even if you rarely use it, since closing it can shorten your history and raise utilization.",
+      },
+    ],
+    comparison: {
+      caption: "FICO score bands",
+      headers: ["Your score", "The band"],
+      rows: [
+        ["300 to 579", "Poor"],
+        ["580 to 669", "Fair"],
+        ["670 to 739", "Good"],
+        ["740 to 799", "Very good"],
+        ["800 to 850", "Exceptional"],
+      ],
+    },
+    checklist: [
+      "Pull your free reports at AnnualCreditReport.com and dispute any errors.",
+      "Pay every bill on time, even the minimum, and set up autopay if it helps.",
+      "Pay card balances down before the statement closes, aiming under 10 percent of limits.",
+      "Keep your oldest card open and avoid opening several new accounts at once.",
+      "Give it time: late payments fade after about two years and fall off after seven.",
+    ],
+    faqs: [
+      {
+        q: "How fast can my score improve?",
+        a: "Utilization can move a score within one billing cycle after balances are paid down. Payment history takes longer: a late payment keeps hurting for about two years and falls off after seven.",
+      },
+      {
+        q: "Does checking my own score hurt it?",
+        a: "No. Checking your own score or report is a soft inquiry and does not affect your score. Hard inquiries from applications can lower it slightly.",
+      },
+      {
+        q: "Can I get a score with no credit history?",
+        a: "Not yet. A first score usually appears after about six months of activity on an account. A secured card or authorized user status can start the file.",
+      },
+    ],
+    sources: [
+      {
+        title: "CFPB: Credit reports and scores",
+        url: "https://www.consumerfinance.gov/consumer-tools/credit-reports-and-scores/",
+      },
+      {
+        title: "CFPB: What is a credit score",
+        url: "https://www.consumerfinance.gov/ask-cfpb/what-is-a-credit-score-en-319/",
+      },
+    ],
+    related: [
+      { title: "Credit utilization, explained", href: "/guides/credit-utilization-explained" },
+      { title: "Hard inquiry or soft inquiry", href: "/guides/hard-inquiry-vs-soft-inquiry" },
+      { title: "How are credit scores calculated", href: "/answers/how-are-credit-scores-calculated" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
 ];
 
 export function findTrafficGuide(slug: string) {
