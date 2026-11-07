@@ -11834,6 +11834,231 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=insurance",
   },
+  {
+    slug: "universal-life-vs-whole-life-insurance",
+    title: "Universal life vs whole life insurance",
+    metaTitle: "Universal Life vs Whole Life Insurance: What Changes",
+    description:
+      "Universal life and whole life are both permanent, but one is fixed and the other is flexible. See how premiums, cash value, and lapse risk differ.",
+    keyword: "universal life vs whole life",
+    eyebrow: "Insurance, explained",
+    lede: "Whole life and universal life both last your whole life. The difference is how much they let you change along the way.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro:
+      "Whole life and universal life are both permanent insurance, designed to last your whole life if you keep paying, and they both build cash value. The difference is control. Whole life keeps the moving parts fixed: one premium, one death benefit, one guaranteed growth rate on the cash value. Universal life separates the parts and lets you adjust them within limits. That flexibility is the whole point of universal life. It is also why universal life needs more attention than whole life.",
+    sections: [
+      {
+        h2: "Whole life: fixed and predictable",
+        blocks: [
+          p(
+            "Whole life is the simpler permanent policy. The premium stays level, the death benefit stays level, and the cash value grows at a guaranteed rate the insurer sets. Some policies pay dividends, which are not guaranteed, and you can use them to buy extra coverage or cut what you pay out of pocket. Once the policy is in force, there is little to manage. That predictability is why whole life fits people who want to set it up and stop thinking about it.",
+          ),
+        ],
+      },
+      {
+        h2: "Universal life: flexible, with a catch",
+        blocks: [
+          p(
+            "Universal life splits the policy into a death benefit and a cash value account, and lets you adjust both within limits. The cash value earns interest at a rate the insurer sets, with a guaranteed minimum floor. The catch is that the policy charges for the insurance itself every month, and those charges rise as you age. If you underpay, the cash value covers the gap. If the cash value runs out, the policy lapses.",
+          ),
+        ],
+      },
+      {
+        h2: "Guaranteed universal life: the middle ground",
+        blocks: [
+          p(
+            "Guaranteed universal life, often shortened to GUL, is a stripped-down universal policy built for one job: a death benefit that lasts to a chosen age, often 90, 100, or 120, if you pay the scheduled premium. It builds little or no cash value, and the premium is usually level. It fits a lifelong need, like leaving money to a spouse or covering estate costs, when you do not want to pay whole life prices for cash value you will never use.",
+          ),
+        ],
+      },
+      {
+        h2: "Cash value: how each one grows",
+        blocks: [
+          p(
+            "Whole life cash value grows at a guaranteed rate, steady even when markets fall. Universal life cash value earns interest the insurer credits, with a guaranteed floor. Indexed universal life ties growth to a market index with caps, and variable universal life ties it to funds you choose, which adds risk. Cash value is not a second death benefit. Borrow against it or surrender the policy, and the death benefit falls.",
+          ),
+        ],
+      },
+      {
+        h2: "The lapse risk nobody explains",
+        blocks: [
+          p(
+            "Whole life rarely lapses on its own, because the level premium is designed to carry the policy for life. Universal life can lapse quietly. If premiums stay low while insurance charges rise with age, the cash value drains, and the policy ends with no payout. That is the real tradeoff of flexibility: you have to watch the annual statement and fund the policy when it needs money. Ask the insurer for an in-force illustration every few years, and ask what premium keeps the policy going to the age you need.",
+          ),
+        ],
+      },
+      {
+        h2: "The quick comparison",
+        blocks: [
+          table(
+            ["", "Whole life", "Universal life"],
+            [
+              ["Premium", "Level and fixed", "Flexible within limits"],
+              ["Death benefit", "Level", "Adjustable within limits"],
+              ["Cash value", "Guaranteed growth", "Interest credited, with a floor"],
+              ["Lapse risk", "Low if premiums are paid", "Higher if underfunded"],
+              ["Best for", "Set it and forget it", "Hands-on owners"],
+            ],
+          ),
+        ],
+      },
+      {
+        h2: "Which one fits",
+        blocks: [
+          p(
+            "Pick whole life when you want a level premium, guaranteed cash value, and nothing to manage. Pick universal life when your income varies and you will actually monitor the policy, or when you want to adjust the death benefit over time. Pick guaranteed universal life when the only goal is a death benefit that lasts to a set age at the lowest permanent price. If none of those sounds like you, term life may cover the need for far less, and that is a fine answer too.",
+          ),
+          p(
+            "I am a licensed insurance agent in North Carolina. If you want to see how whole and universal life would look for your age and budget, call or text (919) 408-6671. We will look at real illustrations together.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Which costs more, whole life or universal life?",
+        a: "It depends on the design. Whole life usually costs more than a basic universal policy with the same death benefit, because the premium and cash value are guaranteed. A guaranteed universal policy often costs less than whole life for the same lifelong death benefit, because it builds little cash value.",
+      },
+      {
+        q: "Can universal life lapse even if I keep paying?",
+        a: "Yes, if you pay less than the policy needs. Monthly insurance charges rise with age, and the cash value covers the gap. When the cash value runs out, the policy lapses. An in-force illustration shows whether your current premium keeps it going.",
+      },
+      {
+        q: "What is guaranteed universal life?",
+        a: "A stripped-down universal policy that guarantees a death benefit to a chosen age, often 90, 100, or 120, if you pay the scheduled premium. It builds little or no cash value and usually costs less than whole life for the same lifelong benefit.",
+      },
+      {
+        q: "Does whole life cash value grow faster?",
+        a: "Not necessarily faster, but steadier. Whole life cash value grows at a guaranteed rate. Universal life cash value earns interest the insurer credits, with a floor. Neither one is an investment account, and both grow slowly in the early years.",
+      },
+    ],
+    sources: [
+      {
+        label: "IRS: Life insurance and disability insurance proceeds",
+        href: "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/life-insurance-disability-insurance-proceeds/life-insurance-disability-insurance-proceeds",
+      },
+      { label: "National Association of Insurance Commissioners", href: "https://www.naic.org/" },
+    ],
+    related: [
+      { label: "Term, whole, or universal life: which do I need?", href: "/answers/term-whole-or-universal-life-insurance-which-do-i-need" },
+      { label: "How much life insurance do I need?", href: "/answers/how-much-life-insurance-do-i-need" },
+      { label: "How much does whole life insurance cost?", href: "/guides/how-much-does-whole-life-insurance-cost" },
+    ],
+    startHref: "/start?topic=insurance",
+  },
+  {
+    slug: "term-life-insurance-no-medical-exam",
+    title: "Term life insurance with no medical exam",
+    metaTitle: "Term Life Insurance With No Medical Exam: Costs and Limits",
+    description:
+      "No-exam term life skips the medical exam, but it costs more and caps coverage. Compare simplified issue, accelerated underwriting, and guaranteed issue.",
+    keyword: "no medical exam life insurance",
+    eyebrow: "Insurance, explained",
+    lede: "Skipping the medical exam sounds easy. It is, but you pay for the convenience in price and in limits.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro:
+      "No-exam term life skips the blood draw, the urine sample, and the nurse visit. You answer health questions instead, and the insurer decides from those answers plus the records it can check. Coverage can start in days instead of weeks. That speed has a price. No-exam policies usually cost more than fully underwritten ones, and they cap how much coverage you can buy. This page covers the three ways to skip the exam, what each one costs, and who should take the exam anyway.",
+    sections: [
+      {
+        h2: "Three ways to skip the exam",
+        blocks: [
+          p(
+            "Simplified issue asks health questions on the application and skips the exam. Accelerated underwriting also skips the exam, but the insurer checks prescription records, driving records, and medical data to decide, and only healthy applicants qualify. Guaranteed issue asks no health questions at all. It is a small whole life policy, usually $5,000 to $25,000, meant for final expenses, and it carries a waiting period before the full benefit pays.",
+          ),
+        ],
+      },
+      {
+        h2: "What it costs",
+        blocks: [
+          p(
+            "NerdWallet's October 2026 no-exam rates for a $500,000 20-year term policy show the gap. For a 40-year-old man in the best health class, no-exam costs $329 a year against $321 with an exam. In preferred health it is $409 against $405, and in standard health $639 against $631. For a 40-year-old woman the no-exam figures are $279, $339, and $494 against $278, $336, and $491. The gap is small at the best health levels and grows as health worsens. Rates are averages of the three lowest quotes from LifeStein.com data, valid October 1, 2026, and your price will differ by insurer and state.",
+          ),
+        ],
+      },
+      {
+        h2: "The limits",
+        blocks: [
+          p(
+            "No-exam coverage caps out lower than fully underwritten coverage. Published 2026 surveys report no-exam limits as high as $4 million at some insurers, while others cap far lower, so the limit depends on the company. Age matters too: no-exam options narrow as you get older, and some health conditions still block simplified issue even without an exam. If you need several million dollars of coverage, expect the insurer to ask for an exam.",
+          ),
+        ],
+      },
+      {
+        h2: "Who it fits",
+        blocks: [
+          p(
+            "No-exam term fits people who need coverage fast, who dislike needles and nurse visits, or who have a straightforward health picture and a moderate coverage need. It also fits people buying a smaller policy to cover final expenses. It fits less well when you are young, healthy, and buying a large policy, because the exam buys you the lowest price for the next 20 or 30 years. A 30-minute exam can save hundreds of dollars a year on a big policy.",
+          ),
+        ],
+      },
+      {
+        h2: "The waiting period on guaranteed issue",
+        blocks: [
+          p(
+            "Guaranteed issue is the only no-exam option with no health questions, and it is also the one with the biggest tradeoff. Most guaranteed issue policies carry a graded death benefit, usually a two-year waiting period. If death comes from illness in the first two years, the beneficiary typically gets back the premiums paid plus interest, often about 10 percent, instead of the full face amount. Accidental death usually pays the full benefit from day one. After the waiting period, the full benefit applies for any cause. Premiums run higher than simplified issue for the same benefit, so use this option only when health questions would turn you down.",
+          ),
+        ],
+      },
+      {
+        h2: "The quick comparison",
+        blocks: [
+          table(
+            ["", "Simplified issue", "Accelerated underwriting", "Guaranteed issue"],
+            [
+              ["Medical exam", "No", "No", "No"],
+              ["Health questions", "Yes", "Yes, plus records checked", "No"],
+              ["Cost", "A little more than fully underwritten", "Close to fully underwritten", "Highest for the benefit"],
+              ["Full benefit", "Usually from day one", "Usually from day one", "Usually after a two-year wait for illness"],
+            ],
+          ),
+        ],
+      },
+      {
+        h2: "The bottom line",
+        blocks: [
+          p(
+            "Skipping the exam is worth it when speed matters more than the lowest price, or when a smaller policy covers the need. It is not worth it when you are young and healthy and buying a large policy, because the exam is a short appointment that locks in a lower rate for decades. Start with the coverage amount your family needs, then choose the underwriting path that fits your health, your timeline, and your budget.",
+          ),
+          p(
+            "I am a licensed insurance agent in North Carolina. If you want to see what no-exam term would cost for your age and health, and what the same coverage costs with an exam, call or text (919) 408-6671 or visit christianbrinkleync.com. We will compare both, in plain English.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is no-exam life insurance more expensive?",
+        a: "Usually yes, but the gap is small for healthy applicants. For a 40-year-old man in the best health class, NerdWallet's October 2026 no-exam rate is $329 a year against $321 with an exam, for a $500,000 20-year term policy. The gap grows in lower health classes.",
+      },
+      {
+        q: "How fast can I get covered?",
+        a: "Days, in many cases, instead of the weeks a full exam can take. Simplified issue and accelerated underwriting can approve quickly when the answers and records check out. Guaranteed issue is also fast, but it carries a waiting period on the benefit.",
+      },
+      {
+        q: "What is accelerated underwriting?",
+        a: "Underwriting without the exam. You answer health questions, and the insurer checks prescription records, driving records, and medical data instead of sending a nurse. Healthy applicants can qualify. If the data raises a question, the insurer may still ask for an exam.",
+      },
+      {
+        q: "Can I be turned down for no-exam coverage?",
+        a: "Yes, for simplified issue and accelerated underwriting. Health questions still apply, and the insurer can decline or offer a rated policy. Only guaranteed issue accepts every applicant in its age range, and it does so with higher premiums and a two-year waiting period.",
+      },
+    ],
+    sources: [
+      {
+        label: "IRS: Life insurance and disability insurance proceeds",
+        href: "https://www.irs.gov/faqs/interest-dividends-other-types-of-income/life-insurance-disability-insurance-proceeds/life-insurance-disability-insurance-proceeds",
+      },
+      { label: "National Association of Insurance Commissioners", href: "https://www.naic.org/" },
+    ],
+    related: [
+      { label: "How much does term life insurance cost?", href: "/guides/how-much-does-term-life-insurance-cost" },
+      { label: "How to compare term life insurance companies", href: "/guides/best-term-life-insurance-companies" },
+      { label: "Life insurance for seniors", href: "/guides/life-insurance-for-seniors" },
+    ],
+    startHref: "/start?topic=insurance",
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {
