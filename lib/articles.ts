@@ -8963,11 +8963,20 @@ export const ARTICLES: Article[] = [
         ],
       },
       {
+        h2: "Target date fund vs index fund",
+        blocks: [
+          {
+            kind: "p",
+            text: "A target date fund is a ready-made mix that shifts over time. An index fund tracks one market index and keeps its mix steady. A target date fund often holds index funds inside it, so the choice is not either or.",
+          },
+        ],
+      },
+      {
         h2: "Check risk and fees",
         blocks: [
           {
             kind: "p",
-            text: "Read the current stock and bond mix, the planned mix at and after the date, expenses, and the investment objective. A target date fund can lose money before, at, and after its target date. Automatic management doesn't make the investment personalized. Consider other assets and expected withdrawals before deciding whether the fund fits your situation. Source: [Schwab's benefits and risks explanation](https://www.schwab.com/learn/story/target-date-funds-benefits-risks-and-more).",
+            text: "Read the current stock and bond mix, the planned mix at and after the date, expenses, and the investment objective. A target date fund can lose money before, at, and after its target date. Automatic management doesn't make the investment personalized. Consider other assets and expected withdrawals before deciding. Source: [Schwab's benefits and risks explanation](https://www.schwab.com/learn/story/target-date-funds-benefits-risks-and-more).",
           },
           {
             kind: "p",
@@ -8980,7 +8989,7 @@ export const ARTICLES: Article[] = [
         blocks: [
           {
             kind: "p",
-            text: "Start with the investment objective and current allocation. Check how much is in stocks, bonds, and other assets today. Then look at the schedule for the target date and afterward. Two funds with the same year can reach different allocations. That year alone can't explain the risk you're taking or how the investment responds to withdrawals.",
+            text: "Start with the investment objective and current allocation. Check how much is in stocks, bonds, and other assets. Then look at the schedule for the target date and afterward. Two funds with the same year can reach different allocations. That year alone can't explain the risk you're taking or how the investment responds to withdrawals.",
           },
           {
             kind: "p",
@@ -8992,7 +9001,7 @@ export const ARTICLES: Article[] = [
           },
           {
             kind: "p",
-            text: "A target date fund isn't a guaranteed income product. Values can fall during the years when you plan to withdraw money. Rebalancing follows the stated approach; it doesn't promise a minimum balance. Read the prospectus and discuss the actual fund with a qualified investment professional before relying on it for retirement planning.",
+            text: "A target date fund isn't a guaranteed income product. Values can fall during the years when you plan to withdraw money. Rebalancing follows the stated approach; it doesn't promise a minimum balance. Read the prospectus and ask a qualified professional before relying on it for retirement planning.",
           },
           {
             kind: "p",
@@ -9013,6 +9022,10 @@ export const ARTICLES: Article[] = [
       {
         q: "Can I sell just the bonds inside my target date fund?",
         a: "You generally sell shares of the combined fund, not a chosen underlying holding.",
+      },
+      {
+        q: "Is a target date fund an index fund?",
+        a: "Not exactly. It often holds index funds inside it and changes its mix over time.",
       },
     ],
     sources: [

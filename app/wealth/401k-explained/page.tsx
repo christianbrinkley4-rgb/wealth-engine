@@ -227,7 +227,7 @@ export default function K401ExplainedPage() {
           { href: "/wealth/catch-up-contributions-after-50", label: "Catch-Up Contributions After 50", kind: "Article" },
         ]}
       />
-    <TrafficGuideLinks slugs={["401k-rollover-after-leaving-job", "401k-loan-vs-withdrawal", "401k-early-withdrawal-exceptions", "mega-backdoor-roth-explained", "401k-mistakes-to-avoid"]} />
+    <TrafficGuideLinks slugs={["401k-rollover-after-leaving-job", "401k-loan-vs-withdrawal", "401k-early-withdrawal-exceptions", "mega-backdoor-roth-explained", "401k-mistakes-to-avoid", "what-is-a-529-plan", "how-to-budget-on-a-fixed-income-in-retirement"]} />
     </main>
   );
 }

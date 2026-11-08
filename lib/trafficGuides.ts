@@ -1282,6 +1282,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     ],
     faqs: [
       { q: "Can I lose money on I bonds?", a: "No. I bonds never go below their purchase value, and the inflation component cannot drag the combined rate below zero. TIPS can lose market value if sold before maturity, but held to maturity they return at least the original principal." },
+      { q: "TIPS vs I bonds, which is better?", a: "They solve different problems. I bonds protect a single purchase from inflation and never lose value, but you cannot touch them for a year. TIPS adjust with inflation too, and you can sell them any trading day, but their market price can fall before maturity." },
       { q: "Which is better for an emergency fund?", a: "Neither is ideal, but I bonds work after the first 12 months since they hold value. TIPS prices can swing, so selling early can mean a loss. Keep true emergency money in an accessible savings account instead." },
       { q: "What's the minimum purchase for each?", a: "I bonds start at $25 electronically through TreasuryDirect. TIPS start at $100 at auction or through TreasuryDirect. Both are within reach for small savers. You don't need thousands to start." },
       { q: "How long do I bonds last?", a: "Thirty years. They stop earning interest at final maturity, so there's no reason to hold past that. You can cash them any time after 12 months, with a three-month interest penalty if you cash out before five years." },
@@ -2978,6 +2979,10 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         body: "Starting in 2026, if your wages from the employer sponsoring the plan were more than $150,000 in the prior year, any catch-up contribution must go into a Roth account. That means the catch-up is after tax, with no upfront deduction. The $150,000 test counts wages from that one employer only, not all of your income. If your plan has no Roth option, you may not be able to make a catch-up contribution at all. Ask your plan administrator how your plan handles it.",
       },
       {
+        title: "Roth 401(k) vs traditional 401(k): the one-question test",
+        body: "A traditional 401(k) lowers your taxable income now and taxes withdrawals in retirement. A Roth 401(k) takes after-tax money now and lets qualified withdrawals come out tax free after age 59 and a half, once the account has been open five years. Both share the same $24,500 limit for 2026, so splitting between them does not raise the total. The one question that matters is whether your tax rate will be higher now or in retirement. Employer matching money always goes in pre-tax, on the traditional side. Roth 401(k)s no longer have required minimum distributions, a change that started in 2024.",
+      },
+      {
         title: "How much should you contribute",
         body: "The limit is a ceiling, not a target. A common first step is contributing enough to get the full employer match, since that is money your employer adds for participating. After that, many savers raise the percentage a little each year or when pay rises. What fits depends on your debts, your emergency fund, and your other goals. This guide is educational only. It does not recommend a contribution amount for your situation.",
       },
@@ -3011,6 +3016,10 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       {
         q: "What happens if I contribute too much?",
         a: "Tell your plan administrator right away. Excess deferrals generally need to come out by April 15 of the next year to avoid double taxation. Ask a tax professional how to report it.",
+      },
+      {
+        q: "Do Roth and traditional 401(k) contributions share one limit?",
+        a: "Yes. The $24,500 limit for 2026 covers your traditional and Roth deferrals combined. Employer contributions count toward the separate $72,000 total.",
       },
     ],
     sources: [
@@ -5008,6 +5017,352 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     opportunity:
       "Bridge years carry the highest unsubsidized premiums in the market; answer with dated costs and the 400% subsidy line.",
     intent: "informational",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "what-is-a-529-plan",
+    title: "What Is a 529 Plan? How College Savings Works",
+    description:
+      "A 529 plan grows tax free for college, trade school, or K-12, and up to $35,000 can roll into a Roth IRA. See 2026 limits, the K-12 cap, and gift tax rules.",
+    query: "what is a 529 plan",
+    opportunity:
+      "529 questions spike with every school year. A plain guide with the 2026 limits, the K-12 cap, and the Roth rollover answers the question directly.",
+    intent: "informational",
+    answer:
+      "A 529 plan is a state-run savings account for education. Money grows tax free, and withdrawals are tax free when used for qualified costs like college tuition, room and board, trade school, or up to $20,000 a year for K-12 tuition. North Carolina runs its own plan, and any state plan works for schools nationwide.",
+    sections: [
+      {
+        title: "How a 529 plan works",
+        body: "You open an account in your name for a beneficiary, usually a child or grandchild, and put money in after tax. The money grows tax free while it stays in the account. Withdrawals are tax free when used for qualified education expenses. There is no federal yearly contribution limit, but each state sets a total account limit, and contributions above the annual gift-tax exclusion may need a gift tax return.",
+      },
+      {
+        title: "What counts as a qualified expense",
+        body: "College tuition, fees, room and board, books, and computers all qualify. So do trade school and registered apprenticeship programs. For K-12, tuition qualifies up to $20,000 a year per beneficiary from 2026, up from $10,000. You can also use up to $10,000 over a lifetime to repay the beneficiary's student loans. Keep receipts, since the plan reports distributions on Form 1099-Q.",
+      },
+      {
+        title: "The 2026 gift tax rules",
+        body: "You can give $19,000 a year to each beneficiary without filing a gift tax return. A married couple can give $38,000 together. You can also give five years at once, up to $95,000 from one person or $190,000 from a couple, by filing Form 709 and spreading the gift over five years. This is called superfunding. Amounts above the yearly exclusion without the election need a return, though most families owe no gift tax.",
+      },
+      {
+        title: "The Roth IRA rollover option",
+        body: "If the beneficiary does not need the money for school, up to $35,000 over a lifetime can roll from the 529 into the beneficiary's Roth IRA. The account must have been open at least 15 years. Contributions and earnings from the last five years do not count. Each year's rollover is capped at that year's Roth IRA limit, $7,500 for 2026, and the beneficiary needs earned income at least equal to the rollover. This rule started with SECURE 2.0.",
+      },
+      {
+        title: "How North Carolina families use it",
+        body: "North Carolina's plan is the NC 529 Plan. Any state plan can pay for schools in any state, so families are not locked to North Carolina schools. Compare fees and investment options before opening an account, and confirm any state tax treatment with the NC Department of Revenue or a tax professional, since this guide covers federal rules only.",
+      },
+    ],
+    comparison: {
+      caption: "529 plan figures for 2026",
+      headers: ["Figure", "2026 amount"],
+      rows: [
+        ["Annual gift-tax exclusion, per giver", "$19,000"],
+        ["Five-year superfunding, one giver", "$95,000"],
+        ["Five-year superfunding, a couple", "$190,000"],
+        ["K-12 tuition per year", "Up to $20,000"],
+        ["Student loan repayment, lifetime", "Up to $10,000"],
+        ["Roth IRA rollover, lifetime", "Up to $35,000"],
+        ["Account age needed for Roth rollover", "At least 15 years"],
+      ],
+    },
+    checklist: [
+      "Pick the beneficiary and the state plan, then open the account in your name.",
+      "Set an automatic monthly contribution you can keep up.",
+      "Check whether your gift stays under the $19,000 yearly exclusion.",
+      "Keep receipts for every withdrawal, and keep the Form 1099-Q.",
+      "If the beneficiary will not need the money, ask about the Roth IRA rollover rules.",
+    ],
+    faqs: [
+      {
+        q: "Can I use a 529 plan for trade school?",
+        a: "Yes. Qualified expenses include trade school tuition and registered apprenticeship programs, not only four-year colleges.",
+      },
+      {
+        q: "What happens if my child does not go to college?",
+        a: "You can change the beneficiary to another family member, use the money for K-12 tuition or student loan repayment, or roll up to $35,000 into the beneficiary's Roth IRA. A withdrawal for anything else pays income tax plus a 10 percent penalty on the earnings.",
+      },
+      {
+        q: "Can grandparents open a 529 plan?",
+        a: "Yes. Anyone can open a 529 plan for a child. A grandparent's account is separate from a parent's account, and each giver has their own $19,000 yearly exclusion.",
+      },
+      {
+        q: "Does a 529 plan affect financial aid?",
+        a: "A parent-owned 529 plan counts as a parent asset on the FAFSA, which carries a smaller weight than a student asset. A grandparent-owned plan is not reported as a parent asset, and the FAFSA no longer counts its distributions as student income.",
+      },
+    ],
+    sources: [
+      {
+        title: "IRS: Topic 313, Qualified tuition programs",
+        url: "https://www.irs.gov/taxtopics/tc313",
+      },
+      {
+        title: "IRS: 529 plans questions and answers",
+        url: "https://www.irs.gov/newsroom/529-plans-questions-and-answers",
+      },
+      {
+        title: "IRS: Publication 970, Tax Benefits for Education",
+        url: "https://www.irs.gov/publications/p970",
+      },
+    ],
+    related: [
+      { title: "How to budget on a fixed income in retirement", href: "/guides/how-to-budget-on-a-fixed-income-in-retirement" },
+      { title: "Social Security COLA for 2027", href: "/guides/social-security-cola-2027" },
+      { title: "How a 401(k) works", href: "/wealth/401k-explained" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "how-to-budget-on-a-fixed-income-in-retirement",
+    title: "How to Budget on a Fixed Income in Retirement",
+    description:
+      "A fixed income budget starts with the money that arrives each month: Social Security, a pension, and withdrawals. See what to pay first, and where to trim.",
+    query: "how to budget on a fixed income in retirement",
+    opportunity:
+      "Retirees search for a budget that fits a check that does not grow. A plain order, pay the musts first, with 2027 figures, answers it.",
+    intent: "informational",
+    answer:
+      "Start with the income that arrives every month, then list the bills that must be paid before anything else. For 2027, the average Social Security check is about $2,170 a month after the 3.6 percent COLA, and the Part D drug cap is $2,400 for the year.",
+    sections: [
+      {
+        title: "Start with income, not spending",
+        body: "Write down every source that arrives each month: Social Security, a pension, annuity payments, and any withdrawals you plan to take. Note the pay date for each one. For 2027, the average Social Security benefit is about $2,170 a month. If you take required minimum distributions, remember they start at age 73 and count as income. Your budget is the total of these, not the total you wish you had. The table below shows one example month built on the average 2027 benefit of $2,170. It is an example, not a recommendation.",
+      },
+      {
+        title: "Pay the musts first",
+        body: "Housing, food, utilities, and health care come before everything else. The 2026 Part B premium is $202.90 a month. The 2027 premium had not been announced as of November 7, 2026, and the Trustees projected $209.50, so leave room for a small rise. Prescription costs are capped at $2,400 out of pocket for Part D in 2027. Put these fixed amounts in the budget first, then see what is left.",
+      },
+      {
+        title: "Give every dollar a job",
+        body: "A common starting point splits income into needs, wants, and savings. In retirement the split often looks different, because housing and health care take a larger share. Treat any split as a starting shape, not a rule. The point is that every dollar has a purpose before the month starts, so nothing drifts away unnoticed.",
+      },
+      {
+        title: "Where to trim without cutting care",
+        body: "Review your Part D plan every fall during Annual Enrollment, since drug prices and plan costs change yearly. Check whether a Medicare Advantage plan or a Medicare Savings Program would lower your premiums. Ask your pharmacy about generic options. If a bill feels out of reach, call the provider and ask about a payment plan before skipping a payment. North Carolina's SHIIP program offers free, local Medicare counseling, and your county Department of Social Services can check whether you qualify for help with premiums or food.",
+      },
+      {
+        title: "Review it every January",
+        body: "Your Social Security COLA arrives with the January payment, and Medicare premiums and plan costs reset at the same time. Sit down each January, update the income and the fixed bills, and adjust the rest. A budget that gets one honest look a year beats a perfect plan that never gets opened.",
+      },
+    ],
+    comparison: {
+      caption: "An example month on $2,170 of Social Security",
+      headers: ["Category", "Example amount"],
+      rows: [
+        ["Housing", "$750"],
+        ["Food", "$400"],
+        ["Utilities", "$200"],
+        ["Medicare Part B premium", "$203"],
+        ["Prescriptions", "$100"],
+        ["Transport", "$150"],
+        ["Everything else", "$367"],
+      ],
+    },
+    checklist: [
+      "List every monthly income source with its pay date.",
+      "Put housing, food, utilities, and health care first.",
+      "Check your Part D plan each fall during Annual Enrollment.",
+      "Ask about a Medicare Savings Program if premiums are tight.",
+      "Review the whole budget every January when the COLA arrives.",
+    ],
+    faqs: [
+      {
+        q: "How much should I keep for emergencies?",
+        a: "A common target is three to six months of the bills you must pay, built up slowly if you cannot fund it at once. Keep it in a separate savings account so it does not get spent as regular income.",
+      },
+      {
+        q: "Does Social Security tax affect my budget?",
+        a: "It can. If your combined income is under $25,000 as a single filer or $32,000 filing jointly, your benefits are not taxed federally. Above those lines, up to 50 or 85 percent of your benefits can count as taxable income. North Carolina does not tax Social Security benefits.",
+      },
+      {
+        q: "What if my income does not cover my bills?",
+        a: "Call your county Department of Social Services and ask about Medicare Savings Programs, food help, and utility assistance. SHIIP offers free Medicare counseling in North Carolina. Do not skip prescriptions without talking to your doctor or pharmacist first.",
+      },
+      {
+        q: "Should I take IRA withdrawals before Social Security?",
+        a: "It depends on taxes and timing. A withdrawal counts as income, which can raise the share of your Social Security that is taxed. Ask a tax professional before moving money between accounts.",
+      },
+    ],
+    sources: [
+      {
+        title: "SSA: 2027 COLA fact sheet",
+        url: "https://www.ssa.gov/cola/factsheets/2027.html",
+      },
+      {
+        title: "IRS: Publication 915, Social Security benefits",
+        url: "https://www.irs.gov/publications/p915",
+      },
+    ],
+    related: [
+      { title: "Social Security COLA for 2027", href: "/guides/social-security-cola-2027" },
+      { title: "How to check your Social Security benefits", href: "/guides/how-to-check-social-security-benefits" },
+      { title: "How a 401(k) works", href: "/wealth/401k-explained" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "social-security-cola-2027",
+    title: "Social Security COLA for 2027: 3.6 Percent",
+    description:
+      "The 2027 Social Security COLA is 3.6 percent, the largest since 2023. The average check rises about $75 a month, to $2,170, from January 2027 payments.",
+    query: "social security cola 2027",
+    opportunity:
+      "SSA announced the 3.6 percent COLA on October 14, 2026. A dated page with the dollar amounts and the Medicare interaction is now publishable.",
+    intent: "informational",
+    answer:
+      "The 2027 cost-of-living adjustment is 3.6 percent. The average retired worker's monthly benefit rises from $2,095 to $2,170, about $75 more a month, starting with the January 2027 payment.",
+    sections: [
+      {
+        title: "The 2027 numbers",
+        body: "The Social Security Administration announced the 3.6 percent COLA on October 14, 2026. It applies to about 76 million Americans who receive Social Security or Supplemental Security Income. The average retired worker's benefit rises from $2,095 to $2,170 a month. The maximum taxable earnings rise to $192,300 for 2027, from $184,500. The COLA is automatic. You do not need to apply or call anyone.",
+      },
+      {
+        title: "How the COLA is figured",
+        body: "Each year the COLA follows the Consumer Price Index for Urban Wage Earners and Clerical Workers, known as CPI-W. The Social Security Administration compares the average CPI-W for July, August, and September with the same three months a year earlier. For 2027 that comparison produced 3.6 percent. The 2026 COLA was 2.8 percent, and 2025 was 2.5 percent. The 2023 COLA of 8.7 percent was the last one larger than this.",
+      },
+      {
+        title: "What the raise is worth after Medicare",
+        body: "The Part B premium for 2027 had not been announced as of November 7, 2026. The 2026 premium is $202.90 a month, and the Trustees projected $209.50 for 2027. A rule called hold harmless limits how much the Part B premium can rise for most people whose premium comes out of their Social Security check: it cannot rise by more than their COLA increase. Your net deposit may still be smaller than the gross COLA if other deductions change. Your 2027 premium appears in your my Social Security Message Center starting in late November.",
+      },
+      {
+        title: "When you will see it",
+        body: "The increase starts with benefits paid in January 2027. SSI recipients see it with the payment issued December 31, 2026, because January 1 is a holiday. COLA notices are posted in the my Social Security Message Center starting in late November for people who created an account by November 18, 2026 and chose paperless notices. Everyone else gets a paper notice in the mail during December.",
+      },
+    ],
+    comparison: {
+      caption: "Recent Social Security COLAs",
+      headers: ["Year", "COLA"],
+      rows: [
+        ["2023", "8.7%"],
+        ["2024", "3.2%"],
+        ["2025", "2.5%"],
+        ["2026", "2.8%"],
+        ["2027", "3.6%"],
+      ],
+    },
+    checklist: [
+      "Check your COLA notice in your my Social Security account in late November.",
+      "Compare your January deposit with December to confirm the increase.",
+      "Watch for the 2027 Part B premium announcement and update your budget.",
+      "Tell your bank if the deposit amount changes and an automatic payment depends on it.",
+      "Keep the COLA notice with your tax papers for the year.",
+    ],
+    faqs: [
+      {
+        q: "Do I need to apply for the COLA?",
+        a: "No. The COLA is automatic. It applies to your benefit without any action from you.",
+      },
+      {
+        q: "Does the COLA raise my Medicare premium?",
+        a: "Not directly. The Part B premium is set separately by CMS. The 2027 premium had not been announced as of November 7, 2026.",
+      },
+      {
+        q: "Is the COLA the same percentage for everyone?",
+        a: "Yes. The percentage is the same for every beneficiary. The dollar amount differs because it applies to your own benefit.",
+      },
+      {
+        q: "Where do I see my new benefit amount?",
+        a: "In your my Social Security account at ssa.gov/myaccount, in the Message Center, starting in late November. A paper notice arrives in December if you did not choose paperless.",
+      },
+    ],
+    sources: [
+      {
+        title: "SSA: 2027 COLA fact sheet",
+        url: "https://www.ssa.gov/cola/factsheets/2027.html",
+      },
+      {
+        title: "SSA: COLA history",
+        url: "https://www.ssa.gov/OACT/COLA/colasummary.html",
+      },
+    ],
+    related: [
+      { title: "How to check your Social Security benefits", href: "/guides/how-to-check-social-security-benefits" },
+      { title: "How to budget on a fixed income in retirement", href: "/guides/how-to-budget-on-a-fixed-income-in-retirement" },
+      { title: "Annual enrollment for 2027", href: "/aep" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "how-to-check-social-security-benefits",
+    title: "How to Check Your Social Security Benefits",
+    description:
+      "Your Social Security statement shows your earnings record and your benefit at 62, full retirement age, and 70. See how to check online, by phone, or by mail.",
+    query: "how to check social security benefits",
+    opportunity:
+      "People want their own numbers, not a general explainer. A guide to the statement, the earnings record, and the three claiming ages answers it.",
+    intent: "informational",
+    answer:
+      "The fastest way is a free my Social Security account at ssa.gov/myaccount. It shows your earnings record, your estimated benefit at 62, full retirement age, and 70, and your COLA notices.",
+    sections: [
+      {
+        title: "Check it online",
+        body: "Create a free my Social Security account at ssa.gov/myaccount. You will verify your identity, usually with ID.me or Login.gov. Once inside, your statement shows your full earnings record, your estimated monthly benefit at 62, at full retirement age, and at 70, and your COLA notices. You can also download a benefit verification letter, which works as proof of income.",
+      },
+      {
+        title: "Check your earnings record",
+        body: "Your benefit is based on your 35 highest-earning years, so an error in the record can lower your check. Look through the earnings year by year. If a year is missing or wrong, gather pay stubs or W-2 forms for that year and contact Social Security to ask for a correction. Keep the documents you send.",
+      },
+      {
+        title: "Understand the three ages",
+        body: "You can claim as early as 62, but the benefit is reduced by up to 30 percent. Full retirement age is 66 or 67 depending on your birth year, 67 if you were born in 1960 or later. Waiting past full retirement age adds about 8 percent a year until 70, when the benefit stops growing. The statement shows all three estimates side by side, so you can compare them before deciding.",
+      },
+      {
+        title: "If you cannot go online",
+        body: "Call Social Security at 1-800-772-1213, or visit a local office. If you are 60 or older and do not have an online account, Social Security mails a paper statement. You can also request a replacement Social Security card or a benefit verification letter by phone. Never share your Social Security number with a caller who contacts you first. Social Security will not call to threaten you or ask for payment by gift card.",
+      },
+    ],
+    comparison: {
+      caption: "What each claiming age means",
+      headers: ["Claim at", "What happens"],
+      rows: [
+        ["62", "Earliest, reduced by up to 30 percent"],
+        ["Full retirement age", "Full benefit, 66 or 67 by birth year"],
+        ["70", "Largest benefit, about 8 percent more per year waited"],
+      ],
+    },
+    checklist: [
+      "Create a my Social Security account at ssa.gov/myaccount.",
+      "Review your earnings record year by year.",
+      "Compare the estimates at 62, full retirement age, and 70.",
+      "Download a benefit verification letter if you need proof of income.",
+      "Report any earnings error with pay stubs or W-2 forms.",
+    ],
+    faqs: [
+      {
+        q: "Is a my Social Security account free?",
+        a: "Yes. Creating the account and viewing your statement costs nothing.",
+      },
+      {
+        q: "What if my earnings record is wrong?",
+        a: "Gather pay stubs or W-2 forms for the wrong year and contact Social Security to ask for a correction. Keep copies of what you send.",
+      },
+      {
+        q: "Can I check my spouse's benefits?",
+        a: "No. Each person has their own account and their own record. Your spouse checks theirs separately.",
+      },
+      {
+        q: "What is a benefit verification letter?",
+        a: "It is an official letter showing your benefit amount. You can download it from your account and use it as proof of income for housing, loans, or other applications.",
+      },
+    ],
+    sources: [
+      {
+        title: "SSA: my Social Security account",
+        url: "https://www.ssa.gov/myaccount/",
+      },
+      {
+        title: "SSA: 2027 COLA fact sheet",
+        url: "https://www.ssa.gov/cola/factsheets/2027.html",
+      },
+    ],
+    related: [
+      { title: "Social Security COLA for 2027", href: "/guides/social-security-cola-2027" },
+      { title: "How to budget on a fixed income in retirement", href: "/guides/how-to-budget-on-a-fixed-income-in-retirement" },
+      { title: "Annual enrollment for 2027", href: "/aep" },
+    ],
     datePublished: "2026-11-07",
     dateModified: "2026-11-07",
   },
