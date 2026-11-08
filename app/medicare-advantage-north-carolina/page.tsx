@@ -331,6 +331,46 @@ export default function MedicareAdvantageNCPage() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">What changed for 2027: benefits under pressure</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Medicare Advantage benefits are tightening for 2027, and the reason is money
+            coming in, not money going out. CMS finalized an average payment increase of
+            2.48 percent for 2027, a small rise after years of larger ones. The extra
+            benefits that set Advantage plans apart, dental, vision, hearing, food cards,
+            are paid for with rebate dollars from Medicare payments. When rebates shrink,
+            those extras shrink first. CMS projects the average Advantage premium at about
+            $12 a month, down from $14.37, but the average in-network out-of-pocket
+            maximum is rising about 9 percent, with the median at $6,600 for 2027, up
+            from $5,900. The average drug deductible in Advantage drug plans that have
+            one rises 23 percent, to $509. The total number of Advantage plans falls
+            slightly, from 5,553 to about 5,532, and the average beneficiary has 28
+            Advantage drug plans to choose from, down from 32.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            None of this says your plan got worse. It says the averages moved, and your
+            plan is not an average. The document that tells you what actually changed is
+            your Annual Notice of Change, which your plan mailed in the fall. Read the
+            dental, vision, and hearing sections line by line, then the drug section,
+            then the maximum out-of-pocket figure. If an extra you rely on shrank or
+            disappeared, that is the moment to compare plans, not the headline about
+            national averages.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Sources:{" "}
+            <a href="https://www.cms.gov/files/document/2027-announcement.pdf" className="underline underline-offset-2" target="_blank" rel="noopener">
+              CMS CY2027 Rate Announcement
+            </a>
+            {", "}
+            <a href="https://www.kff.org/medicare/medicare-advantage-plan-availability-varies-widely-by-county-for-2027/" className="underline underline-offset-2" target="_blank" rel="noopener">
+              KFF, Medicare Advantage plan availability by county for 2027
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-[var(--color-paper)] py-14">
+        <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Key dates and numbers</h2>
           <ResponsiveTable className="mt-6 w-full text-left text-17">
             <thead>
