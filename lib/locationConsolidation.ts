@@ -22,8 +22,6 @@ export const LOCATION_CONSOLIDATIONS: Record<string, string> = {
   "/medicare-in/colfax": "/medicare-nc-towns#guilford-county",
   "/medicare-in/reidsville": "/medicare-nc-towns#rockingham-county",
   "/medicare-in/randleman": "/medicare-nc-towns#randolph-county",
-  "/medicare-creedmoor-nc": "/medicare-nc-towns#granville-county",
-  "/medicare-agent-creedmoor-nc": "/medicare-nc-towns#granville-county",
   "/medicare-agent-oxford-nc": "/medicare-nc-towns#granville-county",
   "/medicare-agent-stem-nc": "/medicare-nc-towns#granville-county",
   "/medicare-oxford-nc": "/medicare-nc-towns#granville-county",
