@@ -11,6 +11,7 @@ import { AGENT } from "@/lib/agent";
 
 export const NAV = [
   { href: "/turning-65", label: "Turning 65" },
+  { href: "/medicare-greensboro-nc", label: "Medicare in Greensboro" },
   { href: "/aep", label: "Already on Medicare" },
   { href: "/learn", label: "Medicare guides" },
   { href: "/service-area", label: "Towns I serve" },

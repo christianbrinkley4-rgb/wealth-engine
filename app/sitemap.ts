@@ -39,7 +39,7 @@ const STATIC_ROUTES: Array<{
   { path: "/long-term-care-insurance", changeFrequency: "monthly", priority: 0.85 },
   { path: "/short-term-care-insurance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/critical-illness-insurance", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/turning-65", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-11-07" },
+  { path: "/turning-65", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-11-09" },
   {
     path: "/medicare-costs",
     changeFrequency: "monthly",
@@ -112,7 +112,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-greensboro-nc",
     changeFrequency: "weekly",
     priority: 0.95,
-    lastModified: "2026-11-07",
+    lastModified: "2026-11-09",
   },
   {
     path: "/medicare-advantage-vs-medigap",
@@ -237,7 +237,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-agent-greensboro-nc",
     changeFrequency: "weekly",
     priority: 0.95,
-    lastModified: "2026-11-07",
+    lastModified: "2026-11-09",
   },
   {
     path: "/medicare-agent-winston-salem-nc",
