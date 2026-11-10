@@ -39,11 +39,11 @@ describe("sitemap hygiene", () => {
     }
   });
 
-  it("the Creedmoor pages restored in #46 stay live and in the sitemap", () => {
-    for (const path of ["/medicare-creedmoor-nc", "/medicare-agent-creedmoor-nc"]) {
-      expect(LOCATION_CONSOLIDATIONS[path], path).toBeUndefined();
-      expect(paths, path).toContain(path);
-    }
+  it("Creedmoor has one indexable page: the short URL redirects to the agent page (ab6ce89)", () => {
+    expect(LOCATION_CONSOLIDATIONS["/medicare-creedmoor-nc"]).toBe("/medicare-agent-creedmoor-nc");
+    expect(LOCATION_CONSOLIDATIONS["/medicare-agent-creedmoor-nc"]).toBeUndefined();
+    expect(paths).toContain("/medicare-agent-creedmoor-nc");
+    expect(paths).not.toContain("/medicare-creedmoor-nc");
   });
 
   it("the plan checklist tool canonicals to itself, not to a redirect", () => {
@@ -66,16 +66,16 @@ describe("sitemap hygiene", () => {
     }
   });
 
-  it("the sitewide footer links no consolidated URL and sends Creedmoor to its restored page", () => {
+  it("the sitewide footer links no consolidated URL and sends Creedmoor to the agent page", () => {
     const footer = readFileSync(join(ROOT, "app/components/SiteFooter.tsx"), "utf8");
     for (const consolidated of Object.keys(LOCATION_CONSOLIDATIONS)) {
       expect(footer, `footer links ${consolidated}`).not.toContain(`href="${consolidated}"`);
     }
-    expect(footer).toContain('<Link href="/medicare-creedmoor-nc">Medicare in Creedmoor</Link>');
+    expect(footer).toContain('<Link href="/medicare-agent-creedmoor-nc">Medicare in Creedmoor</Link>');
   });
 
-  it("the towns hub Creedmoor card links the restored Creedmoor pages", () => {
+  it("the towns hub Creedmoor card links the Creedmoor agent page", () => {
     const hub = readFileSync(join(ROOT, "app/medicare-nc-towns/page.tsx"), "utf8");
-    expect(hub).toMatch(/name: "Creedmoor",\s+href: "\/medicare-creedmoor-nc",\s+agentHref: "\/medicare-agent-creedmoor-nc"/);
+    expect(hub).toMatch(/name: "Creedmoor",\s+href: "\/medicare-agent-creedmoor-nc",\s+agentHref: "\/medicare-agent-creedmoor-nc"/);
   });
 });

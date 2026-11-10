@@ -236,7 +236,7 @@ export default function MedicareAsheboroPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <p className="text-17 leading-relaxed text-[var(--color-ink-muted)]">
             I also help folks over in Granville County, around{" "}
-            <Link href="/medicare-creedmoor-nc" className="underline underline-offset-2">
+            <Link href="/medicare-agent-creedmoor-nc" className="underline underline-offset-2">
               Creedmoor
             </Link>
             . And here&apos;s{" "}

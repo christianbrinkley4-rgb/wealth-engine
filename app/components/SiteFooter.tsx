@@ -198,7 +198,7 @@ export function SiteFooter() {
                 </li>
               ))}
               <li>
-                <Link href="/medicare-creedmoor-nc">Medicare in Creedmoor</Link>
+                <Link href="/medicare-agent-creedmoor-nc">Medicare in Creedmoor</Link>
               </li>
               <li>
                 <Link href="/medicare-agent-oxford-nc">Medicare in Oxford</Link>

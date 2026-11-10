@@ -27,7 +27,8 @@ export const LOCATION_CONSOLIDATIONS: Record<string, string> = {
   "/medicare-in/colfax": "/medicare-nc-towns",
   "/medicare-in/reidsville": "/medicare-agent-reidsville-nc",
   "/medicare-in/randleman": "/medicare-nc-towns",
-  // Oxford's short URL aliases the agent page. Creedmoor keeps both pages.
+  // Keep the restored local service page as the single destination for overlapping aliases.
+  "/medicare-creedmoor-nc": "/medicare-agent-creedmoor-nc",
   "/medicare-oxford-nc": "/medicare-agent-oxford-nc",
   "/medicare-madison-nc": "/medicare-nc-towns",
   "/medicare-graham-nc": "/medicare-nc-towns",

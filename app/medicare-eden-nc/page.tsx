@@ -249,7 +249,7 @@ export default function MedicareEdenPage() {
           <h2 className="text-28 font-semibold">Where I serve</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             I&apos;m based over in Creedmoor, in Granville County (
-            <Link href="/medicare-creedmoor-nc" className="underline underline-offset-2">
+            <Link href="/medicare-agent-creedmoor-nc" className="underline underline-offset-2">
               my home base
             </Link>
             ), and I help folks across northern North Carolina by phone, video, or in
