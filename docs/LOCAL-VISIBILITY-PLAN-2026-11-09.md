@@ -18,7 +18,7 @@ Current scope confirmed by Christian: insurance, annuities, and financial educat
 - Search Console indexing report updated November 5: 312 indexed examples, 116 excluded URLs. Captured all 312 displayed examples. The current 261-entry sitemap had 71 URLs absent from the delayed examples. Absence is unconfirmed indexing, not proof of exclusion.
 - A synthetic /start request used Christian's own public email, no phone, no client information, and qa=1. It reached confirmation and delivered an owner email. The email included traffic_type=test. This verifies that request and owner alert, not every form or historical inquiry. The response used noemail=1, so prospect auto-reply delivery was not confirmed.
 - Public readiness checks reported capture/storage/notification configuration ready. Configuration checks aren't live database or delivery tests.
-- GBP was verified, with six reviews visible. Submitted a fuller description and Life insurance agency as a secondary category. Last observed status on November 9: pending Google review.
+- GBP was verified, with six reviews visible. Submitted a fuller description and Life insurance agency as a secondary category. On November 10, Life insurance agency was approved. The description remains pending, with Google displaying up to seven days for review. Submitted Durham, Raleigh, Cary, and Chapel Hill as service areas; these were pending Google review when saved.
 
 Raw evidence is in the local output directory, not in this public repository:
 `C:/Users/chris/Wealth-Engine/output/local-visibility-20261109/`.
@@ -33,7 +33,8 @@ Raw evidence is in the local output directory, not in this public repository:
 6. Expand service-area descriptions and one shared InsuranceAgency entity to match actual phone service. No invented offices or local addresses.
 7. Add a sourced financial-planning questions guide that explains Christian's insurance and education scope. Connect Medicare, life insurance, annuities, retirement income, and professional verification.
 8. Put the existing three-field Medicare callback form directly below the homepage hero. Give it a prominent hero link. Preserve scheduled calls, direct phone, and the email-question option.
-9. Keep city contact links direct, instead of silently substituting the 45-minute booking path. Preserve booking elsewhere. Keep existing consent, bot protection, storage confirmation, and test-traffic exclusion.
+9. Preserve original campaign tags and landing/form paths with saved callback requests. Reject query strings from those path fields.
+10. Keep city contact links direct, instead of silently substituting the 45-minute booking path. Preserve booking elsewhere. Keep existing consent, bot protection, storage confirmation, and test-traffic exclusion.
 
 ## Priorities after the release
 
@@ -57,6 +58,15 @@ Raw evidence is in the local output directory, not in this public repository:
 - Consider Summerfield, Oak Ridge, Jamestown, Archdale, Randleman, Gibsonville, and Elon only when query data and distinct useful content justify separate pages. Maintain useful county sections meanwhile.
 - Develop life insurance and retirement resources around actual questions and service scope, rather than publishing a near-identical page for every town.
 - Keep a dated sample of local Google results and AI answers with the exact query, system, location context, cited URL, and observed recommendation. Don't report search API order as a local Google rank or promise an AI will repeat a citation.
+
+## Verification completed before publishing
+
+- Full suite: 105 test files and 1,868 tests passed.
+- After callback attribution changes: 77 focused regression tests passed, including lead validation, request receipt, CTA behavior, and local route/sitemap checks.
+- Production build and TypeScript passed on the final code. Lint passed with zero errors and two existing cron-export warnings.
+- Desktop callback form inspected. Mobile width check: 375px content within a 375px document viewport, with the form displayed before the explanatory card. The homepage button reaches the form.
+- Durham preview checked for direct contact action, local sources, heading, FAQs, and license details.
+- The final homepage callback path still needs its production receipt and owner-alert check after deployment. Keep synthetic requests labeled and excluded from visitor metrics.
 
 ## Verification and rollback
 
