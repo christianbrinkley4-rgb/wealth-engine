@@ -6,6 +6,7 @@ import { useFormTracking } from "@/hooks/useFormTracking";
 import { trackLeadOnce } from "@/app/components/Analytics";
 import { ENGINE_CONSENT, ENGINE_CONSENT_VERSION } from "@/lib/leadEnginePublic";
 import { loadTurnstile } from "@/lib/loadTurnstile";
+import { readAttribution } from "@/lib/attribution";
 
 type Turnstile = {
   render: (node: HTMLElement, options: object) => string;
@@ -29,7 +30,9 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
   const widget = useRef<string | null>(null);
   const requestId = useRef<string | null>(null);
   const previous = useRef("");
-  const formTracking = useFormTracking(answers ? "medicare_fit_contact" : "medicare_review_contact");
+  const formTracking = useFormTracking(
+    answers ? "medicare_fit_contact" : "medicare_review_contact",
+  );
   const source = answers ? "medicare-fit" : "medicare-review";
   const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
@@ -88,7 +91,10 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
   return (
     <form
       className="engine-card engine-form"
-      onFocus={() => { setWanted(true); formTracking.start(); }}
+      onFocus={() => {
+        setWanted(true);
+        formTracking.start();
+      }}
       onPointerDown={() => setWanted(true)}
       onSubmit={async (event) => {
         event.preventDefault();
@@ -139,10 +145,13 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
         }
         try {
           const query = new URLSearchParams(window.location.search);
+          const firstTouch = readAttribution();
           const attribution = Object.fromEntries(
             ["utm_source", "utm_medium", "utm_campaign", "utm_content"].map((key) => [
               key,
-              query.get(key) ?? "",
+              query.get(key) ??
+                firstTouch?.[key as "utm_source" | "utm_medium" | "utm_campaign" | "utm_content"] ??
+                "",
             ]),
           );
           formTracking.submit();
@@ -152,7 +161,12 @@ export function EngineContact({ answers, onSaved }: { answers?: string[]; onSave
             body: JSON.stringify({
               ...contact,
               id: requestId.current,
-              attribution: { ...attribution, ...testAttribution() },
+              attribution: {
+                ...attribution,
+                landing_path: firstTouch?.landing_path ?? window.location.pathname,
+                form_path: window.location.pathname,
+                ...testAttribution(),
+              },
               turnstile_token: token,
             }),
             signal: AbortSignal.timeout(20000),

@@ -184,13 +184,13 @@ export default function RetirementIncomePage() {
           Help across the Triad, Triangle, and Granville County
         </h2>
         <p className="text-17 mt-4">
-          I'm based in Greensboro and grew up in Creedmoor. We can start by phone from Raleigh,
+          I&apos;m based in Greensboro and grew up in Creedmoor. We can start by phone from Raleigh,
           Durham, Chapel Hill, Cary, or elsewhere in North Carolina. In-person meetings are arranged
           individually.
         </p>
         <p className="text-17 mt-4">
-          My services are insurance, annuities, and financial education. I don't provide investment
-          management or personalized investment or tax advice. Read{" "}
+          My services are insurance, annuities, and financial education. I don&apos;t provide
+          investment management or personalized investment or tax advice. Read{" "}
           <Link className="underline" href="/financial-planning-nc">
             how I can help with financial planning questions
           </Link>{" "}

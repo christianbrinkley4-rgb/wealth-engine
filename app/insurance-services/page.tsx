@@ -79,13 +79,13 @@ export default function InsuranceServicesPage() {
           Insurance and retirement questions across the Triad and Triangle
         </h2>
         <p className="text-17 mt-4">
-          I'm based in Greensboro and grew up in Creedmoor. I serve the Triad, Triangle, and
-          Granville County by phone. In-person meetings are arranged individually. I don't have
+          I&apos;m based in Greensboro and grew up in Creedmoor. I serve the Triad, Triangle, and
+          Granville County by phone. In-person meetings are arranged individually. I don&apos;t have
           offices in each town.
         </p>
         <p className="text-17 mt-4">
-          My work covers insurance, annuities, and financial education. I don't provide investment
-          management or personalized investment or tax advice.
+          My work covers insurance, annuities, and financial education. I don&apos;t provide
+          investment management or personalized investment or tax advice.
         </p>
         <ul className="text-17 mt-5 space-y-3">
           <li>

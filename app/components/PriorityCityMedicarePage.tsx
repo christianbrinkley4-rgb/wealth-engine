@@ -140,8 +140,9 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
           Start with a question
         </h2>
         <p className="text-17 mt-3">
-          You don't need to book a full review to ask for help. Send a short request, or choose a
-          time if you're ready. I'm based in Greensboro. Meetings elsewhere are arranged with you.
+          You don&apos;t need to book a full review to ask for help. Send a short request, or choose
+          a time if you&apos;re ready. I&apos;m based in Greensboro. Meetings elsewhere are arranged
+          with you.
         </p>
         <div className="mt-4 flex flex-wrap gap-4">
           <Link className="btn btn-outline" href="/start?topic=medicare&quick=1">

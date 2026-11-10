@@ -46,9 +46,9 @@ export default function Page() {
           advice that falls outside that role.
         </p>
         <p className="text-18 mt-4">
-          I'm based in Greensboro and grew up in Creedmoor. Phone conversations are available across
-          North Carolina, including the Triad, Triangle, and Granville County. In-person meetings
-          are arranged individually.
+          I&apos;m based in Greensboro and grew up in Creedmoor. Phone conversations are available
+          across North Carolina, including the Triad, Triangle, and Granville County. In-person
+          meetings are arranged individually.
         </p>
         <ol className="text-18 mt-8 list-decimal space-y-6 pl-6">
           <li>

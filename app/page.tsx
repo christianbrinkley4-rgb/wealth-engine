@@ -180,7 +180,12 @@ export default function HomePage() {
               Greensboro. Meet at home or talk by phone. No call centers, just me.
             </p>
             <div className="hx-actions" id="home-hero-actions">
-              <Link href="#request-a-call" ctaLocation="hero" className="btn order-first">
+              <Link
+                href="#request-a-call"
+                event="cta_click"
+                detail={{ cta_id: "ask_question", cta_location: "hero" }}
+                className="btn order-first"
+              >
                 Ask Christian to call me
               </Link>
               <a
@@ -265,21 +270,21 @@ export default function HomePage() {
         style={{ scrollMarginTop: 100 }}
       >
         <div className="engine-grid">
-          <div className="engine-card">
+          <div className="engine-card order-1 md:order-none">
             <p className="engine-eyebrow">No call centers, just me</p>
             <h2 id="callback-heading">Have a Medicare question? Start with a call.</h2>
             <p>
-              Leave your name, phone number, and ZIP code. You don't need to choose a plan or book a
-              45-minute review first.
+              Leave your name, phone number, and ZIP code. You don&apos;t need to choose a plan or
+              book a 45-minute review first.
             </p>
             <p>
-              I'm Christian Brinkley, a 21-year-old licensed NC insurance agent based in Greensboro
-              and raised in Creedmoor. I serve the Triad, Triangle, and Granville County by phone,
-              with meetings by arrangement.
+              I&apos;m Christian Brinkley, a 21-year-old licensed NC insurance agent based in
+              Greensboro and raised in Creedmoor. I serve the Triad, Triangle, and Granville County
+              by phone, with meetings by arrangement.
             </p>
             <p>
-              Your request comes to me. It isn't sold to other agents. There's no cost for the
-              conversation and no obligation to enroll.
+              Your request comes to me. It isn&apos;t sold to other agents. There&apos;s no cost for
+              the conversation and no obligation to enroll.
             </p>
             <a href="/start?topic=medicare&quick=1" className="underline">
               Prefer email? Send a question

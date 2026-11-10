@@ -56,6 +56,27 @@ describe("lead engine validation and educational results", () => {
     expect(result.payload.result).toBe("compare-costs");
     expect(result.payload).not.toHaveProperty("medicare_number");
   });
+  it("keeps landing and form paths without accepting query strings or changing retry identity", () => {
+    const clean = validateEngineLead({
+      ...valid(),
+      attribution: {
+        landing_path: "/medicare-agent-durham-nc",
+        form_path: "/",
+        email: "private@example.invalid",
+      },
+    });
+    expect(clean.payload.attribution).toEqual({
+      landing_path: "/medicare-agent-durham-nc",
+      form_path: "/",
+    });
+    expect(
+      validateEngineLead({
+        ...valid(),
+        attribution: { landing_path: "/start?email=private", form_path: "https://example.invalid" },
+      }).payload.attribution,
+    ).toEqual({});
+    expect(clean.fingerprint).toBe(validateEngineLead(valid()).fingerprint);
+  });
   it("binds identity to contact and answers, not attribution", () => {
     const a = validateEngineLead(valid());
     const b = validateEngineLead({ ...valid(), attribution: { utm_source: "facebook" } });

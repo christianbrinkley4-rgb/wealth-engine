@@ -101,6 +101,13 @@ export function validateEngineLead(value: unknown) {
       const v = (b.attribution as Record<string, unknown>)[key];
       if (typeof v === "string") attribution[key] = v.slice(0, 120);
     }
+    for (const key of ["landing_path", "form_path"]) {
+      const value = (b.attribution as Record<string, unknown>)[key];
+      // Preserve the page that produced the inquiry without query strings or contact details.
+      if (typeof value === "string" && /^\/[a-z0-9/_-]*$/i.test(value) && value.length <= 180) {
+        attribution[key] = value;
+      }
+    }
   }
   const payload = {
     name,
