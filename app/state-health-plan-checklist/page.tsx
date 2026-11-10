@@ -12,14 +12,15 @@ import { breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { ChecklistActions, DeadlineNote } from "./ChecklistActions";
 
 /**
- * One-page, shareable State Health Plan checklist for the Nov 6, 2026 deadline.
+ * One-page, shareable State Health Plan checklist for 2027 retiree coverage.
  *
  * Every fact here comes from /guides/nc-state-health-plan-medicare, which was
  * verified against shpnc.gov, the NC Treasurer's Oct 14 release, the Oct 27
  * Atrium agreement (WFDD / NC Newsroom, NC Health News) and Becker's (June 8).
  * Change a fact there first, then here. Built for Facebook and Nextdoor posts:
  * short slug, one screen per step, prints on one or two sheets.
- * After Nov 6, 2026 DeadlineNote says the window closed; retire or rewrite then.
+ * Open enrollment closed Nov 6, 2026; deadline steps are in past tense (Nov 9).
+ * DeadlineNote also says the window closed.
  */
 
 const PATH = "/state-health-plan-checklist";
@@ -37,19 +38,19 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
     ),
   },
   {
-    title: "On the 70/30 plan? Decide by November 6",
+    title: "On the 70/30 plan? The deadline was November 6",
     body: (
       <>
-        If you&apos;re on the 70/30 plan and do nothing, you&apos;re moved to the Base Medicare
-        Advantage plan for 2027. To stay on the 70/30 plan, you have to choose it by November 6.
+        If you were on the 70/30 plan and did nothing, you were moved to the Base Medicare
+        Advantage plan for 2027. To stay on the 70/30 plan, you had to choose it by November 6, 2026.
       </>
     ),
   },
   {
-    title: "On a Medicare Advantage plan and happy? You can stay put",
+    title: "On a Medicare Advantage plan? If you did nothing, you stayed put",
     body: (
       <>
-        If you&apos;re already on the Base or Enhanced plan and do nothing, you stay on the plan you
+        If you were already on the Base or Enhanced plan and did nothing, you stayed on the plan you
         have.
       </>
     ),
@@ -63,8 +64,7 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
         reached an agreement, so all Atrium doctors and hospitals, including Atrium Health Wake
         Forest Baptist, are in network for 2027 in the plan&apos;s middle &ldquo;access&rdquo; tier,
         at about today&apos;s costs. Not sure how your plan treats your doctors? Call the State
-        Health Plan Medicare Support Center at <span className="whitespace-nowrap">833-429-5003</span>{" "}
-        before November 6.
+        Health Plan Medicare Support Center at <span className="whitespace-nowrap">833-429-5003</span>.
       </>
     ),
   },
@@ -80,10 +80,11 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
     ),
   },
   {
-    title: "Make any change online by November 6",
+    title: "Changes were due online by November 6",
     body: (
       <>
-        Changes are made in eBenefits on shpnc.gov. Questions about eligibility or enrolling go to
+        The deadline to change plans was November 6, 2026. Changes were made in eBenefits on
+        shpnc.gov. Questions about eligibility or enrolling go to
         the State Health Plan at <span className="whitespace-nowrap">855-859-0966</span>. The
         Medicare Support Center (<span className="whitespace-nowrap">833-429-5003</span>) can answer
         questions about the plans, but it can&apos;t enroll you in a different one.
@@ -94,7 +95,7 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
     title: "Don't mix up the two deadlines",
     body: (
       <>
-        November 6 is the State Health Plan&apos;s deadline. Medicare&apos;s Annual Enrollment,
+        November 6 was the State Health Plan&apos;s deadline. Medicare&apos;s Annual Enrollment,
         October 15 to December 7, is a different window, for people with their own Medicare plans.
       </>
     ),
@@ -102,20 +103,20 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
 ];
 
 export const metadata: Metadata = {
-  title: { absolute: "NC State Health Plan Retiree Checklist: Nov. 6, 2026 Deadline" },
+  title: { absolute: "NC State Health Plan Retiree Checklist for 2027" },
   description:
-    "A one-page checklist for NC state retirees on Medicare before the State Health Plan's November 6 deadline: the 70/30 auto-move, Atrium's 2027 status, new out-of-pocket limits, and who to call.",
+    "A one-page checklist for NC state retirees on Medicare: what changed for 2027, Atrium's network status, out-of-pocket limits, and who to call with questions.",
   alternates: { canonical: PATH },
   openGraph: pageOpenGraph({
-    title: "State retirees: your Nov. 6 checklist",
+    title: "State retirees on Medicare: your 2027 checklist",
     description:
-      "Seven quick checks before the State Health Plan's November 6 deadline. Print it or send it to a friend.",
+      "Quick checks on your 2027 State Health Plan coverage, and who to call. Print it or send it to a friend.",
     path: PATH,
   }),
   twitter: pageTwitter({
-    title: "State retirees: your Nov. 6 checklist",
+    title: "State retirees on Medicare: your 2027 checklist",
     description:
-      "Seven quick checks before the State Health Plan's November 6 deadline. Print it or send it to a friend.",
+      "Quick checks on your 2027 State Health Plan coverage, and who to call. Print it or send it to a friend.",
     path: PATH,
   }),
 };
@@ -130,7 +131,7 @@ export default function StateHealthPlanChecklistPage() {
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
               { name: "State retirees and Medicare", path: GUIDE },
-              { name: "Nov. 6 checklist", path: PATH },
+              { name: "Retiree checklist", path: PATH },
             ]),
           ),
         }}
@@ -141,11 +142,11 @@ export default function StateHealthPlanChecklistPage() {
           crumbs={[
             { name: "Home", href: "/" },
             { name: "State retirees and Medicare", href: GUIDE },
-            { name: "Nov. 6 checklist" },
+            { name: "Retiree checklist" },
           ]}
           eyebrow="NC State Health Plan · Updated October 27, 2026"
-          title="State retirees on Medicare: your November 6 checklist"
-          lede="Seven quick checks before the State Health Plan's open enrollment closes. Print it, or send it to a friend who retired from the schools or the state."
+          title="State retirees on Medicare: your 2027 checklist"
+          lede="Quick checks on your 2027 State Health Plan coverage. Open enrollment closed November 6, 2026. Print it, or send it to a friend who retired from the schools or the state."
           secondaryHref="/start?topic=medicare&quick=1"
           secondaryLabel="Rather talk it through? Ask me"
         />
@@ -155,7 +156,7 @@ export default function StateHealthPlanChecklistPage() {
         <div className="measure-prose app-shell max-w-3xl">
           <div className="print-only">
             <p className="text-24 font-bold">
-              State retirees on Medicare: your November 6 checklist
+              State retirees on Medicare: your 2027 checklist
             </p>
             <p className="text-15 mt-1 mb-4">
               NC State Health Plan · Updated October 27, 2026 ·
@@ -221,9 +222,9 @@ export default function StateHealthPlanChecklistPage() {
       <div className="print-hide">
         <KitchenTableClose
           heading="Want someone to go through it with you?"
-          body={`Book a free phone review and I'll walk through the three options with you before November 6. Call or text ${AGENT.phone}.`}
+          body={`Book a phone review and I'll walk through your 2027 coverage with you. Call or text ${AGENT.phone}.`}
           href={ENGINE_BOOKING_URL}
-          label="Request a free review"
+          label="Request a review"
         />
       </div>
 
