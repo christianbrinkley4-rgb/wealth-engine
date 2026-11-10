@@ -276,6 +276,12 @@ const STATIC_ROUTES: Array<{
     lastModified: "2026-11-07",
   },
   {
+    path: "/medicare-agent-creedmoor-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-11-09",
+  },
+  {
     path: "/medicare-agent-franklinton-nc",
     changeFrequency: "weekly",
     priority: 0.9,
