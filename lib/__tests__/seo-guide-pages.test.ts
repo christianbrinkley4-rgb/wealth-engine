@@ -110,13 +110,40 @@ describe("State Health Plan deadline changes", () => {
     vi.setSystemTime(SHP_METADATA_REVERT_AT - 1);
     let root = pageDocument(renderToStaticMarkup(createElement(StatePlanPage)));
     expect(root.textContent).toContain("Open Enrollment runs October 12 through November 6, 2026");
-    expect(generateMetadata().description).toContain("November 6 enrollment deadline");
+    const before = generateMetadata();
+    expect(before.title).toEqual({
+      absolute: "NC State Health Plan Retirees: Choose by Nov. 6, 2026",
+    });
+    expect(before.description).toBe(
+      "On the 70/30 plan? If you do nothing by November 6, 2026, you move to the Base Medicare Advantage plan. Atrium stays in network. See what to check.",
+    );
+    expect(before.alternates?.canonical).toBe("/guides/nc-state-health-plan-medicare");
+    expect(before.openGraph).toMatchObject({
+      title: "State retirees on Medicare: your Nov. 6 plan deadline",
+      description:
+        "70/30 members who do nothing by November 6, 2026 move to the Base Medicare Advantage plan. Here is what to check first.",
+    });
+    expect(before.twitter).toMatchObject({
+      title: "State retirees on Medicare: your Nov. 6 plan deadline",
+      description:
+        "70/30 members who do nothing by November 6, 2026 move to the Base Medicare Advantage plan. Here is what to check first.",
+    });
     expect(faqSchema(root).mainEntity![0].acceptedAnswer.text).toContain("deadline is November 6");
     vi.setSystemTime(SHP_METADATA_REVERT_AT);
     root = pageDocument(renderToStaticMarkup(createElement(StatePlanPage)));
     expect(root.textContent).toContain("Open Enrollment period has ended");
     expect(root.textContent).not.toContain("Open Enrollment runs");
-    expect(generateMetadata().description).not.toContain("November 6 enrollment deadline");
+    const after = generateMetadata();
+    expect(after.title).toEqual({
+      absolute: "NC State Health Plan Medicare: 2027 Retiree Guide",
+    });
+    expect(after.description).toBe(
+      "Review NC State Health Plan Medicare options for 2027, what changed after open enrollment, and where to ask about retiree coverage.",
+    );
+    expect(after.description).not.toContain("November 6 enrollment deadline");
+    expect(after.openGraph).toMatchObject({
+      title: "NC State Health Plan Medicare: 2027 Retiree Guide",
+    });
     expect(faqSchema(root).mainEntity![0].acceptedAnswer.text).toContain("deadline was November 6");
     expect([...root.querySelectorAll("dd")][0].textContent).toBe(
       faqSchema(root).mainEntity![0].acceptedAnswer.text,

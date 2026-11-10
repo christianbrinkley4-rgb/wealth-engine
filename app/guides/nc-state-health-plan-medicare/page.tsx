@@ -1,6 +1,22 @@
+import { pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { SHP_METADATA_REVERT_AT } from "@/lib/shpMetadata";
 import type { Metadata } from "next";
 import { SeoGuidePage, seoGuideMetadata, type SeoGuideData } from "@/app/components/SeoGuidePage";
+
+const SHP_PATH = "/guides/nc-state-health-plan-medicare";
+
+/**
+ * Deadline title and social text. Revert to the non-deadline guide title
+ * after Nov 6, 2026 (midnight Eastern on Nov 7, via SHP_METADATA_REVERT_AT).
+ */
+const SHP_DEADLINE_META = {
+  title: "NC State Health Plan Retirees: Choose by Nov. 6, 2026",
+  description:
+    "On the 70/30 plan? If you do nothing by November 6, 2026, you move to the Base Medicare Advantage plan. Atrium stays in network. See what to check.",
+  socialTitle: "State retirees on Medicare: your Nov. 6 plan deadline",
+  socialDescription:
+    "70/30 members who do nothing by November 6, 2026 move to the Base Medicare Advantage plan. Here is what to check first.",
+};
 
 const data: SeoGuideData = {
   slug: "nc-state-health-plan-medicare",
@@ -158,8 +174,19 @@ const data: SeoGuideData = {
 };
 
 export const revalidate = 3600;
+
+function deadlineMetadataActive(now = Date.now()) {
+  return now < SHP_METADATA_REVERT_AT;
+}
+
 function currentData(): SeoGuideData {
-  if (Date.now() < SHP_METADATA_REVERT_AT) return data;
+  if (deadlineMetadataActive()) {
+    return {
+      ...data,
+      metaTitle: SHP_DEADLINE_META.title,
+      description: SHP_DEADLINE_META.description,
+    };
+  }
   return {
     ...data,
     description:
@@ -206,7 +233,21 @@ function currentData(): SeoGuideData {
   };
 }
 export function generateMetadata(): Metadata {
-  return seoGuideMetadata(currentData());
+  const metadata = seoGuideMetadata(currentData());
+  if (!deadlineMetadataActive()) return metadata;
+  return {
+    ...metadata,
+    openGraph: pageOpenGraph({
+      title: SHP_DEADLINE_META.socialTitle,
+      description: SHP_DEADLINE_META.socialDescription,
+      path: SHP_PATH,
+    }),
+    twitter: pageTwitter({
+      title: SHP_DEADLINE_META.socialTitle,
+      description: SHP_DEADLINE_META.socialDescription,
+      path: SHP_PATH,
+    }),
+  };
 }
 export default function Page() {
   return <SeoGuidePage data={currentData()} />;
