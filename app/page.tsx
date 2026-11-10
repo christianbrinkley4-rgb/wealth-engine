@@ -181,7 +181,7 @@ export default function HomePage() {
             </p>
             <div className="hx-actions" id="home-hero-actions">
               <Link
-                href="#request-a-call"
+                href="/#request-a-call"
                 event="cta_click"
                 detail={{ cta_id: "ask_question", cta_location: "hero" }}
                 className="btn order-first"
