@@ -128,7 +128,7 @@ const COUNTIES: CountyGroup[] = [
       },
       {
         name: "Creedmoor",
-        href: "/medicare-agent-creedmoor-nc",
+        href: "/medicare-creedmoor-nc",
         agentHref: "/medicare-agent-creedmoor-nc",
         blurb: "My hometown. Medicare help from someone who grew up here.",
       },

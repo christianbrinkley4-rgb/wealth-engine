@@ -5,6 +5,7 @@ import { ArticleBody } from "@/app/components/ArticleBody";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { ServiceHero } from "@/app/components/ServiceHero";
 import { ARTICLES, getArticle } from "@/lib/articles";
+import { offTopicRobots } from "@/lib/indexFocus";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 /**
@@ -32,6 +33,7 @@ export async function generateMetadata({
     title: { absolute: article.metaTitle },
     description: article.description,
     alternates: { canonical: path },
+    ...offTopicRobots(path),
     openGraph: pageOpenGraph({
       title: article.metaTitle,
       description: article.description,

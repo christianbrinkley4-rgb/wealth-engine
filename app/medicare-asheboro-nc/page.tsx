@@ -198,15 +198,15 @@ export default function MedicareAsheboroPage() {
           </ul>
           <p className="text-17 mt-6 leading-relaxed text-[var(--color-ink-muted)]">
             Phone, video, or in person. Folks from{" "}
-            <Link href="/medicare-ramseur-nc" className="underline underline-offset-2">
+            <Link href="/medicare-nc-towns" className="underline underline-offset-2">
               Ramseur
             </Link>
             ,{" "}
-            <Link href="/medicare-liberty-nc" className="underline underline-offset-2">
+            <Link href="/medicare-nc-towns" className="underline underline-offset-2">
               Liberty
             </Link>,
             and{" "}
-            <Link href="/medicare-in/randleman" className="underline underline-offset-2">
+            <Link href="/medicare-nc-towns" className="underline underline-offset-2">
               Randleman
             </Link>{" "}
             are all welcome.

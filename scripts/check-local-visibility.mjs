@@ -32,10 +32,25 @@ for (const path of [...slugs.map(slug => `/medicare-agent-${slug}-nc`), "/financ
   result.ok = result.status === 200 && canonical === `${base}${path}` && !noindex && result.sitemapOccurrences === 1 && result.h1Count === 1 && result.contactLink && result.phonePresent;
   results.push(result);
 }
-for (const slug of ["creedmoor", "oxford"]) {
+for (const slug of ["oxford"]) {
   const response = await fetch(`${base}/medicare-${slug}-nc`, { redirect: "manual", signal: AbortSignal.timeout(20000) });
   const location = response.headers.get("location");
   results.push({ path: `/medicare-${slug}-nc`, status: response.status, location, ok: [301,308].includes(response.status) && new URL(location, base).pathname === `/medicare-agent-${slug}-nc` });
+}
+{
+  const path = "/medicare-creedmoor-nc";
+  const response = await fetch(`${base}${path}`, { redirect: "manual", signal: AbortSignal.timeout(20000) });
+  const html = response.status === 200 ? await response.text() : "";
+  const canonical = html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]+)"/)?.[1];
+  const noindex = /<meta[^>]*name="robots"[^>]*content="[^"]*noindex/i.test(html) || /noindex/i.test(response.headers.get("x-robots-tag") || "");
+  results.push({
+    path,
+    status: response.status,
+    canonical,
+    noindex,
+    sitemapOccurrences: paths.filter((p) => p === path).length,
+    ok: response.status === 200 && canonical === `${base}${path}` && !noindex && paths.filter((p) => p === path).length === 1,
+  });
 }
 const report = {
   checkedAt: new Date().toISOString(), base,

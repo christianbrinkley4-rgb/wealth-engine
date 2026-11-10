@@ -29,11 +29,10 @@ describe("local search routes", () => {
         path,
       ).toBe(true);
     }
-    expect(canonicalMedicareLocation("/medicare-creedmoor-nc")).toBe(
-      "/medicare-agent-creedmoor-nc",
-    );
+    expect(LOCATION_CONSOLIDATIONS["/medicare-creedmoor-nc"]).toBeUndefined();
+    expect(paths.filter((p) => p === "/medicare-creedmoor-nc")).toHaveLength(1);
+    expect(paths.filter((p) => p === "/medicare-agent-creedmoor-nc")).toHaveLength(1);
     expect(canonicalMedicareLocation("/medicare-oxford-nc")).toBe("/medicare-agent-oxford-nc");
-    expect(paths).not.toContain("/medicare-creedmoor-nc");
     expect(new Set(paths).size).toBe(paths.length);
   });
 });

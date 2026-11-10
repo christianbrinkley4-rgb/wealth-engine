@@ -254,11 +254,11 @@ export default function MedicareEdenPage() {
             </Link>
             ), and I help folks across northern North Carolina by phone, video, or in
             person. Folks in{" "}
-            <Link href="/medicare-madison-nc" className="underline underline-offset-2">
+            <Link href="/medicare-nc-towns" className="underline underline-offset-2">
               Madison
             </Link>{" "}
             and{" "}
-            <Link href="/medicare-in/reidsville" className="underline underline-offset-2">
+            <Link href="/medicare-agent-reidsville-nc" className="underline underline-offset-2">
               Reidsville
             </Link>{" "}
             are covered too, and you can{" "}

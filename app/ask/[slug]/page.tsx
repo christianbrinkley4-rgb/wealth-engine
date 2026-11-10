@@ -8,6 +8,7 @@ import { ServiceHero } from "@/app/components/ServiceHero";
 import { ASK_QUESTIONS, getAskQuestion } from "@/lib/askWall";
 import { AGENT } from "@/lib/agent";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
+import { offTopicRobots } from "@/lib/indexFocus";
 
 /**
  * One answered question from the wall. Kept informational on purpose: no
@@ -34,6 +35,7 @@ export async function generateMetadata({
     title: { absolute: question.metaTitle },
     description: question.description,
     alternates: { canonical: path },
+    ...offTopicRobots(path),
     openGraph: pageOpenGraph({
       title: question.metaTitle,
       description: question.description,
