@@ -73,6 +73,51 @@ export default function ServiceAreaPage() {
         secondaryLabel="Request a free consultation →"
       />
 
+      <section
+        className="app-shell measure-prose max-w-3xl py-10"
+        aria-labelledby="nc-help-heading"
+      >
+        <h2 id="nc-help-heading" className="text-28 font-semibold">
+          Insurance and retirement questions across the Triad and Triangle
+        </h2>
+        <p className="text-17 mt-4">
+          I'm based in Greensboro and grew up in Creedmoor. I serve the Triad, Triangle, and
+          Granville County by phone. In-person meetings are arranged individually. I don't have
+          offices in each town.
+        </p>
+        <p className="text-17 mt-4">
+          My work covers insurance, annuities, and financial education. I don't provide investment
+          management or personalized investment or tax advice.
+        </p>
+        <ul className="text-17 mt-5 space-y-3">
+          <li>
+            <Link className="underline" href="/medicare-nc-towns">
+              Find Medicare help for your town
+            </Link>
+          </li>
+          <li>
+            <Link className="underline" href="/life-insurance">
+              Life insurance questions and coverage choices
+            </Link>
+          </li>
+          <li>
+            <Link className="underline" href="/annuities">
+              Understand annuity costs and tradeoffs
+            </Link>
+          </li>
+          <li>
+            <Link className="underline" href="/financial-planning-nc">
+              Financial planning questions in North Carolina
+            </Link>
+          </li>
+        </ul>
+        <p className="mt-5">
+          <a className="underline" href="tel:+19194086671">
+            (919) 408-6671
+          </a>
+        </p>
+      </section>
+
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Let’s meet where you’re comfortable</h2>
@@ -222,7 +267,10 @@ export default function ServiceAreaPage() {
             </Link>
           </li>
           <li>
-            <Link className="inline-flex min-h-11 items-center underline" href="/medicare-nc-towns#rockingham-county">
+            <Link
+              className="inline-flex min-h-11 items-center underline"
+              href="/medicare-nc-towns#rockingham-county"
+            >
               Medicare in Eden
             </Link>
           </li>
@@ -289,10 +337,14 @@ export default function ServiceAreaPage() {
           <h2 className="text-28 font-semibold">Medicare questions from Charlotte?</h2>
           <p className="text-17 mt-4 leading-relaxed">
             I’m based in Greensboro, NC. If you live in Charlotte, you can start with the{" "}
-            <Link className="underline" href="/turning-65-medicare-charlotte-nc">turning 65 Medicare checklist for Charlotte residents</Link>
-            {" "}or read about a{" "}
-            <Link className="underline" href="/medicare-consultation-charlotte-nc">free Medicare phone consultation for Charlotte</Link>.
-            Your address matters when checking plan availability and doctors.
+            <Link className="underline" href="/turning-65-medicare-charlotte-nc">
+              turning 65 Medicare checklist for Charlotte residents
+            </Link>{" "}
+            or read about a{" "}
+            <Link className="underline" href="/medicare-consultation-charlotte-nc">
+              free Medicare phone consultation for Charlotte
+            </Link>
+            . Your address matters when checking plan availability and doctors.
           </p>
         </div>
       </section>

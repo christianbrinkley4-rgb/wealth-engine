@@ -1,3 +1,4 @@
+import { LOCAL_VISIBILITY_CITIES } from "@/lib/localVisibilityCities";
 import { isOffTopicPath } from "@/lib/indexFocus";
 import { TRAFFIC_GUIDES, TRAFFIC_GUIDE_DATE } from "@/lib/trafficGuides";
 import type { MetadataRoute } from "next";
@@ -683,6 +684,11 @@ const SEO_REVIEWED_2026_11_07 = new Set([
 ]);
 
 const NEW_SEARCH_PATHS: Array<{ path: string; lastModified: string }> = [
+  ...Object.keys(LOCAL_VISIBILITY_CITIES).map((slug) => ({
+    path: `/medicare-agent-${slug}-nc`,
+    lastModified: "2026-11-09",
+  })),
+  { path: "/financial-planning-nc", lastModified: "2026-11-09" },
   { path: "/turning-65-medicare-charlotte-nc", lastModified: "2026-11-05" },
   { path: "/medicare-consultation-charlotte-nc", lastModified: "2026-11-05" },
   { path: "/life-insurance-winston-salem-nc", lastModified: "2026-11-05" },
@@ -708,16 +714,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       // Next emits the homepage canonical as the origin with no trailing slash.
       // Every other path already matches its canonical.
       url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
-      lastModified: SEO_REVIEWED_2026_11_07.has(path)
-        ? "2026-11-07"
-        : SEO_REVIEWED_PATHS.has(path)
-          ? "2026-11-05"
-          : (own ?? lastModified),
+      lastModified: [
+        "/medicare-nc-towns",
+        "/service-area",
+        "/insurance-services",
+        "/life-insurance",
+        "/retirement-income",
+      ].includes(path)
+        ? "2026-11-09"
+        : SEO_REVIEWED_2026_11_07.has(path)
+          ? "2026-11-07"
+          : SEO_REVIEWED_PATHS.has(path)
+            ? "2026-11-05"
+            : (own ?? lastModified),
       changeFrequency,
       priority,
     })),
     ...cityRoutes.filter((route) => !LOCATION_CONSOLIDATIONS[new URL(route.url).pathname]),
-    ...NEW_SEARCH_PATHS.map(({ path, lastModified: own }) => ({
+    ...NEW_SEARCH_PATHS.filter(
+      ({ path }) => !STATIC_ROUTES.some((route) => route.path === path),
+    ).map(({ path, lastModified: own }) => ({
       url: `${SITE_URL}${path}`,
       lastModified: own,
       changeFrequency: "monthly" as const,

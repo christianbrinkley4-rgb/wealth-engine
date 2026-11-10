@@ -17,7 +17,9 @@ const ATRIUM = {
 const NOVANT = { label: "Novant Health", href: "/guides/novant-health-medicare-doctors" };
 
 /** The health-system guides that matter for each town's doctors. */
-const HOSPITAL_GUIDES: Partial<Record<PriorityMedicareCity, Array<{ label: string; href: string }>>> = {
+const HOSPITAL_GUIDES: Partial<
+  Record<PriorityMedicareCity, Array<{ label: string; href: string }>>
+> = {
   "high-point": [ATRIUM, CONE],
   "winston-salem": [ATRIUM, NOVANT],
   kernersville: [NOVANT, CONE, ATRIUM],
@@ -124,6 +126,7 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
       ))}
       <LocationBusinessMarkup path={path} />
       <ServiceHero
+        directContact
         crumbs={[{ name: "Home", href: "/" }, { name: city.name }]}
         eyebrow={city.county}
         title={city.heading}
@@ -132,6 +135,23 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
         secondaryLabel="Request a free conversation"
       />
       <MedicareByline reviewed={"reviewed" in city ? city.reviewed : "2026-10-13"} />
+      <section className="app-shell measure-prose max-w-3xl py-8" aria-labelledby="city-next-step">
+        <h2 id="city-next-step" className="text-24 font-semibold">
+          Start with a question
+        </h2>
+        <p className="text-17 mt-3">
+          You don't need to book a full review to ask for help. Send a short request, or choose a
+          time if you're ready. I'm based in Greensboro. Meetings elsewhere are arranged with you.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-4">
+          <Link className="btn btn-outline" href="/start?topic=medicare&quick=1">
+            Ask Christian to contact me
+          </Link>
+          <Link className="inline-flex min-h-11 items-center underline" href="/aep">
+            Choose a 45-minute phone review
+          </Link>
+        </div>
+      </section>
       <section className="measure-prose app-shell max-w-3xl py-10">
         <h2 className="text-28 font-semibold">{city.localHeading}</h2>
         {city.paragraphs.map((p) => (
@@ -140,7 +160,8 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
           </p>
         ))}
         <p className="text-16 mt-6">
-          Local sources checked {"sourcesChecked" in city ? city.sourcesChecked : "October 12, 2026"}:{" "}
+          Local sources checked{" "}
+          {"sourcesChecked" in city ? city.sourcesChecked : "October 12, 2026"}:{" "}
           {city.sources.map((s, i) => (
             <span key={s.href}>
               {i ? "; " : ""}
@@ -265,6 +286,11 @@ export function PriorityCityMedicarePage({ slug }: { slug: PriorityMedicareCity 
       />
       <div className="app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
+        <p className="mt-4">
+          <a className="underline" href="tel:+19194086671">
+            (919) 408-6671
+          </a>
+        </p>
       </div>
     </main>
   );

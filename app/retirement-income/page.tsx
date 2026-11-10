@@ -40,8 +40,7 @@ import { SERVICE_AREA_LEDE } from "@/lib/triad";
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      "Retirement Planning Help in Greensboro & the Triad",
+    absolute: "Retirement Planning Help in Greensboro & the Triad",
   },
   description:
     "Learn how 401(k) options, required distributions, and retirement income can affect Medicare premiums. Local education in Greensboro and the Triad. Read on.",
@@ -177,6 +176,37 @@ export default function RetirementIncomePage() {
         secondaryLabel="Check Medicare income effects →"
       />
 
+      <section
+        className="app-shell measure-prose max-w-3xl py-10"
+        aria-labelledby="nc-service-heading"
+      >
+        <h2 id="nc-service-heading" className="text-28 font-semibold">
+          Help across the Triad, Triangle, and Granville County
+        </h2>
+        <p className="text-17 mt-4">
+          I'm based in Greensboro and grew up in Creedmoor. We can start by phone from Raleigh,
+          Durham, Chapel Hill, Cary, or elsewhere in North Carolina. In-person meetings are arranged
+          individually.
+        </p>
+        <p className="text-17 mt-4">
+          My services are insurance, annuities, and financial education. I don't provide investment
+          management or personalized investment or tax advice. Read{" "}
+          <Link className="underline" href="/financial-planning-nc">
+            how I can help with financial planning questions
+          </Link>{" "}
+          and{" "}
+          <Link className="underline" href="/insurance-services">
+            the insurance services I offer
+          </Link>
+          .
+        </p>
+        <p className="mt-4">
+          <a className="underline" href="tel:+19194086671">
+            (919) 408-6671
+          </a>
+        </p>
+      </section>
+
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">The four options</h2>
@@ -242,8 +272,8 @@ export default function RetirementIncomePage() {
             accounting training at UNC Greensboro is why those connections interest me.
           </p>
           <p className="text-18 mt-4 leading-relaxed">
-            I sit down with you and go through your whole situation first, what you have, what you are
-            worried about, and what is coming up. Some of it I handle myself. The rest I hand to
+            I sit down with you and go through your whole situation first, what you have, what you
+            are worried about, and what is coming up. Some of it I handle myself. The rest I hand to
             someone who can: an investment adviser, a tax professional, an elder law attorney. You
             get an introduction to a specific person, not a suggestion to go find one.
           </p>

@@ -1,3 +1,4 @@
+import { LOCAL_VISIBILITY_CITIES } from "@/lib/localVisibilityCities";
 import { TRAFFIC_GUIDES } from "@/lib/trafficGuides";
 import { SEARCH_LANDING_PAGES } from "@/lib/searchLandingPages";
 import { ASK_QUESTIONS } from "@/lib/askWall";
@@ -24,34 +25,131 @@ import { learnEntries } from "@/lib/learn";
  * AI assistants see the full service area. */
 /** Indexable town URLs. The /medicare-in template is noindex except Greensboro. */
 const DEDICATED_TOWN_PAGES = [
-  { path: "/medicare-agent-greensboro-nc", title: "Medicare agent in Greensboro, NC", blurb: "Licensed agent for Guilford County Medicare questions. Phone (919) 408-6671." },
-  { path: "/medicare-agent-high-point-nc", title: "Medicare agent in High Point, NC", blurb: "Medicare help for High Point and Guilford County." },
-  { path: "/medicare-agent-winston-salem-nc", title: "Medicare agent in Winston-Salem, NC", blurb: "Medicare help for Winston-Salem and Forsyth County." },
-  { path: "/medicare-agent-kernersville-nc", title: "Medicare agent in Kernersville, NC", blurb: "Medicare help in Kernersville." },
-  { path: "/medicare-agent-burlington-nc", title: "Medicare agent in Burlington, NC", blurb: "Medicare help in Burlington and Alamance County." },
-  { path: "/medicare-agent-reidsville-nc", title: "Medicare agent in Reidsville, NC", blurb: "Medicare help in Reidsville and Rockingham County." },
-  { path: "/medicare-agent-thomasville-nc", title: "Medicare agent in Thomasville, NC", blurb: "Medicare help in Thomasville." },
-  { path: "/medicare-agent-lexington-nc", title: "Medicare agent in Lexington, NC", blurb: "Medicare help in Lexington and Davidson County." },
-  { path: "/medicare-agent-stem-nc", title: "Medicare agent in Stem, NC", blurb: "Medicare help in Stem and Granville County." },
-  { path: "/medicare-agent-creedmoor-nc", title: "Medicare agent in Creedmoor, NC", blurb: "Medicare help in Creedmoor, Christian's hometown." },
-  { path: "/medicare-agent-oxford-nc", title: "Medicare agent in Oxford, NC", blurb: "Medicare help in Oxford and Granville County." },
-  { path: "/medicare-agent-granville-county-nc", title: "Medicare agent in Granville County, NC", blurb: "Medicare help across Granville County: Oxford, Creedmoor, Butner, and Stem." },
-  { path: "/medicare-creedmoor-nc", title: "Medicare in Creedmoor, NC", blurb: "Local notes for Creedmoor." },
-  { path: "/medicare-oxford-nc", title: "Medicare in Oxford, NC", blurb: "Local notes for Oxford." },
-  { path: "/medicare-butner-nc", title: "Medicare in Butner, NC", blurb: "Local notes for Butner." },
-  { path: "/medicare-asheboro-nc", title: "Medicare in Asheboro, NC", blurb: "Local notes for Asheboro and Randolph County." },
-  { path: "/medicare-mebane-nc", title: "Medicare in Mebane, NC", blurb: "Local notes for Mebane." },
+  {
+    path: "/medicare-agent-greensboro-nc",
+    title: "Medicare agent in Greensboro, NC",
+    blurb: "Licensed agent for Guilford County Medicare questions. Phone (919) 408-6671.",
+  },
+  {
+    path: "/medicare-agent-high-point-nc",
+    title: "Medicare agent in High Point, NC",
+    blurb: "Medicare help for High Point and Guilford County.",
+  },
+  {
+    path: "/medicare-agent-winston-salem-nc",
+    title: "Medicare agent in Winston-Salem, NC",
+    blurb: "Medicare help for Winston-Salem and Forsyth County.",
+  },
+  {
+    path: "/medicare-agent-kernersville-nc",
+    title: "Medicare agent in Kernersville, NC",
+    blurb: "Medicare help in Kernersville.",
+  },
+  {
+    path: "/medicare-agent-burlington-nc",
+    title: "Medicare agent in Burlington, NC",
+    blurb: "Medicare help in Burlington and Alamance County.",
+  },
+  {
+    path: "/medicare-agent-reidsville-nc",
+    title: "Medicare agent in Reidsville, NC",
+    blurb: "Medicare help in Reidsville and Rockingham County.",
+  },
+  {
+    path: "/medicare-agent-thomasville-nc",
+    title: "Medicare agent in Thomasville, NC",
+    blurb: "Medicare help in Thomasville.",
+  },
+  {
+    path: "/medicare-agent-lexington-nc",
+    title: "Medicare agent in Lexington, NC",
+    blurb: "Medicare help in Lexington and Davidson County.",
+  },
+  {
+    path: "/medicare-agent-stem-nc",
+    title: "Medicare agent in Stem, NC",
+    blurb: "Medicare help in Stem and Granville County.",
+  },
+  {
+    path: "/medicare-agent-creedmoor-nc",
+    title: "Medicare agent in Creedmoor, NC",
+    blurb: "Medicare help in Creedmoor, Christian's hometown.",
+  },
+  {
+    path: "/medicare-agent-oxford-nc",
+    title: "Medicare agent in Oxford, NC",
+    blurb: "Medicare help in Oxford and Granville County.",
+  },
+  {
+    path: "/medicare-agent-granville-county-nc",
+    title: "Medicare agent in Granville County, NC",
+    blurb: "Medicare help across Granville County: Oxford, Creedmoor, Butner, and Stem.",
+  },
+  {
+    path: "/medicare-creedmoor-nc",
+    title: "Medicare in Creedmoor, NC",
+    blurb: "Local notes for Creedmoor.",
+  },
+  {
+    path: "/medicare-oxford-nc",
+    title: "Medicare in Oxford, NC",
+    blurb: "Local notes for Oxford.",
+  },
+  {
+    path: "/medicare-butner-nc",
+    title: "Medicare in Butner, NC",
+    blurb: "Local notes for Butner.",
+  },
+  {
+    path: "/medicare-asheboro-nc",
+    title: "Medicare in Asheboro, NC",
+    blurb: "Local notes for Asheboro and Randolph County.",
+  },
+  {
+    path: "/medicare-mebane-nc",
+    title: "Medicare in Mebane, NC",
+    blurb: "Local notes for Mebane.",
+  },
   { path: "/medicare-eden-nc", title: "Medicare in Eden, NC", blurb: "Local notes for Eden." },
-  { path: "/medicare-roxboro-nc", title: "Medicare in Roxboro, NC", blurb: "Local notes for Roxboro and Person County." },
-  { path: "/medicare-madison-nc", title: "Medicare in Madison, NC", blurb: "Local notes for Madison." },
-  { path: "/medicare-graham-nc", title: "Medicare in Graham, NC", blurb: "Local notes for Graham." },
-  { path: "/medicare-liberty-nc", title: "Medicare in Liberty, NC", blurb: "Local notes for Liberty." },
-  { path: "/medicare-ramseur-nc", title: "Medicare in Ramseur, NC", blurb: "Local notes for Ramseur." },
-  { path: "/medigap-plans-high-point-nc", title: "Medigap plans in High Point, NC", blurb: "How Medicare Supplement plans work for High Point." },
-  { path: "/medicare-advantage-plans-winston-salem-nc", title: "Medicare Advantage plans in Winston-Salem, NC", blurb: "What to check before choosing a Winston-Salem Advantage plan." },
+  {
+    path: "/medicare-roxboro-nc",
+    title: "Medicare in Roxboro, NC",
+    blurb: "Local notes for Roxboro and Person County.",
+  },
+  {
+    path: "/medicare-madison-nc",
+    title: "Medicare in Madison, NC",
+    blurb: "Local notes for Madison.",
+  },
+  {
+    path: "/medicare-graham-nc",
+    title: "Medicare in Graham, NC",
+    blurb: "Local notes for Graham.",
+  },
+  {
+    path: "/medicare-liberty-nc",
+    title: "Medicare in Liberty, NC",
+    blurb: "Local notes for Liberty.",
+  },
+  {
+    path: "/medicare-ramseur-nc",
+    title: "Medicare in Ramseur, NC",
+    blurb: "Local notes for Ramseur.",
+  },
+  {
+    path: "/medigap-plans-high-point-nc",
+    title: "Medigap plans in High Point, NC",
+    blurb: "How Medicare Supplement plans work for High Point.",
+  },
+  {
+    path: "/medicare-advantage-plans-winston-salem-nc",
+    title: "Medicare Advantage plans in Winston-Salem, NC",
+    blurb: "What to check before choosing a Winston-Salem Advantage plan.",
+  },
 ] as const;
 
 const ADDITIONAL_SERVICE_TOWNS = [
+  ...Object.values(LOCAL_VISIBILITY_CITIES).map((city) => city.name),
   "Creedmoor",
   "Oxford",
   "Butner",
@@ -72,64 +170,293 @@ export const dynamic = "force-static";
 /** New hub pages (Oct 2026): wealth library, tools, AI guides, SEO guides. */
 const NEW_GUIDE_PAGES = [
   ...SEARCH_LANDING_PAGES,
-  ...TRAFFIC_GUIDES.map((guide) => ({ path: `/guides/${guide.slug}`, title: guide.title, blurb: guide.answer })),
-  { path: "/guides", title: "Money, tax, and Medicare guides", blurb: "Browse practical guides by question." },
-  { path: "/wealth/money-moves-in-your-20s", title: "Five money moves for your 20s", blurb: "The five money moves that matter most in your 20s, in plain English." },
-  { path: "/wealth/roth-ira-explained", title: "Roth IRA, explained", blurb: "What a Roth IRA is, who it fits, and the 2026 IRS limits." },
-  { path: "/wealth/building-in-public", title: "Building in public: the manifesto", blurb: "Why Christian documents his money journey in public." },
-  { path: "/wealth/teens-first-job-money-guide", title: "Your First Job: A Teen Money Guide", blurb: "First paycheck explained for teens: taxes, W-4, and what to do with it." },
-  { path: "/wealth/credit-score-basics", title: "Credit Scores, Explained Plainly", blurb: "What a credit score is and what builds it." },
-  { path: "/wealth/budgeting-that-actually-works", title: "Budgeting That Actually Works", blurb: "A budgeting system that survives real life." },
-  { path: "/wealth/student-loans-payoff-plan", title: "A Student Loan Payoff Plan That Fits on One Page", blurb: "Avalanche vs snowball, loan inventory, and automation." },
-  { path: "/wealth/buying-first-home-money-guide", title: "Buying Your First Home: The Money Parts", blurb: "Down payment, closing costs, PITI, and the post-purchase emergency fund." },
-  { path: "/wealth/401k-explained", title: "Your 401(k), Explained", blurb: "What a 401(k) is, the match, vesting, and 2026 IRS limits." },
-  { path: "/wealth/life-insurance-explained", title: "Life Insurance, Explained in Plain English", blurb: "Term vs whole life, how agents get paid, questions to ask." },
-  { path: "/wealth/529-college-savings-basics", title: "529 College Savings Plans, Explained", blurb: "How 529 plans work, including the NC tax picture." },
-  { path: "/wealth/catch-up-contributions-after-50", title: "Catch-Up Contributions After 50", blurb: "2026 catch-up limits for 401(k)s, IRAs, and HSAs." },
-  { path: "/wealth/pre-retirement-5-year-checklist", title: "Your 5-Year Pre-Retirement Checklist", blurb: "A numbered checklist for the five years before retirement." },
-  { path: "/wealth/first-tax-return-guide", title: "Your First Tax Return, Explained", blurb: "W-2 vs 1099, the standard deduction, and when you must file." },
-  { path: "/wealth/tax-brackets-explained-plainly", title: "Tax Brackets, Explained Plainly", blurb: "2026 federal tax brackets and marginal vs effective rates." },
-  { path: "/wealth/roth-vs-traditional-taxes", title: "Roth vs Traditional: The Tax Trade", blurb: "Pay tax now vs pay later, explained mechanically." },
-  { path: "/wealth/disability-insurance-explained", title: "Disability Insurance, Explained", blurb: "Short vs long term, employer vs individual coverage." },
-  { path: "/wealth/health-insurance-basics", title: "Health Insurance Basics", blurb: "Premiums, deductibles, copays, and out-of-pocket maximums." },
-  { path: "/wealth/broke-money-reset-plan", title: "The Broke Money Reset Plan", blurb: "A triage plan for when the money runs out." },
-  { path: "/wealth/emergency-fund-guide", title: "The Emergency Fund Guide", blurb: "How to build an emergency fund on autopay." },
-  { path: "/wealth/social-security-explained", title: "Social Security, Explained in Plain English", blurb: "How Social Security works, FRA, and 2026 figures." },
-  { path: "/wealth/hsa-explained", title: "The HSA, Explained in Plain English", blurb: "The triple tax advantage and 2026 HSA limits." },
-  { path: "/wealth/rmd-explained-73", title: "RMDs at 73, Explained in Plain English", blurb: "Required minimum distributions under SECURE 2.0." },
-  { path: "/wealth/credit-cards-beginners", title: "Credit Cards for Beginners", blurb: "How credit cards work: APR, grace periods, minimums." },
-  { path: "/wealth/rent-vs-buy-math", title: "Rent vs. Buy: The Math, Minus the Opinions", blurb: "The math inputs on both sides of rent vs buy." },
-  { path: "/wealth/car-buying-money-guide", title: "The Real Cost of Buying a Car", blurb: "Total cost thinking: price, interest, insurance, ownership." },
-  { path: "/wealth/side-hustle-taxes", title: "Side-Hustle Taxes, Explained in Plain English", blurb: "Self-employment tax and tracking income and expenses." },
-  { path: "/wealth/529-vs-roth-for-college", title: "529 vs. Roth IRA for College", blurb: "Two education-funding paths compared plainly." },
+  ...TRAFFIC_GUIDES.map((guide) => ({
+    path: `/guides/${guide.slug}`,
+    title: guide.title,
+    blurb: guide.answer,
+  })),
+  {
+    path: "/guides",
+    title: "Money, tax, and Medicare guides",
+    blurb: "Browse practical guides by question.",
+  },
+  {
+    path: "/wealth/money-moves-in-your-20s",
+    title: "Five money moves for your 20s",
+    blurb: "The five money moves that matter most in your 20s, in plain English.",
+  },
+  {
+    path: "/wealth/roth-ira-explained",
+    title: "Roth IRA, explained",
+    blurb: "What a Roth IRA is, who it fits, and the 2026 IRS limits.",
+  },
+  {
+    path: "/wealth/building-in-public",
+    title: "Building in public: the manifesto",
+    blurb: "Why Christian documents his money journey in public.",
+  },
+  {
+    path: "/wealth/teens-first-job-money-guide",
+    title: "Your First Job: A Teen Money Guide",
+    blurb: "First paycheck explained for teens: taxes, W-4, and what to do with it.",
+  },
+  {
+    path: "/wealth/credit-score-basics",
+    title: "Credit Scores, Explained Plainly",
+    blurb: "What a credit score is and what builds it.",
+  },
+  {
+    path: "/wealth/budgeting-that-actually-works",
+    title: "Budgeting That Actually Works",
+    blurb: "A budgeting system that survives real life.",
+  },
+  {
+    path: "/wealth/student-loans-payoff-plan",
+    title: "A Student Loan Payoff Plan That Fits on One Page",
+    blurb: "Avalanche vs snowball, loan inventory, and automation.",
+  },
+  {
+    path: "/wealth/buying-first-home-money-guide",
+    title: "Buying Your First Home: The Money Parts",
+    blurb: "Down payment, closing costs, PITI, and the post-purchase emergency fund.",
+  },
+  {
+    path: "/wealth/401k-explained",
+    title: "Your 401(k), Explained",
+    blurb: "What a 401(k) is, the match, vesting, and 2026 IRS limits.",
+  },
+  {
+    path: "/wealth/life-insurance-explained",
+    title: "Life Insurance, Explained in Plain English",
+    blurb: "Term vs whole life, how agents get paid, questions to ask.",
+  },
+  {
+    path: "/wealth/529-college-savings-basics",
+    title: "529 College Savings Plans, Explained",
+    blurb: "How 529 plans work, including the NC tax picture.",
+  },
+  {
+    path: "/wealth/catch-up-contributions-after-50",
+    title: "Catch-Up Contributions After 50",
+    blurb: "2026 catch-up limits for 401(k)s, IRAs, and HSAs.",
+  },
+  {
+    path: "/wealth/pre-retirement-5-year-checklist",
+    title: "Your 5-Year Pre-Retirement Checklist",
+    blurb: "A numbered checklist for the five years before retirement.",
+  },
+  {
+    path: "/wealth/first-tax-return-guide",
+    title: "Your First Tax Return, Explained",
+    blurb: "W-2 vs 1099, the standard deduction, and when you must file.",
+  },
+  {
+    path: "/wealth/tax-brackets-explained-plainly",
+    title: "Tax Brackets, Explained Plainly",
+    blurb: "2026 federal tax brackets and marginal vs effective rates.",
+  },
+  {
+    path: "/wealth/roth-vs-traditional-taxes",
+    title: "Roth vs Traditional: The Tax Trade",
+    blurb: "Pay tax now vs pay later, explained mechanically.",
+  },
+  {
+    path: "/wealth/disability-insurance-explained",
+    title: "Disability Insurance, Explained",
+    blurb: "Short vs long term, employer vs individual coverage.",
+  },
+  {
+    path: "/wealth/health-insurance-basics",
+    title: "Health Insurance Basics",
+    blurb: "Premiums, deductibles, copays, and out-of-pocket maximums.",
+  },
+  {
+    path: "/wealth/broke-money-reset-plan",
+    title: "The Broke Money Reset Plan",
+    blurb: "A triage plan for when the money runs out.",
+  },
+  {
+    path: "/wealth/emergency-fund-guide",
+    title: "The Emergency Fund Guide",
+    blurb: "How to build an emergency fund on autopay.",
+  },
+  {
+    path: "/wealth/social-security-explained",
+    title: "Social Security, Explained in Plain English",
+    blurb: "How Social Security works, FRA, and 2026 figures.",
+  },
+  {
+    path: "/wealth/hsa-explained",
+    title: "The HSA, Explained in Plain English",
+    blurb: "The triple tax advantage and 2026 HSA limits.",
+  },
+  {
+    path: "/wealth/rmd-explained-73",
+    title: "RMDs at 73, Explained in Plain English",
+    blurb: "Required minimum distributions under SECURE 2.0.",
+  },
+  {
+    path: "/wealth/credit-cards-beginners",
+    title: "Credit Cards for Beginners",
+    blurb: "How credit cards work: APR, grace periods, minimums.",
+  },
+  {
+    path: "/wealth/rent-vs-buy-math",
+    title: "Rent vs. Buy: The Math, Minus the Opinions",
+    blurb: "The math inputs on both sides of rent vs buy.",
+  },
+  {
+    path: "/wealth/car-buying-money-guide",
+    title: "The Real Cost of Buying a Car",
+    blurb: "Total cost thinking: price, interest, insurance, ownership.",
+  },
+  {
+    path: "/wealth/side-hustle-taxes",
+    title: "Side-Hustle Taxes, Explained in Plain English",
+    blurb: "Self-employment tax and tracking income and expenses.",
+  },
+  {
+    path: "/wealth/529-vs-roth-for-college",
+    title: "529 vs. Roth IRA for College",
+    blurb: "Two education-funding paths compared plainly.",
+  },
   { path: "/tools", title: "Money calculators", blurb: "Free interactive money calculators." },
-  { path: "/tools/roth-vs-traditional", title: "Roth vs traditional calculator", blurb: "Side-by-side after-tax growth projection with 2026 IRS limits." },
-  { path: "/tools/emergency-fund", title: "Emergency fund calculator", blurb: "Target fund size and a monthly savings plan." },
-  { path: "/tools/debt-payoff", title: "Debt payoff calculator", blurb: "Avalanche vs snowball, side by side." },
-  { path: "/tools/retirement-projector", title: "Retirement projector", blurb: "Project savings growth with a labeled assumed rate." },
-  { path: "/tools/take-home-pay", title: "Take-home pay calculator", blurb: "Federal, NC, and FICA taxes on your salary, estimated." },
-  { path: "/tools/life-insurance-needs", title: "Life insurance needs calculator", blurb: "DIME method starting point for a conversation." },
-  { path: "/tools/compound-interest", title: "Compound interest calculator", blurb: "Watch growth compound year by year." },
-  { path: "/ai", title: "AI in daily life", blurb: "What AI can actually do for a normal person, honest about limits." },
-  { path: "/ai/ai-tools-compared", title: "AI tools compared honestly", blurb: "ChatGPT, Claude, Gemini, Copilot, Perplexity: what each is good at, limits, cost." },
-  { path: "/ai/which-ai-for-which-task", title: "Which AI for which task", blurb: "Match the task to the tool: writing, research, email, learning." },
-  { path: "/ai/ai-for-job-search", title: "AI for job search", blurb: "Resume help and interview prep with realistic expectations." },
-  { path: "/ai/ai-for-small-business", title: "AI for small business", blurb: "What a one-person business can automate." },
-  { path: "/ai/ai-for-seniors", title: "AI for seniors", blurb: "Simplest useful starting points for 65+, with scam warnings." },
-  { path: "/ai/ai-money-tasks", title: "AI money tasks", blurb: "Budgeting help, bill scripts, and subscription audits." },
-  { path: "/ai/ai-mistakes-to-avoid", title: "AI mistakes to avoid", blurb: "Hallucinations, sensitive data, and blind trust." },
-  { path: "/ai/connect", title: "Connect your AI assistant", blurb: "Add the site as an MCP connector in Claude or any MCP app: setup steps, what it answers, example prompts." },
-  { path: "/guides/what-medicare-does-not-cover", title: "What Medicare does not cover", blurb: "The exclusion list and cost-sharing gaps, plainly." },
-  { path: "/guides/medicare-hsa-contributions", title: "Medicare and HSA contributions", blurb: "The 6-month retroactive Part A trap, as dated action steps." },
-  { path: "/guides/working-while-collecting-social-security", title: "Working while collecting Social Security", blurb: "2026 earnings limits and how withheld benefits come back." },
-  { path: "/guides/is-social-security-taxed", title: "Is Social Security taxed?", blurb: "Combined-income mechanics and the senior deduction." },
-  { path: "/guides/missed-medicare-enrollment", title: "What happens if you miss Medicare enrollment", blurb: "Open enrollment vs general enrollment paths." },
-  { path: "/guides/medicare-automatic-renewal", title: "Do you have to renew Medicare every year?", blurb: "Automatic renewal and the yearly review that still matters." },
-  { path: "/guides/medicare-part-b-employer-coverage", title: "Do I need Part B with employer coverage?", blurb: "The 20-employee rule, the 8-month SEP, and the COBRA trap." },
-  { path: "/guides/medicare-travel", title: "Does Medicare Advantage work out of state?", blurb: "Emergency coverage, HMO vs PPO travel, service-area rules." },
-  { path: "/guides/irmaa-brackets-2026", title: "2026 IRMAA brackets", blurb: "The complete 2026 IRMAA table, verified against CMS." },
-  { path: "/guides/standard-deduction-seniors-2026", title: "Standard deduction for seniors 2026", blurb: "2026 standard deduction plus the 65+ add-on amounts." },
-  { path: "/ask", title: "Ask Christian", blurb: "A public wall of real money, tax, and retirement questions, answered in plain English." },
+  {
+    path: "/tools/roth-vs-traditional",
+    title: "Roth vs traditional calculator",
+    blurb: "Side-by-side after-tax growth projection with 2026 IRS limits.",
+  },
+  {
+    path: "/tools/emergency-fund",
+    title: "Emergency fund calculator",
+    blurb: "Target fund size and a monthly savings plan.",
+  },
+  {
+    path: "/tools/debt-payoff",
+    title: "Debt payoff calculator",
+    blurb: "Avalanche vs snowball, side by side.",
+  },
+  {
+    path: "/tools/retirement-projector",
+    title: "Retirement projector",
+    blurb: "Project savings growth with a labeled assumed rate.",
+  },
+  {
+    path: "/tools/take-home-pay",
+    title: "Take-home pay calculator",
+    blurb: "Federal, NC, and FICA taxes on your salary, estimated.",
+  },
+  {
+    path: "/tools/life-insurance-needs",
+    title: "Life insurance needs calculator",
+    blurb: "DIME method starting point for a conversation.",
+  },
+  {
+    path: "/tools/compound-interest",
+    title: "Compound interest calculator",
+    blurb: "Watch growth compound year by year.",
+  },
+  {
+    path: "/ai",
+    title: "AI in daily life",
+    blurb: "What AI can actually do for a normal person, honest about limits.",
+  },
+  {
+    path: "/ai/ai-tools-compared",
+    title: "AI tools compared honestly",
+    blurb: "ChatGPT, Claude, Gemini, Copilot, Perplexity: what each is good at, limits, cost.",
+  },
+  {
+    path: "/ai/which-ai-for-which-task",
+    title: "Which AI for which task",
+    blurb: "Match the task to the tool: writing, research, email, learning.",
+  },
+  {
+    path: "/ai/ai-for-job-search",
+    title: "AI for job search",
+    blurb: "Resume help and interview prep with realistic expectations.",
+  },
+  {
+    path: "/ai/ai-for-small-business",
+    title: "AI for small business",
+    blurb: "What a one-person business can automate.",
+  },
+  {
+    path: "/ai/ai-for-seniors",
+    title: "AI for seniors",
+    blurb: "Simplest useful starting points for 65+, with scam warnings.",
+  },
+  {
+    path: "/ai/ai-money-tasks",
+    title: "AI money tasks",
+    blurb: "Budgeting help, bill scripts, and subscription audits.",
+  },
+  {
+    path: "/ai/ai-mistakes-to-avoid",
+    title: "AI mistakes to avoid",
+    blurb: "Hallucinations, sensitive data, and blind trust.",
+  },
+  {
+    path: "/ai/connect",
+    title: "Connect your AI assistant",
+    blurb:
+      "Add the site as an MCP connector in Claude or any MCP app: setup steps, what it answers, example prompts.",
+  },
+  {
+    path: "/guides/what-medicare-does-not-cover",
+    title: "What Medicare does not cover",
+    blurb: "The exclusion list and cost-sharing gaps, plainly.",
+  },
+  {
+    path: "/guides/medicare-hsa-contributions",
+    title: "Medicare and HSA contributions",
+    blurb: "The 6-month retroactive Part A trap, as dated action steps.",
+  },
+  {
+    path: "/guides/working-while-collecting-social-security",
+    title: "Working while collecting Social Security",
+    blurb: "2026 earnings limits and how withheld benefits come back.",
+  },
+  {
+    path: "/guides/is-social-security-taxed",
+    title: "Is Social Security taxed?",
+    blurb: "Combined-income mechanics and the senior deduction.",
+  },
+  {
+    path: "/guides/missed-medicare-enrollment",
+    title: "What happens if you miss Medicare enrollment",
+    blurb: "Open enrollment vs general enrollment paths.",
+  },
+  {
+    path: "/guides/medicare-automatic-renewal",
+    title: "Do you have to renew Medicare every year?",
+    blurb: "Automatic renewal and the yearly review that still matters.",
+  },
+  {
+    path: "/guides/medicare-part-b-employer-coverage",
+    title: "Do I need Part B with employer coverage?",
+    blurb: "The 20-employee rule, the 8-month SEP, and the COBRA trap.",
+  },
+  {
+    path: "/guides/medicare-travel",
+    title: "Does Medicare Advantage work out of state?",
+    blurb: "Emergency coverage, HMO vs PPO travel, service-area rules.",
+  },
+  {
+    path: "/guides/irmaa-brackets-2026",
+    title: "2026 IRMAA brackets",
+    blurb: "The complete 2026 IRMAA table, verified against CMS.",
+  },
+  {
+    path: "/guides/standard-deduction-seniors-2026",
+    title: "Standard deduction for seniors 2026",
+    blurb: "2026 standard deduction plus the 65+ add-on amounts.",
+  },
+  {
+    path: "/ask",
+    title: "Ask Christian",
+    blurb: "A public wall of real money, tax, and retirement questions, answered in plain English.",
+  },
   ...ASK_QUESTIONS.map((question) => ({
     path: `/ask/${question.slug}`,
     title: question.title,
@@ -142,26 +469,33 @@ export function GET() {
     .filter((entry) => entry.kind === "Answer" || entry.kind === "Explainer")
     .map((entry) => `- [${entry.title}](${SITE_URL}${entry.href}): ${entry.blurb}`)
     .join("\n");
-  const cityLines = indexableMedicarePlaces().map((city) =>
-    [
-      `- [Medicare in ${city.name}](${SITE_URL}${canonicalMedicareLocation(`/medicare-in/${city.slug}`)}): personal help with enrollment, doctors, prescriptions, and coverage choices. Confirm Medicare Advantage availability for the visitor’s home address.`,
-    ].join("\n"),
-  ).join("\n");
+  const cityLines = indexableMedicarePlaces()
+    .map((city) =>
+      [
+        `- [Medicare in ${city.name}](${SITE_URL}${canonicalMedicareLocation(`/medicare-in/${city.slug}`)}): personal help with enrollment, doctors, prescriptions, and coverage choices. Confirm Medicare Advantage availability for the visitor’s home address.`,
+      ].join("\n"),
+    )
+    .join("\n");
 
   const wealthLines = [
     `- [Money tools for your 20s](${SITE_URL}/wealth): christianbuildswealth home.`,
     `- [Christian's links](${SITE_URL}/links): downloads and contact links.`,
     `- [Downloads](${SITE_URL}/wealth/tools): budget spreadsheet and ratio checker.`,
     ...WEALTH_NAV.map((item) => `- [${item.label}](${SITE_URL}${item.href}): hub section.`),
-    ...PERSONALITIES.map((type) => `- [${type.name}](${SITE_URL}/wealth/quiz/money-personality/${type.id}): ${type.tagline}`),
+    ...PERSONALITIES.map(
+      (type) =>
+        `- [${type.name}](${SITE_URL}/wealth/quiz/money-personality/${type.id}): ${type.tagline}`,
+    ),
     ...WEALTH_TOOLS.map(
       (tool) => `- [${tool.title}](${SITE_URL}${tool.href}): ${tool.kind}. ${tool.blurb}`,
     ),
     ...WEALTH_ARTICLES.map(
-      (article) => `- [${article.title}](${SITE_URL}/wealth/learn/${article.slug}): ${article.answer}`,
+      (article) =>
+        `- [${article.title}](${SITE_URL}/wealth/learn/${article.slug}): ${article.answer}`,
     ),
     ...NEW_GUIDE_PAGES.map(
-      (page) => `- [${page.title}](${SITE_URL}${canonicalMedicareLocation(page.path)}): ${page.blurb}`,
+      (page) =>
+        `- [${page.title}](${SITE_URL}${canonicalMedicareLocation(page.path)}): ${page.blurb}`,
     ),
   ].join("\n");
 
@@ -176,7 +510,7 @@ ${profiles.map((profile) => `- ${profile.label}: ${profile.url}`).join("\n")}
 
   const body = `# ${SITE_NAME}
 
-> ${AGENT.name} is a licensed North Carolina insurance agent (${AGENT.licenseLine}${hasPublishableNpn() ? `, NPN ${AGENT.npn}` : ""}) based in ${AGENT.city}, ${AGENT.state}. He helps people in the Piedmont Triad and Granville County with Medicare, life insurance, long-term care, and retirement coverage. Free consultation, no obligation. Phone ${AGENT.phone}.
+> ${AGENT.name} is a licensed North Carolina insurance agent (${AGENT.licenseLine}${hasPublishableNpn() ? `, NPN ${AGENT.npn}` : ""}) based in ${AGENT.city}, ${AGENT.state}. He helps people in the Piedmont Triad, Triangle, and Granville County with Medicare, life insurance, long-term care, and retirement coverage. Free consultation, no obligation. Phone ${AGENT.phone}.
 
 ## Who he is (entity card)
 
@@ -193,6 +527,18 @@ ${profiles.map((profile) => `- ${profile.label}: ${profile.url}`).join("\n")}
 - Background: accounting student at UNC Greensboro (bachelor's December 2026). The site is not affiliated with UNCG.
 - Google reviews: ${GOOGLE_REVIEWS && GOOGLE_REVIEWS.count > 0 ? `${GOOGLE_REVIEWS.count} reviews, ${GOOGLE_REVIEWS.rating.toFixed(1)} out of 5 (${GOOGLE_REVIEWS.url})` : "none published yet"}.
 - Website: ${SITE_URL}
+
+## Insurance and education in North Carolina
+
+Christian offers insurance, annuities, and financial education. He does not provide investment management or personalized investment or tax advice. He serves the Triad, Triangle, and Granville County by phone, with meetings by arrangement. No additional storefronts are claimed.
+
+- [Financial planning questions in NC](${SITE_URL}/financial-planning-nc): insurance and educational scope, retirement preparation, and choosing the right professional.
+${Object.entries(LOCAL_VISIBILITY_CITIES)
+  .map(
+    ([slug, city]) =>
+      `- [Medicare help in ${city.name}](${SITE_URL}/medicare-agent-${slug}-nc): ${city.localHeading}`,
+  )
+  .join("\n")}
 
 ## Main pages
 

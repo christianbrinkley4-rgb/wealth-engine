@@ -64,18 +64,19 @@ export default async function StartPage({
             {SERVICE_AREA_LABEL}
           </p>
           <h1 className="font-heading text-28 md:text-32 mt-2 leading-tight font-bold">
-            {quickMedicare
-              ? "Personal Medicare help in the Triad"
-              : "Request your free consultation"}
+            {quickMedicare ? "Ask Christian a Medicare question" : "Request your free consultation"}
           </h1>
           <p className="text-18 mt-3 leading-relaxed text-[var(--color-paper)]/90">
             {quickMedicare
-              ? "Ask a question or request a coverage review. Your note comes straight to me. No cost, no obligation."
+              ? "I'm based in Greensboro and serve the Triad, Triangle, and Granville County. Your request comes straight to me. No cost, no obligation."
               : "Tell me what matters to you. I can meet at home, nearby, by phone, or by video. No cost and no obligation."}
           </p>
           <div id="page-hero-actions" className="mt-5">
             <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-light">
-              <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
+              <span>
+                Call Christian&apos;s direct line:{" "}
+                <span className="whitespace-nowrap">{AGENT.phone}</span>
+              </span>
             </a>
           </div>
           {!quickMedicare ? (

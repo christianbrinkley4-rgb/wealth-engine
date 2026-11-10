@@ -185,6 +185,15 @@ export function agencySameAs(): string[] {
  */
 export const AGENCY_AREA_SERVED = [
   ...[
+    "Raleigh",
+    "Durham",
+    "Chapel Hill",
+    "Cary",
+    "Apex",
+    "Morrisville",
+    "Garner",
+    "Clayton",
+    "Stovall",
     "Greensboro",
     "High Point",
     "Winston-Salem",
@@ -206,7 +215,21 @@ export const AGENCY_AREA_SERVED = [
     "Youngsville",
     "Wake Forest",
   ].map((name) => ({ "@type": "City" as const, name: `${name}, NC` })),
-  ...["Guilford", "Forsyth", "Alamance", "Davidson", "Granville"].map((name) => ({
+  ...[
+    "Guilford",
+    "Forsyth",
+    "Alamance",
+    "Davidson",
+    "Granville",
+    "Rockingham",
+    "Randolph",
+    "Wake",
+    "Durham",
+    "Orange",
+    "Chatham",
+    "Johnston",
+    "Franklin",
+  ].map((name) => ({
     "@type": "AdministrativeArea" as const,
     name: `${name} County, NC`,
   })),
@@ -214,7 +237,7 @@ export const AGENCY_AREA_SERVED = [
 
 const AGENCY_DESCRIPTION =
   "Christian Brinkley is a licensed North Carolina insurance agent (NC Life & Health) based in " +
-  "Greensboro, NC, serving the Piedmont Triad and Granville County. Free, no-obligation help " +
+  "Greensboro, NC, serving the Piedmont Triad, Triangle, and Granville County by phone and agreed meetings. Free, no-obligation help " +
   "with Medicare Advantage, Medicare Supplement (Medigap), Part D, life insurance, long-term " +
   "care insurance, supplemental health coverage, and retirement income education. One local " +
   "person who answers personally, not a call center.";
@@ -259,7 +282,7 @@ export function siteIdentityJsonLd() {
         familyName: "Brinkley",
         jobTitle: "Licensed Insurance Agent",
         description:
-          "Licensed North Carolina insurance agent (NC Life & Health, NPN 22217190) based in Greensboro, NC, who helps people in the Piedmont Triad and Granville County with Medicare, life insurance, long-term care, and retirement coverage.",
+          "Licensed North Carolina insurance agent (NC Life & Health, NPN 22217190) based in Greensboro, NC, who helps people in the Piedmont Triad, Triangle, and Granville County with Medicare, life insurance, long-term care, and retirement coverage.",
         telephone: SITE_OWNER_PHONE,
         worksFor: { "@id": `${SITE_URL}/#agency` },
         workLocation: {

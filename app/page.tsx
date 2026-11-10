@@ -1,4 +1,6 @@
 import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
+import { EngineContact } from "@/components/EngineContact";
+import "@/app/lead-engine.css";
 import { speakableJsonLd } from "@/lib/seo";
 import { ShiipAndAgent } from "@/app/components/ShiipAndAgent";
 import { RelatedMedicareGuides } from "@/app/components/RelatedMedicareGuides";
@@ -103,11 +105,17 @@ export default function HomePage() {
     { href: "/guides/medicare-advantage-plans-leaving-nc-2027", label: "Plans leaving NC in 2027" },
     { href: "/guides/nc-state-health-plan-medicare", label: "State Health Plan and Medicare" },
     { href: "/medicare-part-d-donut-hole-2027", label: "Part D donut hole 2027" },
-    { href: "/answers/are-medicare-supplement-plans-the-same", label: "Are Medigap plans the same?" },
+    {
+      href: "/answers/are-medicare-supplement-plans-the-same",
+      label: "Are Medigap plans the same?",
+    },
     { href: "/guides/medigap-premium-increase", label: "Why Medigap premiums go up" },
     { href: "/guides/cone-health-medicare-doctors", label: "Cone Health and Medicare" },
     { href: "/answers/what-are-medicare-part-b-excess-charges", label: "Part B excess charges" },
-    { href: "/guides/extra-help-medicare-savings-programs-nc", label: "Help paying Medicare costs" },
+    {
+      href: "/guides/extra-help-medicare-savings-programs-nc",
+      label: "Help paying Medicare costs",
+    },
     { href: "/life-insurance", label: "Life insurance help" },
   ];
   const featured = learnEntries()
@@ -172,17 +180,24 @@ export default function HomePage() {
               Greensboro. Meet at home or talk by phone. No call centers, just me.
             </p>
             <div className="hx-actions" id="home-hero-actions">
+              <Link href="#request-a-call" ctaLocation="hero" className="btn order-first">
+                Ask Christian to call me
+              </Link>
               <a
                 data-cta-location="hero"
                 href={ENGINE_BOOKING_URL}
                 target="_blank"
                 rel="noopener"
-                className="btn order-first"
+                className="btn btn-outline"
               >
                 Book a 45-minute phone review
               </a>
               <a data-cta-location="hero" href={AGENT.phoneHref} className="btn btn-outline">
-                <Phone size={18} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
+                <Phone size={18} aria-hidden />{" "}
+                <span>
+                  Call Christian&apos;s direct line:{" "}
+                  <span className="whitespace-nowrap">{AGENT.phone}</span>
+                </span>
               </a>
               <a href="/start?topic=medicare&quick=1" className="underline">
                 Or send a question
@@ -240,6 +255,40 @@ export default function HomePage() {
               </span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section
+        id="request-a-call"
+        className="engine shell"
+        aria-labelledby="callback-heading"
+        style={{ scrollMarginTop: 100 }}
+      >
+        <div className="engine-grid">
+          <div className="engine-card">
+            <p className="engine-eyebrow">No call centers, just me</p>
+            <h2 id="callback-heading">Have a Medicare question? Start with a call.</h2>
+            <p>
+              Leave your name, phone number, and ZIP code. You don't need to choose a plan or book a
+              45-minute review first.
+            </p>
+            <p>
+              I'm Christian Brinkley, a 21-year-old licensed NC insurance agent based in Greensboro
+              and raised in Creedmoor. I serve the Triad, Triangle, and Granville County by phone,
+              with meetings by arrangement.
+            </p>
+            <p>
+              Your request comes to me. It isn't sold to other agents. There's no cost for the
+              conversation and no obligation to enroll.
+            </p>
+            <a href="/start?topic=medicare&quick=1" className="underline">
+              Prefer email? Send a question
+            </a>
+            <p>
+              <a href={AGENT.phoneHref}>{AGENT.phone}</a>
+            </p>
+          </div>
+          <EngineContact />
         </div>
       </section>
 
@@ -402,13 +451,12 @@ export default function HomePage() {
             </h2>
             <p data-reveal style={{ "--i": 2 } as React.CSSProperties}>
               When you call, you get me. We can check your doctors, prescriptions, monthly premiums,
-              and costs when you need care. I explain the plans I represent and what to confirm
-              with the plan and your doctor before you enroll.
+              and costs when you need care. I explain the plans I represent and what to confirm with
+              the plan and your doctor before you enroll.
             </p>
             <p data-reveal style={{ "--i": 3 } as React.CSSProperties}>
-              I am based in Greensboro and am a licensed NC insurance agent ({AGENT.licenseLine}).
-              I am also an accounting senior at UNCG,
-              graduating in December 2026.
+              I am based in Greensboro and am a licensed NC insurance agent ({AGENT.licenseLine}). I
+              am also an accounting senior at UNCG, graduating in December 2026.
             </p>
             <p data-reveal style={{ "--i": 4 } as React.CSSProperties}>
               Down the road, I want to run a planning practice right here, helping families with
@@ -568,7 +616,11 @@ export default function HomePage() {
               Book a 45-minute phone review
             </a>
             <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn btn-outline">
-              <Phone size={19} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
+              <Phone size={19} aria-hidden />{" "}
+              <span>
+                Call Christian&apos;s direct line:{" "}
+                <span className="whitespace-nowrap">{AGENT.phone}</span>
+              </span>
             </a>
             <a href="/start?topic=medicare&quick=1" className="underline">
               Or send a question
@@ -589,7 +641,10 @@ export default function HomePage() {
             </h2>
             <p data-reveal style={{ "--i": 2 } as React.CSSProperties}>
               I meet people all over the Triad and back home in Granville County. Folks in{" "}
-              <Link href="/medicare-agent-winston-salem-nc" className="underline underline-offset-2">
+              <Link
+                href="/medicare-agent-winston-salem-nc"
+                className="underline underline-offset-2"
+              >
                 Winston-Salem
               </Link>
               ,{" "}
@@ -613,7 +668,9 @@ export default function HomePage() {
             <ul className="faqx-towns" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
               {towns.map((town) => (
                 <li key={town.slug}>
-                  <Link href={canonicalMedicareLocation(`/medicare-in/${town.slug}`)}>{town.name}</Link>
+                  <Link href={canonicalMedicareLocation(`/medicare-in/${town.slug}`)}>
+                    {town.name}
+                  </Link>
                 </li>
               ))}
               <li>

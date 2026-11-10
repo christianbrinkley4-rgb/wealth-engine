@@ -1,3 +1,4 @@
+import { LOCAL_VISIBILITY_CITIES } from "@/lib/localVisibilityCities";
 import { pageTwitter } from "@/lib/seo";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     absolute: "Medicare Help Across NC Towns | Christian Brinkley",
   },
   description:
-    "Free local Medicare help across the Piedmont Triad: Greensboro, High Point, Burlington, Asheboro, Oxford, Roxboro. Find your town with a licensed NC agent.",
+    "Medicare help across the Triad, Triangle, and Granville County, including Greensboro, Durham, Raleigh, Creedmoor, and Oxford. (919) 408-6671",
   alternates: { canonical: "/medicare-nc-towns" },
   openGraph: pageOpenGraph({
     title: "Medicare help in your town",
@@ -51,6 +52,42 @@ interface CountyGroup {
 
 const COUNTIES: CountyGroup[] = [
   {
+    county: "Triangle",
+    towns: [
+      ...Object.entries(LOCAL_VISIBILITY_CITIES)
+        .filter(([slug]) =>
+          ["durham", "chapel-hill", "cary", "apex", "morrisville", "garner", "clayton"].includes(
+            slug,
+          ),
+        )
+        .map(([slug, city]) => ({
+          name: city.name,
+          href: `/medicare-agent-${slug}-nc`,
+          blurb: city.localHeading,
+        })),
+      {
+        name: "Raleigh",
+        href: "/medicare-agent-raleigh-nc",
+        blurb: "WakeMed, Duke Raleigh, UNC Rex, and north Raleigh care.",
+      },
+      {
+        name: "Wake Forest",
+        href: "/medicare-agent-wake-forest-nc",
+        blurb: "The town of Wake Forest and your own residential county.",
+      },
+      {
+        name: "Franklinton",
+        href: "/medicare-agent-franklinton-nc",
+        blurb: "Franklin County coverage and appointments outside the county.",
+      },
+      {
+        name: "Youngsville",
+        href: "/medicare-agent-youngsville-nc",
+        blurb: "Your local doctors, prescriptions, and Raleigh appointments.",
+      },
+    ],
+  },
+  {
     county: "Alamance County",
     towns: [
       {
@@ -71,7 +108,8 @@ const COUNTIES: CountyGroup[] = [
       {
         name: "Mebane",
         href: "/medicare-nc-towns#alamance-county",
-        blurb: "The commuter town between the Triad and the Triangle, and why that matters for networks.",
+        blurb:
+          "The commuter town between the Triad and the Triangle, and why that matters for networks.",
       },
     ],
   },
@@ -79,44 +117,99 @@ const COUNTIES: CountyGroup[] = [
     county: "Granville County",
     towns: [
       {
+        name: "Stovall",
+        href: "/medicare-agent-stovall-nc",
+        blurb: "Phone help for Stovall and care in Oxford or beyond.",
+      },
+      {
         name: "Butner",
-        href: "/medicare-nc-towns#granville-county",
+        href: "/medicare-butner-nc",
         blurb: "Just down the road from Creedmoor. Same neighborly service, in person or by phone.",
       },
       {
         name: "Creedmoor",
-        href: "/medicare-nc-towns#granville-county",
+        href: "/medicare-agent-creedmoor-nc",
         agentHref: "/medicare-agent-creedmoor-nc",
         blurb: "My hometown. Medicare help from someone who grew up here.",
       },
       {
         name: "Stem",
-        href: "/medicare-nc-towns#granville-county",
+        href: "/medicare-agent-stem-nc",
         blurb: "Small Granville town between Creedmoor and Oxford.",
       },
       {
         name: "Oxford",
-        href: "/medicare-nc-towns#granville-county",
+        href: "/medicare-agent-oxford-nc",
         agentHref: "/medicare-agent-oxford-nc",
-        blurb: "The county seat. Durham-direction specialists and SHIIP counseling at Senior Services.",
+        blurb:
+          "The county seat. Durham-direction specialists and SHIIP counseling at Senior Services.",
       },
     ],
   },
   {
     county: "Guilford County",
     towns: [
-      { name: "Browns Summit", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Browns Summit." },
-      { name: "Colfax", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Colfax." },
-      { name: "Gibsonville", href: "/medicare-nc-towns#alamance-county", blurb: "Medicare help in Gibsonville." },
-      { name: "Greensboro", href: "/medicare-agent-greensboro-nc", agentHref: "/medicare-agent-greensboro-nc", blurb: "My base. The full Triad network picture." },
-      { name: "High Point", href: "/medicare-agent-high-point-nc", blurb: "Why High Point buys Guilford plans but sees Winston-Salem doctors." },
-      { name: "Jamestown", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Jamestown." },
-      { name: "McLeansville", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in McLeansville." },
-      { name: "Oak Ridge", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Oak Ridge." },
-      { name: "Pleasant Garden", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Pleasant Garden." },
-      { name: "Stokesdale", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Stokesdale." },
-      { name: "Summerfield", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Summerfield." },
-      { name: "Whitsett", href: "/medicare-nc-towns#guilford-county", blurb: "Medicare help in Whitsett." },
+      {
+        name: "Browns Summit",
+        href: "/medicare-nc-towns#guilford-county",
+        blurb: "Medicare help in Browns Summit.",
+      },
+      {
+        name: "Colfax",
+        href: "/medicare-nc-towns#guilford-county",
+        blurb: "Medicare help in Colfax.",
+      },
+      {
+        name: "Gibsonville",
+        href: "/medicare-nc-towns#alamance-county",
+        blurb: "Medicare help in Gibsonville.",
+      },
+      {
+        name: "Greensboro",
+        href: "/medicare-agent-greensboro-nc",
+        agentHref: "/medicare-agent-greensboro-nc",
+        blurb: "My base. The full Triad network picture.",
+      },
+      {
+        name: "High Point",
+        href: "/medicare-agent-high-point-nc",
+        blurb: "Why High Point buys Guilford plans but sees Winston-Salem doctors.",
+      },
+      {
+        name: "Jamestown",
+        href: "/medicare-nc-towns#guilford-county",
+        blurb: "Medicare help in Jamestown.",
+      },
+      {
+        name: "McLeansville",
+        href: "/medicare-nc-towns#guilford-county",
+        blurb: "Medicare help in McLeansville.",
+      },
+      {
+        name: "Oak Ridge",
+        href: "/medicare-nc-towns#guilford-county",
+        blurb: "Medicare help in Oak Ridge.",
+      },
+      {
+        name: "Pleasant Garden",
+        href: "/medicare-nc-towns#guilford-county",
+        blurb: "Medicare help in Pleasant Garden.",
+      },
+      {
+        name: "Stokesdale",
+        href: "/medicare-nc-towns#guilford-county",
+        blurb: "Medicare help in Stokesdale.",
+      },
+      {
+        name: "Summerfield",
+        href: "/medicare-nc-towns#guilford-county",
+        blurb: "Medicare help in Summerfield.",
+      },
+      {
+        name: "Whitsett",
+        href: "/medicare-nc-towns#guilford-county",
+        blurb: "Medicare help in Whitsett.",
+      },
     ],
   },
   {
@@ -139,8 +232,9 @@ const COUNTIES: CountyGroup[] = [
       },
       {
         name: "Asheboro",
-        href: "/medicare-nc-towns#randolph-county",
-        blurb: "The county seat and medical hub. Zoo town, and where most Randolph County care happens.",
+        href: "/medicare-agent-asheboro-nc",
+        blurb:
+          "The county seat and medical hub. Zoo town, and where most Randolph County care happens.",
       },
       {
         name: "Liberty",
@@ -164,7 +258,7 @@ const COUNTIES: CountyGroup[] = [
     towns: [
       {
         name: "Eden",
-        href: "/medicare-nc-towns#rockingham-county",
+        href: "/medicare-eden-nc",
         blurb: "Former mill town on the northern corridor. Smith River country.",
       },
       {
@@ -174,7 +268,7 @@ const COUNTIES: CountyGroup[] = [
       },
       {
         name: "Reidsville",
-        href: "/medicare-nc-towns#rockingham-county",
+        href: "/medicare-agent-reidsville-nc",
         blurb: "Rockingham's largest town, and why its plan market stands apart.",
       },
     ],
@@ -182,15 +276,31 @@ const COUNTIES: CountyGroup[] = [
   {
     county: "Forsyth County",
     towns: [
-      { name: "Kernersville", href: "/medicare-agent-kernersville-nc", blurb: "Medicare help in Kernersville." },
-      { name: "Winston-Salem", href: "/medicare-agent-winston-salem-nc", blurb: "A different county list, twenty-five minutes away." },
+      {
+        name: "Kernersville",
+        href: "/medicare-agent-kernersville-nc",
+        blurb: "Medicare help in Kernersville.",
+      },
+      {
+        name: "Winston-Salem",
+        href: "/medicare-agent-winston-salem-nc",
+        blurb: "A different county list, twenty-five minutes away.",
+      },
     ],
   },
   {
     county: "Davidson County",
     towns: [
-      { name: "Lexington", href: "/medicare-nc-towns#davidson-county", blurb: "Phone consultations for Lexington residents." },
-      { name: "Thomasville", href: "/medicare-nc-towns#davidson-county", blurb: "Phone consultations for Thomasville residents." },
+      {
+        name: "Lexington",
+        href: "/medicare-agent-lexington-nc",
+        blurb: "Phone consultations for Lexington residents.",
+      },
+      {
+        name: "Thomasville",
+        href: "/medicare-agent-thomasville-nc",
+        blurb: "Phone consultations for Thomasville residents.",
+      },
     ],
   },
 ];
@@ -219,7 +329,7 @@ export default function MedicareTownsHubPage() {
         ]}
         eyebrow="Service area · free Medicare reviews"
         title="Medicare Help Across North Carolina Towns"
-        lede="I'm Christian Brinkley, a licensed insurance agent based in Greensboro and raised in Creedmoor. I help folks across the Piedmont Triad and the surrounding counties understand their Medicare options. Pick your town below for local notes, or start with the 90-second plan check."
+        lede="I'm Christian Brinkley, a licensed insurance agent based in Greensboro and raised in Creedmoor. I help people across the Triad, Triangle, and Granville County understand their Medicare options by phone, with meetings by arrangement. Pick your town below for local notes, or start with the 90-second plan check."
         secondaryHref="/plan-check"
         secondaryLabel="Take the 90-second plan check →"
       />
@@ -228,9 +338,9 @@ export default function MedicareTownsHubPage() {
         <div className="measure-prose app-shell max-w-4xl">
           <p className="text-17 leading-relaxed text-[var(--color-ink-muted)]">
             Medicare Advantage availability is decided county by county, so where you live shapes
-            your options. Each page below has genuinely local notes: the library and senior center
-            that serve the town, the commute patterns that affect plan networks, and what locals
-            tend to run into. No call centers, just me.{" "}
+            your options. Use the town guides for care locations, questions to ask, and help
+            preparing a review. Smaller communities without a separate guide share the county notes
+            below. No call centers, just me.{" "}
             <Link href="/service-area" className="underline underline-offset-2">
               See the full service area
             </Link>
@@ -241,7 +351,9 @@ export default function MedicareTownsHubPage() {
             {COUNTIES.map((group) => (
               <div key={group.county} id={group.county.toLowerCase().replaceAll(" ", "-")}>
                 <h2 className="text-22 font-semibold">{group.county}</h2>
-                <p className="text-17 mt-4 leading-relaxed">{REGIONAL_MEDICARE_NOTES[group.county]}</p>
+                <p className="text-17 mt-4 leading-relaxed">
+                  {REGIONAL_MEDICARE_NOTES[group.county]}
+                </p>
                 <ul className="mt-4 grid gap-4 sm:grid-cols-2">
                   {group.towns.map((town) => (
                     <li
