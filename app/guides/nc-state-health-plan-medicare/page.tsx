@@ -5,7 +5,7 @@ import { SeoGuidePage, seoGuideMetadata, type SeoGuideData } from "@/app/compone
 const data: SeoGuideData = {
   slug: "nc-state-health-plan-medicare",
   title: "NC State Health Plan Medicare options for 2027",
-  metaTitle: "NC State Health Plan Medicare: 2027 Retiree Guide",
+  metaTitle: "NC State Health Plan Retirees on Medicare: 2027 Guide",
   description:
     "Review NC State Health Plan Medicare options for 2027, the November 6 enrollment deadline, and what to check before changing retiree coverage.",
   published: "2026-10-08",
@@ -17,7 +17,7 @@ const data: SeoGuideData = {
       title: "What happens if you do nothing",
       paragraphs: [
         "This is a separate deadline from Medicare's December 7 enrollment deadline. Follow the [State Health Plan's official instructions](https://www.shpnc.gov/2027-open-enrollment-information-medicare-members) and keep your enrollment confirmation.",
-        "Short on time? Use the [one-page November 6 checklist](/state-health-plan-checklist), or print it for a friend.",
+        "Short on time? Use the [one-page retiree checklist](/state-health-plan-checklist), or print it for a friend.",
       ],
       table: {
         caption: "What happens if you do nothing",
@@ -31,15 +31,15 @@ const data: SeoGuideData = {
     {
       title: "What changes for 2027",
       paragraphs: [
-        "Open enrollment for the 2027 plan year runs October 12 to November 6, 2026. It was first set to end October 30 and was extended. Here is what changes for retirees on Medicare:",
+        "Open enrollment for the 2027 plan year opened October 12, 2026. The deadline to change plans was November 6, 2026. It was first set to end October 30 and was extended. Here is what changes for retirees on Medicare:",
         "Sources: State Health Plan 2027 open enrollment page for Medicare members (shpnc.gov); NC Department of State Treasurer, October 14, 2026; WFDD / NC Newsroom and North Carolina Health News, October 27, 2026; Becker's Payer Issues, June 8, 2026.",
       ],
       bullets: [
-        "**On the 70/30 plan and do nothing?** You're moved to the Base Medicare Advantage plan for 2027. To stay on the 70/30 plan, you have to pick it by November 6.",
-        "**Already on a Medicare Advantage plan?** If you do nothing, you stay on the plan you have.",
+        "**On the 70/30 plan and did nothing?** You were moved to the Base Medicare Advantage plan for 2027. To stay on the 70/30 plan, you had to pick it by November 6, 2026.",
+        "**Already on a Medicare Advantage plan?** If you did nothing, you stayed on the plan you have.",
         "**Higher out-of-pocket limits.** The medical out-of-pocket limit, the most you can pay for medical care in a year, goes from $4,000 to $4,500 on the Base plan and from $3,300 to $3,700 on the Enhanced plan. Drug costs have a separate out-of-pocket limit, and there's a new $50 copay for Part B drugs on both plans.",
         "**A new network setup on the 70/30 plan.** The 70/30 plan uses a three-tier provider network in 2027, and the tier your doctor is in can change what you pay.",
-        "**Atrium Health is back in network (updated October 27).** On October 14 the State Treasurer announced Atrium would move to the plan's out-of-network tier for 2027. On October 27, Atrium and the State Health Plan reached a multi-year agreement instead: for 2027, all Atrium doctors and hospitals, including Atrium Health Wake Forest Baptist in Winston-Salem and High Point, are in-network in the plan's middle \"access\" tier, at about today's costs. If you see Atrium doctors and aren't sure how your plan treats them, call the State Health Plan Medicare Support Center at 833-429-5003 before November 6.",
+        "**Atrium Health is back in network (updated October 27).** On October 14 the State Treasurer announced Atrium would move to the plan's out-of-network tier for 2027. On October 27, Atrium and the State Health Plan reached a multi-year agreement instead: for 2027, all Atrium doctors and hospitals, including Atrium Health Wake Forest Baptist in Winston-Salem and High Point, are in-network in the plan's middle \"access\" tier, at about today's costs. If you see Atrium doctors and aren't sure how your plan treats them, call the State Health Plan Medicare Support Center at 833-429-5003.",
       ],
     },
     {
@@ -105,7 +105,7 @@ const data: SeoGuideData = {
       a: "The State Health Plan's 2027 Open Enrollment deadline is November 6, 2026. December 7 is a separate Medicare enrollment deadline.",
     },
     {
-      q: "Will I stay on 70/30 if I do nothing?",
+      q: "What happened if I was on 70/30 and did nothing?",
       a: "The Plan says members on 70/30 must take action to remain there for 2027.",
     },
     {
@@ -138,7 +138,7 @@ const data: SeoGuideData = {
   related: [
     {
       href: "/state-health-plan-checklist",
-      label: "One-page November 6 checklist",
+      label: "One-page State Health Plan retiree checklist",
     },
     {
       href: "/guides/medicare-part-b-employer-coverage",
@@ -163,7 +163,7 @@ function currentData(): SeoGuideData {
   return {
     ...data,
     description:
-      "Review NC State Health Plan Medicare options for 2027, what changed after open enrollment, and where to ask about retiree coverage.",
+      "NC state retirees on Medicare: what changed for 2027, what the Base Medicare Advantage plan means, and what to check with your doctors and drugs.",
     answer:
       "Eligible NC State Health Plan retirees have three Medicare plan options for 2027: the Humana Base plans, Humana Enhanced plans, and the Aetna-administered 70/30 Plan. The October 12 through November 6, 2026 Open Enrollment period has ended. Contact the State Health Plan about your current enrollment and any remaining options.",
     sections: data.sections.map((section, index) =>
@@ -206,7 +206,19 @@ function currentData(): SeoGuideData {
   };
 }
 export function generateMetadata(): Metadata {
-  return seoGuideMetadata(currentData());
+  const metadata = seoGuideMetadata(currentData());
+  if (Date.now() < SHP_METADATA_REVERT_AT) return metadata;
+  // Evergreen social cards after Open Enrollment (plans/SHP_GUIDE_EVERGREEN_META_2026-11-07.md).
+  const social = {
+    title: "NC State Health Plan retirees on Medicare: your 2027 guide",
+    description:
+      "What changed for state retirees on Medicare in 2027, and what to check with your doctors, drugs, and plan.",
+  };
+  return {
+    ...metadata,
+    openGraph: { ...metadata.openGraph, ...social },
+    twitter: { ...metadata.twitter, ...social },
+  };
 }
 export default function Page() {
   return <SeoGuidePage data={currentData()} />;
