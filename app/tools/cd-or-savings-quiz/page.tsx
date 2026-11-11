@@ -11,6 +11,7 @@ import { CdSavingsQuizClient } from "./QuizClient";
 const path = "/tools/cd-or-savings-quiz";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: META.title },
   description: META.description,
   alternates: { canonical: path },

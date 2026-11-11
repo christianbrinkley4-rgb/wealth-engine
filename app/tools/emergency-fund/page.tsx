@@ -14,6 +14,7 @@ const description =
   "Free emergency fund calculator. Turn your monthly spending into a savings target and a month-by-month plan to reach it. Explore the plain-English guide.";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Emergency Fund Calculator | Christian Brinkley" },
   description,
   alternates: { canonical: path },

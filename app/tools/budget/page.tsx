@@ -14,6 +14,7 @@ const description =
   "Free monthly budget calculator. Type your take-home pay and spending by category, then see your surplus or deficit with a full breakdown of where it goes.";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Budget Calculator | Christian Brinkley" },
   description,
   alternates: { canonical: path },

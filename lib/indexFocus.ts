@@ -125,6 +125,15 @@ export function isOffTopicPath(path: string): boolean {
   return OFF_TOPIC_PREFIXES.some((p) => clean === p || clean.startsWith(`${p}/`));
 }
 
+/**
+ * Page metadata robots for off-topic pages, so the HTML meta tag says the same
+ * thing as the X-Robots-Tag header (noindex, follow). Spread into metadata:
+ * `...offTopicRobots(path)`. Returns {} for indexable paths.
+ */
+export function offTopicRobots(path: string): { robots?: { index: false; follow: true } } {
+  return isOffTopicPath(path) ? { robots: { index: false, follow: true } } : {};
+}
+
 /** next.config headers() entries that send `X-Robots-Tag: noindex, follow`. */
 export function offTopicRobotsHeaders() {
   const header = [{ key: "X-Robots-Tag", value: "noindex, follow" }];
