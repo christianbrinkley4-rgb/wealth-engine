@@ -534,8 +534,19 @@ export default function AepPage() {
             four enrollment periods
           </Link>
           , understand{" "}
-          <Link href="/guides/what-is-medigap-medicare-supplement-nc">what Medigap is</Link>, and
-          see how the{" "}
+          <Link href="/guides/what-is-medigap-medicare-supplement-nc">what Medigap is</Link>, compare{" "}
+          <Link href="/guides/best-medigap-plans-2027-nc">
+            the best Medigap plans for 2027
+          </Link>
+          , see who qualifies for a{" "}
+          <Link href="/guides/medicare-savings-programs-north-carolina">
+            Medicare Savings Program in North Carolina
+          </Link>
+          , learn how{" "}
+          <Link href="/guides/hospital-indemnity-insurance-medicare">
+            hospital indemnity insurance works
+          </Link>
+          , and see how the{" "}
           <Link href="/guides/health-insurance-marketplace-north-carolina">
             Marketplace works in North Carolina
           </Link>

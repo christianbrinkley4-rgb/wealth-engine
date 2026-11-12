@@ -2201,6 +2201,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         body: "A Special Needs Plan is a Medicare Advantage plan tailored to a specific group. The dual-eligible kind, a D-SNP, serves people with both Medicare and Medicaid. Like all Medicare Advantage plans it covers your Part A and Part B benefits, and every SNP includes Part D drug coverage. SNPs add care coordination and benefits shaped for their members. They come as HMO or PPO plan types, and they are not offered in every area, so availability depends on your address.",
       },
       {
+        title: "North Carolina Medicaid: who qualifies",
+        body: "Full Medicaid and the Medicare Savings Programs are different doors into the same building. Full Medicaid covers people with very low income and limited savings, and the exact limits depend on your household. The Medicare Savings Programs help people whose income is a little higher. For 2026, the Qualified Medicare Beneficiary program, or QMB, covers a single person at or below $1,350 a month and a couple at or below $1,824. The Specified Low-Income program, or SLMB, covers $1,616 for one person and $2,184 for a couple. The Qualifying Individual program, or QI, covers $1,816 and $2,455. Countable resources must be at or below $9,950 for one person or $14,910 for a couple. These are the federal figures North Carolina applies. Confirm your situation with NC Medicaid or your county Department of Social Services, and read the full Medicare Savings Programs guide for North Carolina for the application steps.",
+      },
+      {
+        title: "How many D-SNPs serve Guilford County in 2027",
+        body: "Guilford County has 24 Dual Special Needs Plans for 2027, according to the CMS landscape file: 12 HMO plans, 7 HMO-POS plans, and 5 PPO plans, offered by 10 organizations. Availability still depends on your exact address, and two plans from the same organization can differ in network, drugs, and extra benefits. Check which of the 24 serve your home address, confirm your doctors and pharmacy are in the network, and compare the plans side by side rather than picking by name.",
+      },
+      {
         title: "When you can enroll or switch",
         body: "Annual Enrollment runs October 15 through December 7 each year. Dual-eligible enrollment rules changed in 2025, so if you remember the old quarterly switch window, check the current rules before assuming it still works. Having Medicaid also gives you more chances to join or switch plans during the year than Medicare alone does.",
       },
@@ -2238,6 +2246,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         q: "Can I change plans outside Annual Enrollment?",
         a: "People with Medicaid get more chances to join or switch plans during the year. The exact windows changed in 2025, so check the current rules or ask a local agent.",
       },
+      {
+        q: "How do I know if I qualify for a Medicare Savings Program?",
+        a: "Compare your monthly income and savings with the 2026 limits: QMB covers $1,350 a month for one person and $1,824 for a couple, with higher lines for SLMB and QI. Your county Department of Social Services can check your exact situation and take the application.",
+      },
+      {
+        q: "How many D-SNPs are available in Guilford County for 2027?",
+        a: "Twenty-four, according to the CMS landscape file: 12 HMO plans, 7 HMO-POS plans, and 5 PPO plans. Availability depends on your exact address, so check which ones serve your home.",
+      },
     ],
     sources: [
       {
@@ -2252,9 +2268,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         title: "Medicare: Health plans that lower costs",
         url: "https://www.medicare.gov/basics/costs/help/medicare-lower-costs",
       },
+      {
+        title: "NC Medicaid: Eligibility",
+        url: "https://medicaid.ncdhhs.gov/eligibility",
+      },
     ],
     related: [
       { title: "What dual eligible means", href: "/answers/what-does-it-mean-to-be-dual-eligible-for-medicare-and-medicaid" },
+      { title: "Medicare Savings Programs in North Carolina", href: "/guides/medicare-savings-programs-north-carolina" },
       { title: "Medicare Annual Enrollment", href: "/aep" },
       { title: "When your Medicare plan is not renewing", href: "/guides/medicare-plan-not-renewing-triad" },
       { title: "Medicare help in the Triad", href: "/medicare" },
@@ -2575,6 +2596,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         body: "North Carolina has 11 standalone Part D plans for 2027, down from 12 in 2026, according to the state's SHIIP program. Part D plans are sold by region, not by county, so everyone in North Carolina sees the same standalone list. CMS puts the lowest standalone premium at $5.30 a month in most states for 2027, and projects the average standalone premium at about $36 a month. KFF found a different number for people who stay in the same plan: an average of $51 a month nationally. The federal program that held standalone premiums down ends after 2026, so premiums can move more freely for 2027. Your plan's own premium is the only one that matters, and it is in your Annual Notice of Change.",
       },
       {
+        title: "Why premiums are rising for 2027",
+        body: "The biggest reason is that the federal program that held standalone premiums down is ending. For 2025 and 2026, CMS ran the Part D Premium Stabilization Demonstration, which paid plan sponsors extra money and capped how much a participating plan's premium could rise in a year, $35 a month in 2025 and $50 in 2026. CMS announced in July 2026 that the program ends after 2026. KFF projects that if enrollees keep their current plans, the average standalone premium rises 50 percent, from $34 a month in 2026 to $51 in 2027. CMS projects a smaller rise, from about $35 to about $36, because it assumes people switch to cheaper plans. KFF expects the real average to land lower than $51 once people switch. Three in four standalone enrollees without low-income help, about 10.4 million people, would pay more if they stay put. There are also no zero-premium standalone plans in 2027, so about 4.1 million people who paid nothing in 2026 will pay something. The plan to switch to is the one that fits your drugs, not the one with the lowest headline premium.",
+      },
+      {
+        title: "Medicare negotiated drug prices for 2027",
+        body: "Medicare negotiated prices for 15 Part D drugs, and the new prices take effect January 1, 2027. The negotiated price, called the maximum fair price, is a ceiling on what Medicare pays the drug company, not the price you pay at the pharmacy. Your cost still depends on your plan's tier and cost sharing. The best-known price is for Ozempic, Rybelsus, and Wegovy: $274 for a 30-day supply, down from a $959 list price. Trelegy Ellipta is $175, down from $654. Linzess is $136, down from $539. Breo Ellipta is $67, down from $397. Tradjenta is $78 and Janumet is $80. The cancer drugs cost more even after negotiation: Xtandi is $7,004, Pomalyst is $8,650, Ofev is $6,350, Ibrance is $7,871, and Calquence is $8,600. Austedo is $4,093, Xifaxan is $1,000, Vraylar is $770, and Otezla is $1,650. Four drugs from the first round of negotiation leave the program on January 1, 2027: Stelara, Entresto, Xarelto, and NovoLog and Fiasp. Six survive from the first round: Eliquis, Enbrel, Farxiga, Imbruvica, Januvia, and Jardiance. In total, 21 drugs carry a negotiated price in 2027. CMS estimates the 2027 prices would have saved people with Part D about $685 million in out-of-pocket costs if they had applied in 2024. Check your plan's formulary to see what your drugs cost under your plan, because the negotiated price alone does not set your copay.",
+      },
+      {
         title: "How to compare: your drugs, your pharmacy, your year",
         body: "Set the premium aside first. Multiply it by 12, then add what your drugs cost under each plan's rules: deductible, copays or coinsurance by tier, and whether your pharmacy is preferred. The plan with the lowest premium often loses on the total. Then check the formulary itself. Plans change which drugs they cover and which tier each drug sits in every year. Enter your exact drugs, doses, and pharmacy into the Medicare plan finder at medicare.gov to see your real total by plan. A plan that suits someone else's prescriptions can still be the wrong plan for yours.",
       },
@@ -2633,6 +2662,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         q: "When can I change my Part D plan for 2027?",
         a: "During Open Enrollment, October 15 through December 7, 2026. Changes take effect January 1, 2027. Outside that window you generally need a Special Enrollment Period, such as a move or losing other drug coverage.",
       },
+      {
+        q: "Why is my Part D premium going up for 2027?",
+        a: "The federal premium stabilization program ends after 2026, so plans can raise premiums more freely. KFF projects the average standalone premium rises from $34 to $51 a month if enrollees stay put, though switching to a cheaper plan usually lowers the real average. There are also no zero-premium standalone plans in 2027.",
+      },
+      {
+        q: "Will negotiated drug prices lower what I pay at the pharmacy?",
+        a: "Not directly. The negotiated price is a ceiling on what Medicare pays the drug company. What you pay still depends on your plan's tier and cost sharing. The savings reach you through the plan's costs over time, not as a new copay on the day the price takes effect.",
+      },
     ],
     sources: [
       {
@@ -2646,6 +2683,14 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       {
         title: "Medicare: Find health and drug plans",
         url: "https://www.medicare.gov/plan-compare",
+      },
+      {
+        title: "KFF: Medicare Part D premiums and cost sharing in 2027",
+        url: "https://www.kff.org/medicare/medicare-part-d-premiums-and-cost-sharing-in-2027/",
+      },
+      {
+        title: "CMS: Negotiated prices for 2027",
+        url: "https://www.cms.gov/files/document/fact-sheet-negotiated-prices-ipay-2027.pdf",
       },
     ],
     related: [
@@ -5008,6 +5053,265 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     opportunity:
       "Bridge years carry the highest unsubsidized premiums in the market; answer with dated costs and the 400% subsidy line.",
     intent: "informational",
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "best-medigap-plans-2027-nc",
+    title: "Best Medigap Plans for 2027 in North Carolina",
+    description:
+      "There is no single best Medigap plan. Compare Plan G, Plan N, and High Deductible Plan G on the 2027 figures, then match the plan to your doctors and budget.",
+    query: "best medigap plans 2027 north carolina",
+    opportunity:
+      "People search for the best Medigap plan, but the honest answer is a comparison. G, N, and High Deductible G on the 2027 figures, matched to real use, is the page.",
+    intent: "informational",
+    answer:
+      "There is no single best Medigap plan for 2027. Plan G covers the most and costs the most. Plan N costs less but adds copays. High Deductible Plan G costs the least each month but you pay the first $3,050 yourself. The right plan depends on your doctors, your health, and your budget.",
+    sections: [
+      {
+        title: "The three plans most people compare",
+        body: "Medigap plans are standardized, so a Plan G from one company covers the same benefits as a Plan G from another. The differences are price, service, and the company's rating method. Plan G covers nearly everything Original Medicare leaves behind, including Part B excess charges, and has no copays. Plan N covers the same core benefits but does not cover excess charges and adds copays for office and emergency room visits. High Deductible Plan G is the same standardized Plan G benefit, but you pay Medicare-covered costs yourself until you reach the yearly deductible.",
+      },
+      {
+        title: "The 2027 figures",
+        body: "The High Deductible Plan G deductible is $3,050 for 2027, set by CMS, up from $2,950 in 2026. The Part B deductible is $283 for 2026; the 2027 figure had not been announced as of November 7, 2026, and the Trustees projected $292. No Medigap plan sold to new enrollees covers the Part B deductible, so you pay it yourself under any of the three. In the NC Department of Insurance premium database viewed in October 2026, Plan G for a non-smoking man age 65 ranged from about $111 to $266 a month, with a median of about $140. The lowest Plan N rate for a 65-year-old in North Carolina was $94 a month. Plan N copays run up to $20 for an office visit and up to $50 for an emergency room visit that does not lead to admission.",
+      },
+      {
+        title: "How to compare them fairly",
+        body: "Compare quotes for the same person: same age, gender, tobacco use, and zip code. Then check whether your doctors accept Medicare assignment. If they do, excess charges never arise and Plan N loses its main drawback. Count your office visits in the last year and multiply by $20 to see what Plan N copays would have cost. For High Deductible Plan G, compare the yearly premium saved against the $3,050 you would owe in a bad year. The cheapest monthly premium is not the cheapest year.",
+      },
+      {
+        title: "When each plan fits",
+        body: "Plan G fits people who see doctors often, travel, or want the most predictable costs. Plan N fits people who are healthy, see a doctor a few times a year, and whose doctors all accept assignment. High Deductible Plan G fits people who are healthy, can absorb a $3,050 year without strain, and want catastrophic-style coverage at the lowest monthly cost. None of these is a recommendation for your situation. They are the patterns to check against your own visits and budget.",
+      },
+      {
+        title: "When to buy",
+        body: "Your Medigap open enrollment lasts six months from the month you turn 65 and enroll in Part B. During that window, a carrier cannot ask health questions or turn you down. After it closes, North Carolina carriers can use medical underwriting, so a health problem can mean a higher price or a denial. Some situations restore guaranteed issue rights, such as when your Medicare Advantage plan ends or stops serving your area. If your plan is ending for 2027, check the Medigap section of the plan-ending page before the window closes.",
+      },
+    ],
+    comparison: {
+      caption: "Medigap Plan G, Plan N, and High Deductible Plan G for 2027",
+      headers: ["Plan", "What you pay and what it covers"],
+      rows: [
+        ["Plan G", "Highest monthly premium of the three. No copays. Covers Part B excess charges. You pay the Part B deductible only."],
+        ["Plan N", "Lower premium than Plan G. Copays up to $20 for office visits and up to $50 for emergency room visits. Does not cover excess charges. You pay the Part B deductible only."],
+        ["High Deductible Plan G", "Lowest monthly premium of the three. You pay Medicare-covered costs yourself until the $3,050 deductible for 2027, then it pays like standard Plan G."],
+      ],
+    },
+    checklist: [
+      "List your doctors and check whether each accepts Medicare assignment.",
+      "Count your office visits in the last year.",
+      "Get quotes for the same age, gender, and zip code.",
+      "Compare the yearly total, not just the monthly premium.",
+      "Check your guaranteed issue window before you switch.",
+    ],
+    faqs: [
+      {
+        q: "Which Medigap plan is best for 2027?",
+        a: "No one plan is best for everyone. Compare Plan G, Plan N, and High Deductible Plan G on your doctors, your visits, and your budget, then pick the tradeoff you can live with.",
+      },
+      {
+        q: "What is High Deductible Plan G?",
+        a: "It is the same standardized Plan G benefit, but you pay Medicare-covered costs yourself until you reach a yearly deductible of $3,050 in 2027, set by CMS. After that it pays like standard Plan G, at a much lower monthly premium.",
+      },
+      {
+        q: "Do Plan G and Plan N cover the Part B deductible?",
+        a: "No. Neither plan covers the annual Part B deductible. You pay that yourself each year before either plan starts paying. No Medigap plan sold to new enrollees covers it.",
+      },
+      {
+        q: "Can I switch Medigap plans later?",
+        a: "In North Carolina you can apply any time, but after your six-month open enrollment window the carrier can ask health questions and turn you down. Guaranteed issue rights apply in some situations, such as when a Medicare Advantage plan ends.",
+      },
+    ],
+    sources: [
+      {
+        title: "CMS: High deductible Plan F and G announcements",
+        url: "https://www.cms.gov/medicare/health-drug-plans/medigap/f-g-j-deductible-announcements",
+      },
+      {
+        title: "Medicare: Medigap basics",
+        url: "https://www.medicare.gov/health-drug-plans/medigap/basics",
+      },
+      {
+        title: "CMS: 2026 Medicare Parts A and B premiums and deductibles",
+        url: "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+      },
+    ],
+    related: [
+      { title: "Medigap Plan G vs Plan N in North Carolina", href: "/guides/medigap-plan-g-vs-plan-n-nc" },
+      { title: "Medicare Part D plans 2027: North Carolina guide", href: "/guides/medicare-part-d-plans-2027-nc" },
+      { title: "Is your Medicare plan ending in 2027?", href: "/medicare-plans-ending-2027" },
+      { title: "Free Medicare help in North Carolina: SHIIP", href: "/answers/free-medicare-help-north-carolina-shiip" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "hospital-indemnity-insurance-medicare",
+    title: "Hospital Indemnity Insurance and Medicare",
+    description:
+      "Hospital indemnity insurance pays you cash for each day in the hospital. See typical costs, what Medicare leaves you to pay, and whether it works for you.",
+    query: "hospital indemnity insurance medicare cost",
+    opportunity:
+      "Hospital copays are the most common surprise bill in Medicare Advantage. A plain guide to indemnity benefits, typical premiums, and the math answers it.",
+    intent: "informational",
+    answer:
+      "Hospital indemnity insurance pays a set cash amount for each day you spend in the hospital. It does not replace Medicare. It helps with the hospital copays and the Part A deductible that Medicare leaves you to pay.",
+    sections: [
+      {
+        title: "What Medicare leaves you to pay",
+        body: "Original Medicare has no yearly limit on what you pay out of pocket. The Part A inpatient deductible is $1,736 per benefit period in 2026, and hospital coinsurance runs $434 a day for days 61 to 90. In a Medicare Advantage plan, hospital copays commonly run $300 to $400 a day for the first five to seven days. Skilled nursing facility coinsurance is $217 a day for days 21 to 100, and Medicare pays nothing after day 100. A single hospital stay can add up to thousands of dollars even with good coverage.",
+      },
+      {
+        title: "What hospital indemnity pays",
+        body: "A hospital indemnity policy pays a fixed cash benefit for each day you are admitted, typically $100 to $500 a day depending on the benefit you choose. The money is paid to you, not to the hospital, and you can use it for copays, travel, or any other cost. Typical premiums run $20 to $60 a month. A 65-year-old buying a $200-a-day benefit might pay $30 to $45 a month. These are typical published ranges, not quotes. Your price depends on your age, health, and the benefit amount.",
+      },
+      {
+        title: "When the math works",
+        body: "Compare the yearly premium with one hospital stay. A five-day stay with a $400-a-day copay costs $2,000 out of pocket. A $200-a-day benefit for those five days pays $1,000. It narrows the gap, it does not erase it. The policy pays off when you are admitted; in years with no admission, the premium is the cost of the protection. If your plan already has a low hospital copay, or if you hold a Medigap plan that covers the Part A deductible and coinsurance, the benefit may add little.",
+      },
+      {
+        title: "What to check before you buy",
+        body: "Ask how much the benefit pays per day and which admissions count. Some policies exclude observation stays, which are common. Check the waiting period before benefits start and any limits on pre-existing conditions. Confirm the benefit is paid to you and whether it renews each year. Hospital indemnity is not a substitute for drug coverage, Medigap, or a Medicare Advantage plan. It is a separate policy that sits beside your main coverage.",
+      },
+    ],
+    comparison: {
+      caption: "A hospital stay: what Medicare leaves, and what a $200-a-day benefit pays",
+      headers: ["Cost", "Amount"],
+      rows: [
+        ["Part A deductible, 2026", "$1,736 per benefit period"],
+        ["Medicare Advantage hospital copay, days 1 to 5", "$300 to $400 a day"],
+        ["Skilled nursing coinsurance, days 21 to 100", "$217 a day"],
+        ["Hospital indemnity benefit, example", "$200 a day"],
+        ["Typical premium", "$20 to $60 a month"],
+      ],
+    },
+    checklist: [
+      "Ask your Medicare Advantage plan what a hospital day costs you.",
+      "Compare the yearly premium with one hospital stay.",
+      "Check whether observation stays count.",
+      "Read the waiting period and pre-existing condition limits.",
+      "Confirm the benefit is paid to you, not the hospital.",
+    ],
+    faqs: [
+      {
+        q: "Does hospital indemnity replace Medicare?",
+        a: "No. It is a separate policy that pays cash beside your Medicare coverage. It does not cover doctor visits, drugs, or anything Medicare does not already cover.",
+      },
+      {
+        q: "How much does hospital indemnity cost?",
+        a: "Typical premiums run $20 to $60 a month, with daily benefits of $100 to $500 a day. Your price depends on your age, health, and the benefit amount you choose.",
+      },
+      {
+        q: "Does it pay for nursing home care?",
+        a: "Generally no. It pays for hospital days. Skilled nursing facility costs are separate, and Medicare's coverage there ends after day 100.",
+      },
+      {
+        q: "Can I buy it if I already have a Medicare Advantage plan?",
+        a: "Yes. It is a separate policy. Check first whether your Advantage plan already covers the hospital costs you are worried about, so you do not pay twice for the same protection.",
+      },
+    ],
+    sources: [
+      {
+        title: "CMS: 2026 Medicare Parts A and B premiums and deductibles",
+        url: "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+      },
+      {
+        title: "Medicare: Skilled nursing facility care",
+        url: "https://www.medicare.gov/coverage/skilled-nursing-facility-care",
+      },
+    ],
+    related: [
+      { title: "Best Medigap plans for 2027 in North Carolina", href: "/guides/best-medigap-plans-2027-nc" },
+      { title: "Medicare Part D plans 2027: North Carolina guide", href: "/guides/medicare-part-d-plans-2027-nc" },
+      { title: "How to compare Medicare Advantage plans for 2027 in NC", href: "/guides/how-to-compare-medicare-advantage-plans-2027-nc" },
+    ],
+    datePublished: "2026-11-07",
+    dateModified: "2026-11-07",
+  },
+  {
+    slug: "medicare-savings-programs-north-carolina",
+    title: "Medicare Savings Programs in North Carolina",
+    description:
+      "Medicare Savings Programs pay your Part B premium and more if your income and savings are low. See the 2026 limits for QMB, SLMB, and QI in North Carolina.",
+    query: "medicare savings program north carolina income limits",
+    opportunity:
+      "People who cannot afford the Part B premium search for help by state. A North Carolina page with the QMB, SLMB, and QI limits and the DSS path answers it.",
+    intent: "informational",
+    answer:
+      "Medicare Savings Programs are state programs that pay Medicare costs for people with limited income and savings. In North Carolina, QMB pays your Part B premium plus deductibles and copays. SLMB and QI pay the Part B premium only.",
+    sections: [
+      {
+        title: "The three programs",
+        body: "There are three main programs. Qualified Medicare Beneficiary, or QMB, is the fullest help: it pays your Part B premium, your deductibles, and your coinsurance and copays. Specified Low-Income Medicare Beneficiary, or SLMB, pays your Part B premium only. Qualifying Individual, or QI, also pays your Part B premium only, but it is first come, first served and you must apply each year. A fourth program, QDWI, pays the Part A premium for certain people with disabilities who returned to work.",
+      },
+      {
+        title: "The 2026 income and savings limits",
+        body: "The limits below are the federal figures North Carolina applies for 2026. For QMB, monthly income must be at or below $1,350 for one person or $1,824 for a couple. For SLMB, the lines are $1,616 and $2,184. For QI, they are $1,816 and $2,455. For QDWI, they are $5,405 and $7,299. Countable resources must be at or below $9,950 for one person or $14,910 for a couple. Your home, one car, burial plots, and household items generally do not count. Confirm the current figures with NC Medicaid or your county Department of Social Services before relying on them.",
+      },
+      {
+        title: "What each program pays",
+        body: "QMB pays the Part B premium, which is $202.90 a month in 2026, plus the Part A premium if you owe one, and your Medicare deductibles, coinsurance, and copays. Providers cannot bill a QMB member for Medicare-covered cost sharing. SLMB and QI pay the Part B premium only, which still saves about $2,435 a year at the 2026 premium. Anyone with QMB also qualifies for Extra Help with prescription drug costs automatically, with no separate application.",
+      },
+      {
+        title: "How to apply in North Carolina",
+        body: "Apply at your county Department of Social Services. You can apply any time of year. Bring proof of income, bank statements, and your Medicare card. For QI, apply early in the year, because funding runs out and the program is first come, first served. You can also ask the same office about full Medicaid and Extra Help for drug costs. If you are turned down, ask why in writing, because some income does not count and the limits change each year.",
+      },
+    ],
+    comparison: {
+      caption: "Medicare Savings Programs, 2026 limits",
+      headers: ["Program", "2026 limits and what it pays"],
+      rows: [
+        ["QMB", "$1,350 a month for one person, $1,824 for a couple. Pays the Part B premium plus deductibles and copays."],
+        ["SLMB", "$1,616 a month for one person, $2,184 for a couple. Pays the Part B premium."],
+        ["QI", "$1,816 a month for one person, $2,455 for a couple. Pays the Part B premium. First come, first served."],
+        ["QDWI", "$5,405 a month for one person, $7,299 for a couple. Pays the Part A premium."],
+      ],
+    },
+    checklist: [
+      "Check your monthly income against the limits above.",
+      "Add up your countable savings and resources.",
+      "Apply at your county Department of Social Services.",
+      "Apply early in the year for QI.",
+      "Ask about Extra Help for drug costs at the same time.",
+    ],
+    faqs: [
+      {
+        q: "Do Medicare Savings Programs count as Medicaid?",
+        a: "QMB is a form of Medicaid. SLMB and QI pay the premium without full Medicaid. All three are run through NC Medicaid and your county Department of Social Services.",
+      },
+      {
+        q: "What counts as a resource?",
+        a: "Bank accounts, stocks, and bonds count. Your home, one car, burial plots, and household items generally do not. The limit is $9,950 for one person and $14,910 for a couple.",
+      },
+      {
+        q: "Can I have a Medicare Savings Program and a Medicare Advantage plan?",
+        a: "Yes. The program pays your Part B premium either way. If you have QMB, you also qualify for Extra Help with drug costs, which lowers your prescription costs in either kind of plan.",
+      },
+      {
+        q: "What if my income is just over the limit?",
+        a: "Apply anyway. Some income does not count, and the limits change each year. Your county Department of Social Services can check your exact situation.",
+      },
+    ],
+    sources: [
+      {
+        title: "NC Medicaid: Eligibility",
+        url: "https://medicaid.ncdhhs.gov/eligibility",
+      },
+      {
+        title: "CMS: Dual-eligible categories fact sheet",
+        url: "https://www.cms.gov/files/document/dual-eligible-categories.pdf-0",
+      },
+      {
+        title: "Medicare: Health plans that lower costs",
+        url: "https://www.medicare.gov/basics/costs/help/medicare-lower-costs",
+      },
+    ],
+    related: [
+      { title: "Dual eligible in the Triad? What a D-SNP does for you", href: "/guides/medicare-dual-eligible-snp-triad" },
+      { title: "Free Medicare help in North Carolina: SHIIP", href: "/answers/free-medicare-help-north-carolina-shiip" },
+      { title: "Medigap Plan G vs Plan N in North Carolina", href: "/guides/medigap-plan-g-vs-plan-n-nc" },
+    ],
     datePublished: "2026-11-07",
     dateModified: "2026-11-07",
   },
