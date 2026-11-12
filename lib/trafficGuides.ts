@@ -2469,6 +2469,10 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         body: "CMS lists 179 Medicare Advantage plans in North Carolina for 2027 in its landscape file, up from 175 in 2026. That statewide count misleads more than it helps. Plans are approved county by county, so the list you can actually join is set by your home address. Guilford County and Wake County do not offer the same plans. Check every plan at your ZIP code, in the Medicare plan finder at medicare.gov, before you compare anything else.",
       },
       {
+        title: "Guilford County, worked through",
+        body: "Guilford County shows how the county-first method works. The county has 57 Medicare Advantage plans for 2027 that are not Special Needs Plans, and 45 of them include drug coverage. Thirty-four of the 45 charge a $0 total monthly premium, and the average total premium across the 45 is $11.90 a month. The average in-network out-of-pocket maximum is $6,648, the median is $6,750, and the range runs from $3,400 to the $9,850 ceiling. Thirty-seven of the 57 plans sit under contracts rated 4 stars or more. The full contract-by-contract table, with star ratings, premiums, and maximums, is on the Greensboro comparison page. Use it to narrow the list, then check your doctors and drugs on the plans that survive.",
+      },
+      {
         title: "Check your doctors and your drugs first",
         body: "A plan that excludes your doctor or drops your drug is the wrong plan at any premium. Ask three questions of every plan: is each of my doctors in network, and what do I pay if one is not; is each of my drugs on the formulary, and on which tier; and is my pharmacy preferred or standard. HMO plans generally require in-network care except in emergencies. PPO plans cover some out-of-network care at higher cost. Get the answers in writing from the plan's own documents, not from an advertisement.",
       },
@@ -2513,6 +2517,10 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         a: "CMS lists 179 plans statewide in its 2027 landscape file, up from 175 in 2026. Your county list is much smaller, because plans are approved county by county. Check your ZIP code in the Medicare plan finder.",
       },
       {
+        q: "How many Medicare Advantage plans are in Guilford County for 2027?",
+        a: "Guilford County has 57 Medicare Advantage plans for 2027 that are not Special Needs Plans. Forty-five include prescription drug coverage, and 34 of those charge a $0 total monthly premium. Forty more are Special Needs Plans for people with specific needs.",
+      },
+      {
         q: "What is the highest out-of-pocket limit a 2027 plan can set?",
         a: "CMS caps the in-network limit at $9,850 for 2027, up from $9,250 in 2026. For PPO plans, the combined in-network and out-of-network limit is capped at $14,800. Most plans set lower limits, so read your plan's number.",
       },
@@ -2545,6 +2553,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     ],
     related: [
       { title: "Medicare Advantage in North Carolina", href: "/medicare-advantage-north-carolina" },
+      { title: "Medicare Advantage plans in Greensboro", href: "/medicare-advantage-plans-greensboro-nc" },
       { title: "Medicare Part D plans in North Carolina for 2027", href: "/guides/medicare-part-d-plans-2027-nc" },
       { title: "Medicare Advantage Open Enrollment, January through March", href: "/guides/medicare-advantage-open-enrollment-period" },
       { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap" },

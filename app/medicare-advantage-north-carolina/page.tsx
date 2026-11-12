@@ -111,7 +111,7 @@ const FAQ = [
   },
   {
     q: "What is the out-of-pocket maximum on Medicare Advantage plans?",
-    a: "Every Medicare Advantage plan has an annual out-of-pocket maximum that caps what you pay for covered services in a year. In Guilford County, the average in-network maximum is about $7,055 for 2027, with individual plans ranging from around $3,200 to over $9,000. Once you hit it, the plan pays 100% for covered services the rest of the year.",
+    a: "Every Medicare Advantage plan has an annual out-of-pocket maximum that caps what you pay for covered services in a year. In Guilford County, the average in-network maximum is about $7,054 for 2027, with individual plans ranging from $3,400 to $9,850. Once you hit it, the plan pays 100% for covered services the rest of the year.",
   },
   {
     q: "Are Medicare Advantage plans the same in every NC county?",
@@ -274,8 +274,9 @@ export default function MedicareAdvantageNCPage() {
           <h3 className="text-22 font-semibold mt-10">County differences in the Triad</h3>
           <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
             Greensboro and most of High Point are in Guilford County. Winston-Salem is in Forsyth
-            County. The plan lineups differ: Guilford County has 55 Medicare Advantage plans for
-            2027, per CMS data, with an average monthly premium around $4.13. Forsyth County has
+            County. The plan lineups differ: Guilford County has 57 Medicare Advantage plans for
+            2027, per CMS data, 45 with drug coverage and 34 at a $0 total premium, with an
+            average Part C premium around $3.19 a month. Forsyth County has
             its own list. Always check the plans available at your specific address.{" "}
             <Link href="/medicare-advantage-plans-greensboro-nc" className="font-medium underline underline-offset-2">
               See the Guilford County detail

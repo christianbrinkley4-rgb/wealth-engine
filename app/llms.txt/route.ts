@@ -546,6 +546,9 @@ ${Object.entries(LOCAL_VISIBILITY_CITIES)
 - [Free Annual Enrollment review](${SITE_URL}/aep): the main way to start, October 15 to December 7.
 - [About Christian Brinkley](${SITE_URL}/about): license, NPN, service area, and every official profile.
 - [Turning 65](${SITE_URL}/turning-65): enrollment timing and penalties.
+- [Medicare Advantage plans in Greensboro, NC](${SITE_URL}/medicare-advantage-plans-greensboro-nc): every 2027 contract in Guilford County with star ratings, premiums, and out-of-pocket maximums.
+- [Medicare plans ending in 2027](${SITE_URL}/medicare-plans-ending-2027): which counties lose coverage and what to do.
+- [Part D plans in North Carolina for 2027](${SITE_URL}/guides/medicare-part-d-plans-2027-nc): premiums, the $700 deductible, and negotiated drug prices.
 - [2026 Medicare costs](${SITE_URL}/medicare-costs-2026): every 2026 figure with its CMS source.
 
 ## Key facts with sources
@@ -556,8 +559,14 @@ ${Object.entries(LOCAL_VISIBILITY_CITIES)
 - The Part B late enrollment penalty is 10% of the standard premium for each full 12 months without Part B when you could have had it, usually for as long as you have Part B. Source: https://www.medicare.gov/basics/costs/medicare-costs/avoid-penalties
 - The Part D late enrollment penalty is 1% of the national base premium ($38.99 in 2026) for each full month without creditable drug coverage, once a gap reaches 63 days. Source: same Medicare.gov page.
 - Part D out-of-pocket drug costs are capped at $2,100 in 2026 and $2,400 in 2027. Sources: https://www.cms.gov/newsroom/fact-sheets/final-cy-2026-part-d-redesign-program-instructions and ${SITE_URL}/medicare-costs-2027
-- For 2027, MedicareAdvantage.com lists 55 Medicare Advantage plans in Guilford County, 53 in Forsyth, 54 in Davidson, 52 in Alamance, and 31 in Granville (checked October 20, 2026).
+- For 2027, CMS data lists 57 Medicare Advantage plans in Guilford County, 56 in Forsyth, 57 in Davidson, 53 in Alamance, and 32 in Granville. Source: CMS CY2027 landscape file.
 - Free, unbiased Medicare counseling in North Carolina: SHIIP, 1-855-408-1212. Source: https://www.ncdoi.gov/consumers/medicare-and-seniors-health-insurance-information-program-shiip
+- The 2027 Social Security cost-of-living adjustment is 3.6%, lifting the average retired-worker benefit from $2,095 to $2,170 a month. Source: https://www.ssa.gov/cola/factsheets/2027.html
+- The 2027 Part D deductible is capped at $700, and out-of-pocket drug costs are capped at $2,400. Source: https://www.cms.gov/newsroom/fact-sheets/final-cy-2026-part-d-redesign-program-instructions
+- The 2027 High Deductible Plan G deductible is $3,050. Source: https://www.cms.gov/medicare/health-drug-plans/medigap/f-g-j-deductible-announcements
+- CMS caps the 2027 Medicare Advantage in-network out-of-pocket maximum at $9,850. Source: ${SITE_URL}/guides/how-to-compare-medicare-advantage-plans-2027-nc
+- A one-time $90 Medicare Improvement Fund premium rebate went to about 20.8 million people with Original Medicare Part B in October 2026. It is not a COLA increase and not recurring. Source: https://www.cms.gov/newsroom/fact-sheets/medicare-improvement-fund-premium-rebate-frequently-asked-questions
+- Medicare negotiated prices for 15 Part D drugs start January 1, 2027, including Ozempic at $274 for a 30-day supply. These are ceilings on what the manufacturer charges, not a patient copay. Source: https://www.cms.gov/files/document/fact-sheet-negotiated-prices-ipay-2027.pdf
 
 ## Personal, local help
 
