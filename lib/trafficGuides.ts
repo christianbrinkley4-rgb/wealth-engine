@@ -5247,7 +5247,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "The 2026 income and savings limits",
-        body: "The limits below are the federal figures North Carolina applies for 2026. For QMB, monthly income must be at or below $1,350 for one person or $1,824 for a couple. For SLMB, the lines are $1,616 and $2,184. For QI, they are $1,816 and $2,455. For QDWI, they are $5,405 and $7,299. Countable resources must be at or below $9,950 for one person or $14,910 for a couple. Your home, one car, burial plots, and household items generally do not count. Confirm the current figures with NC Medicaid or your county Department of Social Services before relying on them.",
+        body: "The limits below are the federal figures North Carolina applies for 2026. For QMB, monthly income must be at or below $1,350 for one person or $1,824 for a couple. For SLMB, the lines are $1,616 and $2,184. For QI, they are $1,816 and $2,455. For QDWI, they are $5,405 and $7,299. Countable resources must be at or below $9,950 for one person or $14,910 for a couple. Your home, one car, burial plots, and household items generally do not count. North Carolina's own printed schedule shows each income limit $20 lower, because the federal figures above already include the $20 monthly income exclusion. Confirm the current figures with NC Medicaid or your county Department of Social Services before relying on them.",
       },
       {
         title: "What each program pays",
