@@ -102,6 +102,11 @@ const TOOLS = [
     title: "Roth conversion planner",
     body: "Fill your tax bracket with Roth conversions year by year until RMD age, and compare lifetime taxes with vs without.",
   },
+  {
+    href: "/irmaa-checker",
+    title: "IRMAA checker",
+    body: "Choose your filing status and enter your income. See your 2026 Medicare income surcharge tier and the Part B and Part D amounts. You can choose to email the result to me.",
+  },
 ] as const;
 
 const PROOF = [

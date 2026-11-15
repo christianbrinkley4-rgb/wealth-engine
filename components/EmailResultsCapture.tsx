@@ -16,13 +16,22 @@ interface EmailResultsCaptureProps {
   /** Capture source. Must be one the API accepts. */
   source?: "wizard_completion" | "roth_calculator";
   variant?: "medicare" | "roth";
+  /** Replaces the default heading. For a tool whose result is not a set of numbers. */
+  heading?: string;
+  /** Replaces the default line under the heading. */
+  intro?: string;
   wizardData: {
     zip_code: string;
     filing_status: "individual" | "married_jointly";
-    age: number;
+    /** Leave out when the tool does not ask for an age. The API then stores none. */
+    age?: number;
     annual_income: number;
     calculated_premium: number;
     irmaa_bracket: string;
+    /** Optional. A request with no numbers sets "medicare" to get the plain reply email. */
+    interest_topic?: "medicare";
+    /** Optional short labels. Never put health details here. */
+    quiz_answers?: Record<string, string>;
   };
 }
 
@@ -50,6 +59,8 @@ export function EmailResultsCapture({
   initialEmail = "",
   source = "wizard_completion",
   variant = "medicare",
+  heading,
+  intro,
   wizardData,
 }: EmailResultsCaptureProps) {
   const router = useRouter();
@@ -266,11 +277,11 @@ export function EmailResultsCapture({
         className="text-22 flex items-center gap-3 font-semibold text-[var(--color-navy)]"
       >
         <Mail className="size-6 shrink-0 text-[var(--color-gold-ink)]" aria-hidden />
-        {isRoth ? "Send me this conversion estimate" : "Send me these numbers"}
+        {heading ?? (isRoth ? "Send me this conversion estimate" : "Send me these numbers")}
       </h2>
       <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-        Request a copy and a personal review of what these numbers could mean for your situation.
-        Your request goes directly to Christian.
+        {intro ??
+          "Request a copy and a personal review of what these numbers could mean for your situation. Your request goes directly to Christian."}
       </p>
 
       <div className="tl-honeypot" aria-hidden>

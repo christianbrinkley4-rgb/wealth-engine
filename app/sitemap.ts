@@ -406,6 +406,12 @@ const STATIC_ROUTES: Array<{
     lastModified: "2026-11-07",
   },
   {
+    path: "/irmaa-checker",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-11-15",
+  },
+  {
     path: "/medicare-costs-2026",
     changeFrequency: "monthly",
     priority: 0.95,
