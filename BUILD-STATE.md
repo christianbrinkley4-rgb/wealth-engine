@@ -93,3 +93,24 @@ This file is a working note for the build. Delete it before or after merge if yo
 - Tests: `npx vitest run lib/__tests__/lead-engine-pages.test.ts` : 97 tests passed. Browser check at 375px: three pages render, no horizontal overflow, no image inside the page content.
 - Risks: (1) `/medicare-cost-greensboro-nc` has a town name in its path. The brief asked for this page and also says no new town pages. It is a cost answer page, not a service-area page. Christian can drop it from the PR if he reads it as a town page. (2) The $9,850 and $14,800 Medicare Advantage limits come from Section 2 of the brief. The CMS memo was not re-opened in this build, so the page lists that source by name with no link. (3) New pages will not rank before Annual Enrollment ends on December 7, 2026.
 - Next: full lint, test, build. Then push the branch.
+
+## Final checks on the branch (2026-11-15)
+
+- `npm run lint` : exit 0. 0 errors, 2 warnings. The same 2 warnings exist on untouched `master` (`netlify/functions/*.ts`, anonymous default export).
+- `npm test` : exit 0. 112 test files passed, 2074 tests passed. Baseline on `master` was 106 files, 1877 tests. This build added 6 test files and 197 tests.
+- `npm run build` : exit 0. "Compiled successfully". 618 static pages generated. New routes in the build output: `/irmaa-checker`, `/irmaa-married-filing-jointly`, `/part-d-irmaa`, `/medicare-cost-greensboro-nc`, `/appointment-prep`, `/prep-sheet`, `/api/prep-intake`.
+- The built HTML of each new page has its `h1` and no client-side bailout marker.
+- Note on the local build: every page, old and new, shows `noindex, nofollow` in a local build because `NEXT_PUBLIC_SITE_URL` is not set locally (`SITE_INDEXABLE` in `lib/seo.ts`). On Netlify the four search pages carry no `robots` setting of their own, so they follow the site setting.
+
+## What a human must do or decide
+
+1. Open the PR with base `master` (not `main`). Christian approves it.
+2. Approve the new wording a person sees or agrees to: the intake consent sentence (`INTAKE_CONSENT_TEXT`), the text above each new capture form, and the checklist form heading and button.
+3. After deploy, check `/api/health`, then send one test intake with fictional data and confirm the email arrives.
+4. Run `npm run report:attribution` on a machine that has `.env.local`.
+5. Decide these items, which this build found and did not change:
+   - The calculator names an insurance company and prints its filed rates. The brief says never name a carrier on a public page.
+   - The calculator and the tools hub say "Free", "Request a free review" and "Start a free review". The brief says to use "no cost, no obligation".
+   - Guilford County plan count: 55 (third-party summary, on four pages) or 57 (the repo's own CMS landscape data).
+   - `/privacy` does not mention the new appointment prep form.
+   - When CMS publishes the 2027 Part B premium and IRMAA table, update `lib/irmaa.ts`, `lib/medicareCosts2026.ts`, `lib/irmaaMarried2026.ts`, and the calculator's `data.ts` together.
