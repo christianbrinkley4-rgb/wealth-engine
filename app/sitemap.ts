@@ -1,3 +1,4 @@
+import { LOCAL_VISIBILITY_CITIES } from "@/lib/localVisibilityCities";
 import { isOffTopicPath } from "@/lib/indexFocus";
 import { TRAFFIC_GUIDES, TRAFFIC_GUIDE_DATE } from "@/lib/trafficGuides";
 import type { MetadataRoute } from "next";
@@ -39,8 +40,13 @@ const STATIC_ROUTES: Array<{
   { path: "/long-term-care-insurance", changeFrequency: "monthly", priority: 0.85 },
   { path: "/short-term-care-insurance", changeFrequency: "monthly", priority: 0.8 },
   { path: "/critical-illness-insurance", changeFrequency: "monthly", priority: 0.8 },
-  { path: "/turning-65", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-11-07" },
-  { path: "/medicare-costs", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/turning-65", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-11-09" },
+  {
+    path: "/medicare-costs",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-11-07",
+  },
   { path: "/numbers", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-08" },
   {
     path: "/medicare-changes-2027",
@@ -72,12 +78,12 @@ const STATIC_ROUTES: Array<{
     priority: 0.9,
     lastModified: "2026-10-26",
   },
-  { path: "/medicare-fit", changeFrequency: "monthly", priority: 0.7, lastModified: "2026-11-03" },
+  { path: "/medicare-fit", changeFrequency: "monthly", priority: 0.7, lastModified: "2026-11-04" },
   {
     path: "/medicare-part-d-donut-hole-2027",
     changeFrequency: "monthly",
     priority: 0.9,
-    lastModified: "2026-10-24",
+    lastModified: "2026-11-07",
   },
   {
     path: "/turning-65-checklist",
@@ -89,7 +95,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-advantage-north-carolina",
     changeFrequency: "monthly",
     priority: 0.9,
-    lastModified: "2026-10-12",
+    lastModified: "2026-11-07",
   },
   {
     path: "/turning-65-medicare-guide",
@@ -107,7 +113,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-greensboro-nc",
     changeFrequency: "weekly",
     priority: 0.95,
-    lastModified: "2026-11-07",
+    lastModified: "2026-11-09",
   },
   {
     path: "/medicare-advantage-vs-medigap",
@@ -153,7 +159,7 @@ const STATIC_ROUTES: Array<{
   },
   { path: "/special-enrollment", changeFrequency: "monthly", priority: 0.85 },
   { path: "/aep", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-11-07" },
-  { path: "/aep-quiz", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-10-12" },
+  { path: "/aep-quiz", changeFrequency: "weekly", priority: 0.85, lastModified: "2026-11-07" },
   {
     path: "/questions-to-ask-medicare-agent",
     changeFrequency: "monthly",
@@ -232,7 +238,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-agent-greensboro-nc",
     changeFrequency: "weekly",
     priority: 0.95,
-    lastModified: "2026-11-07",
+    lastModified: "2026-11-09",
   },
   {
     path: "/medicare-agent-winston-salem-nc",
@@ -269,6 +275,12 @@ const STATIC_ROUTES: Array<{
     changeFrequency: "weekly",
     priority: 0.9,
     lastModified: "2026-11-07",
+  },
+  {
+    path: "/medicare-agent-creedmoor-nc",
+    changeFrequency: "weekly",
+    priority: 0.9,
+    lastModified: "2026-11-09",
   },
   {
     path: "/medicare-agent-franklinton-nc",
@@ -310,7 +322,7 @@ const STATIC_ROUTES: Array<{
     path: "/final-expense-insurance",
     changeFrequency: "monthly",
     priority: 0.85,
-    lastModified: "2026-10-12",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medigap-plans-high-point-nc",
@@ -330,7 +342,7 @@ const STATIC_ROUTES: Array<{
     priority: 0.9,
     lastModified: "2026-10-04",
   },
-  { path: "/plan-check", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-10-04" },
+  { path: "/plan-check", changeFrequency: "weekly", priority: 0.95, lastModified: "2026-11-07" },
   {
     path: "/plan-checklist-tool",
     changeFrequency: "monthly",
@@ -344,7 +356,12 @@ const STATIC_ROUTES: Array<{
     lastModified: "2026-11-07",
   },
   { path: "/social-security-timing", changeFrequency: "monthly", priority: 0.9 },
-  { path: "/keep-my-doctor", changeFrequency: "monthly", priority: 0.9 },
+  {
+    path: "/keep-my-doctor",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-11-07",
+  },
   { path: "/helping-a-parent", changeFrequency: "monthly", priority: 0.9 },
   { path: "/irmaa-appeal", changeFrequency: "monthly", priority: 0.85 },
   { path: "/service-area", changeFrequency: "monthly", priority: 0.9, lastModified: "2026-11-07" },
@@ -370,7 +387,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-costs-2027",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-10-13",
+    lastModified: "2026-11-07",
   },
   {
     path: "/medicare-glossary",
@@ -395,7 +412,7 @@ const STATIC_ROUTES: Array<{
     lastModified: "2026-10-29",
   },
   { path: "/plan", changeFrequency: "weekly", priority: 0.8 },
-  { path: "/annuities", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/annuities", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-11-07" },
   {
     path: "/life-insurance",
     changeFrequency: "monthly",
@@ -404,7 +421,7 @@ const STATIC_ROUTES: Array<{
   },
   { path: "/retirement-income", changeFrequency: "monthly", priority: 0.85 },
   { path: "/roth-window", changeFrequency: "weekly", priority: 0.55 },
-  { path: "/answers", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-10-29" },
+  { path: "/answers", changeFrequency: "weekly", priority: 0.8, lastModified: "2026-11-07" },
   { path: "/learn", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-05" },
   {
     path: "/taxes-and-retirement",
@@ -512,14 +529,9 @@ const STATIC_ROUTES: Array<{
     "/guides/medicare-travel",
     "/guides/irmaa-brackets-2026",
     "/guides/standard-deduction-seniors-2026",
-    "/medicare-2027-by-county",
-    "/nc-medicare-atlas",
     "/guides/nc-state-health-plan-medicare",
-    "/state-health-plan-checklist",
     "/guides/moving-to-north-carolina-medicare",
     "/guides/medicare-advantage-plans-leaving-nc-2027",
-    "/medicare-nc-history",
-    "/retirement-mistake-checker",
     "/guides/medigap-plan-g-vs-plan-n-nc",
     "/guides/turning-65-aca-marketplace-plan",
     "/guides/zero-premium-medicare-advantage-free",
@@ -570,6 +582,38 @@ const STATIC_ROUTES: Array<{
     priority: 0.8,
     lastModified: "2026-11-07",
   },
+  // New or rebuilt pages, kept out of the shared 2026-10-08 guides list
+  // so their lastmod stays truthful (SEO loop 2026-11-09).
+  {
+    path: "/medicare-2027-by-county",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    lastModified: "2026-11-04",
+  },
+  {
+    path: "/nc-medicare-atlas",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    lastModified: "2026-11-04",
+  },
+  {
+    path: "/medicare-nc-history",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    lastModified: "2026-11-04",
+  },
+  {
+    path: "/state-health-plan-checklist",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    lastModified: "2026-11-05",
+  },
+  {
+    path: "/retirement-mistake-checker",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    lastModified: "2026-11-05",
+  },
   ...PERSONALITIES.map((type) => ({
     path: `/wealth/quiz/money-personality/${type.id}`,
     changeFrequency: "monthly" as const,
@@ -618,7 +662,6 @@ const CONTENT_LAST_REVIEWED = "2026-10-01";
 
 const SEO_REVIEWED_PATHS = new Set([
   "/guides",
-  "/life-insurance",
   "/guides/nc-state-health-plan-medicare",
   "/guides/chronic-condition-special-needs-plans",
   "/guides/moving-to-north-carolina-medicare",
@@ -626,9 +669,11 @@ const SEO_REVIEWED_PATHS = new Set([
 ]);
 
 // Pages genuinely edited in PR 3 (rankings rewrites plus Batch 2 content
-// fixes), reviewed 2026-11-07. Kept separate so the 2026-11-05 bulk stamp
-// above stays truthful for pages this PR did not touch.
+// fixes) and the PR 7 life-insurance quote section, reviewed 2026-11-07.
+// Kept separate so the 2026-11-05 bulk stamp above stays truthful for
+// pages this set did not touch.
 const SEO_REVIEWED_2026_11_07 = new Set([
+  "/life-insurance",
   "/guides/medicare-automatic-renewal",
   "/guides/medicare-part-b-employer-coverage",
   "/guides/medicare-travel",
@@ -638,11 +683,17 @@ const SEO_REVIEWED_2026_11_07 = new Set([
   "/guides/what-medicare-does-not-cover",
 ]);
 
-const NEW_SEARCH_PATHS = [
-  "/turning-65-medicare-charlotte-nc",
-  "/medicare-consultation-charlotte-nc",
-  "/life-insurance-winston-salem-nc",
-  "/guides/72t-exceptions",
+const NEW_SEARCH_PATHS: Array<{ path: string; lastModified: string }> = [
+  ...Object.keys(LOCAL_VISIBILITY_CITIES).map((slug) => ({
+    path: `/medicare-agent-${slug}-nc`,
+    lastModified: "2026-11-09",
+  })),
+  { path: "/financial-planning-nc", lastModified: "2026-11-09" },
+  { path: "/turning-65-medicare-charlotte-nc", lastModified: "2026-11-05" },
+  { path: "/medicare-consultation-charlotte-nc", lastModified: "2026-11-05" },
+  { path: "/life-insurance-winston-salem-nc", lastModified: "2026-11-05" },
+  // Mature-voice pass 2026-11-07 (PR 4 follow-up).
+  { path: "/guides/72t-exceptions", lastModified: "2026-11-07" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -663,18 +714,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       // Next emits the homepage canonical as the origin with no trailing slash.
       // Every other path already matches its canonical.
       url: path === "/" ? SITE_URL : `${SITE_URL}${path}`,
-      lastModified: SEO_REVIEWED_2026_11_07.has(path)
-        ? "2026-11-07"
-        : SEO_REVIEWED_PATHS.has(path)
-          ? "2026-11-05"
-          : (own ?? lastModified),
+      lastModified: [
+        "/medicare-nc-towns",
+        "/service-area",
+        "/insurance-services",
+        "/life-insurance",
+        "/retirement-income",
+      ].includes(path)
+        ? "2026-11-09"
+        : SEO_REVIEWED_2026_11_07.has(path)
+          ? "2026-11-07"
+          : SEO_REVIEWED_PATHS.has(path)
+            ? "2026-11-05"
+            : (own ?? lastModified),
       changeFrequency,
       priority,
     })),
     ...cityRoutes.filter((route) => !LOCATION_CONSOLIDATIONS[new URL(route.url).pathname]),
-    ...NEW_SEARCH_PATHS.map((path) => ({
+    ...NEW_SEARCH_PATHS.filter(
+      ({ path }) => !STATIC_ROUTES.some((route) => route.path === path),
+    ).map(({ path, lastModified: own }) => ({
       url: `${SITE_URL}${path}`,
-      lastModified: "2026-11-05",
+      lastModified: own,
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),

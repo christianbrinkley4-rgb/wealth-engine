@@ -60,7 +60,7 @@ const whole = (value: number) =>
 
 const title = "Medicare Costs 2027: Official Figures and What's Still Pending";
 const description =
-  "Medicare costs for 2027 from official CMS announcements only. Part D figures are final. Part B, Part A and IRMAA are not out yet, so the 2026 amounts are shown and labeled.";
+  "Medicare costs for 2027 from official CMS announcements only. Part D is final. Part B, Part A and IRMAA are pending, so 2026 amounts are shown and labeled.";
 
 export const metadata: Metadata = {
   title: { absolute: title },

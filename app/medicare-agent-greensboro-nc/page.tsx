@@ -25,9 +25,9 @@ import {
 } from "@/lib/seo";
 
 const path = "/medicare-agent-greensboro-nc";
-const title = "Medicare Agent in Greensboro, NC | Christian Brinkley";
+const title = "Medicare Agent Greensboro NC | Christian Brinkley";
 const description =
-  "Free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local agent. Check your doctors, prescriptions, and plans. Call (919) 408-6671.";
+  "Medicare agent in Greensboro, NC. Free help from Christian Brinkley, a licensed local agent. Check doctors, prescriptions, and plans. Call (919) 408-6671.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -50,7 +50,7 @@ export default function MedicareAgentGreensboroPage() {
           description,
           path,
           datePublished: "2026-10-12",
-          dateModified: "2026-11-07",
+          dateModified: "2026-11-09",
         }),
         serviceJsonLd({ name: "Medicare agent in Greensboro, NC", description, path }),
         faqJsonLd(GREENSBORO_MEDICARE_FAQ),
@@ -65,12 +65,12 @@ export default function MedicareAgentGreensboroPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare agent in Greensboro" }]}
         eyebrow="Greensboro and Guilford County"
-        title="A Medicare agent in Greensboro, NC"
-        lede="Get free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. I can review your doctors, prescriptions, enrollment dates, and the plans I represent. Call (919) 408-6671, book a 45-minute phone review, or send a question. Meet at home or talk by phone. There's no obligation to enroll."
+        title="Medicare agent in Greensboro, NC"
+        lede="Get free help from a Medicare agent in Greensboro, NC: Christian Brinkley, a licensed local insurance agent. I can review your doctors, prescriptions, enrollment dates, and the plans I represent. Call (919) 408-6671, book a 45-minute phone review, or send a question. Meet at home or talk by phone. There's no obligation to enroll."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free Medicare conversation"
       />
-      <MedicareByline reviewed="2026-11-07" />
+      <MedicareByline reviewed="2026-11-09" />
       <nav className="app-shell max-w-3xl py-6" aria-label="In this Greensboro guide">
         <ul className="space-y-2">
           {GREENSBORO_MEDICARE_SECTIONS.map((s) => (
@@ -161,7 +161,7 @@ export default function MedicareAgentGreensboroPage() {
           </li>
           <li>
             <Link className="underline" href="/medicare-advantage-plans-greensboro-nc">
-              Medicare Advantage plans in Greensboro
+              Medicare Advantage plans in Greensboro, NC
             </Link>
           </li>
           <li>

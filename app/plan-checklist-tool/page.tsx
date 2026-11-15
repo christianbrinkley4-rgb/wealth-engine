@@ -9,7 +9,7 @@ import { articleJsonLd, breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/l
 import { PlanChecklist } from "./PlanChecklist";
 import "./checklist.css";
 
-const path = "/medicare-plan-checklist";
+const path = "/plan-checklist-tool";
 const title = "Medicare Plan Research Checklist | Christian Brinkley";
 const description =
   "List your doctors, prescriptions, pharmacy and priorities on your own device. Print one sheet to take to Medicare.gov or to a no-cost conversation. Read on.";

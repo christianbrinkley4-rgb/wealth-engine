@@ -7,12 +7,17 @@ export function RelatedMedicareGuides() {
       <ul className="text-17 mt-4 space-y-3">
         <li>
           <Link className="underline" href="/medicare-agent-greensboro-nc">
-            Medicare help in Greensboro and Guilford County
+            Medicare agent in Greensboro, NC
           </Link>
         </li>
         <li>
           <Link className="underline" href="/medicare-greensboro-nc">
-            Greensboro Medicare hub: costs, enrollment dates, and local help
+            Medicare agent in Greensboro: costs, enrollment dates, and local help
+          </Link>
+        </li>
+        <li>
+          <Link className="underline" href="/medicare-advantage-plans-greensboro-nc">
+            Medicare Advantage plans in Greensboro, NC
           </Link>
         </li>
         <li>

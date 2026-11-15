@@ -44,7 +44,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Turning 65 Greensboro NC: Local Licensed Medicare Help",
+    absolute: "Turning 65 Medicare Greensboro NC: Local Licensed Help",
   },
   description:
     "Turning 65 in Greensboro or the Triad? Find your Medicare dates, check employer coverage, and compare options with a local licensed agent. Free consultation.",
@@ -115,12 +115,12 @@ export default function Turning65Page() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             articleJsonLd({
-              headline: "Turning 65: your Medicare Initial Enrollment Period in Greensboro",
+              headline: "Turning 65 Medicare Greensboro: your Initial Enrollment Period",
               description:
                 "The seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window you generally get once.",
               path: "/turning-65",
               datePublished: "2026-08-31",
-              dateModified: "2026-11-07",
+              dateModified: "2026-11-09",
             }),
           ),
         }}
@@ -156,8 +156,8 @@ export default function Turning65Page() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Turning 65" }]}
         eyebrow="Initial Enrollment Period · Piedmont Triad"
-        title="Turning 65 in Greensboro? Your Medicare Timeline"
-        lede="Your Initial Enrollment Period is 7 months: the 3 months before the month you turn 65, your birthday month, and the 3 months after. Enroll in the first 3 months to avoid coverage gaps. Below is the full timeline, the Part B late penalty explained, and the local resources in Greensboro, High Point, and Winston-Salem that make this easier."
+        title="Turning 65 in Greensboro: Your Medicare Timeline"
+        lede="Turning 65 in Greensboro means a 7-month Medicare enrollment window: the 3 months before the month you turn 65, your birthday month, and the 3 months after. Enroll in the first 3 months to avoid coverage gaps. Below is the full timeline, the Part B late penalty explained, and the local resources in Greensboro, High Point, and Winston-Salem that make this easier."
         secondaryHref="/aep"
         secondaryLabel="Request a consultation →"
         note={
@@ -483,7 +483,7 @@ export default function Turning65Page() {
 
       <ReadNext>
         <p>
-          Use the <Link href="/turning-65-checklist">turning-65 checklist</Link> to organize each next step. Try the <Link href="/greensboro-medicare-cost-calculator">Greensboro Medicare cost calculator</Link> to estimate your yearly costs. If you live nearby, these guides explain <Link href="/medigap-plans-greensboro-nc">Medigap in Greensboro</Link>, the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local coverage comparison</Link>, <Link href="/medicare-advantage-plans-greensboro-nc">Advantage plans in Greensboro</Link>, <Link href="/medicare-part-d-greensboro-nc">Part D drug coverage</Link>, <Link href="/medigap-plans-greensboro-nc">Medigap plan letters</Link>, and <Link href="/medicare-costs-north-carolina">what Medicare costs in North Carolina</Link>. See also the <Link href="/medicare-greensboro-nc">Greensboro Medicare hub</Link> for local help. If you would rather talk it through with a person, start with the <Link href="/medicare-agent-greensboro-nc">Medicare agent in Greensboro</Link> guide. For the national picture, read <Link href="/medicare-advantage-vs-medigap">Medicare Advantage vs Medigap</Link> and the <Link href="/medicare-part-d-plans">Part D prescription drug plans guide</Link>.
+          Use the <Link href="/turning-65-checklist">turning-65 checklist</Link> to organize each next step. Try the <Link href="/greensboro-medicare-cost-calculator">Greensboro Medicare cost calculator</Link> to estimate your yearly costs. If you live nearby, these guides explain <Link href="/medigap-plans-greensboro-nc">Medigap in Greensboro</Link>, the <Link href="/medicare-advantage-vs-medigap-greensboro-nc">local coverage comparison</Link>, <Link href="/medicare-advantage-plans-greensboro-nc">Medicare Advantage plans in Greensboro, NC</Link>, <Link href="/medicare-part-d-greensboro-nc">Part D drug coverage</Link>, <Link href="/medigap-plans-greensboro-nc">Medigap plan letters</Link>, and <Link href="/medicare-costs-north-carolina">what Medicare costs in North Carolina</Link>. See also the <Link href="/medicare-greensboro-nc">Greensboro Medicare hub</Link> for local help. If you would rather talk it through with a person, start with the <Link href="/medicare-agent-greensboro-nc">Medicare agent in Greensboro</Link> guide. For the national picture, read <Link href="/medicare-advantage-vs-medigap">Medicare Advantage vs Medigap</Link> and the <Link href="/medicare-part-d-plans">Part D prescription drug plans guide</Link>.
         </p>
         <p>
           Common questions answered: <Link href="/answers/missed-iep-penalties">what happens if you miss your enrollment period</Link>, <Link href="/answers/working-past-65-medicare">working past 65</Link>, <Link href="/answers/how-to-apply-for-medicare">how to apply</Link>, <Link href="/answers/medicare-part-d-late-penalty">the Part D late penalty</Link>, and <Link href="/answers/spouse-employer-plan-medicare">staying on a spouse&apos;s employer plan</Link>.
@@ -506,7 +506,7 @@ export default function Turning65Page() {
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-11-07" />
+      <MedicareByline reviewed="2026-11-09" />
       <RelatedMedicareGuides />
     </main>
   );

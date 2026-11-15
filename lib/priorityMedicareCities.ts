@@ -1,4 +1,7 @@
+import { LOCAL_VISIBILITY_CITIES } from "@/lib/localVisibilityCities";
+
 export const PRIORITY_MEDICARE_CITIES = {
+  ...LOCAL_VISIBILITY_CITIES,
   "high-point": {
     name: "High Point",
     county: "Guilford, Davidson, Forsyth, and Randolph counties",
@@ -40,7 +43,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     provider: "High Point Medical Center, High Point, NC",
     ctaHeading: "Check your county and your doctors before December 7",
     ctaLine:
-      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+      "Open Enrollment ends December 7. A free review can help you check doctors, prescriptions, and costs before choosing coverage. (919) 408-6671",
     faq: [
       {
         q: "Is every High Point address in Guilford County?",
@@ -97,7 +100,8 @@ export const PRIORITY_MEDICARE_CITIES = {
     ],
     hospitalTakeaway:
       "Here's why that matters for your plan: Original Medicare, alone or with a Medicare Supplement, works with any doctor or hospital that accepts Medicare, including both systems. Medicare Advantage plans use networks. A plan might include both systems, one of them, or only some of their doctors, and networks can change every year.",
-    hospitalNote: "Not affiliated with or endorsed by Atrium Health, Wake Forest University, or Novant Health.",
+    hospitalNote:
+      "Not affiliated with or endorsed by Atrium Health, Wake Forest University, or Novant Health.",
     sources: [
       {
         label: "Novant Health: Forsyth Medical Center",
@@ -123,7 +127,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     provider: "Forsyth Medical Center, Winston-Salem, NC",
     ctaHeading: "Sort out your Atrium and Novant doctors before December 7",
     ctaLine:
-      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+      "Open Enrollment ends December 7. A free review can help you check doctors, prescriptions, and costs before choosing coverage. (919) 408-6671",
     faq: [
       {
         q: "Will a Medicare plan cover both Atrium Health Wake Forest Baptist and Novant Health?",
@@ -185,7 +189,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     provider: "Alamance Regional Medical Center, Burlington, NC",
     ctaHeading: "Check your Alamance doctors before December 7",
     ctaLine:
-      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+      "Open Enrollment ends December 7. A free review can help you check doctors, prescriptions, and costs before choosing coverage. (919) 408-6671",
     faq: [
       {
         q: "Does Alamance Regional's Cone Health affiliation establish my Medicare network?",
@@ -264,7 +268,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     provider: "Novant Health Kernersville Medical Center, Kernersville, NC",
     ctaHeading: "Sort out your Greensboro and Winston-Salem doctors before December 7",
     ctaLine:
-      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+      "Open Enrollment ends December 7. A free review can help you check doctors, prescriptions, and costs before choosing coverage. (919) 408-6671",
     faq: [
       {
         q: "Is Kernersville in Forsyth County or Guilford County for Medicare plans?",
@@ -326,7 +330,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     provider: "Granville Medical Center, Oxford, NC",
     ctaHeading: "Review your Granville County plan before December 7",
     ctaLine:
-      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+      "Open Enrollment ends December 7. A free review can help you check doctors, prescriptions, and costs before choosing coverage. (919) 408-6671",
     faq: [
       {
         q: "Are you really from Granville County?",
@@ -404,7 +408,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     provider: "WakeMed North Hospital, Raleigh, NC",
     ctaHeading: "Check your Wake Forest doctors before December 7",
     ctaLine:
-      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+      "Open Enrollment ends December 7. A free review can help you check doctors, prescriptions, and costs before choosing coverage. (919) 408-6671",
     faq: [
       {
         q: "Is Wake Forest in Wake County or Franklin County for Medicare plans?",
@@ -491,7 +495,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     provider: "WakeMed Raleigh Campus, Raleigh, NC",
     ctaHeading: "Sort out your Raleigh doctors before December 7",
     ctaLine:
-      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+      "Open Enrollment ends December 7. A free review can help you check doctors, prescriptions, and costs before choosing coverage. (919) 408-6671",
     faq: [
       {
         q: "Will a Medicare plan cover WakeMed, Duke Raleigh, and UNC Rex?",
@@ -565,7 +569,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     provider: "Randolph Health, Asheboro, NC",
     ctaHeading: "Check your Asheboro doctors before December 7",
     ctaLine:
-      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+      "Open Enrollment ends December 7. A free review can help you check doctors, prescriptions, and costs before choosing coverage. (919) 408-6671",
     faq: [
       {
         q: "Does Randolph Health accept my Medicare Advantage plan?",
@@ -600,7 +604,8 @@ export const PRIORITY_MEDICARE_CITIES = {
     dateModified: "2026-11-07",
     reviewed: "2026-11-07",
     sourcesChecked: "November 7, 2026",
-    localHeading: "In Franklinton, your hospital is up the road, and your specialists may be in Raleigh",
+    localHeading:
+      "In Franklinton, your hospital is up the road, and your specialists may be in Raleigh",
     paragraphs: [
       "Franklinton is a town in Franklin County, just north of Wake Forest and south of Louisburg, the county seat. Town Hall is at 101 North Main Street, and the town's main number is (919) 494-2520, weekdays 8:30 a.m. to 5 p.m. It is a small town where most people know their neighbors, and a lot of folks here split their care between local doctors and specialists down in Raleigh.",
       "The closest emergency care is Maria Parham Franklin, at 100 Hospital Drive in Louisburg, which offers 24/7 emergency care, diagnostic services, and behavioral health services. The nearest full hospital is Maria Parham Health, a Duke LifePoint hospital at 566 Ruin Creek Road in Henderson. Many Franklinton residents also see specialists at WakeMed in Raleigh, about a straight shot down U.S. 1. List each doctor by the office where you see them, not just by the hospital name.",
@@ -643,7 +648,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     provider: "Maria Parham Franklin, Louisburg, NC",
     ctaHeading: "Check your Franklin County doctors before December 7",
     ctaLine:
-      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+      "Open Enrollment ends December 7. A free review can help you check doctors, prescriptions, and costs before choosing coverage. (919) 408-6671",
     faq: [
       {
         q: "Where is the nearest hospital to Franklinton?",
@@ -726,7 +731,7 @@ export const PRIORITY_MEDICARE_CITIES = {
     provider: "Maria Parham Franklin, Louisburg, NC",
     ctaHeading: "Check your Franklin County doctors before December 7",
     ctaLine:
-      "Open Enrollment ends December 7. A free review now means no surprises at your first appointment in January.",
+      "Open Enrollment ends December 7. A free review can help you check doctors, prescriptions, and costs before choosing coverage. (919) 408-6671",
     faq: [
       {
         q: "Where is the nearest hospital to Youngsville?",

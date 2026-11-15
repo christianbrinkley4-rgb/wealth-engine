@@ -14,6 +14,7 @@ const description =
   "Free compound interest calculator. Watch monthly deposits grow year by year at a rate you pick, with the full table underneath. Read the details here.";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Compound Interest Calculator | Christian Brinkley" },
   description,
   alternates: { canonical: path },

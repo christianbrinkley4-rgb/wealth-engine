@@ -15,6 +15,7 @@ const description =
   "Free take-home pay calculator. Turn a gross salary into a real paycheck using 2026 federal brackets, the NC flat tax, and payroll taxes, line by line.";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Take-Home Pay Calculator (2026) | Christian Brinkley" },
   description,
   alternates: { canonical: path },

@@ -17,9 +17,9 @@ import {
 } from "@/lib/seo";
 
 const path = "/medicare-greensboro-nc";
-const title = "Medicare Greensboro NC | Local Help from Christian Brinkley";
+const title = "Medicare Agent Greensboro NC | Local Help from Christian Brinkley";
 const description =
-  "Medicare Greensboro NC help from a licensed local agent. 2026 costs, enrollment dates, and free, no-obligation reviews in person or by phone.";
+  "Medicare agent in Greensboro, NC. Free local help from a licensed agent: 2026 costs, enrollment dates, and reviews in person or by phone.";
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
@@ -49,6 +49,10 @@ const FAQ = [
     q: "What if I live outside Greensboro?",
     a: "I also serve Winston-Salem, High Point, Burlington, Kernersville, Creedmoor, Oxford, and Butner. Anywhere else in North Carolina, we can do your review by phone.",
   },
+  {
+    q: "Do you work like a Medicare broker?",
+    a: "I am a licensed insurance agent, not a broker. A broker represents you; an agent represents the carriers whose plans he offers. What I do is sit down with your doctors and prescriptions and walk through the plans I represent, at no cost and with no obligation to enroll. If you would rather talk to someone who represents no carrier at all, free SHIIP counseling is listed further down this page.",
+  },
 ] as const;
 
 export default function MedicareGreensboroPage() {
@@ -64,9 +68,9 @@ export default function MedicareGreensboroPage() {
           description,
           path,
           datePublished: "2026-10-24",
-          dateModified: "2026-11-07",
+          dateModified: "2026-11-09",
         }),
-        serviceJsonLd({ name: "Free Medicare consultation in Greensboro", description, path }),
+        serviceJsonLd({ name: "Medicare agent in Greensboro, NC", description, path }),
         faqJsonLd(FAQ),
       ].map((data, i) => (
         <script
@@ -79,12 +83,12 @@ export default function MedicareGreensboroPage() {
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare in Greensboro" }]}
         eyebrow="Greensboro and Guilford County"
-        title="Medicare Greensboro NC"
-        lede="Medicare is federal, but the help around it can be local. Free Medicare help in Greensboro, NC from Christian Brinkley, a licensed local insurance agent. Meet at home or talk by phone. No obligation to enroll."
+        title="Medicare agent in Greensboro, NC"
+        lede="Free Medicare help in Greensboro, NC from Christian Brinkley, a Medicare agent in Greensboro. Meet at home or talk by phone. No obligation to enroll."
         secondaryHref="/start?topic=medicare&quick=1"
         secondaryLabel="Request a free Medicare conversation"
       />
-      <MedicareByline reviewed="2026-11-07" />
+      <MedicareByline reviewed="2026-11-09" />
 
       <section className="measure-prose app-shell max-w-3xl py-8">
         <h2 className="text-28 font-semibold">Medicare in Greensboro at a Glance</h2>
@@ -166,6 +170,13 @@ export default function MedicareGreensboroPage() {
           Here is the most important thing. Always check your own doctors against a plan for the
           year you are considering. Networks can change, so do not assume last year&apos;s answer
           still holds.
+        </p>
+        <p className="text-17 mt-4 leading-relaxed">
+          If you are weighing Advantage plans, the{" "}
+          <Link href="/medicare-advantage-plans-greensboro-nc" className="underline underline-offset-2">
+            Medicare Advantage plans in Greensboro, NC
+          </Link>{" "}
+          page walks through how they work here.
         </p>
       </section>
 

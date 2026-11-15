@@ -1,4 +1,5 @@
 import { SeoGuidePage, seoGuideMetadata, type SeoGuideData } from "@/app/components/SeoGuidePage";
+import { SITE_INDEXABLE } from "@/lib/seo";
 
 const data: SeoGuideData = {
   slug: "tax-brackets-explained-plainly",
@@ -123,7 +124,8 @@ const data: SeoGuideData = {
   bookingLabel: "Book an insurance conversation",
 };
 
-export const metadata = seoGuideMetadata(data);
+// Search target exception (lib/indexFocus.ts): override the /wealth layout noindex.
+export const metadata = { ...seoGuideMetadata(data), robots: { index: SITE_INDEXABLE, follow: SITE_INDEXABLE } };
 export default function Page() {
   return <SeoGuidePage data={data} />;
 }

@@ -10,6 +10,7 @@ import { AGENT } from "@/lib/agent";
 import { ConsultationActions } from "@/app/components/ConsultationActions";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 import { findTrafficGuide, TRAFFIC_GUIDES, TRAFFIC_GUIDE_DATE } from "@/lib/trafficGuides";
+import { offTopicRobots } from "@/lib/indexFocus";
 
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: { absolute: guide.metaTitle ?? guide.title },
     description: guide.description,
     alternates: { canonical: `/guides/${guide.slug}` },
+    ...offTopicRobots(`/guides/${guide.slug}`),
     openGraph: pageOpenGraph({
       title: guide.metaTitle ?? guide.title,
       description: guide.description,

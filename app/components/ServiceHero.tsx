@@ -31,6 +31,7 @@ export function ServiceHero({
   proof = DEFAULT_PROOF,
   hidePhoneCta = false,
   variant = "default",
+  directContact = false,
 }: {
   crumbs: Array<{ name: string; href?: string }>;
   eyebrow: string;
@@ -49,6 +50,8 @@ export function ServiceHero({
    * no phone CTA, for purely educational pages like /ai.
    */
   variant?: "default" | "compact" | "info";
+  /** Keep a short request link direct when this page offers contact before booking. */
+  directContact?: boolean;
 }) {
   // Older pages put an arrow character in the label; the button draws its own.
   const label = (secondaryLabel ?? "Request a free consultation").replace(/\s*→\s*$/, "");
@@ -60,7 +63,10 @@ export function ServiceHero({
         ? "/start?topic=medicare&quick=1"
         : "/start"
       : undefined);
-  const isBookingAction = !!actionHref && (isMedicareStartHref(actionHref) || actionHref === "/aep" || actionHref === ENGINE_BOOKING_URL);
+  const isBookingAction =
+    !directContact &&
+    !!actionHref &&
+    (isMedicareStartHref(actionHref) || actionHref === "/aep" || actionHref === ENGINE_BOOKING_URL);
   const variantClass = variant === "compact" ? " sh-compact" : variant === "info" ? " sh-info" : "";
   return (
     <section
@@ -88,7 +94,7 @@ export function ServiceHero({
             </ol>
           </nav>
 
-          <p className={`eyebrow ${variant === "info" ? "" : "on-dark "}sh-eyebrow`}>{eyebrow}</p>
+          <p className={`eyebrow ${variant === "info" ? "" : "on-dark"}sh-eyebrow`}>{eyebrow}</p>
           <h1 className="sh-title">{title}</h1>
           <p className="sh-lede">{lede}</p>
 
@@ -97,19 +103,28 @@ export function ServiceHero({
               <a
                 data-cta-location="hero"
                 href={AGENT.phoneHref}
-                className={`btn ${isBookingAction ? "btn-ghost-light" : "btn-light"}`}
+                className={`btn ${isBookingAction || directContact ? "btn-ghost-light" : "btn-light"}`}
               >
                 <Phone size={19} aria-hidden />
-                <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
+                <span>
+                  Call Christian&apos;s direct line:{" "}
+                  <span className="whitespace-nowrap">{AGENT.phone}</span>
+                </span>
               </a>
             )}
             {actionHref && actionHref !== AGENT.phoneHref && (
               <Link
                 ctaLocation="hero"
-                href={isBookingAction ? (actionHref === ENGINE_BOOKING_URL ? ENGINE_BOOKING_URL : "/aep") : actionHref}
+                href={
+                  isBookingAction
+                    ? actionHref === ENGINE_BOOKING_URL
+                      ? ENGINE_BOOKING_URL
+                      : "/aep"
+                    : actionHref
+                }
                 target={actionHref === ENGINE_BOOKING_URL ? "_blank" : undefined}
                 rel={isBookingAction ? "noopener" : undefined}
-                className={`btn ${isBookingAction ? (variant === "info" ? "" : "btn-light") : hidePhoneCta || variant === "info" ? "btn-outline" : "btn-ghost-light"}`}
+                className={`btn ${directContact ? "btn-light" : isBookingAction ? (variant === "info" ? "" : "btn-light") : hidePhoneCta || variant === "info" ? "btn-outline" : "btn-ghost-light"}`}
               >
                 {isBookingAction ? "Book a 45-minute phone review" : label}{" "}
                 <ArrowRight size={18} className="arrow" aria-hidden />
@@ -117,7 +132,12 @@ export function ServiceHero({
             )}
           </div>
           {isBookingAction && (
-            <Link href={isMedicareStartHref(actionHref!) ? actionHref! : "/start?topic=medicare&quick=1"} className="underline">
+            <Link
+              href={
+                isMedicareStartHref(actionHref!) ? actionHref! : "/start?topic=medicare&quick=1"
+              }
+              className="underline"
+            >
               Or send a question
             </Link>
           )}

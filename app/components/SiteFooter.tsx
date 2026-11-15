@@ -192,14 +192,22 @@ export function SiteFooter() {
             <ul>
               {indexableMedicarePlaces().map((city) => (
                 <li key={city.slug}>
-                  <Link href={canonicalMedicareLocation(`/medicare-in/${city.slug}`)}>Medicare in {city.name}</Link>
+                  <Link href={canonicalMedicareLocation(`/medicare-in/${city.slug}`)}>
+                    Medicare in {city.name}
+                  </Link>
                 </li>
               ))}
               <li>
-                <Link href="/medicare-nc-towns#granville-county">Medicare in Creedmoor</Link>
+                <Link href="/medicare-agent-creedmoor-nc">Medicare in Creedmoor</Link>
               </li>
               <li>
-                <Link href="/medicare-nc-towns#granville-county">Medicare in Oxford</Link>
+                <Link href="/medicare-agent-oxford-nc">Medicare in Oxford</Link>
+              </li>
+              <li>
+                <Link href="/medicare-agent-durham-nc">Medicare in Durham</Link>
+              </li>
+              <li>
+                <Link href="/medicare-agent-raleigh-nc">Medicare in Raleigh</Link>
               </li>
               <li>
                 <Link href="/service-area">All the towns I serve</Link>

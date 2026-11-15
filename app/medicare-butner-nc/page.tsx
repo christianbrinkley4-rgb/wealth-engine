@@ -240,7 +240,7 @@ export default function MedicareButnerPage() {
             </ul>
             <p>
               Phone, video, or in person. And if you&apos;re in{" "}
-              <Link href="/medicare-oxford-nc" className="underline underline-offset-2">
+              <Link href="/medicare-agent-oxford-nc" className="underline underline-offset-2">
                 Oxford
               </Link>,
               same deal.

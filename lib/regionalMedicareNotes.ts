@@ -1,5 +1,7 @@
 /** County sections preserve the useful service-area context of retired aliases. */
 export const REGIONAL_MEDICARE_NOTES: Record<string, string> = {
+  Triangle:
+    "Raleigh, Durham, Chapel Hill, and nearby communities can involve care across Wake, Durham, Orange, Chatham, Johnston, and Franklin counties. Confirm your home county first, then list each hospital and clinic. North Durham is covered in the Durham guide, north Raleigh in the Raleigh guide, and Research Triangle Park employer questions in the Durham guide. Phone conversations are available; in-person meetings are agreed individually.",
   "Guilford County":
     "Greensboro is my home base. I serve nearby communities including Jamestown, Summerfield, Oak Ridge, and Pleasant Garden. High Point crosses several county lines, so I check the residential address before comparing availability. Bring every doctor you use, including offices outside Guilford County. The Greensboro guide includes the sourced 2027 county summary and enrollment tools.",
   "Forsyth County":

@@ -3,7 +3,16 @@ import { JsonLd, WealthFooter } from "@/app/wealth/ui/shell";
 import { wealthHubJsonLd } from "@/lib/wealth/seo";
 import { WealthNav } from "@/app/wealth/ui/WealthNav";
 
+import type { Metadata } from "next";
+
 import "./wealth.css";
+
+/**
+ * The hub is off-topic for search (lib/indexFocus.ts). Match the X-Robots-Tag
+ * header in the HTML meta tag. Pages listed in SEARCH_TARGET_EXCEPTIONS set
+ * their own robots.
+ */
+export const metadata: Metadata = { robots: { index: false, follow: true } };
 
 /**
  * The christianbuildswealth hub: a money section for people in their 20s and

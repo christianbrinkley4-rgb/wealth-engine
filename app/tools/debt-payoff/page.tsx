@@ -14,6 +14,7 @@ const description =
   "Free debt payoff calculator. List your real debts and compare avalanche vs snowball: months to zero and total interest, side by side. Explore the guide.";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: { absolute: "Debt Payoff Calculator | Christian Brinkley" },
   description,
   alternates: { canonical: path },
