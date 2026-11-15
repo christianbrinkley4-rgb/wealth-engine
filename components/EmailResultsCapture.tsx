@@ -20,13 +20,18 @@ interface EmailResultsCaptureProps {
   heading?: string;
   /** Replaces the default line under the heading. */
   intro?: string;
+  /** Replaces the default button text. */
+  submitLabel?: string;
+  /**
+   * What the tool knows. A tool leaves out any field it does not ask for,
+   * and the API then stores nothing for that field.
+   */
   wizardData: {
     zip_code: string;
-    filing_status: "individual" | "married_jointly";
-    /** Leave out when the tool does not ask for an age. The API then stores none. */
+    filing_status?: "individual" | "married_jointly";
     age?: number;
-    annual_income: number;
-    calculated_premium: number;
+    annual_income?: number;
+    calculated_premium?: number;
     irmaa_bracket: string;
     /** Optional. A request with no numbers sets "medicare" to get the plain reply email. */
     interest_topic?: "medicare";
@@ -61,6 +66,7 @@ export function EmailResultsCapture({
   variant = "medicare",
   heading,
   intro,
+  submitLabel,
   wizardData,
 }: EmailResultsCaptureProps) {
   const router = useRouter();
@@ -380,7 +386,7 @@ export function EmailResultsCapture({
           disabled={submitState === "loading"}
           className="text-18 inline-flex min-h-14 w-full items-center justify-center rounded-lg bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-70"
         >
-          {submitState === "loading" ? "Sending…" : "Email it to me →"}
+          {submitState === "loading" ? "Sending…" : (submitLabel ?? "Email it to me →")}
         </button>
       </div>
     </form>

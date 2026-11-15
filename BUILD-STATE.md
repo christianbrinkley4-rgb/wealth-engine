@@ -26,3 +26,15 @@ This file is a working note for the build. Delete it before or after merge if yo
 - Tests: `npx vitest run lib/__tests__/irmaaChecker.test.ts` passed. `npx tsc --noEmit` clean. Checked in a browser at 375px: $150,000 single shows Tier 2, $405.80, +$37.50, $240.40 a month.
 - Risks: the form was not submitted in testing (repo rule: never submit a real form).
 - Next: 3.2.
+
+## 3.2 Lead capture on the calculator and the checklist: DONE
+
+- Goal: a reader of `/greensboro-medicare-cost-calculator` or `/plan-checklist-tool` can reach Christian through the existing `EmailResultsCapture` form and the existing `/api/capture-lead` route.
+- Acceptance: no change to `app/api/capture-lead/route.ts`. Neither tool rebuilt. No health detail sent.
+- What changed in `components/EmailResultsCapture.tsx` (all optional, defaults unchanged): `heading`, `intro`, `submitLabel`; `wizardData.filing_status`, `age`, `annual_income`, `calculated_premium` became optional; `wizardData.interest_topic` and `wizardData.quiz_answers` added. Why not call-site only: the calculator has no filing status or income, and the checklist has no numbers at all. Passing invented values would store false data. The default heading "Send me these numbers" and button "Email it to me" would also tell a checklist reader that the sheet (prescriptions, doctors) is emailed. It is not.
+- Calculator: sends age, ZIP, 2027 projected Part B premium, and a label with the two yearly estimates. Does not send the prescription count or the visit count.
+- Checklist: sends the name and email typed into the form, plus fixed labels (`CHECKLIST_CONTACT_REQUEST` in `lib/planChecklist.ts`). Sends nothing from the sheet. A test proves it (`tool-lead-capture.test.ts`, "sends nothing typed into the sheet"). `interest_topic: "medicare"` and `entry_mode: "quick_contact"` select the existing short reply email. Side effect to know: a lead with topic `medicare` and consent is enrolled in the existing Medicare nurture sequence. Calculator and IRMAA checker leads have no topic and are not enrolled (same as the existing `/medicare` wizard).
+- Files: `components/EmailResultsCapture.tsx`, `app/greensboro-medicare-cost-calculator/CalculatorClient.tsx`, `app/greensboro-medicare-cost-calculator/data.ts`, `app/plan-checklist-tool/PlanChecklist.tsx`, `lib/planChecklist.ts`, `lib/__tests__/tool-lead-capture.test.ts`.
+- Tests: `npx vitest run lib/__tests__/tool-lead-capture.test.ts lib/__tests__/results-capture-security.test.ts app/greensboro-medicare-cost-calculator/data.test.ts` : 3 files, 26 tests passed. Browser check at 375px: both forms render, no horizontal overflow, no console errors.
+- Risks: (1) The calculator page header still says "Your numbers and answers stay on your device" (shared `ToolHeader`). The new line above the form says what the form sends. (2) Christian must approve the new form wording (repo rule: ask before changing what a person submits). (3) Existing calculator text names an insurance company and says "Free. No obligation." These were not changed (outside Section 3). See the final report.
+- Next: 3.3.

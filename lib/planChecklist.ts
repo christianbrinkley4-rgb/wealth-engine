@@ -31,6 +31,28 @@ export const PLAN_COMPARE_URL = "https://www.medicare.gov/plan-compare/";
 export const SHIIP_CONTACT_URL =
   "https://www.ncdoi.gov/consumers/medicare-and-seniors-health-insurance-information-program-shiip/contact-seniors-health-insurance-information-program-shiip";
 
+/**
+ * What the contact form on the finished sheet sends, besides the name and
+ * email typed into that form.
+ *
+ * Nothing here comes from the sheet. Doctors, hospitals, prescriptions,
+ * pharmacy, ZIP, county, travel and budget stay in the browser. The capture
+ * API writes to a database, and health details must never be stored there.
+ *
+ * - irmaa_bracket starts with the tool name. The attribution report counts
+ *   leads by that prefix.
+ * - interest_topic and entry_mode select the existing short reply email
+ *   ("I received your request and will follow up personally"). Without them
+ *   the person gets the calculator reply, which talks about a premium
+ *   estimate that this tool never made.
+ */
+export const CHECKLIST_CONTACT_REQUEST = {
+  zip_code: "",
+  irmaa_bracket: "Plan checklist: asked for contact after making a sheet",
+  interest_topic: "medicare",
+  quiz_answers: { entry_mode: "quick_contact", tool: "plan_checklist" },
+} as const;
+
 export const CHECKLIST_PRIORITIES = [
   "Keeping my current doctors",
   "Lower monthly cost",

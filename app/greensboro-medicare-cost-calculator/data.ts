@@ -199,6 +199,22 @@ export function calculate(input: {
   };
 }
 
+/**
+ * The short label stored with a lead from this calculator.
+ *
+ * The capture API keeps the first 100 characters. The label starts with the
+ * tool name so the attribution report can count leads by tool. It carries
+ * the two yearly estimates only. It never carries the prescription count or
+ * the visit count.
+ */
+export function calculatorLeadLabel(result: CalcResult): string {
+  const usd = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
+  return `Cost calculator, 2027 projected Part B: Medigap est. ${usd(result.medigapYearly)}/yr, Advantage est. ${usd(result.maYearly)}/yr`.slice(
+    0,
+    100,
+  );
+}
+
 export const FAQS = [
   {
     q: "Are these real Greensboro plan prices?",

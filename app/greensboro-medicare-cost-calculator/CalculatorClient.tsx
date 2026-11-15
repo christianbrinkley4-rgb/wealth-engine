@@ -2,12 +2,16 @@
 
 /**
  * Greensboro Medicare cost calculator.
- * Everything runs in the visitor's browser. Estimates only, no backend,
- * no data leaves the page. Educational, never a recommendation.
+ * Everything runs in the visitor's browser. Estimates only. No data leaves
+ * the page unless the visitor submits the email form at the bottom. That form
+ * sends the age, the ZIP code, and the two yearly estimates. It never sends
+ * the prescription count or the visit count. Educational, never a
+ * recommendation.
  */
 
 import { useMemo, useState } from "react";
 
+import { EmailResultsCapture } from "@/components/EmailResultsCapture";
 import { AGENT } from "@/lib/agent";
 import {
   AssumptionBox,
@@ -15,7 +19,7 @@ import {
   Stat,
 } from "@/app/tools/_components/tool-shared";
 
-import { calculate, GUILFORD_ZIPS } from "./data";
+import { calculate, calculatorLeadLabel, GUILFORD_ZIPS, PART_B_MONTHLY } from "./data";
 
 function fmt(n: number): string {
   return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
@@ -155,6 +159,21 @@ export function GreensboroCostCalculator() {
           you take. Nothing here is a recommendation.
         </p>
       </AssumptionBox>
+
+      <p className="t-hint" style={{ marginTop: "1.5rem" }}>
+        Your numbers stay on your device unless you send them with the form below. The form sends
+        your age, your ZIP code, and the two yearly estimates to {AGENT.name}. It does not send
+        your prescription count or your visit count. No cost, no obligation.
+      </p>
+      <EmailResultsCapture
+        source="wizard_completion"
+        wizardData={{
+          zip_code: /^\d{5}$/.test(zip.trim()) ? zip.trim() : "",
+          age,
+          calculated_premium: PART_B_MONTHLY,
+          irmaa_bracket: calculatorLeadLabel(result),
+        }}
+      />
 
       <div className="t-cta">
         <p>Want real numbers for your situation?</p>
