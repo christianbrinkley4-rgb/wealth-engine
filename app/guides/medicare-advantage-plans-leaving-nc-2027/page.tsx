@@ -7,7 +7,7 @@ const data: SeoGuideData = {
   description:
     "Check whether your NC Medicare Advantage plan is ending or being replaced for 2027. Learn which notices, deadlines, and coverage choices matter.",
   published: "2026-10-08",
-  reviewed: "2026-11-07",
+  reviewed: "2026-11-15",
   answer:
     "Some Medicare Advantage plans in North Carolina won't continue in 2027, but a carrier name alone can't tell you whether your coverage is ending. Check your exact plan ID, county, and notice to find out whether your plan is terminating, leaving your area, or moving members into another plan.",
   sections: [
@@ -39,6 +39,27 @@ const data: SeoGuideData = {
           ],
         ],
       },
+    },
+    {
+      title: "What Humana is changing for 2027",
+      paragraphs: [
+        "Humana is cutting 37 Medicare Advantage PPO plans for 2027, trimming its lineup from 887 plans to 861. It is leaving Minnesota entirely and exiting 57 counties. The company says about 600,000 members are in plans that are ending. KFF, counting the same CMS data a different way, puts the Humana figure at about 530,000 people in drug plans that end December 31, 2026. The two counts differ because they count different plan types. Either way, this is the largest single-carrier pullback for 2027. Source: Becker's reporting on CMS 2027 landscape data, October 1, 2026; KFF analysis of CMS 2027 landscape and crosswalk files, October 2026.",
+        "In North Carolina, the two HumanaChoice PPO plans in the table above are listed as terminated in the CMS crosswalk, with no receiving plan. If you have a Humana PPO, check your exact plan ID. A Humana member in a continuing plan is not affected by the 37 PPO cuts.",
+      ],
+    },
+    {
+      title: "What Aetna is changing for 2027",
+      paragraphs: [
+        "Aetna is growing its total plan count for 2027, from 642 plans to 654, but it is still pulling standard plans from 123 counties and leaving Maryland and New Hampshire entirely. It is cutting 20 PPO plans and adding 29 plans for people with chronic conditions. KFF counts about 254,000 people in Aetna drug plans that end December 31, 2026. Source: Becker's reporting on CMS 2027 landscape data, October 1, 2026; KFF analysis of CMS 2027 landscape and crosswalk files, October 2026.",
+        "Aetna is part of CVS Health. KFF counts the parent company exiting 186 counties and entering 63 for 2027. An Aetna exit only matters if your county is one of the 123. Check your notice, not the headline.",
+      ],
+    },
+    {
+      title: "The March 4, 2027 Medigap deadline",
+      paragraphs: [
+        "If your plan ends December 31, 2026 and you want a Medicare Supplement instead, the clock matters. Federal rules give you a guaranteed right to buy certain Medigap policies without health questions for 63 days after your coverage ends. Coverage ends December 31, 2026, so the window runs through March 4, 2027. Apply before that date. After it, North Carolina companies can ask health questions and turn you down.",
+        "You also get a special enrollment period from December 8, 2026 through February 28, 2027 to pick a new Medicare Advantage or drug plan when your plan does not renew. That window is for choosing a replacement plan. The March 4 date is the Medigap deadline. They are two different windows, and both close soon after the new year. Source: Medicare Special Enrollment Periods (Medicare.gov) and Choosing a Medigap Policy (Medicare.gov).",
+      ],
     },
     {
       title: "Check your exact plan first",
@@ -74,7 +95,7 @@ const data: SeoGuideData = {
       title: "Enrollment dates for the 2027 transition",
       paragraphs: [
         "Medicare Open Enrollment runs October 15 through December 7, 2026 for changes effective January 1, 2027. Medicare also lists a December 8 through February 28 Special Enrollment Period for certain nonrenewals. Other termination situations have different windows. Check the category in your notice and confirm the new plan's start date. Waiting can leave you without the coverage you expected. Source: [Medicare enrollment periods](https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan/special-enrollment-periods).",
-        "If your plan is ending and you want help reading the notice, [book a free 45-minute phone review](/aep) or call (919) 408-6671. Bring the letter and we will work through what it says, with no obligation to enroll.",
+        "If your plan is ending and you want help reading the notice, [book a 45-minute phone review](/aep) at no cost and with no obligation, or call (919) 408-6671. Bring the letter and we will work through what it says, with no obligation to enroll.",
       ],
     },
     {
@@ -108,6 +129,10 @@ const data: SeoGuideData = {
     },
   ],
   sources: [
+    {
+      label: "KFF: Medicare Advantage plan availability varies widely by county for 2027, October 9, 2026",
+      href: "https://www.kff.org/medicare/medicare-advantage-plan-availability-varies-widely-by-county-for-2027/",
+    },
     {
       label: "CMS: 2027 Part C and D Plan Crosswalk, October 1, 2026 file",
       href: "https://www.cms.gov/data-research/statistics-trends-and-reports/medicare-advantagepart-d-contract-and-enrollment-data/plan-crosswalks/2027-part-cd-plan-crosswalk",
