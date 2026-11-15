@@ -50,3 +50,19 @@ This file is a working note for the build. Delete it before or after merge if yo
 - Tests: `npx vitest run lib/__tests__/prep-sheet.test.ts lib/__tests__/prep-intake-route.test.ts` : 2 files, 48 tests passed. Browser check at 375px with fictional data: the builder made the sheet and made no `/api/` request. The intake form posted to `/api/prep-intake` and got 503 `email_unavailable`, because the local worktree has no Resend key. That is the designed result when the email cannot go out.
 - Risks: (1) Not blocked, but unverified: live Resend delivery of the intake email. Check after deploy: open `/api/health`, confirm Resend reports ready, then send one test intake with fictional data and confirm it reaches the inbox. (2) "Private" means unlisted and noindex. The site has no login, so anyone with the URL can open the empty builder. It holds no data. (3) Resend, the email provider, keeps its own record of sent messages. The website itself stores nothing. (4) `/privacy` does not mention the new intake form yet. That is a disclosure change for Christian to approve.
 - Next: 3.4.
+
+## 3.4 Estimator figures refresh: DONE
+
+- Goal: check every 2027 figure in `app/greensboro-medicare-cost-calculator/data.ts` against CMS. Label each kept figure with year, status, and source.
+- Result per figure (checked 2026-11-15):
+  - Part B premium $209.50 and deductible $292: kept as 2027 PROJECTIONS. CMS final figures not published (see "Ground facts").
+  - Part D maximum deductible $700 and out-of-pocket cap $2,400: FINAL. CMS 2027 Rate Announcement, Table V-2, https://www.cms.gov/files/document/2027-announcement.pdf (PDF text read locally: "Deductible $615 $700", "Out-of-Pocket Threshold $2,100 $2,400").
+  - Average standalone Part D premium about $36 and national average MA premium $12.00: CMS PROJECTIONS. CMS press release Sept 28, 2026 ("from $35.09 in 2026 to $36 in 2027", "from $14.37 in 2026 to $12.00 in 2027").
+  - MA copay per visit $20 and drug cost $12 a month: PLANNING ESTIMATES, no source. Now stated in the code, in the assumption box, in a FAQ answer, and in the new table.
+  - Guilford County 55 plans, $4.13, $7,055.45: these come from MedicareAdvantage.com, not from a CMS announcement. The old label said "CMS 2027 landscape file, via medicareadvantage.com". The label now says third party. NOT verified against CMS. Open issue: `lib/ncLandscape2027.ts` (built from the CMS CY2027 landscape file) counts 57 Guilford County plans. Other pages also print 55 (`lib/greensboroMedicareGuide.ts`, `app/medicare-costs-north-carolina/page.tsx`, `app/medicare-advantage-north-carolina/page.tsx`). Not changed. Christian decides which count to show.
+- No figure was added that is per plan or per insurer. The Medigap rates and the insurer name on this page already existed and were not changed.
+- New: `FIGURE_LABELS` in `data.ts` and a table on the page, "Where each number in the calculator comes from".
+- Files: `app/greensboro-medicare-cost-calculator/data.ts`, `data.test.ts`, `page.tsx`, `CalculatorClient.tsx`, `app/sitemap.ts`.
+- Tests: `npx vitest run app/greensboro-medicare-cost-calculator/data.test.ts` passed (19 tests in the file after this change).
+- Risk: when CMS publishes the final 2027 Part B figures, update `PART_B_MONTHLY`, `PART_B_DEDUCTIBLE`, their two `FIGURE_LABELS` rows, and the test "keeps the 2027 Part B premium and deductible as projections".
+- Next: 3.5.

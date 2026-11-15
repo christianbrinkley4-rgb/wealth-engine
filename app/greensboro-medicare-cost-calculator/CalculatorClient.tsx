@@ -152,9 +152,12 @@ export function GreensboroCostCalculator() {
       <AssumptionBox>
         <p>
           <strong>What these numbers assume.</strong> Part B at the 2027 projected
-          standard ($209.50/month; CMS finalizes 2027 figures in November 2026).
+          standard ($209.50/month). That is a projection. As of November 15, 2026, CMS
+          has not announced the final 2027 amount.
           Medigap Plan G at Blue Cross NC filed non-tobacco rates for your age.
-          A typical $0-premium Advantage plan with average copays. Generic drug costs.
+          A typical $0-premium Advantage plan with a $20 copay for each doctor visit.
+          Each prescription at $12 a month. The $20 and the $12 are planning estimates
+          with no official source.
           Real quotes depend on the insurer, your exact age, tobacco use, and the drugs
           you take. Nothing here is a recommendation.
         </p>

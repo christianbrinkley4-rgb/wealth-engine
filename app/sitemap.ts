@@ -149,7 +149,7 @@ const STATIC_ROUTES: Array<{
     path: "/greensboro-medicare-cost-calculator",
     changeFrequency: "monthly",
     priority: 0.8,
-    lastModified: "2026-10-10",
+    lastModified: "2026-11-15",
   },
   {
     path: "/medicare-costs-north-carolina",
