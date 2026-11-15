@@ -63,6 +63,17 @@ This file is a working note for the build. Delete it before or after merge if yo
 - No figure was added that is per plan or per insurer. The Medigap rates and the insurer name on this page already existed and were not changed.
 - New: `FIGURE_LABELS` in `data.ts` and a table on the page, "Where each number in the calculator comes from".
 - Files: `app/greensboro-medicare-cost-calculator/data.ts`, `data.test.ts`, `page.tsx`, `CalculatorClient.tsx`, `app/sitemap.ts`.
-- Tests: `npx vitest run app/greensboro-medicare-cost-calculator/data.test.ts` passed (19 tests in the file after this change).
+- Tests: `npx vitest run app/greensboro-medicare-cost-calculator/data.test.ts` passed (18 tests in the file after this change).
 - Risk: when CMS publishes the final 2027 Part B figures, update `PART_B_MONTHLY`, `PART_B_DEDUCTIBLE`, their two `FIGURE_LABELS` rows, and the test "keeps the 2027 Part B premium and deductible as projections".
 - Next: 3.5.
+
+## 3.5 Attribution report: DONE
+
+- Goal: a local command that reads the lead rows `capture-lead` stores in Supabase and prints a text and HTML summary. Not a deployed page.
+- Command: `npm run report:attribution`. Options: `--days=30` (default 90), `--all`, `--out=<file>.html`, `--table=leads|website_inquiries`, `--sample`.
+- What it prints: leads by source tool, by UTM source and medium, untagged leads by referring host, leads by week, and help quiz starts (`lead_events`) against completions.
+- Decisions: (1) Plain `.mjs` script, the same pattern as `scripts/check-connections.mjs`. The app never imports it. (2) It selects only date, source, topic, tool label, and campaign tags. It selects no name, email, phone, ZIP, or answer text. (3) It reads `website_inquiries` first when that table exists (the Command Center database), then `leads`. Reason: `capture-lead` writes to the Command Center when `COMMAND_CENTER_INGEST_URL` is set, and to `leads` otherwise. (4) The HTML file goes to `.cache/attribution/` (ignored by git). The script refuses to write inside `public/`, `app/`, `.next/`, `out/`, or `netlify/`. (5) With no key it prints a clear note and exits with code 1.
+- Files: `scripts/report-attribution.mjs`, `lib/__tests__/attribution-report.test.ts`, `package.json` (one script line).
+- Tests: `npx vitest run lib/__tests__/attribution-report.test.ts` : 20 tests passed. `npm run report:attribution` with no key printed the missing-key note and exit code 1. `npm run report:attribution -- --sample` printed the fictional sample and wrote the HTML file.
+- Risks: NOT run against the real database. This worktree has no `.env.local`, by design. Unknown until Christian runs it: which database `SUPABASE_URL` in his `.env.local` points to. If the script reports that no lead table could be read, the service key belongs to a different project than the one that holds the leads. Calculator start and complete counts are in the analytics tool, not in Supabase, so the report cannot show them.
+- Next: 3.6.
