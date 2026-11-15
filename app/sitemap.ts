@@ -412,6 +412,24 @@ const STATIC_ROUTES: Array<{
     lastModified: "2026-11-15",
   },
   {
+    path: "/irmaa-married-filing-jointly",
+    changeFrequency: "monthly",
+    priority: 0.8,
+    lastModified: "2026-11-15",
+  },
+  {
+    path: "/part-d-irmaa",
+    changeFrequency: "monthly",
+    priority: 0.8,
+    lastModified: "2026-11-15",
+  },
+  {
+    path: "/medicare-cost-greensboro-nc",
+    changeFrequency: "monthly",
+    priority: 0.8,
+    lastModified: "2026-11-15",
+  },
+  {
     path: "/medicare-costs-2026",
     changeFrequency: "monthly",
     priority: 0.95,

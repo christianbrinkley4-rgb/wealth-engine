@@ -267,6 +267,17 @@ export default function IrmaaCheckerPage() {
             </Link>
             .
           </p>
+          <p className={P}>
+            Are you married? Read{" "}
+            <Link href="/irmaa-married-filing-jointly" className="underline underline-offset-2">
+              IRMAA for married couples
+            </Link>
+            . For the surcharge on drug coverage, read{" "}
+            <Link href="/part-d-irmaa" className="underline underline-offset-2">
+              Part D IRMAA
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

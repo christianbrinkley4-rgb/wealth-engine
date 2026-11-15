@@ -77,3 +77,19 @@ This file is a working note for the build. Delete it before or after merge if yo
 - Tests: `npx vitest run lib/__tests__/attribution-report.test.ts` : 20 tests passed. `npm run report:attribution` with no key printed the missing-key note and exit code 1. `npm run report:attribution -- --sample` printed the fictional sample and wrote the HTML file.
 - Risks: NOT run against the real database. This worktree has no `.env.local`, by design. Unknown until Christian runs it: which database `SUPABASE_URL` in his `.env.local` points to. If the script reports that no lead table could be read, the service key belongs to a different project than the one that holds the leads. Calculator start and complete counts are in the analytics tool, not in Supabase, so the report cannot show them.
 - Next: 3.6.
+
+## 3.6 Search pages for IRMAA and Medicare cost questions: DONE
+
+- Goal: two to four pages that answer exact search questions, with verified figures only.
+- Built three pages:
+  - `/irmaa-married-filing-jointly`: IRMAA for married couples. Joint limits, what each spouse pays, the separate-return table, what changes after a spouse dies.
+  - `/part-d-irmaa`: the Part D surcharge. The 2026 table, who pays it, how Medicare bills it.
+  - `/medicare-cost-greensboro-nc`: how much Medicare costs in Greensboro. Costs Medicare sets, costs that depend on the county, 2026 and 2027.
+- Why these three: the site already has `/guides/irmaa-brackets-2026`, two IRMAA articles under `/learn`, `/irmaa-appeal`, and four cost pages (`/medicare-costs`, `-2026`, `-2027`, `-north-carolina`). These three questions had no page of their own. A fourth page would have repeated an existing page.
+- Figures and sources: all 2026 IRMAA amounts come from `lib/irmaa.ts` and `lib/medicareCosts2026.ts` (CMS fact sheet, Nov 14, 2025, re-read Nov 15, 2026). Separate-return amounts are new in `lib/irmaaMarried2026.ts` from the same fact sheet ($109,000 and $391,000 lines, $649.20 and $689.90, +$83.30 and +$91.00). Billing facts for Part D IRMAA come from Medicare.gov fact sheet 11469. A test (`lead-engine-pages.test.ts`, "types no dollar amount outside the verified list") fails if a page types any other dollar amount.
+- Template: each page has absolute title, description, canonical, Open Graph, breadcrumb, Article and FAQ JSON-LD, a source list, the Medicare compliance disclosure, a text byline, and a sitemap entry. Text-only parts from `app/components/PlainPageParts.tsx` (no photo).
+- Links added to existing pages (one line each): `app/guides/irmaa-brackets-2026/page.tsx` links the checker and the married page. `app/greensboro-medicare-cost-calculator/page.tsx` links the Greensboro cost page.
+- Files: `app/irmaa-married-filing-jointly/page.tsx`, `app/part-d-irmaa/page.tsx`, `app/medicare-cost-greensboro-nc/page.tsx`, `lib/irmaaMarried2026.ts`, `app/components/PlainPageParts.tsx`, `lib/__tests__/lead-engine-pages.test.ts`, `app/sitemap.ts`, `app/irmaa-checker/page.tsx`, plus the two one-line link edits.
+- Tests: `npx vitest run lib/__tests__/lead-engine-pages.test.ts` : 97 tests passed. Browser check at 375px: three pages render, no horizontal overflow, no image inside the page content.
+- Risks: (1) `/medicare-cost-greensboro-nc` has a town name in its path. The brief asked for this page and also says no new town pages. It is a cost answer page, not a service-area page. Christian can drop it from the PR if he reads it as a town page. (2) The $9,850 and $14,800 Medicare Advantage limits come from Section 2 of the brief. The CMS memo was not re-opened in this build, so the page lists that source by name with no link. (3) New pages will not rank before Annual Enrollment ends on December 7, 2026.
+- Next: full lint, test, build. Then push the branch.

@@ -259,6 +259,7 @@ export default function GreensboroMedicareCostCalculatorPage() {
           ))}
           <p>
             Want the full picture? Read{" "}
+            <Link href="/medicare-cost-greensboro-nc">what Medicare costs in Greensboro</Link>,{" "}
             <Link href="/turning-65">Turning 65 in Greensboro</Link>,{" "}
             <Link href="/medicare-advantage-plans-greensboro-nc">Advantage plans in Greensboro</Link>,{" "}
             <Link href="/medigap-plans-greensboro-nc">Medigap plan letters</Link>,{" "}
