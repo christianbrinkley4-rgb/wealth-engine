@@ -24,7 +24,7 @@ const STATIC_ROUTES: Array<{
     priority: 0.9,
     lastModified: "2026-10-12",
   },
-  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-11-07" },
+  { path: "/", changeFrequency: "weekly", priority: 1.0, lastModified: "2026-11-10" },
   {
     path: "/insurance-services",
     changeFrequency: "monthly",
@@ -172,7 +172,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-asheboro-nc",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-10-04",
+    lastModified: "2026-11-10",
   },
   {
     path: "/medicare-mebane-nc",
@@ -190,7 +190,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-eden-nc",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-10-04",
+    lastModified: "2026-11-10",
   },
   {
     path: "/medicare-roxboro-nc",
@@ -208,7 +208,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-butner-nc",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-11-07",
+    lastModified: "2026-11-10",
   },
   {
     path: "/medicare-graham-nc",
@@ -280,7 +280,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-agent-creedmoor-nc",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-11-09",
+    lastModified: "2026-11-10",
   },
   {
     path: "/medicare-agent-franklinton-nc",
@@ -347,7 +347,7 @@ const STATIC_ROUTES: Array<{
     path: "/plan-checklist-tool",
     changeFrequency: "monthly",
     priority: 0.8,
-    lastModified: "2026-10-09",
+    lastModified: "2026-11-10",
   },
   {
     path: "/medicare-advantage-doctor-networks",
@@ -387,7 +387,7 @@ const STATIC_ROUTES: Array<{
     path: "/medicare-costs-2027",
     changeFrequency: "weekly",
     priority: 0.9,
-    lastModified: "2026-11-07",
+    lastModified: "2026-11-16",
   },
   {
     path: "/medicare-glossary",
@@ -452,7 +452,6 @@ const STATIC_ROUTES: Array<{
     "/wealth/catch-up-contributions-after-50",
     "/wealth/pre-retirement-5-year-checklist",
     "/wealth/first-tax-return-guide",
-    "/wealth/tax-brackets-explained-plainly",
     "/wealth/roth-vs-traditional-taxes",
     "/wealth/disability-insurance-explained",
     "/wealth/health-insurance-basics",
@@ -472,6 +471,13 @@ const STATIC_ROUTES: Array<{
     priority: path === "/wealth" ? 0.9 : path === "/links" ? 0.4 : 0.8,
     lastModified: "2026-10-08",
   })),
+  // Pulled out of the shared wealth list 2026-11-16: robots index override added 2026-11-10 (weekly SEO loop).
+  {
+    path: "/wealth/tax-brackets-explained-plainly",
+    changeFrequency: "weekly",
+    priority: 0.8,
+    lastModified: "2026-11-10",
+  },
   // Standalone money calculators.
   ...[
     "/tools",
@@ -665,7 +671,6 @@ const SEO_REVIEWED_PATHS = new Set([
   "/guides/nc-state-health-plan-medicare",
   "/guides/chronic-condition-special-needs-plans",
   "/guides/moving-to-north-carolina-medicare",
-  "/wealth/tax-brackets-explained-plainly",
 ]);
 
 // Pages genuinely edited in PR 3 (rankings rewrites plus Batch 2 content
@@ -686,9 +691,9 @@ const SEO_REVIEWED_2026_11_07 = new Set([
 const NEW_SEARCH_PATHS: Array<{ path: string; lastModified: string }> = [
   ...Object.keys(LOCAL_VISIBILITY_CITIES).map((slug) => ({
     path: `/medicare-agent-${slug}-nc`,
-    lastModified: "2026-11-09",
+    lastModified: "2026-11-10",
   })),
-  { path: "/financial-planning-nc", lastModified: "2026-11-09" },
+  { path: "/financial-planning-nc", lastModified: "2026-11-10" },
   { path: "/turning-65-medicare-charlotte-nc", lastModified: "2026-11-05" },
   { path: "/medicare-consultation-charlotte-nc", lastModified: "2026-11-05" },
   { path: "/life-insurance-winston-salem-nc", lastModified: "2026-11-05" },
@@ -721,7 +726,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "/life-insurance",
         "/retirement-income",
       ].includes(path)
-        ? "2026-11-09"
+        ? "2026-11-10"
         : SEO_REVIEWED_2026_11_07.has(path)
           ? "2026-11-07"
           : SEO_REVIEWED_PATHS.has(path)

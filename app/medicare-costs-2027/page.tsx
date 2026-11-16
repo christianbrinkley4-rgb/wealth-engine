@@ -40,7 +40,7 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 const PATH = "/medicare-costs-2027";
 
 /** The day every figure here was checked against its CMS source. */
-const REVIEWED = "2026-11-07";
+const REVIEWED = "2026-11-16";
 
 const CMS_2027_RATE_ANNOUNCEMENT = {
   title: "CMS: Announcement of Calendar Year 2027 Medicare Advantage Capitation Rates and Part C and Part D Payment Policies (April 6, 2026)",
@@ -121,7 +121,7 @@ const COST_ROWS = [
 const FAQ = [
   {
     q: "Has the 2027 Medicare Part B premium been announced?",
-    a: `Not yet. As of November 7, 2026, CMS has not published the 2027 Part B premium or deductible. CMS released the 2026 figures on November 14, 2025, so the 2027 numbers usually come out in the fall. Until then, the only official amounts are the 2026 ones: ${formatMoney(STANDARD_BASE_PREMIUM_2026)} a month for the standard premium and ${whole(PART_B_2026.annualDeductible)} for the yearly deductible.`,
+    a: `Not yet. As of November 16, 2026, CMS has not published the 2027 Part B premium or deductible. CMS released the 2026 figures on November 14, 2025, so the 2027 numbers usually come out in the fall. Until then, the only official amounts are the 2026 ones: ${formatMoney(STANDARD_BASE_PREMIUM_2026)} a month for the standard premium and ${whole(PART_B_2026.annualDeductible)} for the yearly deductible.`,
   },
   {
     q: "Which Medicare costs are final for 2027?",
@@ -181,7 +181,7 @@ export default function MedicareCosts2027Page() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Medicare costs 2027" }]}
-        eyebrow="Checked November 7, 2026 · Official CMS figures only, projections labeled"
+        eyebrow="Checked November 16, 2026 · Official CMS figures only, projections labeled"
         title="Medicare costs 2027"
         lede="Here's what CMS has officially published for 2027, and what it hasn't. The Part D numbers are final. The Part A, Part B, and IRMAA numbers aren't out yet, so I show the 2026 amounts with the year on every one, plus the Trustees projections in their own section, labeled projected. Projections are labeled as projections."
         secondaryHref="/start?topic=medicare&quick=1"
