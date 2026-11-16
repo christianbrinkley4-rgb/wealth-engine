@@ -4,9 +4,11 @@ import { ENGINE_BOOKING_URL } from "@/lib/leadEnginePublic";
 import { useEffect, useRef, useState } from "react";
 
 import { trackEvent } from "@/app/components/Analytics";
+import { EmailResultsCapture } from "@/components/EmailResultsCapture";
 import { TrackedLink } from "@/components/TrackedLink";
 import { AGENT } from "@/lib/agent";
 import {
+  CHECKLIST_CONTACT_REQUEST,
   CHECKLIST_COUNTIES,
   CHECKLIST_PRIORITIES,
   isChecklistCounty,
@@ -48,9 +50,13 @@ const SHEET_LABELS: Record<Field, string> = {
 };
 
 /**
- * Everything typed here stays in this component's state. Nothing is saved,
- * sent, put in the address bar, or reported to analytics. The two events say
- * only that a checklist was started and finished.
+ * Everything typed into the checklist stays in this component's state.
+ * Nothing is saved, sent, put in the address bar, or reported to analytics.
+ * The two events say only that a checklist was started and finished.
+ *
+ * The contact form on the finished sheet is separate. It sends the name and
+ * email typed into that form, plus the fixed labels in
+ * CHECKLIST_CONTACT_REQUEST. It never reads `entries` or `priorities`.
  */
 export function PlanChecklist() {
   const [step, setStep] = useState(0);
@@ -298,6 +304,14 @@ export function PlanChecklist() {
               Book a 45-minute phone review
             </TrackedLink>
           </div>
+
+          <EmailResultsCapture
+            source="wizard_completion"
+            heading="Or ask me to contact you"
+            intro="Print your sheet first. This form sends me your name and your email, and nothing from your sheet. After you send it, a new page opens and the sheet on this screen is cleared. No cost, no obligation."
+            submitLabel="Send my request"
+            wizardData={CHECKLIST_CONTACT_REQUEST}
+          />
         </>
       ) : null}
 

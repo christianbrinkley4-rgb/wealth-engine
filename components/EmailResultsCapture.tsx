@@ -16,13 +16,27 @@ interface EmailResultsCaptureProps {
   /** Capture source. Must be one the API accepts. */
   source?: "wizard_completion" | "roth_calculator";
   variant?: "medicare" | "roth";
+  /** Replaces the default heading. For a tool whose result is not a set of numbers. */
+  heading?: string;
+  /** Replaces the default line under the heading. */
+  intro?: string;
+  /** Replaces the default button text. */
+  submitLabel?: string;
+  /**
+   * What the tool knows. A tool leaves out any field it does not ask for,
+   * and the API then stores nothing for that field.
+   */
   wizardData: {
     zip_code: string;
-    filing_status: "individual" | "married_jointly";
-    age: number;
-    annual_income: number;
-    calculated_premium: number;
+    filing_status?: "individual" | "married_jointly";
+    age?: number;
+    annual_income?: number;
+    calculated_premium?: number;
     irmaa_bracket: string;
+    /** Optional. A request with no numbers sets "medicare" to get the plain reply email. */
+    interest_topic?: "medicare";
+    /** Optional short labels. Never put health details here. */
+    quiz_answers?: Record<string, string>;
   };
 }
 
@@ -50,6 +64,9 @@ export function EmailResultsCapture({
   initialEmail = "",
   source = "wizard_completion",
   variant = "medicare",
+  heading,
+  intro,
+  submitLabel,
   wizardData,
 }: EmailResultsCaptureProps) {
   const router = useRouter();
@@ -266,11 +283,11 @@ export function EmailResultsCapture({
         className="text-22 flex items-center gap-3 font-semibold text-[var(--color-navy)]"
       >
         <Mail className="size-6 shrink-0 text-[var(--color-gold-ink)]" aria-hidden />
-        {isRoth ? "Send me this conversion estimate" : "Send me these numbers"}
+        {heading ?? (isRoth ? "Send me this conversion estimate" : "Send me these numbers")}
       </h2>
       <p className="text-17 mt-2 leading-relaxed text-[var(--color-ink-muted)]">
-        Request a copy and a personal review of what these numbers could mean for your situation.
-        Your request goes directly to Christian.
+        {intro ??
+          "Request a copy and a personal review of what these numbers could mean for your situation. Your request goes directly to Christian."}
       </p>
 
       <div className="tl-honeypot" aria-hidden>
@@ -369,7 +386,7 @@ export function EmailResultsCapture({
           disabled={submitState === "loading"}
           className="text-18 inline-flex min-h-14 w-full items-center justify-center rounded-lg bg-[var(--color-navy)] px-6 font-semibold text-[var(--color-paper)] transition-opacity hover:opacity-95 disabled:cursor-not-allowed disabled:opacity-70"
         >
-          {submitState === "loading" ? "Sending…" : "Email it to me →"}
+          {submitState === "loading" ? "Sending…" : (submitLabel ?? "Email it to me →")}
         </button>
       </div>
     </form>

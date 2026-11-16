@@ -1,23 +1,40 @@
 /**
- * Real plan data behind the Greensboro Medicare cost calculator.
+ * Data behind the Greensboro Medicare cost calculator.
  *
- * Sources (all public, checked October 2026):
- * - Part B premium/deductible: 2026 Medicare Trustees Report projections for 2027
- *   ($209.50/month premium, $292 deductible). These are PROJECTIONS, not final;
- *   CMS announces final 2027 Parts A & B figures in November 2026.
- * - Medigap Plan G premiums: Blue Cross and Blue Shield of North Carolina, "Blue Medicare
- *   Supplement June 2026 - May 2027" rate outline, non-tobacco attained-age rates
- *   (nchealthplans.com). Averaged male/female below. This filing is current.
- * - MA plan figures: CMS 2027 landscape file for Guilford County, via
- *   medicareadvantage.com (55 plans, $4.13 avg monthly premium, $7,055.45 avg
- *   max out-of-pocket). National average MA premium ~$12/month from the CMS
- *   press release of Sept 28, 2026 (projection). Part D $700 max deductible
- *   and $2,400 out-of-pocket cap from the CMS CY 2027 Rate Announcement (final).
- * - MA average copay per visit and per-drug monthly cost: unchanged planning
- *   estimates with no 2027 source; labeled as estimates on the page.
+ * FIGURES REVIEW, November 15, 2026. Every 2027 figure was checked against
+ * CMS. The result for each figure is in FIGURE_LABELS below, with its year,
+ * its status, and its source. The page prints that table.
  *
- * Nothing here is a recommendation. Every number is labeled an estimate.
+ * - Part B premium ($209.50) and deductible ($292): PROJECTIONS for 2027, from
+ *   the 2026 Medicare Trustees Report. CMS had NOT published final 2027
+ *   Part B figures on November 15, 2026: https://www.cms.gov/newsroom listed
+ *   no 2027 Parts A and B item through November 13, 2026. Do not change these
+ *   to "final" until the CMS fact sheet exists.
+ * - Part D maximum deductible ($700) and out-of-pocket cap ($2,400): FINAL for
+ *   2027. CMS, Announcement of Calendar Year 2027 Medicare Advantage
+ *   Capitation Rates and Part C and Part D Payment Policies, April 6, 2026,
+ *   Table V-2: https://www.cms.gov/files/document/2027-announcement.pdf
+ * - Average standalone Part D premium (about $36) and national average
+ *   Medicare Advantage premium ($12.00): CMS PROJECTIONS for 2027, press
+ *   release of September 28, 2026:
+ *   https://www.cms.gov/newsroom/press-releases/medicare-advantage-medicare-prescription-drug-programs-expected-remain-stable-2027
+ * - Guilford County plan count (55), average premium ($4.13) and average
+ *   maximum out-of-pocket ($7,055.45): a THIRD-PARTY SUMMARY published by
+ *   MedicareAdvantage.com. These are not CMS announcements and were not
+ *   verified against the CMS landscape file in this review. Note: the CMS
+ *   landscape data already in this repo (lib/ncLandscape2027.ts) counts 57
+ *   Guilford County plans for 2027 under its own counting rules.
+ * - Medigap Plan G premiums: one insurer's filed non-tobacco attained-age
+ *   rates for June 2026 to May 2027 (rate outline at nchealthplans.com).
+ *   Averaged male and female below. FILED RATE, not an estimate of any quote.
+ * - Copay per doctor visit ($20) and drug cost per prescription ($12 a month):
+ *   PLANNING ESTIMATES. They have no source. They are not CMS figures.
+ *
+ * Nothing here is a recommendation. Every result is an estimate.
  */
+
+/** The day the figures above were last checked against their sources. */
+export const FIGURES_REVIEWED = "2026-11-15";
 
 export const META = {
   title: "Greensboro Medicare Cost Calculator: Medigap vs Medicare Advantage",
@@ -28,8 +45,9 @@ export const META = {
 export const PATH = "/greensboro-medicare-cost-calculator";
 
 /**
- * 2027 projected standard Part B premium and deductible.
- * Source: 2026 Medicare Trustees Report. PROJECTIONS; CMS finalizes Nov 2026.
+ * 2027 PROJECTED standard Part B premium and deductible.
+ * Source: 2026 Medicare Trustees Report. Not final. CMS had not announced the
+ * final 2027 amounts on November 15, 2026.
  */
 export const PART_B_MONTHLY = 209.5;
 export const PART_B_DEDUCTIBLE = 292;
@@ -57,23 +75,29 @@ export function medigapGMonthly(age: number): number {
 }
 
 /**
- * Projected average standalone Part D premium for 2027 (~$36/month).
- * Source: CMS press release, Sept 28, 2026 ($35.09 in 2026, projected ~$36).
- * Labeled an estimate on the page.
+ * 2027 PROJECTED average standalone Part D premium (about $36 a month).
+ * Source: CMS press release, September 28, 2026 ("from $35.09 in 2026 to $36
+ * in 2027"). A CMS projection, not a final figure.
  */
 export const PART_D_MONTHLY_ESTIMATE = 36;
 
-/** Blended average doctor copay for the MA estimate (PCP $0, specialist $35-40). */
+/**
+ * PLANNING ESTIMATE, no source. A blended copay per doctor visit for the
+ * Medicare Advantage path. Not a CMS figure and not any plan's copay.
+ */
 export const MA_AVG_COPAY_PER_VISIT = 20;
 
 /**
- * Part D maximum deductible for 2027 ($700, finalized in the CMS CY 2027
- * Rate Announcement). Used as a conservative planning figure for the MA
- * estimate; individual plans may set a lower drug deductible.
+ * 2027 FINAL Part D maximum deductible ($700). Source: CMS 2027 Rate
+ * Announcement, April 6, 2026, Table V-2. Used as the highest a plan may
+ * charge. A plan may set a lower drug deductible.
  */
 export const MA_PART_D_DEDUCTIBLE = 700;
 
-/** Rough generic drug cost per medication per month, labeled an estimate. */
+/**
+ * PLANNING ESTIMATE, no source. A rough monthly cost for one generic
+ * prescription. Not a CMS figure and not any plan's price.
+ */
 export const DRUG_MONTHLY_PER_MED_ESTIMATE = 12;
 
 export interface MaLandscapeRow {
@@ -84,25 +108,29 @@ export interface MaLandscapeRow {
 
 /**
  * 2027 Medicare Advantage landscape for Guilford County, NC.
- * County figures from the CMS 2027 landscape file via medicareadvantage.com.
+ * The three county rows are a third-party summary (MedicareAdvantage.com),
+ * not a CMS announcement. The last three rows are CMS figures.
  * Individual plan premiums, deductibles, and copays vary; verify any specific
  * plan on Medicare.gov before deciding.
  */
+const THIRD_PARTY_COUNTY_SOURCE =
+  "MedicareAdvantage.com county summary (third party, not a CMS announcement)";
+
 export const MA_LANDSCAPE_2027: MaLandscapeRow[] = [
   {
     metric: "Medicare Advantage plans available in Guilford County",
     value: "55",
-    source: "CMS 2027 landscape file, via medicareadvantage.com",
+    source: THIRD_PARTY_COUNTY_SOURCE,
   },
   {
     metric: "Average monthly premium",
     value: "$4.13",
-    source: "CMS 2027 landscape file, via medicareadvantage.com",
+    source: THIRD_PARTY_COUNTY_SOURCE,
   },
   {
     metric: "Average maximum out-of-pocket",
     value: "$7,055.45",
-    source: "CMS 2027 landscape file, via medicareadvantage.com",
+    source: THIRD_PARTY_COUNTY_SOURCE,
   },
   {
     metric: "National average MA premium (2027)",
@@ -118,6 +146,96 @@ export const MA_LANDSCAPE_2027: MaLandscapeRow[] = [
     metric: "Part D out-of-pocket cap (2027)",
     value: "$2,400",
     source: "CMS CY 2027 Rate Announcement (final)",
+  },
+];
+
+export type FigureStatus =
+  | "Final"
+  | "Projection"
+  | "Planning estimate"
+  | "Filed rate"
+  | "Third-party summary";
+
+export interface FigureLabel {
+  figure: string;
+  value: string;
+  /** The year, or the period, the figure applies to. */
+  year: string;
+  status: FigureStatus;
+  /** Who published it. "None" for a planning estimate. */
+  source: string;
+  /** Present only when the source is an official page that was opened and read. */
+  sourceUrl?: string;
+}
+
+const CMS_2027_ANNOUNCEMENT_URL = "https://www.cms.gov/files/document/2027-announcement.pdf";
+const CMS_2027_STABLE_RELEASE_URL =
+  "https://www.cms.gov/newsroom/press-releases/medicare-advantage-medicare-prescription-drug-programs-expected-remain-stable-2027";
+
+const usd = (value: number, cents = false) =>
+  value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: cents ? 2 : 0,
+    maximumFractionDigits: cents ? 2 : 0,
+  });
+
+/**
+ * Every figure the calculator uses in its math, with year, status and source.
+ * The values come from the constants above, so the table cannot drift from
+ * the math. The page prints this table.
+ */
+export const FIGURE_LABELS: FigureLabel[] = [
+  {
+    figure: "Part B premium, per month",
+    value: usd(PART_B_MONTHLY, true),
+    year: "2027",
+    status: "Projection",
+    source: "2026 Medicare Trustees Report. CMS has not announced the final 2027 amount.",
+  },
+  {
+    figure: "Part B deductible, per year",
+    value: usd(PART_B_DEDUCTIBLE),
+    year: "2027",
+    status: "Projection",
+    source: "2026 Medicare Trustees Report. CMS has not announced the final 2027 amount.",
+  },
+  {
+    figure: "Part D maximum deductible",
+    value: usd(MA_PART_D_DEDUCTIBLE),
+    year: "2027",
+    status: "Final",
+    source: "CMS, 2027 Rate Announcement, April 6, 2026, Table V-2",
+    sourceUrl: CMS_2027_ANNOUNCEMENT_URL,
+  },
+  {
+    figure: "Average standalone Part D premium, per month",
+    value: `About ${usd(PART_D_MONTHLY_ESTIMATE)}`,
+    year: "2027",
+    status: "Projection",
+    source: "CMS press release, September 28, 2026",
+    sourceUrl: CMS_2027_STABLE_RELEASE_URL,
+  },
+  {
+    figure: "Medigap Plan G premium, per month, by age",
+    value: `${usd(MEDIGAP_G_MONTHLY_BY_AGE[65])} at 65 to ${usd(MEDIGAP_G_MONTHLY_BY_AGE[74])} at 74`,
+    year: "June 2026 to May 2027",
+    status: "Filed rate",
+    source: "One insurer's filed non-tobacco rates, male and female averaged. See the table on this page.",
+  },
+  {
+    figure: "Copay for one doctor visit, Medicare Advantage path",
+    value: usd(MA_AVG_COPAY_PER_VISIT),
+    year: "No year",
+    status: "Planning estimate",
+    source: "None. A planning number, not an official figure.",
+  },
+  {
+    figure: "Cost of one prescription, per month",
+    value: usd(DRUG_MONTHLY_PER_MED_ESTIMATE),
+    year: "No year",
+    status: "Planning estimate",
+    source: "None. A planning number, not an official figure.",
   },
 ];
 
@@ -199,10 +317,26 @@ export function calculate(input: {
   };
 }
 
+/**
+ * The short label stored with a lead from this calculator.
+ *
+ * The capture API keeps the first 100 characters. The label starts with the
+ * tool name so the attribution report can count leads by tool. It carries
+ * the two yearly estimates only. It never carries the prescription count or
+ * the visit count.
+ */
+export function calculatorLeadLabel(result: CalcResult): string {
+  const usd = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
+  return `Cost calculator, 2027 projected Part B: Medigap est. ${usd(result.medigapYearly)}/yr, Advantage est. ${usd(result.maYearly)}/yr`.slice(
+    0,
+    100,
+  );
+}
+
 export const FAQS = [
   {
     q: "Are these real Greensboro plan prices?",
-    a: "The Medicare Advantage figures come from the CMS 2027 landscape file for Guilford County (55 plans, $4.13 average monthly premium, $7,055.45 average max out-of-pocket). The Medigap Plan G premiums are Blue Cross NC's filed non-tobacco rates by age. The Part B premium and deductible shown are 2027 projections from the Medicare Trustees Report; CMS finalizes those in November 2026. Plan availability and prices vary by county and change every year, so always verify current details on Medicare.gov before deciding anything.",
+    a: "The Guilford County figures (55 plans, $4.13 average monthly premium, $7,055.45 average max out-of-pocket) come from a county summary published by MedicareAdvantage.com. They are not official CMS announcements. The Medigap Plan G premiums are Blue Cross NC's filed non-tobacco rates by age. The Part B premium and deductible shown are 2027 projections from the Medicare Trustees Report. As of November 15, 2026, CMS has not announced the final 2027 amounts. Plan availability and prices vary by county and change every year, so always verify current details on Medicare.gov before deciding anything.",
   },
   {
     q: "Does this calculator recommend a plan?",
@@ -214,7 +348,7 @@ export const FAQS = [
   },
   {
     q: "What is missing from these estimates?",
-    a: "Dental, vision, and hearing extras some MA plans bundle; drug costs beyond generics; any Part B late-enrollment penalty; and income-related premium surcharges (IRMAA). The Medigap premium shown is one carrier's filed rate, and your actual quote depends on the insurer, your exact age, and tobacco use. The Part B figures are projections until CMS finalizes them.",
+    a: "Dental, vision, and hearing extras some MA plans bundle; drug costs beyond generics; any Part B late-enrollment penalty; and income-related premium surcharges (IRMAA). The Medigap premium shown is one carrier's filed rate, and your actual quote depends on the insurer, your exact age, and tobacco use. The Part B figures are projections until CMS finalizes them. The $20 copay for a doctor visit and the $12 monthly cost for a prescription are planning estimates with no official source.",
   },
   {
     q: "Do I still pay the Part B premium with Medicare Advantage?",

@@ -1,0 +1,202 @@
+/* Private prep sheet builder (/prep-sheet). Phone first, then print. */
+
+.prep {
+  display: grid;
+  gap: 2rem;
+  padding-bottom: 3rem;
+}
+
+.prep-private {
+  border-left: 4px solid var(--color-navy);
+  background: var(--color-paper);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.prep-field {
+  margin-bottom: 1.25rem;
+}
+
+.prep-field label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.prep-field p {
+  margin: 0.2rem 0 0.4rem;
+  color: var(--color-ink-muted);
+  line-height: 1.5;
+}
+
+.prep-field input,
+.prep-field textarea {
+  width: 100%;
+  min-height: 3rem;
+  border: 1px solid #b9c2ba;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0.6rem 0.8rem;
+  font: inherit;
+  color: var(--color-navy);
+}
+
+.prep-field input:focus-visible,
+.prep-field textarea:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+}
+
+.prep-field .btn {
+  margin-top: 0.6rem;
+}
+
+.prep-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.prep-sheet {
+  border: 1px solid #d9ded8;
+  border-radius: 12px;
+  background: #fff;
+  padding: 1.25rem;
+  color: #111;
+}
+
+.prep-sheet h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+}
+
+.prep-sheet h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 1.25rem 0 0.4rem;
+  border-bottom: 1px solid #111;
+  padding-bottom: 0.2rem;
+}
+
+.prep-facts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.prep-facts dt {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.prep-facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.prep-note {
+  margin: 0.3rem 0;
+  font-style: italic;
+}
+
+.prep-meds,
+.prep-list {
+  margin: 0.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prep-meds {
+  counter-reset: med;
+}
+
+.prep-meds li {
+  counter-increment: med;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #999;
+  break-inside: avoid;
+}
+
+.prep-med-name {
+  display: block;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.prep-med-name::before {
+  content: counter(med) ". ";
+}
+
+.prep-med-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+  margin-top: 0.3rem;
+  font-size: 0.92rem;
+}
+
+.prep-list li {
+  padding: 0.3rem 0;
+  overflow-wrap: anywhere;
+  break-inside: avoid;
+}
+
+.prep-box {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  border: 1.5px solid #111;
+  border-radius: 2px;
+  margin-right: 0.35em;
+  vertical-align: -0.1em;
+}
+
+.prep-lines span {
+  display: block;
+  border-bottom: 1px solid #999;
+  height: 1.9rem;
+}
+
+.prep-sheet footer {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+}
+
+@media (min-width: 720px) {
+  .prep-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media print {
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+  body:has(.prep-sheet) * {
+    visibility: hidden;
+  }
+  body:has(.prep-sheet) .prep-sheet,
+  body:has(.prep-sheet) .prep-sheet * {
+    visibility: visible;
+  }
+  .prep-sheet {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    width: 100%;
+    padding: 0;
+    font:
+      10.5pt/1.3 Arial,
+      sans-serif;
+  }
+  .prep-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

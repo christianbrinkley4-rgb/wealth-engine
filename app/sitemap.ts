@@ -149,7 +149,7 @@ const STATIC_ROUTES: Array<{
     path: "/greensboro-medicare-cost-calculator",
     changeFrequency: "monthly",
     priority: 0.8,
-    lastModified: "2026-10-10",
+    lastModified: "2026-11-15",
   },
   {
     path: "/medicare-costs-north-carolina",
@@ -404,6 +404,30 @@ const STATIC_ROUTES: Array<{
     changeFrequency: "monthly",
     priority: 0.9,
     lastModified: "2026-11-07",
+  },
+  {
+    path: "/irmaa-checker",
+    changeFrequency: "monthly",
+    priority: 0.9,
+    lastModified: "2026-11-15",
+  },
+  {
+    path: "/irmaa-married-filing-jointly",
+    changeFrequency: "monthly",
+    priority: 0.8,
+    lastModified: "2026-11-15",
+  },
+  {
+    path: "/part-d-irmaa",
+    changeFrequency: "monthly",
+    priority: 0.8,
+    lastModified: "2026-11-15",
+  },
+  {
+    path: "/medicare-cost-greensboro-nc",
+    changeFrequency: "monthly",
+    priority: 0.8,
+    lastModified: "2026-11-15",
   },
   {
     path: "/medicare-costs-2026",

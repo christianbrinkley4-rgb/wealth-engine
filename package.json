@@ -11,7 +11,8 @@
     "format:check": "prettier . --check",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "npm run lint && npm test && npm run build"
+    "check": "npm run lint && npm test && npm run build",
+    "report:attribution": "node scripts/report-attribution.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "1.2.0",

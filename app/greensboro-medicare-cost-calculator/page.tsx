@@ -15,7 +15,16 @@ import { ToolsDisclaimer } from "@/app/tools/_components/tool-footer";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib/seo";
 
 import { GreensboroCostCalculator } from "./CalculatorClient";
-import { FAQS, HOW_TO_STEPS, MA_LANDSCAPE_2027, MEDIGAP_G_TABLE, META, PATH } from "./data";
+import {
+  FAQS,
+  FIGURE_LABELS,
+  FIGURES_REVIEWED,
+  HOW_TO_STEPS,
+  MA_LANDSCAPE_2027,
+  MEDIGAP_G_TABLE,
+  META,
+  PATH,
+} from "./data";
 
 export const metadata: Metadata = {
   title: { absolute: META.title },
@@ -84,7 +93,7 @@ export default function GreensboroMedicareCostCalculatorPage() {
               description: META.description,
               path: PATH,
               datePublished: "2026-10-09",
-              dateModified: "2026-10-10",
+              dateModified: FIGURES_REVIEWED,
             }),
           ),
         }}
@@ -119,11 +128,59 @@ export default function GreensboroMedicareCostCalculatorPage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
+          <h2>Where each number in the calculator comes from</h2>
+          <p>
+            Each figure the calculator uses is listed here with its year, its status, and its
+            source. A projection can change when CMS announces the final amount. A planning
+            estimate has no official source. Last checked November 15, 2026.
+          </p>
+        </div>
+        <div className="app-shell max-w-5xl">
+          <div className="t-table-wrap">
+            <ResponsiveTable className="t-table">
+              <thead>
+                <tr>
+                  <th>Figure</th>
+                  <th>Value</th>
+                  <th>Year</th>
+                  <th>Status</th>
+                  <th>Source</th>
+                </tr>
+              </thead>
+              <tbody>
+                {FIGURE_LABELS.map((row) => (
+                  <tr key={row.figure}>
+                    <td>
+                      <strong>{row.figure}</strong>
+                    </td>
+                    <td>{row.value}</td>
+                    <td>{row.year}</td>
+                    <td>{row.status}</td>
+                    <td className="t-hint">
+                      {row.sourceUrl ? (
+                        <a href={row.sourceUrl} target="_blank" rel="noopener noreferrer">
+                          {row.source}
+                        </a>
+                      ) : (
+                        row.source
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </ResponsiveTable>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
           <h2>2027 Medicare Advantage landscape in the Greensboro area</h2>
           <p>
-            County-level figures from the CMS 2027 landscape file for Guilford County, plus
-            finalized Part D amounts from the CMS CY 2027 Rate Announcement. Individual plan
-            premiums, deductibles, and copays vary, so verify any specific plan on{" "}
+            County-level figures from a MedicareAdvantage.com summary for Guilford County, which
+            is a third-party publisher and not a CMS announcement, plus final Part D amounts from
+            the CMS CY 2027 Rate Announcement. Individual plan premiums, deductibles, and copays
+            vary, so verify any specific plan on{" "}
             <a href="https://www.medicare.gov">Medicare.gov</a> before deciding.
           </p>
         </div>
@@ -202,6 +259,7 @@ export default function GreensboroMedicareCostCalculatorPage() {
           ))}
           <p>
             Want the full picture? Read{" "}
+            <Link href="/medicare-cost-greensboro-nc">what Medicare costs in Greensboro</Link>,{" "}
             <Link href="/turning-65">Turning 65 in Greensboro</Link>,{" "}
             <Link href="/medicare-advantage-plans-greensboro-nc">Advantage plans in Greensboro</Link>,{" "}
             <Link href="/medigap-plans-greensboro-nc">Medigap plan letters</Link>,{" "}
@@ -219,14 +277,14 @@ export default function GreensboroMedicareCostCalculatorPage() {
       />
       <div className="app-shell max-w-3xl" style={{ marginTop: "2rem" }}>
         <p className="text-sm text-gray-600">
-          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated October 2026.
+          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated November 2026.
         </p>
         <p className="text-sm text-gray-600">
           Sources: <a href="https://www.medicare.gov" className="underline underline-offset-2" target="_blank" rel="noopener">Medicare.gov</a>, <a href="https://www.cms.gov" className="underline underline-offset-2" target="_blank" rel="noopener">CMS.gov</a>
         </p>
         <ComplianceDisclosure variant="medicare" showEstimateNote />
       </div>
-      <MedicareByline reviewed="2026-10-10" />
+      <MedicareByline reviewed={FIGURES_REVIEWED} />
       <RelatedMedicareGuides />
     </main>
   );

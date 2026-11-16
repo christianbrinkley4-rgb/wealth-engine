@@ -221,6 +221,17 @@ export default function IrmaaBrackets2026Page() {
             .
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            To see your own tier,{" "}
+            <Link href="/irmaa-checker" className="underline underline-offset-2">
+              enter your income in the IRMAA checker
+            </Link>
+            . Married couples can read{" "}
+            <Link href="/irmaa-married-filing-jointly" className="underline underline-offset-2">
+              IRMAA for married couples
+            </Link>
+            .
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Planning a Roth conversion?{" "}
             <Link href="/roth-window" className="underline underline-offset-2">
               Use the Roth conversion calculator to stay under the next IRMAA bracket
