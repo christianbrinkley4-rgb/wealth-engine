@@ -64,7 +64,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "Does Medicare cover prescription drugs?",
-    a: "Parts A and B do not cover most outpatient prescription drugs. You need a Part D plan, either standalone or bundled with a Medicare Advantage plan. In 2026 the Part D out-of-pocket cap is $2,100 a year.",
+    a: "Parts A and B do not cover most outpatient prescription drugs. You need a Part D plan, either standalone or bundled with a Medicare Advantage plan. In 2027 the Part D out-of-pocket cap is $2,400 a year.",
   },
 ];
 
@@ -203,7 +203,7 @@ export default function WhatMedicareDoesNotCoverPage() {
                     Cost
                   </th>
                   <th scope="col" className="text-16 py-3 font-semibold">
-                    Your share in 2026
+                    Your share in 2027
                   </th>
                 </tr>
               </thead>
@@ -213,7 +213,7 @@ export default function WhatMedicareDoesNotCoverPage() {
                     Part A hospital deductible
                   </th>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
-                    $1,736 per benefit period
+                    $1,776 per benefit period
                   </td>
                 </tr>
                 <tr className="border-b border-gray-300 align-top">
@@ -221,7 +221,7 @@ export default function WhatMedicareDoesNotCoverPage() {
                     Part B annual deductible
                   </th>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
-                    $283 per year
+                    $292 per year
                   </td>
                 </tr>
                 <tr className="border-b border-gray-300 align-top">
@@ -246,8 +246,8 @@ export default function WhatMedicareDoesNotCoverPage() {
                     Prescription drugs
                   </th>
                   <td className="text-16 py-4 leading-relaxed text-[var(--color-ink-muted)]">
-                    Not covered by Parts A and B. A Part D plan caps covered drug costs at $2,100
-                    out of pocket in 2026.
+                    Not covered by Parts A and B. A Part D plan caps covered drug costs at $2,400
+                    out of pocket in 2027.
                   </td>
                 </tr>
               </tbody>

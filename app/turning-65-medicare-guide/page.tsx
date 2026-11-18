@@ -101,7 +101,7 @@ const SCENARIOS = [
 const FAQ = [
   {
     q: "What is the Part B late enrollment penalty?",
-    a: "10% of the standard Part B premium for every full 12 months you were eligible but did not enroll, charged for as long as you hold Part B. It is permanent. With the 2026 standard premium at $202.90 a month, a one-year delay adds about $20 a month to your premium for life.",
+    a: "10% of the standard Part B premium for every full 12 months you were eligible but did not enroll, charged for as long as you hold Part B. It is permanent. With the 2027 standard premium at $209.40 a month, a one-year delay adds about $21 a month to your premium for life.",
   },
   {
     q: "What forms do I need to enroll in Part B if I delayed?",
@@ -243,24 +243,29 @@ export default function Turning65GuidePage() {
             <thead>
               <tr className="border-b border-gray-300">
                 <th className="py-3 pr-4 font-semibold">Figure</th>
-                <th className="py-3 font-semibold">2026</th>
+                <th className="py-3 pr-4 font-semibold">2026</th>
+                <th className="py-3 font-semibold">2027</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b border-gray-200">
                 <td className="py-3 pr-4">Part B standard premium</td>
-                <td className="py-3">$202.90 / month (CMS)</td>
+                <td className="py-3 pr-4">$202.90 / month (CMS)</td>
+                <td className="py-3">$209.40 / month (CMS)</td>
               </tr>
               <tr className="border-b border-gray-200">
                 <td className="py-3 pr-4">Part B annual deductible</td>
-                <td className="py-3">$283 (CMS)</td>
+                <td className="py-3 pr-4">$283 (CMS)</td>
+                <td className="py-3">$292 (CMS)</td>
               </tr>
               <tr className="border-b border-gray-200">
                 <td className="py-3 pr-4">Part B late penalty</td>
+                <td className="py-3 pr-4">10% of premium per 12 months delayed, permanent</td>
                 <td className="py-3">10% of premium per 12 months delayed, permanent</td>
               </tr>
               <tr>
                 <td className="py-3 pr-4">Initial Enrollment Period</td>
+                <td className="py-3 pr-4">7 months around your 65th birthday</td>
                 <td className="py-3">7 months around your 65th birthday</td>
               </tr>
             </tbody>

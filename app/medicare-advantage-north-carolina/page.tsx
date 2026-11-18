@@ -353,8 +353,8 @@ export default function MedicareAdvantageNCPage() {
                 <td className="py-3">January 1 to March 31, 2027</td>
               </tr>
               <tr>
-                <td className="py-3 pr-4">2026 Part B premium (standard)</td>
-                <td className="py-3">$202.90 / month (CMS)</td>
+                <td className="py-3 pr-4">2027 Part B premium (standard)</td>
+                <td className="py-3">$209.40 / month (CMS)</td>
               </tr>
               <tr>
                 <td className="py-3 pr-4">2027 MA out-of-pocket maximum (highest allowed, in-network)</td>

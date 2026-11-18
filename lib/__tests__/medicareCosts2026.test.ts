@@ -46,8 +46,8 @@ describe("the 2026 figures match the CMS fact sheets", () => {
 
 describe("Part D IRMAA lines up with Part B IRMAA", () => {
   it("uses the same income bands as the Part B brackets, band for band", () => {
-    const individual = getBrackets("individual");
-    const joint = getBrackets("married_jointly");
+    const individual = getBrackets("individual", 2026);
+    const joint = getBrackets("married_jointly", 2026);
     expect(PART_D_IRMAA_2026).toHaveLength(individual.length);
 
     PART_D_IRMAA_2026.forEach((band, index) => {

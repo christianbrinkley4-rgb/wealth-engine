@@ -10,12 +10,12 @@ const base = {
 };
 
 describe("calculatePlan65", () => {
-  it("puts a joint filer under $218,000 in the standard tier with real headroom", () => {
+  it("puts a joint filer under $224,000 in the standard tier with real headroom", () => {
     const r = calculatePlan65(base);
     expect(r.currentBracket.bracketName).toBe("Standard (No Surcharge)");
-    // The standard tier's ceiling is inclusive , $218,000 exactly is still
-    // standard , so $180,000 leaves precisely $38,000 of room.
-    expect(r.headroom).toBe(38_000);
+    // The standard tier's ceiling is inclusive, $224,000 exactly is still
+    // standard, so $180,000 leaves precisely $44,000 of room.
+    expect(r.headroom).toBe(44_000);
     expect(r.atTopBracket).toBe(false);
   });
 
@@ -24,10 +24,10 @@ describe("calculatePlan65", () => {
     // $180k + $300k = $480k, which is Tier 4 for a joint filer.
     expect(r.allAtOnce.magi).toBe(480_000);
     expect(r.allAtOnce.bracket.bracketName).toBe("Tier 4 IRMAA");
-    // ($649.20 - $202.90) * 12 = $5,355.60 per person.
-    expect(r.allAtOnce.annualSurchargePerPerson).toBeCloseTo(5_355.6, 2);
+    // ($670.00 - $209.40) * 12 = $5,527.20 per person.
+    expect(r.allAtOnce.annualSurchargePerPerson).toBeCloseTo(5_527.2, 2);
     // Both spouses pay it.
-    expect(r.allAtOnce.annualSurchargeHousehold).toBeCloseTo(10_711.2, 2);
+    expect(r.allAtOnce.annualSurchargeHousehold).toBeCloseTo(11_054.4, 2);
     expect(r.allAtOnce.tiersCrossed).toBe(4);
   });
 
@@ -38,9 +38,9 @@ describe("calculatePlan65", () => {
 
   it("spreads the conversion into the headroom and reports the years needed", () => {
     const r = calculatePlan65(base);
-    expect(r.spread.perYear).toBe(38_000);
-    // 300,000 / 38,000 = 7.89 → 8 years.
-    expect(r.spread.yearsNeeded).toBe(8);
+    expect(r.spread.perYear).toBe(44_000);
+    // 300,000 / 44,000 = 6.82, so 7 years.
+    expect(r.spread.yearsNeeded).toBe(7);
     expect(r.spread.annualSurchargeHousehold).toBe(0);
     expect(r.spread.impossible).toBe(false);
   });

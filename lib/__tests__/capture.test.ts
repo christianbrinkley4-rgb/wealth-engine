@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
-import { calculatePartBPremium, STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
+import { calculatePartBPremium, STANDARD_BASE_PREMIUM_2027 } from "@/lib/irmaa";
 import { scoreLead } from "@/lib/leadScoring";
 import {
   describeAnswers,
@@ -163,7 +163,7 @@ describe("scoreLead", () => {
 describe("calculatePartBPremium", () => {
   it("returns the standard premium below the first threshold", () => {
     const bracket = calculatePartBPremium(80_000, "individual");
-    expect(bracket.partBPremium).toBe(STANDARD_BASE_PREMIUM_2026);
+    expect(bracket.partBPremium).toBe(STANDARD_BASE_PREMIUM_2027);
     expect(bracket.irmaaSurcharge).toBe(0);
   });
 
@@ -177,7 +177,7 @@ describe("calculatePartBPremium", () => {
     for (const income of [0, 50_000, 109_000, 250_000, 1_000_000]) {
       for (const status of ["individual", "married_jointly"] as const) {
         expect(calculatePartBPremium(income, status).partBPremium).toBeGreaterThanOrEqual(
-          STANDARD_BASE_PREMIUM_2026,
+          STANDARD_BASE_PREMIUM_2027,
         );
       }
     }

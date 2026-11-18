@@ -25,10 +25,10 @@ export interface LeadScoringResult {
   risk: IrmaaRisk;
 }
 
-// Standard Part B base for 2026 is $202.90 (lib/irmaa.ts STANDARD_BASE_PREMIUM_2026).
-// Anything at/above the Tier 1 total premium ($284.10) signals real IRMAA exposure.
-const TIER_1_PREMIUM = 284.1;
-const TIER_2_PREMIUM = 405.8;
+// Standard Part B base for 2027 is $209.40 (lib/irmaa.ts STANDARD_BASE_PREMIUM_2027).
+// Anything at/above the Tier 1 total premium ($293.10) signals real IRMAA exposure.
+const TIER_1_PREMIUM = 293.1;
+const TIER_2_PREMIUM = 418.8;
 
 /**
  * Piedmont Triad ZIP prefixes.
@@ -64,7 +64,7 @@ export function scoreLead(input: LeadScoringInput): LeadScoringResult {
   // Income corroborates premium when the wizard hasn’t finished.
   if (income >= 200_000) score += 20;
   else if (income >= 171_000) score += 15;
-  else if (income >= 109_000) score += 5;
+  else if (income >= 112_000) score += 5;
 
   // Source intent. Roth-calculator users are typically affluent pre-retirees
   // actively planning. Help-quiz completions include topic + contact and are

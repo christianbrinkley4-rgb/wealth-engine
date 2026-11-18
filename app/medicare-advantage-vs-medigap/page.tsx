@@ -60,7 +60,7 @@ const COMPARISON: [string, string, string][] = [
   [
     "Monthly premium",
     "Varies by plan and can change every year.",
-    "Separate coverage with its own cost, on top of Original Medicare. The standard Part B premium is $202.90 a month in 2026.",
+    "Separate coverage with its own cost, on top of Original Medicare. The standard Part B premium is $209.40 a month in 2027.",
   ],
   [
     "Doctor networks",
@@ -153,8 +153,8 @@ export default function AdvantageVsMedigapPage() {
           is Part A, which covers hospital care, and Part B, which covers medical care.
         </p>
         <p className="text-17 mt-4 leading-relaxed">
-          In 2026, the standard Part B premium is $202.90 a month. The Part B deductible is $283 a
-          year. After you meet that deductible, you generally pay 20 percent of approved costs. Here
+          The standard Part B premium is $202.90 a month in 2026 and $209.40 in 2027. The Part B
+          deductible is $283 in 2026 and $292 in 2027. After you meet that deductible, you generally pay 20 percent of approved costs. Here
           is the part a lot of people miss. That 20 percent has no yearly ceiling of its own.
         </p>
         <p className="text-17 mt-4 leading-relaxed">

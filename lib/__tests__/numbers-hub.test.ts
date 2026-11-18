@@ -54,12 +54,13 @@ describe("numbers hub: every figure is site-verified", () => {
   });
 
   it("keeps the IRMAA first thresholds aligned with the IRMAA guide", () => {
+    // Since #53 the 2027 page formats these from numbers, e.g. whole(112000).
     const source = read(IRMAA_NOTE.sourceFile);
-    expect(source).toContain("$109,000");
-    expect(source).toContain("$218,000");
+    expect(source).toMatch(/\$112,000|whole\(112000\)/);
+    expect(source).toMatch(/\$224,000|whole\(224000\)/);
     const hub = read("app/numbers/data.ts");
-    expect(hub).toContain("$109,000");
-    expect(hub).toContain("$218,000");
+    expect(hub).toContain("$112,000");
+    expect(hub).toContain("$224,000");
   });
 });
 

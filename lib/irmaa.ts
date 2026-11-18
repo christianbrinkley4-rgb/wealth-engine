@@ -22,6 +22,7 @@
  */
 
 export type FilingStatus = "individual" | "married_jointly";
+export type IrmaaYear = 2026 | 2027;
 
 export interface IrmaaBracket {
   minIncome: number;
@@ -34,6 +35,7 @@ export interface IrmaaBracket {
 // ─── STANDARD BASE PREMIUM ───────────────────────────────────────────────────
 // Used for the "below IRMAA threshold" bracket and surcharge math.
 export const STANDARD_BASE_PREMIUM_2026 = 202.9;
+export const STANDARD_BASE_PREMIUM_2027 = 209.4;
 
 // ─── INDIVIDUAL FILER BRACKETS ───────────────────────────────────────────────
 const INDIVIDUAL_BRACKETS_2026: IrmaaBracket[] = [
@@ -128,32 +130,9 @@ const MARRIED_JOINTLY_BRACKETS_2026: IrmaaBracket[] = [
   },
 ];
 
-// ─── BRACKET MAP ──────────────────────────────────────────────────────────────
-const BRACKET_MAP: Record<FilingStatus, IrmaaBracket[]> = {
-  individual: INDIVIDUAL_BRACKETS_2026,
-  married_jointly: MARRIED_JOINTLY_BRACKETS_2026,
-};
-
-/**
- * Returns the full ordered bracket schedule for a filing status.
- * Consumers that need to iterate (Roth conversion calculator, etc.) should
- * use this rather than poking at the module-private constants.
- */
-export function getBrackets(filingStatus: FilingStatus): IrmaaBracket[] {
-  return BRACKET_MAP[filingStatus];
-}
-
-// ─── 2027 BRACKETS ────────────────────────────────────────────────────────────
-// Official 2027 IRMAA brackets and Part B premiums.
-//
-// Source: CMS fact sheet “2027 Medicare Parts A & B Premiums and Deductibles”
-// released November 17, 2026.
-// https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles
-//
-// 2027 premiums are determined by the user’s 2025 tax return MAGI, not
-// their current income. The 2026 brackets and getBrackets above are untouched.
-export const STANDARD_BASE_PREMIUM_2027 = 209.4;
-
+// ─── 2027 INDIVIDUAL FILER BRACKETS ──────────────────────────────────────────
+// Source: CMS, 2027 Medicare Parts A & B Premiums and Deductibles,
+// November 17, 2026.
 export const INDIVIDUAL_BRACKETS_2027: IrmaaBracket[] = [
   {
     minIncome: 0,
@@ -199,6 +178,7 @@ export const INDIVIDUAL_BRACKETS_2027: IrmaaBracket[] = [
   },
 ];
 
+// ─── 2027 MARRIED FILING JOINTLY BRACKETS ────────────────────────────────────
 export const MARRIED_JOINTLY_BRACKETS_2027: IrmaaBracket[] = [
   {
     minIncome: 0,
@@ -244,6 +224,30 @@ export const MARRIED_JOINTLY_BRACKETS_2027: IrmaaBracket[] = [
   },
 ];
 
+// ─── BRACKET MAP ──────────────────────────────────────────────────────────────
+const BRACKETS_BY_YEAR: Record<IrmaaYear, Record<FilingStatus, IrmaaBracket[]>> = {
+  2026: {
+    individual: INDIVIDUAL_BRACKETS_2026,
+    married_jointly: MARRIED_JOINTLY_BRACKETS_2026,
+  },
+  2027: {
+    individual: INDIVIDUAL_BRACKETS_2027,
+    married_jointly: MARRIED_JOINTLY_BRACKETS_2027,
+  },
+};
+
+/**
+ * Returns the full ordered bracket schedule for a filing status.
+ * Consumers that need to iterate (Roth conversion calculator, etc.) should
+ * use this rather than poking at the module-private constants.
+ */
+export function getBrackets(filingStatus: FilingStatus, year: IrmaaYear = 2027): IrmaaBracket[] {
+  return BRACKETS_BY_YEAR[year][filingStatus];
+}
+
+// getBrackets2027 is kept for the pages #53 wired to it. It reads the same
+// 2027 arrays as getBrackets(filingStatus, 2027).
+
 const BRACKET_MAP_2027: Record<FilingStatus, IrmaaBracket[]> = {
   individual: INDIVIDUAL_BRACKETS_2027,
   married_jointly: MARRIED_JOINTLY_BRACKETS_2027,
@@ -273,9 +277,13 @@ export function getBrackets2027(filingStatus: FilingStatus): IrmaaBracket[] {
  * calculatePartBPremium(150000, "married_jointly")
  * // → Standard, $202.90/mo  ← completely different answer, same income
  */
-export function calculatePartBPremium(income: number, filingStatus: FilingStatus): IrmaaBracket {
+export function calculatePartBPremium(
+  income: number,
+  filingStatus: FilingStatus,
+  year: IrmaaYear = 2027,
+): IrmaaBracket {
   const validIncome = Math.max(0, Math.round(income * 100) / 100); // round to cents
-  const brackets = BRACKET_MAP[filingStatus];
+  const brackets = getBrackets(filingStatus, year);
 
   const match = brackets.find((bracket) =>
     bracket.maxIncome === null
@@ -311,6 +319,7 @@ export function getPlainEnglishSummary(
   bracket: IrmaaBracket,
   income: number,
   filingStatus: FilingStatus,
+  year: IrmaaYear = 2027,
 ): string {
   const formattedIncome = income.toLocaleString("en-US", {
     style: "currency",
@@ -334,14 +343,14 @@ export function getPlainEnglishSummary(
   if (bracket.irmaaSurcharge === 0) {
     return (
       `At your income level (${formattedIncome}, ${filingLabel}), you fall ` +
-      `into the standard Medicare bracket. Your estimated 2026 Part B ` +
+      `into the standard Medicare bracket. Your estimated ${year} Part B ` +
       `premium is ${monthlyPremium}/month, no IRMAA surcharge applies.`
     );
   }
 
   return (
     `At your income level (${formattedIncome}, ${filingLabel}), you fall ` +
-    `into the ${bracket.bracketName} bracket. Your estimated 2026 Part B ` +
+    `into the ${bracket.bracketName} bracket. Your estimated ${year} Part B ` +
     `premium is ${monthlyPremium}/month, approximately ${annualSurcharge} ` +
     `more per year than the standard premium. This additional cost is called ` +
     `an IRMAA surcharge.`

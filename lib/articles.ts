@@ -92,12 +92,12 @@ export const ARTICLES: Article[] = [
           p("It also leaves some costs with you:"),
           ul(
             "Part A has a deductible of $1,736 for each benefit period in 2026.",
-            "Part B has a $283 deductible in 2026. After that, you usually pay 20% of the Medicare-approved amount for most services.",
+            "Part B has a $292 deductible in 2027. After that, you usually pay 20% of the Medicare-approved amount for most services.",
             "There is no yearly cap on what you can pay for Part A and Part B services.",
             "It does not include prescription drug coverage. That comes from a separate Part D plan.",
           ),
           p(
-            "On top of those costs, you pay the Part B premium, which is $202.90 a month for most people in 2026.",
+            "On top of those costs, you pay the Part B premium, which is $209.40 a month for most people in 2027.",
           ),
         ],
       },
@@ -366,15 +366,15 @@ export const ARTICLES: Article[] = [
             rows: [
               [
                 "1 through 20",
-                "$0 per day after any applicable $1,736 Part A deductible; no repeat deductible if already paid for the hospital care in that benefit period",
+                "$0 per day after any applicable $1,776 Part A deductible in 2027; no repeat deductible if already paid for the hospital care in that benefit period",
               ],
-              ["21 through 100", "$217 per day"],
+              ["21 through 100", "$222 per day"],
               ["101 onward", "All costs"],
             ],
           },
           {
             kind: "p",
-            text: "These figures are for 2026, not a projection for 2027. Coverage can end earlier if the conditions aren't met. Medicare Advantage cost sharing can differ. Source: [Medicare's current SNF cost section](https://www.medicare.gov/coverage/skilled-nursing-facility-care).",
+            text: "These figures are for 2027, from CMS. In 2026 the daily amount was $217. Coverage can end earlier if the conditions aren't met. Medicare Advantage cost sharing can differ. Source: [CMS, 2027 Medicare Parts A & B Premiums and Deductibles](https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles).",
           },
         ],
       },
@@ -518,7 +518,7 @@ export const ARTICLES: Article[] = [
         h2: "Late penalties, in plain English",
         blocks: [
           p(
-            "If you go without Part B when you should have signed up, you pay an extra 10% of the standard premium for each full 12-month period you waited. The standard Part B premium is $202.90 in 2026. You keep paying that extra amount for as long as you have Part B. You can [estimate yours with my penalty calculator](/part-b-penalty).",
+            "If you go without Part B when you should have signed up, you pay an extra 10% of the standard premium for each full 12-month period you waited. The standard Part B premium is $209.40 in 2027. You keep paying that extra amount for as long as you have Part B. You can [estimate yours with my penalty calculator](/part-b-penalty).",
           ),
           p(
             "If you go without Part D or other creditable drug coverage, you pay 1% of the national base premium for each full month you waited. That base premium is $38.99 in 2026. You pay it for as long as you have drug coverage. You can avoid both by signing up on time or by having coverage that counts.",
@@ -1386,7 +1386,7 @@ export const ARTICLES: Article[] = [
         h2: "The Part B penalty: 10 percent per year, for life",
         blocks: [
           p(
-            "Part B charges a late enrollment penalty of 10 percent of the standard premium for each full 12-month period you were eligible but did not sign up. The standard premium is $202.90 a month in 2026. Wait one full year and you add about $20.30 a month to your premium. Wait three years and that is about $60.90 a month extra.",
+            "Part B charges a late enrollment penalty of 10 percent of the standard premium for each full 12-month period you were eligible but did not sign up. The standard premium is $209.40 a month in 2027. Wait one full year and you add about $20.90 a month. Wait three years and that is about $62.80 a month extra.",
           ),
           p(
             "It never goes away. It is not a fine you pay once. It is baked into your monthly premium for as long as you have Part B, which for most people means the rest of their life. A short delay of a month or two adds nothing, because the penalty only counts full 12-month periods, but a long delay compounds into real money.",
@@ -1588,7 +1588,7 @@ export const ARTICLES: Article[] = [
     published: "2026-10-10",
     updated: "2026-10-10",
     intro:
-      "The short answer is yes, but narrowly. Medicare Part B covers manual manipulation of the spine by a chiropractor to correct a vertebral subluxation. That is the entire list. It does not cover X-rays the chiropractor orders, massage therapy, electrical stimulation, or maintenance visits. After the Part B deductible, which is $283 in 2026, you pay 20 percent of the Medicare-approved amount for each covered visit. There is no annual cap on covered visits as long as the treatment stays medically necessary.",
+      "The short answer is yes, but narrowly. Medicare Part B covers manual manipulation of the spine by a chiropractor to correct a vertebral subluxation. That is the entire list. It does not cover X-rays the chiropractor orders, massage therapy, electrical stimulation, or maintenance visits. After the Part B deductible, which is $292 in 2027, you pay 20 percent of the Medicare-approved amount for each covered visit. There is no annual cap on covered visits as long as the treatment stays medically necessary.",
     sections: [
       {
         h2: "The one covered service",
@@ -1616,7 +1616,7 @@ export const ARTICLES: Article[] = [
         h2: "What you will actually pay",
         blocks: [
           p(
-            "After the $283 annual Part B deductible, Medicare pays 80 percent of the approved amount for each covered manipulation and you pay 20 percent. Ask the office whether they accept Medicare assignment before your first visit. If they do, they agree to the Medicare-approved amount. If not, your share can be higher.",
+            "After the $292 Part B deductible for 2027, Medicare pays 80 percent of the approved amount for each covered manipulation and you pay 20 percent. Ask the office whether they accept Medicare assignment before your first visit. If they do, they agree to the Medicare-approved amount. If not, your share can be higher.",
           ),
           p(
             "A Medigap plan pays the 20 percent coinsurance for Medicare-approved manipulation but does not expand what is covered. It will not pay for the excluded services either. Some offices offer a discount for paying at the time of service, so it never hurts to ask.",
@@ -1878,7 +1878,7 @@ export const ARTICLES: Article[] = [
     published: "2026-10-10",
     updated: "2026-10-10",
     intro:
-      "Yes. Cataract surgery is one of the most common procedures Medicare covers, with millions performed each year. Part B covers medically necessary cataract surgery: the surgeon, the facility, anesthesia, and a conventional intraocular lens to replace your cloudy natural lens. After the Part B deductible of $283 in 2026, you pay 20 percent of the Medicare-approved amount. Medicare also covers one pair of prescription glasses or contact lenses after each cataract surgery, the one time Original Medicare pays for eyewear.",
+      "Yes. Cataract surgery is one of the most common procedures Medicare covers, with millions performed each year. Part B covers medically necessary cataract surgery: the surgeon, the facility, anesthesia, and a conventional intraocular lens to replace your cloudy natural lens. After the Part B deductible of $292 in 2027, you pay 20 percent of the Medicare-approved amount. Medicare also covers one pair of prescription glasses or contact lenses after each cataract surgery, the one time Original Medicare pays for eyewear.",
     sections: [
       {
         h2: "What is covered, piece by piece",
@@ -1895,7 +1895,7 @@ export const ARTICLES: Article[] = [
         h2: "What you will pay",
         blocks: [
           p(
-            "After the $283 deductible, Medicare pays 80 percent and you pay 20 percent of the approved amount for the surgery itself. A Medigap plan like Plan G covers that 20 percent, often bringing your cost for the standard procedure close to zero after the deductible.",
+            "After the $292 Part B deductible for 2027, Medicare pays 80 percent and you pay 20 percent of the approved amount for the surgery itself. A Medigap plan like Plan G covers that 20 percent, often bringing your cost for the standard procedure close to zero after the deductible.",
           ),
           p(
             "With a Medicare Advantage plan, you pay whatever your plan sets, usually a copay or coinsurance per surgery. Premium lens upgrades typically cost $1,500 to $4,000 per eye out of pocket, and those are never covered by Medigap.",
@@ -2217,7 +2217,7 @@ export const ARTICLES: Article[] = [
     published: "2026-10-10",
     updated: "2026-10-10",
     intro:
-      "Yes, but only when it is medically necessary. Medicare Part B covers ground ambulance transportation when other transportation would endanger your health, like emergencies or transfers between hospitals and skilled nursing facilities. After the Part B deductible of $283 in 2026, you pay 20 percent of the Medicare-approved amount. Rides that do not meet the medical-necessity rules are denied, and ambulance bills are large enough that a denial hurts.",
+      "Yes, but only when it is medically necessary. Medicare Part B covers ground ambulance transportation when other transportation would endanger your health, like emergencies or transfers between hospitals and skilled nursing facilities. After the Part B deductible of $292 in 2027, you pay 20 percent of the Medicare-approved amount. Rides that do not meet the medical-necessity rules are denied, and ambulance bills are large enough that a denial hurts.",
     sections: [
       {
         h2: "What medically necessary means",
@@ -2234,7 +2234,7 @@ export const ARTICLES: Article[] = [
         h2: "What you will pay",
         blocks: [
           p(
-            "After the $283 annual Part B deductible, Medicare pays 80 percent of the approved amount and you pay 20 percent. Ambulance charges vary by distance and level of care, and the approved amount is set by Medicare's fee schedule, not by what the company bills.",
+            "After the $292 Part B deductible for 2027, Medicare pays 80 percent of the approved amount and you pay 20 percent. Ambulance charges vary by distance and level of care, and the approved amount is set by Medicare's fee schedule, not by what the company bills.",
           ),
           p(
             "A Medigap plan covers the 20 percent coinsurance. Medicare Advantage plans must cover ambulance the same way, though your copay structure may differ by plan. If the ambulance company does not accept assignment, you could owe the difference between the billed charge and the Medicare-approved amount, so always ask first.",
@@ -12587,7 +12587,7 @@ export const ARTICLES: Article[] = [
         h2: "What Medicare does not pay for",
         blocks: [
           p(
-            "Medicare does not pay for ongoing help with everyday activities, such as bathing, dressing, or eating, when that is the only care needed. It covers skilled nursing facility care up to 100 days per benefit period, with no coinsurance for days 1 to 20 and $217 a day for days 21 to 100 in 2026. It covers skilled home health care in limited circumstances, not round-the-clock help at home.",
+            "Medicare does not pay for ongoing help with everyday activities, such as bathing, dressing, or eating, when that is the only care needed. It covers skilled nursing facility care up to 100 days per benefit period, with no coinsurance for days 1 to 20 and $222 a day for days 21 to 100 in 2027. It covers skilled home health care in limited circumstances, not round-the-clock help at home.",
           ),
           p(
             "That leaves three ways to pay for the rest: savings, a policy, or Medicaid if you qualify. Medicaid has strict income and asset rules, and it is not a plan for protecting savings. Check eligibility with NC Medicaid rather than assuming.",

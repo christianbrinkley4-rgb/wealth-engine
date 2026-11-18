@@ -21,9 +21,9 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
  */
 
 export const metadata: Metadata = {
-  title: { absolute: "What Does Medicare Cost in 2026? | Greensboro, NC" },
+  title: { absolute: "What Does Medicare Cost in 2027? | Greensboro, NC" },
   description:
-    "Check 2026 Medicare costs: the $202.90 Part B premium, $283 deductible, and income surcharges. Talk through your budget with a Greensboro agent. Free help.",
+    "Check 2027 Medicare costs: the $209.40 Part B premium, $292 deductible, and income surcharges. Talk through your budget with a Greensboro agent.",
   alternates: { canonical: "/medicare-costs" },
   openGraph: pageOpenGraph({
     title: "What does Medicare cost in 2026?",
@@ -100,9 +100,10 @@ export default function MedicareCostsPage() {
             <div className="card-surface p-6">
               <h3 className="text-20 font-semibold">Part B</h3>
               <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-                <strong className="text-[var(--color-navy)]">$202.90 a month</strong> is the
-                standard premium, with a <strong className="text-[var(--color-navy)]">$283</strong>{" "}
-                annual deductible. Most people have the premium deducted from Social Security.
+                <strong className="text-[var(--color-navy)]">$209.40 a month</strong> is the
+                standard premium in 2027, with a{" "}
+                <strong className="text-[var(--color-navy)]">$292</strong> annual deductible. Most
+                people have the premium deducted from Social Security.
               </p>
             </div>
             <div className="card-surface p-6">
@@ -110,8 +111,8 @@ export default function MedicareCostsPage() {
               <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
                 <strong className="text-[var(--color-navy)]">No premium</strong> for most people,
                 you earned it through payroll taxes. A hospital stay carries a{" "}
-                <strong className="text-[var(--color-navy)]">$1,736</strong> deductible per benefit
-                period in 2026.
+                <strong className="text-[var(--color-navy)]">$1,776</strong> deductible per benefit
+                period in 2027.
               </p>
             </div>
             <div className="card-surface p-6">

@@ -62,7 +62,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "When are the 2027 IRMAA brackets announced?",
-    a: "CMS announces the next year's Part B premium and IRMAA brackets each November. The 2027 figures arrive in November 2026 and take effect January 1, 2027.",
+    a: "CMS released the 2027 brackets on November 17, 2026. For 2027, IRMAA starts above $112,000 single or $224,000 joint, based on 2025 income. See the 2027 costs page for the full table.",
   },
   {
     q: "Can a Roth conversion trigger IRMAA?",
@@ -129,6 +129,14 @@ export default function IrmaaBrackets2026Page() {
             </p>
           </div>
 
+          <p className="text-17 mt-8 leading-relaxed">
+            CMS released the 2027 brackets on November 17, 2026. For 2027, IRMAA starts above
+            $112,000 single or $224,000 joint, based on 2025 income.{" "}
+            <Link href="/medicare-costs-2027" className="underline underline-offset-2">
+              See the 2027 Medicare costs
+            </Link>
+            .
+          </p>
           <h2 className="text-28 mt-12 font-semibold">The 2026 brackets</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Your 2026 premiums are based on your 2024 modified adjusted gross income. CMS announced

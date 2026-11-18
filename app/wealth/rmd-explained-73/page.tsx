@@ -33,7 +33,7 @@ const faqItems: Array<{ q: string; a: string }> = [
   },
   {
     q: "Can my RMD raise my Medicare premium?",
-    a: "It can, two years later. RMDs count as income, and Medicare sets Part B and Part D surcharges from your modified adjusted gross income from two years earlier. A large RMD that pushes income over the first IRMAA threshold adds $81.20 a month to Part B in 2026, plus $14.50 on Part D.",
+    a: "It can, two years later. RMDs count as income, and Medicare sets Part B and Part D surcharges from your modified adjusted gross income from two years earlier. A large RMD that pushes income over the first IRMAA threshold can add a surcharge two years later. In 2027, the first tier adds $83.70 a month to Part B, plus $15.40 on Part D.",
   },
 ];
 
@@ -144,9 +144,9 @@ export default function RmdExplainedPage() {
                 Here is the arithmetic with round numbers. Take a single filer with a $1,000,000
                 balance at age 73. The IRS Uniform Lifetime Table factor at 73 is 26.5, so the RMD
                 is $1,000,000 divided by 26.5, or $37,736. If that filer&apos;s other income sits just
-                under the first IRMAA threshold of $109,000, the $37,736 RMD pushes total income
-                over it. Two years later, the first-tier surcharge adds $81.20 a month to Part B,
-                plus $14.50 a month on Part D, for the full year.
+                under the first IRMAA threshold of $112,000, the 2027 line, the $37,736 RMD can
+                push total income over it. At 2027 rates, the first-tier surcharge adds $83.70 a
+                month to Part B, plus $15.40 a month on Part D, for the full year.
               </p>
               <p>
                 It is total income that matters, not the RMD alone. A filer already well over the

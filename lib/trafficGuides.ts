@@ -2774,7 +2774,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     sections: [
       {
         title: "What Medigap pays",
-        body: "Original Medicare leaves you with real bills. The Part A hospital deductible is $1,736 per benefit period in 2026. Part B pays 80 percent of most outpatient care and leaves you the other 20 percent, with no yearly limit. A skilled nursing stay costs $217 a day for days 21 through 100 in 2026. Medigap pays some or all of these gaps, depending on the plan letter: the Part A deductible, Part A and Part B coinsurance, the first three pints of blood, hospice coinsurance, and skilled nursing coinsurance. Some plans also pay Part B excess charges and 80 percent of emergency care abroad, after a $250 deductible, up to a $50,000 lifetime limit.",
+        body: "Original Medicare leaves you with real bills. The Part A hospital deductible is $1,776 per benefit period in 2027. Part B pays 80 percent of most outpatient care and leaves you the other 20 percent, with no yearly limit. A skilled nursing stay costs $222 a day for days 21 through 100 in 2027. Medigap pays some or all of these gaps, depending on the plan letter: the Part A deductible, Part A and Part B coinsurance, the first three pints of blood, hospice coinsurance, and skilled nursing coinsurance. Some plans also pay Part B excess charges and 80 percent of emergency care abroad, after a $250 deductible, up to a $50,000 lifetime limit.",
       },
       {
         title: "The ten standardized letters",
@@ -3383,7 +3383,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "The IRMAA and Social Security ripple",
-        body: "A conversion raises your modified adjusted gross income, and that number is what sets your Medicare premiums two years later. A conversion that pushes income over $109,000 single or $218,000 joint can add the first IRMAA tier, $81.20 a month on Part B in 2026, plus $14.50 on Part D. It can also make more of your Social Security taxable. A conversion in a low-income year, such as the years between retiring and starting Social Security, usually costs less tax than the same conversion in a high-income year.",
+        body: "A conversion raises your modified adjusted gross income, and that number is what sets your Medicare premiums two years later. In 2027, the first IRMAA tier starts above $112,000 single or $224,000 joint. It adds $83.70 a month on Part B, plus $15.40 on Part D. It can also make more of your Social Security taxable. A conversion in a low-income year, such as the years between retiring and starting Social Security, usually costs less tax than the same conversion in a high-income year.",
       },
       {
         title: "What to check before converting",
@@ -4713,7 +4713,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "What Medicare covers, and what it does not",
-        body: "Medicare does not pay for ongoing help with everyday activities, such as bathing or dressing, when that is the only care needed. It covers skilled nursing facility care up to 100 days per benefit period, with no coinsurance for days 1 to 20 and $217 a day for days 21 to 100 in 2026. It covers skilled home health care in limited circumstances, not round-the-clock home care. Anything beyond that is paid from savings, a policy, or Medicaid if you qualify.",
+        body: "Medicare does not pay for ongoing help with everyday activities, such as bathing or dressing, when that is the only care needed. It covers skilled nursing facility care up to 100 days per benefit period, with no coinsurance for days 1 to 20 and $222 a day for days 21 to 100 in 2027. It covers skilled home health care in limited circumstances, not round-the-clock home care. Anything beyond that is paid from savings, a policy, or Medicaid if you qualify.",
       },
       {
         title: "How long savings last",

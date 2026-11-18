@@ -73,8 +73,8 @@ const FAQ = [
 ] as const;
 
 export default function MedicareCosts2026Page() {
-  const individual = getBrackets("individual");
-  const joint = getBrackets("married_jointly");
+  const individual = getBrackets("individual", 2026);
+  const joint = getBrackets("married_jointly", 2026);
 
   return (
     <main className="home">

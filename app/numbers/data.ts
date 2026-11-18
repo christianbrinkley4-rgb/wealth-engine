@@ -253,8 +253,8 @@ export const SECTIONS: NumbersSection[] = [
 
 export const IRMAA_NOTE = {
   heading: "IRMAA: higher income means higher Medicare premiums",
-  body: "The income-related surcharge starts at $109,000 single or $218,000 filing jointly (2026 surcharge year). It looks at your return from two years back, so a big Roth conversion or property sale can raise premiums two years later. If your income dropped since then, you can appeal with Form SSA-44.",
-  linkHref: "/guides/irmaa-brackets-2026",
-  linkLabel: "See the full 2026 IRMAA table",
-  sourceFile: "app/guides/irmaa-brackets-2026/page.tsx",
+  body: "The income-related surcharge starts above $112,000 single or $224,000 filing jointly in 2027. It uses your 2025 tax return. A big Roth conversion or property sale can raise premiums two years later.",
+  linkHref: "/medicare-costs-2027",
+  linkLabel: "See the full 2027 IRMAA table",
+  sourceFile: "app/medicare-costs-2027/page.tsx",
 };

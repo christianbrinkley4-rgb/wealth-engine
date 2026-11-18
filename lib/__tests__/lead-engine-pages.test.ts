@@ -192,6 +192,8 @@ describe("figures", () => {
     "$15.40",
     "$96.40",
     "$224,000",
+    "$112,000",
+    "$388,000",
   ]);
 
   it.each(SEARCH_PAGES)("$path types no dollar amount outside the verified list", ({ file }) => {
@@ -202,7 +204,7 @@ describe("figures", () => {
   });
 
   it("the separate-return table uses the same amounts as the fourth and fifth tiers", () => {
-    const tiers = getBrackets("individual");
+    const tiers = getBrackets("individual", 2026);
     const [standard, middle, top] = SEPARATE_RETURN_IRMAA_2026;
 
     expect(standard.partBPremium).toBe(tiers[0].partBPremium);

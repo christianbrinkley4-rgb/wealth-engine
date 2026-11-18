@@ -13,7 +13,7 @@ import {
   IRMAA_CHECKER_YEAR,
   irmaaTableRows,
 } from "@/lib/irmaaChecker";
-import { CMS_PARTS_AB_SOURCE } from "@/lib/medicareCosts2026";
+import { CMS_PARTS_AB_SOURCE_2027 } from "@/lib/medicareCosts2027";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -70,8 +70,12 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
     a: "If your income fell because of a life-changing event, you can ask Social Security to use a more recent year. Retirement, a cut in work hours, marriage, divorce, and the death of a spouse are examples. You make the request with Form SSA-44.",
   },
   {
-    q: "Are the 2027 IRMAA amounts available?",
-    a: "Yes. CMS released them on November 17, 2026. This checker still shows 2026 amounts and will switch to 2027 soon.",
+    q: "Which year does this checker show?",
+    a: "It shows 2027 amounts. CMS released them on November 17, 2026. They use the income on your 2025 tax return.",
+  },
+  {
+    q: "What if my 2025 tax return is not ready yet?",
+    a: "If your 2025 return is not available yet, Social Security may use your 2024 return.",
   },
   {
     q: "Is this result a decision about my premium?",
@@ -79,7 +83,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "What if I am married and file a separate return?",
-    a: "Different income limits apply to people who are married, lived with their spouse during the year, and file separately. This tool does not cover that case. Social Security can tell you your amount.",
+    a: "Married, lived with your spouse, and filed separately? In 2027 the surcharge starts above $112,000. The top amount starts at $388,000. This tool does not cover that case. Social Security can tell you your amount.",
   },
 ];
 
@@ -103,7 +107,7 @@ const HOW_TO = [
 ] as const;
 
 const SOURCES = [
-  { title: CMS_PARTS_AB_SOURCE.title, url: CMS_PARTS_AB_SOURCE.url },
+  { title: CMS_PARTS_AB_SOURCE_2027.title, url: CMS_PARTS_AB_SOURCE_2027.url },
   {
     title: "Social Security: Form SSA-44, Medicare Income-Related Monthly Adjustment Amount, Life-Changing Event",
     url: "https://www.ssa.gov/forms/ssa-44.pdf",

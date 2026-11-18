@@ -41,7 +41,7 @@ export const CARE_GUIDES: CareGuide[] = [
       },
       {
         heading: "What care can cost, and what Medicare does not pay",
-        text: "Care costs are the reason to plan early. In 2025, the national median for a private nursing home room was $129,575 a year, assisted living was $74,400 a year, and a home caregiver at 44 hours a week was about $80,080 a year, per the CareScout Cost of Care Survey. Medicare does not pay for ongoing help with everyday activities. It covers skilled nursing facility care up to 100 days per benefit period, with no coinsurance for days 1 to 20 and $217 a day for days 21 to 100 in 2026. The cost guide walks through care costs and insurance premiums by age.",
+        text: "Care costs are the reason to plan early. In 2025, the national median for a private nursing home room was $129,575 a year, assisted living was $74,400 a year, and a home caregiver at 44 hours a week was about $80,080 a year, per the CareScout Cost of Care Survey. Medicare does not pay for ongoing help with everyday activities. It covers skilled nursing facility care up to 100 days per benefit period, with no coinsurance for days 1 to 20 and $222 a day for days 21 to 100 in 2027. The cost guide walks through care costs and insurance premiums by age.",
       },
     ],
     questions: [

@@ -53,7 +53,7 @@ const QUESTIONS = [
   },
   {
     q: "What does Medicare cost each month?",
-    a: "It depends on your coverage. In 2026 the standard Part B premium is $202.90 a month, and Advantage and drug plan costs vary by plan and county. The total matters more than any one premium.",
+    a: "It depends on your coverage. In 2027 the standard Part B premium is $209.40 a month. Advantage and drug plan costs vary by plan and county. The total matters more than any one premium.",
     link: { href: "/medicare-costs-2026", label: "Medicare costs in 2026" },
   },
   {

@@ -19,16 +19,17 @@ import {
   IRMAA_CHECKER_YEAR,
   irmaaTableRows,
 } from "@/lib/irmaaChecker";
-import { CMS_PART_D_SOURCE, CMS_PARTS_AB_SOURCE, PART_D_2026 } from "@/lib/medicareCosts2026";
+import { CMS_PART_D_SOURCE, PART_D_2026 } from "@/lib/medicareCosts2026";
+import { CMS_PARTS_AB_SOURCE_2027, PART_D_2027 } from "@/lib/medicareCosts2027";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 /**
  * Part D IRMAA: the income surcharge on drug coverage.
  *
- * Answers the searches "Part D IRMAA 2026" and "why is Medicare billing me
- * for Part D". Amounts come from lib/medicareCosts2026.ts through
- * irmaaTableRows(), which cites the CMS fact sheet "2026 Medicare Parts A & B
- * Premiums and Deductibles" (November 14, 2025).
+ * Answers the searches "Part D IRMAA 2027" and "why is Medicare billing me
+ * for Part D". Amounts come from lib/medicareCosts2027.ts through
+ * irmaaTableRows(), which cites the CMS fact sheet "2027 Medicare Parts A & B
+ * Premiums and Deductibles" (November 17, 2026).
  *
  * How it is billed comes from the Medicare.gov fact sheet "How income affects
  * your Medicare drug coverage premiums" (publication 11469), read
@@ -88,7 +89,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "Does Part D IRMAA count toward the yearly limit on drug costs?",
-    a: `No. The yearly limit is on what you pay for covered drugs: ${whole(PART_D_2026.outOfPocketCap)} in ${YEAR} and ${whole(PART_D_CAP_2027)} in 2027. Premiums and the surcharge do not count toward that limit.`,
+    a: `No. The yearly limit is on what you pay for covered drugs: ${whole(PART_D_2027.outOfPocketCap)} in ${YEAR}. In 2026 the cap was ${whole(PART_D_2026.outOfPocketCap)}. Premiums and the surcharge do not count toward that limit.`,
   },
   {
     q: "Can the surcharge be removed?",
@@ -97,7 +98,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
 ];
 
 const SOURCES = [
-  { title: CMS_PARTS_AB_SOURCE.title, url: CMS_PARTS_AB_SOURCE.url },
+  { title: CMS_PARTS_AB_SOURCE_2027.title, url: CMS_PARTS_AB_SOURCE_2027.url },
   {
     title: "Medicare.gov: How income affects your Medicare drug coverage premiums (fact sheet 11469)",
     url: "https://www.medicare.gov/publications/11469-income-and-drug-premiums.pdf",

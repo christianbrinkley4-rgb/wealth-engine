@@ -130,16 +130,16 @@ export const PRIORITY_MEDICARE_FAQS = {
   ],
   costs: [
     {
-      q: "How much is the Medicare Part B premium in 2026?",
-      a: "The standard Medicare Part B premium is $202.90 per month in 2026. Income-related surcharges or late enrollment penalties can increase your monthly payment.",
+      q: "How much is the Medicare Part B premium in 2027?",
+      a: "The standard Medicare Part B premium is $209.40 per month in 2027, up from $202.90. Income-related surcharges or late enrollment penalties can raise it.",
     },
     {
-      q: "What is the Part B deductible in 2026?",
-      a: "The Medicare Part B deductible is $283 in 2026. After meeting it, you generally pay 20% of approved costs for covered outpatient services.",
+      q: "What is the Part B deductible in 2027?",
+      a: "The Medicare Part B deductible is $292 in 2027, up from $283. After meeting it, you generally pay 20% of approved costs for covered services.",
     },
     {
       q: "Do I pay a premium for Part A?",
-      a: "Most people qualify for premium-free Medicare Part A through work history. In 2026, people buying Part A pay $311 or $565 monthly, depending on eligibility.",
+      a: "Most people qualify for premium-free Medicare Part A through work history. In 2027, people buying Part A pay $328 or $597 monthly, depending on eligibility.",
     },
     {
       q: "What about drug coverage and Medigap, what do those cost?",

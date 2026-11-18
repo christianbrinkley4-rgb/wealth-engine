@@ -123,8 +123,8 @@ export default function MedicareGreensboroPage() {
           anywhere else.
         </p>
         <p className="text-17 mt-4 leading-relaxed">
-          The standard Part B premium for 2026 is $202.90 a month. The Part B deductible is $283 a
-          year.
+          The standard Part B premium is $202.90 a month in 2026 and $209.40 in 2027. The Part B
+          deductible is $283 in 2026 and $292 in 2027.
         </p>
         <p className="text-17 mt-4 leading-relaxed">
           If you have Part D drug coverage, there is a cap on what you pay out of pocket. In 2026,

@@ -19,8 +19,8 @@ import {
   IRMAA_CHECKER_YEAR,
   irmaaTableRows,
 } from "@/lib/irmaaChecker";
-import { SEPARATE_RETURN_IRMAA_2026 } from "@/lib/irmaaMarried2026";
-import { CMS_PARTS_AB_SOURCE } from "@/lib/medicareCosts2026";
+import { SEPARATE_RETURN_IRMAA_2027 } from "@/lib/irmaaMarried2027";
+import { CMS_PARTS_AB_SOURCE_2027 } from "@/lib/medicareCosts2027";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 /**
@@ -28,13 +28,12 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter 
  *
  * Answers the searches "IRMAA married filing jointly 2026" and "IRMAA married
  * filing separately". The joint amounts come from lib/irmaa.ts and
- * lib/medicareCosts2026.ts through irmaaTableRows(). The separate-return
- * amounts come from lib/irmaaMarried2026.ts. Both cite the CMS fact sheet
- * "2026 Medicare Parts A & B Premiums and Deductibles" (November 14, 2025):
- * https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles
+ * lib/medicareCosts2027.ts through irmaaTableRows(). The separate-return
+ * amounts come from lib/irmaaMarried2027.ts. Both cite the CMS fact sheet
+ * "2027 Medicare Parts A & B Premiums and Deductibles" (November 17, 2026):
+ * https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles
  *
- * 2026 amounts are shown because CMS had not published 2027 amounts on
- * IRMAA_CHECKER_CHECKED.
+ * 2027 amounts are shown. CMS released them on November 17, 2026.
  */
 
 const PATH = "/irmaa-married-filing-jointly";
@@ -84,7 +83,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "What are the limits if we file separate returns?",
-    a: `If you lived with your spouse at any time during the year and file separately, the surcharge starts when income is more than ${SINGLE_FIRST_LINE}. Above that line the Part B premium is ${money(SEPARATE_RETURN_IRMAA_2026[1].partBPremium)} a month, and the Part D surcharge is ${money(SEPARATE_RETURN_IRMAA_2026[1].partDSurcharge)} a month.`,
+    a: `If you lived with your spouse at any time during the year and file separately, the surcharge starts when income is more than ${SINGLE_FIRST_LINE}. Above that line the Part B premium is ${money(SEPARATE_RETURN_IRMAA_2027[1].partBPremium)} a month, and the Part D surcharge is ${money(SEPARATE_RETURN_IRMAA_2027[1].partDSurcharge)} a month.`,
   },
   {
     q: "What happens to IRMAA after my spouse dies?",
@@ -97,7 +96,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
 ];
 
 const SOURCES = [
-  { title: CMS_PARTS_AB_SOURCE.title, url: CMS_PARTS_AB_SOURCE.url },
+  { title: CMS_PARTS_AB_SOURCE_2027.title, url: CMS_PARTS_AB_SOURCE_2027.url },
   {
     title:
       "Social Security: Form SSA-44, Medicare Income-Related Monthly Adjustment Amount, Life-Changing Event",
@@ -230,7 +229,7 @@ export default function IrmaaMarriedPage() {
                 </tr>
               </thead>
               <tbody>
-                {SEPARATE_RETURN_IRMAA_2026.map((row) => (
+                {SEPARATE_RETURN_IRMAA_2027.map((row) => (
                   <tr key={row.income}>
                     <td>
                       <strong>{row.income}</strong>

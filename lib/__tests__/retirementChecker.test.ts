@@ -92,12 +92,12 @@ describe("retirement mistake checker", () => {
     );
   });
 
-  it("estimates the IRMAA effect of a Roth conversion with 2026 brackets", () => {
+  it("estimates the IRMAA effect of a Roth conversion with 2027 brackets", () => {
     const found = checkRetirement(base({ incomeThisYear: 90000, rothConversion: 40000 }), TODAY);
     const f = found.find((x) => x.id === "irmaa-roth");
     expect(f).toBeDefined();
-    expect(f?.detail).toContain("$202.90");
-    expect(f?.detail).toContain("$284.10"); // $130,000 is Tier 1 for a single filer in 2026
+    expect(f?.detail).toContain("$209.40");
+    expect(f?.detail).toContain("$293.10"); // $130,000 is Tier 1 for a single filer in 2027
     expect(ids(base({ incomeThisYear: 50000, rothConversion: 20000 }))).not.toContain("irmaa-roth");
   });
 

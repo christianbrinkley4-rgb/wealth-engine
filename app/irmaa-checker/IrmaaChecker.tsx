@@ -23,7 +23,7 @@ import {
   normalizeIncomeInput,
   parseIncome,
 } from "@/lib/irmaaChecker";
-import { CMS_PARTS_AB_SOURCE } from "@/lib/medicareCosts2026";
+import { CMS_PARTS_AB_SOURCE_2027 } from "@/lib/medicareCosts2027";
 
 const FILING_OPTIONS: ReadonlyArray<{ value: FilingStatus; label: string }> = [
   { value: "individual", label: "Single" },
@@ -197,15 +197,17 @@ export function IrmaaChecker() {
 
       <AssumptionBox>
         <p>
-          <strong>What this tool uses.</strong> The official 2026 amounts from CMS. CMS released
-          the 2027 amounts on November 17, 2026. This tool will switch to them soon. Source:{" "}
+          <strong>What this tool uses.</strong> The official 2027 amounts from CMS, released
+          November 17, 2026. They cover people who file single or married filing jointly. Social
+          Security makes the real decision and mails it to you. This result is an estimate for
+          education. Source:{" "}
           <a
-            href={CMS_PARTS_AB_SOURCE.url}
+            href={CMS_PARTS_AB_SOURCE_2027.url}
             className="underline underline-offset-2"
             target="_blank"
             rel="noopener noreferrer"
           >
-            {CMS_PARTS_AB_SOURCE.title}
+            {CMS_PARTS_AB_SOURCE_2027.title}
           </a>
           .
         </p>

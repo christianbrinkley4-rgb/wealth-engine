@@ -553,6 +553,7 @@ ${Object.entries(LOCAL_VISIBILITY_CITIES)
 
 - The standard Medicare Part B premium in 2026 is $202.90 a month. Source: CMS, https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles
 - The Part B deductible in 2026 is $283 a year. Source: CMS, same fact sheet.
+- The standard Medicare Part B premium in 2027 is $209.40 a month, and the Part B deductible is $292. Source: CMS, https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles
 - Medicare's Annual Enrollment Period runs October 15 to December 7. Changes start January 1. Source: https://www.medicare.gov/health-drug-plans/open-enrollment
 - The Part B late enrollment penalty is 10% of the standard premium for each full 12 months without Part B when you could have had it, usually for as long as you have Part B. Source: https://www.medicare.gov/basics/costs/medicare-costs/avoid-penalties
 - The Part D late enrollment penalty is 1% of the national base premium ($38.99 in 2026) for each full month without creditable drug coverage, once a gap reaches 63 days. Source: same Medicare.gov page.

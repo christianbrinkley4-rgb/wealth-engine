@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { calculatePartBPremium, getBrackets, STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
+import { calculatePartBPremium, getBrackets, STANDARD_BASE_PREMIUM_2027 } from "@/lib/irmaa";
 import {
   checkIrmaa,
   IRMAA_CHECKER_MAX_INCOME,
@@ -13,55 +13,55 @@ import {
   normalizeIncomeInput,
   parseIncome,
 } from "@/lib/irmaaChecker";
-import { partDIrmaaFor } from "@/lib/medicareCosts2026";
+import { partDIrmaaFor2027 } from "@/lib/medicareCosts2027";
 
 describe("checkIrmaa reuses the existing bracket logic", () => {
-  const incomes = [0, 50_000, 109_000, 109_001, 150_000, 205_000, 205_001, 499_999, 500_000, 2e6];
+  const incomes = [0, 50_000, 112_000, 112_001, 150_000, 212_000, 212_001, 499_999, 500_000, 2e6];
 
-  it("matches lib/irmaa.ts and lib/medicareCosts2026.ts for every sample income", () => {
+  it("matches lib/irmaa.ts and lib/medicareCosts2027.ts for every sample income", () => {
     for (const status of ["individual", "married_jointly"] as const) {
       for (const income of incomes) {
         const result = checkIrmaa(income, status);
         const bracket = calculatePartBPremium(income, status);
         expect(result.partBPremium, `${status} ${income}`).toBe(bracket.partBPremium);
         expect(result.partBSurcharge, `${status} ${income}`).toBe(bracket.irmaaSurcharge);
-        expect(result.partDSurcharge, `${status} ${income}`).toBe(partDIrmaaFor(income, status));
+        expect(result.partDSurcharge, `${status} ${income}`).toBe(partDIrmaaFor2027(income, status));
         expect(result.bracketName).toBe(bracket.bracketName);
       }
     }
   });
 
-  it("labels the year 2026 and the tax year 2024", () => {
-    expect(IRMAA_CHECKER_YEAR).toBe(2026);
-    expect(IRMAA_CHECKER_TAX_YEAR).toBe(2024);
+  it("labels the year 2027 and the tax year 2025", () => {
+    expect(IRMAA_CHECKER_YEAR).toBe(2027);
+    expect(IRMAA_CHECKER_TAX_YEAR).toBe(2025);
     const result = checkIrmaa(80_000, "individual");
-    expect(result.year).toBe(2026);
-    expect(result.taxYear).toBe(2024);
+    expect(result.year).toBe(2027);
+    expect(result.taxYear).toBe(2025);
   });
 });
 
 describe("checkIrmaa results", () => {
   it("shows no surcharge at the standard premium", () => {
-    const result = checkIrmaa(109_000, "individual");
+    const result = checkIrmaa(112_000, "individual");
     expect(result.tier).toBe(0);
-    expect(result.partBPremium).toBe(STANDARD_BASE_PREMIUM_2026);
+    expect(result.partBPremium).toBe(STANDARD_BASE_PREMIUM_2027);
     expect(result.monthlySurcharge).toBe(0);
     expect(result.annualSurcharge).toBe(0);
-    expect(result.nextTierLine).toBe(109_000);
+    expect(result.nextTierLine).toBe(112_000);
     expect(result.nextTierStartsAtLine).toBe(false);
     expect(result.roomBeforeNextTier).toBe(0);
   });
 
   it("moves to tier 1 one dollar over the first line", () => {
-    const result = checkIrmaa(109_001, "individual");
+    const result = checkIrmaa(112_001, "individual");
     expect(result.tier).toBe(1);
-    expect(result.partBPremium).toBe(284.1);
-    expect(result.partBSurcharge).toBe(81.2);
-    expect(result.partDSurcharge).toBe(14.5);
-    expect(result.monthlySurcharge).toBe(95.7);
-    expect(result.annualSurcharge).toBe(1148.4);
-    expect(result.nextTierLine).toBe(137_000);
-    expect(result.roomBeforeNextTier).toBe(27_999);
+    expect(result.partBPremium).toBe(293.1);
+    expect(result.partBSurcharge).toBe(83.7);
+    expect(result.partDSurcharge).toBe(15.4);
+    expect(result.monthlySurcharge).toBe(99.1);
+    expect(result.annualSurcharge).toBe(1189.2);
+    expect(result.nextTierLine).toBe(141_000);
+    expect(result.roomBeforeNextTier).toBe(28_999);
   });
 
   it("gives a different answer for the same income on a joint return", () => {
@@ -69,8 +69,8 @@ describe("checkIrmaa results", () => {
     // the individual ("Single") status. The checker has no separate-return path.
     const livedApart = checkIrmaa(150_000, "individual");
     expect(livedApart.tier).toBe(2);
-    expect(livedApart.partBPremium).toBe(405.8);
-    expect(livedApart.partDSurcharge).toBe(37.5);
+    expect(livedApart.partBPremium).toBe(418.8);
+    expect(livedApart.partDSurcharge).toBe(39.7);
     expect(checkIrmaa(150_000, "married_jointly").tier).toBe(0);
   });
 
@@ -78,8 +78,8 @@ describe("checkIrmaa results", () => {
     const single = checkIrmaa(500_000, "individual");
     expect(single.tier).toBe(5);
     expect(single.tierCount).toBe(5);
-    expect(single.partBPremium).toBe(689.9);
-    expect(single.partDSurcharge).toBe(91);
+    expect(single.partBPremium).toBe(711.8);
+    expect(single.partDSurcharge).toBe(96.4);
     expect(single.nextTierLine).toBeNull();
     expect(single.roomBeforeNextTier).toBeNull();
 
@@ -148,7 +148,7 @@ describe("IrmaaChecker filing-status hint", () => {
 describe("irmaaLeadLabel", () => {
   it("starts with the tool name and the year", () => {
     expect(irmaaLeadLabel(checkIrmaa(150_000, "individual"))).toBe(
-      "IRMAA checker 2026: Tier 2 IRMAA, Part D +$37.50/mo",
+      "IRMAA checker 2027: Tier 2 IRMAA, Part D +$39.70/mo",
     );
   });
 
@@ -157,7 +157,7 @@ describe("irmaaLeadLabel", () => {
       for (const bracket of getBrackets(status)) {
         const label = irmaaLeadLabel(checkIrmaa(bracket.minIncome, status));
         expect(label.length).toBeLessThanOrEqual(100);
-        expect(label.startsWith("IRMAA checker 2026: ")).toBe(true);
+        expect(label.startsWith("IRMAA checker 2027: ")).toBe(true);
       }
     }
   });
@@ -171,12 +171,12 @@ describe("irmaaTableRows", () => {
   });
 
   it("writes each income range the way CMS words it", () => {
-    expect(rows[0].individual).toBe("$109,000 or less");
-    expect(rows[0].joint).toBe("$218,000 or less");
-    expect(rows[1].individual).toBe("More than $109,000, up to $137,000");
-    expect(rows[1].joint).toBe("More than $218,000, up to $274,000");
-    expect(rows[4].individual).toBe("More than $205,000, less than $500,000");
-    expect(rows[4].joint).toBe("More than $410,000, less than $750,000");
+    expect(rows[0].individual).toBe("$112,000 or less");
+    expect(rows[0].joint).toBe("$224,000 or less");
+    expect(rows[1].individual).toBe("More than $112,000, up to $141,000");
+    expect(rows[1].joint).toBe("More than $224,000, up to $282,000");
+    expect(rows[4].individual).toBe("More than $212,000, less than $500,000");
+    expect(rows[4].joint).toBe("More than $424,000, less than $750,000");
     expect(rows[5].individual).toBe("$500,000 or more");
     expect(rows[5].joint).toBe("$750,000 or more");
   });

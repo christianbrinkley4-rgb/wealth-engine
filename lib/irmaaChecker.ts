@@ -3,40 +3,40 @@
  *
  * This file holds no bracket data and no bracket math of its own.
  * - Part B premium and tier: calculatePartBPremium and getBrackets in lib/irmaa.ts.
- * - Part D surcharge: partDIrmaaFor in lib/medicareCosts2026.ts.
- * Both read the official 2026 CMS amounts:
- * https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles
+ * - Part D surcharge: partDIrmaaFor2027 in lib/medicareCosts2027.ts.
+ * Both read the official 2027 CMS amounts:
+ * https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles
  *
- * Year status, checked November 15, 2026: CMS has not published the 2027
- * Part B premium or the 2027 IRMAA brackets. The CMS newsroom listed no
- * 2027 Parts A and B fact sheet through November 13, 2026. This checker
- * therefore shows 2026 amounts and labels them 2026. When CMS publishes the
- * 2027 amounts, update lib/irmaa.ts and lib/medicareCosts2026.ts. This file
- * and the page follow those two files.
+ * The premium year is IRMAA_YEAR, kept separate from COSTS_YEAR on purpose.
+ * Social Security is mailing 2027 IRMAA notices now, and those use the 2025
+ * tax return. A visitor holding a notice needs the 2027 table.
  */
 
 import {
   calculatePartBPremium,
   getBrackets,
-  STANDARD_BASE_PREMIUM_2026,
+  STANDARD_BASE_PREMIUM_2027,
   type FilingStatus,
+  type IrmaaYear,
 } from "@/lib/irmaa";
-import {
-  COSTS_YEAR,
-  IRMAA_LOOKBACK_YEAR,
-  PART_D_IRMAA_2026,
-  partDIrmaaFor,
-} from "@/lib/medicareCosts2026";
+import { IRMAA_LOOKBACK_YEAR_2027, PART_D_IRMAA_2027, partDIrmaaFor2027 } from "@/lib/medicareCosts2027";
+
+/**
+ * Premium year for IRMAA tools. Kept separate from COSTS_YEAR, which stays
+ * 2026 because many cost pages still pair that year with 2026 Part D and
+ * Part A constants.
+ */
+export const IRMAA_YEAR: IrmaaYear = 2027;
 
 /** The premium year the checker reports. */
-export const IRMAA_CHECKER_YEAR = COSTS_YEAR;
+export const IRMAA_CHECKER_YEAR = IRMAA_YEAR;
 
 /** The tax return year that Social Security uses for that premium year. */
-export const IRMAA_CHECKER_TAX_YEAR = IRMAA_LOOKBACK_YEAR;
+export const IRMAA_CHECKER_TAX_YEAR = IRMAA_LOOKBACK_YEAR_2027;
 
 /** The day the year status above was checked against the CMS newsroom. */
-export const IRMAA_CHECKER_CHECKED = "2026-11-15";
-export const IRMAA_CHECKER_CHECKED_LABEL = "November 15, 2026";
+export const IRMAA_CHECKER_CHECKED = "2026-11-18";
+export const IRMAA_CHECKER_CHECKED_LABEL = "November 18, 2026";
 
 /** The capture API rejects any number above this, so the input stops here. */
 export const IRMAA_CHECKER_MAX_INCOME = 1_000_000_000;
@@ -101,21 +101,21 @@ export function normalizeIncomeInput(text: string): string {
   return Math.round(value).toLocaleString("en-US");
 }
 
-/** Looks up the 2026 tier and both surcharges for one person. */
+/** Looks up the 2027 tier and both surcharges for one person. */
 export function checkIrmaa(income: number, filingStatus: FilingStatus): IrmaaCheckResult {
   const safeIncome = Number.isFinite(income)
     ? Math.min(Math.max(0, income), IRMAA_CHECKER_MAX_INCOME)
     : 0;
-  const brackets = getBrackets(filingStatus);
-  const bracket = calculatePartBPremium(safeIncome, filingStatus);
+  const brackets = getBrackets(filingStatus, IRMAA_YEAR);
+  const bracket = calculatePartBPremium(safeIncome, filingStatus, IRMAA_YEAR);
   const tier = Math.max(0, brackets.indexOf(bracket));
   const next = brackets[tier + 1] ?? null;
 
   const partBSurcharge = toCents(bracket.irmaaSurcharge);
-  const partDSurcharge = toCents(partDIrmaaFor(safeIncome, filingStatus));
+  const partDSurcharge = toCents(partDIrmaaFor2027(safeIncome, filingStatus));
   const monthlySurcharge = toCents(partBSurcharge + partDSurcharge);
 
-  // Most tiers start one cent above a round line ("more than $109,000").
+  // Most tiers start one cent above a round line ("more than $112,000").
   // The top tier starts at the line itself ("$500,000 or more").
   const nextTierLine = next ? Math.floor(next.minIncome) : null;
   const nextTierStartsAtLine = next ? Number.isInteger(next.minIncome) : false;
@@ -130,7 +130,7 @@ export function checkIrmaa(income: number, filingStatus: FilingStatus): IrmaaChe
     tier,
     tierCount: brackets.length - 1,
     bracketName: bracket.bracketName,
-    standardPartBPremium: STANDARD_BASE_PREMIUM_2026,
+    standardPartBPremium: STANDARD_BASE_PREMIUM_2027,
     partBPremium: bracket.partBPremium,
     partBSurcharge,
     partDSurcharge,
@@ -185,18 +185,19 @@ function rangeInWords(index: number, brackets: ReturnType<typeof getBrackets>): 
 }
 
 /**
- * The full 2026 table for display, built from the two existing data files.
- * Pages read this, so no page keeps its own copy of the amounts.
+ * The full 2027 table for display, built from lib/irmaa.ts and
+ * lib/medicareCosts2027.ts. Pages read this, so no page keeps its own copy
+ * of the amounts.
  */
 export function irmaaTableRows(): IrmaaTableRow[] {
-  const individual = getBrackets("individual");
-  const joint = getBrackets("married_jointly");
+  const individual = getBrackets("individual", IRMAA_YEAR);
+  const joint = getBrackets("married_jointly", IRMAA_YEAR);
   return individual.map((bracket, index) => ({
     tier: index,
     individual: rangeInWords(index, individual),
     joint: rangeInWords(index, joint),
     partBPremium: bracket.partBPremium,
     partBSurcharge: bracket.irmaaSurcharge,
-    partDSurcharge: PART_D_IRMAA_2026[index]?.surcharge ?? 0,
+    partDSurcharge: PART_D_IRMAA_2027[index]?.surcharge ?? 0,
   }));
 }

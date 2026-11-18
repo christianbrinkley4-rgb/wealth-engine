@@ -56,7 +56,7 @@ function formatMoney(value: number) {
 }
 
 function filingThresholdCopy(status: FilingStatus): string {
-  return status === "individual" ? "$109,000" : "$218,000";
+  return status === "individual" ? "$112,000" : "$224,000";
 }
 
 function filingThresholdPhrase(status: FilingStatus): string {
@@ -230,9 +230,9 @@ export function MedicareWizard() {
               className="text-18 max-w-[520px] rounded-lg border border-[#ddd8c8] bg-[#f3f0e6] px-4 py-3 text-left text-[var(--color-navy)]"
               role="note"
             >
-              Why does this matter? A married couple earning $150,000 jointly pays the standard
-              $202.90/month premium. An individual earning $150,000 pays $405.80/month. Same income.
-              Very different bill.
+              Why does this matter? In 2027, a married couple earning $150,000 jointly pays the
+              standard $209.40 a month. An individual earning $150,000 pays $418.80 a month. Same
+              income. Very different bill.
             </div>
           </div>
 
