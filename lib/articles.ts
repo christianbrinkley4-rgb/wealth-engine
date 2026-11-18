@@ -79,7 +79,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "What each path covers, what it leaves to you, and the three things to check before you change anything.",
     published: "2026-10-01",
-    updated: "2026-10-01",
+    updated: "2026-11-15",
     intro:
       "Neighbors ask me some version of this every fall: is there any reason not to switch to basic Medicare, or to Medicare Advantage? Both are real choices, and neither one is right for everybody. Here is how they work, so you can check them against your own life.",
     sections: [
@@ -136,6 +136,14 @@ export const ARTICLES: Article[] = [
           ),
           p(
             "One more thing to know. If you leave a Medicare Advantage plan later and want a Medigap policy, the company may ask health questions and can say no in most situations. Read [Medicare.gov’s guidance on when you can buy Medigap](https://www.medicare.gov/health-drug-plans/medigap/ready-to-buy/when) before you drop anything.",
+          ),
+        ],
+      },
+      {
+        h2: "Is Medicare Advantage good or bad?",
+        blocks: [
+          p(
+            "Neither. It is a tradeoff, and the right answer depends on what you value. Original Medicare lets you see any doctor who takes Medicare, anywhere in the country, and pairs with a supplement that caps your surprises. You pay a monthly premium for that freedom. Medicare Advantage usually costs less each month and adds extras like dental and vision, but you use a network, you may need approvals for some care, and your costs depend on the plan you pick. A plan that fits a healthy neighbor who never leaves Guilford County may be a poor fit for someone who winters in Florida or sees specialists out of state. Judge a plan by your doctors, your drugs, and your worst-case year, not by whether Advantage itself is good or bad.",
           ),
         ],
       },
@@ -2810,7 +2818,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "If you have a higher income, you may pay more for Medicare Part B and Part D than the standard amounts.",
     published: "2026-10-14",
-    updated: "2026-10-14",
+    updated: "2026-11-15",
     intro: "If you have a higher income, you may pay more for Medicare Part B and Part D than the standard amounts. That extra charge is called IRMAA, the Income Related Monthly Adjustment Amount. It is not a penalty. It is a surcharge based on your income from two years ago. IRMAA surprises a lot of people. A letter arrives from Social Security saying your Part B premium is higher than expected, and you are not sure why. Here is how it works, how it is calculated, and what to do if your income has dropped.",
     sections: [
       {
@@ -2856,6 +2864,12 @@ export const ARTICLES: Article[] = [
         blocks: [
           p("Keep your tax returns and Social Security notices. When an IRMAA notice arrives, compare the income year and amount to your actual return. Mistakes are rare but happen."),
           p("If you are married, remember IRMAA uses joint income when you file jointly. Filing separately has its own thresholds and is not always better. Talk to a tax professional before changing filing status."),
+        ],
+      },
+      {
+        h2: "How to lower your Part B premium",
+        blocks: [
+          p("File Form SSA-44 after a life-changing event, such as retirement, and ask Social Security to use a more recent tax year. If your income falls below a threshold in a later year, the surcharge drops the year after. Nothing lowers the standard premium itself, and switching Medicare plans does not change it. The surcharge follows your income, not your plan."),
         ],
       },
       {
@@ -12673,6 +12687,114 @@ export const ARTICLES: Article[] = [
       { label: "Does Medicare cover nursing homes or in-home care?", href: "/answers/does-medicare-cover-nursing-homes" },
     ],
     startHref: "/start?topic=care_coverage",
+  },
+  {
+    slug: "medicare-eligibility-changes-2027",
+    title: "What is changing about Medicare eligibility in 2027?",
+    metaTitle: "Medicare Eligibility Changes 2027: The Pink Letter",
+    description:
+      "Social Security is sending Medicare eligibility letters in November 2026, and a pink warning notice follows in December. See who still qualifies and what to do.",
+    keyword: "medicare eligibility changes 2027",
+    eyebrow: "Medicare questions, answered",
+    lede: "A new federal law narrows who qualifies for Medicare. If a letter arrives, read it, answer it, and keep proof of what you sent.",
+    published: "2026-11-15",
+    updated: "2026-11-15",
+    intro:
+      "On November 10, 2026, Social Security told advocates it is now applying a new Medicare eligibility law, Section 71201 of Public Law 119-21. The law applies to new Medicare applications and to current beneficiaries whose eligibility Social Security cannot confirm. About 300,000 preliminary notices go out in November 2026. A pink warning notice from Medicare follows in December. Coverage ends February 1, 2027 for people who do not establish eligibility. Most people on Medicare are not affected.",
+    sections: [
+      {
+        h2: "Who still qualifies",
+        blocks: [
+          p(
+            "Under the new law, a person can be entitled to or enrolled in Medicare only if they are a U.S. citizen or national, a lawful permanent resident (a green card holder), a Cuban-Haitian entrant, or a resident under a Compact of Free Association with Micronesia, the Marshall Islands, or Palau. Those are the only groups on the citizenship and immigration side.",
+          ),
+          p(
+            "The rest of Medicare's rules still apply. You still need to meet the age, disability, or work history rules that applied before. The law changes who qualifies on immigration status. It does not change the age 65 rule or the work credits rule. People outside the four groups lose eligibility, including people who have lived and worked in the United States for years. That includes refugees, people with pending asylum cases, people with Temporary Protected Status, and humanitarian parolees, among others.",
+          ),
+        ],
+      },
+      {
+        h2: "The two letters to watch for",
+        blocks: [
+          p(
+            "The first letter is a preliminary notice from Social Security, mailed in November 2026. It goes to people whose records do not immediately confirm they meet the new rules. That group is wider than the group the law excludes. Some citizens and green card holders will get one because Social Security's records do not show a later naturalization or a green card approved after they first enrolled.",
+          ),
+          p(
+            "The second letter is a warning printed on pink paper, mailed by Medicare in December 2026. It is CMS Product No. 12238. It says your coverage will end February 1, 2027 if you do not confirm your eligibility. Coverage stays in place through January 31, 2027. February 1 is the date coverage could end. It is not necessarily the deadline to respond. Your own letter gives your response deadline, and it may be earlier.",
+          ),
+        ],
+      },
+      {
+        h2: "What to do if a letter arrives",
+        blocks: [
+          p(
+            "Read the letter first. It tells you what proof to send and the date to send it by. Then send proof of U.S. citizenship or eligible immigration status one of three ways: upload documents through your personal my Social Security account, take documents to a local Social Security office, or call 1-844-507-7131 for help. Keep a copy of everything you send and the date you sent it. Do not ignore the letter. A letter left unanswered is how coverage ends, even for people who do qualify.",
+          ),
+        ],
+      },
+      {
+        h2: "If you think the letter is wrong",
+        blocks: [
+          p(
+            "If Social Security decides you are not eligible and you believe that is wrong, you can appeal in writing within 60 days of receiving the decision. Use the online Non-Medical Appeal form or Form SSA-561-U2, Request for Reconsideration. If you later gain an eligible status, such as a green card, you can apply for Medicare at that point. The final rule also gives people who gain or regain a qualifying status a 12-month special enrollment period to enroll, with retroactive coverage possible.",
+          ),
+        ],
+      },
+      {
+        h2: "What does not change",
+        blocks: [
+          p(
+            "This law does not change Social Security benefit eligibility or payment rules. Your monthly check is not affected. Open enrollment, October 15 through December 7, does not fix an eligibility problem. Changing Medicare plans does not resolve a citizenship or immigration question. Only proof of eligibility does that.",
+          ),
+        ],
+      },
+      {
+        h2: "The numbers behind the letters",
+        blocks: [
+          p(
+            "Social Security estimates about 300,000 preliminary notices will be sent in November 2026. The CMS Office of the Actuary estimates about 32,000 people will actually lose coverage. The Congressional Budget Office estimated about 100,000, roughly three times as many. CMS says there is very little information available on how many people the law will affect, and the two estimates use different assumptions. The real number will depend on how many people answer their letters with proof.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "I am a U.S. citizen. Could I still get a letter?",
+        a: "Yes. The notices go to everyone whose records do not immediately confirm eligibility. If your records do not show a later naturalization, answer the letter with proof.",
+      },
+      {
+        q: "Does this change my Social Security check?",
+        a: "No. Social Security says the law does not change benefit eligibility or payment rules.",
+      },
+      {
+        q: "What if I get a green card after my coverage ends?",
+        a: "You can apply for Medicare once you have an eligible status. A 12-month special enrollment period applies, and retroactive coverage may be possible.",
+      },
+      {
+        q: "Where can I get help reading the letter?",
+        a: "Call Social Security at 1-844-507-7131, or NC SHIIP at 1-855-408-1212 for unbiased help at no cost. Bring the letter with you.",
+      },
+    ],
+    sources: [
+      {
+        label: "SSA: Changes to Medicare Eligibility Requirements, November 10, 2026",
+        href: "https://www.ssa.gov/news/en/advocates/2026-11-10.html",
+      },
+      {
+        label: "Medicare.gov: Medicare disenrollment warning notice (CMS Product No. 12238)",
+        href: "https://www.medicare.gov/medicare-disenrollment-warning-notice",
+      },
+      {
+        label: "Medicare Rights Center: Thousands More Medicare Beneficiaries at Risk of Losing Coverage, November 12, 2026",
+        href: "https://www.medicarerights.org/medicare-watch/2026/11/12/thousands-more-medicare-beneficiaries-at-risk-of-losing-coverage",
+      },
+    ],
+    related: [
+      { label: "What does dual eligible mean with Medicare?", href: "/answers/what-does-it-mean-to-be-dual-eligible-for-medicare-and-medicaid" },
+      { label: "Extra Help and Medicare Savings Programs in North Carolina", href: "/guides/extra-help-medicare-savings-programs-nc" },
+      { label: "Medicare enrollment periods: IEP, GEP, SEP, and AEP", href: "/guides/medicare-enrollment-periods-iep-gep-sep-aep" },
+    ],
+    startHref: "/start?topic=medicare",
   },
 ];
 

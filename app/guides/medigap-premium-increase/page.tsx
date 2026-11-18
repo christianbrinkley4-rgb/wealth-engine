@@ -15,8 +15,9 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 /**
  * Why did my Medicare Supplement premium increase?
  *
- * No rate figures and no company names. The NC underwriting point follows
- * NCDOI's Medicare supplement guidance.
+ * Rate figures are national averages from KFF, not company rates. No company
+ * names. The NC underwriting point follows NCDOI's Medicare supplement
+ * guidance.
  */
 
 const PATH = "/guides/medigap-premium-increase";
@@ -57,6 +58,10 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
     a: "Yes, you can apply at any time. In North Carolina, outside your one-time open enrollment period, companies can use medical underwriting, so you'll usually answer health questions and could be declined.",
   },
   {
+    q: "How much are Medigap premiums going up in 2027?",
+    a: "There is no single national increase. KFF found the average Plan G premium rose 13% from 2024 to 2025, to $194 a month. Industry analysis of 2026 filings found Plan G increases of roughly 12% to 26% at several large insurers. Your letter states your increase.",
+  },
+  {
     q: "Is Plan G the same at every company?",
     a: "Yes. Medicare Supplement plans are standardized, so a Plan G covers the same benefits no matter which company sells it. What differs is the premium, the pricing method, and the company's rate history.",
   },
@@ -90,7 +95,7 @@ export default function MedigapPremiumIncreasePage() {
               description: "Medicare Supplement rate increases are normal. Why your premium went up, whether it rises with age, and what you can do in NC before you cancel anything.",
               path: PATH,
               datePublished: "2026-10-13",
-              dateModified: "2026-10-29",
+              dateModified: "2026-11-15",
             }),
           ),
         }}
@@ -102,7 +107,7 @@ export default function MedigapPremiumIncreasePage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Guides" }, { name: "Medigap premium increases" }]}
-        eyebrow="Guide · Updated October 29, 2026"
+        eyebrow="Guide · Updated November 15, 2026"
         title={"Why did my Medicare Supplement premium increase?"}
         lede={"Most Medicare Supplement premium increases come from your age, rising health care costs, and the claims of everyone in your plan group. They don't come from your own claims. Here's how it works and what you can do before you cancel anything."}
         secondaryHref="/start?topic=medicare&quick=1"
@@ -144,6 +149,27 @@ export default function MedigapPremiumIncreasePage() {
               {"Some policies start with a new-customer or household discount. When it phases out, your bill goes up even if the base rate didn't."}
             </li>
           </ul>
+          <h2 className="text-28 mt-12 font-semibold">{"What the 2027 numbers look like"}</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            {"The increases are real, and they are the steepest in years. KFF, analyzing national data, found the average Medicare Supplement premium among current policyholders reached $244 a month in 2025, up 7 percent from $228 in 2024 and up 20 percent from $203 in 2020. Plan G, the most common plan, averaged $194 a month in 2025, up 13 percent in one year and 38 percent since 2020. Plan N averaged $184 a month. Those are averages across policyholders of every age, not quotes for a new 65-year-old."}
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            {"The 2026 filings point the same way. Industry analysis of 2026 rate filings found Plan G increases of roughly 12 percent to 26 percent at several large insurers. In North Carolina, 2026 application data from United Medicare Advisors put the median 65-year-old Plan G applicant at $150 a month, with the middle half of North Carolina Plan G rates at 65 running $126 to $150. Your price depends on your age, your county, the company, and whether you use tobacco."}
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            {"One 2027 figure is already set by CMS: the High Deductible Plan G deductible is $3,050 for 2027, up from $2,950 in 2026. The 2027 Part B premium and deductible had not been announced by CMS as of November 15, 2026. Do not trust a page that lists 2027 Part B figures as final before CMS announces them."}
+          </p>
+          <h2 className="text-28 mt-12 font-semibold">{"What to do when the letter arrives"}</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            {"Read the new premium and the date it takes effect. Then compare the same plan letter at other companies, because the benefits are identical and only the price differs. Ask each company for its rate history over the last few years. A low first-year price from a company with steep annual increases is not a bargain."}
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            {"If your Medicare Advantage plan is ending for 2027, the deadline is different: you have a guaranteed right to buy certain Medigap policies without health questions through March 4, 2027. That is 63 days after coverage ends on December 31, 2026. After that date, North Carolina companies can ask health questions. Read the "}
+            <Link href="/guides/medicare-advantage-plans-leaving-nc-2027" className="underline underline-offset-2">
+              {"plan-ending guide"}
+            </Link>
+            {" for the full dates."}
+          </p>
           <h2 className="text-28 mt-12 font-semibold">{"How your policy is priced"}</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             {"Medicare Supplement policies are priced in one of three ways. Which one you have explains a lot about your increases."}
@@ -235,7 +261,11 @@ export default function MedigapPremiumIncreasePage() {
             {". If staying put is the better move, I'll tell you that."}
           </p>
           <p className="text-16 mt-8 leading-relaxed text-[var(--color-ink-muted)]">
-            {"Sources, checked October 13, 2026: "}
+            {"Sources, checked November 15, 2026: "}
+            <a href="https://www.kff.org/medicare/key-facts-about-medigap-enrollment-and-premiums-for-medicare-beneficiaries/" rel="noopener" className="underline underline-offset-2">
+              {"KFF: Key Facts About Medigap Enrollment and Premiums for Medicare Beneficiaries, October 13, 2026"}
+            </a>
+            {"; "}
             <a href="https://www.ncdoi.gov/consumers/medicare-and-seniors-health-insurance-information-program-shiip/medicare-supplement-medigap-plans" rel="noopener" className="underline underline-offset-2">
               {"NC Department of Insurance: Medicare supplement plans"}
             </a>
@@ -286,7 +316,7 @@ export default function MedigapPremiumIncreasePage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-10-13" />
+      <MedicareByline reviewed="2026-11-15" />
     </main>
   );
 }

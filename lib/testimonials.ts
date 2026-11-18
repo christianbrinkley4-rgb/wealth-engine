@@ -80,10 +80,12 @@ export const TESTIMONIALS: Testimonial[] = [
  * Rating confirmed 5.0 from the dashboard itself.
  * Count updated 2026-11-07: 6 reviews at 5.0 stars, Cindy Woods verified
  * live Nov 7, owner reply posted. Donald Allen's review is gone.
+ * Count updated 2026-11-15: 7 reviews at 5.0 stars. Seventh review is
+ * Janice West, 5 stars, November 13, 2026.
  */
 export const GOOGLE_REVIEWS: { rating: number; count: number; url: string } | null = {
   rating: 5.0,
-  count: 6,
+  count: 7,
   url: GOOGLE_MAPS_PROFILE_URL,
 };
 
