@@ -135,11 +135,13 @@ export function PlainClose({
   body,
   href = "/start?topic=medicare",
   label = "Send Christian a question",
+  phoneOnly = false,
 }: {
   heading: string;
   body: string;
   href?: string;
   label?: string;
+  phoneOnly?: boolean;
 }) {
   return (
     <section className="bg-[var(--color-paper)] py-14">
@@ -147,15 +149,17 @@ export function PlainClose({
         <h2 className="text-28 font-semibold">{heading}</h2>
         <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">{body}</p>
         <p className="text-17 mt-3 leading-relaxed text-[var(--color-ink-muted)]">
-          No cost, no obligation. Your question goes to {AGENT.name} only.
+          Your question goes to {AGENT.name} only.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <a data-cta-location="page_close" href={AGENT.phoneHref} className="btn">
             Call {AGENT.phone}
           </a>
-          <TrackedLink href={href} ctaLocation="page_close" className="btn btn-outline">
-            {label}
-          </TrackedLink>
+          {phoneOnly ? null : (
+            <TrackedLink href={href} ctaLocation="page_close" className="btn btn-outline">
+              {label}
+            </TrackedLink>
+          )}
         </div>
       </div>
     </section>

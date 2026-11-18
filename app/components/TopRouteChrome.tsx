@@ -157,7 +157,7 @@ export function TopRouteChrome() {
             <Link href="/medicare-changes-2027" className="nav-money">
               2027 changes
             </Link>
-            {!isAiRoute(pathname) && pathname !== "/schedule" && pathname !== "/start" && (
+            {!isAiRoute(pathname) && pathname !== "/schedule" && pathname !== "/start" && pathname !== "/appointment-prep" && (
               <Link
                 ctaLocation="header"
                 href={ENGINE_BOOKING_URL}
@@ -214,7 +214,7 @@ export function TopRouteChrome() {
               <Phone size={19} aria-hidden /> <span>Call Christian&apos;s direct line:{" "}<span className="whitespace-nowrap">{AGENT.phone}</span></span>
             </a>
           )}
-          {!isAiRoute(pathname) && pathname !== "/start" && (
+          {!isAiRoute(pathname) && pathname !== "/start" && pathname !== "/appointment-prep" && (
             <>
               <Link
                 ctaLocation="menu"

@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
 import { calculatePartBPremium, getBrackets, STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
@@ -8,6 +10,7 @@ import {
   IRMAA_CHECKER_YEAR,
   irmaaLeadLabel,
   irmaaTableRows,
+  normalizeIncomeInput,
   parseIncome,
 } from "@/lib/irmaaChecker";
 import { partDIrmaaFor } from "@/lib/medicareCosts2026";
@@ -62,7 +65,12 @@ describe("checkIrmaa results", () => {
   });
 
   it("gives a different answer for the same income on a joint return", () => {
-    expect(checkIrmaa(150_000, "individual").tier).toBe(2);
+    // Married filing separately who lived apart all year is routed by choosing
+    // the individual ("Single") status. The checker has no separate-return path.
+    const livedApart = checkIrmaa(150_000, "individual");
+    expect(livedApart.tier).toBe(2);
+    expect(livedApart.partBPremium).toBe(405.8);
+    expect(livedApart.partDSurcharge).toBe(37.5);
     expect(checkIrmaa(150_000, "married_jointly").tier).toBe(0);
   });
 
@@ -108,6 +116,32 @@ describe("parseIncome", () => {
 
   it("stops at the largest value the capture API accepts", () => {
     expect(parseIncome("99999999999999")).toBe(IRMAA_CHECKER_MAX_INCOME);
+  });
+});
+
+describe("normalizeIncomeInput", () => {
+  it("keeps a decimal amount as whole dollars with grouping", () => {
+    expect(normalizeIncomeInput("150,000.00")).toBe("150,000");
+    expect(normalizeIncomeInput("$150,000")).toBe("150,000");
+    expect(normalizeIncomeInput("150000")).toBe("150,000");
+    expect(normalizeIncomeInput("150,000.60")).toBe("150,001");
+  });
+
+  it("returns an empty string when there is nothing to read", () => {
+    expect(normalizeIncomeInput("")).toBe("");
+    expect(normalizeIncomeInput("abc")).toBe("");
+  });
+});
+
+describe("IrmaaChecker filing-status hint", () => {
+  it("tells lived-apart and head-of-household visitors to choose Single", () => {
+    const source = readFileSync(join(__dirname, "..", "..", "app/irmaa-checker/IrmaaChecker.tsx"), "utf8");
+    expect(source).toContain(
+      "Head of household or qualifying surviving spouse? Choose Single. Married filing separately and lived apart from your spouse all year? Choose Single. Married filing separately and lived with your spouse at any time that year? Different limits apply, and this tool does not cover them.",
+    );
+    expect(source).not.toContain(
+      "Married and filed separately? Different limits apply. This tool does not cover them.",
+    );
   });
 });
 

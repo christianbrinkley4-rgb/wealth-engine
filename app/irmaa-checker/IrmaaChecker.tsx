@@ -21,6 +21,7 @@ import {
   IRMAA_CHECKER_TAX_YEAR,
   IRMAA_CHECKER_YEAR,
   irmaaLeadLabel,
+  normalizeIncomeInput,
   parseIncome,
 } from "@/lib/irmaaChecker";
 import { CMS_PARTS_AB_SOURCE } from "@/lib/medicareCosts2026";
@@ -77,7 +78,7 @@ export function IrmaaChecker() {
             ))}
           </div>
           <p className="t-hint">
-            Married and filed separately? Different limits apply. This tool does not cover them.
+            Head of household or qualifying surviving spouse? Choose Single. Married filing separately and lived apart from your spouse all year? Choose Single. Married filing separately and lived with your spouse at any time that year? Different limits apply, and this tool does not cover them.
           </p>
         </div>
 
@@ -93,8 +94,7 @@ export function IrmaaChecker() {
               placeholder="0"
               value={incomeText}
               onChange={(event) => {
-                const digits = event.target.value.replace(/[^0-9]/g, "").slice(0, 10);
-                setIncomeText(digits ? Number(digits).toLocaleString("en-US") : "");
+                setIncomeText(normalizeIncomeInput(event.target.value));
               }}
               aria-describedby="irmaa-income-hint"
             />
@@ -218,11 +218,13 @@ export function IrmaaChecker() {
         <>
           <p className="t-hint" style={{ marginTop: "1.5rem" }}>
             Your numbers stay on your device unless you send them with the form below. The form
-            sends your filing status, your income, and this result to {AGENT.name}. No cost, no
-            obligation.
+            sends your filing status, your income, and this result to {AGENT.name}.
           </p>
           <EmailResultsCapture
             source="wizard_completion"
+            heading="Email me these numbers"
+            intro="Send me a copy of this result and I will look it over with you. Your request comes to me only."
+            submitLabel="Email this result to me"
             wizardData={{
               zip_code: "",
               filing_status: result.filingStatus,

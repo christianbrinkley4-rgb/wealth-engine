@@ -167,12 +167,12 @@ export function buildPrepSheet(fields: PrepFields): PrepSheet {
  * The exact sentence next to the checkbox on the intake form.
  * Bump INTAKE_CONSENT_VERSION whenever this wording changes.
  */
-export const INTAKE_CONSENT_VERSION = "2026-11-15.v1";
+export const INTAKE_CONSENT_VERSION = "2026-11-16.v1";
 export const INTAKE_CONSENT_TEXT =
   `I am sending this information to ${AGENT.name}, a licensed insurance agent, ` +
   "so he can prepare for my appointment. It goes to him by email. This website " +
   "does not save it in a database. It is not sold or shared with other agents " +
-  "or lead companies. He may call or email me about my appointment.";
+  "or lead companies. I agree he can call or email me about my appointment.";
 
 export interface IntakeSubmission extends PrepFields {
   /** Ten digits, or an empty string. */

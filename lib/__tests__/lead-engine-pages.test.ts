@@ -79,7 +79,6 @@ describe("every new file", () => {
 
 describe("public copy rules", () => {
   it.each(PUBLIC_FILES)('%s never says "free"', (file) => {
-    // Cost wording is "no cost, no obligation" only.
     expect(read(file)).not.toMatch(/\bfree\b/i);
   });
 
@@ -106,9 +105,10 @@ describe("public copy rules", () => {
     );
   });
 
-  it('the pages that mention cost use "no cost" and "no obligation"', () => {
+  it("the closer says the question goes to Christian only", () => {
     const parts = read("app/components/PlainPageParts.tsx");
-    expect(parts).toContain("No cost, no obligation.");
+    expect(parts).toContain("Your question goes to {AGENT.name} only.");
+    expect(parts).not.toContain("No cost, no obligation.");
   });
 });
 

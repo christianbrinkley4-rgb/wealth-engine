@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
-import { AGENT } from "@/lib/agent";
 import { breadcrumbJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
 import { IntakeForm } from "./IntakeForm";
@@ -61,8 +60,8 @@ export default function AppointmentPrepPage() {
           time for your questions.
         </p>
         <p className={P}>
-          This form is optional. You can skip it and bring your list with you. Our appointment is
-          at no cost to you, with no obligation.
+          This form is optional. You can skip it and bring your list with you. There is no
+          obligation to enroll.
         </p>
 
         <div className="mt-5 rounded-xl border-2 border-[var(--color-navy)] bg-[var(--color-paper)] p-5">
@@ -74,17 +73,6 @@ export default function AppointmentPrepPage() {
           </ul>
         </div>
 
-        <p className={P}>
-          Do you not have an appointment yet? Call me at{" "}
-          <a href={AGENT.phoneHref} className="font-semibold underline underline-offset-2">
-            {AGENT.phone}
-          </a>{" "}
-          or{" "}
-          <Link href="/start?topic=medicare" className="underline underline-offset-2">
-            send me a question
-          </Link>
-          .
-        </p>
       </header>
 
       <div className="app-shell max-w-3xl">

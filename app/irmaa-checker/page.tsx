@@ -56,7 +56,7 @@ export const metadata: Metadata = {
 const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   {
     q: "What is IRMAA?",
-    a: "IRMAA means Income-Related Monthly Adjustment Amount. It is an extra amount that Medicare adds to the Part B premium and to the Part D premium when your income is above a set limit. Most people do not pay it.",
+    a: "IRMAA means Income-Related Monthly Adjustment Amount. It is an extra amount Medicare adds to your Part B premium and your Part D premium. It applies when your income is above a set limit. Most people do not pay it.",
   },
   {
     q: `Which income decides my ${YEAR} IRMAA?`,
@@ -245,10 +245,10 @@ export default function IrmaaCheckerPage() {
             time.
           </p>
           <p className={P}>
-            The decision is made again each year. A year with high income, for example the year
-            you sell a property or move a large amount out of a retirement account, raises your
-            premiums two years later. When your income goes back down, the surcharge goes away two
-            years after that.
+            The decision is made again each year. A year with high income raises your premiums two
+            years later. Selling a property or taking a large amount out of a retirement account are
+            two examples. When your income goes back down, the surcharge goes away two years after
+            that.
           </p>
 
           <h2 className={`${H2} mt-12`}>If your income has gone down</h2>
@@ -300,6 +300,7 @@ export default function IrmaaCheckerPage() {
       <PlainClose
         heading="Do you have a question about your result?"
         body="Bring your Social Security notice or your tax return. I will explain what the notice means and what you can do next."
+        phoneOnly
       />
 
       <div className="app-shell max-w-3xl" style={{ marginTop: "2rem" }}>

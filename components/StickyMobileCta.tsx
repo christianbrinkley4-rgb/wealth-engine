@@ -32,6 +32,7 @@ const HIDE_PREFIXES = [
   "/plan-checklist-tool",
   "/greensboro-medicare-cost-calculator",
   "/part-b-penalty",
+  "/appointment-prep",
   // The money hub for younger visitors has its own calls to action.
   "/wealth",
   "/links",

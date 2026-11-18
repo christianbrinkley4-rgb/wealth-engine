@@ -11,7 +11,7 @@
  */
 
 import { CheckCircle2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { AGENT } from "@/lib/agent";
 import { loadTurnstile } from "@/lib/loadTurnstile";
@@ -77,9 +77,22 @@ export function IntakeForm() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
+  const turnstileBox = useRef<HTMLDivElement>(null);
 
   // The check renders itself (class "cf-turnstile") once the script arrives.
   useEffect(() => loadTurnstile(), []);
+
+  function resetFormCheck() {
+    if (!TURNSTILE_SITE_KEY) return;
+    const api = (window as Window & { turnstile?: { reset: (target?: string | HTMLElement) => void } }).turnstile;
+    if (!api) return;
+    try {
+      if (turnstileBox.current) api.reset(turnstileBox.current);
+      else api.reset();
+    } catch {
+      // Leave the form as is. The visitor can refresh if the check does not return.
+    }
+  }
 
   function update(name: keyof PrepFields, value: string) {
     setFields((previous) => ({ ...previous, [name]: value.slice(0, PREP_LIMITS[name]) }));
@@ -127,6 +140,7 @@ export function IntakeForm() {
       const data = (await res.json().catch(() => null)) as { error?: string } | null;
 
       if (!res.ok) {
+        resetFormCheck();
         setError(
           data?.error ??
             `I could not receive this form just now. Your answers were not sent. Please call me at ${AGENT.phone}.`,
@@ -140,6 +154,7 @@ export function IntakeForm() {
       setEmail("");
       setDone(true);
     } catch {
+      resetFormCheck();
       setError(
         `Something went wrong and your answers were not sent. Please try once more, or call me at ${AGENT.phone}.`,
       );
@@ -288,7 +303,12 @@ export function IntakeForm() {
         <span>{INTAKE_CONSENT_TEXT}</span>
       </label>
 
-      <div className="cf-turnstile mt-4" data-sitekey={TURNSTILE_SITE_KEY} data-theme="light" />
+      <div
+        ref={turnstileBox}
+        className="cf-turnstile mt-4"
+        data-sitekey={TURNSTILE_SITE_KEY}
+        data-theme="light"
+      />
 
       {error ? (
         <div

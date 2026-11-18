@@ -90,6 +90,17 @@ export function parseIncome(text: string): number | null {
   return Math.min(Math.max(0, value), IRMAA_CHECKER_MAX_INCOME);
 }
 
+/**
+ * Formats a typed or pasted income for the checker input.
+ * parseIncome already keeps a decimal point. This rounds the value to whole
+ * dollars so a paste such as 150,000.00 is not turned into 15,000,000.
+ */
+export function normalizeIncomeInput(text: string): string {
+  const value = parseIncome(text);
+  if (value === null) return "";
+  return Math.round(value).toLocaleString("en-US");
+}
+
 /** Looks up the 2026 tier and both surcharges for one person. */
 export function checkIrmaa(income: number, filingStatus: FilingStatus): IrmaaCheckResult {
   const safeIncome = Number.isFinite(income)
