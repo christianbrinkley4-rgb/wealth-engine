@@ -169,8 +169,8 @@ export default function PartDPlansPage() {
           Rate Announcement on April 6, 2026.
         </p>
         <p className="text-17 mt-4 leading-relaxed">
-          The average Part D premium is projected at $41.33 a month. That is tied to the end of the
-          premium stabilization demonstration.
+          The national base beneficiary premium is $41.33 a month in 2027. The Part D late penalty
+          is figured from it. CMS projects the average standalone plan premium at about $36.
         </p>
       </section>
 
@@ -182,7 +182,7 @@ export default function PartDPlansPage() {
         </p>
         <p className="text-17 mt-4 leading-relaxed">
           The penalty is 1 percent of the national base premium for each full month you went without
-          creditable coverage. In 2026, that base premium is $38.99.
+          creditable coverage. In 2026, that base premium is $38.99. In 2027 it is $41.33.
         </p>
         <p className="text-17 mt-4 leading-relaxed">
           Most employer drug coverage counts as creditable. COBRA and retiree plans have different

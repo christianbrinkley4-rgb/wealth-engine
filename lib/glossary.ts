@@ -10,20 +10,20 @@
  * names, no plan recommendations. See docs/CONTENT-VOICE.md.
  */
 
-import { STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
+import { STANDARD_BASE_PREMIUM_2027 } from "@/lib/irmaa";
 import {
-  CMS_PART_D_SOURCE,
-  CMS_PARTS_AB_SOURCE,
-  COSTS_YEAR,
-  IRMAA_LOOKBACK_YEAR,
-  PART_A_2026,
-  PART_B_2026,
-  PART_D_2026,
-  PART_D_IRMAA_2026,
-} from "@/lib/medicareCosts2026";
+  CMS_2027_RATE_ANNOUNCEMENT,
+  CMS_PARTS_AB_SOURCE_2027,
+  COSTS_YEAR_2027,
+  IRMAA_LOOKBACK_YEAR_2027,
+  PART_A_2027,
+  PART_B_2027,
+  PART_D_2027,
+  PART_D_IRMAA_2027,
+} from "@/lib/medicareCosts2027";
 
 /** The day the entries were last read against their sources. */
-export const GLOSSARY_UPDATED = "2026-10-05";
+export const GLOSSARY_UPDATED = "2026-11-18";
 
 const dollars = (value: number) =>
   value.toLocaleString("en-US", {
@@ -44,8 +44,8 @@ const SOURCES = {
     label: "Medicare.gov: what does Medicare cost?",
     href: "https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/what-does-medicare-cost",
   },
-  partsAB: { label: CMS_PARTS_AB_SOURCE.title, href: CMS_PARTS_AB_SOURCE.url },
-  partD: { label: CMS_PART_D_SOURCE.title, href: CMS_PART_D_SOURCE.url },
+  partsAB: { label: CMS_PARTS_AB_SOURCE_2027.title, href: CMS_PARTS_AB_SOURCE_2027.url },
+  partD: { label: CMS_2027_RATE_ANNOUNCEMENT.title, href: CMS_2027_RATE_ANNOUNCEMENT.url },
   medigapGuide: {
     label: "Medicare.gov: Choosing a Medigap Policy (official guide, PDF)",
     href: "https://www.medicare.gov/publications/02110-medigap-guide-health-insurance.pdf",
@@ -120,15 +120,15 @@ export const GLOSSARY: GlossaryGroup[] = [
         id: "part-a",
         term: "Part A",
         aka: "hospital insurance",
-        definition: `Covers inpatient hospital stays, skilled nursing facility care after a qualifying stay, hospice, and some home health care. Most people pay no premium for it because they or a spouse paid Medicare taxes for at least 10 years. In ${COSTS_YEAR} the hospital deductible is ${dollars(PART_A_2026.inpatientDeductible)} for each benefit period.`,
+        definition: `Covers inpatient hospital stays, skilled nursing facility care after a qualifying stay, hospice, and some home health care. Most people pay no premium for it because they or a spouse paid Medicare taxes for at least 10 years. In ${COSTS_YEAR_2027} the hospital deductible is ${dollars(PART_A_2027.inpatientDeductible)} for each benefit period.`,
         source: SOURCES.partsAB,
-        more: { label: `Every ${COSTS_YEAR} Medicare cost`, href: "/medicare-costs-2026" },
+        more: { label: `Every ${COSTS_YEAR_2027} Medicare cost`, href: "/medicare-costs-2027" },
       },
       {
         id: "part-b",
         term: "Part B",
         aka: "medical insurance",
-        definition: `Covers doctor visits, outpatient care, preventive care, and medical equipment. In ${COSTS_YEAR} most people pay ${dollars(STANDARD_BASE_PREMIUM_2026)} a month. After a ${dollars(PART_B_2026.annualDeductible)} yearly deductible, you usually pay 20% of the Medicare-approved amount.`,
+        definition: `Covers doctor visits, outpatient care, preventive care, and medical equipment. In ${COSTS_YEAR_2027} most people pay ${dollars(STANDARD_BASE_PREMIUM_2027)} a month. After a ${dollars(PART_B_2027.annualDeductible)} yearly deductible, you usually pay 20% of the Medicare-approved amount.`,
         source: SOURCES.partsAB,
         more: { label: "Estimate your Part B premium", href: "/medicare" },
       },
@@ -145,7 +145,7 @@ export const GLOSSARY: GlossaryGroup[] = [
         id: "part-d",
         term: "Part D",
         aka: "prescription drug coverage",
-        definition: `Drug coverage from a private plan, either on its own or built into a Medicare Advantage plan. Each plan has its own list of covered drugs, called a formulary. In ${COSTS_YEAR} no plan can charge a deductible above ${dollars(PART_D_2026.maximumDeductible)}, and what you pay out of pocket for covered drugs is capped at ${dollars(PART_D_2026.outOfPocketCap)} for the year.`,
+        definition: `Drug coverage from a private plan, either on its own or built into a Medicare Advantage plan. Each plan has its own list of covered drugs, called a formulary. In ${COSTS_YEAR_2027} no plan can charge a deductible above ${dollars(PART_D_2027.maximumDeductible)}, and what you pay out of pocket for covered drugs is capped at ${dollars(PART_D_2027.outOfPocketCap)} for the year.`,
         source: SOURCES.partD,
       },
       {
@@ -199,28 +199,28 @@ export const GLOSSARY: GlossaryGroup[] = [
       {
         id: "benefit-period",
         term: "Benefit period",
-        definition: `How Part A counts a hospital stay. It starts the day you’re admitted and ends once you’ve been out of the hospital or skilled nursing facility for 60 days in a row. The ${dollars(PART_A_2026.inpatientDeductible)} deductible applies to each benefit period, so you can owe it more than once in a year.`,
+        definition: `How Part A counts a hospital stay. It starts the day you’re admitted and ends once you’ve been out of the hospital or skilled nursing facility for 60 days in a row. The ${dollars(PART_A_2027.inpatientDeductible)} deductible applies to each benefit period, so you can owe it more than once in a year.`,
         source: SOURCES.partsAB,
       },
       {
         id: "irmaa",
         term: "IRMAA",
         aka: "income-related monthly adjustment amount",
-        definition: `An extra amount added to your Part B and Part D premiums when your income is above a set level. It’s based on your tax return from two years back. For ${COSTS_YEAR}, it starts above ${dollars(PART_D_IRMAA_2026[0].individualMax ?? 0)} for a single filer or ${dollars(PART_D_IRMAA_2026[0].jointMax ?? 0)} filing jointly, using your ${IRMAA_LOOKBACK_YEAR} return.`,
+        definition: `An extra amount added to your Part B and Part D premiums when your income is above a set level. It’s based on your tax return from two years back. For ${COSTS_YEAR_2027}, it starts above ${dollars(PART_D_IRMAA_2027[0].individualMax ?? 0)} for a single filer or ${dollars(PART_D_IRMAA_2027[0].jointMax ?? 0)} filing jointly, using your ${IRMAA_LOOKBACK_YEAR_2027} return.`,
         source: SOURCES.ssaPremiums,
         more: { label: "Does income affect Medicare premiums?", href: "/answers/medicare-irmaa-income-premiums" },
       },
       {
         id: "late-enrollment-penalty",
         term: "Late enrollment penalty",
-        definition: `An amount added to your premium if you sign up late without other qualifying coverage. For Part B it’s ${PART_B_2026.latePenaltyPercentPerYear}% for each full 12 months you waited, for as long as you have Part B. For Part D it’s ${PART_D_2026.latePenaltyPercentPerMonth}% of the national base premium (${dollars(PART_D_2026.baseBeneficiaryPremium)} in ${COSTS_YEAR}) for each month you went without drug coverage.`,
+        definition: `An amount added to your premium if you sign up late without other qualifying coverage. For Part B it’s ${PART_B_2027.latePenaltyPercentPerYear}% for each full 12 months you waited, for as long as you have Part B. For Part D it’s ${PART_D_2027.latePenaltyPercentPerMonth}% of the national base premium (${dollars(PART_D_2027.baseBeneficiaryPremium)} in ${COSTS_YEAR_2027}) for each month you went without drug coverage.`,
         source: SOURCES.penalties,
         more: { label: "Work out the Part B penalty", href: "/part-b-penalty" },
       },
       {
         id: "creditable-coverage",
         term: "Creditable drug coverage",
-        definition: `Drug coverage, such as from a job, that’s expected to pay at least as much as Medicare’s standard drug coverage. If you keep it, the Part D penalty doesn’t build up. The penalty can start once you’ve gone ${PART_D_2026.creditableCoverageGapDays} days or more without it.`,
+        definition: `Drug coverage, such as from a job, that’s expected to pay at least as much as Medicare’s standard drug coverage. If you keep it, the Part D penalty doesn’t build up. The penalty can start once you’ve gone ${PART_D_2027.creditableCoverageGapDays} days or more without it.`,
         source: SOURCES.penalties,
       },
     ],
@@ -306,7 +306,7 @@ export const GLOSSARY: GlossaryGroup[] = [
         id: "skilled-nursing-facility-care",
         term: "Skilled nursing facility care",
         aka: "SNF, rehab",
-        definition: `Short-term skilled care after a qualifying hospital stay. Under Original Medicare in ${COSTS_YEAR}, you pay nothing for days 1 to 20 and ${dollars(PART_A_2026.skilledNursingCoinsuranceDays21To100)} a day for days 21 to 100. After day 100, Medicare stops paying. It doesn’t cover long-term care in a nursing home.`,
+        definition: `Short-term skilled care after a qualifying hospital stay. Under Original Medicare in ${COSTS_YEAR_2027}, you pay nothing for days 1 to 20 and ${dollars(PART_A_2027.skilledNursingCoinsuranceDays21To100)} a day for days 21 to 100. After day 100, Medicare stops paying. It doesn’t cover long-term care in a nursing home.`,
         source: SOURCES.snf,
         more: {
           label: "Does Medicare cover nursing homes?",

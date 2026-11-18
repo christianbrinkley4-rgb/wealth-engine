@@ -111,7 +111,7 @@ export default function NumbersHubPage() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Money numbers" }]}
         eyebrow={`Updated ${LAST_UPDATED_LABEL} · Sourced from the IRS, SSA, and CMS`}
         title="2026-2027 Money Numbers at a Glance"
-        lede="You have googled the same number three times this year and gotten three different answers. One page with the figures everyone looks up: tax brackets, retirement and HSA limits, Social Security, and Medicare costs. Every number is tied to a named source, and a 2027 cell says &quot;Not yet announced&quot; instead of guessing. Share it, cite it, print it."
+        lede="You have googled the same number three times this year and gotten three different answers. One page with the figures everyone looks up: tax brackets, retirement and HSA limits, Social Security, and Medicare costs. Every number is tied to a named source, including the 2027 tax figures the IRS released in November 2026. Share it, cite it, print it."
         secondaryHref="/start?topic=retirement"
         secondaryLabel="Ask about your numbers →"
       />
@@ -189,19 +189,20 @@ export default function NumbersHubPage() {
 
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">When the 2027 numbers land</h2>
+          <h2 className="text-28 font-semibold">When the 2027 numbers landed</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
-            The IRS publishes the{" "}
+            The IRS released the{" "}
             <Link href="/wealth/tax-brackets-explained-plainly" className="underline underline-offset-2">
               2027 tax brackets
             </Link>{" "}
-            and contribution limits in October. Social Security announces the 2027 wage base and
-            COLA in October too. CMS finalizes the{" "}
-            <Link href="/medicare-costs-2026" className="underline underline-offset-2">
+            on November 5, 2026, and the 2027 retirement account limits on November 12, 2026.
+            Social Security announced the 2027 COLA on October 14, 2026, and the wage base in its
+            October 26 Federal Register notice. CMS set the{" "}
+            <Link href="/medicare-costs-2027" className="underline underline-offset-2">
               2027 Part B premium
             </Link>{" "}
-            and deductible in November. This page updates as each one lands, and the date at the
-            top always says when.
+            and deductible on November 17, 2026. The date at the top always says when this page was
+            last checked.
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             These are national reference figures. Your plan&apos;s premiums and your own tax

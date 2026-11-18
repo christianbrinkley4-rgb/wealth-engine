@@ -21,7 +21,7 @@
  * https://www.medicare.gov/basics/costs/medicare-costs/avoid-penalties
  */
 
-import { STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
+import { STANDARD_BASE_PREMIUM_2027 } from "@/lib/irmaa";
 
 export interface PartBPenalty {
   /** Whole months between eligibility and coverage starting. */
@@ -48,7 +48,7 @@ export function monthsBetween(
 
 export function partBPenalty(
   monthsLate: number,
-  standardPremium: number = STANDARD_BASE_PREMIUM_2026,
+  standardPremium: number = STANDARD_BASE_PREMIUM_2027,
 ): PartBPenalty {
   const months = Number.isFinite(monthsLate) ? Math.max(0, Math.floor(monthsLate)) : 0;
   const periods = Math.floor(months / 12);

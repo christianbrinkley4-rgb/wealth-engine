@@ -409,6 +409,6 @@ export function numbers2027Markdown(): string {
     "",
     "## 2027 tax figures",
     "",
-    "The IRS has not announced 2027 tax brackets, standard deduction amounts, or retirement account limits yet. Those arrive in the fall. Until then, this site quotes verified 2026 figures on the relevant pages.",
+    "The IRS released the 2027 tax brackets and standard deductions on November 5, 2026. It released the 2027 retirement account limits on November 12, 2026. See christianbrinkleync.com/numbers.",
   ].join("\n");
 }

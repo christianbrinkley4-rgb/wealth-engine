@@ -2568,7 +2568,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     sections: [
       {
         title: "The 2027 numbers are final",
-        body: "CMS finalized the 2027 Part D standard benefit in its Rate Announcement on April 6, 2026. The maximum deductible rises to $700, from $615 in 2026. The annual out-of-pocket cap rises to $2,400, from $2,100. The national base beneficiary premium is $41.33 a month, up from $38.99. These are final figures, not projections. The deductible, copays, and coinsurance you pay for covered drugs count toward the $2,400 cap. Premiums do not. Once your out-of-pocket costs for covered drugs reach the cap, you pay $0 for covered drugs for the rest of the year.",
+        body: "CMS finalized the 2027 Part D deductible and out-of-pocket cap in its Rate Announcement on April 6, 2026. The maximum deductible rises to $700, from $615 in 2026. The annual out-of-pocket cap rises to $2,400, from $2,100. The national base beneficiary premium is $41.33 a month, up from $38.99, from the CMS bid release of July 28, 2026. These are final figures, not projections. The deductible, copays, and coinsurance you pay for covered drugs count toward the $2,400 cap. Premiums do not. Once your out-of-pocket costs for covered drugs reach the cap, you pay $0 for covered drugs for the rest of the year.",
       },
       {
         title: "North Carolina's 11 plans",

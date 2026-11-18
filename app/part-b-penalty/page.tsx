@@ -8,7 +8,7 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { PartBPenaltyCalculator } from "@/app/part-b-penalty/PartBPenaltyCalculator";
 import { AGENT } from "@/lib/agent";
-import { STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
+import { STANDARD_BASE_PREMIUM_2027 } from "@/lib/irmaa";
 import { formatMoney, partBPenalty } from "@/lib/partBPenalty";
 import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter } from "@/lib/seo";
 
@@ -17,20 +17,19 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter 
  *
  * The guide below the calculator targets the national question "how is the
  * Part B late enrollment penalty calculated". Every figure comes from the
- * sources listed in SOURCES, checked 2026-11-04. Dollar amounts in the table
- * are computed from lib/partBPenalty.ts and STANDARD_BASE_PREMIUM_2026, so
- * they move with the premium when the 2027 figure is published. The worked
- * example ($40.58, $243.48, $243.50) is quoted from Medicare.gov and must be
- * rechecked when the premium changes.
+ * sources listed in SOURCES, checked 2026-11-18. Dollar amounts in the table
+ * are computed from lib/partBPenalty.ts and STANDARD_BASE_PREMIUM_2027.
+ * Medicare.gov's published example used the 2026 premium ($40.58, $243.48,
+ * $243.50). The illustration below uses the official 2027 premium instead.
  */
 
-const UPDATED = "2026-11-07";
-const PREMIUM = STANDARD_BASE_PREMIUM_2026;
-const ONE_PERIOD = Math.round(PREMIUM * 0.1 * 100) / 100;
+const UPDATED = "2026-11-18";
+const PREMIUM = STANDARD_BASE_PREMIUM_2027;
+const ONE_PERIOD = partBPenalty(12, PREMIUM).monthlyPenalty;
 
-const title = "Medicare Part B Late Enrollment Penalty: How It's Calculated (2026)";
+const title = "Medicare Part B Late Enrollment Penalty: How It's Calculated (2027)";
 const description =
-  "The Part B late penalty adds 10% for every full year you could have had Part B and didn't. See the 2026 math, the exceptions, and how to avoid it.";
+  "The Part B late penalty adds 10% for every full year you could have had Part B and didn't. See the 2027 math, the exceptions, and how to avoid it.";
 
 export const metadata: Metadata = {
   title: { absolute: title },
@@ -88,8 +87,8 @@ const SOURCES = [
     href: "https://www.medicare.gov/basics/costs/medicare-costs/avoid-penalties",
   },
   {
-    label: "CMS: 2026 Medicare Parts A & B premiums and deductibles",
-    href: "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+    label: "CMS: 2027 Medicare Parts A & B premiums and deductibles",
+    href: "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles",
   },
   {
     label: "Medicare.gov: When can I sign up for Medicare?",
@@ -167,7 +166,7 @@ export default function PartBPenaltyPage() {
             </div>
             <p className="home-heading-note">
               Medicare adds 10% of the standard Part B premium for every full 12-month period you
-              could have had Part B and didn’t. In 2026 that premium is {formatMoney(PREMIUM)} a
+              could have had Part B and didn’t. In 2027 that premium is {formatMoney(PREMIUM)} a
               month, so each full year late adds about {formatMoney(ONE_PERIOD)}. It’s not a
               one-time fee. For most people it lasts as long as they have Part B. Put in two dates
               below to see yours.
@@ -179,7 +178,7 @@ export default function PartBPenaltyPage() {
 
       <section className="home-section home-rule-top">
         <div className="measure-prose personal-shell max-w-4xl">
-          <p className="home-eyebrow">The full answer · Updated November 4, 2026</p>
+          <p className="home-eyebrow">The full answer · Updated November 18, 2026</p>
           <h2 className={H2} style={{ marginTop: "0.5rem" }}>
             The math, step by step
           </h2>
@@ -201,18 +200,19 @@ export default function PartBPenaltyPage() {
             </li>
           </ol>
           <p className={P} style={PS}>
-            Here’s Medicare’s own example. Someone goes 24 months without Part B and has no Special
-            Enrollment Period. That’s two full periods, so a 20% penalty. On the 2026 premium of{" "}
-            {formatMoney(PREMIUM)}, that’s $40.58 extra. The monthly premium becomes $243.48,
-            rounded to $243.50.
+            Here is a 24-month case at the official 2027 standard premium. Someone goes 24 months
+            without Part B and has no Special Enrollment Period. That is two full periods, so a 20%
+            penalty. On the {formatMoney(PREMIUM)} premium, that is{" "}
+            {formatMoney(partBPenalty(24, PREMIUM).monthlyPenalty)} extra. The monthly premium
+            becomes {formatMoney(PREMIUM + partBPenalty(24, PREMIUM).monthlyPenalty)}.
           </p>
           <p className={P} style={PS}>
-            Here’s how it plays out at different lengths, using 2026 figures.
+            Here’s how it plays out at different lengths, using 2027 figures.
           </p>
           <div className="mt-6 overflow-x-auto">
             <ResponsiveTable className="w-full min-w-[520px] border-collapse text-left">
               <caption className="sr-only">
-                2026 Part B monthly premium by number of months without Part B
+                2027 Part B monthly premium by number of months without Part B
               </caption>
               <thead>
                 <tr className="border-b-2 border-[var(--color-navy)]">
@@ -226,7 +226,7 @@ export default function PartBPenaltyPage() {
                     Penalty
                   </th>
                   <th scope="col" className="text-16 py-3 font-semibold">
-                    2026 monthly premium
+                    2027 monthly premium
                   </th>
                 </tr>
               </thead>
@@ -248,8 +248,8 @@ export default function PartBPenaltyPage() {
           </div>
           <p className={P} style={PS}>
             One more thing people miss. The penalty is a percentage, not a fixed dollar amount. When
-            the standard premium changes, your penalty changes with it. The 2027 premium hadn’t been
-            published when this page was updated.
+            the standard premium changes, your penalty changes with it. These figures use the 2027
+            standard premium of {formatMoney(PREMIUM)}, released by CMS on November 17, 2026.
           </p>
 
           <h2 className={H2} style={H2S}>

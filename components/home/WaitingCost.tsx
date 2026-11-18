@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useId, useState } from "react";
 
-import { STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
+import { STANDARD_BASE_PREMIUM_2027 } from "@/lib/irmaa";
 import { formatMoney, partBPenalty } from "@/lib/partBPenalty";
 
 const MAX_MONTHS = 72;
@@ -28,7 +28,7 @@ export function WaitingCost() {
   const [months, setMonths] = useState(14);
   const id = useId();
   const result = partBPenalty(months);
-  const base = STANDARD_BASE_PREMIUM_2026;
+  const base = STANDARD_BASE_PREMIUM_2027;
   const total = base + result.monthlyPenalty;
   // The bar scale tops out at the largest penalty the slider can show.
   const scaleMax = base + partBPenalty(MAX_MONTHS).monthlyPenalty;
@@ -84,7 +84,7 @@ export function WaitingCost() {
 
         <dl className="wc-stats">
           <div>
-            <dt>Standard premium, 2026</dt>
+            <dt>Standard premium, 2027</dt>
             <dd>{formatMoney(base)}/mo</dd>
           </div>
           <div>
@@ -103,7 +103,7 @@ export function WaitingCost() {
       </div>
 
       <p className="wc-foot">
-        Estimate for education, at the 2026 standard premium. If you or your spouse have coverage
+        Estimate for education, at the 2027 standard premium. If you or your spouse have coverage
         through a current job, you can usually wait without any penalty.{" "}
         <Link href="/part-b-penalty" className="link-draw">
           <span>Work out your own number</span> <ArrowRight size={16} aria-hidden />

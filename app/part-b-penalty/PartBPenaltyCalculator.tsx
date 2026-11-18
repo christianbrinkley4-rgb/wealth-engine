@@ -7,7 +7,7 @@ import { ArrowRight, LockKeyhole } from "lucide-react";
 
 import { trackEvent } from "@/app/components/Analytics";
 import { AGENT } from "@/lib/agent";
-import { STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
+import { STANDARD_BASE_PREMIUM_2027 } from "@/lib/irmaa";
 import { formatMoney, monthsBetween, partBPenalty } from "@/lib/partBPenalty";
 import { MONTHS } from "@/lib/reminders";
 
@@ -191,8 +191,8 @@ export function PartBPenaltyCalculator() {
                   <div>
                     <dt>{formatMoney(penalty.monthlyPenalty)} a month</dt>
                     <dd>
-                      On top of the {formatMoney(STANDARD_BASE_PREMIUM_2026)} standard premium for
-                      2026.
+                      On top of the {formatMoney(STANDARD_BASE_PREMIUM_2027)} standard premium for
+                      2027.
                     </dd>
                   </div>
                   <div className="tl-date-key">

@@ -11840,7 +11840,7 @@ export const ARTICLES: Article[] = [
     faq: [
       {
         q: "When will the 2027 numbers be final?",
-        a: "SSA announced the 2027 COLA of 3.6% on October 14, 2026. CMS announces the 2027 Part B premium and deductible in November. Your exact new amount arrives in a Social Security notice in December, and higher payments start with January 2027 benefits.",
+        a: "SSA announced the 2027 COLA of 3.6% on October 14, 2026. CMS set the 2027 Part B premium at $209.40 on November 17, 2026. Your exact new amount arrives in a Social Security notice in December.",
       },
       {
         q: "Can a Part B increase make my Social Security check go down?",
@@ -11911,7 +11911,7 @@ export const ARTICLES: Article[] = [
         h2: "The 2027 numbers you can trust",
         blocks: [
           p(
-            "CMS finalized the core 2027 Part D numbers on April 6, 2026, in the CY2027 Rate Announcement. These are not projections.",
+            "CMS finalized the 2027 Part D deductible and out-of-pocket cap on April 6, 2026, in the CY2027 Rate Announcement. It set the national base beneficiary premium at $41.33 in the July 28, 2026 bid release. These are not projections.",
           ),
           table(
             ["Part D feature", "2026", "2027"],

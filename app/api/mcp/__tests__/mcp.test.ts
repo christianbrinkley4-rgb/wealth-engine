@@ -152,7 +152,7 @@ describe("MCP tools", () => {
     expect(text).toContain("$2,400");
     expect(text).toContain("$209.40");
     expect(text).toContain("Final");
-    expect(text).toContain("not announced 2027 tax brackets");
+    expect(text).toContain("released the 2027 tax brackets");
   });
 
   it("rejects a tool call with missing arguments", async () => {

@@ -140,7 +140,7 @@ export default function MedicareAgentGreensboroPage() {
           ) : null}
         </section>
       ))}
-      <MedicareFactBlock heading="Medicare facts for 2026, with sources" />
+      <MedicareFactBlock heading="Medicare facts for 2027, with sources" />
       <section
         className="measure-prose app-shell max-w-3xl py-10"
         aria-labelledby="greensboro-more-help"

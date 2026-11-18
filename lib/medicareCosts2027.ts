@@ -12,6 +12,13 @@
  * - CMS, CY2027 Rate Announcement (April 6, 2026), Table V-2
  *   https://www.cms.gov/files/document/2027-announcement.pdf
  *   Part D maximum deductible and out-of-pocket cap.
+ * - CMS, "Medicare Part D 2027 National Average Monthly Bid Amount
+ *   Information" (July 28, 2026)
+ *   https://www.cms.gov/newsroom/fact-sheets/medicare-part-d-2027-national-average-monthly-bid-amount-information
+ *   National base beneficiary premium $41.33; NAMBA $296.05.
+ * - CMS press release, September 28, 2026
+ *   https://www.cms.gov/newsroom/press-releases/medicare-advantage-medicare-prescription-drug-programs-expected-remain-stable-2027
+ *   Projected average standalone Part D premium about $36.
  *
  * The standard Part B premium and IRMAA brackets live in lib/irmaa.ts.
  */
@@ -39,6 +46,11 @@ export const CMS_2027_RATE_ANNOUNCEMENT = {
   url: "https://www.cms.gov/files/document/2027-announcement.pdf",
 } as const;
 
+export const CMS_PART_D_BID_SOURCE_2027 = {
+  title: "CMS, Medicare Part D 2027 National Average Monthly Bid Amount Information, July 28, 2026",
+  url: "https://www.cms.gov/newsroom/fact-sheets/medicare-part-d-2027-national-average-monthly-bid-amount-information",
+} as const;
+
 export const PART_A_2027 = {
   ...PART_A_2027_CMS,
   /** Voluntary premium, 30 to 39 quarters of Medicare-covered employment. */
@@ -56,6 +68,10 @@ export const PART_B_2027 = {
 export const PART_D_2027 = {
   maximumDeductible: 700,
   outOfPocketCap: 2400,
+  /** National base beneficiary premium, from CMS_PART_D_BID_SOURCE_2027. */
+  baseBeneficiaryPremium: 41.33,
+  latePenaltyPercentPerMonth: 1,
+  creditableCoverageGapDays: 63,
 } as const;
 
 /**

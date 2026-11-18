@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
 
 import { GLOSSARY, glossaryTerms } from "@/lib/glossary";
-import { STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
-import { PART_A_2026, PART_D_2026 } from "@/lib/medicareCosts2026";
+import { STANDARD_BASE_PREMIUM_2027 } from "@/lib/irmaa";
+import { PART_A_2027, PART_D_2027 } from "@/lib/medicareCosts2027";
 
 const OFFICIAL = /^https:\/\/www\.(medicare|cms|ssa)\.gov\//;
 
@@ -37,11 +37,11 @@ describe("Medicare words glossary", () => {
     expect(text).not.toMatch(/bankers life|humana|aetna|unitedhealthcare|wellcare|blue cross/i);
   });
 
-  it("reads its dollar figures from the shared 2026 constants", () => {
+  it("reads its dollar figures from the shared 2027 constants", () => {
     const byId = Object.fromEntries(terms.map((entry) => [entry.id, entry.definition]));
-    expect(byId["part-b"]).toContain(`$${STANDARD_BASE_PREMIUM_2026.toFixed(2)}`);
-    expect(byId["part-a"]).toContain(`$${PART_A_2026.inpatientDeductible.toLocaleString("en-US")}`);
-    expect(byId["part-d"]).toContain(`$${PART_D_2026.outOfPocketCap.toLocaleString("en-US")}`);
+    expect(byId["part-b"]).toContain(`$${STANDARD_BASE_PREMIUM_2027.toFixed(2)}`);
+    expect(byId["part-a"]).toContain(`$${PART_A_2027.inpatientDeductible.toLocaleString("en-US")}`);
+    expect(byId["part-d"]).toContain(`$${PART_D_2027.outOfPocketCap.toLocaleString("en-US")}`);
   });
 
   it("links only to site paths in the right shape", () => {

@@ -322,9 +322,9 @@ export default function MedicareCosts2026Page() {
             the cap, you do not pay more for covered drugs that year.
           </p>
           <p>
-            <strong>Average Part D premium.</strong> The average Part D premium is projected at
-            $41.33 a month for 2027. That projection reflects the end of the premium stabilization
-            demonstration. Keep in mind it is an average. What you would pay depends on the plan.
+            <strong>Part D base premium.</strong> The national base beneficiary premium is $41.33 a
+            month in 2027, up from $38.99. The Part D late penalty is figured from it. The average
+            standalone drug plan premium is projected at about $36 a month.
           </p>
           <p>
             <strong>What to do with all this.</strong> Now that the figures are final, it is worth

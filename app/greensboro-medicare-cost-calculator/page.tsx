@@ -61,7 +61,7 @@ function howToJsonLd() {
     "@type": "HowTo",
     name: "How to estimate your yearly Medicare costs in Greensboro, NC",
     description:
-      "Use this free calculator to compare estimated yearly costs for Medigap Plan G and Medicare Advantage in Guilford County.",
+      "Use this calculator to compare estimated yearly costs for Medigap Plan G and Medicare Advantage in Guilford County.",
     step: HOW_TO_STEPS.map((text, i) => ({
       "@type": "HowToStep",
       position: i + 1,

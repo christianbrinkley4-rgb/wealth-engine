@@ -38,7 +38,7 @@ export const FIGURES_REVIEWED = "2026-11-19";
 export const META = {
   title: "Greensboro Medicare Cost Calculator: Medigap vs Medicare Advantage",
   description:
-    "Estimate your yearly Medicare costs in Greensboro, NC. Compare Medigap Plan G with $0-premium Medicare Advantage using real 2027 plan figures. Free, no signup.",
+    "Estimate yearly Medicare costs in Greensboro, NC. Compare Medigap Plan G with $0-premium Medicare Advantage (you still pay your Part B premium). No signup.",
 };
 
 export const PATH = "/greensboro-medicare-cost-calculator";

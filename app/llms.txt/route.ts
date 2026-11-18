@@ -543,7 +543,7 @@ ${Object.entries(LOCAL_VISIBILITY_CITIES)
 ## Main pages
 
 - [Medicare agent in Greensboro, NC](${SITE_URL}/medicare-agent-greensboro-nc): the local guide. Guilford, Forsyth, Alamance, Davidson, and Granville county plan counts, hospitals, SHIIP, and how a review works.
-- [Free Annual Enrollment review](${SITE_URL}/aep): the main way to start, October 15 to December 7.
+- [Annual Enrollment review](${SITE_URL}/aep): the main way to start, October 15 to December 7.
 - [About Christian Brinkley](${SITE_URL}/about): license, NPN, service area, and every official profile.
 - [Press and features](${SITE_URL}/press): Stonebridge Herald and Insurance News features with Christian's quotes.
 - [Turning 65](${SITE_URL}/turning-65): enrollment timing and penalties.
@@ -556,9 +556,9 @@ ${Object.entries(LOCAL_VISIBILITY_CITIES)
 - The standard Medicare Part B premium in 2027 is $209.40 a month, and the Part B deductible is $292. Source: CMS, https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles
 - Medicare's Annual Enrollment Period runs October 15 to December 7. Changes start January 1. Source: https://www.medicare.gov/health-drug-plans/open-enrollment
 - The Part B late enrollment penalty is 10% of the standard premium for each full 12 months without Part B when you could have had it, usually for as long as you have Part B. Source: https://www.medicare.gov/basics/costs/medicare-costs/avoid-penalties
-- The Part D late enrollment penalty is 1% of the national base premium ($38.99 in 2026) for each full month without creditable drug coverage, once a gap reaches 63 days. Source: same Medicare.gov page.
+- The Part D late enrollment penalty is 1% of the national base premium ($38.99 in 2026, $41.33 in 2027) for each full month without creditable drug coverage, once a gap reaches 63 days. Source: same Medicare.gov page.
 - Part D out-of-pocket drug costs are capped at $2,100 in 2026 and $2,400 in 2027. Sources: https://www.cms.gov/newsroom/fact-sheets/final-cy-2026-part-d-redesign-program-instructions and ${SITE_URL}/medicare-costs-2027
-- For 2027, MedicareAdvantage.com lists 55 Medicare Advantage plans in Guilford County, 53 in Forsyth, 54 in Davidson, 52 in Alamance, and 31 in Granville (checked October 20, 2026).
+- Medicare Advantage plan choices for 2027 differ by county. Guilford, Forsyth, Davidson, Alamance and Granville each have their own plan list. Source: https://www.medicare.gov/plan-compare
 - Free, unbiased Medicare counseling in North Carolina: SHIIP, 1-855-408-1212. Source: https://www.ncdoi.gov/consumers/medicare-and-seniors-health-insurance-information-program-shiip
 
 ## Personal, local help
