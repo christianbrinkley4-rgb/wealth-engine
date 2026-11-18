@@ -162,7 +162,7 @@ export default function PartDPlansPage() {
       </section>
 
       <section className="measure-prose app-shell max-w-3xl py-8">
-        <h2 className="text-28 font-semibold">What&apos;s Expected for 2027</h2>
+        <h2 className="text-28 font-semibold">Part D in 2027</h2>
         <p className="text-17 mt-4 leading-relaxed">
           The numbers go up in 2027. The deductible ceiling rises to
           $700, and the out-of-pocket cap rises to $2,400. Both are final, set by CMS in its

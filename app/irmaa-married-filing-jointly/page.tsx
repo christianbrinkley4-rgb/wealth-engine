@@ -15,7 +15,6 @@ import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { getBrackets } from "@/lib/irmaa";
 import {
   IRMAA_CHECKER_CHECKED,
-  IRMAA_CHECKER_CHECKED_LABEL,
   IRMAA_CHECKER_TAX_YEAR,
   IRMAA_CHECKER_YEAR,
   irmaaTableRows,
@@ -93,7 +92,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "Are the 2027 limits for married couples available?",
-    a: `Not yet. As of ${IRMAA_CHECKER_CHECKED_LABEL}, CMS has not announced the 2027 Part B premium or the 2027 IRMAA table. This page shows ${YEAR} amounts.`,
+    a: "Yes. CMS released them on November 17, 2026. On a joint return, the 2027 surcharge starts when 2025 income is more than $224,000.",
   },
 ];
 

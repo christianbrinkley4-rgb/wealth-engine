@@ -9,7 +9,6 @@ import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { ToolTracking } from "@/app/tools/_components/tool-tracking";
 import {
   IRMAA_CHECKER_CHECKED,
-  IRMAA_CHECKER_CHECKED_LABEL,
   IRMAA_CHECKER_TAX_YEAR,
   IRMAA_CHECKER_YEAR,
   irmaaTableRows,
@@ -72,7 +71,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "Are the 2027 IRMAA amounts available?",
-    a: `Not yet. As of ${IRMAA_CHECKER_CHECKED_LABEL}, CMS has not announced the 2027 Part B premium or the 2027 IRMAA table. This page shows ${YEAR} amounts and labels them ${YEAR}.`,
+    a: "Yes. CMS released them on November 17, 2026. This checker still shows 2026 amounts and will switch to 2027 soon.",
   },
   {
     q: "Is this result a decision about my premium?",

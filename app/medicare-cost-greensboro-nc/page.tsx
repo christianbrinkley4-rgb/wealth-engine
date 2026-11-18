@@ -70,7 +70,7 @@ const PART_B_2026_PREMIUM = money(STANDARD_BASE_PREMIUM_2026);
 const PART_B_2027_PREMIUM = money(PART_B_MONTHLY);
 
 const title = "How Much Does Medicare Cost in Greensboro, NC? (2026 and 2027)";
-const description = `The costs Medicare sets are the same in Greensboro as everywhere: ${PART_B_2026_PREMIUM} a month for Part B in 2026. See what is set, what depends on your county, and 2027.`;
+const description = "The costs Medicare sets are the same in Greensboro as everywhere: $209.40 a month for Part B in 2027. See what is set and what depends on your county.";
 
 export const metadata: Metadata = {
   title: { absolute: title },

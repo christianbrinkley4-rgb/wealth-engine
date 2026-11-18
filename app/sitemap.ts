@@ -702,6 +702,20 @@ const SEO_REVIEWED_PATHS = new Set([
 // fixes) and the PR 7 life-insurance quote section, reviewed 2026-11-07.
 // Kept separate so the 2026-11-05 bulk stamp above stays truthful for
 // pages this set did not touch.
+const SEO_REVIEWED_2026_11_18 = new Set([
+  "/medicare-costs-2027",
+  "/medicare-costs-2026",
+  "/medicare-costs-north-carolina",
+  "/medicare-cost-greensboro-nc",
+  "/greensboro-medicare-cost-calculator",
+  "/medicare-part-d-plans",
+  "/irmaa-checker",
+  "/irmaa-married-filing-jointly",
+  "/part-d-irmaa",
+  "/numbers",
+  "/ai/connect",
+]);
+
 const SEO_REVIEWED_2026_11_07 = new Set([
   "/life-insurance",
   "/guides/medicare-automatic-renewal",
@@ -752,11 +766,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "/retirement-income",
       ].includes(path)
         ? "2026-11-10"
-        : SEO_REVIEWED_2026_11_07.has(path)
-          ? "2026-11-07"
-          : SEO_REVIEWED_PATHS.has(path)
-            ? "2026-11-05"
-            : (own ?? lastModified),
+        : SEO_REVIEWED_2026_11_18.has(path)
+          ? "2026-11-18"
+          : SEO_REVIEWED_2026_11_07.has(path)
+            ? "2026-11-07"
+            : SEO_REVIEWED_PATHS.has(path)
+              ? "2026-11-05"
+              : (own ?? lastModified),
       changeFrequency,
       priority,
     })),

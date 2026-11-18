@@ -15,7 +15,6 @@ import { ResponsiveTable } from "@/app/components/ResponsiveTable";
 import { getBrackets } from "@/lib/irmaa";
 import {
   IRMAA_CHECKER_CHECKED,
-  IRMAA_CHECKER_CHECKED_LABEL,
   IRMAA_CHECKER_TAX_YEAR,
   IRMAA_CHECKER_YEAR,
   irmaaTableRows,
@@ -256,8 +255,8 @@ export default function PartDIrmaaPage() {
             .
           </p>
           <p className={P}>
-            As of {IRMAA_CHECKER_CHECKED_LABEL}, CMS has not announced the 2027 Part D IRMAA
-            amounts. This page shows {YEAR} amounts.
+            CMS released the 2027 Part D IRMAA amounts on November 17, 2026. For one person they
+            run from $15.40 to $96.40 a month.
           </p>
         </div>
       </section>

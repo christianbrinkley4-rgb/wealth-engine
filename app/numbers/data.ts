@@ -4,8 +4,8 @@
  * The fall update procedure lives in docs/NUMBERS-UPDATE-PLAYBOOK.md.
  */
 
-export const LAST_UPDATED_LABEL = "October 8, 2026";
-export const LAST_UPDATED_ISO = "2026-10-08";
+export const LAST_UPDATED_LABEL = "November 18, 2026";
+export const LAST_UPDATED_ISO = "2026-11-18";
 
 /** Cell values that are status notes, not figures, and are exempt from the source-file cross-check. */
 export const NON_FIGURE_CELLS = new Set(["Not yet announced", "See note"]);

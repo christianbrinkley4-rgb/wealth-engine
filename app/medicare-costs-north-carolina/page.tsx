@@ -15,10 +15,11 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph } from "@/lib
 /**
  * What Medicare costs in North Carolina, with 2027 figures.
  *
- * 2027 Part D figures ($700 deductible, $2,400 cap) are finalized CMS amounts.
- * Parts A and B 2027 figures are Medicare Trustees projections, labeled as
- * such. 2026 figures are finalized CMS amounts. This page is the NC-focused
- * overview; the full 2026 table lives at /medicare-costs-2026.
+ * 2027 Part D figures ($700 deductible, $2,400 cap) are finalized CMS amounts
+ * from the April 6, 2026 Rate Announcement. Parts A and B 2027 figures come
+ * from the CMS fact sheet of November 17, 2026. 2026 figures are finalized CMS
+ * amounts. This page is the NC-focused overview; the full 2026 table lives at
+ * /medicare-costs-2026.
  */
 
 export const metadata: Metadata = {

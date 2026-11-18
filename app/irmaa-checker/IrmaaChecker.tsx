@@ -17,7 +17,6 @@ import { AGENT } from "@/lib/agent";
 import type { FilingStatus } from "@/lib/irmaa";
 import {
   checkIrmaa,
-  IRMAA_CHECKER_CHECKED_LABEL,
   IRMAA_CHECKER_TAX_YEAR,
   IRMAA_CHECKER_YEAR,
   irmaaLeadLabel,
@@ -198,10 +197,8 @@ export function IrmaaChecker() {
 
       <AssumptionBox>
         <p>
-          <strong>What this tool uses.</strong> The official {IRMAA_CHECKER_YEAR} amounts from
-          CMS, for people who file single or married filing jointly. As of{" "}
-          {IRMAA_CHECKER_CHECKED_LABEL}, CMS has not announced the 2027 amounts. Social Security makes the real decision and
-          mails it to you. This result is an estimate for education. Source:{" "}
+          <strong>What this tool uses.</strong> The official 2026 amounts from CMS. CMS released
+          the 2027 amounts on November 17, 2026. This tool will switch to them soon. Source:{" "}
           <a
             href={CMS_PARTS_AB_SOURCE.url}
             className="underline underline-offset-2"

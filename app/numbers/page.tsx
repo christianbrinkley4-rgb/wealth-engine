@@ -40,7 +40,7 @@ const FIGURE_SOURCES = [
   "SSA 2026 COLA fact sheet",
   "CMS CY2027 Rate Announcement (April 6, 2026)",
   "CMS 2027 MA/Part D landscape press release (September 28, 2026)",
-  "2026 Medicare Trustees Report (projections)",
+  "CMS, 2027 Medicare Parts A & B Premiums and Deductibles (November 17, 2026)",
 ];
 
 export default function NumbersHubPage() {

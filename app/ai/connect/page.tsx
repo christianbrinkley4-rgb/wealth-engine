@@ -39,7 +39,7 @@ const EXAMPLES = [
   "Using Christian Brinkley's connector, what is the 2027 Part D deductible, and is that number final?",
   "Search his guides for the 6-month HSA trap with Medicare and give me the short version.",
   "What free calculators does he have? Which one fits someone choosing between avalanche and snowball?",
-  "Using the connector, what are the 2027 Medicare numbers, and which ones are still projections?",
+  "Using the connector, what are the 2027 Medicare numbers?",
 ] as const;
 
 const FAQ = [
@@ -126,8 +126,7 @@ export default function AiConnectPage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Once connected, your assistant can search the guides, read a full guide, list the
-            calculators, and pull the 2027 Medicare numbers, all labeled final or projected with
-            their sources.
+            calculators, and pull the 2027 Medicare numbers, each with its CMS source.
           </p>
         </div>
       </section>
@@ -200,7 +199,7 @@ export default function AiConnectPage() {
             </li>
             <li className="text-17 leading-relaxed text-[var(--color-ink-muted)]">
               <strong className="font-semibold">The 2027 numbers.</strong> The key Medicare
-              figures for 2027, each labeled final or projected, plus the enrollment dates.
+              figures for 2027, each with its CMS source, plus the enrollment dates.
             </li>
           </ul>
         </div>

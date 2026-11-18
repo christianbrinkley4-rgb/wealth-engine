@@ -245,7 +245,7 @@ export default function MedicareCosts2027Page() {
 
       <section className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-4xl">
-          <h2 className="text-28 font-semibold">Part A in 2027: what we know so far</h2>
+          <h2 className="text-28 font-semibold">Part A in 2027</h2>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Part A covers hospital stays, skilled nursing facility care, hospice, and some home
             health care. Most people pay no monthly premium for Part A. What they do pay is the

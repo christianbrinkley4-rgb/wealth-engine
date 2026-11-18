@@ -169,6 +169,7 @@ describe("figures", () => {
    * Section 2 of the build brief: $202.90, $283, $2,100, $2,400, $700,
    * $9,850, $14,800, $209.40, $292.
    * CMS 2026 fact sheet, already in lib/: $109,000, $218,000, $391,000, $615.
+   * CMS 2027 fact sheet, November 17, 2026: $15.40, $96.40, $224,000.
    * $230,000 is the income in a worked example, not a Medicare figure.
    */
   const ALLOWED = new Set([
@@ -188,6 +189,9 @@ describe("figures", () => {
     "$218,000",
     "$391,000",
     "$230,000",
+    "$15.40",
+    "$96.40",
+    "$224,000",
   ]);
 
   it.each(SEARCH_PAGES)("$path types no dollar amount outside the verified list", ({ file }) => {

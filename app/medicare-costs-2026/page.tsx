@@ -298,7 +298,7 @@ export default function MedicareCosts2026Page() {
 
       <section className="home-section home-rule-top" id="costs-2027">
         <div className="personal-shell ref-block">
-          <h2>A first look at 2027</h2>
+          <h2>2027 at a glance</h2>
           <p>
             The Part B and Part D figures for 2027 are final now. CMS announced the Part A and
             Part B amounts on November 17, 2026, and set the Part D amounts in its Rate

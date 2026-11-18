@@ -76,7 +76,7 @@ describe("numbers hub: page quality", () => {
     const page = read("app/numbers/page.tsx");
     expect(page).toContain("LAST_UPDATED_LABEL");
     const data = read("app/numbers/data.ts");
-    expect(data).toContain("October 8, 2026");
+    expect(data).toContain("November 18, 2026");
   });
 
   it("contains no em dashes in page copy", () => {

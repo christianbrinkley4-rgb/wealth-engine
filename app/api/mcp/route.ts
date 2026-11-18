@@ -232,7 +232,7 @@ async function handleSingleRequest(body: JsonRpcRequest): Promise<NextResponse |
             uri: "site:///medicare-numbers-2027",
             name: "2027 Medicare numbers",
             title: "2027 Medicare numbers",
-            description: "2027 Medicare figures, each labeled final or projected, plus key dates.",
+            description: "2027 Medicare figures from CMS, plus key dates.",
             mimeType: "text/markdown",
           },
         ],

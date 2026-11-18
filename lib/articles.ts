@@ -989,7 +989,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Your 2025 tax return sets your 2027 Medicare premiums. Here is how the surcharge works, and what to do if your income has dropped.",
     published: "2026-10-05",
-    updated: "2026-11-07",
+    updated: "2026-11-18",
     intro:
       "Most people pay the standard Medicare Part B premium. Above a set income limit, Medicare adds a surcharge called IRMAA, short for Income-Related Monthly Adjustment Amount, to Part B and Part D. The timing is what matters most: the number comes from your tax return two years back.",
     sections: [
@@ -1044,7 +1044,7 @@ export const ARTICLES: Article[] = [
         ],
       },
       {
-        h2: "The 2027 brackets, calculated",
+        h2: "The 2027 brackets",
         blocks: [
           {
             kind: "table",
@@ -1118,8 +1118,8 @@ export const ARTICLES: Article[] = [
         href: "https://www.medicare.gov/basics/get-started-with-medicare/medicare-basics/what-does-medicare-cost",
       },
       {
-        label: "2026 Medicare Trustees Report",
-        href: "https://www.cms.gov/oact/tr/2026",
+        label: "CMS, 2027 Medicare Parts A & B Premiums and Deductibles, November 17, 2026",
+        href: "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles",
       },
       {
         label: "42 U.S.C. 1395r(i): IRMAA income thresholds",
@@ -11752,12 +11752,12 @@ export const ARTICLES: Article[] = [
     title: "Will my Social Security raise cover my Medicare premium increase?",
     metaTitle: "Will Your Social Security Raise Cover the 2027 Part B Hike?",
     description:
-      "The 2027 Social Security COLA is 3.6% (announced Oct 14); the Part B premium follows in November. How to figure out what you will actually keep each month.",
+      "The 2027 Social Security COLA is 3.6%. The 2027 Part B premium is $209.40, up $6.50. Here is what you actually keep each month.",
     keyword: "will social security raise cover medicare premium increase",
     eyebrow: "Medicare questions, answered",
     lede: "Two announcements, one month apart, decide what lands in your bank account. Here is the math, and the rule that keeps your check from shrinking.",
     published: "2026-10-12",
-    updated: "2026-10-19",
+    updated: "2026-11-18",
     intro:
       "Every October the same question comes up in Greensboro living rooms: the Social Security raise is coming, so why does the check barely move? The answer is timing. Your raise and your Medicare premium increase are decided by two different agencies, in two different months, and the premium comes out of your check before you see it. Here is how the two numbers interact for 2027, and the rule that keeps a premium hike from shrinking your payment.",
     sections: [

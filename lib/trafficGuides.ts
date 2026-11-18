@@ -2653,7 +2653,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "Do I need Medicare drug coverage?", href: "/answers/do-i-need-medicare-drug-coverage" },
       { title: "The Part D late enrollment penalty", href: "/answers/medicare-part-d-late-penalty" },
       { title: "The Part D cap, explained", href: "/medicare-part-d-donut-hole-2027" },
-      { title: "Every 2027 Medicare cost, final vs projected", href: "/medicare-costs-2027" },
+      { title: "Every 2027 Medicare cost from CMS", href: "/medicare-costs-2027" },
     ],
   },
   {
@@ -2850,7 +2850,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "Medigap or Medicare Advantage: which one fits me?", href: "/answers/medigap-or-medicare-advantage-which-one-fits-me" },
       { title: "Medicare Advantage vs Medigap", href: "/medicare-advantage-vs-medigap" },
       { title: "Switching from Medicare Advantage to Medigap in NC", href: "/guides/switching-medicare-advantage-to-medigap-nc" },
-      { title: "Every 2027 Medicare cost, final vs projected", href: "/medicare-costs-2027" },
+      { title: "Every 2027 Medicare cost from CMS", href: "/medicare-costs-2027" },
     ],
   },
   {
