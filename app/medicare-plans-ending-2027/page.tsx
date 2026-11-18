@@ -254,6 +254,35 @@ export default function PlanEndingHubPhaseAPage() {
         </div>
       </section>
 
+      <section className="bg-[var(--color-paper)] py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">How big is this, nationally</h2>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            KFF, analyzing the CMS landscape files, found 193 counties with no Medicare
+            Advantage drug plan for general enrollment in 2027, up from 123 counties in
+            2026. Those counties are home to about 638 thousand people, up from about 399 thousand.
+            Sixteen states have at least one such county. The average beneficiary has 28
+            Medicare Advantage drug plans to choose from, down from 32 in 2026. CMS says
+            more than 99 percent of beneficiaries have at least one Medicare Advantage
+            plan available, and 97 percent have at least ten. These are national figures.
+            What matters for you is your own county and your own letter, not the national
+            count.
+          </p>
+          <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Source:{" "}
+            <a
+              href="https://www.kff.org/medicare/medicare-advantage-plan-availability-varies-widely-by-county-for-2027/"
+              className="underline underline-offset-2"
+              target="_blank"
+              rel="noopener"
+            >
+              KFF, Medicare Advantage plan availability by county for 2027
+            </a>
+            , updated November 5, 2026.
+          </p>
+        </div>
+      </section>
+
       <section id="counties" className="bg-[var(--color-paper)] py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Counties covered</h2>
