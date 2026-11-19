@@ -39,7 +39,7 @@ const data: SeoGuideData = {
         "**Already on a Medicare Advantage plan?** If you do nothing, you stay on the plan you have.",
         "**Higher out-of-pocket limits.** The medical out-of-pocket limit, the most you can pay for medical care in a year, goes from $4,000 to $4,500 on the Base plan and from $3,300 to $3,700 on the Enhanced plan. Drug costs have a separate out-of-pocket limit, and there's a new $50 copay for Part B drugs on both plans.",
         "**A new network setup on the 70/30 plan.** The 70/30 plan uses a three-tier provider network in 2027, and the tier your doctor is in can change what you pay.",
-        "**Atrium Health is back in network (updated October 27).** On October 14 the State Treasurer announced Atrium would move to the plan's out-of-network tier for 2027. On October 27, Atrium and the State Health Plan reached a multi-year agreement instead: for 2027, all Atrium doctors and hospitals, including Atrium Health Wake Forest Baptist in Winston-Salem and High Point, are in-network in the plan's middle \"access\" tier, at about today's costs. If you see Atrium doctors and aren't sure how your plan treats them, call the State Health Plan Medicare Support Center at 833-429-5003. During open enrollment, the Plan asked members to call before November 6.",
+        "**Atrium Health is back in network (updated October 27).** On October 14 the State Treasurer announced Atrium would move to the plan's out-of-network tier for 2027. On October 27, Atrium and the State Health Plan reached a multi-year agreement instead: for 2027, all Atrium doctors and hospitals, including Atrium Health Wake Forest Baptist in Winston-Salem and High Point, are in-network in the plan's middle \"access\" tier, at about today's costs. If you see Atrium doctors and aren't sure how your plan treats them, call the State Health Plan at 855-859-0966. During open enrollment, the Plan asked members to call before November 6.",
       ],
     },
     {
@@ -86,7 +86,7 @@ const data: SeoGuideData = {
     {
       title: "Where to make a change",
       paragraphs: [
-        "Use the official enrollment instructions and eBenefits link. The Eligibility and Enrollment Support Center handles enrollment questions at 855-859-0966. The separate Medicare Support Center at 833-429-5003 explains options but doesn't enroll you into a different plan. Source: [State Health Plan 2027 resources](https://www.shpnc.gov/2027-open-enrollment-information-medicare-members).",
+        "Use the official enrollment instructions and eBenefits link. The Eligibility and Enrollment Support Center handles enrollment questions at 855-859-0966. Source: [State Health Plan 2027 resources](https://www.shpnc.gov/2027-open-enrollment-information-medicare-members).",
       ],
     },
     {
