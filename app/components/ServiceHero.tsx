@@ -17,7 +17,7 @@ const DEFAULT_PROOF = [
   `Licensed agent · ${AGENT.licenseLine}`,
   "One local person, not a call center",
   "Meet at home, nearby, or by phone",
-  "Free consultation. No obligation.",
+  "No cost, no obligation.",
 ] as const;
 
 export function ServiceHero({
@@ -54,7 +54,7 @@ export function ServiceHero({
   directContact?: boolean;
 }) {
   // Older pages put an arrow character in the label; the button draws its own.
-  const label = (secondaryLabel ?? "Request a free consultation").replace(/\s*→\s*$/, "");
+  const label = (secondaryLabel ?? "Book a call at no cost, no obligation").replace(/\s*→\s*$/, "");
   const actionHref =
     secondaryHref ??
     (!hidePhoneCta && variant !== "info"
@@ -146,7 +146,7 @@ export function ServiceHero({
           ) : variant === "info" ? (
             <p className="sh-note">Educational reading. No account, no cost, no sales pitch.</p>
           ) : hidePhoneCta ? null : (
-            <p className="sh-note">Free consultation. No obligation to enroll.</p>
+            <p className="sh-note">No cost, no obligation to enroll.</p>
           )}
         </div>
 

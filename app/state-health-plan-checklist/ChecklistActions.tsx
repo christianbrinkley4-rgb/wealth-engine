@@ -13,8 +13,8 @@ export function ChecklistActions() {
 
   async function share() {
     const data = {
-      title: "State Health Plan retiree checklist: Nov. 6 deadline",
-      text: "NC state retirees on Medicare: what to check before the State Health Plan's November 6 deadline.",
+      title: "State Health Plan retiree checklist: after the Nov. 6 deadline",
+      text: "NC state retirees on Medicare: where you stand after the State Health Plan's November 6 deadline.",
       url: URL_TO_SHARE,
     };
     try {
@@ -68,9 +68,11 @@ export function DeadlineNote() {
   if (!closed) return null;
   return (
     <p className="text-17 mt-6 rounded-xl border-2 border-red-700 bg-white p-4 font-semibold" role="status">
-      Open enrollment for the 2027 plan year closed on November 6, 2026. Outside open enrollment you
-      generally need a qualifying event to change plans. Call the State Health Plan at 855-859-0966
-      if you&apos;re not sure where you stand.
+      Open Enrollment for the 2027 plan year closed on November 6, 2026. Outside that window, a
+      mid-year change usually requires a qualifying life event. The change has to match the event,
+      and you usually have 30 days to report it. New retirees and people turning 65 also have a
+      short window before coverage starts. Call the State Health Plan at 855-859-0966 if you are
+      not sure what still applies.
     </p>
   );
 }

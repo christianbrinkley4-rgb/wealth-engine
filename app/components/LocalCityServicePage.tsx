@@ -59,7 +59,7 @@ const COPY: Record<
     closeHeading: "Would you like to review your coverage together?",
     closeBody: (city) =>
       `I can meet at your home in ${city} or talk by phone. Bring your current policy and your questions. The consultation is no cost, with no obligation to buy anything.`,
-    closeLabel: "Request a free consultation →",
+    closeLabel: "Book a call at no cost, no obligation →",
   },
   retirement: {
     crumb: "Retirement income",

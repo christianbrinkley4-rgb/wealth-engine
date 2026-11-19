@@ -2,7 +2,7 @@ import { localBusinessJsonLd, speakableJsonLd } from "@/lib/seo";
 
 /**
  * The same business record on every location page: one name, one phone,
- * one service area, free consultation. Speakable points at the hero title
+ * one service area, no cost, no obligation. Speakable points at the hero title
  * and lede, which ServiceHero renders on these pages, and at this page's @id.
  */
 export function LocationBusinessMarkup({ path }: { path: string }) {

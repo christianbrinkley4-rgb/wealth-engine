@@ -7,7 +7,7 @@ import type { CtaLocation } from "@/lib/analytics";
 /** Booking leads when offered; other requests keep their topic and label. */
 export function ConsultationActions({
   href = ENGINE_BOOKING_URL,
-  label = "Request a free consultation",
+  label = "Book a call at no cost, no obligation",
   location = "hero",
   onDark = false,
 }: {
