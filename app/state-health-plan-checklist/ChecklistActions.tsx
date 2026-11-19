@@ -13,8 +13,8 @@ export function ChecklistActions() {
 
   async function share() {
     const data = {
-      title: "State Health Plan retiree checklist: Nov. 6 deadline",
-      text: "NC state retirees on Medicare: what to check before the State Health Plan's November 6 deadline.",
+      title: "State Health Plan retiree checklist: after the Nov. 6 deadline",
+      text: "NC state retirees on Medicare: where you stand after the State Health Plan's November 6 deadline.",
       url: URL_TO_SHARE,
     };
     try {
