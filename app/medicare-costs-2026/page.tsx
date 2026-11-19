@@ -302,9 +302,10 @@ export default function MedicareCosts2026Page() {
           <p>
             The Part B and Part D figures for 2027 are final now. CMS announced the Part A and
             Part B amounts on November 17, 2026, and set the Part D amounts in its Rate
-            Announcement on April 6, 2026. Only the average Part D premium, $41.33 a month, is
-            still a projection. The figures below are the final ones, so you can plan down to the
-            dollar.
+            Announcement on April 6, 2026. The national base beneficiary premium is $41.33 a month
+            in 2027, final since the CMS July 28, 2026 announcement. The Part D late penalty is
+            figured from it. It is not an average premium. The figures below are the final ones, so
+            you can plan down to the dollar.
           </p>
           <p>
             <strong>Part B premium.</strong> CMS announced the standard Part B premium at

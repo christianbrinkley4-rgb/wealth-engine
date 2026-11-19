@@ -11768,7 +11768,7 @@ export const ARTICLES: Article[] = [
             "The Social Security Administration announced the 2027 cost-of-living adjustment, the COLA, on October 14, 2026: 3.6 percent. That works out to about $75 a month on the average benefit. The number is official now, so you can do real math with it.",
           ),
           p(
-            "The Part B premium comes later. The Centers for Medicare and Medicaid Services announces next year's standard premium in November. For 2026 it is $202.90 a month. For 2027 CMS set the standard premium at $209.40 a month, announced November 17, 2026. That is $6.50 more than 2026, and 10 cents below what the Trustees Report projected.",
+            "CMS announced the 2027 Part B premium on November 17, 2026. It is $209.40 a month, up $6.50 from $202.90. That is 10 cents below the Trustees Report projection.",
           ),
           p(
             "Do not plan off headlines. Both announcements are out now, so the math below uses the final figures.",
