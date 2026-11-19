@@ -397,6 +397,7 @@ const STATIC_ROUTES: Array<{
   },
   { path: "/aep-checklist", changeFrequency: "weekly", priority: 0.9, lastModified: "2026-10-13" },
   { path: "/about", changeFrequency: "monthly", priority: 0.85, lastModified: "2026-10-29" },
+  { path: "/press", changeFrequency: "monthly", priority: 0.7, lastModified: "2026-11-19" },
   { path: "/privacy", changeFrequency: "monthly", priority: 0.5, lastModified: "2026-10-29" },
   { path: "/medicare", changeFrequency: "weekly", priority: 0.8 },
   {
