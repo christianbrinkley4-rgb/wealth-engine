@@ -68,7 +68,7 @@ export function KitchenTableClose({
           </div>
           <TrustFacts compact />
           <p className="ktc-note">
-            Free consultation in person or by phone. It’s me who answers. {AGENT.hours}
+            No cost, no obligation, in person or by phone. It’s me who answers. {AGENT.hours}
           </p>
         </div>
       </div>

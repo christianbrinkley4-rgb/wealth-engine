@@ -66,7 +66,7 @@ export function CareGuidePage({ slug }: { slug: string }) {
         title={guide.headline}
         lede={guide.introduction}
         secondaryHref={request}
-        secondaryLabel="Request a free consultation →"
+        secondaryLabel="Book a call at no cost, no obligation →"
         note="No cost. No obligation to buy. Policy terms and eligibility vary."
       />
       <div className="app-shell max-w-3xl py-10">
@@ -139,7 +139,7 @@ export function CareGuidePage({ slug }: { slug: string }) {
         heading="Let’s talk about what matters to your family."
         body="I can review your questions and current coverage with you. Your insurance consultation is no cost, with no obligation to buy."
         href={request}
-        label="Request a free consultation →"
+        label="Book a call at no cost, no obligation →"
       />
       <section className="app-shell max-w-3xl pb-12">
         <h2 className="text-24 font-semibold">More about care coverage</h2>
