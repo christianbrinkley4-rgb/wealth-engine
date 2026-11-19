@@ -37,11 +37,11 @@ export const CHANGES_2027: Change2027[] = [
     source: "KFF, Oct 2, 2026",
   },
   {
-    // Deadline copy: rewrite or replace this card after November 6, 2026.
+    // Deadline copy rewritten after November 6, 2026: enrollment ended, past tense.
     id: "state-health-plan",
     kicker: "NC state retirees",
     title: "State Health Plan Medicare Advantage costs go up",
-    body: "State Health Plan open enrollment ends November 6, 2026. Retirees on the 70/30 plan who do nothing move to the Base Medicare Advantage plan. Out-of-pocket maximums rise to $4,500 on Base and $3,700 on Enhanced.",
+    body: "State Health Plan open enrollment ended November 6, 2026. Retirees on the 70/30 plan who did nothing moved to the Base Medicare Advantage plan. Out-of-pocket maximums rise to $4,500 on Base and $3,700 on Enhanced. Confirm your enrollment with the Plan and ask about any qualifying event or other option that applies now.",
     href: "/guides/nc-state-health-plan-medicare",
     cta: "What state retirees should check",
     source: "shpnc.gov, Oct 2026; Becker's Payer Issues, June 8, 2026",
