@@ -65,7 +65,7 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
         reached an agreement, so all Atrium doctors and hospitals, including Atrium Health Wake
         Forest Baptist, are in network for 2027 in the plan&apos;s middle &ldquo;access&rdquo; tier,
         at about today&apos;s costs. Not sure how your plan treats your doctors? Call the State
-        Health Plan Medicare Support Center at <span className="whitespace-nowrap">833-429-5003</span>.
+        Health Plan at <span className="whitespace-nowrap">855-859-0966</span>.
         During open enrollment, the Plan asked members to call before November 6.
       </>
     ),
@@ -85,11 +85,12 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
     title: "Changes closed November 6",
     body: (
       <>
-        Changes were made in eBenefits on shpnc.gov. Open enrollment is over, so a change now
-        generally needs a qualifying event. Questions about eligibility or enrolling go to
-        the State Health Plan at <span className="whitespace-nowrap">855-859-0966</span>. The
-        Medicare Support Center (<span className="whitespace-nowrap">833-429-5003</span>) can answer
-        questions about the plans, but it can&apos;t enroll you in a different one.
+        Changes were made in eBenefits on shpnc.gov. Open Enrollment ended November 6, 2026.
+        Outside that window, a mid-year change usually requires a qualifying life event. The
+        change has to match the event, and you usually have 30 days to report it. New retirees
+        and people turning 65 also have a short window before coverage starts. Call the State
+        Health Plan at <span className="whitespace-nowrap">855-859-0966</span> to ask what still
+        applies.
       </>
     ),
   },
@@ -98,8 +99,8 @@ const STEPS: ReadonlyArray<{ title: string; body: React.ReactNode }> = [
     body: (
       <>
         The State Health Plan&apos;s 2027 Open Enrollment deadline was November 6, 2026.
-        Medicare&apos;s Annual Enrollment, October 15 to December 7, is a different window, for
-        people with their own Medicare plans.
+        Medicare&apos;s Annual Enrollment, October 15 to December 7, is a separate federal window
+        from the State Health Plan&apos;s Open Enrollment.
       </>
     ),
   },
@@ -111,15 +112,15 @@ export const metadata: Metadata = {
     "A one-page checklist for NC state retirees on Medicare after the State Health Plan's November 6, 2026 deadline: what the 70/30 auto-move meant, Atrium's 2027 status, new out-of-pocket limits, and who to call.",
   alternates: { canonical: PATH },
   openGraph: pageOpenGraph({
-    title: "State retirees: your Nov. 6 checklist",
+    title: "State retirees: what to check after Nov. 6",
     description:
-      "Seven quick checks after the State Health Plan's November 6 deadline. Print it or send it to a friend.",
+      "After the State Health Plan's November 6 deadline. Print it or send it to a friend.",
     path: PATH,
   }),
   twitter: pageTwitter({
-    title: "State retirees: your Nov. 6 checklist",
+    title: "State retirees: what to check after Nov. 6",
     description:
-      "Seven quick checks after the State Health Plan's November 6 deadline. Print it or send it to a friend.",
+      "After the State Health Plan's November 6 deadline. Print it or send it to a friend.",
     path: PATH,
   }),
 };
@@ -134,7 +135,7 @@ export default function StateHealthPlanChecklistPage() {
             breadcrumbJsonLd([
               { name: "Home", path: "/" },
               { name: "State retirees and Medicare", path: GUIDE },
-              { name: "Nov. 6 checklist", path: PATH },
+              { name: "After Nov. 6 checklist", path: PATH },
             ]),
           ),
         }}
@@ -145,11 +146,11 @@ export default function StateHealthPlanChecklistPage() {
           crumbs={[
             { name: "Home", href: "/" },
             { name: "State retirees and Medicare", href: GUIDE },
-            { name: "Nov. 6 checklist" },
+            { name: "After Nov. 6 checklist" },
           ]}
           eyebrow="NC State Health Plan · Updated November 19, 2026"
           title="State retirees on Medicare: after the November 6 deadline"
-          lede="Open Enrollment ended November 6, 2026. Seven quick checks on where you stand now. Print it, or send it to a friend who retired from the schools or the state."
+          lede="Open Enrollment ended November 6, 2026. Check where you stand now. Print it, or send it to a friend who retired from the schools or the state."
           secondaryHref="/start?topic=medicare&quick=1"
           secondaryLabel="Rather talk it through? Ask me"
         />
@@ -225,7 +226,7 @@ export default function StateHealthPlanChecklistPage() {
       <div className="print-hide">
         <KitchenTableClose
           heading="Want someone to go through it with you?"
-          body={`Book a call at no cost and with no obligation, and I'll walk through the three options with you. Call or text ${AGENT.phone}.`}
+          body={`Book a call and I'll walk through the three options with you.`}
           href={ENGINE_BOOKING_URL}
           label="Request a call"
         />
