@@ -201,22 +201,22 @@ export const SECTIONS: NumbersSection[] = [
     id: "medicare",
     heading: "Medicare",
     intro:
-      "Part D figures for 2027 are final. Part B numbers stay projected until CMS announces the real ones in November.",
+      "Part A, Part B, and Part D figures for 2027 are final. CMS announced the Part A and Part B amounts on November 17, 2026.",
     sourceLabel: "CMS fact sheets and CY2027 Rate Announcement",
     sourceUrl: "https://www.cms.gov/newsroom/fact-sheets",
     rows: [
       {
         label: "Part B standard premium",
         y2026: "$202.90 / month",
-        y2027: "~$209.50 / month",
-        note: "Projection, 2026 Medicare Trustees Report",
+        y2027: "$209.40 / month",
+        note: "Final, CMS 2027 Medicare Parts A & B Premiums and Deductibles, November 17, 2026",
         sourceFile: "lib/medicareNumbers2027.ts",
       },
       {
         label: "Part B annual deductible",
         y2026: "$283",
-        y2027: "~$292",
-        note: "Projection, 2026 Medicare Trustees Report",
+        y2027: "$292",
+        note: "Final, CMS 2027 Medicare Parts A & B Premiums and Deductibles, November 17, 2026",
         sourceFile: "lib/medicareNumbers2027.ts",
       },
       {
@@ -236,8 +236,8 @@ export const SECTIONS: NumbersSection[] = [
       {
         label: "Part A hospital deductible",
         y2026: "$1,736",
-        y2027: "Not yet announced",
-        note: "Most people pay no Part A premium",
+        y2027: "$1,776",
+        note: "Final, CMS 2027 Medicare Parts A & B Premiums and Deductibles, November 17, 2026. Most people pay no Part A premium",
         sourceFile: "lib/medicareNumbers2027.ts",
       },
       {

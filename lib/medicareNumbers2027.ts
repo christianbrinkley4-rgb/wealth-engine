@@ -4,9 +4,9 @@
  * the numbers can never drift between them.
  *
  * Rules are the same as on the page: every figure is labeled final or
- * projected with its CMS source. The Part B premium and deductible for 2027
- * are NOT final until CMS announces them in November 2026, so they appear as
- * the 2026 confirmed figure plus the Trustees projection, clearly marked.
+ * projected with its CMS source. CMS announced the final 2027 Part A, Part B,
+ * and IRMAA figures on November 17, 2026, so the Part B premium and
+ * deductible for 2027 are final now, not projections.
  */
 
 export type MedicareNumberRow = {
@@ -33,23 +33,23 @@ export const MEDICARE_NUMBERS_2027: readonly MedicareNumberRow[] = [
   {
     figure: "Part B standard premium",
     y2026: "$202.90 / month",
-    y2027: "~$209.50 / month",
+    y2027: "$209.40 / month",
     status:
-      "Projection. 2026 Medicare Trustees Report. CMS announces the final figure in November.",
+      "Final. CMS, 2027 Medicare Parts A & B Premiums and Deductibles, November 17, 2026.",
   },
   {
     figure: "Part B annual deductible",
     y2026: "$283",
-    y2027: "~$292",
+    y2027: "$292",
     status:
-      "Projection. 2026 Medicare Trustees Report. Not final until CMS announces in November.",
+      "Final. CMS, 2027 Medicare Parts A & B Premiums and Deductibles, November 17, 2026.",
   },
   {
     figure: "Part A hospital deductible",
     y2026: "$1,736",
-    y2027: "Not yet announced",
+    y2027: "$1,776",
     status:
-      "CMS announces the 2027 figure in the fall, usually with the Part B numbers. Part A has no monthly premium for most people.",
+      "Final. CMS, 2027 Medicare Parts A & B Premiums and Deductibles, November 17, 2026. Part A has no monthly premium for most people.",
   },
   {
     figure: "Medicare Advantage average premium",
@@ -79,8 +79,8 @@ export const MEDICARE_DATES_2027: readonly MedicareDateItem[] = [
     b: "New coverage and the new 2027 figures take effect. The Part D cap drops to $0 cost-sharing once reached.",
   },
   {
-    t: "November 2026",
-    b: "CMS announces the final 2027 Part B premium, Part B deductible, and income-related adjustment amounts. This page updates when that happens.",
+    t: "November 17, 2026",
+    b: "CMS announced the final 2027 Part B premium, Part B deductible, Part A deductible, and income-related adjustment amounts.",
   },
 ];
 
@@ -89,7 +89,7 @@ export function medicareNumbers2027Markdown(): string {
   const lines: string[] = [
     "# 2027 Medicare numbers at a glance",
     "",
-    "Source: christianbrinkleync.com/medicare-numbers-2027. Figures checked October 8, 2026. Each figure is labeled final or projected.",
+    "Source: christianbrinkleync.com/medicare-numbers-2027. Figures checked November 19, 2026. Each figure is labeled final or projected.",
     "",
     "## Figures",
     "",
@@ -105,7 +105,7 @@ export function medicareNumbers2027Markdown(): string {
   }
   lines.push(
     "",
-    "Sources: Centers for Medicare and Medicaid Services, CY2027 Rate Announcement (April 6, 2026) and 2027 MA/Part D landscape press release (September 28, 2026); 2026 Medicare Trustees Report for projections.",
+    "Sources: Centers for Medicare and Medicaid Services, 2027 Medicare Parts A & B Premiums and Deductibles (November 17, 2026); CY2027 Rate Announcement (April 6, 2026); 2027 MA/Part D landscape press release (September 28, 2026).",
     "",
     "National figures. A plan's actual premiums, deductibles, and drug costs are in its Annual Notice of Change.",
   );

@@ -20,6 +20,7 @@ import {
 import { STANDARD_BASE_PREMIUM_2026 } from "@/lib/irmaa";
 import {
   CMS_PART_D_SOURCE,
+  CMS_PARTS_AB_2027_SOURCE,
   CMS_PARTS_AB_SOURCE,
   PART_B_2026,
   PART_D_2026,
@@ -43,16 +44,16 @@ import { articleJsonLd, breadcrumbJsonLd, faqJsonLd, pageOpenGraph, pageTwitter 
  * figures supplied in the build brief, not re-opened for this page):
  *   Medicare Advantage maximum out-of-pocket limit $9,850 in network,
  *   $14,800 combined.
- * 2027, PROJECTION (2026 Medicare Trustees Report; CMS had not announced the
- * final amounts on November 15, 2026):
- *   Part B premium $209.50, Part B deductible $292.
+ * 2027, FINAL (CMS, 2027 Medicare Parts A & B Premiums and Deductibles,
+ * announced November 17, 2026):
+ *   Part B premium $209.40, Part B deductible $292.
  *
  * It names no plan and no insurance company, and gives no plan price.
  */
 
 const PATH = "/medicare-cost-greensboro-nc";
-const REVIEWED = "2026-11-15";
-const REVIEWED_LABEL = "November 15, 2026";
+const REVIEWED = "2026-11-19";
+const REVIEWED_LABEL = "November 19, 2026";
 
 /** Final. CMS 2027 Rate Announcement, Table V-2. */
 const PART_D_CAP_2027 = 2400;
@@ -93,13 +94,13 @@ const SET_COSTS: ReadonlyArray<{
     figure: "Part B premium, each month",
     y2026: PART_B_2026_PREMIUM,
     y2027: PART_B_2027_PREMIUM,
-    status: "2027 is a projection. CMS has not announced the final amount.",
+    status: "2027 is final. CMS announced it November 17, 2026.",
   },
   {
     figure: "Part B deductible, each year",
     y2026: whole(PART_B_2026.annualDeductible),
     y2027: whole(PART_B_DEDUCTIBLE),
-    status: "2027 is a projection. CMS has not announced the final amount.",
+    status: "2027 is final. CMS announced it November 17, 2026.",
   },
   {
     figure: "Part D deductible, the most a drug plan may charge",
@@ -138,7 +139,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "What will Part B cost in 2027?",
-    a: `As of ${REVIEWED_LABEL}, CMS has not announced the final 2027 amounts. The Medicare Trustees Report projects a premium of ${PART_B_2027_PREMIUM} a month and a deductible of ${whole(PART_B_DEDUCTIBLE)}. Those are projections and can change.`,
+    a: `CMS announced the final 2027 amounts on November 17, 2026. The standard premium is ${PART_B_2027_PREMIUM} a month and the deductible is ${whole(PART_B_DEDUCTIBLE)} for the year.`,
   },
   {
     q: "Is there a limit on what I pay for prescriptions?",
@@ -164,12 +165,13 @@ const SOURCES = [
     note: "(2027 Part D, Table V-2)",
   },
   {
-    title:
-      "CMS: final contract year 2027 standards for Medicare Advantage maximum out-of-pocket limits, April 2026",
+    title: CMS_PARTS_AB_2027_SOURCE.title,
+    url: CMS_PARTS_AB_2027_SOURCE.url,
+    note: "(2027 Part A and Part B)",
   },
   {
-    title: "2026 Medicare Trustees Report",
-    note: "(2027 Part B projections. Not final.)",
+    title:
+      "CMS: final contract year 2027 standards for Medicare Advantage maximum out-of-pocket limits, April 2026",
   },
 ];
 
@@ -216,7 +218,7 @@ export default function MedicareCostGreensboroPage() {
           <h2 className={H2}>The costs that are the same everywhere</h2>
           <p className={P}>
             Medicare sets these amounts for the whole country. Each amount shows its year. The last
-            column tells you if the 2027 amount is final or a projection. Last checked{" "}
+            column tells you if the amount is final. Last checked{" "}
             {REVIEWED_LABEL}.
           </p>
         </div>
@@ -326,11 +328,11 @@ export default function MedicareCostGreensboroPage() {
             </li>
           </ul>
 
-          <h2 className={`${H2} mt-12`}>What is not final for 2027</h2>
+          <h2 className={`${H2} mt-12`}>What is final for 2027</h2>
           <p className={P}>
-            As of {REVIEWED_LABEL}, CMS has not announced the final 2027 Part B premium or
-            deductible. The amounts in the table are projections from the Medicare Trustees Report.
-            The 2027 drug coverage amounts are final. For more detail, read{" "}
+            The 2027 amounts on this page are final. CMS announced the Part B premium and
+            deductible on November 17, 2026. The 2027 drug coverage amounts are final too. For
+            more detail, read{" "}
             <Link href="/medicare-costs-2027" className="underline underline-offset-2">
               Medicare costs for 2027
             </Link>

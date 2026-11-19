@@ -300,24 +300,25 @@ export default function MedicareCosts2026Page() {
         <div className="personal-shell ref-block">
           <h2>A first look at 2027</h2>
           <p>
-            Everything in this section is a projection. These are not final figures. CMS confirms
-            the final numbers in mid-November, and they can come in different from what you see
-            here. These projections are here so you have a rough idea of where things may be headed,
-            not so you can plan down to the dollar.
+            The Part B and Part D figures for 2027 are final now. CMS announced the Part A and
+            Part B amounts on November 17, 2026, and set the Part D amounts in its Rate
+            Announcement on April 6, 2026. Only the average Part D premium, $41.33 a month, is
+            still a projection. The figures below are the final ones, so you can plan down to the
+            dollar.
           </p>
           <p>
-            <strong>Part B premium.</strong> The trustees project the standard Part B premium at
-            $209.50 a month for 2027. That is up from $202.90 in 2026. Again, it is a projection.
-            The final number comes from CMS in the fall.
+            <strong>Part B premium.</strong> CMS announced the standard Part B premium at
+            $209.40 a month for 2027, on November 17, 2026. That is up $6.50 from $202.90 in 2026.
           </p>
           <p>
-            <strong>Part D deductible.</strong> The projected ceiling on the Part D deductible for
-            2027 is $700. In 2026 it is $615. That is the most a plan can set its deductible at.
+            <strong>Part D deductible.</strong> The ceiling on the Part D deductible for
+            2027 is $700, final since the CMS Rate Announcement on April 6, 2026. In 2026 it is $615. That is the most a plan can set its deductible at.
             Some plans may set theirs lower.
           </p>
           <p>
             <strong>Part D out-of-pocket cap.</strong> The cap on what you pay out of pocket for
-            covered Part D drugs is projected at $2,400 for 2027. In 2026 it is $2,100. Once you hit
+            covered Part D drugs is $2,400 for 2027, final since the CMS Rate Announcement on
+            April 6, 2026. In 2026 it is $2,100. Once you hit
             the cap, you do not pay more for covered drugs that year.
           </p>
           <p>
@@ -326,11 +327,10 @@ export default function MedicareCosts2026Page() {
             demonstration. Keep in mind it is an average. What you would pay depends on the plan.
           </p>
           <p>
-            <strong>What to do with all this.</strong> Nothing, for now. There is no decision to
-            make today based on projected numbers. When fall comes, it is worth sitting down to
-            check your doctors and prescriptions against next year&apos;s plan documents. That way
-            you can see how things look for 2027 and make any changes before the December 7
-            deadline. <Link href="/aep">Read the Annual Enrollment guide</Link>.
+            <strong>What to do with all this.</strong> Now that the figures are final, it is worth
+            sitting down to check your doctors and prescriptions against next year&apos;s plan
+            documents. That way you can see how things look for 2027 and make any changes before
+            the December 7 deadline. <Link href="/aep">Read the Annual Enrollment guide</Link>.
           </p>
         </div>
       </section>

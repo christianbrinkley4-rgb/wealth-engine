@@ -73,7 +73,7 @@ describe("calculate", () => {
   });
 });
 
-describe("figure labels (November 15, 2026 review)", () => {
+describe("figure labels (November 19, 2026 review)", () => {
   const byFigure = (text: string) => FIGURE_LABELS.find((row) => row.figure.includes(text));
 
   it("labels every figure with a year, a status and a source", () => {
@@ -85,21 +85,26 @@ describe("figure labels (November 15, 2026 review)", () => {
     }
   });
 
-  it("keeps the 2027 Part B premium and deductible as projections, not final", () => {
-    // CMS had not published final 2027 Part B figures on November 15, 2026.
-    // Change these to "Final" only with the CMS fact sheet in hand.
-    expect(PART_B_MONTHLY).toBe(209.5);
+  it("keeps the 2027 Part B premium and deductible final, with the CMS source", () => {
+    // CMS announced the final 2027 Part B figures on November 17, 2026.
+    expect(PART_B_MONTHLY).toBe(209.4);
     expect(PART_B_DEDUCTIBLE).toBe(292);
     expect(byFigure("Part B premium")).toMatchObject({
-      value: "$209.50",
+      value: "$209.40",
       year: "2027",
-      status: "Projection",
+      status: "Final",
     });
+    expect(byFigure("Part B premium")?.sourceUrl).toBe(
+      "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles",
+    );
     expect(byFigure("Part B deductible")).toMatchObject({
       value: "$292",
       year: "2027",
-      status: "Projection",
+      status: "Final",
     });
+    expect(byFigure("Part B deductible")?.sourceUrl).toBe(
+      "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles",
+    );
   });
 
   it("marks the Part D deductible final, with the CMS source", () => {
@@ -141,7 +146,8 @@ describe("figure labels (November 15, 2026 review)", () => {
     const result = calculate({ age: 67, meds: 2, visits: 6 });
     const labels = [...result.medigapLines, ...result.maLines].map((line) => line.label);
     for (const label of labels.filter((text) => text.includes("Part B"))) {
-      expect(label).toContain("2027 projected");
+      expect(label).toContain("2027");
+      expect(label).not.toContain("projected");
     }
     for (const label of labels.filter((text) => /Drugs|Doctor visits|Medigap/.test(text))) {
       expect(label).toMatch(/est\./);

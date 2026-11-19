@@ -44,11 +44,11 @@ describe("numbers hub: every figure is site-verified", () => {
 
   it("keeps the 2027 Medicare figures aligned with the shared numbers module", () => {
     const source = read("lib/medicareNumbers2027.ts");
-    for (const pair of ["$700", "$2,400", "$209.50", "$292", "$12"]) {
+    for (const pair of ["$700", "$2,400", "$209.40", "$292", "$12"]) {
       expect(source).toContain(pair);
     }
     const hub = read("app/numbers/data.ts");
-    for (const pair of ["$700", "$2,400", "209.50", "292", "$12"]) {
+    for (const pair of ["$700", "$2,400", "209.40", "292", "$12"]) {
       expect(hub).toContain(pair);
     }
   });

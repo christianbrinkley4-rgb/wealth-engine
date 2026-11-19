@@ -167,7 +167,7 @@ describe("figures", () => {
   /**
    * Dollar amounts that may be typed into a search page.
    * Section 2 of the build brief: $202.90, $283, $2,100, $2,400, $700,
-   * $9,850, $14,800, $209.50, $292.
+   * $9,850, $14,800, $209.40, $292.
    * CMS 2026 fact sheet, already in lib/: $109,000, $218,000, $391,000, $615.
    * $230,000 is the income in a worked example, not a Medicare figure.
    */
@@ -182,7 +182,7 @@ describe("figures", () => {
     "$615",
     "$9,850",
     "$14,800",
-    "$209.50",
+    "$209.40",
     "$292",
     "$109,000",
     "$218,000",
@@ -231,7 +231,7 @@ describe("figures", () => {
     ]) {
       expect(source, name).toContain(name);
     }
-    expect(source).toContain("2027 is a projection");
+    expect(source).toContain("2027 is final");
     expect(source).toContain("const PART_D_CAP_2027 = 2400;");
     expect(source).toContain("const MA_MAX_IN_NETWORK_2027 = 9850;");
     expect(source).toContain("const MA_MAX_COMBINED_2027 = 14800;");
