@@ -3035,10 +3035,10 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
     slug: "social-security-spousal-benefits",
     title: "Social Security Spousal Benefits Explained",
     description:
-      "A spouse can collect up to half of a worker's full retirement benefit. See the 2026 maximum, the cost of claiming at 62, and the rules for divorced spouses.",
+      "A spouse can collect up to half of a worker's full retirement benefit. See the 2027 maximum, the cost of claiming at 62, and the rules for divorced spouses.",
     query: "social security spousal benefits how much",
     opportunity:
-      "Spousal rules are widely misunderstood, especially the 50 percent base and the early-claiming cut. A short guide with the 2026 maximum answers the question directly.",
+      "Spousal rules are widely misunderstood, especially the 50 percent base and the early-claiming cut. A short guide with the 2027 maximum answers the question directly.",
     intent: "informational",
     answer:
       "A spouse can collect up to 50 percent of the worker's primary insurance amount, which is the monthly benefit the worker would receive at full retirement age. In 2027 the highest possible spousal benefit is $2,094 a month, half of the $4,188 maximum. Claiming early cuts it for good, and waiting past full retirement age does not raise it.",
@@ -3057,7 +3057,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       },
       {
         title: "Divorced spouses and working while collecting",
-        body: "A divorced spouse can claim on an ex-spouse's record if the marriage lasted at least 10 years, you are unmarried, and you are 62 or older. Your ex-spouse does not need to have claimed, and your claim does not reduce what your ex-spouse or their current spouse receives. If you claim before full retirement age and keep working, the earnings test applies: in 2026 Social Security withholds $1 in benefits for every $2 earned above $24,480. The withheld money is not lost forever; your benefit is recalculated at full retirement age.",
+        body: "A divorced spouse can claim on an ex-spouse's record if the marriage lasted at least 10 years, you are unmarried, and you are 62 or older. Your ex-spouse does not need to have claimed, and your claim does not reduce what your ex-spouse or their current spouse receives. If you claim before full retirement age and keep working, the earnings test applies. In 2027 Social Security withholds $1 in benefits for every $2 earned above $25,560. In the year you reach full retirement age, the limit is $67,920. Social Security then withholds $1 for every $3 above it, counting only months before that age. The withheld money is not lost. Your benefit is recalculated at full retirement age.",
       },
     ],
     comparison: {
@@ -3077,7 +3077,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       "Confirm your own full retirement age, 67 if you were born in 1960 or later.",
       "Compare your own benefit with the spousal amount before choosing a claiming age.",
       "If divorced, check the 10-year marriage rule and your current marital status.",
-      "If you will keep working, check the 2026 earnings limit of $24,480.",
+      "If you will keep working, check the 2027 earnings limit of $25,560 a year.",
     ],
     faqs: [
       {
@@ -3106,6 +3106,10 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
         title: "SSA: Working while collecting benefits",
         url: "https://www.ssa.gov/benefits/retirement/planner/whileworking.html",
       },
+      {
+        title: "SSA: 2027 Cost-of-Living Adjustment Fact Sheet",
+        url: "https://www.ssa.gov/news/en/cola/factsheets/2027.html",
+      },
     ],
     related: [
       { title: "Social Security at 62 or 70", href: "/guides/social-security-62-vs-70" },
@@ -3113,7 +3117,7 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       { title: "Social Security, explained", href: "/wealth/social-security-explained" },
     ],
     datePublished: "2026-11-07",
-    dateModified: "2026-11-07",
+    dateModified: "2026-11-18",
   },
   {
     slug: "roth-ira-contribution-limits-2026",
