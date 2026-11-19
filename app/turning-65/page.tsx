@@ -120,7 +120,7 @@ export default function Turning65Page() {
                 "The seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window you generally get once.",
               path: "/turning-65",
               datePublished: "2026-08-31",
-              dateModified: "2026-11-09",
+              dateModified: "2026-11-19",
             }),
           ),
         }}
@@ -255,10 +255,11 @@ export default function Turning65Page() {
               work out what it would cost in your case
             </Link>,
             and see{" "}
-            <Link href="/medicare-costs-2026" className="font-medium underline underline-offset-2">
-              what the premiums and deductibles are this year
+            <Link href="/medicare-costs-2027" className="font-medium underline underline-offset-2">
+              what the premiums and deductibles are for 2027
             </Link>
-            .{" "}
+            . For 2027, the standard Part B premium is $209.40 a month and the Part B
+            deductible is $292, per CMS on November 17, 2026.{" "}
             <a
               href="https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start"
               target="_blank"
@@ -499,14 +500,14 @@ export default function Turning65Page() {
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <p className="text-sm text-gray-600">
-          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated October 2026.
+          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated November 2026.
         </p>
         <p className="text-sm text-gray-600">
           Sources: <a href="https://www.medicare.gov" className="underline underline-offset-2" target="_blank" rel="noopener">Medicare.gov</a>, <a href="https://www.cms.gov" className="underline underline-offset-2" target="_blank" rel="noopener">CMS.gov</a>
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-11-09" />
+      <MedicareByline reviewed="2026-11-19" />
       <RelatedMedicareGuides />
     </main>
   );
