@@ -3041,11 +3041,11 @@ export const TRAFFIC_GUIDES: TrafficGuide[] = [
       "Spousal rules are widely misunderstood, especially the 50 percent base and the early-claiming cut. A short guide with the 2026 maximum answers the question directly.",
     intent: "informational",
     answer:
-      "A spouse can collect up to 50 percent of the worker's primary insurance amount, which is the monthly benefit the worker would receive at full retirement age. In 2026 the highest possible spousal benefit is $2,076 a month. Claiming early cuts it for good, and waiting past full retirement age does not raise it.",
+      "A spouse can collect up to 50 percent of the worker's primary insurance amount, which is the monthly benefit the worker would receive at full retirement age. In 2027 the highest possible spousal benefit is $2,094 a month, half of the $4,188 maximum. Claiming early cuts it for good, and waiting past full retirement age does not raise it.",
     sections: [
       {
         title: "The 50 percent rule, and what it is 50 percent of",
-        body: "The spousal benefit is based on the worker's primary insurance amount, not on the check the worker actually receives. If the worker claimed early, your spousal benefit is still figured from the full retirement age amount. If the worker delayed past full retirement age, your spousal benefit does not grow with the delayed credits. The maximum primary insurance amount at full retirement age in 2026 is $4,152 a month, so the highest possible spousal benefit is half of that, $2,076 a month. Most couples see less, because the worker's earnings record sets the number.",
+        body: "The spousal benefit is based on the worker's primary insurance amount, not on the check the worker actually receives. If the worker claimed early, your spousal benefit is still figured from the full retirement age amount. If the worker delayed past full retirement age, your spousal benefit does not grow with the delayed credits. The maximum benefit at full retirement age in 2027 is $4,188 a month. So the highest possible spousal benefit is half of that, $2,094 a month. Most couples see less, because the worker's earnings record sets the number.",
       },
       {
         title: "Claiming early shrinks it for good",
