@@ -9,7 +9,7 @@ const data: SeoGuideData = {
   description:
     "Review NC State Health Plan Medicare options for 2027, the November 6 enrollment deadline, and what to check before changing retiree coverage.",
   published: "2026-10-08",
-  reviewed: "2026-11-05",
+  reviewed: "2026-11-19",
   answer:
     "Eligible NC State Health Plan retirees have three Medicare plan options for 2027: the Humana Base plans, Humana Enhanced plans, and the Aetna-administered 70/30 Plan. Open Enrollment runs October 12 through November 6, 2026, and what happens if you do nothing depends on your current plan.",
   sections: [
@@ -31,15 +31,15 @@ const data: SeoGuideData = {
     {
       title: "What changes for 2027",
       paragraphs: [
-        "Open enrollment for the 2027 plan year runs October 12 to November 6, 2026. It was first set to end October 30 and was extended. Here is what changes for retirees on Medicare:",
+        "Open enrollment for the 2027 plan year ran October 12 to November 6, 2026. It was first set to end October 30 and was extended. Here is what changes for retirees on Medicare:",
         "Sources: State Health Plan 2027 open enrollment page for Medicare members (shpnc.gov); NC Department of State Treasurer, October 14, 2026; WFDD / NC Newsroom and North Carolina Health News, October 27, 2026; Becker's Payer Issues, June 8, 2026.",
       ],
       bullets: [
-        "**On the 70/30 plan and do nothing?** You're moved to the Base Medicare Advantage plan for 2027. To stay on the 70/30 plan, you have to pick it by November 6.",
+        "**On the 70/30 plan and do nothing?** You were moved to the Base Medicare Advantage plan for 2027. To stay on the 70/30 plan, you had to pick it by November 6, 2026.",
         "**Already on a Medicare Advantage plan?** If you do nothing, you stay on the plan you have.",
         "**Higher out-of-pocket limits.** The medical out-of-pocket limit, the most you can pay for medical care in a year, goes from $4,000 to $4,500 on the Base plan and from $3,300 to $3,700 on the Enhanced plan. Drug costs have a separate out-of-pocket limit, and there's a new $50 copay for Part B drugs on both plans.",
         "**A new network setup on the 70/30 plan.** The 70/30 plan uses a three-tier provider network in 2027, and the tier your doctor is in can change what you pay.",
-        "**Atrium Health is back in network (updated October 27).** On October 14 the State Treasurer announced Atrium would move to the plan's out-of-network tier for 2027. On October 27, Atrium and the State Health Plan reached a multi-year agreement instead: for 2027, all Atrium doctors and hospitals, including Atrium Health Wake Forest Baptist in Winston-Salem and High Point, are in-network in the plan's middle \"access\" tier, at about today's costs. If you see Atrium doctors and aren't sure how your plan treats them, call the State Health Plan Medicare Support Center at 833-429-5003 before November 6.",
+        "**Atrium Health is back in network (updated October 27).** On October 14 the State Treasurer announced Atrium would move to the plan's out-of-network tier for 2027. On October 27, Atrium and the State Health Plan reached a multi-year agreement instead: for 2027, all Atrium doctors and hospitals, including Atrium Health Wake Forest Baptist in Winston-Salem and High Point, are in-network in the plan's middle \"access\" tier, at about today's costs. If you see Atrium doctors and aren't sure how your plan treats them, call the State Health Plan Medicare Support Center at 833-429-5003. During open enrollment, the Plan asked members to call before November 6.",
       ],
     },
     {
