@@ -151,7 +151,7 @@ export default function PressPage() {
 
       <KitchenTableClose
         heading="What are you trying to figure out?"
-        body="Tell me what is on your mind. I can set up a no-cost conversation about your coverage and next steps."
+        body="Tell me what is on your mind. I can set up a call at no cost and with no obligation about your coverage and next steps."
         href="/start"
         label="Ask your question"
       />
