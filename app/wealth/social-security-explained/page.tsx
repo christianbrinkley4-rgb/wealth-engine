@@ -16,11 +16,11 @@ export const metadata: Metadata = wealthMetadata({ title, description, path });
 const faqItems: Array<{ q: string; a: string }> = [
   {
     q: "Is Social Security enough to live on in retirement?",
-    a: "The average retired worker gets $2,071 a month in 2026. That covers some bills, not a full budget. SSA designed it as one leg of retirement income, alongside savings and any pension.",
+    a: "The average retired worker got $2,071 a month in 2026. SSA said the average retirement benefit will increase by $75 a month in 2027. That still covers some bills, not a full budget. SSA designed it as one leg of retirement income, alongside savings and any pension.",
   },
   {
     q: "Does my benefit keep up with inflation?",
-    a: "SSA applies a cost-of-living adjustment most years. The 2026 adjustment was 2.8%. Some years the adjustment is zero.",
+    a: "SSA applies a cost-of-living adjustment most years. The 2027 adjustment is 3.6%, announced October 14, 2026. The 2026 adjustment was 2.8%. Some years the adjustment is zero.",
   },
   {
     q: "What if I never worked enough to qualify?",
@@ -34,8 +34,16 @@ const faqItems: Array<{ q: string; a: string }> = [
 
 const sources: Array<{ label: string; href?: string }> = [
   {
-    label: "SSA 2026 COLA fact sheet (benefit amounts, wage base)",
-    href: "https://www.ssa.gov/news/press/factsheets/colafacts2026.pdf",
+    label: "SSA: 2027 COLA announcement, October 14, 2026",
+    href: "https://www.ssa.gov/news/en/press/releases/2026-10-14.html",
+  },
+  {
+    label: "SSA: contribution and benefit base, 2027 wage base $192,300",
+    href: "https://www.ssa.gov/oact/COLA/cbb.html",
+  },
+  {
+    label: "SSA Federal Register notice, October 26, 2026 (91 FR 67380)",
+    href: "https://www.federalregister.gov/documents/2026/10/26/2026-21796/cost-of-living-increase-and-other-determinations-for-2027",
   },
 ];
 
@@ -48,7 +56,7 @@ export default function SocialSecurityExplainedPage() {
           description,
           path,
           datePublished: "2026-10-08",
-          dateModified: "2026-10-08",
+          dateModified: "2026-11-18",
         })}
       />
       <PageHead
@@ -59,7 +67,7 @@ export default function SocialSecurityExplainedPage() {
       >
         <ul className="w-meta">
           <li>7 min read</li>
-          <li>Updated October 8, 2026</li>
+          <li>Updated November 18, 2026</li>
           <li>By Christian Brinkley</li>
         </ul>
       </PageHead>
@@ -79,7 +87,7 @@ export default function SocialSecurityExplainedPage() {
               <h2>Where the money comes from</h2>
               <p>
                 Every paycheck, workers and employers each pay 6.2% of wages into Social Security. In
-                2026 that tax applies to the first $184,500 of earnings. That money pays benefits to
+                2027 that tax applies to the first $192,300 of earnings. That money pays benefits to
                 current retirees, not to a personal account in your name.
               </p>
               <p>
@@ -119,15 +127,17 @@ export default function SocialSecurityExplainedPage() {
             </section>
 
             <section>
-              <h2>The 2026 numbers</h2>
+              <h2>The 2027 numbers</h2>
               <p>
-                The Social Security wage base for 2026 is $184,500. Earnings above that are not taxed
+                The Social Security wage base for 2027 is $192,300. Earnings above that are not taxed
                 for Social Security that year.
               </p>
               <p>
-                The maximum monthly benefit at full retirement age in 2026 is $4,152. Reaching it
-                takes roughly 35 years of earnings at or above the wage base. The average retired
-                worker gets $2,071 a month.
+                SSA announced a 3.6% cost-of-living adjustment for 2027 on October 14, 2026. It said
+                the average retirement benefit will increase by $75 a month. The 2026 average for a
+                retired worker, $2,071 a month, and the 2026 maximum at full retirement age, $4,152,
+                are the last official dollar levels published on this page. A 2027 maximum was not
+                confirmed against a primary SSA table in this update.
               </p>
             </section>
 

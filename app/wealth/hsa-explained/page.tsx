@@ -10,7 +10,7 @@ import { WEALTH_FACTS } from "@/lib/wealth/site";
 const path = "/wealth/hsa-explained";
 const title = "The HSA, Explained in Plain English";
 const description =
-  "What a Health Savings Account is, how the triple tax break works, and the 2026 contribution limits. Read this plain-English guide from Christian Brinkley.";
+  "What a Health Savings Account is, how the triple tax break works, and the 2027 contribution limits. Read this plain-English guide from Christian Brinkley.";
 
 export const metadata: Metadata = wealthMetadata({ title, description, path });
 
@@ -38,7 +38,10 @@ const sources: Array<{ label: string; href?: string }> = [
     label: "IRS Publication 969, Health Savings Accounts and Other Tax-Favored Health Plans",
     href: "http://www.irs.gov/publications/p969/",
   },
-  { label: "IRS Rev. Proc. 2025-19 (2026 HSA inflation figures)" },
+  {
+    label: "IRS Rev. Proc. 2026-24 (2027 HSA inflation figures)",
+    href: "https://www.irs.gov/pub/irs-drop/rp-26-24.pdf",
+  },
 ];
 
 export default function HsaExplainedPage() {
@@ -50,7 +53,7 @@ export default function HsaExplainedPage() {
           description,
           path,
           datePublished: "2026-10-08",
-          dateModified: "2026-10-08",
+          dateModified: "2026-11-18",
         })}
       />
       <PageHead
@@ -61,7 +64,7 @@ export default function HsaExplainedPage() {
       >
         <ul className="w-meta">
           <li>6 min read</li>
-          <li>Updated October 8, 2026</li>
+          <li>Updated November 18, 2026</li>
           <li>By Christian Brinkley</li>
         </ul>
       </PageHead>
@@ -72,8 +75,8 @@ export default function HsaExplainedPage() {
             <span>Short answer</span>
             An HSA is a savings account for medical costs with three tax breaks: contributions are
             tax-free, growth is tax-free, and medical withdrawals are tax-free. You must be enrolled
-            in a qualifying high-deductible health plan to contribute. In 2026 the limits are $4,400
-            for self-only coverage and $8,750 for family coverage.
+            in a qualifying high-deductible health plan to contribute. In 2027 the limits are $4,500
+            for self-only coverage and $9,000 for family coverage.
           </p>
 
           <div className="w-prose">
@@ -97,15 +100,15 @@ export default function HsaExplainedPage() {
             </section>
 
             <section>
-              <h2>The 2026 numbers</h2>
+              <h2>The 2027 numbers</h2>
               <p>
-                For 2026 you can contribute up to $4,400 with self-only coverage. The family coverage
-                limit is $8,750. At age 55 or older you can add a $1,000 catch-up on top of your
+                For 2027 you can contribute up to $4,500 with self-only coverage. The family coverage
+                limit is $9,000. At age 55 or older you can add a $1,000 catch-up on top of your
                 limit.
               </p>
               <p>
-                The plan behind it must qualify as a <Link href="/wealth/health-insurance-basics">high-deductible health plan</Link>. The 2026 minimum
-                deductible is $1,700 for self-only and $3,400 for family coverage. Any money your
+                The plan behind it must qualify as a <Link href="/wealth/health-insurance-basics">high-deductible health plan</Link>. The 2027 minimum
+                deductible is $1,750 for self-only and $3,500 for family coverage. Any money your
                 employer puts in counts toward your limit too.
               </p>
             </section>

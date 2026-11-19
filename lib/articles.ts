@@ -1839,7 +1839,7 @@ export const ARTICLES: Article[] = [
       },
       {
         q: "What is the base beneficiary premium?",
-        a: "It is the national average Part D premium set by Medicare each year, $38.99 in 2026. The penalty is calculated from it, not from your plan's actual premium.",
+        a: "It is the national base beneficiary premium, $41.33 a month in 2027, up from $38.99 in 2026. The Part D late penalty is figured from it, not from your plan's actual premium. CMS projects the average standalone plan premium at about $36.",
       },
       {
         q: "Can Extra Help remove the penalty?",

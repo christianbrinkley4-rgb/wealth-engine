@@ -209,12 +209,12 @@ describe("articles", () => {
     });
   }
 
-  it("keeps the 2026 IRS figures consistent", () => {
+  it("keeps the 2027 IRS figures consistent", () => {
     const roth = wealthArticleText(getWealthArticle("what-is-a-roth-ira")!);
     expect(roth).toContain("$7,500");
-    expect(roth).toContain("$153,000 and $168,000");
-    expect(roth).toContain("$242,000 and $252,000");
-    expect(roth).toContain("$24,500");
+    expect(roth).toContain("$158,000 and $173,000");
+    expect(roth).toContain("$250,000 and $260,000");
+    expect(roth).toContain("$25,500");
   });
 });
 

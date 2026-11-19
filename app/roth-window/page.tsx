@@ -10,18 +10,18 @@ import { SERVICE_AREA_LABEL } from "@/lib/triad";
 import { AGENT } from "@/lib/agent";
 
 export const metadata: Metadata = {
-  title: { absolute: "Roth Conversion Calculator for 2026 IRMAA | Greensboro" },
+  title: { absolute: "Roth Conversion Calculator for 2027 IRMAA | Greensboro" },
   description:
-    "Estimate how much you can convert to a Roth this year without pushing into a higher Medicare IRMAA surcharge later. Uses official 2026 CMS IRMAA brackets.",
+    "Estimate how much you can convert to a Roth this year without pushing into a higher Medicare IRMAA surcharge later. Uses official 2027 CMS IRMAA brackets.",
   alternates: { canonical: "/roth-window" },
   openGraph: pageOpenGraph({
-    title: "Roth conversion window against 2026 IRMAA",
+    title: "Roth conversion window against 2027 IRMAA",
     description:
       "How much you can convert before it shows up on your Medicare premium two years later.",
     path: "/roth-window",
   }),
   twitter: pageTwitter({
-    title: "Roth conversion window against 2026 IRMAA",
+    title: "Roth conversion window against 2027 IRMAA",
     description:
       "How much you can convert before it shows up on your Medicare premium two years later.",
     path: "/roth-window",
@@ -50,16 +50,16 @@ export default function RothWindowPage() {
 
       <ServiceHero
         crumbs={[{ name: "Home", href: "/" }, { name: "Roth conversion window" }]}
-        eyebrow={`${SERVICE_AREA_LABEL} · 2026 IRMAA window`}
+        eyebrow={`${SERVICE_AREA_LABEL} · 2027 IRMAA window`}
         title="How much can you convert without raising your Medicare premium?"
-        lede="A Roth conversion may increase the income Medicare uses to calculate future premiums. Explore an estimate using 2026 rates, then discuss the timing with a qualified tax professional or financial advisor. Future Medicare rates may differ."
+        lede="A Roth conversion may increase the income Medicare uses to calculate future premiums. Explore an estimate using official 2027 rates, then discuss the timing with a qualified tax professional or financial advisor. Future Medicare rates may differ."
         secondaryHref="/plan"
         secondaryLabel="Compare lump vs spread →"
         note="I can help explain the Medicare side of the estimate and identify questions for your tax professional or advisor."
         proof={[
           `Licensed agent · ${AGENT.licenseLine}`,
           "At-home or phone consultations in the Triad",
-          "Official 2026 CMS IRMAA brackets",
+          "Official 2027 CMS IRMAA brackets",
           "No cost to talk through the number",
         ]}
       />

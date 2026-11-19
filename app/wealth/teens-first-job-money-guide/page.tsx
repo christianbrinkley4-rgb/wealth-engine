@@ -54,7 +54,7 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
     heading: "The Roth IRA, while you are young",
     paragraphs: [
       "A Roth IRA is a retirement account you fund with after-tax dollars. You need earned income to contribute, and a first job counts.",
-      "For 2026, the combined IRA limit is $7,500 for savers under 50. A parent or guardian opens a custodial Roth IRA for a minor.",
+      "For 2027, the combined IRA limit is $7,500 for savers under 50. A parent or guardian opens a custodial Roth IRA for a minor.",
       "Qualified withdrawals in retirement are tax-free. Starting early gives compound growth more years to work.",
     ],
   },
@@ -76,7 +76,7 @@ const FAQ = [
   },
   {
     q: "Can a 16-year-old open a Roth IRA?",
-    a: "Yes, with earned income. A parent or guardian opens a custodial account for the minor. The 2026 limit is $7,500.",
+    a: "Yes, with earned income. A parent or guardian opens a custodial account for the minor. The 2027 limit is $7,500.",
   },
   {
     q: "How much of my check should I save?",
@@ -162,7 +162,7 @@ export default function TeensFirstJobMoneyGuidePage() {
             <p className="w-eyebrow">Keep reading · Article</p>
             <h2 className="w-h3">Roth IRA, explained</h2>
             <p style={{ margin: "10px 0 0", color: "var(--w-on-ink-muted)" }}>
-              Earned income is the ticket in. This guide covers how Roth IRAs work and the 2026 limits.
+              Earned income is the ticket in. This guide covers how Roth IRAs work and the 2027 limits.
             </p>
             <div className="w-btn-row">
               <Link href="/wealth/roth-ira-explained" className="w-btn">

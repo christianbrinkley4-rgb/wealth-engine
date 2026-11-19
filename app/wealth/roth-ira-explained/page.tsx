@@ -8,19 +8,19 @@ import { EducationNote, Faq, JsonLd, NextUp, PageHead } from "@/app/wealth/ui/sh
 import { wealthArticleJsonLd, wealthMetadata } from "@/lib/wealth/seo";
 import { getTool } from "@/lib/wealth/site";
 
-/** Flagship explainer: Roth IRA. All 2026 figures from IRS sources, checked October 8, 2026. */
+/** Flagship explainer: Roth IRA. All 2027 figures from IRS sources, checked November 18, 2026. */
 
 const PATH = "/wealth/roth-ira-explained";
 const TITLE = "Roth IRA, explained";
 const DESCRIPTION =
-  "What a Roth IRA is, how the taxes work, the 2026 limits, and when early-career savers look at it first. Explore the steps in Christian Brinkley's guide.";
+  "What a Roth IRA is, how the taxes work, the 2027 limits, and when early-career savers look at it first. Explore the steps in Christian Brinkley's guide.";
 
 export function generateMetadata(): Metadata {
   return wealthMetadata({ title: TITLE, description: DESCRIPTION, path: PATH });
 }
 
 const ANSWER =
-  "A Roth IRA is a retirement account you fund with after-tax money. You pay tax now, and qualified withdrawals in retirement come out tax-free. The 2026 limit is $7,500 if you are under 50.";
+  "A Roth IRA is a retirement account you fund with after-tax money. You pay tax now, and qualified withdrawals in retirement come out tax-free. The 2027 limit is $7,500 if you are under 50.";
 
 type Section = { heading: string; paragraphs: string[]; list?: string[] };
 
@@ -46,14 +46,14 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    heading: "The 2026 numbers",
-    paragraphs: ["These are the IRS limits for 2026. Copy them, do not trust memory."],
+    heading: "The 2027 numbers",
+    paragraphs: ["These are the IRS limits for 2027. Copy them, do not trust memory."],
     list: [
       "Under 50: $7,500",
       "Age 50 and up: $8,600, including a $1,100 catch-up contribution",
-      "Single filers: full contributions up to $153,000 MAGI, phasing out by $168,000",
-      "Joint filers: full contributions up to $242,000 MAGI, phasing out by $252,000",
-      "Roth 401(k) employee deferral limit: $24,500",
+      "Single filers: full contributions up to $158,000 MAGI, phasing out by $173,000",
+      "Joint filers: full contributions up to $250,000 MAGI, phasing out by $260,000",
+      "Roth 401(k) employee deferral limit: $25,500",
     ],
   },
   {
@@ -75,7 +75,7 @@ const SECTIONS: Section[] = [
 
 const FAQ = [
   {
-    q: "What is the Roth IRA contribution limit for 2026?",
+    q: "What is the Roth IRA contribution limit for 2027?",
     a: "$7,500 if you are under 50. $8,600 if you are 50 or older.",
   },
   {
@@ -88,14 +88,14 @@ const FAQ = [
   },
   {
     q: "Can I contribute if I earn too much?",
-    a: "Direct contributions phase out between $153,000 and $168,000 MAGI for single filers. For joint filers, the range is $242,000 to $252,000.",
+    a: "Direct contributions phase out between $158,000 and $173,000 MAGI for single filers. For joint filers, the range is $250,000 to $260,000.",
   },
 ];
 
 const SOURCES = [
   {
-    href: "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
-    label: "IRS: 2026 retirement plan limits (401(k) and IRA)",
+    href: "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500",
+    label: "IRS: 2027 retirement plan limits (401(k) and IRA)",
   },
   {
     href: "https://www.irs.gov/retirement-plans/roth-iras",
@@ -129,7 +129,7 @@ export default function RothIraExplainedPage() {
           description: DESCRIPTION,
           path: PATH,
           datePublished: "2026-10-08",
-          dateModified: "2026-10-08",
+          dateModified: "2026-11-18",
         })}
       />
       <PageHead
@@ -140,7 +140,7 @@ export default function RothIraExplainedPage() {
       >
         <ul className="w-meta">
           <li>6 min read</li>
-          <li>Updated October 8, 2026</li>
+          <li>Updated November 18, 2026</li>
           <li>By Christian Brinkley</li>
         </ul>
       </PageHead>

@@ -53,7 +53,7 @@ const SECTIONS: Section[] = [
     heading: "Move 4: Get the full 401(k) match",
     paragraphs: [
       "If your job offers a 401(k) match, take all of it. That match is part of your pay.",
-      "For 2026, the employee deferral limit is $24,500. That is the most you can contribute from your own paycheck.",
+      "For 2027, the employee deferral limit is $25,500. That is the most you can contribute from your own paycheck.",
       "My 401(k) guide covers the rest: [401(k) explained](/wealth/401k-explained).",
     ],
   },
@@ -61,7 +61,7 @@ const SECTIONS: Section[] = [
     heading: "Move 5: Open a Roth IRA and start small",
     paragraphs: [
       "You pay tax on the money going in, and qualified withdrawals come out tax-free in retirement. Young workers get a lot of runway out of that trade.",
-      "The 2026 limit is $7,500 if you are under 50. Small, steady contributions beat a big plan you never start.",
+      "The 2027 limit is $7,500 if you are under 50. Small, steady contributions beat a big plan you never start.",
       "The full Roth IRA guide lives here: [Roth IRA, explained](/wealth/roth-ira-explained).",
     ],
   },
@@ -86,7 +86,7 @@ const FAQ = [
   },
   {
     q: "How much should I put in my Roth IRA?",
-    a: "Up to $7,500 for 2026 if you are under 50. Start with whatever fits your budget and build up from there.",
+    a: "Up to $7,500 for 2027 if you are under 50. Start with whatever fits your budget and build up from there.",
   },
   {
     q: "Is this financial advice?",

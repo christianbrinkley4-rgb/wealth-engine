@@ -90,8 +90,8 @@ describe("partBLatePenalty", () => {
   it("charges 10% of the standard premium per full year, for life", () => {
     const two = partBLatePenalty(24);
     expect(two.fullYearsLate).toBe(2);
-    // $202.90 * 10% * 2 = $40.58 a month.
-    expect(two.monthlyPenalty).toBeCloseTo(40.58, 2);
-    expect(two.annualPenalty).toBeCloseTo(486.96, 2);
+    // $209.40 * 10% * 2 = $41.88 a month.
+    expect(two.monthlyPenalty).toBeCloseTo(41.88, 2);
+    expect(two.annualPenalty).toBeCloseTo(502.56, 2);
   });
 });

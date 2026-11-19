@@ -88,7 +88,7 @@ export default function SideHustleTaxesPage() {
               </p>
               <p>
                 That combined rate is 15.3%: 12.4% for Social Security and 2.9% for Medicare. The
-                Social Security half applies to net earnings up to the $184,500 wage base for 2026.
+                Social Security half applies to net earnings up to the $192,300 wage base for 2027.
                 The Medicare half has no wage cap.
               </p>
               <p>

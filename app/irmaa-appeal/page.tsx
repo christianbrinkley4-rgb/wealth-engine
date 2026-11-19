@@ -218,7 +218,7 @@ export default function IrmaaAppealPage() {
             <p className="text-18 leading-relaxed">
               Before a large withdrawal or Roth conversion, ask your tax professional or financial
               advisor how the additional income could affect your taxes and future Medicare
-              premiums. My calculator can help you explore an estimate using 2026 rates.
+              premiums. My calculator can help you explore an estimate using 2027 rates.
             </p>
             <Link
               href="/roth-window"

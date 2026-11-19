@@ -221,7 +221,7 @@ export default function SocialSecurityTimingPage() {
             <Link href="/plan" className="underline underline-offset-2">
               My calculator estimates the Medicare premium effect of a Roth conversion{" "}
             </Link>{" "}
-            using 2026 rates. It can help you prepare questions for a tax professional or financial
+            using 2027 rates. It can help you prepare questions for a tax professional or financial
             advisor.{" "}
           </p>
         </div>

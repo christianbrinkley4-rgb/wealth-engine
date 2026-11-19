@@ -41,8 +41,8 @@ const ARTICLE: ArticleData = {
     {
       heading: "High-deductible plans and HSAs",
       paragraphs: [
-        "A high-deductible plan trades lower premiums for a higher deductible. For 2026 the minimum deductible is $1,700 single or $3,400 family.",
-        "Pair it with a health savings account. The 2026 HSA limit is $4,400 single or $8,750 family, plus $1,000 at 55 and older.",
+        "A high-deductible plan trades lower premiums for a higher deductible. For 2027 the minimum deductible is $1,750 single or $3,500 family.",
+        "Pair it with a health savings account. The 2027 HSA limit is $4,500 single or $9,000 family, plus $1,000 at 55 and older.",
         "HSA money goes in pre-tax, grows tax-free, and comes out tax-free for medical costs.",
       ],
       linkRow: {

@@ -22,7 +22,7 @@
  *     income-tax brackets it falls in. That interacts with everything here and
  *     is genuinely a CPA's job. The UI says so rather than pretending.
  *   - Investment growth, inflation, or future bracket indexation. Every figure
- *     is in 2026 dollars against the 2026 schedule.
+ *     is in 2027 dollars against the official 2027 schedule.
  *   - What a Medigap policy would cost, or whether an insurer would issue one.
  *     Underwriting outcomes are not predictable and inventing them would be
  *     both wrong and a compliance problem.
@@ -34,7 +34,7 @@
 import {
   calculatePartBPremium,
   getBrackets,
-  STANDARD_BASE_PREMIUM_2026,
+  STANDARD_BASE_PREMIUM_2027,
   type FilingStatus,
   type IrmaaBracket,
 } from "./irmaa";
@@ -177,7 +177,7 @@ export function partBLatePenalty(monthsLate: number): {
   fullYearsLate: number;
 } {
   const fullYearsLate = Math.max(0, Math.floor(monthsLate / 12));
-  const monthlyPenalty = STANDARD_BASE_PREMIUM_2026 * PART_B_PENALTY_RATE * fullYearsLate;
+  const monthlyPenalty = STANDARD_BASE_PREMIUM_2027 * PART_B_PENALTY_RATE * fullYearsLate;
 
   return {
     fullYearsLate,

@@ -11,12 +11,12 @@ import { WEALTH_FACTS, getTool } from "@/lib/wealth/site";
 const PATH = "/wealth/401k-explained";
 const TITLE = "Your 401(k), Explained";
 const DESCRIPTION =
-  "A 401(k) is a retirement account through your employer. How contributions, the match, and vesting work, with the 2026 limits. Read the plain-English guide.";
+  "A 401(k) is a retirement account through your employer. How contributions, the match, and vesting work, with the 2027 limits. Read the plain-English guide.";
 const MINUTES = 6;
-const UPDATED = "October 8, 2026";
+const UPDATED = "November 18, 2026";
 
 const ANSWER =
-  "A 401(k) pulls retirement savings straight from your paycheck. In 2026 you can defer up to $24,500 of your own pay. Many employers match part of it. The match is part of your pay, but only if you contribute.";
+  "A 401(k) pulls retirement savings straight from your paycheck. In 2027 you can defer up to $25,500 of your own pay. Many employers match part of it. The match is part of your pay, but only if you contribute.";
 
 const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
   {
@@ -48,21 +48,21 @@ const SECTIONS: { heading: string; paragraphs: string[]; list?: string[] }[] = [
     ],
   },
   {
-    heading: "The 2026 limits",
+    heading: "The 2027 limits",
     paragraphs: [
-      "New for 2026: if your prior-year wages topped $150,000, catch-up contributions must go in as Roth.",
+      "For 2027: if your 2026 wages topped $155,000, catch-up contributions must go in as Roth.",
     ],
     list: [
-      "$24,500: the most you can defer from your own pay.",
-      "$8,000 catch-up at age 50 and older, for a $32,500 total.",
-      "$11,250 super catch-up at ages 60 to 63, for a $35,750 total.",
-      "$72,000: the combined employee plus employer limit.",
+      "$25,500: the most you can defer from your own pay.",
+      "$8,500 catch-up at age 50 and older, for a $34,000 total.",
+      "$11,750 super catch-up at ages 60 to 63, for a $37,250 total.",
+      "$75,000: the combined employee plus employer limit.",
     ],
   },
 ];
 
 const SOURCES = [
-  { label: "IRS: 2026 retirement plan limits", href: "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500" },
+  { label: "IRS: 2027 retirement plan limits", href: "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500" },
   { label: "IRS: catch-up contributions", href: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-catch-up-contributions" },
 ];
 
@@ -81,7 +81,7 @@ const FAQ = [
   },
   {
     q: "What if my job offers no 401(k)?",
-    a: "An IRA is the next stop. For 2026 the combined IRA limit is $7,500 under 50 and $8,600 at 50 and older.",
+    a: "An IRA is the next stop. For 2027 the combined IRA limit is $7,500 under 50 and $8,600 at 50 and older.",
   },
 ];
 
@@ -117,7 +117,7 @@ export default function K401ExplainedPage() {
           description: DESCRIPTION,
           path: PATH,
           datePublished: "2026-10-08",
-          dateModified: "2026-10-08",
+          dateModified: "2026-11-18",
         })}
       />
       <PageHead
@@ -156,7 +156,7 @@ export default function K401ExplainedPage() {
                     ))}
                   </ul>
                 ) : null}
-                {section.heading === "The 2026 limits" ? (
+                {section.heading === "The 2027 limits" ? (
                   <p>
                     <Link href="/wealth/catch-up-contributions-after-50">Read the catch-up contributions guide for ages 50 and up.</Link>
                   </p>

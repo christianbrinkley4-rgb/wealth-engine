@@ -40,9 +40,9 @@ const ARTICLE: ArticleData = {
     {
       heading: "Where each account lives",
       paragraphs: [
-        "Both flavors exist as IRAs and as 401(k)s. The 2026 IRA limit is $7,500, or $8,600 at 50 and older.",
+        "Both flavors exist as IRAs and as 401(k)s. The 2027 IRA limit is $7,500, or $8,600 at 50 and older.",
         "High earners face Roth IRA income limits: $153,000 to $168,000 single, $242,000 to $252,000 married filing jointly.",
-        "New for 2026: 401(k) catch-up contributions must be Roth when prior-year wages topped $150,000.",
+        "For 2027: 401(k) catch-up contributions must be Roth when 2026 wages topped $155,000.",
       ],
       linkRow: {
         intro: "Keep reading:",
@@ -67,8 +67,8 @@ const ARTICLE: ArticleData = {
   sources: [
     { label: "IRS: Roth IRAs", href: "https://www.irs.gov/retirement-plans/roth-iras" },
     {
-      label: "IRS: 401(k) limit increases to $24,500 for 2026",
-      href: "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+      label: "IRS: 401(k) limit increases to $25,500 for 2027, IRA limit remains $7,500",
+      href: "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500",
     },
   ],
   faqs: [

@@ -28,7 +28,7 @@ const ARTICLE: ArticleData = {
     {
       heading: "The standard deduction",
       paragraphs: [
-        "The standard deduction is income the IRS does not tax. For 2026 it is $16,100 for single filers.",
+        "The standard deduction is income the IRS does not tax. For 2027 it is $16,600 for single filers.",
         "Subtract it from your income before you figure tax. It beats itemizing for simple first-time returns.",
       ],
       linkRow: {

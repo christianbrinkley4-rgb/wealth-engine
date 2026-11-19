@@ -1,14 +1,15 @@
 /**
  * Roth Conversion Window calculator.
  *
- * Maps backwards through the 2026 IRMAA brackets to answer the question a
- * pre-retiree CPA hears every fall: "how much can I convert to a Roth this
- * year without bumping my Medicare premium in two years?"
+ * Maps backwards through the official 2027 IRMAA brackets to answer the
+ * question a pre-retiree CPA hears every fall: "how much can I convert to a
+ * Roth this year without bumping my Medicare premium in two years?"
  *
  * IRMAA is determined by MAGI from two years prior (lib/irmaa.ts header for
- * detail). So a $50k conversion in 2026 affects the 2028 Medicare premium.
- * This calculator surfaces the headroom and the cost of each subsequent
- * bracket in plain dollars.
+ * detail). A conversion this year affects Medicare premiums two years later.
+ * The amounts used here are the official 2027 CMS figures. Later years may
+ * differ. This calculator surfaces the headroom and the cost of each
+ * subsequent bracket in plain dollars.
  *
  * Pure function. No side effects, no I/O. Easy to test, easy to reuse from
  * server actions, API routes, or a future PDF generator.
@@ -17,7 +18,7 @@
 import {
   calculatePartBPremium,
   getBrackets,
-  STANDARD_BASE_PREMIUM_2026,
+  STANDARD_BASE_PREMIUM_2027,
   type FilingStatus,
   type IrmaaBracket,
 } from "./irmaa";
@@ -148,7 +149,7 @@ export function rothWindowHeadline(result: RothWindowResult): string {
       `You are at the top of the ${currentBracket.bracketName} bracket. Any conversion this ` +
       `year would push you into the ${nextBracket.bracketName} bracket, an extra ` +
       `${formatCurrency((nextBracket.partBPremium - currentBracket.partBPremium) * 12)} per ` +
-      `enrollee in 2028 Medicare premiums.`
+      `enrollee in Medicare premiums two years later.`
     );
   }
 
@@ -156,8 +157,8 @@ export function rothWindowHeadline(result: RothWindowResult): string {
     `You can convert up to ${formatCurrency(headroomToNextBracket)} this year without crossing ` +
     `into the ${nextBracket.bracketName} bracket. Crossing it would cost approximately ` +
     `${formatCurrency((nextBracket.partBPremium - currentBracket.partBPremium) * 12)} per ` +
-    `enrollee in additional Medicare premiums for the year IRMAA applies (2028, based on the ` +
-    `2-year MAGI lookback).`
+    `enrollee in additional Medicare premiums for the year IRMAA applies, two years later ` +
+    `based on the MAGI lookback. The amounts used are the official 2027 CMS figures.`
   );
 }
 
@@ -171,4 +172,4 @@ function formatCurrency(value: number): string {
 
 // Re-export the standard base for any UI that needs to label the bottom rung
 // of the chart without re-importing from lib/irmaa.
-export { STANDARD_BASE_PREMIUM_2026 };
+export { STANDARD_BASE_PREMIUM_2027 };

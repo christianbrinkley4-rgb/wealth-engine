@@ -646,8 +646,8 @@ ${articleLines}
 - [Medicare enrollment dates](${SITE_URL}/turning-65#enrollment-dates): find estimated enrollment dates, print them, or save them to a personal calendar without providing contact information. Includes the first-of-month birthday adjustment.
 - [Save Medicare dates](${SITE_URL}/remind-me): the same calendar tool; this page does not offer automatic reminder emails.
 - [2026 Medicare Part B estimate](${SITE_URL}/medicare): an estimate using published 2026 rates.
-- [Roth conversion timing examples](${SITE_URL}/plan): compare estimated Medicare premium effects using 2026 rates.
-- [Roth conversion estimate](${SITE_URL}/roth-window): explore income-related Medicare charges using 2026 rates. Future rates may differ.
+- [Roth conversion timing examples](${SITE_URL}/plan): compare estimated Medicare premium effects using 2027 rates.
+- [Roth conversion estimate](${SITE_URL}/roth-window): explore income-related Medicare charges using 2027 rates. Future rates may differ.
 
 ## Money tools for people in their 20s and 30s (christianbuildswealth)
 

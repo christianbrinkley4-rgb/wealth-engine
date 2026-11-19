@@ -61,7 +61,7 @@ export function RothCompare() {
           step={250}
           onChange={(amount) => set({ amount })}
           display={money(state.amount)}
-          hint="2026 limits under 50: $7,500 for IRAs, $24,500 for 401(k) employee contributions. This slider compares pre-tax pay."
+          hint="2027 limits under 50: $7,500 for IRAs, $25,500 for 401(k) employee contributions. This slider compares pre-tax pay."
         />
         <SliderField
           label="Years until you use it"

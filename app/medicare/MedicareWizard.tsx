@@ -134,14 +134,14 @@ export function MedicareWizard() {
   const incomeSubhead =
     formState.filingStatus !== null ? (
       <>
-        This helps estimate your 2026 IRMAA bracket for Medicare Part B (CMS official tiers). I’ll
+        This helps estimate your 2027 IRMAA bracket for Medicare Part B (CMS official tiers). I’ll
         use your {filingThresholdPhrase(formState.filingStatus)} filing thresholds,{" "}
         {filingThresholdCopy(formState.filingStatus)} is the IRMAA threshold. Medicare usually looks
         at MAGI from two years earlier.
       </>
     ) : (
       <>
-        This helps estimate your 2026 IRMAA bracket for Medicare Part B (CMS official tiers).
+        This helps estimate your 2027 IRMAA bracket for Medicare Part B (CMS official tiers).
         Medicare usually looks at MAGI from two years earlier.
       </>
     );

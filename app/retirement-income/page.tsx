@@ -244,7 +244,7 @@ export default function RetirementIncomePage() {
           <div className="card-surface mt-8 p-6">
             <p className="text-18 leading-relaxed">
               My calculator compares the estimated Medicare premium effect of two Roth conversion
-              timing examples using 2026 rates. You can review the results with your tax
+              timing examples using 2027 rates. You can review the results with your tax
               professional or financial advisor.{" "}
             </p>
             <Link

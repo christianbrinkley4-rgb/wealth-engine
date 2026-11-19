@@ -25,8 +25,8 @@ const FAQ = [
     a: "Neither is better across the board. Lower tax rate now than at withdrawal: Roth wins. Higher now: traditional wins. Equal rates: they tie. The catch is that nobody knows their future rate for sure.",
   },
   {
-    q: "What are the 2026 contribution limits?",
-    a: "For 2026 the IRS limit is $7,500 for IRAs and $24,500 for 401(k) plans if you're under 50. Roth IRA contributions phase out at higher incomes: $153,000 to $168,000 for single filers and $242,000 to $252,000 for married couples filing jointly.",
+    q: "What are the 2027 contribution limits?",
+    a: "For 2027 the IRS limit is $7,500 for IRAs and $25,500 for 401(k) plans if you're under 50. Roth IRA contributions phase out at higher incomes: $158,000 to $173,000 for single filers and $250,000 to $260,000 for married couples filing jointly.",
   },
   {
     q: "Can I have both a Roth and a traditional account?",

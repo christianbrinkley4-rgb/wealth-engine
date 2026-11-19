@@ -147,7 +147,7 @@ function RothWindowCalculatorInner() {
         <Card className="card-surface border-gray-300 bg-white text-[var(--color-navy)]">
           <CardHeader className="p-6 pb-2">
             <CardTitle className="text-18 font-semibold text-[var(--color-navy)]">
-              Step 2, Your expected 2026 MAGI (before any conversion)
+              Step 2, Your expected MAGI this year (before any conversion)
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4 p-6 pt-2">
@@ -239,7 +239,7 @@ function RothWindowCalculatorInner() {
                       )}
                 </p>
                 <p className="text-14 text-[var(--color-ink-muted)]">
-                  Estimated annual surcharge using 2026 rates{" "}
+                  Estimated annual surcharge using 2027 rates{" "}
                   {filingStatus === "married_jointly" ? " (both spouses)" : ""}.
                 </p>
               </div>

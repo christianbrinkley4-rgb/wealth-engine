@@ -1,6 +1,6 @@
 /**
  * Articles for /wealth/learn. Copy lives here so yearly figures are edited in
- * one place. Figures marked 2026 were checked against IRS.gov on 2026-10-06
+ * one place. Figures marked 2027 were checked against IRS.gov on 2026-11-18
  * and need a refresh each January.
  *
  * Voice: Christian talking to someone his own age. Short sentences. No
@@ -112,12 +112,12 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     title: "What a Roth IRA actually is",
     metaTitle: "Roth IRA Guide for Your 20s",
     description:
-      "A Roth IRA is an account, not an investment. You pay tax now so qualified withdrawals later are tax-free. 2026 limits inside. Read the plain-English guide.",
+      "A Roth IRA is an account, not an investment. You pay tax now so qualified withdrawals later are tax-free. 2027 limits inside. Read the plain-English guide.",
     answer:
-      "A Roth IRA is a retirement account you open yourself. You put in money you've already paid tax on, and qualified withdrawals in retirement come out tax-free. For 2026 the contribution limit is $7,500 if you're under 50.",
+      "A Roth IRA is a retirement account you open yourself. You put in money you've already paid tax on, and qualified withdrawals in retirement come out tax-free. For 2027 the contribution limit is $7,500 if you're under 50.",
     minutes: 5,
     published: "2026-10-06",
-    updated: "2026-10-06",
+    updated: "2026-11-18",
     sections: [
       {
         heading: "It's a container, not an investment",
@@ -134,13 +134,13 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
         ],
       },
       {
-        heading: "The 2026 rules, short version",
-        paragraphs: ["These are the IRS numbers for 2026."],
+        heading: "The 2027 rules, short version",
+        paragraphs: ["These are the IRS numbers for 2027."],
         list: [
           "Contribution limit: $7,500 across all your IRAs if you're under 50.",
           "You need earned income, and you can't contribute more than you earned.",
-          "Single filers: the amount you can contribute phases out between $153,000 and $168,000 of modified adjusted gross income.",
-          "Married filing jointly: it phases out between $242,000 and $252,000.",
+          "Single filers: the amount you can contribute phases out between $158,000 and $173,000 of modified adjusted gross income.",
+          "Married filing jointly: it phases out between $250,000 and $260,000.",
         ],
       },
       {
@@ -154,7 +154,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     ],
     faq: [
       {
-        q: "How much can I put in a Roth IRA in 2026?",
+        q: "How much can I put in a Roth IRA in 2027?",
         a: "Up to $7,500 if you're under 50, or your earned income for the year if that's less. The limit covers all your IRAs combined.",
       },
       {
@@ -163,7 +163,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
       },
       {
         q: "Is a Roth IRA the same as a Roth 401(k)?",
-        a: "No. A Roth 401(k) is offered through an employer and has a higher limit, $24,500 in 2026. A Roth IRA is one you open on your own. Both use after-tax money.",
+        a: "No. A Roth 401(k) is offered through an employer and has a higher limit, $25,500 in 2027. A Roth IRA is one you open on your own. Both use after-tax money.",
       },
       {
         q: "Do I have to pick investments?",
@@ -172,8 +172,8 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
     ],
     sources: [
       {
-        label: "IRS: 401(k) limit increases to $24,500 for 2026, IRA limit increases to $7,500",
-        href: "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+        label: "IRS: 401(k) limit increases to $25,500 for 2027, IRA limit remains $7,500",
+        href: "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500",
       },
       { label: "IRS: Roth IRAs", href: "https://www.irs.gov/retirement-plans/roth-iras" },
     ],
