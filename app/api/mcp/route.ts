@@ -92,7 +92,7 @@ const MCP_TOOLS = [
     name: "get_2027_numbers",
     title: "2027 Medicare and tax figures",
     description:
-      "The key 2027 Medicare figures (Part D deductible and cap, Part B projections, key dates), each labeled final or projected with its source. Notes that 2027 tax figures are not announced yet.",
+      "The key 2027 Medicare figures (Part D deductible and cap, Part B premium and deductible, Part A deductible, key dates), each labeled final or projected with its source. Notes that 2027 tax figures are not announced yet.",
     inputSchema: { type: "object", properties: {}, additionalProperties: false },
   },
   ...RETIREMENT_MCP_TOOLS,

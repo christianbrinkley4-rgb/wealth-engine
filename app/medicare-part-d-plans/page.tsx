@@ -43,7 +43,7 @@ const FAQ = [
   },
   {
     q: "What is the Part D out-of-pocket cap?",
-    a: "In 2026, Part D out-of-pocket spending is capped at $2,100. Once you reach it, you pay nothing further for covered drugs that year. It does not mean every drug you take is covered. For 2027, the cap is projected to rise to $2,400, with final numbers confirmed by CMS in mid-November.",
+    a: "In 2026, Part D out-of-pocket spending is capped at $2,100. Once you reach it, you pay nothing further for covered drugs that year. It does not mean every drug you take is covered. For 2027, the cap rises to $2,400, final since the CMS Rate Announcement on April 6, 2026.",
   },
   {
     q: "What happens if I sign up late?",
@@ -164,16 +164,13 @@ export default function PartDPlansPage() {
       <section className="measure-prose app-shell max-w-3xl py-8">
         <h2 className="text-28 font-semibold">What&apos;s Expected for 2027</h2>
         <p className="text-17 mt-4 leading-relaxed">
-          The numbers are projected to go up in 2027. The deductible ceiling is expected to rise to
-          $700, and the out-of-pocket cap is expected to rise to $2,400.
+          The numbers go up in 2027. The deductible ceiling rises to
+          $700, and the out-of-pocket cap rises to $2,400. Both are final, set by CMS in its
+          Rate Announcement on April 6, 2026.
         </p>
         <p className="text-17 mt-4 leading-relaxed">
           The average Part D premium is projected at $41.33 a month. That is tied to the end of the
           premium stabilization demonstration.
-        </p>
-        <p className="text-17 mt-4 leading-relaxed">
-          Keep in mind these 2027 figures are projections. CMS confirms the final numbers in
-          mid-November.
         </p>
       </section>
 

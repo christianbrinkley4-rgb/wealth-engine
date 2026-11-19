@@ -1,15 +1,14 @@
 /**
  * Data behind the Greensboro Medicare cost calculator.
  *
- * FIGURES REVIEW, November 15, 2026. Every 2027 figure was checked against
+ * FIGURES REVIEW, November 19, 2026. Every 2027 figure was checked against
  * CMS. The result for each figure is in FIGURE_LABELS below, with its year,
  * its status, and its source. The page prints that table.
  *
- * - Part B premium ($209.50) and deductible ($292): PROJECTIONS for 2027, from
- *   the 2026 Medicare Trustees Report. CMS had NOT published final 2027
- *   Part B figures on November 15, 2026: https://www.cms.gov/newsroom listed
- *   no 2027 Parts A and B item through November 13, 2026. Do not change these
- *   to "final" until the CMS fact sheet exists.
+ * - Part B premium ($209.40) and deductible ($292): FINAL for 2027. CMS,
+ *   2027 Medicare Parts A & B Premiums and Deductibles, announced
+ *   November 17, 2026:
+ *   https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles
  * - Part D maximum deductible ($700) and out-of-pocket cap ($2,400): FINAL for
  *   2027. CMS, Announcement of Calendar Year 2027 Medicare Advantage
  *   Capitation Rates and Part C and Part D Payment Policies, April 6, 2026,
@@ -34,7 +33,7 @@
  */
 
 /** The day the figures above were last checked against their sources. */
-export const FIGURES_REVIEWED = "2026-11-15";
+export const FIGURES_REVIEWED = "2026-11-19";
 
 export const META = {
   title: "Greensboro Medicare Cost Calculator: Medigap vs Medicare Advantage",
@@ -45,11 +44,11 @@ export const META = {
 export const PATH = "/greensboro-medicare-cost-calculator";
 
 /**
- * 2027 PROJECTED standard Part B premium and deductible.
- * Source: 2026 Medicare Trustees Report. Not final. CMS had not announced the
- * final 2027 amounts on November 15, 2026.
+ * 2027 FINAL standard Part B premium and deductible.
+ * Source: CMS, 2027 Medicare Parts A & B Premiums and Deductibles,
+ * announced November 17, 2026.
  */
-export const PART_B_MONTHLY = 209.5;
+export const PART_B_MONTHLY = 209.4;
 export const PART_B_DEDUCTIBLE = 292;
 
 /**
@@ -190,15 +189,17 @@ export const FIGURE_LABELS: FigureLabel[] = [
     figure: "Part B premium, per month",
     value: usd(PART_B_MONTHLY, true),
     year: "2027",
-    status: "Projection",
-    source: "2026 Medicare Trustees Report. CMS has not announced the final 2027 amount.",
+    status: "Final",
+    source: "CMS, 2027 Medicare Parts A & B Premiums and Deductibles, November 17, 2026",
+    sourceUrl: "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles",
   },
   {
     figure: "Part B deductible, per year",
     value: usd(PART_B_DEDUCTIBLE),
     year: "2027",
-    status: "Projection",
-    source: "2026 Medicare Trustees Report. CMS has not announced the final 2027 amount.",
+    status: "Final",
+    source: "CMS, 2027 Medicare Parts A & B Premiums and Deductibles, November 17, 2026",
+    sourceUrl: "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles",
   },
   {
     figure: "Part D maximum deductible",
@@ -290,15 +291,15 @@ export function calculate(input: {
   const maYearly = partBYearly + visitCost + maDrugDeductible + drugYearly;
 
   const medigapLines = [
-    { label: "Part B premium (2027 projected)", amount: partBYearly },
+    { label: "Part B premium (2027)", amount: partBYearly },
     { label: `Medigap Plan G premium (est., age ${Math.min(74, Math.max(65, Math.round(input.age)))})`, amount: medigapYearlyPremium },
     { label: "Standalone Part D premium (2027 projected avg)", amount: partDYearly },
-    { label: "Part B deductible, 2027 projected (Plan G does not cover it)", amount: PART_B_DEDUCTIBLE },
+    { label: "Part B deductible, 2027 (Plan G does not cover it)", amount: PART_B_DEDUCTIBLE },
     { label: `Drugs (${input.meds}/mo, est.)`, amount: drugYearly },
   ];
 
   const maLines = [
-    { label: "Part B premium (2027 projected)", amount: partBYearly },
+    { label: "Part B premium (2027)", amount: partBYearly },
     { label: "MA plan premium (typical $0 plan)", amount: 0 },
     { label: `Doctor visits (${input.visits}/yr, est. copays)`, amount: visitCost },
     { label: "Part D deductible, 2027 max (if you take drugs)", amount: maDrugDeductible },
@@ -327,7 +328,7 @@ export function calculate(input: {
  */
 export function calculatorLeadLabel(result: CalcResult): string {
   const usd = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
-  return `Cost calculator, 2027 projected Part B: Medigap est. ${usd(result.medigapYearly)}/yr, Advantage est. ${usd(result.maYearly)}/yr`.slice(
+  return `Cost calculator, 2027 Part B: Medigap est. ${usd(result.medigapYearly)}/yr, Advantage est. ${usd(result.maYearly)}/yr`.slice(
     0,
     100,
   );
@@ -336,7 +337,7 @@ export function calculatorLeadLabel(result: CalcResult): string {
 export const FAQS = [
   {
     q: "Are these real Greensboro plan prices?",
-    a: "The Guilford County figures (55 plans, $4.13 average monthly premium, $7,055.45 average max out-of-pocket) come from a county summary published by MedicareAdvantage.com. They are not official CMS announcements. The Medigap Plan G premiums are Blue Cross NC's filed non-tobacco rates by age. The Part B premium and deductible shown are 2027 projections from the Medicare Trustees Report. As of November 15, 2026, CMS has not announced the final 2027 amounts. Plan availability and prices vary by county and change every year, so always verify current details on Medicare.gov before deciding anything.",
+    a: "The Guilford County figures (55 plans, $4.13 average monthly premium, $7,055.45 average max out-of-pocket) come from a county summary published by MedicareAdvantage.com. They are not official CMS announcements. The Medigap Plan G premiums are Blue Cross NC's filed non-tobacco rates by age. The Part B premium and deductible shown are the final 2027 amounts, announced by CMS on November 17, 2026. Plan availability and prices vary by county and change every year, so always verify current details on Medicare.gov before deciding anything.",
   },
   {
     q: "Does this calculator recommend a plan?",
@@ -348,11 +349,11 @@ export const FAQS = [
   },
   {
     q: "What is missing from these estimates?",
-    a: "Dental, vision, and hearing extras some MA plans bundle; drug costs beyond generics; any Part B late-enrollment penalty; and income-related premium surcharges (IRMAA). The Medigap premium shown is one carrier's filed rate, and your actual quote depends on the insurer, your exact age, and tobacco use. The Part B figures are projections until CMS finalizes them. The $20 copay for a doctor visit and the $12 monthly cost for a prescription are planning estimates with no official source.",
+    a: "Dental, vision, and hearing extras some MA plans bundle; drug costs beyond generics; any Part B late-enrollment penalty; and income-related premium surcharges (IRMAA). The Medigap premium shown is one carrier's filed rate, and your actual quote depends on the insurer, your exact age, and tobacco use. The Part B figures are final. The $20 copay for a doctor visit and the $12 monthly cost for a prescription are planning estimates with no official source.",
   },
   {
     q: "Do I still pay the Part B premium with Medicare Advantage?",
-    a: "Yes. Almost everyone pays the Part B premium ($209.50/month projected for 2027) no matter which path they take. A few MA plans give part of it back, but that is the exception, not the rule.",
+    a: "Yes. Almost everyone pays the Part B premium ($209.40/month for 2027) no matter which path they take. A few MA plans give part of it back, but that is the exception, not the rule.",
   },
 ];
 

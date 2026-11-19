@@ -143,6 +143,120 @@ export function getBrackets(filingStatus: FilingStatus): IrmaaBracket[] {
   return BRACKET_MAP[filingStatus];
 }
 
+// ─── 2027 BRACKETS ────────────────────────────────────────────────────────────
+// Official 2027 IRMAA brackets and Part B premiums.
+//
+// Source: CMS fact sheet “2027 Medicare Parts A & B Premiums and Deductibles”
+// released November 17, 2026.
+// https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles
+//
+// 2027 premiums are determined by the user’s 2025 tax return MAGI, not
+// their current income. The 2026 brackets and getBrackets above are untouched.
+export const STANDARD_BASE_PREMIUM_2027 = 209.4;
+
+export const INDIVIDUAL_BRACKETS_2027: IrmaaBracket[] = [
+  {
+    minIncome: 0,
+    maxIncome: 112000,
+    partBPremium: 209.4,
+    bracketName: "Standard (No Surcharge)",
+    irmaaSurcharge: 0,
+  },
+  {
+    minIncome: 112000.01,
+    maxIncome: 141000,
+    partBPremium: 293.1,
+    bracketName: "Tier 1 IRMAA",
+    irmaaSurcharge: 83.7,
+  },
+  {
+    minIncome: 141000.01,
+    maxIncome: 177000,
+    partBPremium: 418.8,
+    bracketName: "Tier 2 IRMAA",
+    irmaaSurcharge: 209.4,
+  },
+  {
+    minIncome: 177000.01,
+    maxIncome: 212000,
+    partBPremium: 544.4,
+    bracketName: "Tier 3 IRMAA",
+    irmaaSurcharge: 335.0,
+  },
+  {
+    minIncome: 212000.01,
+    maxIncome: 499999.99, // CMS: less than $500,000
+    partBPremium: 670.0,
+    bracketName: "Tier 4 IRMAA",
+    irmaaSurcharge: 460.6,
+  },
+  {
+    minIncome: 500000,
+    maxIncome: null,
+    partBPremium: 711.8,
+    bracketName: "Tier 5 IRMAA (Maximum)",
+    irmaaSurcharge: 502.4,
+  },
+];
+
+export const MARRIED_JOINTLY_BRACKETS_2027: IrmaaBracket[] = [
+  {
+    minIncome: 0,
+    maxIncome: 224000,
+    partBPremium: 209.4,
+    bracketName: "Standard (No Surcharge)",
+    irmaaSurcharge: 0,
+  },
+  {
+    minIncome: 224000.01,
+    maxIncome: 282000,
+    partBPremium: 293.1,
+    bracketName: "Tier 1 IRMAA",
+    irmaaSurcharge: 83.7,
+  },
+  {
+    minIncome: 282000.01,
+    maxIncome: 354000,
+    partBPremium: 418.8,
+    bracketName: "Tier 2 IRMAA",
+    irmaaSurcharge: 209.4,
+  },
+  {
+    minIncome: 354000.01,
+    maxIncome: 424000,
+    partBPremium: 544.4,
+    bracketName: "Tier 3 IRMAA",
+    irmaaSurcharge: 335.0,
+  },
+  {
+    minIncome: 424000.01,
+    maxIncome: 749999.99, // CMS: less than $750,000
+    partBPremium: 670.0,
+    bracketName: "Tier 4 IRMAA",
+    irmaaSurcharge: 460.6,
+  },
+  {
+    minIncome: 750000,
+    maxIncome: null,
+    partBPremium: 711.8,
+    bracketName: "Tier 5 IRMAA (Maximum)",
+    irmaaSurcharge: 502.4,
+  },
+];
+
+const BRACKET_MAP_2027: Record<FilingStatus, IrmaaBracket[]> = {
+  individual: INDIVIDUAL_BRACKETS_2027,
+  married_jointly: MARRIED_JOINTLY_BRACKETS_2027,
+};
+
+/**
+ * Returns the full ordered 2027 bracket schedule for a filing status.
+ * Mirrors getBrackets, for the 2027 figures.
+ */
+export function getBrackets2027(filingStatus: FilingStatus): IrmaaBracket[] {
+  return BRACKET_MAP_2027[filingStatus];
+}
+
 // ─── CORE CALCULATION FUNCTION ────────────────────────────────────────────────
 
 /**

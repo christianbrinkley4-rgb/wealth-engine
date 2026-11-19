@@ -630,7 +630,7 @@ ${articleLines}
 ## 2027 figures
 
 - [The 2026-2027 money numbers](${SITE_URL}/numbers): tax brackets and standard deductions, 401(k) and IRA limits, HSA limits, Social Security wage base and COLA, and Medicare premiums, deductibles, and caps, each tied to a named IRS, SSA, or CMS source.
-- [2027 Medicare costs](${SITE_URL}/medicare-costs-2027): verified 2027 Medicare figures from CMS. Part D maximum deductible $700 and out-of-pocket cap $2,400 (final, from the CMS 2027 Rate Announcement). Part A, Part B, and IRMAA figures not yet published by CMS; shown as "not announced yet" next to 2026 amounts.
+- [2027 Medicare costs](${SITE_URL}/medicare-costs-2027): verified 2027 Medicare figures from CMS. Part D maximum deductible $700 and out-of-pocket cap $2,400 (final, from the CMS 2027 Rate Announcement). Part B premium $209.40, Part B deductible $292, Part A deductible $1,776, IRMAA first threshold $112,000 single / $224,000 joint, top Part B $711.80, all final, announced November 17, 2026.
 - [Medicare changes for 2027](${SITE_URL}/medicare-changes-2027): what is changing in Medicare for 2027 and what to check before open enrollment.
 - [Is there still a Medicare donut hole in 2027?](${SITE_URL}/medicare-part-d-donut-hole-2027): how the $2,400 Part D out-of-pocket cap works in 2027.
 - Medicare's negotiated prices for 15 drugs take effect January 1, 2027.

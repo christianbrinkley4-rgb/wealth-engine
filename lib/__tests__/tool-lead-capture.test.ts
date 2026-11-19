@@ -80,8 +80,8 @@ describe("cost calculator lead label", () => {
   const result = calculate({ age: 67, meds: 7, visits: 13 });
   const label = calculatorLeadLabel(result);
 
-  it("starts with the tool name and marks the Part B figure as projected", () => {
-    expect(label.startsWith("Cost calculator, 2027 projected Part B: ")).toBe(true);
+  it("starts with the tool name and the 2027 Part B figure", () => {
+    expect(label.startsWith("Cost calculator, 2027 Part B: ")).toBe(true);
   });
 
   it("fits the 100 characters the capture API stores, at the highest inputs", () => {

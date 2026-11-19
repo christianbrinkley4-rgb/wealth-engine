@@ -23,9 +23,18 @@ export const COSTS_YEAR = 2026;
 /** The tax year whose MAGI decides the 2026 income-related surcharges. */
 export const IRMAA_LOOKBACK_YEAR = 2024;
 
+/** The tax year whose MAGI decides the 2027 income-related surcharges. */
+export const IRMAA_LOOKBACK_YEAR_2027 = 2025;
+
 export const CMS_PARTS_AB_SOURCE = {
   title: "CMS: 2026 Medicare Parts A & B Premiums and Deductibles",
   url: "https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles",
+} as const;
+
+/** Final 2027 Part A and Part B figures, announced November 17, 2026. */
+export const CMS_PARTS_AB_2027_SOURCE = {
+  title: "CMS: 2027 Medicare Parts A & B Premiums and Deductibles",
+  url: "https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles",
 } as const;
 
 export const CMS_PART_D_SOURCE = {
@@ -56,6 +65,35 @@ export const PART_B_2026 = {
   /** 10% of the standard premium per full 12 months late, for life. */
   latePenaltyPercentPerYear: 10,
 } as const;
+
+// ─── 2027 ─────────────────────────────────────────────────────────────────────
+// Final 2027 Part A and Part B figures. Source: CMS, “2027 Medicare Parts A
+// & B Premiums and Deductibles”, November 17, 2026. The 2026 constants
+// above are untouched.
+export const PART_A_2027 = {
+  inpatientDeductible: 1776,
+  coinsuranceDays61To90: 444,
+  lifetimeReserveCoinsurance: 888,
+  skilledNursingCoinsuranceDays21To100: 222,
+} as const;
+
+/** The standard premium itself is STANDARD_BASE_PREMIUM_2027 in lib/irmaa.ts. */
+export const PART_B_2027 = {
+  annualDeductible: 292,
+} as const;
+
+// ─── PART D IRMAA 2027 ────────────────────────────────────────────────────────
+// The MAGI bands match the 2027 Part B bands in lib/irmaa.ts exactly.
+export const PART_D_IRMAA_2027: readonly PartDIrmaaBand[] = [
+  { individualMax: 112000, jointMax: 224000, surcharge: 0 },
+  { individualMax: 141000, jointMax: 282000, surcharge: 15.4 },
+  { individualMax: 177000, jointMax: 354000, surcharge: 39.7 },
+  { individualMax: 212000, jointMax: 424000, surcharge: 64.0 },
+  // CMS words this band as “less than $500,000” / “less than $750,000”, so the
+  // cap is the last cent below the top band rather than the round number.
+  { individualMax: 499999.99, jointMax: 749999.99, surcharge: 88.3 },
+  { individualMax: null, jointMax: null, surcharge: 96.4 },
+] as const;
 
 // ─── PART D ───────────────────────────────────────────────────────────────────
 // Plan premiums vary by plan; only the deductible ceiling, the out-of-pocket

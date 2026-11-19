@@ -150,7 +150,8 @@ describe("MCP tools", () => {
     const text = (response.result as { content: Array<{ text: string }> }).content[0].text;
     expect(text).toContain("$700");
     expect(text).toContain("$2,400");
-    expect(text).toContain("Projection");
+    expect(text).toContain("$209.40");
+    expect(text).toContain("Final");
     expect(text).toContain("not announced 2027 tax brackets");
   });
 

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "How much is the Medicare Part B premium in North Carolina?",
-    a: "The standard Part B premium is $202.90 a month in 2026. For 2027, the Medicare Trustees project $209.50, but CMS has not finalized it yet. Higher-income households pay more through IRMAA. The premium is the same in North Carolina as everywhere else; it is set federally.",
+    a: "The standard Part B premium is $202.90 a month in 2026. For 2027, CMS announced the final premium on November 17, 2026: $209.40 a month. Higher-income households pay more through IRMAA. The premium is the same in North Carolina as everywhere else; it is set federally.",
   },
   {
     q: "What does Medicare cost per year in North Carolina?",
@@ -53,7 +53,7 @@ const FAQ = [
   },
   {
     q: "What is changing about Medicare costs in 2027?",
-    a: "Two Part D amounts are finalized: the maximum deductible rises to $700 and the annual out-of-pocket cap rises to $2,400. The Part B premium and deductible are projected to rise but not yet final. Medicare Advantage premiums are projected to fall nationally, averaging about $12 a month.",
+    a: "Two Part D amounts are finalized: the maximum deductible rises to $700 and the annual out-of-pocket cap rises to $2,400. The Part B premium is $209.40 a month and the Part B deductible is $292, both final, announced by CMS on November 17, 2026. Medicare Advantage premiums are projected to fall nationally, averaging about $12 a month.",
   },
   {
     q: "Does North Carolina have extra Medicare costs?",
@@ -121,7 +121,7 @@ export default function MedicareCostsNorthCarolinaPage() {
           <div className="mt-8 overflow-x-auto">
             <ResponsiveTable className="w-full min-w-[520px] border-collapse text-left">
               <caption className="sr-only">
-                Medicare Parts A and B costs, 2026 finalized and 2027 projected
+                Medicare Parts A and B costs, 2026 finalized and 2027 final
               </caption>
               <thead>
                 <tr className="border-b-2 border-[var(--color-navy)]">
@@ -140,17 +140,17 @@ export default function MedicareCostsNorthCarolinaPage() {
                 <tr className="border-b border-gray-300">
                   <td className="py-3 pr-4">Part B monthly premium (standard)</td>
                   <td className="py-3 pr-4">$202.90</td>
-                  <td className="py-3">$209.50 (projected)</td>
+                  <td className="py-3">$209.40 (final)</td>
                 </tr>
                 <tr className="border-b border-gray-300">
                   <td className="py-3 pr-4">Part B yearly deductible</td>
                   <td className="py-3 pr-4">$283</td>
-                  <td className="py-3">$292 (projected)</td>
+                  <td className="py-3">$292 (final)</td>
                 </tr>
                 <tr className="border-b border-gray-300">
                   <td className="py-3 pr-4">Part A hospital deductible</td>
                   <td className="py-3 pr-4">$1,736</td>
-                  <td className="py-3">$1,788 (projected)</td>
+                  <td className="py-3">$1,776 (final)</td>
                 </tr>
                 <tr className="border-b border-gray-300">
                   <td className="py-3 pr-4">Part D max deductible</td>
@@ -167,8 +167,8 @@ export default function MedicareCostsNorthCarolinaPage() {
           </div>
           <p className="text-15 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             2026 figures are finalized CMS amounts. 2027 Part D figures are finalized CMS
-            amounts. 2027 Parts A and B figures are Medicare Trustees projections, not yet
-            finalized by CMS. About 99% of people pay no Part A premium with 40 quarters of
+            amounts. 2027 Parts A and B figures are finalized CMS amounts, announced November 17,
+            2026. About 99% of people pay no Part A premium with 40 quarters of
             Medicare-covered work.
           </p>
         </div>
