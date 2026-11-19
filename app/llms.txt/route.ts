@@ -545,6 +545,7 @@ ${Object.entries(LOCAL_VISIBILITY_CITIES)
 - [Medicare agent in Greensboro, NC](${SITE_URL}/medicare-agent-greensboro-nc): the local guide. Guilford, Forsyth, Alamance, Davidson, and Granville county plan counts, hospitals, SHIIP, and how a review works.
 - [Free Annual Enrollment review](${SITE_URL}/aep): the main way to start, October 15 to December 7.
 - [About Christian Brinkley](${SITE_URL}/about): license, NPN, service area, and every official profile.
+- [Press and features](${SITE_URL}/press): Stonebridge Herald and Insurance News features with Christian's quotes.
 - [Turning 65](${SITE_URL}/turning-65): enrollment timing and penalties.
 - [2026 Medicare costs](${SITE_URL}/medicare-costs-2026): every 2026 figure with its CMS source.
 
