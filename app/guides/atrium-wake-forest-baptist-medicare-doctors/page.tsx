@@ -60,7 +60,7 @@ const FAQS: ReadonlyArray<{ q: string; a: string }> = [
   },
   {
     q: "I'm an NC state retiree. Is Atrium Health in network for me in 2027?",
-    a: "Yes. The State Treasurer announced on October 14, 2026 that Atrium would move to the State Health Plan's out-of-network tier, but on October 27 the two sides reached a multi-year agreement. For 2027, all Atrium doctors and hospitals are in-network in the plan's middle \"access\" tier, at about today's costs. If you're unsure how your plan treats your Wake Forest Baptist doctors, call the State Health Plan Medicare Support Center at 833-429-5003. Open enrollment ended November 6, 2026.",
+    a: "Yes. The State Treasurer announced on October 14, 2026 that Atrium would move to the State Health Plan's out-of-network tier, but on October 27 the two sides reached a multi-year agreement. For 2027, all Atrium doctors and hospitals are in-network in the plan's middle \"access\" tier, at about today's costs. If you're unsure how your plan treats your Wake Forest Baptist doctors, call the State Health Plan at 855-859-0966. Open enrollment ended November 6, 2026.",
   },
   {
     q: "What if my plan drops Wake Forest Baptist in the middle of the year?",
@@ -176,8 +176,8 @@ export default function AtriumWakeForestBaptistMedicareDoctorsPage() {
           </p>
           <p className="text-17 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
             Open enrollment ended November 6, 2026. If you&apos;re not sure how your plan
-            treats your Wake Forest Baptist doctors, call the State Health Plan Medicare Support
-            Center at 833-429-5003 and ask.{" "}
+            treats your Wake Forest Baptist doctors, call the State Health Plan at 855-859-0966
+            and ask.{" "}
             <Link href="/guides/nc-state-health-plan-medicare" className="underline underline-offset-2">
               Here&apos;s everything that changes for state retirees in 2027
             </Link>
