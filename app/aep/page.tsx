@@ -559,6 +559,8 @@ export default function AepPage() {
         slugs={[
           "medicare-plan-not-renewing-triad",
           "medicare-dual-eligible-snp-triad",
+          "social-security-cola-2027",
+          "how-to-check-social-security-benefits",
           "medicare-part-b-giveback-plans",
           "medicare-advantage-open-enrollment-period",
         ]}
