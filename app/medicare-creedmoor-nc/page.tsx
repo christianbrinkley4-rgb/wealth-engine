@@ -9,7 +9,6 @@ import Link from "next/link";
 import { ComplianceDisclosure } from "@/app/components/ComplianceDisclosure";
 import { KitchenTableClose } from "@/app/components/KitchenTableClose";
 import { ServiceHero } from "@/app/components/ServiceHero";
-import { AGENT } from "@/lib/agent";
 import {
   articleJsonLd,
   breadcrumbJsonLd,
@@ -226,32 +225,6 @@ export default function MedicareCreedmoorPage() {
         </div>
       </section>
 
-      <section className="bg-[var(--color-paper)] py-14">
-        <div className="measure-prose app-shell max-w-3xl">
-          <h2 className="text-28 font-semibold">Free workshops in Creedmoor</h2>
-          <div className="text-17 mt-4 space-y-4 leading-relaxed text-[var(--color-ink-muted)]">
-            <p>
-              I&apos;m setting up free Medicare 101 workshops at the South Branch Library here
-              in Creedmoor this fall. Thirty-five minutes, plain English: how Medicare works,
-              enrollment windows, what the penalties are for signing up late, and how to read
-              that ANOC letter. No sales pitch, no sign-up sheets you didn&apos;t ask for.
-              Just answers.
-            </p>
-            <p>
-              Dates are being finalized now. Call or text me at{" "}
-              <a href={AGENT.phoneHref} className="underline underline-offset-2">
-                {AGENT.phone}
-              </a>{" "}
-              and I&apos;ll make sure you get a seat, or{" "}
-              <Link href="/remind-me" className="underline underline-offset-2">
-                get a reminder when dates are announced
-              </Link>
-              .
-            </p>
-          </div>
-        </div>
-      </section>
-
       <section className="bg-white py-14">
         <div className="measure-prose app-shell max-w-3xl">
           <h2 className="text-28 font-semibold">Talk to a neighbor first</h2>
@@ -270,7 +243,7 @@ export default function MedicareCreedmoorPage() {
 
       <KitchenTableClose
         heading="From Creedmoor, for Creedmoor"
-        body="I'd rather you hear it from a neighbor than a call center. About fifteen minutes, free, and you'll actually understand your options."
+        body="I'd rather you hear it from a neighbor than a call center. It's free, and you'll actually understand your options."
         href="/start?topic=medicare&quick=1"
         label="Request a free review →"
       />
