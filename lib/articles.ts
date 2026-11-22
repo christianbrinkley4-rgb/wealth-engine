@@ -8077,7 +8077,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Medicare has deadlines. Miss them without a valid reason, and you pay penalties. These are not one-time fines.",
     published: "2026-10-14",
-    updated: "2026-10-14",
+    updated: "2026-11-22",
     intro: "Medicare has deadlines. Miss them without a valid reason, and you pay penalties. These are not one-time fines. Most of them follow you for as long as you have Medicare. Understanding them before your deadlines hit is one of the highest-value things you can do in the Medicare world. There are three separate penalties, one for each part. They work differently. Here is each one.",
     sections: [
       {
@@ -8100,6 +8100,13 @@ export const ARTICLES: Article[] = [
         blocks: [
           p("Part A covers hospital stays. Most people get Part A premium-free because they or their spouse paid Medicare taxes for at least 40 quarters, which is about 10 years of work. If you qualify for premium-free Part A, there is no enrollment deadline pressure and no penalty. You can enroll anytime."),
           p("The penalty only matters if you have to pay a premium for Part A. That happens when you do not have enough work quarters. In that case, delaying Part A enrollment past your initial eligibility can trigger a penalty."),
+        ],
+      },
+      {
+        h2: "Can I get Medicare if I never worked?",
+        blocks: [
+          p("Yes. You can still buy Part A and pay a monthly premium. For 2027, it is $597 a month with fewer than 30 quarters of work, or $328 a month with 30 to 39 quarters. CMS announced those final amounts on November 17, 2026."),
+          p("Part B does not depend on your work history. It costs $209.40 a month in 2027. A spouse's 40 quarters can also qualify you for premium-free Part A. Social Security can confirm which record applies to you."),
         ],
       },
       {

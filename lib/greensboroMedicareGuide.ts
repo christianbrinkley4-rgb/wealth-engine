@@ -12,7 +12,7 @@ export const GREENSBORO_MEDICARE_SECTIONS = [
   },
   {
     id: "near-me",
-    heading: "Looking for a Medicare agent near me in Greensboro?",
+    heading: "Medicare enrollment help near me in Greensboro",
     answer:
       "If you are searching for a Medicare agent near me or enrollment help near me in Greensboro, Christian Brinkley offers free consultations at home, by phone, or at a public meeting place across Guilford County.",
     paragraphs: [

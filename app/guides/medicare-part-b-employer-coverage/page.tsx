@@ -7,10 +7,17 @@ const data: SeoGuideData = {
   description:
     "Still working at 65? Learn when to apply for Part B, the 8-month window after work coverage ends, and who pays first.",
   published: "2026-10-08",
-  reviewed: "2026-11-07",
+  reviewed: "2026-11-22",
   answer:
     "If you have group coverage through your own or your spouse's current job, you can usually wait to apply for Part B until that work or coverage ends. After it ends you generally have 8 months to apply under a Special Enrollment Period, and coverage usually starts the month after you apply. Do not wait the full 8 months if coverage is ending now.",
   sections: [
+    {
+      title: "Medicare and working",
+      paragraphs: [
+        "Medicare and working can overlap. If you are 65 or older and still working, you do not have to take Medicare the month you turn 65. What matters is whether you have group coverage through current employment, yours or your spouse's, and whether that plan or Medicare pays first.",
+        "If the group plan is based on current employment and pays first, you can usually wait to apply for Part B until that work or coverage ends. After it ends you generally have 8 months to apply under a Special Enrollment Period. The sections below walk through each timing case, what to ask your benefits office, and the records to keep.",
+      ],
+    },
     {
       title: "When to apply for Part B while you are still working",
       paragraphs: [
