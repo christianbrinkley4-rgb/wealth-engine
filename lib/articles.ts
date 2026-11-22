@@ -12674,6 +12674,291 @@ export const ARTICLES: Article[] = [
     ],
     startHref: "/start?topic=care_coverage",
   },
+  {
+    slug: "social-security-90-dollar-medicare-rebate",
+    title: "What is the $90 Medicare rebate for 2026?",
+    metaTitle: "$90 Medicare Rebate: Who Gets It and When",
+    description:
+      "Medicare is sending a one-time $90 rebate to about 20.8 million people with Original Medicare Part B. See who qualifies, when it arrives, and how to check.",
+    keyword: "$90 medicare rebate who qualifies",
+    eyebrow: "Medicare questions, answered",
+    lede: "A one-time $90 rebate is going to about 20.8 million people with Original Medicare. No application, no form, and no call to make.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro:
+      "In October 2026, Medicare announced a one-time $90 premium rebate for people with Original Medicare Part B. It comes from the Medicare Improvement Fund, a reserve Congress set aside in 2008. The money offsets part of your October 2026 Part B premium. It is not a COLA increase, not a new monthly benefit, and not a scam. If you qualify, the money arrives on its own. You do not need to apply, call, or fill out a form.",
+    sections: [
+      {
+        h2: "Who gets the $90",
+        blocks: [
+          p(
+            "The rebate goes to people with Original Medicare Part B who live in the United States, do not get Medicaid help with their premium, and do not pay an income-related extra amount on Part B. About 20.8 million people qualify. The rebate is $90 per eligible person, not per household.",
+          ),
+        ],
+      },
+      {
+        h2: "When and how it arrives",
+        blocks: [
+          p(
+            "Direct deposits went out on or around October 8, 2026, to people whose bank details Medicare or Social Security already had. Paper checks followed by mail. The $90 offsets your October 2026 Part B premium, which is $202.90 a month, so it covers less than half of one month. There is nothing to sign up for. If your bank details changed, the payment follows the account Social Security uses for your benefits.",
+          ),
+        ],
+      },
+      {
+        h2: "Who does not get it",
+        blocks: [
+          p(
+            "People in a Medicare Advantage plan do not get the rebate, even though they have Part B. That is the largest group left out. People whose Part B premium is paid by Medicaid do not get it either, and neither do people who pay the income-related extra amount on Part B or people who live outside the United States. If you are in one of those groups, the $90 is not coming, and no form will change that.",
+          ),
+        ],
+      },
+      {
+        h2: "Why the rebate exists",
+        blocks: [
+          p(
+            "The Medicare Improvement Fund was created by Congress in 2008 to help pay for Medicare improvements. Money sat in the fund for years. In October 2026, CMS announced it would return part of the balance to beneficiaries as a one-time premium rebate. The fund holds about $1.87 billion of a balance of just over $2 billion. The rebate is a one-time return of that money, not a change to how Part B premiums are set.",
+          ),
+        ],
+      },
+      {
+        h2: "How to check yours",
+        blocks: [
+          p(
+            "Call 1-800-MEDICARE at 1-800-633-4227 to check whether you are eligible. For payment status, call Social Security at 1-800-772-1213, starting October 15, 2026. Check your bank account for a deposit of $90 and your mail for a check. Be careful with calls about the rebate: Medicare will not call you to ask for bank details or a fee to send the money. A call that asks for either one is a scam. Hang up and call 1-800-MEDICARE yourself.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Do I need to apply for the $90 rebate?",
+        a: "No. There is no application and no form. If you qualify, Medicare sends the money on its own.",
+      },
+      {
+        q: "I have a Medicare Advantage plan. Do I get it?",
+        a: "No. The rebate goes only to people with Original Medicare Part B. Medicare Advantage members do not qualify.",
+      },
+      {
+        q: "Is the $90 a monthly payment?",
+        a: "No. It is a one-time rebate. It offsets part of one month of your Part B premium and does not repeat.",
+      },
+      {
+        q: "Does the rebate change my 2027 Part B premium?",
+        a: "No. The rebate is a one-time return from 2026. Your 2027 premium is set separately by CMS and had not been announced as of November 7, 2026.",
+      },
+      {
+        q: "What if I did not get it and I think I qualify?",
+        a: "Call 1-800-MEDICARE at 1-800-633-4227 to check eligibility, and Social Security at 1-800-772-1213 for payment status. Have your Medicare card handy.",
+      },
+    ],
+    sources: [
+      {
+        label: "CMS: Medicare Improvement Fund premium rebate FAQ",
+        href: "https://www.cms.gov/newsroom/fact-sheets/medicare-improvement-fund-premium-rebate-frequently-asked-questions",
+      },
+      {
+        label: "Medicare.gov",
+        href: "https://www.medicare.gov/",
+      },
+    ],
+    related: [
+      { label: "Social Security COLA for 2027", href: "/guides/social-security-cola-2027" },
+      { label: "Social Security overpayment: what to do first", href: "/answers/social-security-overpayment-what-to-do" },
+      { label: "How to check your Social Security benefits", href: "/guides/how-to-check-social-security-benefits" },
+      { label: "Annual enrollment for 2027", href: "/aep" },
+    ],
+    startHref: "/start?topic=medicare",
+  },
+  {
+    slug: "social-security-overpayment-what-to-do",
+    title: "Social Security overpayment: what to do first",
+    metaTitle: "Social Security Overpayment: Your 30-Day Window and Options",
+    description:
+      "A Social Security overpayment notice means SSA can withhold half your check. Act within 30 days to pause collection while you dispute it or ask for a waiver.",
+    keyword: "social security overpayment what to do",
+    eyebrow: "Social Security, explained",
+    lede: "An overpayment notice is not a bill you have to pay in full. You have 30 days to act, and acting in time stops collection while your case is decided.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro:
+      "Social Security sends an overpayment notice when it paid you more than you were due. The notice asks for the money back and says how much will be withheld from your check if you do nothing. For notices sent on or after April 25, 2025, the default is 50 percent of your monthly benefit. That can cut a check in half. But you have three options, and the first 30 days decide whether collection pauses while you use them.",
+    sections: [
+      {
+        h2: "The 30-day window",
+        blocks: [
+          p(
+            "The date on the notice starts the clock. If you ask for a reconsideration or a waiver within 30 days, Social Security will not withhold anything while it decides your case. If you wait past 30 days, withholding can start while your case is still open. You can still file a reconsideration up to 60 days after the notice, and you can ask for a waiver at any time, but the pause is no longer guaranteed. Mark the notice date on your calendar the day it arrives.",
+          ),
+        ],
+      },
+      {
+        h2: "Option 1: dispute it with a reconsideration",
+        blocks: [
+          p(
+            "Use a reconsideration when you think Social Security got the facts or the amount wrong. File Form SSA-561, Request for Reconsideration, within 60 days of the notice date. You can file it online through your my Social Security account, or by fax or mail to your local office. A person who did not make the first decision reviews your case and looks at any new facts you send. If the reconsideration is denied, you can appeal further.",
+          ),
+        ],
+      },
+      {
+        h2: "Option 2: ask for a waiver",
+        blocks: [
+          p(
+            "Use a waiver when the overpayment is real but you should not have to pay it back. Form SSA-632-BK asks for a full picture of your income, expenses, and assets. Social Security can waive the debt if two things are true: it was not your fault that you got too much money, and paying it back would leave you unable to pay for food, clothing, housing, medical care, or other basic needs, or would be unfair for some other reason. There is no deadline to ask for a waiver. If the overpayment is $2,000 or less, you can request the waiver by phone.",
+          ),
+        ],
+      },
+      {
+        h2: "Option 3: lower the monthly amount",
+        blocks: [
+          p(
+            "If you owe the money but 50 percent is more than you can live without, ask for a lower withholding rate with Form SSA-634. Social Security looks at your income and expenses and can set a smaller monthly amount. For SSI overpayments, the default withholding is 10 percent of total income, not 50 percent.",
+          ),
+        ],
+      },
+      {
+        h2: "What happens if you do nothing",
+        blocks: [
+          p(
+            "If you do nothing, Social Security starts withholding after 30 days. For Title II benefits, retirement, survivors, or disability, it withholds 50 percent of your monthly benefit, or $10, whichever is more, until the debt is repaid. If fraud or a similar fault is involved, it can withhold your whole check. Keep the notice and every letter after it. Bring them with you if you call or visit an office, and write down the name of anyone you speak with and the date.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "How much can Social Security withhold?",
+        a: "For Title II benefits, 50 percent of your monthly benefit by default, or $10, whichever is more. For SSI, the default is 10 percent of total income. If fraud is involved, the whole check can be withheld.",
+      },
+      {
+        q: "How long do I have to respond?",
+        a: "You have 30 days from the notice to pause collection while your case is decided, and 60 days to file a reconsideration. A waiver has no deadline, but filing early keeps the pause.",
+      },
+      {
+        q: "Can a small overpayment be waived by phone?",
+        a: "Yes. If the overpayment is $2,000 or less, you can request a waiver by phone at 1-800-772-1213.",
+      },
+      {
+        q: "Will asking for a waiver stop the withholding?",
+        a: "Yes, once Social Security processes your request, collection pauses until it decides. If you asked within 30 days of the notice, nothing is withheld while you wait.",
+      },
+    ],
+    sources: [
+      {
+        label: "SSA POMS: Notification of a Title II overpayment",
+        href: "https://secure.ssa.gov/poms.nsf/lnx/0900703101",
+      },
+      {
+        label: "SSA: Change to Title II overpayment withholding rate to 50 percent",
+        href: "https://secure.ssa.gov/apps10/reference.nsf/links/08282025031929PM",
+      },
+    ],
+    related: [
+      { label: "Social Security COLA for 2027", href: "/guides/social-security-cola-2027" },
+      { label: "How to check your Social Security benefits", href: "/guides/how-to-check-social-security-benefits" },
+      { label: "What is the $90 Medicare rebate for 2026?", href: "/answers/social-security-90-dollar-medicare-rebate" },
+      { label: "Annual enrollment for 2027", href: "/aep" },
+    ],
+    startHref: "/start?topic=medicare",
+  },
+  {
+    slug: "free-medicare-help-north-carolina-shiip",
+    title: "Free Medicare help in North Carolina: SHIIP",
+    metaTitle: "Free Medicare Help in NC: SHIIP Counseling, Phone, and Offices",
+    description:
+      "North Carolina's SHIIP program gives free, unbiased Medicare counseling in all 100 counties. Call 1-855-408-1212 weekdays 8 to 5, or meet a local counselor.",
+    keyword: "free medicare help north carolina shiip",
+    eyebrow: "Medicare questions, answered",
+    lede: "Free Medicare help exists in every North Carolina county. SHIIP counselors explain your options without selling you anything.",
+    published: "2026-11-07",
+    updated: "2026-11-07",
+    intro:
+      "SHIIP stands for the Seniors' Health Insurance Information Program. It is part of the North Carolina Department of Insurance, and it has trained counselors in all 100 counties. The help is free, the advice is unbiased, and the counselors do not sell insurance. They can walk through your plan choices, your drug costs, and the programs that lower what you pay.",
+    sections: [
+      {
+        h2: "What SHIIP helps with",
+        blocks: [
+          p(
+            "SHIIP counselors explain Original Medicare, Medicare Advantage, Medigap supplements, and Part D drug plans. They help with Extra Help applications for people with limited income, and with questions about long-term care insurance. They also help people spot billing errors and possible fraud through the NC Senior Medicare Patrol program. If a bill looks wrong, they can help you work out what to ask and who to call.",
+          ),
+        ],
+      },
+      {
+        h2: "How to reach SHIIP",
+        blocks: [
+          p(
+            "Call the toll-free line at 1-855-408-1212, Monday through Friday, 8 a.m. to 5 p.m. You can also email ncdoi.ncshiip@ncdoi.gov or visit ncshiip.com. Local counseling is done by appointment in each county, usually through a senior center, a Council on Aging, or a Cooperative Extension office. The phone line is the fastest way to reach a counselor, and the local appointment is the best way to sit down with your papers.",
+          ),
+        ],
+      },
+      {
+        h2: "What to bring to an appointment",
+        blocks: [
+          p(
+            "Bring your Medicare card, your full list of drugs and doses, the names of your doctors, and your current plan letters, including the Annual Notice of Change. If you are asking about help programs, bring proof of income and a recent bank statement. The more of this you have, the more the counselor can do in one visit.",
+          ),
+        ],
+      },
+      {
+        h2: "SHIIP vs a local agent",
+        blocks: [
+          p(
+            "SHIIP counselors are not licensed insurance agents. They do not sell, endorse, or oppose any product, plan, or company, and they do not earn commissions. A local licensed agent can enroll you in a plan and stay with you through the year. The two work well together: use SHIIP when you want a neutral second opinion, and use an agent when you want someone to handle the enrollment and follow up.",
+          ),
+        ],
+      },
+      {
+        h2: "Book early during Open Enrollment",
+        blocks: [
+          p(
+            "Open Enrollment runs October 15 to December 7, and SHIIP is busiest then. Appointments fill up weeks ahead, and the phone line has longer waits in November. If you know you want help, call in September or early October to book a slot. Bring the same papers you would bring to any appointment. If you miss the window, SHIIP still helps year-round, and a local agent can also compare plans with you before December 7.",
+          ),
+        ],
+      },
+      {
+        h2: "Other free help",
+        blocks: [
+          p(
+            "Medicare itself answers questions at 1-800-MEDICARE, 1-800-633-4227, and the Medicare Plan Finder at medicare.gov compares plans by your drugs and pharmacy. Your county Department of Social Services checks whether you qualify for Medicaid or a Medicare Savings Program. Your local Area Agency on Aging can point you to rides, meals, and other support. None of these charge you.",
+          ),
+        ],
+      },
+    ],
+    faq: [
+      {
+        q: "Is SHIIP really free?",
+        a: "Yes. Counseling costs nothing, and there is no charge for a phone call or a local appointment. The program is paid for with federal and state funds, not by the people it helps.",
+      },
+      {
+        q: "Do SHIIP counselors sell insurance?",
+        a: "No. They are not licensed insurance agents, and they do not sell, endorse, or oppose any product, plan, or company.",
+      },
+      {
+        q: "Can SHIIP help during Open Enrollment?",
+        a: "Yes, and it is their busiest time. Open Enrollment runs October 15 to December 7. Book an appointment early, because the calendar fills up.",
+      },
+      {
+        q: "What if I live in a small county?",
+        a: "SHIIP has counselors in all 100 North Carolina counties. If there is no appointment near you, the toll-free line at 1-855-408-1212 covers everyone.",
+      },
+    ],
+    sources: [
+      {
+        label: "NC Department of Insurance: Contact SHIIP",
+        href: "https://www.ncdoi.gov/consumers/medicare-and-seniors-health-insurance-information-program-shiip/contact-seniors-health-insurance-information-program-shiip",
+      },
+      {
+        label: "Medicare.gov",
+        href: "https://www.medicare.gov/",
+      },
+    ],
+    related: [
+      { label: "Medicare Savings Programs in North Carolina", href: "/guides/medicare-savings-programs-north-carolina" },
+      { label: "Dual eligible in the Triad? What a D-SNP does for you", href: "/guides/medicare-dual-eligible-snp-triad" },
+      { label: "Is your Medicare plan ending in 2027?", href: "/medicare-plans-ending-2027" },
+      { label: "Social Security COLA for 2027", href: "/guides/social-security-cola-2027" },
+    ],
+    startHref: "/start?topic=medicare&stage=comparing_plans",
+  },
 ];
 
 export function getArticle(slug: string): Article | undefined {
