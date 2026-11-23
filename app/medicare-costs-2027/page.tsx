@@ -55,7 +55,7 @@ const whole = (value: number) =>
 
 const title = "Medicare Costs 2027: Official Figures";
 const description =
-  "Medicare costs for 2027 from official CMS announcements. Part B premium $209.40 a month, Part B deductible $292, Part A deductible $1,776, and the IRMAA brackets, all published November 17, 2026.";
+  "Medicare costs for 2027 from official CMS announcements. Part B premium $209.40 a month, Part B deductible $292, Part A deductible $1,776.";
 
 export const metadata: Metadata = {
   title: { absolute: title },

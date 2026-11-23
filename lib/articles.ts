@@ -79,7 +79,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "What each path covers, what it leaves to you, and the three things to check before you change anything.",
     published: "2026-10-01",
-    updated: "2026-10-01",
+    updated: "2026-11-19",
     intro:
       "Neighbors ask me some version of this every fall: is there any reason not to switch to basic Medicare, or to Medicare Advantage? Both are real choices, and neither one is right for everybody. Here is how they work, so you can check them against your own life.",
     sections: [
@@ -332,7 +332,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Medicare generally doesn't cover long-term custodial nursing home care. A limited skilled nursing stay can qualify under separate rules.",
     published: "2026-10-01",
-    updated: "2026-11-05",
+    updated: "2026-11-19",
     intro:
       "Medicare generally doesn't cover long-term nursing home care when you mainly need help with daily activities. Part A can cover a limited skilled nursing facility stay if you meet its conditions, but “up to 100 days” doesn't mean everyone receives 100 covered days.",
     sections: [
@@ -472,7 +472,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Turning 65",
     lede: "Your enrollment window, how to sign up, and what to do at 3 months out, 1 month out, and after.",
     published: "2026-10-01",
-    updated: "2026-10-01",
+    updated: "2026-11-19",
     intro:
       "Most people find out about Medicare timing from a letter, a neighbor, or a birthday that is closer than they thought. This checklist walks through it in order. I wrote it for North Carolina, and I meet people in person around the Triad or by phone.",
     sections: [
@@ -989,7 +989,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Your 2025 tax return sets your 2027 Medicare premiums. Here is how the surcharge works, and what to do if your income has dropped.",
     published: "2026-10-05",
-    updated: "2026-11-18",
+    updated: "2026-11-19",
     intro:
       "Most people pay the standard Medicare Part B premium. Above a set income limit, Medicare adds a surcharge called IRMAA, short for Income-Related Monthly Adjustment Amount, to Part B and Part D. The timing is what matters most: the number comes from your tax return two years back.",
     sections: [
@@ -1378,7 +1378,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Two things happen when you miss it: a penalty that follows you for life, and a wait for your next chance to sign up. Here is the full picture.",
     published: "2026-10-10",
-    updated: "2026-10-10",
+    updated: "2026-11-19",
     intro:
       "Your Initial Enrollment Period runs seven months: the three months before your 65th birthday month, your birthday month, and the three months after. Miss it, and two things happen. First, you pay a late penalty on Part B, and possibly on Part D, and both penalties follow you for as long as you have Medicare. Second, you wait. You generally cannot sign up until the next General Enrollment Period, which runs January 1 to March 31 each year. There is one big exception, and it saves a lot of people: if you had health coverage through active employment, you may qualify for a Special Enrollment Period instead.",
     sections: [
@@ -1586,7 +1586,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Medicare covers one chiropractic service and nothing else. Here is exactly what Part B pays for, and what comes out of your pocket.",
     published: "2026-10-10",
-    updated: "2026-10-10",
+    updated: "2026-11-19",
     intro:
       "The short answer is yes, but narrowly. Medicare Part B covers manual manipulation of the spine by a chiropractor to correct a vertebral subluxation. That is the entire list. It does not cover X-rays the chiropractor orders, massage therapy, electrical stimulation, or maintenance visits. After the Part B deductible, which is $292 in 2027, you pay 20 percent of the Medicare-approved amount for each covered visit. There is no annual cap on covered visits as long as the treatment stays medically necessary.",
     sections: [
@@ -1779,7 +1779,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "The Part D penalty is small per month and permanent. Here is the math, what counts as creditable coverage, and how to avoid it entirely.",
     published: "2026-10-10",
-    updated: "2026-10-10",
+    updated: "2026-11-19",
     intro:
       "The Part D late enrollment penalty is small per month and permanent. If you go 63 days or more without creditable drug coverage after becoming eligible for Medicare, Medicare adds 1 percent of the national base beneficiary premium to your monthly Part D premium for every month you went without. It has no end date. In 2026 the base premium is $38.99, so each month of delay adds about 39 cents. Twelve months adds about $4.70 a month, and that amount stays in your premium for as long as you have Part D.",
     sections: [
@@ -1876,7 +1876,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Cataract surgery is one of the most common procedures Medicare covers. Here is what Part B pays for, what you owe, and what costs extra.",
     published: "2026-10-10",
-    updated: "2026-10-10",
+    updated: "2026-11-19",
     intro:
       "Yes. Cataract surgery is one of the most common procedures Medicare covers, with millions performed each year. Part B covers medically necessary cataract surgery: the surgeon, the facility, anesthesia, and a conventional intraocular lens to replace your cloudy natural lens. After the Part B deductible of $292 in 2027, you pay 20 percent of the Medicare-approved amount. Medicare also covers one pair of prescription glasses or contact lenses after each cataract surgery, the one time Original Medicare pays for eyewear.",
     sections: [
@@ -2215,7 +2215,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Medicare covers ambulance rides when other transportation would endanger your health. Here is what counts as medically necessary, and what you pay.",
     published: "2026-10-10",
-    updated: "2026-10-10",
+    updated: "2026-11-19",
     intro:
       "Yes, but only when it is medically necessary. Medicare Part B covers ground ambulance transportation when other transportation would endanger your health, like emergencies or transfers between hospitals and skilled nursing facilities. After the Part B deductible of $292 in 2027, you pay 20 percent of the Medicare-approved amount. Rides that do not meet the medical-necessity rules are denied, and ambulance bills are large enough that a denial hurts.",
     sections: [
@@ -11757,7 +11757,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "Two announcements, one month apart, decide what lands in your bank account. Here is the math, and the rule that keeps your check from shrinking.",
     published: "2026-10-12",
-    updated: "2026-11-18",
+    updated: "2026-11-19",
     intro:
       "Every October the same question comes up in Greensboro living rooms: the Social Security raise is coming, so why does the check barely move? The answer is timing. Your raise and your Medicare premium increase are decided by two different agencies, in two different months, and the premium comes out of your check before you see it. Here is how the two numbers interact for 2027, and the rule that keeps a premium hike from shrinking your payment.",
     sections: [
@@ -11892,7 +11892,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Medicare questions, answered",
     lede: "The monthly premium is the smallest part of the comparison. Your drugs, your pharmacy, and the plan's rulebook decide your real cost for the year.",
     published: "2026-10-19",
-    updated: "2026-10-19",
+    updated: "2026-11-19",
     intro:
       "Every October, Medicare drug plans rewrite the fine print for next year: new premiums, new copay tiers, drugs added or dropped from the list. Open Enrollment, October 15 to December 7, is the one window when you can switch drug plans for January 1. Comparing takes about twenty minutes if you bring your drug list. Here is what to check, with the final 2027 numbers.",
     sections: [
@@ -12568,7 +12568,7 @@ export const ARTICLES: Article[] = [
     eyebrow: "Care planning, answered",
     lede: "Most people who reach 65 will need some care. Whether insurance is the answer depends on your savings, your family, and your age.",
     published: "2026-11-07",
-    updated: "2026-11-07",
+    updated: "2026-11-19",
     intro:
       "It is the question behind every long-term care conversation: will I need care, and can I pay for it without a policy? Care is likely, and the answer is personal. Here are the numbers that decide it, the ages that matter, and the cases where a policy helps and where it does not.",
     sections: [

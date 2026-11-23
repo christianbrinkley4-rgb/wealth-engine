@@ -105,7 +105,7 @@ const TOOLS = [
   {
     href: "/irmaa-checker",
     title: "IRMAA checker",
-    body: "Choose your filing status and enter your income. See your 2026 Medicare income surcharge tier and the Part B and Part D amounts. You can choose to email the result to me.",
+    body: "Choose your filing status and enter your income. See your 2027 Medicare income surcharge tier and the Part B and Part D amounts. You can choose to email the result to me.",
   },
 ] as const;
 

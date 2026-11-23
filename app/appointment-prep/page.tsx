@@ -18,7 +18,7 @@ import { IntakeForm } from "./IntakeForm";
 const PATH = "/appointment-prep";
 const title = "Get Ready for Your Appointment | Christian Brinkley";
 const description =
-  "If you have an appointment with Christian Brinkley, send your medicines, doctors, pharmacy and questions before you meet. Sent by email. Not saved on this website.";
+  "If you have an appointment with Christian Brinkley, send your medicines, doctors, pharmacy and questions before you meet. Sent by email.";
 
 export const metadata: Metadata = {
   title: { absolute: title },

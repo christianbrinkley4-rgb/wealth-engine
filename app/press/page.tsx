@@ -9,7 +9,7 @@ import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 
 const title = "Christian Brinkley in the Press | As Featured In";
 const description =
-  "Where Christian Brinkley's answers have run: Stonebridge Herald and Insurance News. A licensed NC insurance agent in Greensboro, quoted on Medicare, retirement, and insurance in plain language.";
+  "Where Christian Brinkley's answers have run: Stonebridge Herald and Insurance News. A licensed NC insurance agent in Greensboro.";
 
 export const metadata: Metadata = {
   title: { absolute: title },

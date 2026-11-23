@@ -117,7 +117,7 @@ export const WEALTH_ARTICLES: readonly WealthArticle[] = [
       "A Roth IRA is a retirement account you open yourself. You put in money you've already paid tax on, and qualified withdrawals in retirement come out tax-free. For 2027 the contribution limit is $7,500 if you're under 50.",
     minutes: 5,
     published: "2026-10-06",
-    updated: "2026-11-18",
+    updated: "2026-11-19",
     sections: [
       {
         heading: "It's a container, not an investment",

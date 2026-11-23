@@ -47,7 +47,7 @@ const JOINT_FIRST_LINE = wholeDollars(getBrackets("married_jointly")[0].maxIncom
 const SINGLE_FIRST_LINE = wholeDollars(getBrackets("individual")[0].maxIncome ?? 0);
 
 const title = `IRMAA for Married Couples ${YEAR}: Joint and Separate Return Limits`;
-const description = `The ${YEAR} IRMAA income limits for a joint return and for a separate return. See what each spouse pays for Part B and Part D, and what changes after a spouse dies.`;
+const description = `The ${YEAR} IRMAA income limits for a joint return and for a separate return. See what each spouse pays for Part B and Part D.`;
 
 export const metadata: Metadata = {
   title: { absolute: title },
