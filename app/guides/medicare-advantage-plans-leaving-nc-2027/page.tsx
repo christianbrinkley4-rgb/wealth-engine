@@ -7,7 +7,7 @@ const data: SeoGuideData = {
   description:
     "Check whether your NC Medicare Advantage plan is ending or being replaced for 2027. Learn which notices, deadlines, and coverage choices matter.",
   published: "2026-10-08",
-  reviewed: "2026-11-07",
+  reviewed: "2026-11-22",
   answer:
     "Some Medicare Advantage plans in North Carolina won't continue in 2027, but a carrier name alone can't tell you whether your coverage is ending. Check your exact plan ID, county, and notice to find out whether your plan is terminating, leaving your area, or moving members into another plan.",
   sections: [
@@ -80,7 +80,7 @@ const data: SeoGuideData = {
     {
       title: "If you're considering Original Medicare",
       paragraphs: [
-        "If your plan ends without a replacement or another Medicare Advantage enrollment, you generally return to Original Medicare. Arrange drug coverage separately if needed. You may have a right to buy certain Medigap policies without medical underwriting. The applicable window is generally 60 days before through 63 days after your Medicare Advantage coverage ends. Keep the notice and check the rules for your situation in [Choosing a Medigap Policy](https://www.medicare.gov/publications/02110-choosing-a-medigap-policy.pdf).",
+        "If your plan ends without a replacement or another Medicare Advantage enrollment, you generally return to Original Medicare. Arrange drug coverage separately if needed. You may have a right to buy certain Medigap policies without medical underwriting. The applicable window is generally 60 days before through 63 days after your Medicare Advantage coverage ends. For coverage ending December 31, 2026, that window generally runs through March 4, 2027. Keep the notice and check the rules for your situation in [Choosing a Medigap Policy](https://www.medicare.gov/publications/02110-choosing-a-medigap-policy.pdf).",
       ],
     },
     {
@@ -105,6 +105,10 @@ const data: SeoGuideData = {
     {
       q: "Does my hospital leaving the network guarantee Medigap approval?",
       a: "Don't assume that. A network change and a plan nonrenewal have different rules. Confirm any specific protection first.",
+    },
+    {
+      q: "What is the last day to buy Medigap without medical underwriting if my plan ends December 31, 2026?",
+      a: "Generally March 4, 2027. The window is usually 60 days before through 63 days after your Medicare Advantage coverage ends. Keep the notice and check the rules for your situation before that date passes.",
     },
   ],
   sources: [

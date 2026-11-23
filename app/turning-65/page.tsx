@@ -120,7 +120,7 @@ export default function Turning65Page() {
                 "The seven-month window, when coverage starts on time, the Part B late penalty, and the six-month Medigap window you generally get once.",
               path: "/turning-65",
               datePublished: "2026-08-31",
-              dateModified: "2026-11-09",
+              dateModified: "2026-11-22",
             }),
           ),
         }}
@@ -157,7 +157,7 @@ export default function Turning65Page() {
         crumbs={[{ name: "Home", href: "/" }, { name: "Turning 65" }]}
         eyebrow="Initial Enrollment Period · Piedmont Triad"
         title="Turning 65 in Greensboro: Your Medicare Timeline"
-        lede="Turning 65 in Greensboro means a 7-month Medicare enrollment window: the 3 months before the month you turn 65, your birthday month, and the 3 months after. Enroll in the first 3 months to avoid coverage gaps. Below is the full timeline, the Part B late penalty explained, and the local resources in Greensboro, High Point, and Winston-Salem that make this easier."
+        lede="Turning 65 in Greensboro means a 7-month Medicare enrollment window: the 3 months before the month you turn 65, your birthday month, and the 3 months after. If you searched for Medicare enrollment help near me, you are in the right place. Enroll in the first 3 months to avoid coverage gaps. Below is the full timeline, the Part B late penalty explained, and the local resources in Greensboro, High Point, and Winston-Salem that make this easier."
         secondaryHref="/aep"
         secondaryLabel="Request a consultation →"
         note={
@@ -499,14 +499,14 @@ export default function Turning65Page() {
 
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <p className="text-sm text-gray-600">
-          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated October 2026.
+          By Christian Brinkley, Licensed NC Insurance Agent (NPN 22217190). Last updated November 2026.
         </p>
         <p className="text-sm text-gray-600">
           Sources: <a href="https://www.medicare.gov" className="underline underline-offset-2" target="_blank" rel="noopener">Medicare.gov</a>, <a href="https://www.cms.gov" className="underline underline-offset-2" target="_blank" rel="noopener">CMS.gov</a>
         </p>
         <ComplianceDisclosure variant="medicare" />
       </div>
-      <MedicareByline reviewed="2026-11-09" />
+      <MedicareByline reviewed="2026-11-22" />
       <RelatedMedicareGuides />
     </main>
   );

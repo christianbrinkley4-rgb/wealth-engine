@@ -68,6 +68,10 @@ const FAQ = [
     a: "Variable annuities require a securities license. I offer fixed and fixed indexed insurance products. For securities or investment advice, I work with an advisor.",
   },
   {
+    q: "What does point to point mean in an indexed annuity?",
+    a: "Point to point is one way the contract measures interest. It compares the index on two dates, usually a year apart, and credits interest from the change between them. A cap or participation rate can still limit the credit.",
+  },
+  {
     q: "How are you paid on an annuity?",
     a: "The insurance company pays me a commission when a contract is issued. I’ll explain how I’m paid and review the contract’s costs and terms with you before you decide.",
   },
@@ -116,7 +120,7 @@ export default function AnnuitiesPage() {
                 "What a fixed or indexed annuity does, when it is the wrong answer, and what to ask before signing.",
               path: "/annuities",
               datePublished: "2026-08-25",
-              dateModified: "2026-09-10",
+              dateModified: "2026-11-22",
             }),
           ),
         }}
@@ -181,6 +185,29 @@ export default function AnnuitiesPage() {
               see current sample annuity rates
             </Link>
             .
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-white py-14">
+        <div className="measure-prose app-shell max-w-3xl">
+          <h2 className="text-28 font-semibold">Point to point indexed annuity</h2>
+          <p className="text-18 mt-4 leading-relaxed">
+            Point to point is one way a fixed indexed annuity measures interest. The contract
+            compares the index level on two dates, usually one year apart, and credits interest
+            based on how much the index moved between those two dates.
+          </p>
+          <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            The credit is still limited by the contract. A cap sets the most interest that can be
+            credited for the period, and a participation rate sets the share of the index gain
+            that counts. Ask for both numbers in writing before you compare one contract with
+            another.
+          </p>
+          <p className="text-18 mt-4 leading-relaxed text-[var(--color-ink-muted)]">
+            Other methods measure the index differently, for example by averaging monthly values.
+            The method changes how much interest is credited in a choppy year versus a steady
+            year. The contract, not the brochure, states which method applies and when the
+            measuring period starts and ends.
           </p>
         </div>
       </section>
@@ -259,7 +286,7 @@ export default function AnnuitiesPage() {
       <div className="measure-prose app-shell max-w-3xl pb-12">
         <ComplianceDisclosure />
       </div>
-      <MedicareByline reviewed="2026-09-10" />
+      <MedicareByline reviewed="2026-11-22" />
       <RelatedMedicareGuides />
     </main>
   );

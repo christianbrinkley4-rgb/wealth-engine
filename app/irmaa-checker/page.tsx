@@ -30,11 +30,11 @@ import { IrmaaChecker } from "./IrmaaChecker";
  *
  * Every amount on this page comes from lib/irmaa.ts and
  * lib/medicareCosts2026.ts through lib/irmaaChecker.ts. Both files cite the
- * CMS fact sheet "2026 Medicare Parts A & B Premiums and Deductibles":
- * https://www.cms.gov/newsroom/fact-sheets/2026-medicare-parts-b-premiums-deductibles
+ * CMS fact sheet "2027 Medicare Parts A & B Premiums and Deductibles",
+ * November 17, 2026:
+ * https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles
  *
- * The page shows 2026 amounts because CMS had not published 2027 amounts
- * when this was checked (see IRMAA_CHECKER_CHECKED).
+ * The page shows 2027 amounts (see IRMAA_CHECKER_CHECKED).
  */
 
 const PATH = "/irmaa-checker";
